@@ -1,0 +1,54 @@
+16 De Mayo
+-----------
+
+propósito de la tesis:  usar la  ecuación de Langevin para describir la dinámica de un sistema con fuerzas deterministas y
+estocásticas para el pronóstico de terremotos por simulación
+
+
+base del modelamiento: modelar el proceso de fricción durante la ruptura de un terremoto.
+
+posibles variables y parámetros de uso:
+
+dv(t) es la velocidad del deslizamiento.
+γ es el coeficiente de fricci ́on.
+Γ(t) es el ruido.
+Fext es la fuerza externa.
+
+Actividades:
+
+- enviar el artículo para ver el modelamiento con la ecuación
+
+
+revisar toda la búsqueda https://chatgpt.com/share/682766f3-d7ec-800f-85bb-a24cef518005
+
+inicar con la simulación en python usando plotly y probando el código que estima la cadena de Markov.
+
+
+---------------------------------
+
+22 de Mayo del 2025
+
+La implementación de Langevin funciona en python agregando los saltos tipo Poisson, adicionalmente estima 
+la matriz de transición clasificando los terremotos. 
+
+Actividades:
+-Acomodar las escalas de la clasificación de lo terremotos en la implementación del código de python.(Listo)
+-Ajustar quarto en visual studio code: 
+	-Instalar quarto para que funcione en visual studio code.
+	-Instalar python para fusionar en quarto las implementaciones de la simulación. 
+-Crear una cuenta en github, crear un repositorio de nombre thesis.(Listo)
+
+----------------------------------
+05 de Junio 2025
+
+Actividades: 
+- Cargar la bitacora en github.
+- https://github.com/Jennlg/Tesis/tree/main/_book Con base al ejemplo, crear raiz del documento  
+	el archivo "_quarto.yml" con las modificaciones siguientes:
+		- Checar y cambiar logos (Jubileo) 
+		- Comentar repo_url:
+		- Quitar capitulos hasta conclusiones.
+		- Modificar parte de formato de html y Pdf
+		- Añadir email y verificar o cambiar logo.
+		- Bajar pacak
+-Checar html de ejemplo e instalar lo que se indica.
