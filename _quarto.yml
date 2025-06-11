@@ -1,0 +1,96 @@
+project:
+  type: book
+  output-dir: _book
+
+website:
+  favicon: FCFMLOGO.png
+  reader-mode: true
+  search:
+    location: sidebar
+    type: overlay
+  comments:
+    hypothesis: true
+
+book:
+  title: "Análisis comparativo del desempeño en métodos para el pronóstico de series temporales"
+  reader-mode: true
+  language: es
+  date: "02/14/2024"
+  output-file: "Tesis_JSLG"
+  image: logofcfm.png
+  cover-image: FCFMLOGO.png
+  sharing: [twitter, facebook]
+  downloads: [pdf, epub]
+  favicon: logofcfm.png
+  sidebar:
+    logo: LOGO50.png
+    style: floating
+    collapse-level: 2
+    border: true
+    search: true
+  open-graph: true
+  twitter-card: true
+  repo-url: https://github.com/Jennlg/Tesis
+  repo-actions: [edit, issue, source]
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - objetivos.qmd
+
+    - part: 'Preliminares'
+      chapters:
+        - tconjuntos.qmd
+        - probabilidad.qmd
+        - estadistica.qmd
+        - procesos.qmd
+    - part: 'Series de tiempo'
+      chapters:
+        - series.qmd
+    - part: 'Redes neuronales'
+      chapters:
+        - redes.qmd
+    - part: estudio.qmd
+      chapters:
+        - metodologia.qmd
+        - confirmados.qmd
+        - muertes.qmd
+    - conclusiones.qmd
+
+    - references.qmd
+
+comments:
+    hypothesis: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      dark: darkly
+      light: cerulean
+    highlight-style: a11y
+    lang: es
+    html-math-method: mathjax
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    code-copy: true
+    code-fold: true
+  pdf:
+    lang: es
+    include-in-header:
+      - packa.tex
+    template-partials:
+      - before-body.tex
+    documentclass: scrreprt
+    papersize: us-letter
+    titlegraphic: FCFMLOGO.png
+    institution: Universidad Autónoma de Chiapas
+    email: jennifer.lopez67@unach.mx
+    keep-tex: true
+  epub:
+    cover-image: FCFMLOGO.png
+editor: visual
