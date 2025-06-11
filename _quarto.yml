@@ -3,7 +3,7 @@ project:
   output-dir: _book
 
 website:
-  favicon: FCFMLOGO.png
+  # favicon: FCFMLOGO.png
   reader-mode: true
   search:
     location: sidebar
@@ -12,25 +12,25 @@ website:
     hypothesis: true
 
 book:
-  title: "Análisis comparativo del desempeño en métodos para el pronóstico de series temporales"
+  title: "Cadenas de Markov y recurrencias en terremotos."
   reader-mode: true
   language: es
   date: "02/14/2024"
-  output-file: "Tesis_JSLG"
-  image: logofcfm.png
+  output-file: "Tesis_PSHH"
+  # image: logofcfm.png
   cover-image: FCFMLOGO.png
   sharing: [twitter, facebook]
   downloads: [pdf, epub]
   favicon: logofcfm.png
   sidebar:
-    logo: LOGO50.png
+    # logo: LOGO50.png
     style: floating
     collapse-level: 2
     border: true
     search: true
   open-graph: true
   twitter-card: true
-  repo-url: https://github.com/Jennlg/Tesis
+  # repo-url: https://github.com/Jennlg/Tesis
   repo-actions: [edit, issue, source]
   page-navigation: true
   chapters:
@@ -38,24 +38,24 @@ book:
     - intro.qmd
     - objetivos.qmd
 
-    - part: 'Preliminares'
-      chapters:
-        - tconjuntos.qmd
-        - probabilidad.qmd
-        - estadistica.qmd
-        - procesos.qmd
-    - part: 'Series de tiempo'
-      chapters:
-        - series.qmd
-    - part: 'Redes neuronales'
-      chapters:
-        - redes.qmd
-    - part: estudio.qmd
-      chapters:
-        - metodologia.qmd
-        - confirmados.qmd
-        - muertes.qmd
-    - conclusiones.qmd
+   # - part: 'Preliminares'
+   #   chapters:
+   #     - tconjuntos.qmd
+   #     - probabilidad.qmd
+   #     - estadistica.qmd
+   #     - procesos.qmd
+   # - part: 'Series de tiempo'
+   #   chapters:
+   #     - series.qmd
+   # - part: 'Redes neuronales'
+   #   chapters:
+   #     - redes.qmd
+   # - part: estudio.qmd
+   #  chapters:
+   #     - metodologia.qmd
+   #     - confirmados.qmd
+   #    - muertes.qmd
+   # - conclusiones.qmd
 
     - references.qmd
 
