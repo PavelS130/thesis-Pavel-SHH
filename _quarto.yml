@@ -89,7 +89,7 @@ format:
     papersize: us-letter
     titlegraphic: FCFMLOGO.png
     institution: Universidad Autónoma de Chiapas
-    email: jennifer.lopez67@unach.mx
+    email: pavel.hernandez69@unach.mx
     keep-tex: true
   epub:
     cover-image: FCFMLOGO.png
