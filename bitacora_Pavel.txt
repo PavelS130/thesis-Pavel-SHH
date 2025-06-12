@@ -42,13 +42,13 @@ Actividades:
 05 de Junio 2025
 
 Actividades: 
-- Cargar la bitacora en github.
-- https://github.com/Jennlg/Tesis/tree/main/_book Con base al ejemplo, crear raiz del documento  
-	el archivo "_quarto.yml" con las modificaciones siguientes:
-		- Checar y cambiar logos (Jubileo) 
-		- Comentar repo_url:
-		- Quitar capitulos hasta conclusiones.
-		- Modificar parte de formato de html y Pdf
-		- Añadir email y verificar o cambiar logo.
+- Cargar la bitacora en github.(LISTO)
+- https://github.com/Jennlg/Tesis/tree/main/_book 
+	Con base al ejemplo, crear raiz del documento el archivo "_quarto.yml" con las modificaciones siguientes:
+		- Checar y cambiar logos (Jubileo) (LISTO)
+		- Comentar repo_url:(LISTO)
+		- Quitar capitulos hasta conclusiones.(LISTO)
+		- Modificar parte de formato de html y Pdf(LISTO?)
+		- Añadir email y verificar o cambiar logo.(LISTO)
 		- Bajar pacak
 -Checar html de ejemplo e instalar lo que se indica.
