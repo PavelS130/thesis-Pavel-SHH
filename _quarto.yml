@@ -1,0 +1,82 @@
+project:
+  type: book
+  output-dir: _book
+
+website:
+  favicon: assets/UNACH.png
+  reader-mode: true
+  search:
+    location: sidebar
+    type: overlay
+  comments:
+    hypothesis: true
+
+book:
+  title: "Ecuación de Langevin y su aplicación en la predicción de terremotos"
+  language: es
+  date: "25/06/2025"
+  output-file: "Tesis_PSHH"
+  image: assets/UNACH.png
+  cover-image: assets/logofcfm.png
+  sharing: [twitter, facebook]
+  downloads: [pdf, epub]
+  favicon: assets/UNACH.png
+  sidebar:
+    logo: assets/UNACH.png
+    style: floating
+    collapse-level: 2
+    border: true
+    search: true
+  open-graph: true
+  twitter-card: true
+  repo-url: https://github.com/PavelS130/thesis-Pavel-SHH
+  repo-actions: [edit, issue, source]
+  page-navigation: true
+
+  chapters:
+  - index.qmd
+  - chapters/intro.qmd
+  - chapters/objetivos.qmd
+  - chapters/presentacion.qmd
+  - chapters/teorema.qmd
+  - chapters/referencias.qmd
+
+comments:
+  hypothesis: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      dark: darkly
+      light: cerulean
+    highlight-style: a11y
+    lang: es
+    html-math-method: mathjax
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    code-copy: true
+    code-fold: true
+    toc-location: right
+
+  pdf:
+    lang: es
+    include-in-header:
+      - packa.tex
+    template-partials:
+      - before-body.tex
+    documentclass: scrreprt
+    papersize: us-letter
+    titlegraphic: assets/UNACH.png
+    institution: Universidad Autónoma de Chiapas
+    email: pavel.hernandez69@unach.mx
+    keep-tex: true
+
+  epub:
+    cover-image: assets/UNACH.png
+
+editor: visual

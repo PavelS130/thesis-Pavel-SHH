@@ -1,0 +1,13 @@
+\usepackage{upgreek}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\newcommand{\dashedbox}[1]{
+  \begin{tikzpicture}
+    \node[draw, dashed, rounded corners=5pt, inner sep=10pt] {
+      \begin{minipage}{0.8\textwidth} % Establece el ancho del minipage
+        #1
+      \end{minipage}
+    };
+  \end{tikzpicture}
+}

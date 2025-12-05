@@ -1,0 +1,57 @@
+---
+lang: es
+---
+
+# Introducción
+
+::: {style="text-align: justify"}
+## Introducción del modelo de Langevin y su aplicación a terremotos
+
+El modelo de Langevin fue propuesto por Paul Langevin en 1908 para describir el movimiento browniano de partículas suspendidas en un fluido. Este modelo captura la dinámica de una partícula bajo la influencia de una fuerza determinista (como la fricción) y una fuerza aleatoria (ruido blanco gaussiano), y se expresa mediante una ecuación diferencial estocástica de la forma:
+
+$$ 
+dv(t) = -\gamma v(t)\,dt + \sqrt{2D}\,dW(t) 
+$$ {#eq-Langevin}
+
+donde de @eq-Langevin:
+
+-   $v(t)$: velocidad de la partícula,
+-   $\gamma$: coeficiente de fricción,
+-   $D$: coeficiente de difusión (intensidad del ruido térmico),
+-   $W(t)$: movimiento browniano estándar.
+
+Con el tiempo, este modelo fue generalizado para describir sistemas que combinan comportamientos deterministas con fluctuaciones aleatorias, incluyendo fenómenos físicos, biológicos, químicos y financieros.
+
+En el contexto geofísico, el modelo de Langevin se ha extendido para modelar la dinámica de fallas sísmicas. Para representar eventos sísmicos abruptos —como rupturas en la corteza terrestre— se incorpora un término adicional de saltos, modelados mediante un proceso de Poisson o, más generalmente, un proceso de Lévy. El modelo extendido es:
+
+$$
+dv(t) = [-\gamma v(t) + F_{\text{ext}}(t)]\,dt + \sqrt{2D}\,dW(t) + dJ(t),
+$$
+
+donde:
+
+-   $( F_{\text{ext}}(t) )$: fuerza externa acumulada, por ejemplo, por tectónica de placas,
+-   $( J(t) )$: proceso de saltos, que representa eventos súbitos (rupturas sísmicas),
+-   El resto de símbolos mantienen su significado anterior.
+
+Una formulación típica para los saltos es:
+
+$$
+J(t) = \sum_{i=1}^{N(t)} Y_i,
+$$
+
+donde:
+
+-   $( N(t) )$ es un proceso de Poisson de tasa $(\lambda> 0 )$,
+-   $( Y_i )$ representa la magnitud del i-ésimo salto (aleatoria, por ejemplo, con distribución exponencial o normal truncada).
+
+Este modelo se denomina Ecuación de Langevin con saltos y pertenece a la clase de ecuaciones diferenciales estocásticas impulsadas por procesos de Lévy.
+
+Su aplicación en geofísica permite modelar:
+
+-   El movimiento gradual de una falla mediante la fricción y ruido térmico,
+-   La ocurrencia de microtemblores,
+-   La irrupción de terremotos mayores como saltos discontinuos.
+
+Este enfoque ofrece una base matemática para la simulación y el análisis estadístico de secuencias sísmicas, incluyendo la estimación de probabilidades de ocurrencia, clasificación de eventos y simulación de trayectorias dinámicas realistas.
+:::

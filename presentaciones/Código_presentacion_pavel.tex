@@ -1,0 +1,170 @@
+\documentclass[12pt]{beamer}
+
+% Tema de la presentación
+\usetheme{Madrid} % Puedes cambiarlo: Berlin, CambridgeUS, Warsaw, etc.
+
+% Paquetes recomendados
+\usepackage[utf8]{inputenc} % Codificación UTF-8
+\usepackage[T1]{fontenc}    % Codificación de fuente
+\usepackage[spanish]{babel} % Idioma
+\usepackage{graphicx}       % Imágenes
+\usepackage{amsmath, amssymb} % Símbolos matemáticos
+\usepackage{xcolor}         % Colores personalizados
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+\newcommand{\lr}{\longrightarrow}
+
+
+% Datos de la presentación
+\title[Mi Presentación]{Título Completo de la Presentación}
+\subtitle{Subtítulo opcional}
+\author{Tu Nombre}
+\institute{Tu Institución}
+\date{\today} % o una fecha específica
+
+\begin{document}
+
+% Portada
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Índice
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+% Sección 1
+\section{Introducción}
+\begin{frame}{Introducción}
+  El artículo \textbf{"Estimates of earthquake recurrences in the Chaiyi-Tainan area,  Taiwan"} publicado en 2002, aborda un tema de gran revelancia 
+  para la sismología y la gestión de riesgos naturales: la estimación de la recurrencias de terremotos en una región altamente sísmica del suroeste de Taiwan.
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Ley de Gutenburg-Richter.
+        \item Cadenas de Markov.
+        \item Tiene como objetivo estudiar los periodos de  retorno para los terremotos de distinta escala.
+        \item Se calcula a partir de la amplitud de las ondas sísmicas registradas en un sismógrafo.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Escala de Richter}
+    \begin{itemize}
+        \item Es una escala logarítmica utilizada para medir la magnitud de los terremotos.
+        \item Fue desarrollada en 1935 por Charles F. Richter
+        \item Se basa en la amplitud de las ondas sísmicas.
+        \item Cada incremento de 1 en la escala representa un aumento de 10 veces en la amplitud y aproximadamente 31.6 veces más energía liberada.
+    \end{itemize}
+\end{frame}
+% Sección 2
+\section{Conceptos Clave}
+\begin{frame}
+    \begin{block}{Proceso estocástico}
+        Es una colección de variables aleatorias que evolucionan en el tiempo o espacio, y que describen un sistema que cambia 
+        de manera probabilística. Es un modelo matemático que represneta fenómenos aleatorios que se desarrollan a lo largo de un parámetro,
+        esta representado por:
+        \[
+                \{X_t\}_{t\in T}
+        \]
+        Donde $X_t$ es una variable aleatoria que representa el estado del sistema en el instante $t$ y $T$ es el conjunto de instantes de tiempo o espacio.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Cadenas de Markov}
+        Una cadena de Markov es un tipo especial de proceso estocástico que cumple la propiedad de Markov,
+         que establece que el futuro del proceso depende únicamente del estado presente y no de los estados pasados. 
+        Formalmente, una cadena de Markov se define por:
+        \[
+            P(X_{n+1} = x | X_n = x_n, X_{n-1} = x_{n-1}, \ldots, X_0 = x_0) = P(X_{n+1} = x | X_n = x_n)
+        \]
+        donde $X_n$ es el estado del sistema en el tiempo $n$.
+    \end{block}
+    Una cadena de Markov posee las siguientes caracteristicas pincipales:
+    \begin{itemize}
+        \item Propiedad de Markov
+        \item Espacio de estados:
+        \begin{itemize}
+            \item Estados recurentes: aquellos que pueden ser visitados infinitas veces.
+            \item Estados transitorios: aquellos que, una vez abandonados, no se vuelven a visitar.
+            \item Estados absorbentes: aquellos que, una vez alcanzados, no se abandonan.
+        \end{itemize}
+        \item Probabilidades de tarnición.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Diagrama de estados}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    ->, >=Stealth, shorten >=1pt, auto, node distance=3cm,
+    state/.style={circle, draw, minimum size=1cm}
+]
+
+% Nodos
+\node[state] (A) {A};
+\node[state] (B) [right=of A] {B};
+\node[state] (C) [right=of B] {C};
+
+% Bucles
+\path (A) edge[loop above] node{0.2} (A);
+\path (C) edge[loop above] node{0.5} (C);
+
+% Flechas entre estados
+\path (A) edge[bend left=15] node{0.6} (B)
+      (B) edge[bend left=15] node{0.9} (A)
+      (B) edge[bend left=15] node{0.5} (C)
+      (C) edge[bend left=15] node{0.1} (B)
+      (A) edge[bend left=40] node{0.2} (C);
+
+\end{tikzpicture}
+\caption{Diagrama de estados con probabilidades de transición.}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Relación de Chapman-Kolmogorov}
+    De acuerdo a la relación de chapman-Kolmogorov suguiere que la matriz de transición 
+    $P_{n\times n}$, tiene  la caracteristica de 
+    \[
+            P^s=P^{s-1}\cdot P
+    \]
+    Para un estado recurrente, $P_{jj}^{(s)}$ denota la probabilidad de comenzar en el estado $j$
+    y regresar a él después de $s$ pasos. Según el teorema del límite para cadenas de Markov, si $j$ es un estado 
+    aperiódico, es decir, un estado que se repite en un ciclo no constante,  entonces
+    \[
+            \lim\limits_{s\lr \infty} p_{jj}^{(s)}=\frac{1}{u_j}
+    \]
+    Donde $u_j$ es su periodo medio de retorno, que es el número esperado de pasos necesarios para regresar al estado 
+    $j$ después de haberlo visitado por primera vez.
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Definición de matriz ergódica}
+        Una matriz de transición $P$ es ergódica si cumple las siguientes
+         condiciones:
+        \begin{itemize}
+            \item Es irreducible: es posible llegar a cualquier estado
+             desde cualquier otro estado.
+            \item Es aperiódica: no hay ciclos fijos en la cadena de Markov.
+            \item Existe un vector propio positivo asociado al valor propio 1,
+             que representa la distribución estacionaria.
+        \end{itemize}
+        En este caso, la cadena de Markov converge a una distribución estacionaria única, independientemente del estado inicial.
+        
+    \end{block}
+\end{frame}
+
+% Sección 3
+\section{Conclusiones}
+\begin{frame}{Conclusiones}
+  \begin{itemize}
+    \item Punto importante 1
+    \item Punto importante 2
+    \item Punto importante 3
+  \end{itemize}
+\end{frame}
+
+\end{document}

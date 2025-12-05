@@ -1,0 +1,17 @@
+---
+author:
+  - name: Pavel Santiago Hernandez Hernandez
+    email: pavel.hernandez69@unach.mx
+    corresponding: true
+  - name: Asesor Yofre Hernán García Gómez
+    degrees: PhD
+    email: yofre.garcia@unach.mx
+    roles: supervisor
+    corresponding: true
+---
+
+# Resumen {.unnumbered}
+
+::: {style="text-align: justify"}
+Esta tesis presenta
+:::

@@ -1,0 +1,162 @@
+---
+title: "Existencia y unicidad fuerte"
+lang: es
+format:
+  html: default
+  pdf:
+    include-in-header:
+      text: |
+        \usepackage{upgreek}
+    latex-engine: pdflatex
+---
+
+
+
+::: {#thm-varmues style="text-align: justify"}
+
+Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la **ecuación diferencial estocástica modificada** (sin saltos grandes):
+
+$$
+\begin{aligned}
+dZ(t) ={}& b(Z(t-)) \, dt \\
+         &+ \sigma(Z(t-)) \, dB(t) \\
+         &+ \int_{|x| < c} F(Z(t-), x) \, \widetilde{N}(dt, dx), \qquad t \geq 0,
+\end{aligned}
+$$ {#eq-sde}
+
+con condición inicial $Z(0) = Z_0$, donde $B(t)$ es un movimiento browniano estándar unidimensional ($r=1$); $N(dt, dx)$ es una medida aleatoria de Poisson definida en $\mathbb{R}_+ \times (\mathbb{R} \setminus \{0\})$ con medida de intensidad $\nu(dx)$; $\widetilde{N}(dt, dx) = N(dt, dx) - \nu(dx)\,dt$ denota la correspondiente medida compensada; $c \in (0, \infty]$ es un umbral fijo que separa los saltos pequeños de los grandes; y $Z_0$ es una variable aleatoria $\mathcal{F}_0$-medible, independiente del ruido estocástico.
+
+Supongamos que los coeficientes $b: \mathbb{R} \to \mathbb{R}$, $\sigma: \mathbb{R} \to \mathbb{R}$ y $F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ son funciones **medibles** que satisfacen las siguientes condiciones:
+
+#### **(C1) Condición de Lipschitz:**
+
+Existe una constante $K_1 > 0$ tal que, para todo $y_1, y_2 \in \mathbb{R}$,
+
+$$
+\begin{aligned}
+|b(y_1) - b(y_2)|^2 & + |\sigma(y_1) - \sigma(y_2)|^2\\ 
+& + \int_{|x| < c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
+&\leq K_1 |y_1 - y_2|^2.
+\end{aligned}
+$$ {#eq-lipschitz}
+
+#### **(C2) Condición de crecimiento lineal:**
+
+Existe una constante $K_2 > 0$ tal que, para todo $y \in \mathbb{R}$,
+
+$$
+|b(y)|^2 + |\sigma(y)|^2 + \int_{|x| < c} |F(y, x)|^2 \, \nu(dx)
+\leq K_2 \bigl(1 + |y|^2 \bigr).
+$$ {#eq-3}
+
+Bajo las hipótesis anteriores, existe una **única solución fuerte** $Z = (Z(t))_{t \geq 0}$ de la ecuación (@eq-sde) tal que:
+
+1.  $Z$ es un **proceso adaptado y cádlág** (continuo por la derecha con límites por la izquierda),
+2.  La solución es única **casi seguramente,** esto es, si $(Z')$ es otra solución, entonces\
+    $$
+    \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
+    $$ {#eq-4}
+:::
+
+::: {.proof style="text-align: justify"}
+
+Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-sde) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis **(C1)** y **(C2)** para los coeficientes $b$, $\sigma$ y $F$. Ahora bien, la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
+
+$$
+    Z_0(t) :=Z_0, \, \, \forall t\geq 0.
+$$
+
+Para $n\geq 1$
+
+$$
+    \begin{aligned}
+        Z_{n+1}(t) := Z_0 & +\int _0^t b(Z_n(s-))ds+\int_0^t \sigma(Z(s-))dB(s)\\ 
+        & + \int_0^t \int _{|x|<c} F(Z_n(s-),x)\widetilde{N}(ds,dx).
+    \end{aligned}
+$$
+
+Demostraremos por inducción que el proceso $Z_n$ es un proceso adaptado y con trayectorias Cádlág. Así, para $n=0$ consideremos la diferencia $Z_1(t)-Z_0(t)$. Por la iteración de Picard tenemos:
+
+$$
+    \begin{aligned}
+        Z_1(t) = Z_0(t) & + \int_0^t b(Z_0(s-))ds +\int_0^t\sigma(Z_0(s-))\\ 
+        & +\int_0^t \int_{|x|<c} F(Z_0(s-),x)\widetilde{N}(ds,dx).
+    \end{aligned}
+$$
+
+Dado que $Z_0(t)=Z_0$ para todo $t\geq 0$, entonces,
+
+$$
+    \begin{aligned}
+        Z_1(t)-Z_0 = \int_0^t b(Z_0) ds & + \int_0^t \sigma(Z_0)dB(s)\\ 
+        & + \int_0^t\int_{|x|<c} F(Z_0,x)\widetilde{N}(ds,dx). 
+    \end{aligned}
+$$
+
+Considerando la desigualdad
+
+$$
+(a+b+c)^2\leq 3(a^2+b^2+c^2).
+$$
+
+Tomando valor absoulto y elevando al cuadrado la expreción anterior tenemos que
+
+$$
+    \begin{aligned}
+|Z_1(t)-Z_0|^2
+&= \Bigg|
+      \int_0^t b(Z_0)\,ds
+      + \int_0^t \sigma(Z_0)\,dB(s) \\
+&\qquad\quad
+      + \int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)
+   \Bigg|^2 \\[0.3em]
+&\le 3\Bigg(
+      \left(\int_0^t b(Z_0)\,ds\right)^2
+      + \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\
+&\qquad\quad
+      + \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
+   \Bigg).
+\end{aligned}
+$$ {#eq-4}
+
+Para controlar de manera uniforme en todo el intervalo $[0,t]$ tomamos el supremo sobre todo el intervalo, además usando propiedades del supremos podemos obtener
+
+$$
+\begin{aligned}
+\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2
+&\leq \sup\limits_{0\leq s\leq t}\Bigg(3\Bigg(
+      \left(\int_0^t b(Z_0)\,ds\right)^2
+      + \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\
+&\qquad\quad
+      + \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
+   \Bigg)\Bigg)\\
+& = 3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2 + \sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\ 
+&\qquad\quad 
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg).
+\end{aligned}
+$$
+
+Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+& \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\\
+&\qquad   
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\ 
+&\qquad\quad
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg)\Bigg]\\
+& = 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\ 
+&\qquad
+    + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+&\qquad\quad
+    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)
+\end{aligned}
+$$
+
+Trabajaremos término por termino; así notemos que la siguiente integral es de Lebesgue
+
+$$
+    \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
+$$
+:::

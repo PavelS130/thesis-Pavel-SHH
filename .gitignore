@@ -1,0 +1,19 @@
+cat > .gitignore <<EOF
+# Salidas de Quarto
+_book/
+_site/
+*.pdf
+*.html
+
+# LaTeX temporales
+*.aux *.log *.toc *.synctex.gz *.fdb_latexmk *.fls *_files/
+
+# Entornos
+venv/
+.venv/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*~
+EOF

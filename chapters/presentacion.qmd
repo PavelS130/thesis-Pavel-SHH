@@ -1,0 +1,219 @@
+---
+lang: es
+---
+
+# Presentación sonora
+
+## Introducción
+
+::: {style="text-align: justify"}
+El análisis de la recurrencia sísmica representa un pilar fundamental dentro de la sismología estadística. Un enfoque riguroso para abordar esta problemática consiste en modelar la ocurrencia y evolución de los sismos mediante un proceso estocástico de tiempo discreto, específicamente utilizando cadenas de Markov.
+
+Este marco metodológico permite representar los estados de intensidad sísmica —definidos mediante intervalos de magnitud como baja, media y alta— y examinar las probabilidades de transición entre ellos. A partir de series temporales de registros sísmicos, se construye una estructura probabilística que caracteriza el comportamiento recurrente de los sismos y provee estimaciones cuantitativas del riesgo sísmico futuro.
+
+El artículo ''Estimates of earthquake recurrences in the Chiayi–Tainan area, Taiwan'', publicado en 2002, aborda un tema de gran relevancia para la sismología y la gestión de riesgos naturales: la estimación de la recurrencia de terremotos en una región altamente sísmica del suroeste de Taiwán.
+:::
+
+::: {style="text-align: justify"}
+Los temas abordados en dicho articulo son los siguientes:
+
+i.  Ley de Gutenburg - Richter.
+
+ii. Cadenas de Markov.
+
+iii. Tiene como objetivo estudiar los periodos de retorno para los terremotos de distinta escala.
+
+iv. Se calcula a partir de la amplitud de las ondas sísmicas registradas en un sismografo.
+:::
+
+### Escala Richter
+
+::: {style="text-align: justify"}
+i.  Es una escala logarítmica que cuantifica la energía liberada por un terremoto, basada en la amplitud máxima de las ondas sísmicas registradas.
+
+ii. La magnitud se calcula mediante la fórmula: $$
+    M = \log_{10}(A) - \log_{10}(A_0)
+    $$ donde $A$ es la amplitud medida y $A_0$ es un valor de referencia dependiente de la distancia al epicentro.
+
+iii. Permite comparar la intensidad de diferentes eventos sísmicos y clasificar su peligrosidad.
+:::
+
+## Definiciones
+
+::: {#def-varmues style="text-align: justify"}
+#### Espacio de Estados y Clasificación de INtensidades de sísmos
+
+Sea $M:=\{M_1,M_2,\ldots, M_k\}$ el conjunto finito de estados de intensidad sísmica, definimos como intervalos en la escala de Richter de la siguiente manera:
+
+i.  $M_2$: Sismos de encala entre $2\leq M_2\leq 2.9$
+
+ii. $M_3$: Sismos de encala entre $3\leq M_3\leq 3.9$
+
+iii. $M_4$: Sismos de encala entre $4\leq M_4\leq 4.9$
+
+iv. $M_5$: Sismos de encala entre $5\leq M_5\leq 5.9$
+
+v.  $M_6$: Sismos de encala entre $6\leq M_6\leq 6.9$
+
+vi. $M_7$: Sismos de encala entre $7\leq M_7\leq 7.9$.
+
+Cada sismo captado se clasifica en un estado $M_i$ correspondiente a su magnitud, generando una serie temporal categórica $\{X_t\}_{t=0}^{T}$, donde $X_t\in M$
+:::
+
+::: {#def-varmues style="text-align: justify"}
+#### Proceso estocástico
+
+Un proceso estocástico es un modelo matemático que describe la evolución probabilística de un sistema a lo largo del tiempo o el espacio. Se define formalmente como una familia de variables aleatorias, donde cada una representa el estado del sistema en un momento o posición específicos.
+
+Esta familia se denota como: $$\{X_t\}_{t\in T}.$$ Donde:
+
+i.  $X_t$ es la variable aleatoria que representa el estado del sistema en el instante $t$.
+
+ii. $T$ es el conjunto de índices (por ejemplo, un intervalo de tiempo o una región espacial).
+:::
+
+::: {#def-varmues style="text-align: justify"}
+### Proceso de Markov
+
+Es un proceso estocástico $\{X_n\}_{n\in T}$, que cumple: $$
+\begin{aligned}
+P(X_{n+1}=x_{n+1}|& X_n=x_n,\ X_{n-1}=x_{n-1},\ldots,X_0=x_0)\\ 
+& =P(X_{n+1}=x_{n+1}|X_n=x_n)
+\end{aligned}
+$$
+:::
+
+::: {#def-varmues style="text-align: justify"}
+### Matriz de transición
+
+A partir de la serie de datos sísmicos clasificados, es posible construir la matriz de transición $$
+P:[p_{ij}], \ p_{ij}=P(X_{t+1}=M_j|X_t=M_i)
+$$ Con la propiedad de que cada fila de $P$ es una distribución de probabilidad, vale decir $$
+\sum\limits_{j=1}^{k} p_{ij}=1,\ p_{ij}\geq 0\ \ \forall i,j
+$$
+:::
+
+# Formulación
+
+::: {style="text-align: justify"}
+i.  Analiza la periodicidad de terremotos en la región de Chiayi-Tainan, Taiwán, utilizando Cadenas de Markov.
+
+ii. Revelan un patrón significativo en la recurrencia de terremotos.
+
+iii. Demuestran que las cadenas de Markov son una herramienta efectiva para modelar el comportamiento sísmico.
+
+iv. Son útiles para la evaluación del riesgo sísmico en la región.
+
+Se categorizarón los siguientes cinturones sísmicos:
+
+i.  Zona sísmica occidental (WSZ).
+
+ii. Zona sísmica oriental (ESZ).
+
+iii. Zona sísmica noroeste (NSZ).
+
+La zona de estudio cuenta con doce fallas activas. Los terremotos se cuantifican con la escla de magnitud local de Richter, representada como $M_L$, donde $L$ representa la magnitud, $(M)$, del sísmo, por ejemplo, la categoría $M_4$ representa sísmos de magitud entre $4$ y $4.9$. En este estudio se prepararon dos bases de datos:
+
+i.  $M_L\geq 4$ con $283$ eventos de 1990 a 1995.
+
+ii. $M_L\geq 2$ con $3816$ eventos de 1973 a 1995.
+:::
+
+# Análisis con matrices de transición
+
+::: {style="text-align: justify"}
+Si la ocurrencia de un terremoto está estrechamente relacionada con la replica anterior, se puede aplicar un análisis de cadenas de Markov especificada con una transición de un paso para estudiar la periodicidad sísmica y obtener las aproximaciones de las probabilidades de transición.
+:::
+
+# Simulación de trayectorias y eventos sísmicos
+
+::: {style="text-align: justify"}
+El siguiente código genera trayectorias con ruido y eventos cuando se supera un umbral crítico de velocidad.
+:::
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# --- Parámetros base ---
+gamma = 0.8
+Fext = 1.0
+D = 0.5
+lambda_poisson = 1.0   # tasa de saltos por segundo
+jump_mean = 1.0        # media del tamaño del salto (exponencial)
+jump_scale = 0.5       # desviación típica o escala del salto
+dt = 0.01
+T = 10.0
+N = int(T / dt)
+n_traj = 10
+
+t = np.linspace(0, T, N)
+v = np.zeros((n_traj, N))
+
+# --- Simulación con saltos de Poisson ---
+for i in range(n_traj):
+    for n in range(N - 1):
+        dW = np.sqrt(dt) * np.random.randn()
+        dN = np.random.poisson(lambda_poisson * dt)
+        jump = np.sum(np.random.normal(loc=jump_mean, scale=jump_scale, size=dN)) if dN > 0 else 0.0
+        v[i, n + 1] = v[i, n] + (-gamma * v[i, n] + Fext) * dt + np.sqrt(2 * D) * dW + jump
+
+# --- Gráfica de trayectorias ---
+plt.figure(figsize=(12, 6))
+for i in range(n_traj):
+    plt.plot(t, v[i], label=f"Trayectoria {i+1}")
+plt.xlabel("Tiempo")
+plt.ylabel("Velocidad $v(t)$")
+plt.title("10 trayectorias del modelo Langevin con saltos de Poisson")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+# --- Eventos sísmicos basados en umbral ---
+threshold = 1.0
+all_mags = []
+
+for i in range(n_traj):
+    mags = v[i, v[i] > threshold]   # eventos donde velocidad supera umbral
+    mags = 1.0 + (mags - threshold) * 1.5   # transformación a magnitud sísmica
+    all_mags.extend(mags)
+
+# Clasificación de magnitudes
+def classify_event(mag):
+    if mag < 2.0:
+        return 'Micro'
+    elif 2.0 <= mag < 4.0:
+        return 'Minor'
+    elif 4.0 <= mag < 6.0:
+        return 'Moderate'
+    else:
+        return 'Strong'
+
+event_classes = [classify_event(m) for m in all_mags]
+
+# DataFrame de eventos
+df_events = pd.DataFrame({'Magnitude': all_mags, 'Class': event_classes})
+states = ['Micro', 'Minor', 'Moderate', 'Strong']
+
+# --- Matriz de conteo de transiciones ---
+transition_counts = pd.DataFrame(0, index=states, columns=states)
+for i in range(len(event_classes) - 1):
+    from_state = event_classes[i]
+    to_state = event_classes[i + 1]
+    transition_counts.loc[from_state, to_state] += 1
+
+# --- Matriz de transición ---
+transition_matrix = transition_counts.div(transition_counts.sum(axis=1), axis=0)
+
+print("Matriz de transición de Markov basada en trayectorias simuladas:")
+print(transition_matrix.round(3))
+# --- Visualización de la matriz de transición ---
+plt.figure(figsize=(6, 5))
+plt.imshow(transition_matrix, cmap='viridis', interpolation='nearest')
+plt.colorbar(label='Probabilidad de transición')
+plt.xticks(range(len(states)), states, rotation=45)
+plt.yticks(range(len(states)), states)
+plt.title("Matriz de transición de Markov (desde trayectorias de Langevin con saltos)")
+plt.tight_layout()
+plt.show()
+```

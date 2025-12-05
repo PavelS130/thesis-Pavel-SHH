@@ -1,0 +1,41 @@
+{
+  "index.qmd": {
+    "index.html": "857e5fa3"
+  },
+  "intro.qmd": {
+    "intro.html": "6e910190"
+  },
+  "referencias.qmd": {
+    "referencias.html": "7d205052"
+  },
+  "objetivos.qmd": {
+    "objetivos.html": "4f48f459"
+  },
+  "prueba_python.qmd": {
+    "prueba_python.html": "7d7b2843"
+  },
+  "Caso_de_estudio.qmd": {
+    "Caso_de_estudio.html": "f521a522"
+  },
+  "teorema.qmd": {
+    "teorema.html": "5fd78bf6"
+  },
+  "presentacion.qmd": {
+    "presentacion.html": "11188688"
+  },
+  "chapters/intro.qmd": {
+    "intro.html": "dbb597d1"
+  },
+  "chapters/objetivos.qmd": {
+    "objetivos.html": "3cdf94d2"
+  },
+  "chapters/presentacion.qmd": {
+    "presentacion.html": "5ecb04ad"
+  },
+  "chapters/teorema.qmd": {
+    "teorema.html": "0e5b9786"
+  },
+  "chapters/referencias.qmd": {
+    "referencias.html": "6f4eacfd"
+  }
+}
