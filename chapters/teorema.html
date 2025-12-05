@@ -317,7 +317,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \end{aligned}
 \]</span></p>
 <p>Tomando valor esperado de ambos lado y usando la linealidad, tenemos que</p>
-<p><span class="math display">\[
+<p><span id="eq-5"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
 &amp; \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\\
@@ -329,9 +329,9 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 &amp;\qquad
     + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
 &amp;\qquad\quad
-    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)
+    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
 \end{aligned}
-\]</span></p>
+\tag{4.6}\]</span></span></p>
 <p>Trabajaremos término por termino; así notemos que la siguiente integral es de Lebesgue</p>
 <p><span class="math display">\[
     \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
@@ -371,6 +371,33 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 4t \mathbb{E}[|\sigma(Z_0)|^2].
     \end{aligned}
 \]</span></p>
+<p>De manera análoga, para el termino</p>
+<p><span class="math display">\[
+    W(s):= \int_0^t\int_{|x|&lt;c}F(Z_0,x)\widetilde{N}(du,dx).
+\]</span></p>
+<p>Podemos afirmar que es una martingala. Usando la isometría de Ito, desigualdad maximal de Doob y por el teorema de Fubini</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|W(s)|^2]\\
+        &amp; = 4\int_0^t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\
+        &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)
+    \end{aligned}
+\]</span></p>
+<p>Así, de la igualdad (<a href="#eq-5">Ecuación&nbsp;<span>4.6</span></a>) tenemos</p>
+<p><span id="eq-6"><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+        &amp; \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\
+            &amp;\qquad
+               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+        &amp;\qquad\quad
+            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
+        &amp; \leq 3\Bigg(t^2\mathbb{E}[|b(Z_0)|^2]+4t\mathbb{E}[|\sigma(Z_0)|^2]\\
+        &amp; \qquad\quad + 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
+        &amp; = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
+        &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+    \end{aligned}
+\tag{4.7}\]</span></span></p>
 </div>
 
 
