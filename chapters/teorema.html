@@ -344,19 +344,19 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     M(s):=\int_0^s \sigma(Z_0)dB(u).
 \]</span></p>
-<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Ito, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y dado que por hipotésis sabemos que <span class="math inline">\(\sigma\)</span> cumple con la condición (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>), entonces podemos afirmar que</p>
+<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Ito, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
 <p>Esto pues obteniendo el valor esperado de (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-6"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|\sigma(Z_0)|^2] &amp; \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\
         &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\
         &amp; = K_2\mathbb{E}[1+|Z_0|^2]\\
         &amp; = K_2 (1+\mathbb{E}[|Z_0|^2]).
     \end{aligned}
-\]</span></p>
+\tag{4.7}\]</span></span></p>
 <p>Por lo tanto, el proceso <span class="math inline">\(M(s)\)</span> es una martingala. Así, usando la desigualdad maximal de Doob, tenemos que:</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
@@ -380,11 +380,11 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|W(s)|^2]\\
         &amp; = 4\int_0^t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\
-        &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)
+        &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
 \]</span></p>
 <p>Así, de la igualdad (<a href="#eq-5">Ecuación&nbsp;<span>4.6</span></a>) tenemos</p>
-<p><span id="eq-6"><span class="math display">\[
+<p><span id="eq-7"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
         &amp; \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\
@@ -397,7 +397,45 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
-\tag{4.7}\]</span></span></p>
+\tag{4.8}\]</span></span></p>
+<p>Notemos para los terminos en común <span class="math inline">\(3t^2\)</span> y <span class="math inline">\(12t\)</span> podemos definir la variable <span class="math inline">\(C_1(t):=\max{3t,12}\)</span>, de aquí &gt;</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        3t^2 &amp; = 3t\cdot t \leq \max{3t,12}=C_1(t).\\
+        12t &amp; = 12\cdot t \leq \max{3t,12}=C_1(t).
+    \end{aligned}
+\]</span></p>
+<p>Por lo tanto, (<a href="#eq-7">Ecuación&nbsp;<span>4.8</span></a>) queda de la forma</p>
+<p><span id="eq-8"><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+        &amp; \leq 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
+        &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\\
+        &amp; \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\
+        &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
+    \end{aligned}
+\tag{4.9}\]</span></span></p>
+<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
+<p><span class="math display">\[
+    |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
+\]</span></p>
+<p>De (<a href="#eq-6">Ecuación&nbsp;<span>4.7</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
+<p><span id="eq-9"><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\Bigg] &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\
+        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|&lt;c}|F(Z_0,x)|^2\nu(dx)\Bigg] &amp; \leq K_2(1+\mathbb{E}[|Z_0|^2])\\
+        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)&amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
+    \end{aligned}
+\tag{4.10}\]</span></span></p>
+<p>Así de (<a href="#eq-8">Ecuación&nbsp;<span>4.9</span></a>) y (<a href="#eq-9">Ecuación&nbsp;<span>4.10</span></a>) tenemos que</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+        &amp; \leq C_1(t)\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\
+        &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
+        &amp; \leq C_1(t)\cdot t\cdot K_2(1+\mathbb{E}[|Z_0|^2]).
+    \end{aligned}
+\]</span></p>
 </div>
 
 
