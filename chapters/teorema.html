@@ -472,15 +472,39 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p>Nuevamente, definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
-        A &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^t \Delta b(u)du\Bigg)^2\Bigg]\\
-        B &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^t \Delta \sigma(u)dB(u)\Bigg)^2\Bigg]\\
-        C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^t \Delta F(u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
+        A &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(u)du\Bigg)^2\Bigg]\\
+        B &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta \sigma(u)dB(u)\Bigg)^2\Bigg]\\
+        C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
     \end{aligned}
 \]</span></p>
 <p>Por tanto de la (<a href="#eq-10">Ecuación&nbsp;<span>4.12</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
 <p><span id="eq-11"><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\leq 3(A+B+C)
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\leq 3(A+B+C).
 \tag{4.13}\]</span></span></p>
+<p>Trabajaremos con cada termino de la desigualdad para poder acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>. Notemos que para <span class="math inline">\(A\)</span> el termino del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que</p>
+<p><span class="math display">\[  
+    \Bigg(\int_0^s \Delta b(u)du\Bigg)^2\leq s \int_0^s |\Delta b(u)|^2du,\ \ \forall s\in [0,t].
+\]</span></p>
+<p>Dado que <span class="math inline">\(s\leq t\)</span>, esto implica que</p>
+<p><span class="math display">\[
+    s \int_0^s |\Delta b(u)|^2du\leq t\int_0^t |\Delta b(u)|^2du.
+\]</span></p>
+<p>Dado que el supremo preserva desigualdades, tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+            \sup\limits_{0\leq s\leq t} \Bigg(\int_0^s \Delta b(u)du\Bigg)^2 &amp; \leq \sup\limits_{0\leq s\leq t}\Bigg(s \int_0^s |\Delta b(u)|^2du\Bigg)\\
+            &amp; \leq \sup\limits_{0\leq s\leq t}\Bigg(t\int_0^t |\Delta b(u)|^2du\Bigg)\\
+            &amp; = t\int_0^t |\Delta b(u)|^2du.
+    \end{aligned}
+\]</span></p>
+<p>Tomando el valor esperado</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        A &amp; = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(u)du\Bigg)^2\Bigg]\\
+        &amp; \leq \mathbb{E}\Bigg[t\int_0^t |\Delta b(u)|^2du\Bigg]\\
+        &amp; = t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du
+    \end{aligned}
+\]</span></p>
 </div>
 
 
