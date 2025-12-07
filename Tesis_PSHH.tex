@@ -130,6 +130,7 @@
     };
   \end{tikzpicture}
 }
+\newcommand{\E}{\mathbb{E}}
 \makeatletter
 \makeatother
 \makeatletter
@@ -281,7 +282,7 @@ García Gómez}
 %\end{flushright}
 
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, enhanced, interior hidden, breakable, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, breakable, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Tabla de contenidos}
 {
@@ -720,10 +721,10 @@ supera un umbral crítico de velocidad.
 \begin{verbatim}
 Matriz de transición de Markov basada en trayectorias simuladas:
           Micro  Minor  Moderate  Strong
-Micro     0.922  0.078     0.000   0.000
-Minor     0.022  0.945     0.032   0.001
-Moderate  0.001  0.057     0.923   0.019
-Strong    0.001  0.000     0.060   0.938
+Micro     0.933  0.067     0.000   0.000
+Minor     0.033  0.943     0.024   0.000
+Moderate  0.001  0.064     0.905   0.030
+Strong    0.002  0.000     0.087   0.911
 \end{verbatim}
 
 \begin{figure}[H]
@@ -915,7 +916,7 @@ supremos podemos obtener
 
 Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
 
-\[
+\begin{equation}\protect\hypertarget{eq-5}{}{
 \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
 & \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\\
@@ -927,15 +928,157 @@ Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
 &\qquad
     + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
 &\qquad\quad
-    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)
+    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
 \end{aligned}
-\]
+}\label{eq-5}\end{equation}
 
 Trabajaremos término por termino; así notemos que la siguiente integral
 es de Lebesgue
 
 \[
     \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
+\]
+
+Por lo tanto
+
+\[
+    \sup\limits_{0\leq s\leq t}\Bigg(\int_0^s b(Z_0)du\Bigg)^2=\sup\limits_{0\leq s\leq t}(b(Z_0)\cdot s)^2=\sup\limits_{0\leq s\leq t} b(Z_0)^2\cdot s^2= b(Z_0)^2\cdot t^2.
+\]
+
+Consideremos ahora el proceso
+
+\[
+    M(s):=\int_0^s \sigma(Z_0)dB(u).
+\]
+
+Afirmamos que dicho proceso es una martingala, pues al ser \(Z_0\)
+constante esto implica que \(\sigma(Z_0)\) no dependa de \(u\). Dado que
+\(Z_0\) es \(\mathcal{F}_0\text{medible}\), entonces \(\sigma(Z_0)\)
+también lo es, más aún, es \(\mathcal{F}_u\text{medible}\) para toda
+\(u\geq 0\). Por lo tanto el termino a integrar del proceso \(M(s)\), el
+cuál es una integral de Ito, es adaptado. Asumiendo que
+\(\mathbb{E}[|Z_0|^2]<\infty\) y por hipotésis, de la condición (C2),
+podemos afirmar que
+
+\[
+        \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
+\]
+
+Esto pues obteniendo el valor esperado de (Ecuación~\ref{eq-3}) ,
+tomando a \(y=Z_0\) tenemos
+
+\begin{equation}\protect\hypertarget{eq-6}{}{
+    \begin{aligned}
+        \mathbb{E}[|\sigma(Z_0)|^2] & \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\ 
+        & \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\ 
+        & = K_2\mathbb{E}[1+|Z_0|^2]\\ 
+        & = K_2 (1+\mathbb{E}[|Z_0|^2]).
+    \end{aligned}
+}\label{eq-6}\end{equation}
+
+Por lo tanto, el proceso \(M(s)\) es una martingala. Así, usando la
+desigualdad maximal de Doob, tenemos que:
+
+\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
+\]
+
+De la isometría de Ito y por el teorema de Fubini
+
+\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg] & \leq 4\mathbb{E}[|M(t)|^2]\\ 
+        & = 4 \mathbb{E}\Bigg[\int_0^t |\sigma(Z_0)|^2ds\Bigg]\\ 
+        & = 4 \int_0^t \mathbb{E}[|\sigma(Z_0)|^2]ds\\ 
+        & = 4 \mathbb{E}[|\sigma(Z_0)|^2]\int_0^t ds\\ 
+        & = 4t \mathbb{E}[|\sigma(Z_0)|^2].
+    \end{aligned}
+\]
+
+De manera análoga, para el termino
+
+\[
+    W(s):= \int_0^t\int_{|x|<c}F(Z_0,x)\widetilde{N}(du,dx).
+\]
+
+Podemos afirmar que es una martingala. Usando la isometría de Ito,
+desigualdad maximal de Doob y por el teorema de Fubini
+
+\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] & \leq 4\mathbb{E}[|W(s)|^2]\\ 
+        & = 4\int_0^t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\ 
+        & = 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+    \end{aligned}
+\]
+
+Así, de la igualdad (Ecuación~\ref{eq-5}) tenemos
+
+\begin{equation}\protect\hypertarget{eq-7}{}{
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg] 
+        & \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\ 
+            &\qquad
+               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+        &\qquad\quad
+            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
+        & \leq 3\Bigg(t^2\mathbb{E}[|b(Z_0)|^2]+4t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
+        & \qquad\quad + 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\ 
+        & = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
+        & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+    \end{aligned}
+}\label{eq-7}\end{equation}
+
+Notemos para los terminos en común \(3t^2\) y \(12t\) podemos definir la
+variable \(C_1(t):=\max{\{3t,12\}}\), de aquí \textgreater{}
+
+\[
+    \begin{aligned}
+        3t^2 & = 3t\cdot t \leq \max{\{3t,12\}}=C_1(t).\\ 
+        12t & = 12\cdot t \leq \max{\{3t,12\}}=C_1(t).
+    \end{aligned}
+\]
+
+Por lo tanto, (Ecuación~\ref{eq-7}) queda de la forma
+
+\begin{equation}\protect\hypertarget{eq-8}{}{
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg] 
+        & \leq 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
+        & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\\ 
+        & \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
+        & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
+    \end{aligned}
+}\label{eq-8}\end{equation}
+
+Por hipotésis, los coeficientes \(b\), \(\alpha\) y \(F\) cumplen con la
+condición (Ecuación~\ref{eq-3}), vale decir
+
+\[
+    |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
+\]
+
+De (Ecuación~\ref{eq-6}) podemos afirmar que
+\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\), tomando valor
+esperado de la ecuación anterior, tenemos
+
+\begin{equation}\protect\hypertarget{eq-9}{}{
+    \begin{aligned}
+        \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\Bigg] & \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\
+        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|<c}|F(Z_0,x)|^2\nu(dx)\Bigg] & \leq K_2(1+\mathbb{E}[|Z_0|^2])\\ 
+        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)& \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
+    \end{aligned}
+}\label{eq-9}\end{equation}
+
+Así de (Ecuación~\ref{eq-8}) y (Ecuación~\ref{eq-9}) tenemos que
+
+\[
+    \begin{aligned}
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+        & \leq C_1(t)\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
+        & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
+        & \leq C_1(t)\cdot t\cdot K_2(1+\mathbb{E}[|Z_0|^2]).
+    \end{aligned}
 \]
 
 \end{proof}
