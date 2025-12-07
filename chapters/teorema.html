@@ -341,9 +341,9 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
     \sup\limits_{0\leq s\leq t}\Bigg(\int_0^s b(Z_0)du\Bigg)^2=\sup\limits_{0\leq s\leq t}(b(Z_0)\cdot s)^2=\sup\limits_{0\leq s\leq t} b(Z_0)^2\cdot s^2= b(Z_0)^2\cdot t^2.
 \]</span></p>
 <p>Consideremos ahora el proceso</p>
-<p><span class="math display">\[
+<p><span id="eq-mart"><span class="math display">\[
     M(s):=\int_0^s \sigma(Z_0)dB(u).
-\]</span></p>
+\tag{4.8}\]</span></span></p>
 <p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Ito, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
@@ -356,7 +356,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = K_2\mathbb{E}[1+|Z_0|^2]\\
         &amp; = K_2 (1+\mathbb{E}[|Z_0|^2]).
     \end{aligned}
-\tag{4.8}\]</span></span></p>
+\tag{4.9}\]</span></span></p>
 <p>Por lo tanto, el proceso <span class="math inline">\(M(s)\)</span> es una martingala. Así, usando la desigualdad maximal de Doob, tenemos que:</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
@@ -397,7 +397,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
-\tag{4.9}\]</span></span></p>
+\tag{4.10}\]</span></span></p>
 <p>Notemos para los terminos en común <span class="math inline">\(3t^2\)</span> y <span class="math inline">\(12t\)</span> podemos definir la variable <span class="math inline">\(C_1(t):=\max{\{3t,12\}}\)</span>, de aquí</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -405,7 +405,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         12t &amp; = 12\cdot t \leq \max{\{3t,12\}}=C_1(t).
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, (<a href="#eq-7">Ecuación&nbsp;<span>4.9</span></a>) queda de la forma</p>
+<p>Por lo tanto, (<a href="#eq-7">Ecuación&nbsp;<span>4.10</span></a>) queda de la forma</p>
 <p><span id="eq-8"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
@@ -414,20 +414,20 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
-\tag{4.10}\]</span></span></p>
+\tag{4.11}\]</span></span></p>
 <p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
 <p><span class="math display">\[
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
 \]</span></p>
-<p>De (<a href="#eq-6">Ecuación&nbsp;<span>4.8</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
+<p>De (<a href="#eq-6">Ecuación&nbsp;<span>4.9</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
 <p><span id="eq-9"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\Bigg] &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|&lt;c}|F(Z_0,x)|^2\nu(dx)\Bigg] &amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)&amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
-\tag{4.11}\]</span></span></p>
-<p>Así de (<a href="#eq-8">Ecuación&nbsp;<span>4.10</span></a>) y (<a href="#eq-9">Ecuación&nbsp;<span>4.11</span></a>) tenemos que</p>
+\tag{4.12}\]</span></span></p>
+<p>Así de (<a href="#eq-8">Ecuación&nbsp;<span>4.11</span></a>) y (<a href="#eq-9">Ecuación&nbsp;<span>4.12</span></a>) tenemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
@@ -468,7 +468,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq 3\Bigg(\Bigg(\int_0^t \Delta b(s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(s)ds\Bigg)^2\\
         &amp;\qquad\quad +\Bigg(\int_0^t\int_{|x|&lt;c}\Delta F(s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
     \end{aligned}
-\tag{4.12}\]</span></span></p>
+\tag{4.13}\]</span></span></p>
 <p>Nuevamente, definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -477,10 +477,10 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
     \end{aligned}
 \]</span></p>
-<p>Por tanto de la (<a href="#eq-10">Ecuación&nbsp;<span>4.12</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
+<p>Por tanto de la (<a href="#eq-10">Ecuación&nbsp;<span>4.13</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
 <p><span id="eq-11"><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\leq 3(A+B+C).
-\tag{4.13}\]</span></span></p>
+\tag{4.14}\]</span></span></p>
 <p>Trabajaremos con cada termino de la desigualdad para poder acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>. Notemos que para <span class="math inline">\(A\)</span> el termino del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que</p>
 <p><span class="math display">\[  
     \Bigg(\int_0^s \Delta b(u)du\Bigg)^2\leq s \int_0^s |\Delta b(u)|^2du,\ \ \forall s\in [0,t].
@@ -504,6 +504,14 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq \mathbb{E}\Bigg[t\int_0^t |\Delta b(u)|^2du\Bigg]\\
         &amp; = t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du
     \end{aligned}
+\]</span></p>
+<p>Definimos al proceso <span class="math inline">\(H(s)\)</span> de la forma</p>
+<p><span class="math display">\[
+    H(s) := \int_0^s \Delta \sigma(u)dB(u)
+\]</span></p>
+<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart">Ecuación&nbsp;<span>4.8</span></a>). Ahora bien, haciendo uso de la desigualdad maximal de Doob</p>
+<p><span class="math display">\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2]
 \]</span></p>
 </div>
 
