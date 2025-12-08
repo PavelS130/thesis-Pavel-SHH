@@ -502,16 +502,37 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
     \begin{aligned}
         A &amp; = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(u)du\Bigg)^2\Bigg]\\
         &amp; \leq \mathbb{E}\Bigg[t\int_0^t |\Delta b(u)|^2du\Bigg]\\
-        &amp; = t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du
+        &amp; = t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du.
     \end{aligned}
 \]</span></p>
 <p>Definimos al proceso <span class="math inline">\(H(s)\)</span> de la forma</p>
 <p><span class="math display">\[
-    H(s) := \int_0^s \Delta \sigma(u)dB(u)
+    H(s) := \int_0^s \Delta \sigma(u)dB(u).
 \]</span></p>
 <p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart">Ecuación&nbsp;<span>4.8</span></a>). Ahora bien, haciendo uso de la desigualdad maximal de Doob</p>
 <p><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2]
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
+\]</span></p>
+<p>Usando la isometría de Ito</p>
+<p><span class="math display">\[
+    \mathbb{E}[|H(s)|^2]=\mathbb{E}\Bigg[\int_0^t |\Delta \sigma(u)|^2 du\Bigg].
+\]</span></p>
+<p>Esto implica que</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        B &amp; = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(|H(s)|^2\right)\Bigg]\\
+        &amp; \leq 4\mathbb{E}[|H(t)|^2]\\
+        &amp; = 4 \mathbb{E}\Bigg[\int_0^t |\Delta \sigma(u)|^2du\Bigg]\\
+        &amp; = 4 \int_0^t \mathbb{E}[|\Delta \sigma(u)|^2]du.
+    \end{aligned}
+\]</span></p>
+<p>Ahora bien, definiendo el proceso</p>
+<p><span class="math display">\[
+    L(s) := \int_0^s\int_{|x|&lt;c} \Delta F(u,x)\widetilde{du,dx}.
+\]</span></p>
+<p>Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad de Doob, obtenemos</p>
+<p><span class="math display">\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}[|L(t)|^2]
 \]</span></p>
 </div>
 
