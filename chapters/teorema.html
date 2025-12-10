@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ecuación de Langevin y su aplicación en la predicción de terremotos - 4&nbsp; Existencia y unicidad fuerte</title>
+<title>Ecuación de Langevin y su aplicación en la predicción de terremotos - 3&nbsp; Existencia y unicidad fuerte</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/referencias.html" rel="next">
-<link href="../chapters/presentacion.html" rel="prev">
+<link href="../chapters/objetivos.html" rel="prev">
 <link href="../assets/UNACH.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -69,9 +69,9 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Ecuación de Langevin y su aplicación en la predicción de terremotos - 4&nbsp; Existencia y unicidad fuerte">
+<meta property="og:title" content="Ecuación de Langevin y su aplicación en la predicción de terremotos - 3&nbsp; Existencia y unicidad fuerte">
 <meta property="og:site-name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="Ecuación de Langevin y su aplicación en la predicción de terremotos - 4&nbsp; Existencia y unicidad fuerte">
+<meta name="twitter:title" content="Ecuación de Langevin y su aplicación en la predicción de terremotos - 3&nbsp; Existencia y unicidad fuerte">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorema.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorema.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -170,20 +170,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/presentacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Presentación sonora</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../chapters/teorema.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/referencias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
   </div>
 </li>
     </ul>
@@ -199,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></h1>
 </div>
 
 
@@ -215,14 +209,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div id="thm-varmues" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 4.1 </strong></span>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la <strong>ecuación diferencial estocástica modificada</strong> (sin saltos grandes):</p>
+<p><span class="theorem-title"><strong>Teorema 3.1 </strong></span>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la <strong>ecuación diferencial estocástica modificada</strong> (sin saltos grandes):</p>
 <p><span id="eq-sde"><span class="math display">\[
 \begin{aligned}
 dZ(t) ={}&amp; b(Z(t-)) \, dt \\
          &amp;+ \sigma(Z(t-)) \, dB(t) \\
          &amp;+ \int_{|x| &lt; c} F(Z(t-), x) \, \widetilde{N}(dt, dx), \qquad t \geq 0,
 \end{aligned}
-\tag{4.1}\]</span></span></p>
+\tag{3.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(Z(0) = Z_0\)</span>, donde <span class="math inline">\(B(t)\)</span> es un movimiento browniano estándar unidimensional (<span class="math inline">\(r=1\)</span>); <span class="math inline">\(N(dt, dx)\)</span> es una medida aleatoria de Poisson definida en <span class="math inline">\(\mathbb{R}_+ \times (\mathbb{R} \setminus \{0\})\)</span> con medida de intensidad <span class="math inline">\(\nu(dx)\)</span>; <span class="math inline">\(\widetilde{N}(dt, dx) = N(dt, dx) - \nu(dx)\,dt\)</span> denota la correspondiente medida compensada; <span class="math inline">\(c \in (0, \infty]\)</span> es un umbral fijo que separa los saltos pequeños de los grandes; y <span class="math inline">\(Z_0\)</span> es una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible, independiente del ruido estocástico.</p>
 <p>Supongamos que los coeficientes <span class="math inline">\(b: \mathbb{R} \to \mathbb{R}\)</span>, <span class="math inline">\(\sigma: \mathbb{R} \to \mathbb{R}\)</span> y <span class="math inline">\(F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\)</span> son funciones <strong>medibles</strong> que satisfacen las siguientes condiciones:</p>
 <section id="c1-condición-de-lipschitz" class="level4 unnumbered">
@@ -234,7 +228,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 &amp; + \int_{|x| &lt; c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
 &amp;\leq K_1 |y_1 - y_2|^2.
 \end{aligned}
-\tag{4.2}\]</span></span></p>
+\tag{3.2}\]</span></span></p>
 </section>
 <section id="c2-condición-de-crecimiento-lineal" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="c2-condición-de-crecimiento-lineal"><strong>(C2) Condición de crecimiento lineal:</strong></h4>
@@ -242,19 +236,19 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-3"><span class="math display">\[
 |b(y)|^2 + |\sigma(y)|^2 + \int_{|x| &lt; c} |F(y, x)|^2 \, \nu(dx)
 \leq K_2 \bigl(1 + |y|^2 \bigr).
-\tag{4.3}\]</span></span></p>
-<p>Bajo las hipótesis anteriores, existe una <strong>única solución fuerte</strong> <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) tal que:</p>
+\tag{3.3}\]</span></span></p>
+<p>Bajo las hipótesis anteriores, existe una <strong>única solución fuerte</strong> <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>3.1</span></a>) tal que:</p>
 <ol type="1">
 <li><span class="math inline">\(Z\)</span> es un <strong>proceso adaptado y cádlág</strong> (continuo por la derecha con límites por la izquierda),</li>
 <li>La solución es única <strong>casi seguramente,</strong> esto es, si <span class="math inline">\((Z')\)</span> es otra solución, entonces<br>
 <span id="eq-4"><span class="math display">\[
 \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-\tag{4.4}\]</span></span></li>
+\tag{3.4}\]</span></span></li>
 </ol>
 </section>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis <strong>(C1)</strong> y <strong>(C2)</strong> para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Ahora bien, la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
+<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>3.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis <strong>(C1)</strong> y <strong>(C2)</strong> para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Ahora bien, la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
 <p><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \]</span></p>
@@ -282,7 +276,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p>Considerando la desigualdad</p>
 <p><span id="eq-des"><span class="math display">\[
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
-\tag{4.5}\]</span></span></p>
+\tag{3.5}\]</span></span></p>
 <p>Tomando valor absoulto y elevando al cuadrado la expreción anterior tenemos que</p>
 <p><span id="eq-4"><span class="math display">\[
     \begin{aligned}
@@ -300,7 +294,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
       + \left(\int_0^t\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
    \Bigg).
 \end{aligned}
-\tag{4.6}\]</span></span></p>
+\tag{3.6}\]</span></span></p>
 <p>Para controlar de manera uniforme en todo el intervalo <span class="math inline">\([0,t]\)</span> tomamos el supremo sobre todo el intervalo, además usando propiedades del supremos podemos obtener</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -331,7 +325,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 &amp;\qquad\quad
     +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
 \end{aligned}
-\tag{4.7}\]</span></span></p>
+\tag{3.7}\]</span></span></p>
 <p>Trabajaremos término por termino; así notemos que la siguiente integral es de Lebesgue</p>
 <p><span class="math display">\[
     \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
@@ -343,12 +337,12 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p>Consideremos ahora el proceso</p>
 <p><span id="eq-mart"><span class="math display">\[
     M(s):=\int_0^s \sigma(Z_0)dB(u).
-\tag{4.8}\]</span></span></p>
+\tag{3.8}\]</span></span></p>
 <p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Ito, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
-<p>Esto pues obteniendo el valor esperado de (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
+<p>Esto pues obteniendo el valor esperado de (<a href="#eq-3">Ecuación&nbsp;<span>3.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
 <p><span id="eq-6"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|\sigma(Z_0)|^2] &amp; \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\
@@ -356,7 +350,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = K_2\mathbb{E}[1+|Z_0|^2]\\
         &amp; = K_2 (1+\mathbb{E}[|Z_0|^2]).
     \end{aligned}
-\tag{4.9}\]</span></span></p>
+\tag{3.9}\]</span></span></p>
 <p>Por lo tanto, el proceso <span class="math inline">\(M(s)\)</span> es una martingala. Así, usando la desigualdad maximal de Doob, tenemos que:</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
@@ -383,7 +377,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
 \]</span></p>
-<p>Así, de la igualdad (<a href="#eq-5">Ecuación&nbsp;<span>4.7</span></a>) tenemos</p>
+<p>Así, de la igualdad (<a href="#eq-5">Ecuación&nbsp;<span>3.7</span></a>) tenemos</p>
 <p><span id="eq-7"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
@@ -397,7 +391,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
-\tag{4.10}\]</span></span></p>
+\tag{3.10}\]</span></span></p>
 <p>Notemos para los terminos en común <span class="math inline">\(3t^2\)</span> y <span class="math inline">\(12t\)</span> podemos definir la variable <span class="math inline">\(C_1(t):=\max{\{3t,12\}}\)</span>, de aquí</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -405,7 +399,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         12t &amp; = 12\cdot t \leq \max{\{3t,12\}}=C_1(t).
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, (<a href="#eq-7">Ecuación&nbsp;<span>4.10</span></a>) queda de la forma</p>
+<p>Por lo tanto, (<a href="#eq-7">Ecuación&nbsp;<span>3.10</span></a>) queda de la forma</p>
 <p><span id="eq-8"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
@@ -414,20 +408,20 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
-\tag{4.11}\]</span></span></p>
-<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
+\tag{3.11}\]</span></span></p>
+<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3">Ecuación&nbsp;<span>3.3</span></a>), vale decir</p>
 <p><span class="math display">\[
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
 \]</span></p>
-<p>De (<a href="#eq-6">Ecuación&nbsp;<span>4.9</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
+<p>De (<a href="#eq-6">Ecuación&nbsp;<span>3.9</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
 <p><span id="eq-9"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\Bigg] &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|&lt;c}|F(Z_0,x)|^2\nu(dx)\Bigg] &amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)&amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
-\tag{4.12}\]</span></span></p>
-<p>Así de (<a href="#eq-8">Ecuación&nbsp;<span>4.11</span></a>) y (<a href="#eq-9">Ecuación&nbsp;<span>4.12</span></a>) tenemos que</p>
+\tag{3.12}\]</span></span></p>
+<p>Así de (<a href="#eq-8">Ecuación&nbsp;<span>3.11</span></a>) y (<a href="#eq-9">Ecuación&nbsp;<span>3.12</span></a>) tenemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
@@ -460,7 +454,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \qquad \quad +\int_0^t\int_{|x|&lt;c}\Delta F(s,x)\widetilde{N}(ds,dx).
     \end{aligned}
 \]</span></p>
-<p>Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (<a href="#eq-des">Ecuación&nbsp;<span>4.5</span></a>), tenemos que</p>
+<p>Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (<a href="#eq-des">Ecuación&nbsp;<span>3.5</span></a>), tenemos que</p>
 <p><span id="eq-10"><span class="math display">\[
     \begin{aligned}
         |Z_{n+1}(t)-Z_n(t)|^2 &amp; = \Bigg( \int_0^t \Delta b(s)ds + \int_0^t \Delta \sigma(s)dB(s)\\
@@ -468,7 +462,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq 3\Bigg(\Bigg(\int_0^t \Delta b(s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(s)ds\Bigg)^2\\
         &amp;\qquad\quad +\Bigg(\int_0^t\int_{|x|&lt;c}\Delta F(s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
     \end{aligned}
-\tag{4.13}\]</span></span></p>
+\tag{3.13}\]</span></span></p>
 <p>Nuevamente, definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -477,10 +471,10 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
     \end{aligned}
 \]</span></p>
-<p>Por tanto de la (<a href="#eq-10">Ecuación&nbsp;<span>4.13</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
+<p>Por tanto de la (<a href="#eq-10">Ecuación&nbsp;<span>3.13</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
 <p><span id="eq-11"><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\leq 3(A+B+C).
-\tag{4.14}\]</span></span></p>
+\tag{3.14}\]</span></span></p>
 <p>Trabajaremos con cada termino de la desigualdad para poder acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>. Notemos que para <span class="math inline">\(A\)</span> el termino del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que</p>
 <p><span class="math display">\[  
     \Bigg(\int_0^s \Delta b(u)du\Bigg)^2\leq s \int_0^s |\Delta b(u)|^2du,\ \ \forall s\in [0,t].
@@ -509,7 +503,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     H(s) := \int_0^s \Delta \sigma(u)dB(u).
 \]</span></p>
-<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart">Ecuación&nbsp;<span>4.8</span></a>). Ahora bien, haciendo uso de la desigualdad maximal de Doob</p>
+<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart">Ecuación&nbsp;<span>3.8</span></a>). Ahora bien, haciendo uso de la desigualdad maximal de Doob</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
 \]</span></p>
@@ -528,7 +522,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \]</span></p>
 <p>Ahora bien, definiendo el proceso</p>
 <p><span class="math display">\[
-    L(s) := \int_0^s\int_{|x|&lt;c} \Delta F(u,x)\widetilde{du,dx}.
+    L(s) := \int_0^s\int_{|x|&lt;c} \Delta F(u,x)\widetilde{N}(du,dx).
 \]</span></p>
 <p>Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad de Doob, obtenemos</p>
 <p><span class="math display">\[
@@ -889,13 +883,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/presentacion.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Presentación sonora</span></span>
+      <a href="../chapters/objetivos.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objetivos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/referencias.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Referencias</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Referencias</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
