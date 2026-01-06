@@ -338,7 +338,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-mart"><span class="math display">\[
     M(s):=\int_0^s \sigma(Z_0)dB(u).
 \tag{3.8}\]</span></span></p>
-<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Ito, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
+<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Itô, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
@@ -355,7 +355,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
 \]</span></p>
-<p>De la isometría de Ito y por el teorema de Fubini</p>
+<p>De la isometría de Itô y por el teorema de Fubini</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|M(t)|^2]\\
@@ -369,7 +369,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     W(s):= \int_0^t\int_{|x|&lt;c}F(Z_0,x)\widetilde{N}(du,dx).
 \]</span></p>
-<p>Podemos afirmar que es una martingala. Usando la isometría de Ito, desigualdad maximal de Doob y por el teorema de Fubini</p>
+<p>Podemos afirmar que es una martingala. Usando la isometría de Itô, desigualdad maximal de Doob y por el teorema de Fubini</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|W(s)|^2]\\
@@ -507,7 +507,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
 \]</span></p>
-<p>Usando la isometría de Ito</p>
+<p>Usando la isometría de Itô</p>
 <p><span class="math display">\[
     \mathbb{E}[|H(s)|^2]=\mathbb{E}\Bigg[\int_0^t |\Delta \sigma(u)|^2 du\Bigg].
 \]</span></p>
@@ -526,7 +526,21 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \]</span></p>
 <p>Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad de Doob, obtenemos</p>
 <p><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}[|L(t)|^2]
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}\left[|L(t)|^2\right]
+\]</span></p>
+<p>Por la isometría de Itô en la medida de Poisson, tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[|L(t)|^2\right] &amp; = \mathbb{E}\Bigg[\int_0^t\Bigg(\int_{|x|&lt;c}|\Delta F(n,u,x)|^2\nu(dx)\Bigg)du\Bigg]\\
+        &amp; = \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du
+    \end{aligned}
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        C &amp; = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left|\int_0^t\int_{|x|&lt;c}\Delta F(n,u,x)\widetilde{N}(du,dx)\right|^2\Bigg]\\
+        &amp; \leq 4 \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du
+    \end{aligned}
 \]</span></p>
 </div>
 
