@@ -526,20 +526,65 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \]</span></p>
 <p>Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad de Doob, obtenemos</p>
 <p><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}\left[|L(t)|^2\right]
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}\left[|L(t)|^2\right].
 \]</span></p>
 <p>Por la isometría de Itô en la medida de Poisson, tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[|L(t)|^2\right] &amp; = \mathbb{E}\Bigg[\int_0^t\Bigg(\int_{|x|&lt;c}|\Delta F(n,u,x)|^2\nu(dx)\Bigg)du\Bigg]\\
-        &amp; = \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du
+        &amp; = \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
     \end{aligned}
 \]</span></p>
 <p>Por lo tanto</p>
 <p><span class="math display">\[
     \begin{aligned}
         C &amp; = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left|\int_0^t\int_{|x|&lt;c}\Delta F(n,u,x)\widetilde{N}(du,dx)\right|^2\Bigg]\\
-        &amp; \leq 4 \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du
+        &amp; \leq 4 \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
+    \end{aligned}
+\]</span></p>
+<p>Así de (<a href="#eq-11">Ecuación&nbsp;<span>3.14</span></a>)</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] &amp; \leq 3(A+B+C)\\
+        &amp; \leq 3\Bigg(t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\
+        &amp; \qquad + 4\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\Bigg)\\
+        &amp;  \qquad\quad + 4\int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
+        &amp; = 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\
+        &amp; \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\
+        &amp;  \qquad\quad + 12\int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
+    \end{aligned}
+\]</span></p>
+<p>Recordemos que <span class="math inline">\(C_1(t)=\max\{3t,12\}\)</span>, por lo tanto, <span class="math inline">\(3t\leq C_1(t)\)</span> y <span class="math inline">\(12\leq C_1(t)\)</span>, así</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] &amp; \leq 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\
+        &amp; \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\
+        &amp;  \qquad\quad + 12\int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
+        &amp; \leq C_1(t)\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\
+        &amp; \qquad + C_1(t)\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\
+        &amp;  \qquad\quad + C_1(t)\int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
+        &amp; = C_1(t)\int_0^t\Bigg(\mathbb{E}\left[|\Delta b(n,u)|^2\right]+\mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]\\
+        &amp; \qquad + \int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)\Bigg)du.
+    \end{aligned}
+\]</span></p>
+<p>Recordemos que si <span class="math inline">\(f:[0,t]\)</span> es una función, entonces para todo <span class="math inline">\(v\in [0,t]\)</span> se cumple que</p>
+<p><span class="math display">\[
+    |f(v)|\leq \sup\limits_{0\leq u\leq t}|f(u)|.
+\]</span></p>
+<p>Así, tenemos que</p>
+<p><span class="math display">\[
+    |Z_n(u-)-Z_{n-1}(u-)|^2\leq \sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2.
+\]</span></p>
+<p>Tomando valor esperado, el cual, preserva la desigualdad, además, multiplicando por <span class="math inline">\(K_1&gt;0\)</span>, obtenemos</p>
+<p><span id="eq-12"><span class="math display">\[
+    K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+\tag{3.15}\]</span></span></p>
+<p>Ahora bien, por la hipotesis (<a href="#eq-lipschitz">Ecuación&nbsp;<span>3.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
+<p><span class="math display">\[
+    \begin{aligned}
+    |b(y_1) - b(y_2)|^2 &amp; + |\sigma(y_1) - \sigma(y_2)|^2\\
+    &amp; + \int_{|x| &lt; c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
+    &amp;\qquad \quad \leq K_1 |y_1 - y_2|^2.
     \end{aligned}
 \]</span></p>
 </div>
