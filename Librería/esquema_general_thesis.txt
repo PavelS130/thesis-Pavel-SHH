@@ -1,0 +1,163 @@
+## Esquema Riguroso para el Estudio de Convergencia de Métodos Numéricos CSSBE, CSTM y CSSθ para EDE con Difusión y Saltos
+
+A continuación presento un esquema estructurado con rigor matemático para abordar sistemáticamente el estudio de convergencia de estos métodos, organizado en etapas lógicas progresivas:
+
+---
+
+### **Etapa 1: Fundamentos Teóricos del Problema Continuo**
+
+#### 1.1 Formulación de la EDE con saltos
+Considerar el sistema:
+$$dX(t) = f(X(t^-))dt + g(X(t^-))dW(t) + h(X(t^-))dN(t), \quad X(0^-) = X_0$$
+donde:
+- $W(t)$ es un proceso de Wiener $m$-dimensional
+- $N(t)$ es un proceso de Poisson escalar con intensidad $\lambda > 0$
+- $X(t^-) = \lim_{s \to t^-} X(s)$ denota el límite por la izquierda
+
+#### 1.2 Proceso de Poisson compensado
+Definir $\tilde{N}(t) := N(t) - \lambda t$, martingala que satisface:
+$$\mathbb{E}[\tilde{N}(t+s) - \tilde{N}(t)] = 0, \quad \mathbb{E}[|\tilde{N}(t+s) - \tilde{N}(t)|^2] = \lambda s$$
+Reescribir la EDE en forma compensada:
+$$dX(t) = f_\lambda(X(t^-))dt + g(X(t^-))dW(t) + h(X(t^-))d\tilde{N}(t)$$
+con $f_\lambda(x) := f(x) + \lambda h(x)$.
+
+#### 1.3 Condiciones de regularidad sobre coeficientes
+Establecer jerarquía de hipótesis:
+- **(H1) Lipschitz global**: $\exists L > 0$ tal que $\forall x,y \in \mathbb{R}^n$:
+  $$\|f(x)-f(y)\|^2 \vee \|g(x)-g(y)\|^2 \vee \|h(x)-h(y)\|^2 \leq L\|x-y\|^2$$
+- **(H2) Crecimiento lineal**: $\exists K > 0$ tal que $\forall x \in \mathbb{R}^n$:
+  $$\|f(x)\|^2 \vee \|g(x)\|^2 \vee \|h(x)\|^2 \leq K(1 + \|x\|^2)$$
+- **(H3) Lipschitz unilateral (one-sided) para $f$**: $\exists \mu \in \mathbb{R}$ tal que:
+  $$\langle x-y, f(x)-f(y) \rangle \leq \mu \|x-y\|^2, \quad \forall x,y \in \mathbb{R}^n$$
+  (Nota: (H1) $\Rightarrow$ (H3) con $\mu = L$, pero (H3) es más débil y permite no linealidades polinomiales)
+
+#### 1.4 Existencia, unicidad y acotaciones de momentos
+Demostrar bajo (H2)-(H3):
+- Existencia y unicidad de solución càdlàg en $[0,T]$
+- Acotación de momentos: $\forall p \geq 2$, $\exists C_p(T) > 0$ tal que:
+  $$\mathbb{E}\left[\sup_{0 \leq t \leq T} \|X(t)\|^p\right] \leq C_p(T)(1 + \mathbb{E}\|X_0\|^p)$$
+*(Ref: Lemma 1 en Higham & Kloeden 2005; Lemma 2.1 en Tan & Men 2017)*
+
+---
+
+### **Etapa 2: Formulación de los Métodos Numéricos**
+
+#### 2.1 Método CSSBE (Compensated Split-Step Backward Euler)
+Para $t_n = n\Delta t$, $Y_0 = X_0$:
+$$\begin{cases}
+Y_n^* = Y_n + f_\lambda(Y_n^*)\Delta t \\
+Y_{n+1} = Y_n^* + g(Y_n^*)\Delta W_n + h(Y_n^*)\Delta \tilde{N}_n
+\end{cases}$$
+donde $\Delta W_n = W(t_{n+1}) - W(t_n)$, $\Delta \tilde{N}_n = \tilde{N}(t_{n+1}) - \tilde{N}(t_n)$.
+
+#### 2.2 Método CSTM (Compensated Stochastic Theta Method)
+Para $\theta \in [0,1]$:
+$$Y_{n+1} = Y_n + (1-\theta)f_\lambda(Y_n)\Delta t + \theta f_\lambda(Y_{n+1})\Delta t + g(Y_n)\Delta W_n + h(Y_n)\Delta \tilde{N}_n$$
+*(Nota: CSSBE $\equiv$ CSTM con $\theta = 1$)*
+
+#### 2.3 Método CSSθ (Compensated Split-Step θ-Method)
+Generalización de CSSBE:
+$$\begin{cases}
+Y_n^* = Y_n + \theta f_\lambda(Y_n^*)\Delta t \\
+Y_{n+1} = Y_n + f_\lambda(Y_n^*)\Delta t + g(Y_n^*)\Delta W_n + h(Y_n^*)\Delta \tilde{N}_n
+\end{cases}$$
+*(Nota: CSSθ con $\theta = 1$ $\equiv$ CSSBE; CSSθ con $\theta = 0$ $\equiv$ método explícito compensado)*
+
+#### 2.4 Extensiones continuas en tiempo
+Definir interpolantes continuos $\bar{Y}(t)$ que coincidan con $Y_n$ en $t_n$ para aplicar desigualdades de Gronwall continuas.
+
+---
+
+### **Etapa 3: Análisis de Convergencia Fuerte**
+
+#### 3.1 Estrategia general de demostración
+Para probar $\lim_{\Delta t \to 0} \mathbb{E}\left[\sup_{0 \leq t \leq T} \|\bar{Y}(t) - X(t)\|^2\right] = 0$:
+
+**Paso 3.1.1**: Acotar momentos numéricos
+- Demostrar $\exists A > 0$ (independiente de $\Delta t$) tal que:
+  $$\mathbb{E}\left[\sup_{0 \leq n\Delta t \leq T} \|Y_n\|^{2p}\right] \vee \mathbb{E}\left[\sup_{0 \leq n\Delta t \leq T} \|Y_n^*\|^{2p}\right] \leq A$$
+  *(Ref: Lemma 4.1 en Tan & Men 2017; Lemma 2.2 en Wang & Gan 2010)*
+
+**Paso 3.1.2**: Control del error local
+- Acotar $\mathbb{E}\left[\sup_{t_n \leq s < t_{n+1}} \|\bar{Y}(s) - Y_n\|^2\right] \leq C\Delta t$
+  *(Ref: Lemma 5.1 en Tan & Men 2017; Lemma 2.3 en Wang & Gan 2010)*
+
+**Paso 3.1.3**: Descomposición del error global
+- Para $e(t) = \bar{Y}(t) - X(t)$, usar:
+  $$\|e(t)\|^2 \leq 3\left\|\int_0^t [f_\lambda(\bar{Y}(s)) - f_\lambda(X(s^-))]ds\right\|^2 + 3M_1(t) + 3M_2(t)$$
+  donde $M_1, M_2$ son martingalas asociadas a los términos de difusión y salto.
+
+**Paso 3.1.4**: Aplicar desigualdades clave
+- Desigualdad de Cauchy-Schwarz para la integral de drift
+- Desigualdad de Doob para martingalas: $\mathbb{E}[\sup_{0 \leq s \leq t} |M(s)|^2] \leq 4\mathbb{E}[|M(t)|^2]$
+- Isometría de Itô para integrales estocásticas
+
+**Paso 3.1.5**: Aplicar desigualdad de Gronwall
+- Obtener: $\mathbb{E}\left[\sup_{0 \leq s \leq t} \|e(s)\|^2\right] \leq C\Delta t + C\int_0^t \mathbb{E}\left[\sup_{0 \leq r \leq s} \|e(r)\|^2\right]ds$
+- Concluir por Gronwall continuo: $\mathbb{E}\left[\sup_{0 \leq t \leq T} \|e(t)\|^2\right] \leq C\Delta t$
+
+#### 3.2 Tasa óptima de convergencia fuerte
+Bajo hipótesis adicionales:
+- **(H4) Crecimiento polinomial del drift**: $\exists D > 0, q \in \mathbb{Z}^+$ tal que:
+  $$\|f(x) - f(y)\|^2 \leq D(1 + \|x\|^q + \|y\|^q)\|x-y\|^2$$
+Demostrar tasa óptima $\mathcal{O}(\Delta t^{1/2})$:
+$$\mathbb{E}\left[\sup_{0 \leq t \leq T} \|\bar{Y}(t) - X(t)\|^2\right] = \mathcal{O}(\Delta t)$$
+*(Ref: Teorema 5.2 en Tan & Men 2017; Teorema 2.1 en Wang & Gan 2010)*
+
+---
+
+### **Etapa 4: Análisis de Estabilidad No Lineal**
+
+#### 4.1 Estabilidad en media cuadrática del problema continuo
+Bajo (H3)-(H4), demostrar que si $\alpha := 2\mu + L_g + \lambda\sqrt{L_h}(\sqrt{L_h} + 2) < 0$, entonces:
+$$\mathbb{E}\|X(t) - Y(t)\|^2 \leq \mathbb{E}\|X_0 - Y_0\|^2 e^{\alpha t}$$
+*(Ref: Teorema 4 en Higham & Kloeden 2005)*
+
+#### 4.2 Estabilidad del método CSSBE
+Demostrar que si $\alpha < 0$, entonces $\forall \Delta t > 0$:
+$$\mathbb{E}\|Y_n^X - Y_n^Y\|^2 \leq \mathbb{E}\|X_0 - Y_0\|^2 e^{\hat{\beta}(\Delta t)n\Delta t}, \quad \hat{\beta}(\Delta t) = \frac{1}{\Delta t}\log\left(\frac{1 + \Delta t(L_g + \lambda L_h)}{1 - 2\Delta t(\mu + \lambda\sqrt{L_h})}\right) < 0$$
+*(Ref: Teorema 6 en Higham & Kloeden 2005; Teorema 4.3 en Wang & Gan 2010)*
+
+#### 4.3 Generalización de B-estabilidad
+Mostrar que CSSBE preserva contracción en media cuadrática sin restricción en $\Delta t$ cuando $\mu + \lambda\sqrt{L_h} < 0$, análogo a la B-estabilidad determinística.
+
+---
+
+### **Etapa 5: Estabilidad Lineal y A-estabilidad**
+
+#### 5.1 Problema lineal de prueba
+$$dX(t) = aX(t^-)dt + bX(t^-)dW(t) + cX(t^-)dN(t)$$
+Condición de estabilidad exacta: $l := 2a + b^2 + \lambda c(2 + c) < 0$
+
+#### 5.2 Caracterización de A-estabilidad para CSTM
+Demostrar que CSTM es A-estable ($\lim_{n \to \infty} \mathbb{E}|Y_n|^2 = 0$ para todo $\Delta t > 0$ cuando $l < 0$) **si y solo si** $\frac{1}{2} \leq \theta \leq 1$.
+*(Ref: Teorema 3.1 en Wang & Gan 2010)*
+
+#### 5.3 Simetría de salto
+Analizar la propiedad de simetría $c \leftrightarrow -2-c$ y demostrar que solo CSTM con $\theta = \frac{1}{2}$ la preserva exactamente.
+
+---
+
+### **Etapa 6: Relación entre los Métodos y Comparación**
+
+| Propiedad | CSSBE ($\theta=1$) | CSTM ($\frac{1}{2} \leq \theta \leq 1$) | CSSθ ($0 < \theta \leq 1$) |
+|-----------|-------------------|----------------------------------------|---------------------------|
+| Convergencia fuerte | $\mathcal{O}(\Delta t^{1/2})$ | $\mathcal{O}(\Delta t^{1/2})$ | $\mathcal{O}(\Delta t^{1/2})$ |
+| Existencia solución | $\Delta t(\mu + \lambda\sqrt{L_h}) < 1$ | $\Delta t(\mu + \lambda\sqrt{L_h}) < \frac{1}{\theta}$ | $\Delta t K_\lambda < \frac{1}{\theta}$ |
+| A-estabilidad lineal | Sí | Sí ($\theta \geq \frac{1}{2}$) | Depende de $\theta$ |
+| B-estabilidad no lineal | Sí (sin restricción $\Delta t$) | Parcial | Parcial |
+| Simetría de salto | No | Solo $\theta = \frac{1}{2}$ | No |
+
+---
+
+### **Etapa 7: Estrategia para tu Tesis**
+
+1. **Capítulo 1**: Marco teórico de EDE con saltos (existencia, unicidad, momento bounds)
+2. **Capítulo 2**: Derivación sistemática de los tres métodos a partir del proceso compensado
+3. **Capítulo 3**: Demostración detallada de convergencia fuerte bajo (H1)-(H2)
+4. **Capítulo 4**: Extensión a coeficientes no globalmente Lipschitz usando (H3)-(H4)
+5. **Capítulo 5**: Análisis comparativo de estabilidad lineal y no lineal
+6. **Capítulo 6**: Experimentos numéricos validando tasas de convergencia y propiedades de estabilidad
+7. **Apéndice**: Demostraciones técnicas de lemas auxiliares (desigualdades de Burkholder-Davis-Gundy para procesos con saltos)
+
+**Recomendación clave**: Enfócate en la demostración paso a paso del Teorema 5.2 de Tan & Men (2017), ya que unifica los resultados de convergencia para CSSθ bajo condiciones no globales de Lipschitz, y constituye una contribución significativa respecto a los trabajos previos de Higham & Kloeden (2005) y Wang & Gan (2010).

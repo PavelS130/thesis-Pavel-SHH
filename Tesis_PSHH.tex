@@ -51,46 +51,6 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -175,6 +135,10 @@
 \newtheorem{definition}{Definición}[chapter]
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[chapter]
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposición}[chapter]
+\theoremstyle{plain}
+\newtheorem{corollary}{Corolario}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Prueba}}
 \newtheorem*{remark}{Observación}
@@ -282,7 +246,7 @@ García Gómez}
 %\end{flushright}
 
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, breakable, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable, enhanced, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Tabla de contenidos}
 {
@@ -404,6 +368,198 @@ trayectorias dinámicas realistas.
 
 \bookmarksetup{startatroot}
 
+\hypertarget{preliminares}{%
+\chapter{Preliminares}\label{preliminares}}
+
+\hypertarget{anuxe1lisis-real-y-funcional-base-analuxedtica.}{%
+\section{Análisis Real y Funcional (Base
+Analítica).}\label{anuxe1lisis-real-y-funcional-base-analuxedtica.}}
+
+\begin{definition}[]\protect\hypertarget{def-espacio_metrico}{}\label{def-espacio_metrico}
+
+\textbf{Espacio métrico}\\
+Llamamos espacio métrico al par \((X, d)\), donde \(X\) es un conjunto
+no vacío y \(d: X \times X \to [0, \infty)\) es una función (llamada
+métrica) que satisface, para todo \(x, y, z \in X\):
+
+\begin{itemize}
+\item
+  \(d(x, y) = 0 \iff x = y\),
+\item
+  \(d(x, y) = d(y, x)\),
+\item
+  \(d(x, z) \leq d(x, y) + d(y, z)\).
+\end{itemize}
+
+\end{definition}
+
+\begin{definition}[]\protect\hypertarget{def-sucesion_cauchy}{}\label{def-sucesion_cauchy}
+
+\textbf{Sucesión de Cauchy.}\\
+Una sucesión \((x_n)_{n \in \mathbb{N}}\) en un espacio métrico
+\((X, d)\) es una sucesión de Cauchy si para todo \(\varepsilon > 0\),
+existe \(N \in \mathbb{N}\) tal que
+
+\[
+m, n \geq N \implies d(x_m, x_n) < \varepsilon.
+\]
+
+\end{definition}
+
+\begin{definition}[]\protect\hypertarget{def-esp_metrico_comp}{}\label{def-esp_metrico_comp}
+
+\textbf{Espacio métrico completo}\\
+Un espacio métrico \((X, d)\) se dice completo si toda sucesión de
+Cauchy en \(X\) converge a un límite en \(X\).
+
+\end{definition}
+
+El espacio \(\mathbb{R}\) con la métrica \(d(x, y) = |x - y|\) es
+completo.
+
+\begin{definition}[]\protect\hypertarget{def-sigma_algebra}{}\label{def-sigma_algebra}
+
+\textbf{\(\sigma\)-álgebra de Borel.}\\
+La \(\sigma\)-álgebra de Borel en \(\mathbb{R}\), denotada
+\(\mathcal{B}(\mathbb{R})\), es la \(\sigma\)-álgebra generada por los
+intervalos abiertos de \(\mathbb{R}\).
+
+\end{definition}
+
+\begin{definition}[]\protect\hypertarget{def-fun_borel}{}\label{def-fun_borel}
+
+\textbf{Función Borel Medible}\\
+Una función \(f: \mathbb{R} \to \mathbb{R}\) es Borel-medible si para
+todo \(B \in \mathcal{B}(\mathbb{R})\), se tiene que
+\(f^{-1}(B) \in \mathcal{B}(\mathbb{R})\).
+
+\end{definition}
+
+\begin{theorem}[]\protect\hypertarget{thm-}{}\label{thm-}
+
+Toda función continua \(f: \mathbb{R}\to \mathbb{R}\) es Borel-medible.
+
+\end{theorem}
+
+\begin{proof}
+
+Si \(f\) es continua, la preimagen de cualquier conjunto abierto es
+abierta. Como los abiertos generan \(\mathcal{B}(\mathbb{R})\) y la
+preimagen conmuta con uniones, intersecciones numerables y complementos,
+se sigue que \(f^{-1}(B) \in \mathcal{B}(\mathbb{R})\) para todo
+\(B \in \mathcal{B}(\mathbb{R})\).
+
+\end{proof}
+
+\hypertarget{espacios-l2-y-convergencia.}{%
+\section{\texorpdfstring{Espacios \(L^2\) y
+convergencia.}{Espacios L\^{}2 y convergencia.}}\label{espacios-l2-y-convergencia.}}
+
+\begin{definition}[]\protect\hypertarget{def-espacio_l2}{}\label{def-espacio_l2}
+
+Sea \((\Omega,\mathcal{F},\mathbb{P})\) un espacio de probabilidad. EL
+espacio \(L^2(\Omega, \mathcal{F}, \mathbb{P})\) se define como
+
+\[
+L^2 = \left\{ X: \Omega \to \mathbb{R} \mid X \text{ es } \mathcal{F}\text{-medible y } \mathbb{E}[|X|^2] < \infty \right\}.
+\]
+
+\end{definition}
+
+\begin{definition}[]\protect\hypertarget{def-norma_l2}{}\label{def-norma_l2}
+
+Para \(X \in L^2\), su norma se define como
+
+\[
+\|X\|_{L^2} = \left( \mathbb{E}[|X|^2] \right)^{1/2}.
+\]
+
+\end{definition}
+
+\begin{definition}[]\protect\hypertarget{def-conv_l2}{}\label{def-conv_l2}
+
+Una sucesión \((X_n)_{n \in \mathbb{N}} \subset L^2\) converge en
+\(L^2\) a \(X \in L^2\) si
+
+\[
+\lim_{n \to \infty} \|X_n - X\|_{L^2} = 0,
+\]
+
+es decir, \(\lim\limits_{n \to \infty} \mathbb{E}[|X_n - X|^2] = 0\).
+
+\end{definition}
+
+\hypertarget{espacios-de-banach}{%
+\section{Espacios de Banach}\label{espacios-de-banach}}
+
+\begin{definition}[]\protect\hypertarget{def-esp_banach}{}\label{def-esp_banach}
+
+Un espacio de Banach es un espacio vectorial normado \((X, \|\cdot\|)\)
+que es completo con respecto a la métrica inducida por la norma, es
+decir, toda sucesión de Cauchy en \(X\) converge en \(X\).
+
+\end{definition}
+
+El espacio \(L^2(\Omega, \mathcal{F}, \mathbb{P})\) es un espacio de
+Banach (de hecho, un espacio de Hilbert).
+
+\begin{definition}[]\protect\hypertarget{def-criterio_cauchy_esp_norm}{}\label{def-criterio_cauchy_esp_norm}
+
+Una sucesión \((x_n)_{n \in \mathbb{N}}\) en un espacio normado
+\((X, \|\cdot\|)\) es de Cauchy si para todo \(\varepsilon > 0\), existe
+\(N \in \mathbb{N}\) tal que
+
+\[
+m, n \geq N \implies \|x_m - x_n\| < \varepsilon.
+\]
+
+\end{definition}
+
+En \(\mathbb{R}\), esto se reduce a: \((x_n)\) es de Cauchy si
+\(|x_m - x_n| < \varepsilon\) para \(m, n\) suficientemente grandes.
+
+\hypertarget{desigualdades}{%
+\section{Desigualdades}\label{desigualdades}}
+
+\begin{proposition}[]\protect\hypertarget{prp-des_triangulo}{}\label{prp-des_triangulo}
+
+Para cualesquiera \(a_1, \dots, a_n \in \mathbb{R}\),
+
+\[
+\left( \sum_{i=1}^n a_i \right)^2 \leq n \sum_{i=1}^n a_i^2.
+\]
+
+En particular, para \(n = 3\),
+
+\[
+(a + b + c)^2 \leq 3(a^2 + b^2 + c^2).
+\]
+
+\end{proposition}
+
+\begin{proposition}[]\protect\hypertarget{prp-des_cauchy_schwarz}{}\label{prp-des_cauchy_schwarz}
+
+Sean \(f, g: [0, T] \to \mathbb{R}\) funciones medibles tales que
+\(f, g \in L^2([0, T])\). Entonces
+
+\[
+\left| \int_0^T f(s) g(s) \, ds \right| \leq \left( \int_0^T |f(s)|^2 \, ds \right)^{1/2} \left( \int_0^T |g(s)|^2 \, ds \right)^{1/2}.
+\]
+
+\end{proposition}
+
+\begin{corollary}[]\protect\hypertarget{cor-cauchy_schwarz}{}\label{cor-cauchy_schwarz}
+
+Si \(g \equiv 1\), entonces para todo \(t \in [0, T]\),
+
+\[
+\left( \int_0^t f(s) \, ds \right)^2 \leq t \int_0^t |f(s)|^2 \, ds.
+\]
+
+\end{corollary}
+
+\bookmarksetup{startatroot}
+
 \hypertarget{objetivos}{%
 \chapter{Objetivos}\label{objetivos}}
 
@@ -411,329 +567,6 @@ trayectorias dinámicas realistas.
 \section{Los objetivos de este proyecto se estarán afinando dentro de
 las proximas
 semanas.}\label{los-objetivos-de-este-proyecto-se-estaruxe1n-afinando-dentro-de-las-proximas-semanas.}}
-
-\bookmarksetup{startatroot}
-
-\hypertarget{presentaciuxf3n-sonora}{%
-\chapter{Presentación sonora}\label{presentaciuxf3n-sonora}}
-
-\hypertarget{introducciuxf3n-1}{%
-\section{Introducción}\label{introducciuxf3n-1}}
-
-El análisis de la recurrencia sísmica representa un pilar fundamental
-dentro de la sismología estadística. Un enfoque riguroso para abordar
-esta problemática consiste en modelar la ocurrencia y evolución de los
-sismos mediante un proceso estocástico de tiempo discreto,
-específicamente utilizando cadenas de Markov.
-
-Este marco metodológico permite representar los estados de intensidad
-sísmica ---definidos mediante intervalos de magnitud como baja, media y
-alta--- y examinar las probabilidades de transición entre ellos. A
-partir de series temporales de registros sísmicos, se construye una
-estructura probabilística que caracteriza el comportamiento recurrente
-de los sismos y provee estimaciones cuantitativas del riesgo sísmico
-futuro.
-
-El artículo `'Estimates of earthquake recurrences in the Chiayi--Tainan
-area, Taiwan'', publicado en 2002, aborda un tema de gran relevancia
-para la sismología y la gestión de riesgos naturales: la estimación de
-la recurrencia de terremotos en una región altamente sísmica del
-suroeste de Taiwán.
-
-Los temas abordados en dicho articulo son los siguientes:
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  Ley de Gutenburg - Richter.
-\item
-  Cadenas de Markov.
-\item
-  Tiene como objetivo estudiar los periodos de retorno para los
-  terremotos de distinta escala.
-\item
-  Se calcula a partir de la amplitud de las ondas sísmicas registradas
-  en un sismografo.
-\end{enumerate}
-
-\hypertarget{escala-richter}{%
-\subsection{Escala Richter}\label{escala-richter}}
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  Es una escala logarítmica que cuantifica la energía liberada por un
-  terremoto, basada en la amplitud máxima de las ondas sísmicas
-  registradas.
-\item
-  La magnitud se calcula mediante la fórmula: \[
-  M = \log_{10}(A) - \log_{10}(A_0)
-  \] donde \(A\) es la amplitud medida y \(A_0\) es un valor de
-  referencia dependiente de la distancia al epicentro.
-\item
-  Permite comparar la intensidad de diferentes eventos sísmicos y
-  clasificar su peligrosidad.
-\end{enumerate}
-
-\hypertarget{definiciones}{%
-\section{Definiciones}\label{definiciones}}
-
-\begin{definition}[Espacio de Estados y Clasificación de INtensidades de
-sísmos]\protect\hypertarget{def-varmues}{}\label{def-varmues}
-
-Sea \(M:=\{M_1,M_2,\ldots, M_k\}\) el conjunto finito de estados de
-intensidad sísmica, definimos como intervalos en la escala de Richter de
-la siguiente manera:
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  \(M_2\): Sismos de encala entre \(2\leq M_2\leq 2.9\)
-\item
-  \(M_3\): Sismos de encala entre \(3\leq M_3\leq 3.9\)
-\item
-  \(M_4\): Sismos de encala entre \(4\leq M_4\leq 4.9\)
-\item
-  \(M_5\): Sismos de encala entre \(5\leq M_5\leq 5.9\)
-\item
-  \(M_6\): Sismos de encala entre \(6\leq M_6\leq 6.9\)
-\item
-  \(M_7\): Sismos de encala entre \(7\leq M_7\leq 7.9\).
-\end{enumerate}
-
-Cada sismo captado se clasifica en un estado \(M_i\) correspondiente a
-su magnitud, generando una serie temporal categórica
-\(\{X_t\}_{t=0}^{T}\), donde \(X_t\in M\)
-
-\end{definition}
-
-\begin{definition}[Proceso
-estocástico]\protect\hypertarget{def-varmues}{}\label{def-varmues}
-
-Un proceso estocástico es un modelo matemático que describe la evolución
-probabilística de un sistema a lo largo del tiempo o el espacio. Se
-define formalmente como una familia de variables aleatorias, donde cada
-una representa el estado del sistema en un momento o posición
-específicos.
-
-Esta familia se denota como: \[\{X_t\}_{t\in T}.\] Donde:
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  \(X_t\) es la variable aleatoria que representa el estado del sistema
-  en el instante \(t\).
-\item
-  \(T\) es el conjunto de índices (por ejemplo, un intervalo de tiempo o
-  una región espacial).
-\end{enumerate}
-
-\end{definition}
-
-\begin{definition}[Proceso de
-Markov]\protect\hypertarget{def-varmues}{}\label{def-varmues}
-
-Es un proceso estocástico \(\{X_n\}_{n\in T}\), que cumple: \[
-\begin{aligned}
-P(X_{n+1}=x_{n+1}|& X_n=x_n,\ X_{n-1}=x_{n-1},\ldots,X_0=x_0)\\ 
-& =P(X_{n+1}=x_{n+1}|X_n=x_n)
-\end{aligned}
-\]
-
-\end{definition}
-
-\begin{definition}[Matriz de
-transición]\protect\hypertarget{def-varmues}{}\label{def-varmues}
-
-A partir de la serie de datos sísmicos clasificados, es posible
-construir la matriz de transición \[
-P:[p_{ij}], \ p_{ij}=P(X_{t+1}=M_j|X_t=M_i)
-\] Con la propiedad de que cada fila de \(P\) es una distribución de
-probabilidad, vale decir \[
-\sum\limits_{j=1}^{k} p_{ij}=1,\ p_{ij}\geq 0\ \ \forall i,j
-\]
-
-\end{definition}
-
-\bookmarksetup{startatroot}
-
-\hypertarget{formulaciuxf3n}{%
-\chapter{Formulación}\label{formulaciuxf3n}}
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  Analiza la periodicidad de terremotos en la región de Chiayi-Tainan,
-  Taiwán, utilizando Cadenas de Markov.
-\item
-  Revelan un patrón significativo en la recurrencia de terremotos.
-\item
-  Demuestran que las cadenas de Markov son una herramienta efectiva para
-  modelar el comportamiento sísmico.
-\item
-  Son útiles para la evaluación del riesgo sísmico en la región.
-\end{enumerate}
-
-Se categorizarón los siguientes cinturones sísmicos:
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  Zona sísmica occidental (WSZ).
-\item
-  Zona sísmica oriental (ESZ).
-\item
-  Zona sísmica noroeste (NSZ).
-\end{enumerate}
-
-La zona de estudio cuenta con doce fallas activas. Los terremotos se
-cuantifican con la escla de magnitud local de Richter, representada como
-\(M_L\), donde \(L\) representa la magnitud, \((M)\), del sísmo, por
-ejemplo, la categoría \(M_4\) representa sísmos de magitud entre \(4\) y
-\(4.9\). En este estudio se prepararon dos bases de datos:
-
-\begin{enumerate}
-\def\labelenumi{\roman{enumi}.}
-\item
-  \(M_L\geq 4\) con \(283\) eventos de 1990 a 1995.
-\item
-  \(M_L\geq 2\) con \(3816\) eventos de 1973 a 1995.
-\end{enumerate}
-
-\bookmarksetup{startatroot}
-
-\hypertarget{anuxe1lisis-con-matrices-de-transiciuxf3n}{%
-\chapter{Análisis con matrices de
-transición}\label{anuxe1lisis-con-matrices-de-transiciuxf3n}}
-
-Si la ocurrencia de un terremoto está estrechamente relacionada con la
-replica anterior, se puede aplicar un análisis de cadenas de Markov
-especificada con una transición de un paso para estudiar la periodicidad
-sísmica y obtener las aproximaciones de las probabilidades de
-transición.
-
-\bookmarksetup{startatroot}
-
-\hypertarget{simulaciuxf3n-de-trayectorias-y-eventos-suxedsmicos}{%
-\chapter{Simulación de trayectorias y eventos
-sísmicos}\label{simulaciuxf3n-de-trayectorias-y-eventos-suxedsmicos}}
-
-El siguiente código genera trayectorias con ruido y eventos cuando se
-supera un umbral crítico de velocidad.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
-\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
-\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
-
-\CommentTok{\# {-}{-}{-} Parámetros base {-}{-}{-}}
-\NormalTok{gamma }\OperatorTok{=} \FloatTok{0.8}
-\NormalTok{Fext }\OperatorTok{=} \FloatTok{1.0}
-\NormalTok{D }\OperatorTok{=} \FloatTok{0.5}
-\NormalTok{lambda\_poisson }\OperatorTok{=} \FloatTok{1.0}   \CommentTok{\# tasa de saltos por segundo}
-\NormalTok{jump\_mean }\OperatorTok{=} \FloatTok{1.0}        \CommentTok{\# media del tamaño del salto (exponencial)}
-\NormalTok{jump\_scale }\OperatorTok{=} \FloatTok{0.5}       \CommentTok{\# desviación típica o escala del salto}
-\NormalTok{dt }\OperatorTok{=} \FloatTok{0.01}
-\NormalTok{T }\OperatorTok{=} \FloatTok{10.0}
-\NormalTok{N }\OperatorTok{=} \BuiltInTok{int}\NormalTok{(T }\OperatorTok{/}\NormalTok{ dt)}
-\NormalTok{n\_traj }\OperatorTok{=} \DecValTok{10}
-
-\NormalTok{t }\OperatorTok{=}\NormalTok{ np.linspace(}\DecValTok{0}\NormalTok{, T, N)}
-\NormalTok{v }\OperatorTok{=}\NormalTok{ np.zeros((n\_traj, N))}
-
-\CommentTok{\# {-}{-}{-} Simulación con saltos de Poisson {-}{-}{-}}
-\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n\_traj):}
-    \ControlFlowTok{for}\NormalTok{ n }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(N }\OperatorTok{{-}} \DecValTok{1}\NormalTok{):}
-\NormalTok{        dW }\OperatorTok{=}\NormalTok{ np.sqrt(dt) }\OperatorTok{*}\NormalTok{ np.random.randn()}
-\NormalTok{        dN }\OperatorTok{=}\NormalTok{ np.random.poisson(lambda\_poisson }\OperatorTok{*}\NormalTok{ dt)}
-\NormalTok{        jump }\OperatorTok{=}\NormalTok{ np.}\BuiltInTok{sum}\NormalTok{(np.random.normal(loc}\OperatorTok{=}\NormalTok{jump\_mean, scale}\OperatorTok{=}\NormalTok{jump\_scale, size}\OperatorTok{=}\NormalTok{dN)) }\ControlFlowTok{if}\NormalTok{ dN }\OperatorTok{\textgreater{}} \DecValTok{0} \ControlFlowTok{else} \FloatTok{0.0}
-\NormalTok{        v[i, n }\OperatorTok{+} \DecValTok{1}\NormalTok{] }\OperatorTok{=}\NormalTok{ v[i, n] }\OperatorTok{+}\NormalTok{ (}\OperatorTok{{-}}\NormalTok{gamma }\OperatorTok{*}\NormalTok{ v[i, n] }\OperatorTok{+}\NormalTok{ Fext) }\OperatorTok{*}\NormalTok{ dt }\OperatorTok{+}\NormalTok{ np.sqrt(}\DecValTok{2} \OperatorTok{*}\NormalTok{ D) }\OperatorTok{*}\NormalTok{ dW }\OperatorTok{+}\NormalTok{ jump}
-
-\CommentTok{\# {-}{-}{-} Gráfica de trayectorias {-}{-}{-}}
-\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{6}\NormalTok{))}
-\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n\_traj):}
-\NormalTok{    plt.plot(t, v[i], label}\OperatorTok{=}\SpecialStringTok{f"Trayectoria }\SpecialCharTok{\{}\NormalTok{i}\OperatorTok{+}\DecValTok{1}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
-\NormalTok{plt.xlabel(}\StringTok{"Tiempo"}\NormalTok{)}
-\NormalTok{plt.ylabel(}\StringTok{"Velocidad $v(t)$"}\NormalTok{)}
-\NormalTok{plt.title(}\StringTok{"10 trayectorias del modelo Langevin con saltos de Poisson"}\NormalTok{)}
-\NormalTok{plt.grid(}\VariableTok{True}\NormalTok{)}
-\NormalTok{plt.tight\_layout()}
-\NormalTok{plt.show()}
-\CommentTok{\# {-}{-}{-} Eventos sísmicos basados en umbral {-}{-}{-}}
-\NormalTok{threshold }\OperatorTok{=} \FloatTok{1.0}
-\NormalTok{all\_mags }\OperatorTok{=}\NormalTok{ []}
-
-\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(n\_traj):}
-\NormalTok{    mags }\OperatorTok{=}\NormalTok{ v[i, v[i] }\OperatorTok{\textgreater{}}\NormalTok{ threshold]   }\CommentTok{\# eventos donde velocidad supera umbral}
-\NormalTok{    mags }\OperatorTok{=} \FloatTok{1.0} \OperatorTok{+}\NormalTok{ (mags }\OperatorTok{{-}}\NormalTok{ threshold) }\OperatorTok{*} \FloatTok{1.5}   \CommentTok{\# transformación a magnitud sísmica}
-\NormalTok{    all\_mags.extend(mags)}
-
-\CommentTok{\# Clasificación de magnitudes}
-\KeywordTok{def}\NormalTok{ classify\_event(mag):}
-    \ControlFlowTok{if}\NormalTok{ mag }\OperatorTok{\textless{}} \FloatTok{2.0}\NormalTok{:}
-        \ControlFlowTok{return} \StringTok{\textquotesingle{}Micro\textquotesingle{}}
-    \ControlFlowTok{elif} \FloatTok{2.0} \OperatorTok{\textless{}=}\NormalTok{ mag }\OperatorTok{\textless{}} \FloatTok{4.0}\NormalTok{:}
-        \ControlFlowTok{return} \StringTok{\textquotesingle{}Minor\textquotesingle{}}
-    \ControlFlowTok{elif} \FloatTok{4.0} \OperatorTok{\textless{}=}\NormalTok{ mag }\OperatorTok{\textless{}} \FloatTok{6.0}\NormalTok{:}
-        \ControlFlowTok{return} \StringTok{\textquotesingle{}Moderate\textquotesingle{}}
-    \ControlFlowTok{else}\NormalTok{:}
-        \ControlFlowTok{return} \StringTok{\textquotesingle{}Strong\textquotesingle{}}
-
-\NormalTok{event\_classes }\OperatorTok{=}\NormalTok{ [classify\_event(m) }\ControlFlowTok{for}\NormalTok{ m }\KeywordTok{in}\NormalTok{ all\_mags]}
-
-\CommentTok{\# DataFrame de eventos}
-\NormalTok{df\_events }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}\StringTok{\textquotesingle{}Magnitude\textquotesingle{}}\NormalTok{: all\_mags, }\StringTok{\textquotesingle{}Class\textquotesingle{}}\NormalTok{: event\_classes\})}
-\NormalTok{states }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Micro\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Minor\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Moderate\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Strong\textquotesingle{}}\NormalTok{]}
-
-\CommentTok{\# {-}{-}{-} Matriz de conteo de transiciones {-}{-}{-}}
-\NormalTok{transition\_counts }\OperatorTok{=}\NormalTok{ pd.DataFrame(}\DecValTok{0}\NormalTok{, index}\OperatorTok{=}\NormalTok{states, columns}\OperatorTok{=}\NormalTok{states)}
-\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(event\_classes) }\OperatorTok{{-}} \DecValTok{1}\NormalTok{):}
-\NormalTok{    from\_state }\OperatorTok{=}\NormalTok{ event\_classes[i]}
-\NormalTok{    to\_state }\OperatorTok{=}\NormalTok{ event\_classes[i }\OperatorTok{+} \DecValTok{1}\NormalTok{]}
-\NormalTok{    transition\_counts.loc[from\_state, to\_state] }\OperatorTok{+=} \DecValTok{1}
-
-\CommentTok{\# {-}{-}{-} Matriz de transición {-}{-}{-}}
-\NormalTok{transition\_matrix }\OperatorTok{=}\NormalTok{ transition\_counts.div(transition\_counts.}\BuiltInTok{sum}\NormalTok{(axis}\OperatorTok{=}\DecValTok{1}\NormalTok{), axis}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
-
-\BuiltInTok{print}\NormalTok{(}\StringTok{"Matriz de transición de Markov basada en trayectorias simuladas:"}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(transition\_matrix.}\BuiltInTok{round}\NormalTok{(}\DecValTok{3}\NormalTok{))}
-\CommentTok{\# {-}{-}{-} Visualización de la matriz de transición {-}{-}{-}}
-\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{5}\NormalTok{))}
-\NormalTok{plt.imshow(transition\_matrix, cmap}\OperatorTok{=}\StringTok{\textquotesingle{}viridis\textquotesingle{}}\NormalTok{, interpolation}\OperatorTok{=}\StringTok{\textquotesingle{}nearest\textquotesingle{}}\NormalTok{)}
-\NormalTok{plt.colorbar(label}\OperatorTok{=}\StringTok{\textquotesingle{}Probabilidad de transición\textquotesingle{}}\NormalTok{)}
-\NormalTok{plt.xticks(}\BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(states)), states, rotation}\OperatorTok{=}\DecValTok{45}\NormalTok{)}
-\NormalTok{plt.yticks(}\BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(states)), states)}
-\NormalTok{plt.title(}\StringTok{"Matriz de transición de Markov (desde trayectorias de Langevin con saltos)"}\NormalTok{)}
-\NormalTok{plt.tight\_layout()}
-\NormalTok{plt.show()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{chapters/presentacion_files/figure-pdf/cell-2-output-1.png}
-
-}
-
-\end{figure}
-
-\begin{verbatim}
-Matriz de transición de Markov basada en trayectorias simuladas:
-          Micro  Minor  Moderate  Strong
-Micro     0.933  0.067     0.000   0.000
-Minor     0.033  0.943     0.024   0.000
-Moderate  0.001  0.064     0.905   0.030
-Strong    0.002  0.000     0.087   0.911
-\end{verbatim}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{chapters/presentacion_files/figure-pdf/cell-2-output-3.png}
-
-}
-
-\end{figure}
 
 \bookmarksetup{startatroot}
 
@@ -745,8 +578,8 @@ fuerte}\label{existencia-y-unicidad-fuerte}}
 
 Sea \((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\) un
 espacio de probabilidad filtrado que satisface las hipótesis usuales.
-Consideremos la \textbf{ecuación diferencial estocástica modificada}
-(sin saltos grandes):
+Consideremos la ecuación diferencial estocástica modificada (sin saltos
+grandes):
 
 \begin{equation}\protect\hypertarget{eq-sde}{}{
 \begin{aligned}
@@ -770,13 +603,12 @@ estocástico.
 Supongamos que los coeficientes \(b: \mathbb{R} \to \mathbb{R}\),
 \(\sigma: \mathbb{R} \to \mathbb{R}\) y
 \(F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\) son funciones
-\textbf{medibles} que satisfacen las siguientes condiciones:
+medibles que satisfacen las siguientes condiciones:
 
 \hypertarget{c1-condiciuxf3n-de-lipschitz}{%
-\subsubsection*{\texorpdfstring{\textbf{(C1) Condición de
-Lipschitz:}}{(C1) Condición de Lipschitz:}}\label{c1-condiciuxf3n-de-lipschitz}}
-\addcontentsline{toc}{subsubsection}{\textbf{(C1) Condición de
-Lipschitz:}}
+\subsubsection*{(C1) Condición de
+Lipschitz:}\label{c1-condiciuxf3n-de-lipschitz}}
+\addcontentsline{toc}{subsubsection}{(C1) Condición de Lipschitz:}
 
 Existe una constante \(K_1 > 0\) tal que, para todo
 \(y_1, y_2 \in \mathbb{R}\),
@@ -790,10 +622,10 @@ Existe una constante \(K_1 > 0\) tal que, para todo
 }\label{eq-lipschitz}\end{equation}
 
 \hypertarget{c2-condiciuxf3n-de-crecimiento-lineal}{%
-\subsubsection*{\texorpdfstring{\textbf{(C2) Condición de crecimiento
-lineal:}}{(C2) Condición de crecimiento lineal:}}\label{c2-condiciuxf3n-de-crecimiento-lineal}}
-\addcontentsline{toc}{subsubsection}{\textbf{(C2) Condición de
-crecimiento lineal:}}
+\subsubsection*{(C2) Condición de crecimiento
+lineal:}\label{c2-condiciuxf3n-de-crecimiento-lineal}}
+\addcontentsline{toc}{subsubsection}{(C2) Condición de crecimiento
+lineal:}
 
 Existe una constante \(K_2 > 0\) tal que, para todo
 \(y \in \mathbb{R}\),
@@ -803,23 +635,21 @@ Existe una constante \(K_2 > 0\) tal que, para todo
 \leq K_2 \bigl(1 + |y|^2 \bigr).
 }\label{eq-3}\end{equation}
 
-Bajo las hipótesis anteriores, existe una \textbf{única solución fuerte}
+Bajo las hipótesis anteriores, existe una única solución fuerte
 \(Z = (Z(t))_{t \geq 0}\) de la ecuación (Ecuación~\ref{eq-sde}) tal
 que:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\begin{itemize}
 \tightlist
 \item
-  \(Z\) es un \textbf{proceso adaptado y cádlág} (continuo por la
-  derecha con límites por la izquierda),
+  \(Z\) es un proceso adaptado y cádlág (continuo por la derecha con
+  límites por la izquierda),
 \item
-  La solución es única \textbf{casi seguramente,} esto es, si \((Z')\)
-  es otra solución, entonces\\
-  \begin{equation}\protect\hypertarget{eq-4}{}{
-  \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-  }\label{eq-4}\end{equation}
-\end{enumerate}
+  La solución es única casi seguramente, esto es, si \((Z')\) es otra
+  solución, entonces \begin{equation}\protect\hypertarget{eq-4}{}{
+   \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
+   }\label{eq-4}\end{equation}
+\end{itemize}
 
 \end{theorem}
 
@@ -827,10 +657,11 @@ que:
 
 Queremos ver la existencia de una solución \(Z=(Z(t))_{t\geq 0}\) para
 la ecuación (Ecuación~\ref{eq-sde}) con condición inicial \(Z(0)=Z_0\).
-Bajo las hipótesis \textbf{(C1)} y \textbf{(C2)} para los coeficientes
-\(b\), \(\sigma\) y \(F\). Ahora bien, la ecuación estocástica de
-nuestro caso posee un movimiento browniano \(B\), es decir, ruido
-estocástico y una medida de Poisson compensada, dada por
+Bajo las hipótesis (Ecuación~\ref{eq-lipschitz}) y (Ecuación~\ref{eq-3})
+para los coeficientes \(b\), \(\sigma\) y \(F\). Analizaremos primero el
+caso cuando \(\mathbb{E}[|Z_0|^2]<\infty\). Dado que la ecuación
+estocástica de nuestro caso posee un movimiento browniano \(B\), es
+decir, ruido estocástico y una medida de Poisson compensada, dada por
 \(\widetilde{N}\), para esto utilizaremos la iteración de Picard
 construyendo una sucesión de procesos estocásticos a partir de la
 condición inicial. Definiendo la suceción de la siguiente forma:
@@ -848,9 +679,9 @@ Para \(n\geq 1\)
     \end{aligned}
 \]
 
-Demostraremos por inducción que el proceso \(Z_n\) es un proceso
-adaptado y con trayectorias Cádlág. Así, para \(n=0\) consideremos la
-diferencia \(Z_1(t)-Z_0(t)\). Por la iteración de Picard tenemos:
+Demostraremos que el proceso \(Z_n\) es un proceso adaptado y con
+trayectorias Cádlág. Consideremos la diferencia \(Z_1(t)-Z_0(t)\). Por
+la iteración de Picard tenemos:
 
 \[
     \begin{aligned}
@@ -870,14 +701,14 @@ Dado que \(Z_0(t)=Z_0\) para todo \(t\geq 0\), entonces,
 
 Considerando la desigualdad
 
-\[
+\begin{equation}\protect\hypertarget{eq-des}{}{
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
-\]
+}\label{eq-des}\end{equation}
 
 Tomando valor absoulto y elevando al cuadrado la expreción anterior
 tenemos que
 
-\begin{equation}\protect\hypertarget{eq-4}{}{
+\[
     \begin{aligned}
 |Z_1(t)-Z_0|^2
 &= \Bigg|
@@ -893,7 +724,7 @@ tenemos que
       + \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
    \Bigg).
 \end{aligned}
-}\label{eq-4}\end{equation}
+\]
 
 Para controlar de manera uniforme en todo el intervalo \([0,t]\) tomamos
 el supremo sobre todo el intervalo, además usando propiedades del
@@ -901,16 +732,16 @@ supremos podemos obtener
 
 \[
 \begin{aligned}
-\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2
+\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2
 &\leq \sup\limits_{0\leq s\leq t}\Bigg(3\Bigg(
-      \left(\int_0^t b(Z_0)\,ds\right)^2
-      + \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\
+      \left(\int_0^s b(Z_0)\,ds\right)^2
+      + \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\
 &\qquad\quad
-      + \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
+      + \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
    \Bigg)\Bigg)\\
-& = 3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2 + \sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\ 
+& = 3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2 + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\ 
 &\qquad\quad 
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg).
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg).
 \end{aligned}
 \]
 
@@ -918,17 +749,17 @@ Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
 
 \begin{equation}\protect\hypertarget{eq-5}{}{
 \begin{aligned}
-\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
-& \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\\
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
+& \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\\
 &\qquad   
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\ 
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\ 
 &\qquad\quad
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg)\Bigg]\\
-& = 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\ 
+    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg)\Bigg]\\
+& = 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\ 
 &\qquad
-    + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+    + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
 &\qquad\quad
-    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
+    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
 \end{aligned}
 }\label{eq-5}\end{equation}
 
@@ -947,18 +778,17 @@ Por lo tanto
 
 Consideremos ahora el proceso
 
-\[
+\begin{equation}\protect\hypertarget{eq-mart}{}{
     M(s):=\int_0^s \sigma(Z_0)dB(u).
-\]
+}\label{eq-mart}\end{equation}
 
 Afirmamos que dicho proceso es una martingala, pues al ser \(Z_0\)
 constante esto implica que \(\sigma(Z_0)\) no dependa de \(u\). Dado que
-\(Z_0\) es \(\mathcal{F}_0\text{medible}\), entonces \(\sigma(Z_0)\)
-también lo es, más aún, es \(\mathcal{F}_u\text{medible}\) para toda
+\(Z_0\) es \(\mathcal{F}_0\text{-medible}\), entonces \(\sigma(Z_0)\)
+también lo es, más aún, es \(\mathcal{F}_u\text{-medible}\) para toda
 \(u\geq 0\). Por lo tanto el termino a integrar del proceso \(M(s)\), el
-cuál es una integral de Ito, es adaptado. Asumiendo que
-\(\mathbb{E}[|Z_0|^2]<\infty\) y por hipotésis, de la condición (C2),
-podemos afirmar que
+cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición
+(C2), podemos afirmar que
 
 \[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
@@ -983,7 +813,7 @@ desigualdad maximal de Doob, tenemos que:
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
 \]
 
-De la isometría de Ito y por el teorema de Fubini
+De la isometría de Itô y por el teorema de Fubini
 
 \[
     \begin{aligned}
@@ -998,15 +828,15 @@ De la isometría de Ito y por el teorema de Fubini
 De manera análoga, para el termino
 
 \[
-    W(s):= \int_0^t\int_{|x|<c}F(Z_0,x)\widetilde{N}(du,dx).
+    W(s):= \int_0^s\int_{|x|<c}F(Z_0,x)\widetilde{N}(du,dx).
 \]
 
-Podemos afirmar que es una martingala. Usando la isometría de Ito,
+Podemos afirmar que es una martingala. Usando la isometría de Itô,
 desigualdad maximal de Doob y por el teorema de Fubini
 
 \[
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] & \leq 4\mathbb{E}[|W(s)|^2]\\ 
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] & \leq 4\mathbb{E}[|W(t)|^2]\\ 
         & = 4\int_0^t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\ 
         & = 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
@@ -1016,12 +846,12 @@ Así, de la igualdad (Ecuación~\ref{eq-5}) tenemos
 
 \begin{equation}\protect\hypertarget{eq-7}{}{
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg] 
-        & \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^t b(Z_0)\,ds\right)^2\Bigg]\\ 
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
+        & \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\ 
             &\qquad
-               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
         &\qquad\quad
-            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
+            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
         & \leq 3\Bigg(t^2\mathbb{E}[|b(Z_0)|^2]+4t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
         & \qquad\quad + 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\ 
         & = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
@@ -1030,12 +860,12 @@ Así, de la igualdad (Ecuación~\ref{eq-5}) tenemos
 }\label{eq-7}\end{equation}
 
 Notemos para los terminos en común \(3t^2\) y \(12t\) podemos definir la
-variable \(C_1(t):=\max{\{3t,12\}}\), de aquí \textgreater{}
+variable \(C_1(t):=\max{\{3t,12\}}\), de aquí
 
 \[
     \begin{aligned}
-        3t^2 & = 3t\cdot t \leq \max{\{3t,12\}}=C_1(t).\\ 
-        12t & = 12\cdot t \leq \max{\{3t,12\}}=C_1(t).
+        3t^2 & = 3t\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.\\ 
+        12t & = 12\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.
     \end{aligned}
 \]
 
@@ -1043,7 +873,7 @@ Por lo tanto, (Ecuación~\ref{eq-7}) queda de la forma
 
 \begin{equation}\protect\hypertarget{eq-8}{}{
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg] 
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
         & \leq 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
         & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\\ 
         & \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
@@ -1051,7 +881,7 @@ Por lo tanto, (Ecuación~\ref{eq-7}) queda de la forma
     \end{aligned}
 }\label{eq-8}\end{equation}
 
-Por hipotésis, los coeficientes \(b\), \(\alpha\) y \(F\) cumplen con la
+Por hipotésis, los coeficientes \(b\), \(\sigma\) y \(F\) cumplen con la
 condición (Ecuación~\ref{eq-3}), vale decir
 
 \[
@@ -1064,8 +894,8 @@ esperado de la ecuación anterior, tenemos
 
 \begin{equation}\protect\hypertarget{eq-9}{}{
     \begin{aligned}
-        \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\Bigg] & \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\
-        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|<c}|F(Z_0,x)|^2\nu(dx)\Bigg] & \leq K_2(1+\mathbb{E}[|Z_0|^2])\\ 
+        \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\Bigg] & \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
+        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|<c}|F(Z_0,x)|^2\nu(dx)\Bigg] & \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\ 
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)& \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
 }\label{eq-9}\end{equation}
@@ -1074,12 +904,971 @@ Así de (Ecuación~\ref{eq-8}) y (Ecuación~\ref{eq-9}) tenemos que
 
 \[
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(t)-Z_0|^2\Bigg]
+        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
         & \leq C_1(t)\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
         & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
         & \leq C_1(t)\cdot t\cdot K_2(1+\mathbb{E}[|Z_0|^2]).
     \end{aligned}
 \]
+
+Peamos la diferencia para \(Z_{n+1}\) y \(Z_n\), por la iteración de
+Picard, tenemos que
+
+\[
+    \begin{aligned}
+        Z_n & = Z_0 + \int_0^t b(Z_{n-1}(s-))ds+\int_0^t \sigma(Z_{n-1}(s-))dB(s)\\ 
+        &\qquad\quad + \int_0^t \int_{|x|<c} F(Z_{n-1}(s-),x)\widetilde{N}(ds,dx)\\ 
+        Z_{n+1} & = Z_0 + \int_0^t b(Z_{n}(s-))ds+\int_0^t \sigma(Z_{n}(s-))dB(s)\\ 
+        &\qquad\quad + \int_0^t \int_{|x|<c} F(Z_{n}(s-),x)\widetilde{N}(ds,dx).
+    \end{aligned}
+\]
+
+Consideremos la siguiente notación
+
+\[
+    \begin{aligned}
+        \Delta b(n,s) & = b(Z_n(s-))-b(Z_{n-1}(s-)).\\ 
+        \Delta \sigma(n,s) & = \sigma(Z_n(s-))-\sigma(Z_{n-1}(s-)).\\ 
+        \Delta F(n,s,x) & = F(Z_n(s-),x)-F(Z_{n-1}(s-),x).
+    \end{aligned}
+\]
+
+Por lo tanto la diferencia \(Z_{n+1}-Z_n\) está dada por
+
+\[
+    \begin{aligned}
+        Z_{n+1}(t)-Z_n(t) & = \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\ 
+        & \qquad \quad +\int_0^t\int_{|x|<c}\Delta F(n,s,x)\widetilde{N}(ds,dx).
+    \end{aligned}
+\]
+
+Elevando al cuadrado, considerando valor absoluto y usando la
+desigualdad (Ecuación~\ref{eq-des}), tenemos que
+
+\begin{equation}\protect\hypertarget{eq-10}{}{
+    \begin{aligned}
+        |Z_{n+1}(t)-Z_n(t)|^2 & = \Bigg( \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\ 
+        &\qquad\quad +\int_0^t\int_{|x|<c}\Delta F(n,s,x)\widetilde{N}(ds,dx)\Bigg)^2\\ 
+        & \leq 3\Bigg(\Bigg(\int_0^t \Delta b(n,s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(n,s)ds\Bigg)^2\\ 
+        &\qquad\quad +\Bigg(\int_0^t\int_{|x|<c}\Delta F(n,s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
+    \end{aligned}
+}\label{eq-10}\end{equation}
+
+Nuevamente, definimos la siguiente notación
+
+\[
+    \begin{aligned}
+        A & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\Bigg]\\ 
+        B & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta \sigma(n,u)dB(u)\Bigg)^2\Bigg]\\ 
+        C & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(n,u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
+    \end{aligned}
+\]
+
+Por tanto de la (Ecuación~\ref{eq-10}), tomando supremo en el intervalo
+\([0,t]\) y aplicando valor esperado, la expresión se reduce a la forma
+
+\begin{equation}\protect\hypertarget{eq-11}{}{
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
+}\label{eq-11}\end{equation}
+
+Trabajaremos con cada termino de la desigualdad para poder acotar
+\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\).
+Notemos que para \(A\) el termino del supremo es una integral de
+Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos
+afirmar que
+
+\[  
+    \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\leq s \int_0^s |\Delta b(n,u)|^2du,\ \ \forall s\in [0,t].
+\]
+
+Dado que \(s\leq t\), esto implica que
+
+\[
+    s \int_0^s |\Delta b(n,u)|^2du\leq t\int_0^t |\Delta b(n,u)|^2du.
+\]
+
+Dado que el supremo preserva desigualdades, tenemos
+
+\[
+    \begin{aligned}
+            \sup\limits_{0\leq s\leq t} \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2 & \leq \sup\limits_{0\leq s\leq t}\Bigg(s \int_0^s |\Delta b(n,u)|^2du\Bigg)\\ 
+            & \leq \sup\limits_{0\leq s\leq t}\Bigg(t\int_0^t |\Delta b(n,u)|^2du\Bigg)\\ 
+            & = t\int_0^t |\Delta b(n,u)|^2du.
+    \end{aligned}
+\]
+
+Tomando el valor esperado
+
+\[
+    \begin{aligned}
+        A & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\Bigg]\\ 
+        & \leq \mathbb{E}\Bigg[t\int_0^t |\Delta b(n,u)|^2du\Bigg]\\ 
+        & = t\int_0^t \mathbb{E}[|\Delta b(n,u)|^2]du.
+    \end{aligned}
+\]
+
+Definimos al proceso \(H(s)\) de la forma
+
+\[
+    H(s) := \int_0^s \Delta \sigma(n,u)dB(u).
+\]
+
+Afirmamos que dicho proceso es una martingala bajo los argumentos para
+el proceso \(M(s)\) en (Ecuación~\ref{eq-mart}). Haciendo uso de la
+desigualdad maximal de Doob
+
+\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
+\]
+
+Usando la isometría de Itô
+
+\[
+    \mathbb{E}[|H(s)|^2]=\mathbb{E}\Bigg[\int_0^t |\Delta \sigma(n,u)|^2 du\Bigg].
+\]
+
+Esto implica que
+
+\[
+    \begin{aligned}
+        B & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(|H(s)|^2\right)\Bigg]\\ 
+        & \leq 4\mathbb{E}[|H(t)|^2]\\ 
+        & = 4 \mathbb{E}\Bigg[\int_0^t |\Delta \sigma(n,u)|^2du\Bigg]\\ 
+        & = 4 \int_0^t \mathbb{E}[|\Delta \sigma(n,u)|^2]du.
+    \end{aligned}
+\]
+
+Definimos el proceso
+
+\[
+    L(s) := \int_0^s\int_{|x|<c} \Delta F(n,u,x)\widetilde{N}(du,dx).
+\]
+
+Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad
+de Doob, obtenemos
+
+\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}\left[|L(t)|^2\right].
+\]
+
+Por la isometría de Itô en la medida de Poisson, tenemos
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[|L(t)|^2\right] & = \mathbb{E}\Bigg[\int_0^t\Bigg(\int_{|x|<c}|\Delta F(n,u,x)|^2\nu(dx)\Bigg)du\Bigg]\\ 
+        & = \int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
+    \end{aligned}
+\]
+
+Por lo tanto
+
+\[
+    \begin{aligned}
+        C & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left|\int_0^s\int_{|x|<c}\Delta F(n,u,x)\widetilde{N}(du,dx)\right|^2\Bigg]\\ 
+        & \leq 4 \int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
+    \end{aligned}
+\]
+
+Así de (Ecuación~\ref{eq-11})
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] & \leq 3(A+B+C)\\ 
+        & \leq 3\Bigg(t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
+        & \qquad + 4\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\Bigg)\\ 
+        &  \qquad\quad + 4\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\ 
+        & = 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
+        & \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
+        &  \qquad\quad + 12\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
+    \end{aligned}
+\]
+
+Recordemos que \(C_1(t)=\max\{3t,12\}\), por lo tanto, \(3t\leq C_1(t)\)
+y \(12\leq C_1(t)\), así
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] & \leq 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
+        & \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
+        &  \qquad\quad + 12\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
+        & \leq C_1(t)\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
+        & \qquad + C_1(t)\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
+        &  \qquad\quad + C_1(t)\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
+        & = C_1(t)\int_0^t\Bigg(\mathbb{E}\left[|\Delta b(n,u)|^2\right]+\mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]\\ 
+        & \qquad + \int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)\Bigg)du.
+    \end{aligned}
+\]
+
+Recordemos que si \(f:[0,t]\) es una función, entonces para todo
+\(v\in [0,t]\) se cumple que
+
+\[
+    |f(v)|\leq \sup\limits_{0\leq u\leq t}|f(u)|.
+\]
+
+Así, tenemos que
+
+\[
+    |Z_n(u-)-Z_{n-1}(u-)|^2\leq \sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2.
+\]
+
+Tomando valor esperado, el cual, preserva la desigualdad, además,
+multiplicando por \(K_1>0\), obtenemos
+
+\begin{equation}\protect\hypertarget{eq-12}{}{
+    K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+}\label{eq-12}\end{equation}
+
+Por la hipotesis (Ecuación~\ref{eq-lipschitz}) la cuál indica que los
+coeficientes \(b\), \(\sigma\) y \(F\) satisfacen
+
+\[
+    \begin{aligned}
+    |b(y_1) - b(y_2)|^2 & + |\sigma(y_1) - \sigma(y_2)|^2\\ 
+    & + \int_{|x| < c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
+    &\qquad \quad \leq K_1 |y_1 - y_2|^2.
+    \end{aligned}
+\]
+
+Aplicando esto para \(y_1=Z_n(u-)\) y \(y_2=Z_{n-1}(u-)\), además
+tomando valor esperado, tenemos
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[|b(Z_n(u-))-b(Z_{n-1}(u-))|^2\right] & + \mathbb{E}\left[|\sigma(Z_n(u-))-\sigma(Z_{n-1}(u-))|^2\right]\\ 
+        & \quad + \mathbb{E}\left[\int_{|x<c|}|F(Z_n(u-),x)-F(Z_{n-1}(u-),x)|^2\nu(dx)\right]\\ 
+        & \qquad\quad \leq K_1 \mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right]\\ 
+        & \qquad\quad \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+    \end{aligned}
+\]
+
+Multiplicando por la variable \(C_1(t)\) e intregrando en el intervalo
+\([0,t]\) con respecto a \(u\) tenemos que
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right] & = C_1(t)\int_0^t \Bigg(\mathbb{E}\left[|b(Z_n(u-))-b(Z_{n-1}(u-))|^2\right]\\ 
+        & \qquad\qquad\quad + \mathbb{E}\left[|\sigma(Z_n(u-))-\sigma(Z_{n-1}(u-))|^2\right]\\ 
+        & \qquad\qquad\quad + \mathbb{E}\left[\int_{|x|<c}|F(Z_n(u-),x)-F(Z_{n-1}(u-),x)|^2\nu(dx)\right]\Bigg)du\\ 
+        & \leq C_1(t) K_1\int_0^t \mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(u)-Z_{n-1}(u)|^2\right]du.
+    \end{aligned}
+\]
+
+Ahora bien, para \(n\geq 1\) y \(t\geq 0\) definimos el siguiente
+proceso
+
+\[
+    d_n(t):= \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\right].
+\]
+
+Hemos demostrado hasta ahora las siguientes desigualdades
+
+\begin{equation}\protect\hypertarget{eq-13}{}{
+    d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
+}\label{eq-13}\end{equation}
+
+\begin{equation}\protect\hypertarget{eq-14}{}{
+    d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
+}\label{eq-14}\end{equation}
+
+Definimos las variables \(C_2(t):=tC_1(t)\) y
+\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}\).\textbackslash{}
+
+Afirmamos que para toda \(n\in \mathbb{N}\), se cumple
+
+\begin{equation}\protect\hypertarget{eq-15}{}{
+    d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
+}\label{eq-15}\end{equation}
+
+Procediendo por inducción, veamos que se cumple para \(n=1\). Esto es
+claro, dado que
+\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}=K_3\),
+por lo tanto
+
+\[
+    d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
+\]
+
+Suponemos ahora la afirmación es cierta para \(n=k\), es decir
+
+\[
+    d_k(t)\leq \frac{C_2(t)^k K_3^k}{k!}.
+\]
+
+Veamos ahora que se cumple para \(n=k+1\), vale decir, queremos probar
+que
+
+\[
+    d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
+\]
+
+Por la (Ecuación~\ref{eq-14}) tenemos
+
+\[
+        d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
+\]
+
+Usando la Hipotesis de inducción, podemos afirmar que
+
+\[
+    d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
+\]
+
+Aquí debemos considerar los siguientes casos
+
+\textbf{Caso 1:} \(t<1\)
+
+Dado que \(0\leq s\leq t<1\), entonces \(3s\leq 3t<3<12\), por lo tanto
+
+\[
+    C_1(s)=\max\{3s,12\}=12=\max\{3t,12\}=C_1(t).
+\]
+
+\textbf{Caso 2:} \(t\geq 1\)
+
+Es claro que si \(s\leq t\), entonces \(3s\leq 3t\), por tanto, podemos
+afimar
+
+\[
+    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t).
+\]
+
+En ambos casos note que se cumple \(C_1(s)\leq C_1(t)\), más aún es
+claro que \(K_1\leq K_3\), esto implica que \(K_1K_3^k\leq K_3^{k+1}\)
+por lo tanto
+
+\[
+    \begin{aligned}
+        d_{k+1}(t) & \leq C_1(t)K_1\int_0^t d_k(s)ds\\ 
+        & \leq C_1(t)K_1\int_0^t \frac{C_2(t)^k K_3^k}{k!}ds.\\ 
+        & = \frac{C_1(t)K_1 K_3^k}{k!}\int_0^t s^kC_1(s)^k ds\\ 
+        & \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(s)^k ds\\
+        & \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(t)^k ds\\ 
+        & = \frac{C_1(t)C_1(t)^k K_3^{k+1}}{k!}\int_0^t s^k ds\\ 
+        & = \frac{C_1(t)^{k+1}K_3^{k+1}}{k!}\frac{t^{k+1}}{k+1}\\ 
+        & = \frac{t^{k+1}C_1(t)^{k+1}K_3^{k+1}}{(k+1)!}\\ 
+        & = \frac{C_2(t)^{k+1}K_3^{k+1}}{(k+1)!}.
+    \end{aligned}
+\]
+
+Por lo tanto para toda \(n\in \mathbb{N}\) se cumple
+
+\[
+d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
+\]
+
+Veamos que la sucesión \(\{Z_n(t)\}_{n\in \mathbb{N}}\) es una sucesión
+de Cauchy en \(L^2\) usando la norma
+\(\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}\) el cuál hace de \(L^2\)
+un espacio completo.
+
+Sean \(m,n\mathbb{N}\), sin perdida de generalidad, supongamos que
+\(m<n\), aplicando la desigualdad del triangulo, podemos afirmmar que
+para cada \(0\leq s\leq t\) se cumple
+
+\[
+    \begin{aligned}
+        \|Z_n(s)-Z_m(s)\|_2 & = \Bigg\|\sum\limits_{r=m+1}^n (Z_r(s)-Z_{r-1}(s))\Bigg\|_2\\ 
+        & \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
+    \end{aligned}
+\]
+
+De la (Ecuación~\ref{eq-15}) sabemos que para cada
+\(r=m+1,m+2,\ldots,n\) se cumple
+
+\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
+\]
+
+Dado que son terminos no negativos, tomando raíz se puede afirmar que
+
+\[
+    \begin{aligned}
+        \|Z_r(s)-Z_{r-1}(s)\|_2 & \leq \sqrt{\mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]}\\ 
+        & \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \end{aligned}
+\]
+
+Por tanto para cada \(0\leq s\leq t\) tenemos
+
+\[
+    \begin{aligned}
+        \|Z_n(s)-Z_m(s)\|_2 & \leq \sum\limits_{r=m+1}^n \|Z_r(s)-Z_{r-1}(s)\|_2\\ 
+        & \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \end{aligned}
+\]
+
+Definimos la siguiente variable
+
+\[
+    A':=C_2(t)K_3>0.
+\]
+
+Reescribiendo el termino de la suma de la siguiente forma
+
+\begin{equation}\protect\hypertarget{eq-16}{}{
+    a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
+}\label{eq-16}\end{equation}
+
+Veamos la convergencía de la serie
+
+\[
+\sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
+\]
+
+Considerando el cociente del termino \(a_r\) tenemos
+
+\[
+    \begin{aligned}
+        \frac{a_{r+1}}{a_r} & = \frac{\Bigg(\frac{A^{r+1}}{(r+1)!}\Bigg)^{1/2}}{\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}}\\ 
+        & = \Bigg(\frac{A^{r+1}}{(r+1)!}\cdot \frac{r!}{A^r}\Bigg)^{1/2}\\ 
+        & = \Bigg(\frac{A}{r+1}\Bigg)^{1/2}.
+    \end{aligned}
+\]
+
+Ahora tomando el límite cuando \(r\rightarrow\infty\)
+
+\[
+\lim\limits_{r\rightarrow\infty}\frac{a_{r+1}}{a_r}=\lim\limits_{r\rightarrow\infty}\sqrt{\frac{A}{r+1}}=0.
+\]
+
+Dado que este límite es estrictamente menor que 1, por el criterio de la
+razón, podemos afirmar que la serie converge absolutamente esto implica
+que la serie converge, más aún, su cola converge, es decir, para todo
+\(\varepsilon>0\) existe \(N\in \mathbb{N}\) tal que
+
+\[
+    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^r/2}<\varepsilon.
+\]
+
+Entonces, para todo \(n,m\geq N\) tales que \(m<n\) y todo
+\(s\in [0,t]\)
+
+\[
+    \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}<\varepsilon.
+\]
+
+Por lo tanto, podemos afirmar que \((Z_n(s))\) es una sucesión de Cauchy
+en \(L^2\).
+
+Al ser \(L^2(\Omega, \mathcal{F},\mathbb{P})\) un espacio de Banach,
+vale decir, es un espacio completo con la norma \(\|\cdot\|_2\),
+entonces toda sucesión de Cauchy converge en \(L^2\). Luego existe
+\(Z(s)\in L^2\) tal que
+
+\begin{equation}\protect\hypertarget{eq-17}{}{
+    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
+}\label{eq-17}\end{equation}
+
+Cómo \(m<n\), por la desigualdad del triángulo, afirmamos que
+
+\[
+    \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
+\]
+
+Tomando límite cuando \(m\rightarrow\infty\) en ambos lados; por la
+Ecuación~\ref{eq-17} tenemos que
+
+\[
+    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
+\]
+
+Luego, dado que ya se demostró que la seríe dada por
+Ecuación~\ref{eq-16} converge entonces
+
+\[
+    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+\]
+
+Además el termino \(\|Z(s)-Z_n(s)\|_2\) no depende de \(m\), por lo
+tanto
+
+\[
+    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+\]
+
+Consideremos ahora la siguiente notación
+
+\[
+    X_n:=\sup\limits_{0\leq s\leq t} |Z_n(s)-Z_{n-1}(s)|. 
+\]
+
+Queremos encontrar una cota para
+
+\[
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg).
+\]
+
+Aplicando a \(X_n^2\) Chebyshev-Markov tenemos que
+
+\begin{equation}\protect\hypertarget{eq-18}{}{
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
+}\label{eq-18}\end{equation}
+
+Notemos que \(\mathbb{E}[X_n^2]\) ya esta acotado dado por la
+Ecuación~\ref{eq-15}, así
+
+\[
+    \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
+\]
+
+De la Ecuación~\ref{eq-18}, esto implica que
+
+\[
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
+\]
+
+Más aún, sabemos que la seríe
+\(\displaystyle \frac{C_2(t)^nK_3^n}{n!}\), esto implica que
+\(\displaystyle \frac{(4C_2(t)K_3)^n}{n!}\) también coverge, por lo
+tanto
+
+\[
+    \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}<\infty.
+\]
+
+De aquí es posible usar el Lema de Borell-Cantelli, es decir, podemos
+afirmar
+
+\[
+    \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0.
+\]
+
+La estimación obtenida nos dice que la probabilidad de que las
+diferencias consecutivas \(|Z_n(s) - Z_{n-1}(s)|\) sean ``grandes''
+(mayores que \(1/2^n\)) se vuelve extremadamente pequeña a medida que
+\(n\) crece, tan pequeña que la suma de todas esas probabilidades es
+finita.
+
+En otras palabras, casi todas las trayectorias de la sucesión \((Z_n)\)
+se vuelven uniformemente estables, a partir de algún momento, los
+términos de la sucesión ya no cambian mucho entre sí, ni en ningún
+instante del intervalo \([0,t]\).
+
+Esto garantiza que, con probabilidad 1, la sucesión \((Z_n(\cdot))\)
+converge uniformemente en \([0,t]\) a una función límite \(Z(\cdot)\).
+Es decir, no solo converge punto a punto, sino que lo hace de manera
+controlada en todo el intervalo al mismo tiempo.
+
+Veamos ahora que dicha solución es única, así supongamos que
+\(Z^{(1)}= (Z^{(1)}(t))_{t \geq 0}\) y
+\(Z^{(2)} = (Z^{(2)}(t))_{t \geq 0}\) son dos soluciones fuertes de la
+SDE modificada, es decir, procesos adaptados, càdlàg,
+cuadrado-integrables y que satisfacen, para todo \(t \geq 0\), las
+ecuaciones integrales:
+
+\[
+    \begin{aligned}
+        Z^{(i)}(t) & = Z_0 + \int_0^t b(Z^{(i)}(s-))\,ds\\ 
+        & \qquad \quad + \int_0^t \sigma(Z^{(i)}(s-))\,dB(s)\\ 
+        & \qquad\quad + \int_0^t \int_{|x|<c} F(Z^{(i)}(s-), x)\,\tilde{N}(ds,dx),
+    \end{aligned}
+\]
+
+para \(i=1,2\), casi seguramente. Queremos ver que
+\(Z^{(1)}(t) = Z^{(2)}(t)\) para todo \(t\geq 0\) con probabilidad
+\(1\). Restando las dos ecuaciones de \(Z^{(1)}\) y \(Z^{(2)}\) tenemos
+que
+
+\begin{equation}\protect\hypertarget{eq-19}{}{
+    \begin{aligned}
+        Z^{(1)}(t) - Z^{(2)}(t) & = \int_0^t [b(Z^{(1)}(s-)) - b(Z^{(2)}(s-))]\,ds\\ 
+        & \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\ 
+        & \qquad\quad + \int_0^t \int_{|x|<c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx). 
+    \end{aligned}
+}\label{eq-19}\end{equation}
+
+Definimos la siguiente notación
+
+\[
+    \begin{aligned}
+        \Delta b(s) & :=b(Z^{(1)}(s-))-b(Z^{(2)}(s-))\\ 
+        \Delta \sigma(s) & := \sigma(Z^{(1)}(s-))-\sigma(Z^{(2)}(s-))\\ 
+        \Delta F(s,x) & := F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)
+    \end{aligned}
+\]
+
+Nuestro objetivo ahora es estimar
+\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\).
+Para ello, similar al procedimiento anterior, elevando al cuadrado la
+Ecuación~\ref{eq-19}, tomando supremo y despues esperanza en el
+intervalo \([0,t]\) tenemos la siguiente desigualdad
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq & 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\Delta b(s)]du\Bigg|^2\right]\\ 
+        &\quad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\sigma(s)]dB(u)\Bigg|^2\right]\\ 
+        & \qquad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s\int_{|x|<c} [\Delta F(u,x)]\widetilde{N}(du,dx)\Bigg|^2\right]\Bigg).
+    \end{aligned}
+\]
+
+Aplicando la desigualdad de Cauchy--Schwarz para integrales, para el
+primer termino de la desigualdad tenemos
+
+\[
+    \begin{aligned}
+        \Bigg|\int_0^s \Delta b(u)du\Bigg|^2 & \leq s\int_0^s |\Delta b(u)|^2du\\ 
+        & \leq t\int_0^t |\Delta b(u)|^2du.
+    \end{aligned}
+\]
+
+Dado que \(s\leq t\) al tomar supremo y valor esperado obtenemos la cota
+
+\[
+\mathbb{E}\left[\sup\limits_{o\leq s\leq t}\Bigg|\int_0^s \Delta b(u)du\Bigg|^2\right]\leq t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du.
+\]
+
+Bajo argumentos similares utilizados anteriormente, afirmamos que el
+proceso
+
+\[
+    \int_0^s \Delta \sigma (u)\ dB(u), 
+\]
+
+es una martingala local continua, por tanto, usando la desigualdad
+maximal de Doob tenemos
+
+\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s \Delta \sigma (u)dB(u)\right|^2\right]\leq 4\mathbb{E}\left[\Bigg|\int_0^t \Delta \sigma (s)\ dB(s)\Bigg|^2\right].
+\]
+
+De aquí, usando la isometría de Itô
+
+\[
+\mathbb{E}\left[\Bigg|\int_0^t \Delta \sigma (s) dB(s)\Bigg|^2\right] \leq \mathbb{E}\Bigg[\int_0^t |\Delta \sigma (s)|^2ds\Bigg].
+\]
+
+Esto implica que
+
+\[
+    \mathbb{E}\Bigg[\int_0^t |\Delta \sigma (s)|^2ds\Bigg] = \int_0^t \mathbb{E}[|\Delta \sigma (s)|^2ds].
+\]
+
+Por lo tanto
+
+\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s \Delta \sigma (u)\ dB(u)\right|^2\right]\leq 4\int_0^t \mathbb{E}[|\Delta \sigma (s)|^2ds].
+\]
+
+Podemos afirmar ahora que el siguiente proceso es una martingala local
+càdlàg
+
+\[
+    \int_0^s\int_{|x|<c} \Delta F(u,x)\widetilde{N}(du,dx).
+\]
+
+Nuevamente aplicando la desigualdad maximal de Doob la isometría de Itô
+para integrales respecto a \(\widetilde{N}\) tenemos que
+
+\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s\int_{|x|<c} \Delta F(u,x)\widetilde{N}(du,dx)\right|^2\right]\leq 4\int_0^t\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)ds.
+\]
+
+Por lo tanto
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq & 3t\int_0^t \mathbb{E}[|\Delta b(s)|^2]ds\\ 
+        & \quad + 12 \int_0^t \mathbb{E}[|\Delta \sigma(s,x)|^2ds]\\ 
+        & \qquad +12 \int_0^t\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)ds.
+    \end{aligned}
+\]
+
+Usando y factorizando la variable ya defidina \(C_1(t)\) tenemos que
+
+\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq & C_1(t)\int_0^t\Bigg(\mathbb{E}[|\Delta b(s)|^2]+\mathbb{E}[|\Delta \sigma(s)|^2]\\
+        & \qquad\qquad +\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)\Bigg)ds.
+    \end{aligned}
+\]
+
+De manera similar como ya se hizo en el análisis de la diferencia entre
+\(Z_n\) y \(Z_{n-1}\) en la iteración de Picard, haciendo uso de la
+condición (Ecuación~\ref{eq-lipschitz}) podemos obtener
+
+\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
+\]
+
+De esta forma definimos ahora la función
+
+\[
+    D(t):=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right].
+\]
+
+Es claro que \(D(t)\geq 0\) para toda \(t\geq 0\). Fijando a
+\(T\geq 0\), podemos afirmar que para todo \(t\in [0,T]\) la variable
+\(C_1(t)\leq C_1(T)<\infty\). Por el Teorema de Gronwall tenemos que
+
+\[
+    D(t) \leq 0\cdot e^{C_1(T)K_1}=0, \qquad t\in [0,T].
+\]
+
+Por la arbitrariedad de \(T\), tenemos que para todo \(t\geq 0\) se
+cumple
+
+\[
+    D(t)=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]=0.
+\]
+
+Por lo tanto, por propiedad de la esperanza podemos afirmar que
+
+\[
+\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2=0\ \ \text{c.s.}
+\]
+
+Es decir, \(Z^{(1)}(s)=Z^{(2)}(s)\) para toda \(s\in [0,t]\), \(c.s\).
+Definimos
+
+\[
+A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [0,n]\right\}.
+\]
+
+Sabemos que \(\mathbb{P}(A_n)=1\) para toda \(n\in \mathbb{N}\) y
+también
+
+\[
+    A = \bigcap_{n=1}^\infty A_n = \left\{ \omega : Z^{(1)}(t,\omega) = Z^{(2)}(t,\omega) \text{ para todo } t \geq 0 \right\}.
+\]
+
+Por la continuidad de la probabilidad (propiedad de medidas):
+
+\[
+\mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
+\]
+
+Veamos el caso cuando \(\mathbb{E}[|Z_0|^2]=\infty\). En teoria de
+probabilidad, al truncar una variable aleatoria podemos cortarla cuando
+esta está fuera de un rango finito, reemplazando sus valores extremos
+por cero o por el valor de dicho borde. Vamos aproximar \(Z_0\) por una
+sucesión de variables acotadas, para más adelante garantizar la
+existencia y unicidad de una solución a la Ecuación~\ref{eq-sde}.
+Definimos el truncamiento de la variable aleatoria \(Z_0\) de la forma
+
+\[
+    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
+\]
+
+Donde
+
+\[
+1_{\{ |Z_0| \leq n \}}(\omega) =
+\begin{cases}
+1, & \text{si } |Z_0(\omega)| \leq n, \\
+0, & \text{si } |Z_0(\omega)| > n.
+\end{cases}
+\]
+
+Esto implica que
+
+\[
+    Z_0^{(n)}(\omega) = 
+    \begin{cases}
+    Z_0(\omega), & \text{si } |Z_0(\omega)| \leq n, \\ 
+    0, & \text{si } |Z_0(\omega)| > n.
+    \end{cases}
+\]
+
+Esto garantiza que \(\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2<\infty\), por
+otro lado, cómo \(Z_0\) es \(\mathbfcal{F}\)- medible y
+\(1_{\{|Z_0|\leq n\}}\) también lo es, entonces \(Z_0^{(n)}\) es
+\(\mathcal{F}\)-medible.
+
+Fijemos \(\omega\in \Omega\) tal que \(|Z_0(\omega)|<\infty\), por
+tanto, existe \(N\in \mathbb{N}\) tal que \(|Z_0(\omega)|\leq N\), de
+aquí, para todo \(n\geq N\), se tiene \(|Z_0(\omega)|\leq n\), más aún,
+\(\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)\). Esto implica que, para
+casi todo \(\omega\in\Omega\), la sucesión \((Z_0^{(n)}(\omega))\) es
+constante e igual a \(Z_0(\omega)\). Así, por definición de convergencia
+puntual, tenemos
+
+\[
+\lim\limits_{n\rightarrow\infty}Z_0^{(n)}(\omega)=Z_0(\omega), \text{ para casi todo $\omega$}.
+\]
+
+Por lo tanto
+
+\[
+Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
+\]
+
+entonces para cada \(n\in \mathbb{N}\) la variable \(Z_0^{(n)}\) es
+\(\mathcal{F}_0\)-medible y acotada. Lo que nos permite afirmar que
+pertenece a \(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\). En consecuencia,
+es posible aplicar los argumentos anteriores, cuando
+\(\mathbb{E}[|Z_0|^2]<\infty\), para afirmar que existe una única
+solución fuerte de la Ecuación~\ref{eq-sde}, digamos \(Z^{(n)}\), con
+condición inicial \(Z_0^{(n)}\).
+
+Para cada \(N\in \mathbb{N}\), definimos el conjunto
+
+\[
+    \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
+\]
+
+Esto implica, para cualquier \(m>n\geq N\), se tiene
+
+\begin{equation}\protect\hypertarget{eq-20}{}{
+    Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
+}\label{eq-20}\end{equation}
+
+Es deicr, en \(\Omega_N\), las condiciones iniciales de \(Z^{(m)}\) y
+\(Z^{(n)}\) son iguales. Por lo tanto, para todo \(t\geq 0\) se cumple
+que
+
+\[
+    Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
+\]
+
+Queremos ver ahora que la sucesión \(\{Z^{n}\}_{n\in \mathbb{N}}\) es
+uniformemente de Cauchy en probabilidad, es decir, dado
+\(\varepsilon>0\) y \(\delta>0\), existe \(N\in \mathbb{N}\) tal que
+para todo \(m,n\geq N\), se cumple
+
+\[
+    \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon.
+\]
+
+Notemos que de los conjuntos anteriormente definidos, cumplen que
+\(\Omega_N\subset \Omega_{N+1}\). Por otro lado, al ser \(Z_0\) una
+variable aleatoria real, entonces \(\mathbb{P}(|Z_0|<\infty)=1\) . Así
+al ser \(\Omega_N\) una sucesión de conjuntos crecientes, se tiene
+
+\[
+    \bigcup\limits_{n=1}^{\infty}\Omega_n=\{|Z_0|<\infty\}.
+\]
+
+Por la continuidad de la probabilidad, podemos afirmar
+\(\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1\).
+Esto implica que para cualquier \(\varepsilon>0\), existe
+\(N\in \mathbb{N}\) tal que
+
+\begin{equation}\protect\hypertarget{eq-21}{}{
+    \mathbb{P}(\Omega_N)>1-\varepsilon.
+}\label{eq-21}\end{equation}
+
+De Ecuación~\ref{eq-20} sabemos que
+
+\[
+\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
+\]
+
+Por lo tanto, si la diferencia es distinta de cero, es decir, para
+\(\delta>0\), solo puede ocurrir fuera de \(\Omega_N\), esto es, ocurre
+en el complemento de \(\Omega_N\). Entonces
+
+\[
+\Bigg\{\omega:\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg\}\subset \Omega_N^{c}.
+\]
+
+Por propiedad básica de la probabilidad, podemos afirmar
+
+\[
+\mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
+\]
+
+Más aún, notemos que \(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\),
+por la Ecuación~\ref{eq-21}, entonces
+\(\mathbb{P}(\Omega_N^c)<\varepsilon\). De la ecuación anterior, podemos
+afirmar \[
+    \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon, \ \ \forall\ m,n\geq N
+\]
+
+Por lo tanto, la sucesión \((Z^{(n)})_{n\in \mathbb{N}}\) es
+uniformemente de Cauchy en probabilidad. Al estar en \(L^2\) podemos
+afirmar que existe un proceso \(Z=\{Z(t)\}_{t\geq 0}\) de tal forma que
+
+\[
+    \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
+\]
+
+Por el teorema de convergencia de sucesiones de Cauchy en probabilidad,
+para la sucesión es posible extraer una subsucesión \(\{Z_{n_k}\}\) tal
+que se cumple
+
+\[
+    \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
+\]
+
+De aquí, notemos que por construcción, cada \(Z^{(n_k)}\) posee
+trayectorias càdlàg, y la convergencia es uniforme casi segura, entonces
+el límite \(Z\) admite una versión càdlàg. Por otro lado, dado que cada
+\(Z^{(n_k)}\) es adaptado y su convergencia al proceso \(Z\) es
+uniforme, basta notar que la adaptabilidad de un proceso se converva
+bajo convergencia puntual, en nuestro caso, convergencia uniforme casi
+seguramente, por tanto podemos afirmar que el límite \(Z\) es adaptado.
+
+Analicemos ahora la unicidad de dicha solución. Procediendo por
+contradicción, supongamos que existe otra solución fuerte
+\(Z'=(Z'(t))_{t\geq 0}\) con la misma condición inicial \(Z_0\). Fijando
+a \(N\in \mathbb{N}\), consideremos al conjunto \(\Omega_N\), ya sabemos
+que en este conjunto la condición incial es acotada y además por el caso
+\(\mathbb{E}[|Z_0|^2]<\infty\) la solución es única. Por lo tanto
+
+\[
+    Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ \forall\omega\in \Omega_N\ \text{c.s.}
+\]
+
+para cualquier \(M\geq N\), donde \(Z_M\) es la solución con condición
+inicial truncada \(Z^{(M)}=Z_0\) en \(\Omega_N\). Asumamos que esto
+falla para algún \(M\geq N\), es decir, existe un conjunto
+\(A\subset \Omega_N\) con \(\mathbb{P}(A)>0\) tal que
+\(Z'(t)(\omega)\neq Z_M(t)(\omega)\) con \(\omega\in A\). Podemos
+definir un nuevo proceso, llamemos a este \(Z''_M\), mediante
+
+\[
+Z''_M(t)(\omega) =
+\begin{cases}
+Z'(t)(\omega), & \omega\in A, \\
+Z_M(t)(\omega) & \omega\notin A.
+\end{cases}    
+\]
+
+Dado que \(A\subset \Omega_N\), entonces \(A\in \mathcal{F}_0\), podemos
+afirmar que \(Z''\) es adaptado, pues \(Z'\) y \(Z^{(M)}\) son dos
+procesos adaptados en un conjunto \(\mathcal{F}_0\)-medible. Luego, al
+ser \(Z''\) la combinación de dos funciones càdlàg entonces \(Z''\) es
+càdlàg.
+
+Notemos que si \(\omega\in A\subset \Omega_N\subset \Omega_M\), entonces
+
+\[
+    Z''_M(0)(\omega)=Z'(0)(\omega)=Z_0(\omega)=Z_0^{(M)}(\omega),
+\]
+
+por otro lado, si \(\omega\notin A\), esto implica que
+
+\[
+    Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
+\]
+
+en ambos casos se tiene que \(Z''_M(0)=Z^{(M)}(0)\) con \(\omega\in A\)
+casi seguramente.
+
+Entonces \(Z''_M\) y \(Z^{(M)}\) son dos soluciones de la
+Ecuación~\ref{eq-sde} con la misma condición inicial, por construcción,
+en el conjunto \(A\), se tiene que \(Z''_M(t)\neq Z^{(M)}(t)\) para
+algún \(t\). Lo cual es una contradicción al caso cuando
+\(\mathbb{E}[|Z_0|^2]<\infty\) donde se establece la unicidad casi
+segura de la solución fuerte.
+
+Dado que al suponer \(\mathbb{P}(A)>0\) nos lleva a una contradicción,
+podemos afirmar que \(\mathbb{P}(A)=0\), es decir, \(Z'(t)=Z^{(M)}(t)\)
+para todo \(t\geq 0\), casi seguramente en \(\Omega_N\). Esto vale para
+todo \(N\in \mathbb{N}\), como
+
+\[
+    \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
+\]
+
+podemos concluir
+
+\[
+    \mathbb{P}(Z'(t)=Z(t)\ \text{para todo }\ t\geq 0)=1.
+\]
+
+Por lo tanto, la solución fuerte es única casi seguramente.
 
 \end{proof}
 

@@ -36,8 +36,8 @@ book:
   chapters:
   - index.qmd
   - chapters/intro.qmd
+  - chapters/preliminares.qmd
   - chapters/objetivos.qmd
-  - chapters/presentacion.qmd
   - chapters/teorema.qmd
   - chapters/referencias.qmd
 

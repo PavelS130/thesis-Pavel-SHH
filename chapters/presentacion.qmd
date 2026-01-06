@@ -75,7 +75,9 @@ ii. $T$ es el conjunto de índices (por ejemplo, un intervalo de tiempo o una re
 ::: {#def-varmues style="text-align: justify"}
 ### Proceso de Markov
 
-Es un proceso estocástico $\{X_n\}_{n\in T}$, que cumple: $$
+Es un proceso estocástico $\{X_n\}_{n\in T}$, que cumple:
+
+$$
 \begin{aligned}
 P(X_{n+1}=x_{n+1}|& X_n=x_n,\ X_{n-1}=x_{n-1},\ldots,X_0=x_0)\\ 
 & =P(X_{n+1}=x_{n+1}|X_n=x_n)
@@ -86,9 +88,15 @@ $$
 ::: {#def-varmues style="text-align: justify"}
 ### Matriz de transición
 
-A partir de la serie de datos sísmicos clasificados, es posible construir la matriz de transición $$
+A partir de la serie de datos sísmicos clasificados, es posible construir la matriz de transición
+
+$$
 P:[p_{ij}], \ p_{ij}=P(X_{t+1}=M_j|X_t=M_i)
-$$ Con la propiedad de que cada fila de $P$ es una distribución de probabilidad, vale decir $$
+$$
+
+Con la propiedad de que cada fila de $P$ es una distribución de probabilidad, vale decir
+
+$$
 \sum\limits_{j=1}^{k} p_{ij}=1,\ p_{ij}\geq 0\ \ \forall i,j
 $$
 :::

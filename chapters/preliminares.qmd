@@ -1,0 +1,137 @@
+---
+title: "Preliminares"
+lang: es
+---
+
+## Análisis Real y Funcional (Base Analítica).
+
+::: {#def-espacio_metrico}
+**Espacio métrico**  
+Llamamos espacio métrico al par $(X, d)$, donde $X$ es un conjunto no vacío y $d: X \times X \to [0, \infty)$ es una función (llamada métrica) que satisface, para todo $x, y, z \in X$:
+
+- $d(x, y) = 0 \iff x = y$,
+ 
+- $d(x, y) = d(y, x)$,
+
+- $d(x, z) \leq d(x, y) + d(y, z)$.
+:::
+
+::: {#def-sucesion_cauchy .definition}
+**Sucesión de Cauchy.**  
+Una sucesión $(x_n)_{n \in \mathbb{N}}$ en un espacio métrico $(X, d)$ es una sucesión de Cauchy si para todo $\varepsilon > 0$, existe $N \in \mathbb{N}$ tal que
+
+$$
+m, n \geq N \implies d(x_m, x_n) < \varepsilon.
+$$
+:::
+
+::: {#def-esp_metrico_comp .definition}
+**Espacio métrico completo**  
+Un espacio métrico $(X, d)$ se dice completo si toda sucesión de Cauchy en $X$ converge a un límite en $X$.
+:::
+
+::: {style="text-align: justify"}
+El espacio $\mathbb{R}$ con la métrica $d(x, y) = |x - y|$ es completo.
+:::
+
+
+::: {#def-sigma_algebra .definition}
+**$\sigma$-álgebra de Borel.**  
+La $\sigma$-álgebra de Borel en $\mathbb{R}$, denotada $\mathcal{B}(\mathbb{R})$, es la $\sigma$-álgebra generada por los intervalos abiertos de $\mathbb{R}$.
+
+:::
+
+::: {#def-fun_borel .definition}
+**Función Borel Medible**  
+Una función $f: \mathbb{R} \to \mathbb{R}$ es Borel-medible si para todo $B \in \mathcal{B}(\mathbb{R})$, se tiene que $f^{-1}(B) \in \mathcal{B}(\mathbb{R})$.
+:::
+
+::: {#thm-}
+Toda función continua $f: \mathbb{R}\to \mathbb{R}$ es Borel-medible.
+:::
+
+:::{.proof}
+Si $f$ es continua, la preimagen de cualquier conjunto abierto es abierta. Como los abiertos generan $\mathcal{B}(\mathbb{R})$ y la preimagen conmuta con uniones, intersecciones numerables y complementos, se sigue que $f^{-1}(B) \in \mathcal{B}(\mathbb{R})$ para todo $B \in \mathcal{B}(\mathbb{R})$.
+:::
+
+## Espacios $L^2$ y convergencia.
+
+::: {#def-espacio_l2}
+Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. EL espacio $L^2(\Omega, \mathcal{F}, \mathbb{P})$ se define como
+
+$$
+L^2 = \left\{ X: \Omega \to \mathbb{R} \mid X \text{ es } \mathcal{F}\text{-medible y } \mathbb{E}[|X|^2] < \infty \right\}.
+$$
+:::
+
+::: {#def-norma_l2}
+Para $X \in L^2$, su norma se define como
+
+$$
+\|X\|_{L^2} = \left( \mathbb{E}[|X|^2] \right)^{1/2}.
+$$
+:::
+
+:::{#def-conv_l2}
+Una sucesión $(X_n)_{n \in \mathbb{N}} \subset L^2$ converge en $L^2$ a $X \in L^2$ si
+
+$$
+\lim_{n \to \infty} \|X_n - X\|_{L^2} = 0,
+$$
+
+es decir, $\lim\limits_{n \to \infty} \mathbb{E}[|X_n - X|^2] = 0$.
+:::
+
+## Espacios de Banach
+
+::: {#def-esp_banach}
+Un espacio de Banach es un espacio vectorial normado $(X, \|\cdot\|)$ que es completo con respecto a la métrica inducida por la norma, es decir, toda sucesión de Cauchy en $X$ converge en $X$.
+:::
+
+::: {style="text-align: justify"}
+El espacio $L^2(\Omega, \mathcal{F}, \mathbb{P})$ es un espacio de Banach (de hecho, un espacio de Hilbert).
+:::
+
+::: {#def-criterio_cauchy_esp_norm}
+Una sucesión $(x_n)_{n \in \mathbb{N}}$ en un espacio normado $(X, \|\cdot\|)$ es de Cauchy si para todo $\varepsilon > 0$, existe $N \in \mathbb{N}$ tal que
+
+$$
+m, n \geq N \implies \|x_m - x_n\| < \varepsilon.
+$$
+:::
+
+::: {style="text-align: justify"}
+En $\mathbb{R}$, esto se reduce a: $(x_n)$ es de Cauchy si $|x_m - x_n| < \varepsilon$ para $m, n$ suficientemente grandes.
+:::
+
+## Desigualdades
+
+::: {#prp-des_triangulo}
+Para cualesquiera $a_1, \dots, a_n \in \mathbb{R}$,
+
+$$
+\left( \sum_{i=1}^n a_i \right)^2 \leq n \sum_{i=1}^n a_i^2.
+$$
+
+En particular, para $n = 3$,
+
+$$
+(a + b + c)^2 \leq 3(a^2 + b^2 + c^2).
+$$
+:::
+
+::: {#prp-des_cauchy_schwarz}
+Sean $f, g: [0, T] \to \mathbb{R}$ funciones medibles tales que $f, g \in L^2([0, T])$. Entonces
+
+$$
+\left| \int_0^T f(s) g(s) \, ds \right| \leq \left( \int_0^T |f(s)|^2 \, ds \right)^{1/2} \left( \int_0^T |g(s)|^2 \, ds \right)^{1/2}.
+$$
+:::
+
+::: {#cor-cauchy_schwarz}
+Si $g \equiv 1$, entonces para todo $t \in [0, T]$,
+
+$$
+\left( \int_0^t f(s) \, ds \right)^2 \leq t \int_0^t |f(s)|^2 \, ds.
+$$
+:::

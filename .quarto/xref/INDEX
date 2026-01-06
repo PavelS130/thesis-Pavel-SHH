@@ -37,5 +37,8 @@
   },
   "chapters/referencias.qmd": {
     "referencias.html": "6f4eacfd"
+  },
+  "chapters/preliminares.qmd": {
+    "preliminares.html": "6cbb1ef4"
   }
 }
