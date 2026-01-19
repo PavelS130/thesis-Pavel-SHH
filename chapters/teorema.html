@@ -656,7 +656,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><strong>Caso 2: <span class="math inline">\(t\geq 1\)</span></strong></p>
 <p>Es claro que si <span class="math inline">\(s\leq t\)</span>, entonces <span class="math inline">\(3s\leq 3t\)</span>, por tanto, podemos afimar</p>
 <p><span class="math display">\[
-    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t)
+    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t).
 \]</span></p>
 <p>En ambos casos note que se cumple <span class="math inline">\(C_1(s)\leq C_1(t)\)</span>, más aún es claro que <span class="math inline">\(K_1\leq K_3\)</span>, esto implica que <span class="math inline">\(K_1K_3^k\leq K_3^{k+1}\)</span> por lo tanto</p>
 <p><span class="math display">\[
@@ -677,14 +677,68 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 \]</span></p>
 <p>Ahora bien, veamos que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span> usando la norma <span class="math inline">\(\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}\)</span> el cuál hace de <span class="math inline">\(L^2\)</span> un espacio completo.</p>
-<p>Ahora bien, sean <span class="math inline">\(m,n\mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>, aplicando la desigualdad del triangulo, podemos afirmmar que</p>
+<p>Ahora bien, sean <span class="math inline">\(m,n\mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>, aplicando la desigualdad del triangulo, podemos afirmmar que para cada <span class="math inline">\(0\leq s\leq t\)</span> se cumple</p>
 <p><span class="math display">\[
     \begin{aligned}
         \|Z_n(s)-Z_m(s)\|_2 &amp; = \Bigg\|\sum\limits_{r=m+1}^n (Z_r(s)-Z_{r-1}(s))\Bigg\|_2\\
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la (<a href="#eq-15">Ecuación&nbsp;<span>4.18</span></a>)</p>
+<p>De la (<a href="#eq-15">Ecuación&nbsp;<span>4.18</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
+<p><span class="math display">\[
+    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
+\]</span></p>
+<p>Dado que son terminos no negativos, tomando raíz se puede afirmar que</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \|Z_r(s)-Z_{r-1}(s)\|_2 &amp; \leq \sqrt{\mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]}\\
+        &amp; \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \end{aligned}
+\]</span></p>
+<p>Por tanto para cada <span class="math inline">\(0\leq s\leq t\)</span> tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \|Z_n(s)-Z_m(s)\|_2 &amp; \leq \sum\limits_{r=m+1}^n \|Z_r(s)-Z_{r-1}(s)\|_2\\
+        &amp; \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \end{aligned}
+\]</span></p>
+<p>Definimos la siguiente variable</p>
+<p><span class="math display">\[
+    A':=C_2(t)K_3&gt;0.
+\]</span></p>
+<p>Reescribiendo el termino de la suma de la siguiente forma</p>
+<p><span class="math display">\[
+    a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}
+\]</span></p>
+<p>Veamos la convergencía de la serie</p>
+<p><span class="math display">\[
+\sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
+\]</span></p>
+<p>Considerando el cociente del termino <span class="math inline">\(a_r\)</span> tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \frac{a_{r+1}}{a_r} &amp; = \frac{\Bigg(\frac{A^{r+1}}{(r+1)!}\Bigg)^{1/2}}{\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}}\\
+        &amp; = \Bigg(\frac{A^{r+1}}{(r+1)!}\cdot \frac{r!}{A^r}\Bigg)^{1/2}\\
+        &amp; = \Bigg(\frac{A}{r+1}\Bigg)^{1/2}.
+    \end{aligned}
+\]</span></p>
+<p>Ahora tomando el límite cuando <span class="math inline">\(r\rightarrow\infty\)</span></p>
+<p><span class="math display">\[
+\lim\limits_{r\rightarrow\infty}\frac{a_{r+1}}{a_r}=\lim\limits_{r\rightarrow\infty}\sqrt{\frac{A}{r+1}}=0
+\]</span></p>
+<p>Dado que este límite es estrictamente menor que 1, por el criterio de la razón, podemos afirmar que la serie converge absolutamente esto implica que la serie converge, más aún, su cola converge, es decir, para todo <span class="math inline">\(\varepsilon&gt;0\)</span> existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
+<p><span class="math display">\[
+    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^r/2}&lt;\varepsilon.
+\]</span></p>
+<p>Entonces, para todo <span class="math inline">\(n,m\geq N\)</span> tales que <span class="math inline">\(m&lt;n\)</span> y todo <span class="math inline">\(s\in [0,t]\)</span></p>
+<p><span class="math display">\[
+    \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}&lt;\varepsilon.
+\]</span></p>
+<p>Por lo tanto, podemos afirmar que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span>.</p>
+<p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>. Por lo tanto, toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
+<p><span class="math display">\[
+    \lim\limits_{n\rightarrow \infty}\|Z_n(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t.]
+\]</span></p>
 </div>
 
 
