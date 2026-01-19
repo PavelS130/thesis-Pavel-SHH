@@ -616,21 +616,75 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
     d_n(t):= \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\right].
 \]</span></p>
 <p>Hemos demostrado hasta ahora las siguientes desigualdades</p>
-<p><span class="math display">\[
-    \begin{aligned}
-        d_1(t) &amp; = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2])\\
-        d_{n+1} &amp; = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
-    \end{aligned}
-\]</span></p>
+<p><span id="eq-13"><span class="math display">\[
+    d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
+\tag{4.16}\]</span></span></p>
+<p><span id="eq-14"><span class="math display">\[
+    d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
+\tag{4.17}\]</span></span></p>
 <p>Definiendo las siguientes variables <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}\)</span>.\</p>
 <p>Ahora bien, afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple</p>
-<p><span class="math display">\[
+<p><span id="eq-15"><span class="math display">\[
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
-\]</span></p>
+\tag{4.18}\]</span></span></p>
 <p>Procediendo por inducción, veamos que se cumple para <span class="math inline">\(n=1\)</span>. Esto es claro, dado que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}=K_3\)</span>, por lo tanto</p>
 <p><span class="math display">\[
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
 \]</span></p>
+<p>Suponemos ahora la afirmación es cierta para <span class="math inline">\(n=k\)</span>, es decir</p>
+<p><span class="math display">\[
+    d_k(t)\leq \frac{C_2(t)^k K_3^k}{k!}.
+\]</span></p>
+<p>Veamos ahora que se cumple para <span class="math inline">\(n=k+1\)</span>, vale decir, queremos probar que</p>
+<p><span class="math display">\[
+    d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
+\]</span></p>
+<p>Ahora bien por la (<a href="#eq-14">Ecuación&nbsp;<span>4.17</span></a>) tenemos</p>
+<p><span class="math display">\[
+        d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
+\]</span></p>
+<p>Usando la Hipotesis de inducción, podemos afirmar que</p>
+<p><span class="math display">\[
+    d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
+\]</span></p>
+<p>Aquí debemos considerar los siguientes casos</p>
+<p><strong>Caso 1: <span class="math inline">\(t&lt;1\)</span></strong></p>
+<p>Dado que <span class="math inline">\(0\leq s\leq t&lt;1\)</span>, entonces <span class="math inline">\(3s\leq 3t&lt;3&lt;12\)</span>, por lo tanto</p>
+<p><span class="math display">\[
+    C_1(s)=\max\{3s,12\}=12=\max\{3t,12\}=C_1(t).
+\]</span></p>
+<p><strong>Caso 2: <span class="math inline">\(t\geq 1\)</span></strong></p>
+<p>Es claro que si <span class="math inline">\(s\leq t\)</span>, entonces <span class="math inline">\(3s\leq 3t\)</span>, por tanto, podemos afimar</p>
+<p><span class="math display">\[
+    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t)
+\]</span></p>
+<p>En ambos casos note que se cumple <span class="math inline">\(C_1(s)\leq C_1(t)\)</span>, más aún es claro que <span class="math inline">\(K_1\leq K_3\)</span>, esto implica que <span class="math inline">\(K_1K_3^k\leq K_3^{k+1}\)</span> por lo tanto</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        d_{k+1}(t) &amp; \leq C_1(t)K_1\int_0^t d_k(s)ds\\
+        &amp; \leq C_1(t)K_1\int_0^t \frac{C_2(t)^k K_3^k}{k!}ds.\\
+        &amp; = \frac{C_1(t)K_1 K_3^k}{k!}\int_0^t s^kC_1(s)^k ds\\
+        &amp; \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(s)^k ds\\
+        &amp; \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(t)^k ds\\
+        &amp; = \frac{C_1(t)C_1(t)^k K_3^{k+1}}{k!}\int_0^t s^k ds\\
+        &amp; = \frac{C_1(t)^{k+1}K_3^{k+1}}{k!}\frac{t^{k+1}}{k+1}\\
+        &amp; = \frac{t^{k+1}C_1(t)^{k+1}K_3^{k+1}}{(k+1)!}\\
+        &amp; = \frac{C_2(t)^{k+1}K_3^{k+1}}{(k+1)!}.
+    \end{aligned}
+\]</span></p>
+<p>Por lo tanto para toda <span class="math inline">\(n\in \mathbb{N}\)</span> se cumple</p>
+<p><span class="math display">\[
+d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
+\]</span></p>
+<p>Ahora bien, veamos que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span> usando la norma <span class="math inline">\(\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}\)</span> el cuál hace de <span class="math inline">\(L^2\)</span> un espacio completo.</p>
+<p>Ahora bien, sean <span class="math inline">\(m,n\mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>, aplicando la desigualdad del triangulo, podemos afirmmar que</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \|Z_n(s)-Z_m(s)\|_2 &amp; = \Bigg\|\sum\limits_{r=m+1}^n (Z_r(s)-Z_{r-1}(s))\Bigg\|_2\\
+        &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
+    \end{aligned}
+\]</span></p>
+<p>De la (<a href="#eq-15">Ecuación&nbsp;<span>4.18</span></a>)</p>
 </div>
 
 
