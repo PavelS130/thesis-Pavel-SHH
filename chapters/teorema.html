@@ -763,10 +763,28 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)
 \]</span></p>
 <p>Aplicando a <span class="math inline">\(X_n^2\)</span> Chebyshev-Markov tenemos que</p>
-<p><span class="math display">\[
+<p><span id="eq-18"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2]
+\tag{4.21}\]</span></span></p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-15">Ecuación&nbsp;<span>4.18</span></a>, así</p>
+<p><span class="math display">\[
+    \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}
 \]</span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado por</p>
+<p>De la <a href="#eq-18">Ecuación&nbsp;<span>4.21</span></a>, esto implica que</p>
+<p><span class="math display">\[
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}
+\]</span></p>
+<p>Más aún, sabemos que la seríe <span class="math inline">\(\displaystyle \frac{C_2(t)^nK_3^n}{n!}\)</span>, esto implica que <span class="math inline">\(\displaystyle \frac{(4C_2(t)K_3)^n}{n!}\)</span> también coverge, por lo tanto</p>
+<p><span class="math display">\[
+    \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}&lt;\infty
+\]</span></p>
+<p>De aquí es posible usar el Lema de Borell-Cantelli, es decir, podemos afirmar</p>
+<p><span class="math display">\[
+    \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0
+\]</span></p>
+<p>La estimación obtenida nos dice que la probabilidad de que las diferencias consecutivas <span class="math inline">\(|Z_n(s) - Z_{n-1}(s)|\)</span> sean “grandes” (mayores que <span class="math inline">\(1/2^n\)</span>) se vuelve extremadamente pequeña a medida que <span class="math inline">\(n\)</span> crece, tan pequeña que la suma de todas esas probabilidades es finita.</p>
+<p>En otras palabras, casi todas las trayectorias de la sucesión <span class="math inline">\((Z_n)\)</span> se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo <span class="math inline">\([0,t]\)</span>.</p>
+<p>Esto garantiza que, con probabilidad 1, la sucesión <span class="math inline">\((Z_n(\cdot))\)</span> converge uniformemente en <span class="math inline">\([0,t]\)</span> a una función límite <span class="math inline">\(Z(\cdot)\)</span>. Es decir, no solo converge punto a punto, sino que lo hace de manera controlada en todo el intervalo al mismo tiempo.</p>
 </div>
 
 
