@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div id="thm-varmues" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 4.1 </strong></span>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la <strong>ecuación diferencial estocástica modificada</strong> (sin saltos grandes):</p>
+<p><span class="theorem-title"><strong>Teorema 4.1 </strong></span>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la ecuación diferencial estocástica modificada (sin saltos grandes):</p>
 <p><span id="eq-sde"><span class="math display">\[
 \begin{aligned}
 dZ(t) ={}&amp; b(Z(t-)) \, dt \\
@@ -224,9 +224,9 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \end{aligned}
 \tag{4.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(Z(0) = Z_0\)</span>, donde <span class="math inline">\(B(t)\)</span> es un movimiento browniano estándar unidimensional (<span class="math inline">\(r=1\)</span>); <span class="math inline">\(N(dt, dx)\)</span> es una medida aleatoria de Poisson definida en <span class="math inline">\(\mathbb{R}_+ \times (\mathbb{R} \setminus \{0\})\)</span> con medida de intensidad <span class="math inline">\(\nu(dx)\)</span>; <span class="math inline">\(\widetilde{N}(dt, dx) = N(dt, dx) - \nu(dx)\,dt\)</span> denota la correspondiente medida compensada; <span class="math inline">\(c \in (0, \infty]\)</span> es un umbral fijo que separa los saltos pequeños de los grandes; y <span class="math inline">\(Z_0\)</span> es una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible, independiente del ruido estocástico.</p>
-<p>Supongamos que los coeficientes <span class="math inline">\(b: \mathbb{R} \to \mathbb{R}\)</span>, <span class="math inline">\(\sigma: \mathbb{R} \to \mathbb{R}\)</span> y <span class="math inline">\(F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\)</span> son funciones <strong>medibles</strong> que satisfacen las siguientes condiciones:</p>
+<p>Supongamos que los coeficientes <span class="math inline">\(b: \mathbb{R} \to \mathbb{R}\)</span>, <span class="math inline">\(\sigma: \mathbb{R} \to \mathbb{R}\)</span> y <span class="math inline">\(F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\)</span> son funciones medibles que satisfacen las siguientes condiciones:</p>
 <section id="c1-condición-de-lipschitz" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="c1-condición-de-lipschitz"><strong>(C1) Condición de Lipschitz:</strong></h4>
+<h4 class="unnumbered anchored" data-anchor-id="c1-condición-de-lipschitz">(C1) Condición de Lipschitz:</h4>
 <p>Existe una constante <span class="math inline">\(K_1 &gt; 0\)</span> tal que, para todo <span class="math inline">\(y_1, y_2 \in \mathbb{R}\)</span>,</p>
 <p><span id="eq-lipschitz"><span class="math display">\[
 \begin{aligned}
@@ -237,24 +237,23 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 \tag{4.2}\]</span></span></p>
 </section>
 <section id="c2-condición-de-crecimiento-lineal" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="c2-condición-de-crecimiento-lineal"><strong>(C2) Condición de crecimiento lineal:</strong></h4>
+<h4 class="unnumbered anchored" data-anchor-id="c2-condición-de-crecimiento-lineal">(C2) Condición de crecimiento lineal:</h4>
 <p>Existe una constante <span class="math inline">\(K_2 &gt; 0\)</span> tal que, para todo <span class="math inline">\(y \in \mathbb{R}\)</span>,</p>
 <p><span id="eq-3"><span class="math display">\[
 |b(y)|^2 + |\sigma(y)|^2 + \int_{|x| &lt; c} |F(y, x)|^2 \, \nu(dx)
 \leq K_2 \bigl(1 + |y|^2 \bigr).
 \tag{4.3}\]</span></span></p>
-<p>Bajo las hipótesis anteriores, existe una <strong>única solución fuerte</strong> <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) tal que:</p>
-<ol type="1">
-<li><span class="math inline">\(Z\)</span> es un <strong>proceso adaptado y cádlág</strong> (continuo por la derecha con límites por la izquierda),</li>
-<li>La solución es única <strong>casi seguramente,</strong> esto es, si <span class="math inline">\((Z')\)</span> es otra solución, entonces<br>
-<span id="eq-4"><span class="math display">\[
+<p>Bajo las hipótesis anteriores, existe una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) tal que:</p>
+<ul>
+<li><span class="math inline">\(Z\)</span> es un proceso adaptado y cádlág (continuo por la derecha con límites por la izquierda),</li>
+<li>La solución es única casi seguramente, esto es, si <span class="math inline">\((Z')\)</span> es otra solución, entonces <span id="eq-4"><span class="math display">\[
 \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-\tag{4.4}\]</span></span></li>
-</ol>
+  \tag{4.4}\]</span></span></li>
+</ul>
 </section>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis <strong>(C1)</strong> y <strong>(C2)</strong> para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Ahora bien, la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
+<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (C1) y (C2) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Ahora bien, la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
 <p><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \]</span></p>
@@ -265,7 +264,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; + \int_0^t \int _{|x|&lt;c} F(Z_n(s-),x)\widetilde{N}(ds,dx).
     \end{aligned}
 \]</span></p>
-<p>Demostraremos por inducción que el proceso <span class="math inline">\(Z_n\)</span> es un proceso adaptado y con trayectorias Cádlág. Así, para <span class="math inline">\(n=0\)</span> consideremos la diferencia <span class="math inline">\(Z_1(t)-Z_0(t)\)</span>. Por la iteración de Picard tenemos:</p>
+<p>Demostraremos que el proceso <span class="math inline">\(Z_n\)</span> es un proceso adaptado y con trayectorias Cádlág. Consideremos la diferencia <span class="math inline">\(Z_1(t)-Z_0(t)\)</span>. Por la iteración de Picard tenemos:</p>
 <p><span class="math display">\[
     \begin{aligned}
         Z_1(t) = Z_0(t) &amp; + \int_0^t b(Z_0(s-))ds +\int_0^t\sigma(Z_0(s-))\\
@@ -622,7 +621,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-14"><span class="math display">\[
     d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
 \tag{4.17}\]</span></span></p>
-<p>Definiendo las siguientes variables <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}\)</span>.\</p>
+<p>Definimos las variables <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}\)</span>.\</p>
 <p>Ahora bien, afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple</p>
 <p><span id="eq-15"><span class="math display">\[
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
@@ -707,9 +706,9 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
     A':=C_2(t)K_3&gt;0.
 \]</span></p>
 <p>Reescribiendo el termino de la suma de la siguiente forma</p>
-<p><span class="math display">\[
+<p><span id="eq-16"><span class="math display">\[
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}
-\]</span></p>
+\tag{4.19}\]</span></span></p>
 <p>Veamos la convergencía de la serie</p>
 <p><span class="math display">\[
 \sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
@@ -735,10 +734,39 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
     \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}&lt;\varepsilon.
 \]</span></p>
 <p>Por lo tanto, podemos afirmar que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span>.</p>
-<p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>. Por lo tanto, toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
+<p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, entonces toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
+<p><span id="eq-17"><span class="math display">\[
+    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
+\tag{4.20}\]</span></span></p>
+<p>Ahora bien, sea <span class="math inline">\(m&gt;n\)</span>, por la desigualdad del triángulo, afirmamos que</p>
 <p><span class="math display">\[
-    \lim\limits_{n\rightarrow \infty}\|Z_n(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t.]
+    \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17">Ecuación&nbsp;<span>4.20</span></a> tenemos que</p>
+<p><span class="math display">\[
+    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
+\]</span></p>
+<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-16">Ecuación&nbsp;<span>4.19</span></a> converge entonces</p>
+<p><span class="math display">\[
+    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+\]</span></p>
+<p>Además el termino <span class="math inline">\(\|Z(s)-Z_n(s)\|_2\)</span> no depende de <span class="math inline">\(m\)</span>, por lo tanto</p>
+<p><span class="math display">\[
+    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}
+\]</span></p>
+<p>Consideremos ahora la siguiente notación</p>
+<p><span class="math display">\[
+    X_n:=\sup\limits_{0\leq s\leq t} |Z_n(s)-Z_{n-1}(s)|.
+\]</span></p>
+<p>Queremos encontrar una cota para</p>
+<p><span class="math display">\[
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)
+\]</span></p>
+<p>Aplicando a <span class="math inline">\(X_n^2\)</span> Chebyshev-Markov tenemos que</p>
+<p><span class="math display">\[
+    \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2]
+\]</span></p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado por</p>
 </div>
 
 
