@@ -785,6 +785,23 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p>La estimación obtenida nos dice que la probabilidad de que las diferencias consecutivas <span class="math inline">\(|Z_n(s) - Z_{n-1}(s)|\)</span> sean “grandes” (mayores que <span class="math inline">\(1/2^n\)</span>) se vuelve extremadamente pequeña a medida que <span class="math inline">\(n\)</span> crece, tan pequeña que la suma de todas esas probabilidades es finita.</p>
 <p>En otras palabras, casi todas las trayectorias de la sucesión <span class="math inline">\((Z_n)\)</span> se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo <span class="math inline">\([0,t]\)</span>.</p>
 <p>Esto garantiza que, con probabilidad 1, la sucesión <span class="math inline">\((Z_n(\cdot))\)</span> converge uniformemente en <span class="math inline">\([0,t]\)</span> a una función límite <span class="math inline">\(Z(\cdot)\)</span>. Es decir, no solo converge punto a punto, sino que lo hace de manera controlada en todo el intervalo al mismo tiempo.</p>
+<p>Veamos ahora que dicha solución es única, así supongamos que <span class="math inline">\(Z^{(1)}= (Z^{(1)}(t))_{t \geq 0}\)</span> y <span class="math inline">\(Z^{(2)} = (Z^{(2)}(t))_{t \geq 0}\)</span> son dos soluciones fuertes de la SDE modificada, es decir, procesos adaptados, càdlàg, cuadrado-integrables y que satisfacen, para todo ( t ), las ecuaciones integrales:</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        Z^{(i)}(t) &amp; = Z_0 + \int_0^t b(Z^{(i)}(s-))\,ds\\
+        &amp; \qquad \quad + \int_0^t \sigma(Z^{(i)}(s-))\,dB(s)\\
+        &amp; \qquad\quad + \int_0^t \int_{|x|&lt;c} F(Z^{(i)}(s-), x)\,\tilde{N}(ds,dx),
+    \end{aligned}
+\]</span></p>
+<p>para <span class="math inline">\(i=1,2\)</span>, casi seguramente. Queremos ver que <span class="math inline">\(Z^{(1)}(t) = Z^{(2)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span> con probabilidad <span class="math inline">\(1\)</span>. Ahora bien, restando las dos ecuaciones de <span class="math inline">\(Z^{(1)}\)</span> y <span class="math inline">\(Z^{(2)}\)</span> tenemos que</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t [b(Z^{(1)}(s-)) - b(Z^{(2)}(s-))]\,ds\\
+        &amp; \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\
+        &amp; \qquad\quad + \int_0^t \int_{|x|&lt;c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx).
+    \end{aligned}
+\]</span></p>
+<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span></p>
 </div>
 
 
