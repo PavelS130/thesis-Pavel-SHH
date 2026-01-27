@@ -794,14 +794,58 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
     \end{aligned}
 \]</span></p>
 <p>para <span class="math inline">\(i=1,2\)</span>, casi seguramente. Queremos ver que <span class="math inline">\(Z^{(1)}(t) = Z^{(2)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span> con probabilidad <span class="math inline">\(1\)</span>. Ahora bien, restando las dos ecuaciones de <span class="math inline">\(Z^{(1)}\)</span> y <span class="math inline">\(Z^{(2)}\)</span> tenemos que</p>
-<p><span class="math display">\[
+<p><span id="eq-19"><span class="math display">\[
     \begin{aligned}
         Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t [b(Z^{(1)}(s-)) - b(Z^{(2)}(s-))]\,ds\\
         &amp; \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\
         &amp; \qquad\quad + \int_0^t \int_{|x|&lt;c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx).
     \end{aligned}
+\tag{4.22}\]</span></span></p>
+<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>, para ello de forma similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19">Ecuación&nbsp;<span>4.22</span></a>, tomando supremo y despues esperanza en el intervalo <span class="math inline">\([0,t]\)</span> tenemos la siguiente desigualdad</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq &amp; 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [b(Z^{(1)}(u-))-b(Z^{(2)}(u-))]du\Bigg|^2\right]\\
+        &amp;\quad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\sigma(Z^{(1)}(u-))-\sigma(Z^{(2)}(u-))]dB(u)\Bigg|^2\right]\\
+        &amp; \qquad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s\int_{|x|&lt;c} [F(Z^{(1)}(u-),x)-F(Z^{(2)}(u-),x)]\widetilde{N}(du,dx)\Bigg|^2\right]\Bigg).
+    \end{aligned}
 \]</span></p>
-<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span></p>
+<p>Aplicando la desigualdad de Cauchy–Schwarz para integrales, para el primer termino de la desigualdad tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \Bigg|\int_0^s [b(Z^{(1)}(u-))-b(Z^{(2)}(u-))]du\Bigg|^2 &amp; \leq s\int_0^s \int_0^s |[b(Z^{(1)}(u-))-b(Z^{(2)}(u-))]|^2du\\
+        &amp; \leq t\int_0^t |[b(Z^{(1)}(u-))-b(Z^{(2)}(u-))]|^2du.
+    \end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(s\leq t\)</span> al tomar supremo y valor esperado obtenemos la cota</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup\limits_{o\leq s\leq t}\Bigg|\int_0^s [b(Z^{(1)}(u-))-b(Z^{(2)}(u-))]du\Bigg|^2\right]\leq t\int_0^t \mathbb{E}[|b(Z^{(1)}(u-))-b(Z^{(2)}(u-))|^2]du.
+\]</span></p>
+<p>Ahora bien, bajo argumentos similares utilizados anteriormente, afirmamos que el proceso</p>
+<p><span class="math display">\[
+    \int_0^s [\sigma(Z^{(1)}(u-))-\sigma(Z^{(2)}(u-))]dB(u),
+\]</span></p>
+<p>es una martingala local continua, por tanto, usando la desigualdad maximal de Doob tenemos</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s [\sigma(Z^{(1)}(u-))-\sigma(Z^{(2)}(u-))]dB(u)\right|^2\right]\leq 4\mathbb{E}\left[\Bigg|\int_0^t [\sigma(Z^{(1)}(s-))-\sigma(Z^{(2)}(s-))]dB(s)\Bigg|^2\right].
+\]</span></p>
+<p>De aquí, usando la isometría de Itô</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\Bigg|\int_0^t [\sigma(Z^{(1)}(s-))-\sigma(Z^{(2)}(s-))]dB(s)\Bigg|^2\right] \leq \mathbb{E}\Bigg[\int_0^t |\sigma(Z^{(1)}(s-))-\sigma(Z^{(2)}(s-))|^2ds\Bigg].
+\]</span></p>
+<p>Ahora bien, podemos afirmar ahora que el siguiente proceso es una martingala local càdlàg</p>
+<p><span class="math display">\[
+    \int_0^s\int_{|x|&lt;c} [F(Z^{(1)}(u-),x)-F(Z^{(2)}(u-),x)]\widetilde{N}(du,dx).
+\]</span></p>
+<p>Nuevamente aplicando la desigualdad maximal de Doob la isometría de Itô para integrales respecto a <span class="math inline">\(\widetilde{N}\)</span> tenemos que</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s\int_{|x|&lt;c} [F(Z^{(1)}(u-),x)-F(Z^{(2)}(u-),x)]\widetilde{N}(du,dx)\right|^2\right]\leq 4\int_0^t\int_{|x|&lt;c}\mathbb{E}[|F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)|^2]\nu(dx)ds.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\right]
+    \end{aligned}
+\]</span></p>
 </div>
 
 
