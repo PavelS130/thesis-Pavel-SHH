@@ -938,14 +938,38 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
 \]</span></p>
 <p>Esto implica, para cualquier <span class="math inline">\(m&gt;n\geq N\)</span>, se tiene</p>
-<p><span class="math display">\[
+<p><span id="eq-20"><span class="math display">\[
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-\]</span></p>
+\tag{4.22}\]</span></span></p>
 <p>Es deicr, en <span class="math inline">\(\Omega_N\)</span>, las condiciones iniciales de <span class="math inline">\(Z^{(m)}\)</span> y <span class="math inline">\(Z^{(n)}\)</span> son iguales. Por lo tanto, para todo <span class="math inline">\(t\geq 0\)</span> se cumple que</p>
 <p><span class="math display">\[
     Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
 \]</span></p>
-<p>A partir de la sucesión <span class="math inline">\(Z^{(n)}\)</span> construiremos una solución <span class="math inline">\(Z\)</span> tal que funcione para la condición inicial <span class="math inline">\(Z_0\)</span>. De aquí, note que los conjuntos <span class="math inline">\(\Omega_N\)</span> su</p>
+<p>Queremos ver ahora que la sucesión <span class="math inline">\({Z^{n}}_{n\in \mathbb{N}}\)</span> es uniformemente Cauchy en probabilidad, es decir, dado <span class="math inline">\(\varepsilon&gt;0\)</span> y <span class="math inline">\(\delta&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que para todo <span class="math inline">\(m,n\geq N\)</span>, se cumple</p>
+<p><span class="math display">\[
+    \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon.
+\]</span></p>
+<p>Notemos que de los conjuntos anteriormente definidos, cumplen que <span class="math inline">\(\Omega_N\subset \Omega_{N+1}\)</span>. Por otro lado, al ser <span class="math inline">\(Z_0\)</span> una vaeirable aleatoria real, entonces <span class="math inline">\(\mathbb{P}(|Z_0|&lt;\infty)=1\)</span> . Así al ser <span class="math inline">\(\Omega_N\)</span> una sucesión de conjuntos crecientes, más aún, se tiene</p>
+<p><span class="math display">\[
+    \bigcup\limits_{n=1}^{\infty}\Omega_n=\{|Z_0|&lt;\infty\}.
+\]</span></p>
+<p>Por la continuidad de la probabilidad, podemos afirmar <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1\)</span>. Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
+<p><span class="math display">\[
+    \mathbb{P}(\Omega_N)&gt;1-\varepsilon.
+\]</span></p>
+<p>De <a href="#eq-20">Ecuación&nbsp;<span>4.22</span></a> sabemos que</p>
+<p><span class="math display">\[
+\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
+\]</span></p>
+<p>Por lo tanto, si la diferencia es distinta de cero, es decir, para <span class="math inline">\(\delta&gt;0\)</span>, esto solo puedo ocurrir fuera de <span class="math inline">\(\Omega_N\)</span>, en otras palabras ocurre en el complemento de <span class="math inline">\(\Omega_N\)</span>. Entonces</p>
+<p><span class="math display">\[
+\Bigg\{\omega:\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg\}\subset \Omega_N^{c}.
+\]</span></p>
+<p>Por propiedad básica de la probabilidad, podemos afirmar</p>
+<p><span class="math display">\[
+\mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
+\]</span></p>
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por</p>
 </div>
 
 
