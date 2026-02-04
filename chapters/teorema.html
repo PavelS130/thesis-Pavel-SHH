@@ -903,7 +903,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 \]</span></p>
-<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rangi finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, paramás adelante garantizar la existencia y unicidad de una solución a la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
+<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
 <p><span class="math display">\[
     Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
 \]</span></p>
@@ -923,16 +923,16 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
     0, &amp; \text{si } |Z_0(\omega)| &gt; n.
     \end{cases}
 \]</span></p>
-<p>Esto garantiza que <span class="math inline">\(\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2&lt;\infty\)</span>, por otro lado, cómo <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathbfcal{F}\)</span>- medible y <span class="math inline">\(1_{\{|Z_0|\leq n\}}\)</span> tammbién lo es, entonces su producto, es decir, <span class="math inline">\(Z_0^{(n)}\)</span>, es <span class="math inline">\(\mathcal{F}\)</span>-medible.</p>
-<p>Fijemos <span class="math inline">\(\omega\in \Omega\)</span> tal que <span class="math inline">\(|Z_0(\omega)|&lt;\infty\)</span>, por tanto, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que <span class="math inline">\(|Z_0(\omega)|\leq N\)</span>, de aquí, para todo <span class="math inline">\(n\geq N\)</span>, se tiene <span class="math inline">\(|Z_0(\omega)|\leq n\)</span>, más aún, <span class="math inline">\(\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)\)</span>. Esto implica que, para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la sucesión <span class="math inline">\((Z_0^{(n)}(\omega))\)</span> es constennte e igual a <span class="math inline">\(Z_0(\omega)\)</span>. Así, por definición de convergencia puntal, tenemos</p>
+<p>Esto garantiza que <span class="math inline">\(\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2&lt;\infty\)</span>, por otro lado, cómo <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathbfcal{F}\)</span>- medible y <span class="math inline">\(1_{\{|Z_0|\leq n\}}\)</span> también lo es, entonces <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}\)</span>-medible.</p>
+<p>Fijemos <span class="math inline">\(\omega\in \Omega\)</span> tal que <span class="math inline">\(|Z_0(\omega)|&lt;\infty\)</span>, por tanto, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que <span class="math inline">\(|Z_0(\omega)|\leq N\)</span>, de aquí, para todo <span class="math inline">\(n\geq N\)</span>, se tiene <span class="math inline">\(|Z_0(\omega)|\leq n\)</span>, más aún, <span class="math inline">\(\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)\)</span>. Esto implica que, para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la sucesión <span class="math inline">\((Z_0^{(n)}(\omega))\)</span> es constante e igual a <span class="math inline">\(Z_0(\omega)\)</span>. Así, por definición de convergencia puntual, tenemos</p>
 <p><span class="math display">\[
 \lim\limits_{n\rightarrow\infty}Z_0^{(n)}(\omega)=Z_0(\omega), \text{ para casi todo $\omega$}.
 \]</span></p>
 <p>Por lo tanto</p>
 <p><span class="math display">\[
-Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
+Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 \]</span></p>
-<p>Entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada, así podemos afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. Entonces, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte, digamos <span class="math inline">\(Z^{(n)}\)</span> de la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
+<p>entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada. Lo que nos permite afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. En consecuencia, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte de la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>, digamos <span class="math inline">\(Z^{(n)}\)</span>, con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
 <p>Para cada <span class="math inline">\(N\in \mathbb{N}\)</span>, definimos el conjunto</p>
 <p><span class="math display">\[
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
@@ -945,11 +945,11 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p><span class="math display">\[
     Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
 \]</span></p>
-<p>Queremos ver ahora que la sucesión <span class="math inline">\({Z^{n}}_{n\in \mathbb{N}}\)</span> es uniformemente Cauchy en probabilidad, es decir, dado <span class="math inline">\(\varepsilon&gt;0\)</span> y <span class="math inline">\(\delta&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que para todo <span class="math inline">\(m,n\geq N\)</span>, se cumple</p>
+<p>Queremos ver ahora que la sucesión <span class="math inline">\({Z^{n}}_{n\in \mathbb{N}}\)</span> es uniformemente de Cauchy en probabilidad, es decir, dado <span class="math inline">\(\varepsilon&gt;0\)</span> y <span class="math inline">\(\delta&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que para todo <span class="math inline">\(m,n\geq N\)</span>, se cumple</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon.
 \]</span></p>
-<p>Notemos que de los conjuntos anteriormente definidos, cumplen que <span class="math inline">\(\Omega_N\subset \Omega_{N+1}\)</span>. Por otro lado, al ser <span class="math inline">\(Z_0\)</span> una vaeirable aleatoria real, entonces <span class="math inline">\(\mathbb{P}(|Z_0|&lt;\infty)=1\)</span> . Así al ser <span class="math inline">\(\Omega_N\)</span> una sucesión de conjuntos crecientes, más aún, se tiene</p>
+<p>Notemos que de los conjuntos anteriormente definidos, cumplen que <span class="math inline">\(\Omega_N\subset \Omega_{N+1}\)</span>. Por otro lado, al ser <span class="math inline">\(Z_0\)</span> una variable aleatoria real, entonces <span class="math inline">\(\mathbb{P}(|Z_0|&lt;\infty)=1\)</span> . Así al ser <span class="math inline">\(\Omega_N\)</span> una sucesión de conjuntos crecientes, se tiene</p>
 <p><span class="math display">\[
     \bigcup\limits_{n=1}^{\infty}\Omega_n=\{|Z_0|&lt;\infty\}.
 \]</span></p>
@@ -961,7 +961,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p><span class="math display">\[
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
 \]</span></p>
-<p>Por lo tanto, si la diferencia es distinta de cero, es decir, para <span class="math inline">\(\delta&gt;0\)</span>, esto solo puedo ocurrir fuera de <span class="math inline">\(\Omega_N\)</span>, en otras palabras ocurre en el complemento de <span class="math inline">\(\Omega_N\)</span>. Entonces</p>
+<p>Por lo tanto, si la diferencia es distinta de cero, es decir, para <span class="math inline">\(\delta&gt;0\)</span>, solo puede ocurrir fuera de <span class="math inline">\(\Omega_N\)</span>, esto es, ocurre en el complemento de <span class="math inline">\(\Omega_N\)</span>. Entonces</p>
 <p><span class="math display">\[
 \Bigg\{\omega:\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg\}\subset \Omega_N^{c}.
 \]</span></p>
