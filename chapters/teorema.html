@@ -253,7 +253,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 </section>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<a href="#eq-lipschitz">Ecuación&nbsp;<span>4.2</span></a>) y (C2) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
+<p><span class="proof-title"><em>Prueba</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<a href="#eq-lipschitz">Ecuación&nbsp;<span>4.2</span></a>) y (<a href="#eq-3">Ecuación&nbsp;<span>4.3</span></a>) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Analizaremos primero el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
 <p><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \]</span></p>
@@ -343,7 +343,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-mart"><span class="math display">\[
     M(s):=\int_0^s \sigma(Z_0)dB(u).
 \tag{4.7}\]</span></span></p>
-<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Itô, es adaptado. Asumiendo que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> y por hipotésis, de la condición (C2), podemos afirmar que</p>
+<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el termino a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición (C2), podemos afirmar que</p>
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
@@ -873,11 +873,11 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 \]</span></p>
 <p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la condición (<a href="#eq-lipschitz">Ecuación&nbsp;<span>4.2</span></a>) podemos obtener</p>
 <p><span class="math display">\[
-    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds
+    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
 \]</span></p>
 <p>De esta forma definimos ahora la función</p>
 <p><span class="math display">\[
-    D(t):=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]
+    D(t):=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right].
 \]</span></p>
 <p>Es claro que <span class="math inline">\(D(t)\geq 0\)</span> para toda <span class="math inline">\(t\geq 0\)</span>. Fijando a <span class="math inline">\(T\geq 0\)</span>, podemos afirmar que para todo <span class="math inline">\(t\in [0,T]\)</span> la variable <span class="math inline">\(C_1(t)\leq C_1(T)&lt;\infty\)</span>. Por el Teorema de Gronwall tenemos que</p>
 <p><span class="math display">\[
@@ -903,6 +903,49 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 \]</span></p>
+<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rangi finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, paramás adelante garantizar la existencia y unicidad de una solución a la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
+<p><span class="math display">\[
+    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
+\]</span></p>
+<p>Donde</p>
+<p><span class="math display">\[
+1_{\{ |Z_0| \leq n \}}(\omega) =
+\begin{cases}
+1, &amp; \text{si } |Z_0(\omega)| \leq n, \\
+0, &amp; \text{si } |Z_0(\omega)| &gt; n.
+\end{cases}
+\]</span></p>
+<p>Esto implica que</p>
+<p><span class="math display">\[
+    Z_0^{(n)}(\omega) =
+    \begin{cases}
+    Z_0(\omega), &amp; \text{si } |Z_0(\omega)| \leq n, \\
+    0, &amp; \text{si } |Z_0(\omega)| &gt; n.
+    \end{cases}
+\]</span></p>
+<p>Esto garantiza que <span class="math inline">\(\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2&lt;\infty\)</span>, por otro lado, cómo <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathbfcal{F}\)</span>- medible y <span class="math inline">\(1_{\{|Z_0|\leq n\}}\)</span> tammbién lo es, entonces su producto, es decir, <span class="math inline">\(Z_0^{(n)}\)</span>, es <span class="math inline">\(\mathcal{F}\)</span>-medible.</p>
+<p>Fijemos <span class="math inline">\(\omega\in \Omega\)</span> tal que <span class="math inline">\(|Z_0(\omega)|&lt;\infty\)</span>, por tanto, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que <span class="math inline">\(|Z_0(\omega)|\leq N\)</span>, de aquí, para todo <span class="math inline">\(n\geq N\)</span>, se tiene <span class="math inline">\(|Z_0(\omega)|\leq n\)</span>, más aún, <span class="math inline">\(\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)\)</span>. Esto implica que, para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la sucesión <span class="math inline">\((Z_0^{(n)}(\omega))\)</span> es constennte e igual a <span class="math inline">\(Z_0(\omega)\)</span>. Así, por definición de convergencia puntal, tenemos</p>
+<p><span class="math display">\[
+\lim\limits_{n\rightarrow\infty}Z_0^{(n)}(\omega)=Z_0(\omega), \text{ para casi todo $\omega$}.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
+\]</span></p>
+<p>Entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada, así podemos afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. Entonces, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte, digamos <span class="math inline">\(Z^{(n)}\)</span> de la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
+<p>Para cada <span class="math inline">\(N\in \mathbb{N}\)</span>, definimos el conjunto</p>
+<p><span class="math display">\[
+    \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
+\]</span></p>
+<p>Esto implica, para cualquier <span class="math inline">\(m&gt;n\geq N\)</span>, se tiene</p>
+<p><span class="math display">\[
+    Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
+\]</span></p>
+<p>Es deicr, en <span class="math inline">\(\Omega_N\)</span>, las condiciones iniciales de <span class="math inline">\(Z^{(m)}\)</span> y <span class="math inline">\(Z^{(n)}\)</span> son iguales. Por lo tanto, para todo <span class="math inline">\(t\geq 0\)</span> se cumple que</p>
+<p><span class="math display">\[
+    Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
+\]</span></p>
+<p>A partir de la sucesión <span class="math inline">\(Z^{(n)}\)</span> construiremos una solución <span class="math inline">\(Z\)</span> tal que funcione para la condición inicial <span class="math inline">\(Z_0\)</span>. De aquí, note que los conjuntos <span class="math inline">\(\Omega_N\)</span> su</p>
 </div>
 
 
