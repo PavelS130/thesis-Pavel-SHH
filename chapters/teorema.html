@@ -972,7 +972,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21">Ecuación&nbsp;<span>4.23</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar <span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
-<p>Por lo tanto, la sucesión <span class="math inline">\(\{Z^{(n)}\}\)</span> es uniformemente de Cauchy en probabilidad. Así existe un proceso <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> de tal forma que</p>
+<p>Por lo tanto, la sucesión <span class="math inline">\((Z^{(n)})_{n\in \mathbb{N}}\)</span> es uniformemente de Cauchy en probabilidad. Al estar en <span class="math inline">\(L^2\)</span> podemos afirmar que existe un proceso <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> de tal forma que</p>
 <p><span class="math display">\[
     \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
 \]</span></p>
@@ -980,12 +980,12 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span class="math display">\[
     \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
 \]</span></p>
-<p>De aquí, notemos que por construcción, cada <span class="math inline">\(Z^{(n_k)}\)</span> posee trayectorias es adaptado y càdlàg, así por la convergencia es uniforme y casi segura, podemos afirmar que que el proceso límite, <span class="math inline">\(Z\)</span>, es adaptado y admite una versión càdlàg. Esto debido a que bajo convergencia puntual, en nuestro caso es convergencia uniforme casi segura, se puede preservar la adaptabilidad, además el límite uniforme de funciones càdlàg es càdlàg.</p>
-<p>Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte <span class="math inline">\(Z'=(Z'(t))_{t\geq 0}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>. Fijando a <span class="math inline">\(N\in \mathbb{N}\)</span>, consideremos al conjunto <span class="math inline">\(\Omega_N\)</span>, ya sabemos que en este conjunto la condición incial es acotada y por el caso <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> la solución es única. Por lo tanto</p>
+<p>De aquí, notemos que por construcción, cada <span class="math inline">\(Z^{(n_k)}\)</span> posee trayectorias que son adaptadas y càdlàg, así por la convergencia es uniforme y casi segura, podemos afirmar que que el proceso límite, <span class="math inline">\(Z\)</span>, es adaptado y admite una versión càdlàg. Pues Posee trayectorias que son adaptadas la combinación de dos procesos adaptados en un conjunto <span class="math inline">\(\mathcal{F}_0\)</span>-medible produce un proceso medible, luego la combinación de dos funciones càdlàg produce una función càdlàg</p>
+<p>Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte <span class="math inline">\(Z'=(Z'(t))_{t\geq 0}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>. Fijando a <span class="math inline">\(N\in \mathbb{N}\)</span>, consideremos al conjunto <span class="math inline">\(\Omega_N\)</span>, ya sabemos que en este conjunto la condición incial es acotada y además por el caso <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> la solución es única. Por lo tanto</p>
 <p><span class="math display">\[
-    Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ c.s\text{ en }\Omega_N,
+    Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ \forall\omega\in \Omega_N\ \text{c.s.}
 \]</span></p>
-<p>para cualquier <span class="math inline">\(M\geq N\)</span>, donde <span class="math inline">\(Z_M\)</span> es la solución con condición inicial truncada <span class="math inline">\(Z^{(M)}=Z_0\)</span> en <span class="math inline">\(\Omega_N\)</span>. Asumamos que esto falla para algún <span class="math inline">\(M\geq N\)</span>, es decir, existe un conjunto <span class="math inline">\(A\subset \Omega_N\)</span> con <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> tal que <span class="math inline">\(Z'(t)\neq Z_M(t)\)</span> en A. Podemos definir un nuevo proceso, llamemos a este <span class="math inline">\(Z''_M\)</span>, mediante</p>
+<p>para cualquier <span class="math inline">\(M\geq N\)</span>, donde <span class="math inline">\(Z_M\)</span> es la solución con condición inicial truncada <span class="math inline">\(Z^{(M)}=Z_0\)</span> en <span class="math inline">\(\Omega_N\)</span>. Asumamos que esto falla para algún <span class="math inline">\(M\geq N\)</span>, es decir, existe un conjunto <span class="math inline">\(A\subset \Omega_N\)</span> con <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> tal que <span class="math inline">\(Z'(t)(\omega)\neq Z_M(t)(\omega)\)</span> con <span class="math inline">\(\omega\in A\)</span>. Podemos definir un nuevo proceso, llamemos a este <span class="math inline">\(Z''_M\)</span>, mediante</p>
 <p><span class="math display">\[
 Z''_M(t)(\omega) =
 \begin{cases}
@@ -994,7 +994,7 @@ Z_M(t)(\omega) &amp; \omega\notin A.
 \end{cases}    
 \]</span></p>
 <p>Dado que <span class="math inline">\(A\subset \Omega_N\)</span>, entonces <span class="math inline">\(A\in \mathcal{F}_0\)</span>, podemos afirmar que <span class="math inline">\(Z''\)</span> es adaptado, pues <span class="math inline">\(Z'\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos procesos adaptados en un conjunto <span class="math inline">\(\mathcal{F}_0\)</span>-medible. Luego, al ser <span class="math inline">\(Z''\)</span> la combinación de dos funciones càdlàg entonces <span class="math inline">\(Z''\)</span> es càdlàg.</p>
-<p>Veamos que si <span class="math inline">\(\omega\in A\subset \Omega_N\subset \Omega_M\)</span>, entonces</p>
+<p>Notemos que si <span class="math inline">\(\omega\in A\subset \Omega_N\subset \Omega_M\)</span>, entonces</p>
 <p><span class="math display">\[
     Z''_M(0)(\omega)=Z'(0)(\omega)=Z_0(\omega)=Z_0^{(M)}(\omega),
 \]</span></p>
@@ -1002,15 +1002,15 @@ Z_M(t)(\omega) &amp; \omega\notin A.
 <p><span class="math display">\[
     Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
 \]</span></p>
-<p>en ambos casos se tiene que <span class="math inline">\(Z''_M(0)=Z^{(M)}(0)\)</span> casi seguramente.</p>
+<p>en ambos casos se tiene que <span class="math inline">\(Z''_M(0)=Z^{(M)}(0)\)</span> con <span class="math inline">\(\omega\in A\)</span> casi seguramente.</p>
 <p>Entonces <span class="math inline">\(Z''_M\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos soluciones de la <a href="#eq-sde">Ecuación&nbsp;<span>4.1</span></a> con la misma condición inicial, por construcción, en el conjunto <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(Z''_M(t)\neq Z^{(M)}(t)\)</span> para algún <span class="math inline">\(t\)</span>. Lo cual es una contradicción al caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> donde se establece la unicidad casi segura de la solución fuerte.</p>
-<p>Dado que al suponer <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> nos lleva a una contradicción. Por lo tanto, podemos afirmar que <span class="math inline">\(\mathbb{P}(A)=0\)</span>, es decir, <span class="math inline">\(Z'(t)=Z^{(M)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span>, casi seguramente en <span class="math inline">\(\Omega_N\)</span>. Esto vale para todo <span class="math inline">\(N\in \mathbb{N}\)</span>, como</p>
+<p>Dado que al suponer <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> nos lleva a una contradicción, podemos afirmar que <span class="math inline">\(\mathbb{P}(A)=0\)</span>, es decir, <span class="math inline">\(Z'(t)=Z^{(M)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span>, casi seguramente en <span class="math inline">\(\Omega_N\)</span>. Esto vale para todo <span class="math inline">\(N\in \mathbb{N}\)</span>, como</p>
 <p><span class="math display">\[
-    \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1.
+    \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
 \]</span></p>
-<p>Podemos concluir</p>
+<p>podemos concluir</p>
 <p><span class="math display">\[
-    \mathbb{P}(Z'(t)=Z(t)\ \text{para todo }\ t\geq 0)=1
+    \mathbb{P}(Z'(t)=Z(t)\ \text{para todo }\ t\geq 0)=1.
 \]</span></p>
 <p>Por lo tanto, la solución fuerte es única casi seguramente.</p>
 </div>
