@@ -60,6 +60,6 @@
     "href": "chapters/teoremawang2010.html",
     "title": "5  Estabilidad media cuadratica",
     "section": "",
-    "text": "Teorema 5.1  \n\n\nPrueba."
+    "text": "Teorema 5.1 Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma\n\\[\n    dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \\ \\ \\ \\ t\\geq 0,\n\\tag{5.1}\\]\ndonde \\(a,b,c\\in \\mathbb{R}\\) son constantes, \\(W(t)\\) es un movimiento browniano estándar y \\(N(t)\\) es un proceso de Poisson con intensidad \\(\\lambda&gt;0\\). La solución de Ecuación 5.1 es estable en media cuadratica, es decir\n\\[\n    \\lim\\limits_{t\\rightarrow \\infty}\\mathbb{E}[|X(t)|^2]=0,\n\\]\nsi y solo si se cumple la condición\n\\[\n    l:=2a+b^2+\\lambda c(2+c)&lt;0.\n\\]\nSea"
   }
 ]
