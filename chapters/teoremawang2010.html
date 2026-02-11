@@ -437,7 +437,7 @@ window.Quarto = {
 <p><span id="eq-502"><span class="math display">\[
     Y_{n+1}=Y_n+(1-\theta)(a+\lambda c)Y_n\Delta t+\theta(a+\lambda c)Y_{n+1}\Delta t+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
 \tag{5.2}\]</span></span></p>
-<p>donde <span class="math inline">\(\Delta t&gt;0\)</span> denota el tamaño de paso, <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span>, <span class="math inline">\(\widehat{N}_n=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> y <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span> es el proceso de Poisson compensado.</p>
+<p>donde <span class="math inline">\(\Delta t&gt;0\)</span> denota el tamaño de paso, <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span>, <span class="math inline">\(\widetilde{N}_n=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> y <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span> es el proceso de Poisson compensado.</p>
 <p>Entonces bajo la condición <span class="math inline">\(l&lt;0\)</span>, el método (CSTM) es estable en media cuadratica, es decir, <span class="math inline">\(\lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0\)</span> para todo <span class="math inline">\(\Delta &gt;0\)</span> si y sólo si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>. Par el caso en que <span class="math inline">\(\displaystyle 0\leq\theta&lt;\frac{1}{2}\)</span>, el método es estable en media cuadratica si y sólo si el tamaño de paso satisface</p>
 <p><span class="math display">\[
     \Delta t&lt;-\frac{l}{(1-2\theta)(a+\lambda c)^2}.
