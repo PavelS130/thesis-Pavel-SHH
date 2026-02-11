@@ -456,7 +456,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 |b(y)|^2 + |\sigma(y)|^2 + \int_{|x| &lt; c} |F(y, x)|^2 \, \nu(dx)
 \leq K_2 \bigl(1 + |y|^2 \bigr).
 \tag{4.3}\]</span></span></p>
-<p>Bajo las hipótesis anteriores, existe una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>) tal que:</p>
+<p>Bajo las hipótesis anteriores, existe una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación (<a href="teoremawang2010.html#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>) tal que:</p>
 <ul>
 <li><span class="math inline">\(Z\)</span> es un proceso adaptado y cádlág (continuo por la derecha con límites por la izquierda),</li>
 <li>La solución es única casi seguramente, esto es, si <span class="math inline">\((Z')\)</span> es otra solución, entonces <span id="eq-4"><span class="math display">\[
@@ -466,7 +466,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 </section>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) y (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Analizaremos primero el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="teoremawang2010.html#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<a href="teoremawang2010.html#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a>) y (<a href="teoremawang2010.html#eq-3" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Analizaremos primero el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
 <p><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \]</span></p>
@@ -560,7 +560,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
-<p>Esto pues obteniendo el valor esperado de (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
+<p>Esto pues obteniendo el valor esperado de (<a href="teoremawang2010.html#eq-3" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
 <p><span id="eq-6"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|\sigma(Z_0)|^2] &amp; \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\
@@ -595,7 +595,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
 \]</span></p>
-<p>Así, de la igualdad (<a href="#eq-5" class="quarto-xref">Ecuación&nbsp;<span>4.6</span></a>) tenemos</p>
+<p>Así, de la igualdad (<a href="teoremawang2010.html#eq-5" class="quarto-xref">Ecuación&nbsp;<span>5.6</span></a>) tenemos</p>
 <p><span id="eq-7"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
@@ -617,7 +617,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         12t &amp; = 12\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, (<a href="#eq-7" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a>) queda de la forma</p>
+<p>Por lo tanto, (<a href="teoremawang2010.html#eq-7" class="quarto-xref">Ecuación&nbsp;<span>5.9</span></a>) queda de la forma</p>
 <p><span id="eq-8"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
@@ -627,11 +627,11 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
 \tag{4.10}\]</span></span></p>
-<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
+<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="teoremawang2010.html#eq-3" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>), vale decir</p>
 <p><span class="math display">\[
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
 \]</span></p>
-<p>De (<a href="#eq-6" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
+<p>De (<a href="teoremawang2010.html#eq-6" class="quarto-xref">Ecuación&nbsp;<span>5.8</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
 <p><span id="eq-9"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\Bigg] &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
@@ -639,7 +639,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)&amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
 \tag{4.11}\]</span></span></p>
-<p>Así de (<a href="#eq-8" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>) y (<a href="#eq-9" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>) tenemos que</p>
+<p>Así de (<a href="teoremawang2010.html#eq-8" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>) y (<a href="teoremawang2010.html#eq-9" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a>) tenemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
@@ -672,7 +672,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \qquad \quad +\int_0^t\int_{|x|&lt;c}\Delta F(n,s,x)\widetilde{N}(ds,dx).
     \end{aligned}
 \]</span></p>
-<p>Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (<a href="#eq-des" class="quarto-xref">Ecuación&nbsp;<span>4.5</span></a>), tenemos que</p>
+<p>Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (<a href="teoremawang2010.html#eq-des" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a>), tenemos que</p>
 <p><span id="eq-10"><span class="math display">\[
     \begin{aligned}
         |Z_{n+1}(t)-Z_n(t)|^2 &amp; = \Bigg( \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\
@@ -689,7 +689,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(n,u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
     \end{aligned}
 \]</span></p>
-<p>Por tanto de la (<a href="#eq-10" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
+<p>Por tanto de la (<a href="teoremawang2010.html#eq-10" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
 <p><span id="eq-11"><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
 \tag{4.13}\]</span></span></p>
@@ -721,7 +721,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     H(s) := \int_0^s \Delta \sigma(n,u)dB(u).
 \]</span></p>
-<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a>). Haciendo uso de la desigualdad maximal de Doob</p>
+<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="teoremawang2010.html#eq-mart" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a>). Haciendo uso de la desigualdad maximal de Doob</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
 \]</span></p>
@@ -760,7 +760,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
         &amp; \leq 4 \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
     \end{aligned}
 \]</span></p>
-<p>Así de (<a href="#eq-11" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a>)</p>
+<p>Así de (<a href="teoremawang2010.html#eq-11" class="quarto-xref">Ecuación&nbsp;<span>5.13</span></a>)</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] &amp; \leq 3(A+B+C)\\
@@ -797,7 +797,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-12"><span class="math display">\[
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
 \tag{4.14}\]</span></span></p>
-<p>Por la hipotesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
+<p>Por la hipotesis (<a href="teoremawang2010.html#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
 <p><span class="math display">\[
     \begin{aligned}
     |b(y_1) - b(y_2)|^2 &amp; + |\sigma(y_1) - \sigma(y_2)|^2\\
@@ -851,7 +851,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
     d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
 \]</span></p>
-<p>Por la (<a href="#eq-14" class="quarto-xref">Ecuación&nbsp;<span>4.16</span></a>) tenemos</p>
+<p>Por la (<a href="teoremawang2010.html#eq-14" class="quarto-xref">Ecuación&nbsp;<span>5.16</span></a>) tenemos</p>
 <p><span class="math display">\[
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 \]</span></p>
@@ -896,7 +896,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la (<a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.17</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
+<p>De la (<a href="teoremawang2010.html#eq-15" class="quarto-xref">Ecuación&nbsp;<span>5.17</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
@@ -955,11 +955,11 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.19</span></a> tenemos que</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="teoremawang2010.html#eq-17" class="quarto-xref">Ecuación&nbsp;<span>5.19</span></a> tenemos que</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
 \]</span></p>
-<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-16" class="quarto-xref">Ecuación&nbsp;<span>4.18</span></a> converge entonces</p>
+<p>Luego, dado que ya se demostró que la seríe dada por <a href="teoremawang2010.html#eq-16" class="quarto-xref">Ecuación&nbsp;<span>5.18</span></a> converge entonces</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
 \]</span></p>
@@ -979,11 +979,11 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p><span id="eq-18"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
 \tag{4.20}\]</span></span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.17</span></a>, así</p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="teoremawang2010.html#eq-15" class="quarto-xref">Ecuación&nbsp;<span>5.17</span></a>, así</p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
-<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.20</span></a>, esto implica que</p>
+<p>De la <a href="teoremawang2010.html#eq-18" class="quarto-xref">Ecuación&nbsp;<span>5.20</span></a>, esto implica que</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 \]</span></p>
@@ -1022,7 +1022,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         \Delta F(s,x) &amp; := F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)
     \end{aligned}
 \]</span></p>
-<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a>, tomando supremo y despues esperanza en el intervalo <span class="math inline">\([0,t]\)</span> tenemos la siguiente desigualdad</p>
+<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="teoremawang2010.html#eq-19" class="quarto-xref">Ecuación&nbsp;<span>5.21</span></a>, tomando supremo y despues esperanza en el intervalo $[0,t]$$ tenemos la siguiente desigualdad</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq &amp; 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\Delta b(s)]du\Bigg|^2\right]\\
@@ -1084,7 +1084,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \qquad\qquad +\int_{|x|&lt;c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)\Bigg)ds.
     \end{aligned}
 \]</span></p>
-<p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la condición (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) podemos obtener</p>
+<p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la condición (<a href="teoremawang2010.html#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a>) podemos obtener</p>
 <p><span class="math display">\[
     \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
 \]</span></p>
@@ -1116,7 +1116,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 \]</span></p>
-<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
+<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la <a href="teoremawang2010.html#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
 <p><span class="math display">\[
     Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
 \]</span></p>
@@ -1145,7 +1145,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 \]</span></p>
-<p>entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada. Lo que nos permite afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. En consecuencia, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte de la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, digamos <span class="math inline">\(Z^{(n)}\)</span>, con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
+<p>entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada. Lo que nos permite afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. En consecuencia, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte de la <a href="teoremawang2010.html#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, digamos <span class="math inline">\(Z^{(n)}\)</span>, con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
 <p>Para cada <span class="math inline">\(N\in \mathbb{N}\)</span>, definimos el conjunto</p>
 <p><span class="math display">\[
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
@@ -1170,7 +1170,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span id="eq-21"><span class="math display">\[
     \mathbb{P}(\Omega_N)&gt;1-\varepsilon.
 \tag{4.23}\]</span></span></p>
-<p>De <a href="#eq-20" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a> sabemos que</p>
+<p>De <a href="teoremawang2010.html#eq-20" class="quarto-xref">Ecuación&nbsp;<span>5.22</span></a> sabemos que</p>
 <p><span class="math display">\[
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
 \]</span></p>
@@ -1182,7 +1182,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span class="math display">\[
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 \]</span></p>
-<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.23</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar <span class="math display">\[
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="teoremawang2010.html#eq-21" class="quarto-xref">Ecuación&nbsp;<span>5.23</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar <span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
 <p>Por lo tanto, la sucesión <span class="math inline">\((Z^{(n)})_{n\in \mathbb{N}}\)</span> es uniformemente de Cauchy en probabilidad. Al estar en <span class="math inline">\(L^2\)</span> podemos afirmar que existe un proceso <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> de tal forma que</p>
@@ -1216,7 +1216,7 @@ Z_M(t)(\omega) &amp; \omega\notin A.
     Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
 \]</span></p>
 <p>en ambos casos se tiene que <span class="math inline">\(Z''_M(0)=Z^{(M)}(0)\)</span> con <span class="math inline">\(\omega\in A\)</span> casi seguramente.</p>
-<p>Entonces <span class="math inline">\(Z''_M\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos soluciones de la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con la misma condición inicial, por construcción, en el conjunto <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(Z''_M(t)\neq Z^{(M)}(t)\)</span> para algún <span class="math inline">\(t\)</span>. Lo cual es una contradicción al caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> donde se establece la unicidad casi segura de la solución fuerte.</p>
+<p>Entonces <span class="math inline">\(Z''_M\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos soluciones de la <a href="teoremawang2010.html#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> con la misma condición inicial, por construcción, en el conjunto <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(Z''_M(t)\neq Z^{(M)}(t)\)</span> para algún <span class="math inline">\(t\)</span>. Lo cual es una contradicción al caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> donde se establece la unicidad casi segura de la solución fuerte.</p>
 <p>Dado que al suponer <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> nos lleva a una contradicción, podemos afirmar que <span class="math inline">\(\mathbb{P}(A)=0\)</span>, es decir, <span class="math inline">\(Z'(t)=Z^{(M)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span>, casi seguramente en <span class="math inline">\(\Omega_N\)</span>. Esto vale para todo <span class="math inline">\(N\in \mathbb{N}\)</span>, como</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
