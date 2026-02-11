@@ -233,17 +233,19 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[
     l:=2a+b^2+\lambda c(2+c)&lt;0.
 \]</span></p>
-<p>Sea <span class="math inline">\((Y_n)_{n\geq 0}\)</span> la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la <a href="#eq-501">Ecuación&nbsp;<span>5.1</span></a> de la forma</p>
+<p>En el caso que <span class="math inline">\(\displaystyle 0\leq \theta&lt; \frac{1}{2}\)</span>, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso</p>
+<p><span class="math display">\[
+    \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
+\]</span></p>
+</div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Prueba</em>. </span>Sea <span class="math inline">\((Y_n)_{n\geq 0}\)</span> la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la <a href="#eq-501">Ecuación&nbsp;<span>5.1</span></a> de la forma</p>
 <p><span class="math display">\[
     Y_{n+1}=Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n+\theta \Delta t(a+\lambda c) Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
 \]</span></p>
 <p>donde <span class="math inline">\(\widetilde{N}_n=\Delta N_n-\lambda\Delta t\)</span> es el incremento del proceso de Poisson compensado. Entonces, bajo la condición de establididad dada por la <span class="quarto-unresolved-ref">?eq-502</span>, el método CSTM es A-estable en media cuadratica, es decir, la solución numérica satisface <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0\)</span> para cualquier tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span>, si y solo si</p>
 <p><span class="math display">\[
     \frac{1}{2}\leq \theta\leq 1.
-\]</span></p>
-<p>Para <span class="math inline">\(\displaystyle 0\leq \theta&lt; \frac{1}{2}\)</span>, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso</p>
-<p><span class="math display">\[
-    \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 \]</span></p>
 </div>
 
