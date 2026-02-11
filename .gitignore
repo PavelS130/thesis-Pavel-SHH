@@ -18,3 +18,5 @@ Thumbs.db
 *~
 EOF
 /.quarto/
+
+**/*.quarto_ipynb
