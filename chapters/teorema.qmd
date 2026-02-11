@@ -795,7 +795,7 @@ $$
     \end{aligned}
 $$
 
-Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo $[0,t]$ tenemos la siguiente desigualdad
+Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo \$\[0,t\]\$\$ tenemos la siguiente desigualdad
 
 $$
     \begin{aligned}
@@ -929,13 +929,13 @@ $$
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 $$
 
-Veamos el caso cuando $\mathbb{E}[|Z_0|^2]=\infty$. En teoria  de probabilidad, al truncar una variable aleatoria podemos cortarla  cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar $Z_0$ por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la @eq-sde. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma 
+Veamos el caso cuando $\mathbb{E}[|Z_0|^2]=\infty$. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar $Z_0$ por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la @eq-sde. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
 
 $$
     Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
 $$
 
-Donde 
+Donde
 
 $$
 1_{\{ |Z_0| \leq n \}}(\omega) =
@@ -945,7 +945,7 @@ $$
 \end{cases}
 $$
 
-Esto implica que 
+Esto implica que
 
 $$
     Z_0^{(n)}(\omega) = 
@@ -955,21 +955,21 @@ $$
     \end{cases}
 $$
 
-Esto garantiza que $\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2<\infty$, por otro lado, cómo $Z_0$ es $\mathbfcal{F}$- medible y $1_{\{|Z_0|\leq n\}}$ también lo es, entonces $Z_0^{(n)}$ es $\mathcal{F}$-medible.  
+Esto garantiza que $\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2<\infty$, por otro lado, cómo $Z_0$ es $\mathbfcal{F}$- medible y $1_{\{|Z_0|\leq n\}}$ también lo es, entonces $Z_0^{(n)}$ es $\mathcal{F}$-medible.
 
-Fijemos $\omega\in \Omega$ tal que $|Z_0(\omega)|<\infty$, por tanto, existe $N\in \mathbb{N}$ tal que $|Z_0(\omega)|\leq N$, de aquí, para todo $n\geq N$, se tiene $|Z_0(\omega)|\leq n$, más aún, $\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)$. Esto implica que, para casi todo $\omega\in\Omega$, la sucesión $(Z_0^{(n)}(\omega))$ es constante e igual a $Z_0(\omega)$. Así, por definición de convergencia puntual, tenemos 
+Fijemos $\omega\in \Omega$ tal que $|Z_0(\omega)|<\infty$, por tanto, existe $N\in \mathbb{N}$ tal que $|Z_0(\omega)|\leq N$, de aquí, para todo $n\geq N$, se tiene $|Z_0(\omega)|\leq n$, más aún, $\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)$. Esto implica que, para casi todo $\omega\in\Omega$, la sucesión $(Z_0^{(n)}(\omega))$ es constante e igual a $Z_0(\omega)$. Así, por definición de convergencia puntual, tenemos
 
 $$
 \lim\limits_{n\rightarrow\infty}Z_0^{(n)}(\omega)=Z_0(\omega), \text{ para casi todo $\omega$}.
 $$
 
-Por lo tanto 
+Por lo tanto
 
 $$
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 $$
 
-entonces para cada $n\in \mathbb{N}$ la variable $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada. Lo que nos permite afirmar que pertenece a $L^2(\Omega,\mathcal{F}_0,\mathbb{P})$. En consecuencia, es posible aplicar los argumentos anteriores, cuando $\mathbb{E}[|Z_0|^2]<\infty$, para afirmar que existe una única solución fuerte de la @eq-sde, digamos $Z^{(n)}$, con condición inicial $Z_0^{(n)}$. 
+entonces para cada $n\in \mathbb{N}$ la variable $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada. Lo que nos permite afirmar que pertenece a $L^2(\Omega,\mathcal{F}_0,\mathbb{P})$. En consecuencia, es posible aplicar los argumentos anteriores, cuando $\mathbb{E}[|Z_0|^2]<\infty$, para afirmar que existe una única solución fuerte de la @eq-sde, digamos $Z^{(n)}$, con condición inicial $Z_0^{(n)}$.
 
 Para cada $N\in \mathbb{N}$, definimos el conjunto
 
@@ -977,19 +977,19 @@ $$
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
 $$
 
-Esto implica, para cualquier $m>n\geq N$, se tiene 
+Esto implica, para cualquier $m>n\geq N$, se tiene
 
 $$
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
 $$ {#eq-20}
 
-Es deicr, en $\Omega_N$, las condiciones iniciales de $Z^{(m)}$ y $Z^{(n)}$ son iguales. Por lo tanto, para todo $t\geq 0$  se cumple que 
+Es deicr, en $\Omega_N$, las condiciones iniciales de $Z^{(m)}$ y $Z^{(n)}$ son iguales. Por lo tanto, para todo $t\geq 0$ se cumple que
 
 $$
     Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
 $$
 
-Queremos ver ahora que la sucesión $\{Z^{n}\}_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad, es decir, dado $\varepsilon>0$ y $\delta>0$, existe $N\in \mathbb{N}$ tal que para todo $m,n\geq N$, se  cumple  
+Queremos ver ahora que la sucesión $\{Z^{n}\}_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad, es decir, dado $\varepsilon>0$ y $\delta>0$, existe $N\in \mathbb{N}$ tal que para todo $m,n\geq N$, se cumple
 
 $$
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon.
@@ -1001,56 +1001,55 @@ $$
     \bigcup\limits_{n=1}^{\infty}\Omega_n=\{|Z_0|<\infty\}.
 $$
 
-Por la continuidad de la probabilidad, podemos afirmar $\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1$. Esto implica que para cualquier $\varepsilon>0$, existe $N\in \mathbb{N}$ tal que 
+Por la continuidad de la probabilidad, podemos afirmar $\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1$. Esto implica que para cualquier $\varepsilon>0$, existe $N\in \mathbb{N}$ tal que
 
 $$
     \mathbb{P}(\Omega_N)>1-\varepsilon.
 $$ {#eq-21}
 
-De @eq-20 sabemos que 
+De @eq-20 sabemos que
 
 $$
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
 $$
 
-Por lo tanto, si la diferencia es distinta de cero, es decir, para $\delta>0$, solo puede ocurrir fuera de $\Omega_N$, esto es, ocurre en el complemento de $\Omega_N$. Entonces 
+Por lo tanto, si la diferencia es distinta de cero, es decir, para $\delta>0$, solo puede ocurrir fuera de $\Omega_N$, esto es, ocurre en el complemento de $\Omega_N$. Entonces
 
 $$
 \Bigg\{\omega:\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg\}\subset \Omega_N^{c}.
 $$
 
-Por propiedad básica de la probabilidad, podemos afirmar 
+Por propiedad básica de la probabilidad, podemos afirmar
 
 $$
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 $$
 
-Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-21, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar
-$$
+Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-21, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar $$
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon, \ \ \forall\ m,n\geq N
 $$
 
-Por lo tanto, la sucesión $(Z^{(n)})_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad. Al estar en $L^2$ podemos afirmar que existe un proceso $Z=\{Z(t)\}_{t\geq 0}$ de tal forma que 
+Por lo tanto, la sucesión $(Z^{(n)})_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad. Al estar en $L^2$ podemos afirmar que existe un proceso $Z=\{Z(t)\}_{t\geq 0}$ de tal forma que
 
 $$
     \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
 $$
 
-Por el teorema de convergencia de sucesiones de Cauchy en probabilidad, para la sucesión es posible extraer una subsucesión $\{Z_{n_k}\}$ tal que se cumple 
+Por el teorema de convergencia de sucesiones de Cauchy en probabilidad, para la sucesión es posible extraer una subsucesión $\{Z_{n_k}\}$ tal que se cumple
 
 $$
     \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
 $$
 
-De aquí, notemos que por construcción, cada $Z^{(n_k)}$ posee trayectorias càdlàg, y la convergencia  es uniforme casi segura, entonces el límite $Z$ admite una versión càdlàg. Por otro lado, dado que cada $Z^{(n_k)}$ es adaptado y su convergencia al proceso $Z$ es uniforme, basta notar que la adaptabilidad de un proceso se converva bajo convergencia puntual, en nuestro caso, convergencia uniforme casi seguramente, por tanto podemos afirmar que el límite $Z$ es adaptado. 
+De aquí, notemos que por construcción, cada $Z^{(n_k)}$ posee trayectorias càdlàg, y la convergencia es uniforme casi segura, entonces el límite $Z$ admite una versión càdlàg. Por otro lado, dado que cada $Z^{(n_k)}$ es adaptado y su convergencia al proceso $Z$ es uniforme, basta notar que la adaptabilidad de un proceso se converva bajo convergencia puntual, en nuestro caso, convergencia uniforme casi seguramente, por tanto podemos afirmar que el límite $Z$ es adaptado.
 
-Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte $Z'=(Z'(t))_{t\geq 0}$ con la misma condición inicial $Z_0$. Fijando a $N\in \mathbb{N}$, consideremos al conjunto $\Omega_N$, ya sabemos que en este conjunto la condición incial es acotada y además por el caso $\mathbb{E}[|Z_0|^2]<\infty$ la solución es única. Por lo tanto 
+Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte $Z'=(Z'(t))_{t\geq 0}$ con la misma condición inicial $Z_0$. Fijando a $N\in \mathbb{N}$, consideremos al conjunto $\Omega_N$, ya sabemos que en este conjunto la condición incial es acotada y además por el caso $\mathbb{E}[|Z_0|^2]<\infty$ la solución es única. Por lo tanto
 
 $$
     Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ \forall\omega\in \Omega_N\ \text{c.s.}
 $$
 
-para cualquier $M\geq N$, donde $Z_M$ es la solución con condición inicial truncada $Z^{(M)}=Z_0$ en $\Omega_N$. Asumamos que esto falla para algún $M\geq N$, es decir, existe un conjunto $A\subset \Omega_N$ con $\mathbb{P}(A)>0$ tal que $Z'(t)(\omega)\neq Z_M(t)(\omega)$ con $\omega\in A$. Podemos definir un nuevo proceso, llamemos a este $Z''_M$, mediante
+para cualquier $M\geq N$, donde $Z_M$ es la solución con condición inicial truncada $Z^{(M)}=Z_0$ en $\Omega_N$. Asumamos que esto falla para algún $M\geq N$, es decir, existe un conjunto $A\subset \Omega_N$ con $\mathbb{P}(A)>0$ tal que $Z'(t)(\omega)\neq Z_M(t)(\omega)$ con $\omega\in A.$ Podemos definir un nuevo proceso, llamemos a este $Z''_M$, mediante
 
 $$
 Z''_M(t)(\omega) =
@@ -1062,13 +1061,13 @@ $$
 
 Dado que $A\subset \Omega_N$, entonces $A\in \mathcal{F}_0$, podemos afirmar que $Z''$ es adaptado, pues $Z'$ y $Z^{(M)}$ son dos procesos adaptados en un conjunto $\mathcal{F}_0$-medible. Luego, al ser $Z''$ la combinación de dos funciones càdlàg entonces $Z''$ es càdlàg.
 
-Notemos que si $\omega\in A\subset \Omega_N\subset \Omega_M$, entonces 
+Notemos que si $\omega\in A\subset \Omega_N\subset \Omega_M$, entonces
 
 $$
     Z''_M(0)(\omega)=Z'(0)(\omega)=Z_0(\omega)=Z_0^{(M)}(\omega),
 $$
 
-por otro lado, si $\omega\notin A$, esto implica que 
+por otro lado, si $\omega\notin A$, esto implica que
 
 $$
     Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
@@ -1078,7 +1077,7 @@ en ambos casos se tiene que $Z''_M(0)=Z^{(M)}(0)$ con $\omega\in A$ casi seguram
 
 Entonces $Z''_M$ y $Z^{(M)}$ son dos soluciones de la @eq-sde con la misma condición inicial, por construcción, en el conjunto $A$, se tiene que $Z''_M(t)\neq Z^{(M)}(t)$ para algún $t$. Lo cual es una contradicción al caso cuando $\mathbb{E}[|Z_0|^2]<\infty$ donde se establece la unicidad casi segura de la solución fuerte.
 
-Dado que al suponer $\mathbb{P}(A)>0$ nos lleva a una contradicción, podemos afirmar que $\mathbb{P}(A)=0$, es decir, $Z'(t)=Z^{(M)}(t)$ para todo $t\geq 0$, casi seguramente en $\Omega_N$. Esto vale para todo $N\in \mathbb{N}$, como 
+Dado que al suponer $\mathbb{P}(A)>0$ nos lleva a una contradicción, podemos afirmar que $\mathbb{P}(A)=0$, es decir, $Z'(t)=Z^{(M)}(t)$ para todo $t\geq 0$, casi seguramente en $\Omega_N$. Esto vale para todo $N\in \mathbb{N}$, como
 
 $$
     \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
@@ -1090,5 +1089,5 @@ $$
     \mathbb{P}(Z'(t)=Z(t)\ \text{para todo }\ t\geq 0)=1.
 $$
 
-Por lo tanto, la solución fuerte es única casi seguramente. 
+Por lo tanto, la solución fuerte es única casi seguramente
 :::

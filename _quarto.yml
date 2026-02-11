@@ -39,6 +39,7 @@ book:
   - chapters/preliminares.qmd
   - chapters/objetivos.qmd
   - chapters/teorema.qmd
+  - chapters/teoremawang2010.qmd
   - chapters/referencias.qmd
 
 comments:

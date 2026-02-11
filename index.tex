@@ -1,26 +1,29 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
+  spanish,
   us-letterpaper,
 ]{scrreprt}
-
+\usepackage{xcolor}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -38,22 +41,32 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
+\makeatletter
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\makeatother
 
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -65,17 +78,41 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 \usepackage{upgreek}
 \usepackage{amsmath}
@@ -91,8 +128,6 @@
   \end{tikzpicture}
 }
 \newcommand{\E}{\mathbb{E}}
-\makeatletter
-\makeatother
 \makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
@@ -131,48 +166,30 @@
 \floatname{codelisting}{Listado}
 \newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
 \usepackage{amsthm}
-\theoremstyle{definition}
-\newtheorem{definition}{Definición}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
 \theoremstyle{plain}
 \newtheorem{corollary}{Corolario}[chapter]
 \theoremstyle{plain}
 \newtheorem{proposition}{Proposición}[chapter]
-\theoremstyle{plain}
-\newtheorem{theorem}{Teorema}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[chapter]
 \theoremstyle{remark}
-\AtBeginDocument{\renewcommand*{\proofname}{Prueba}}
+\AtBeginDocument{\renewcommand*{\proofname}{Demostración}}
 \newtheorem*{remark}{Observación}
 \newtheorem*{solution}{Solución}
+\newtheorem{refremark}{Observación}[chapter]
+\newtheorem{refsolution}{Solución}[chapter]
+\makeatother
+\makeatletter
 \makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-\makeatletter
-\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
-\makeatother
-\makeatletter
-\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
-\makeatother
-\ifLuaTeX
-\usepackage[bidi=basic]{babel}
-\else
-\usepackage[bidi=default]{babel}
-\fi
-\babelprovide[main,import]{spanish}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Ecuación de Langevin y su aplicación en la predicción de terremotos},
   pdfauthor={Pavel Santiago Hernandez Hernandez; Asesor Yofre Hernán García Gómez},
@@ -184,12 +201,12 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
+
 \title{Ecuación de Langevin y su aplicación en la predicción de
 terremotos}
 \author{Pavel Santiago Hernandez Hernandez \and Asesor Yofre Hernán
 García Gómez}
 \date{2027-01-06}
-
 \begin{document}
 \begin{titlepage}
 \hspace{-1.7cm} %Este comando es para mandar a la izquierda ;)
@@ -246,7 +263,6 @@ García Gómez}
 %\end{flushright}
 
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, enhanced, frame hidden, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Tabla de contenidos}
 {
@@ -254,10 +270,10 @@ García Gómez}
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+
 \bookmarksetup{startatroot}
 
-\hypertarget{resumen}{%
-\chapter*{Resumen}\label{resumen}}
+\chapter*{Resumen}\label{resumen}
 \addcontentsline{toc}{chapter}{Resumen}
 
 \markboth{Resumen}{Resumen}
@@ -266,12 +282,10 @@ Esta tesis presenta
 
 \bookmarksetup{startatroot}
 
-\hypertarget{introducciuxf3n}{%
-\chapter{Introducción}\label{introducciuxf3n}}
+\chapter{Introducción}\label{introducciuxf3n}
 
-\hypertarget{introducciuxf3n-del-modelo-de-langevin-y-su-aplicaciuxf3n-a-terremotos}{%
 \section{Introducción del modelo de Langevin y su aplicación a
-terremotos}\label{introducciuxf3n-del-modelo-de-langevin-y-su-aplicaciuxf3n-a-terremotos}}
+terremotos}\label{introducciuxf3n-del-modelo-de-langevin-y-su-aplicaciuxf3n-a-terremotos}
 
 El modelo de Langevin fue propuesto por Paul Langevin en 1908 para
 describir el movimiento browniano de partículas suspendidas en un
@@ -280,9 +294,9 @@ influencia de una fuerza determinista (como la fricción) y una fuerza
 aleatoria (ruido blanco gaussiano), y se expresa mediante una ecuación
 diferencial estocástica de la forma:
 
-\begin{equation}\protect\hypertarget{eq-Langevin}{}{ 
+\begin{equation}\phantomsection\label{eq-Langevin}{ 
 dv(t) = -\gamma v(t)\,dt + \sqrt{2D}\,dW(t) 
-}\label{eq-Langevin}\end{equation}
+}\end{equation}
 
 donde de Ecuación~\ref{eq-Langevin}:
 
@@ -368,12 +382,10 @@ trayectorias dinámicas realistas.
 
 \bookmarksetup{startatroot}
 
-\hypertarget{preliminares}{%
-\chapter{Preliminares}\label{preliminares}}
+\chapter{Preliminares}\label{preliminares}
 
-\hypertarget{anuxe1lisis-real-y-funcional-base-analuxedtica.}{%
 \section{Análisis Real y Funcional (Base
-Analítica).}\label{anuxe1lisis-real-y-funcional-base-analuxedtica.}}
+Analítica).}\label{anuxe1lisis-real-y-funcional-base-analuxedtica.}
 
 \begin{definition}[]\protect\hypertarget{def-espacio_metrico}{}\label{def-espacio_metrico}
 
@@ -442,18 +454,15 @@ Toda función continua \(f: \mathbb{R}\to \mathbb{R}\) es Borel-medible.
 \end{theorem}
 
 \begin{proof}
-
 Si \(f\) es continua, la preimagen de cualquier conjunto abierto es
 abierta. Como los abiertos generan \(\mathcal{B}(\mathbb{R})\) y la
 preimagen conmuta con uniones, intersecciones numerables y complementos,
 se sigue que \(f^{-1}(B) \in \mathcal{B}(\mathbb{R})\) para todo
 \(B \in \mathcal{B}(\mathbb{R})\).
-
 \end{proof}
 
-\hypertarget{espacios-l2-y-convergencia.}{%
 \section{\texorpdfstring{Espacios \(L^2\) y
-convergencia.}{Espacios L\^{}2 y convergencia.}}\label{espacios-l2-y-convergencia.}}
+convergencia.}{Espacios L\^{}2 y convergencia.}}\label{espacios-l2-y-convergencia.}
 
 \begin{definition}[]\protect\hypertarget{def-espacio_l2}{}\label{def-espacio_l2}
 
@@ -489,8 +498,7 @@ es decir, \(\lim\limits_{n \to \infty} \mathbb{E}[|X_n - X|^2] = 0\).
 
 \end{definition}
 
-\hypertarget{espacios-de-banach}{%
-\section{Espacios de Banach}\label{espacios-de-banach}}
+\section{Espacios de Banach}\label{espacios-de-banach}
 
 \begin{definition}[]\protect\hypertarget{def-esp_banach}{}\label{def-esp_banach}
 
@@ -518,8 +526,7 @@ m, n \geq N \implies \|x_m - x_n\| < \varepsilon.
 En \(\mathbb{R}\), esto se reduce a: \((x_n)\) es de Cauchy si
 \(|x_m - x_n| < \varepsilon\) para \(m, n\) suficientemente grandes.
 
-\hypertarget{desigualdades}{%
-\section{Desigualdades}\label{desigualdades}}
+\section{Desigualdades}\label{desigualdades}
 
 \begin{proposition}[]\protect\hypertarget{prp-des_triangulo}{}\label{prp-des_triangulo}
 
@@ -560,19 +567,16 @@ Si \(g \equiv 1\), entonces para todo \(t \in [0, T]\),
 
 \bookmarksetup{startatroot}
 
-\hypertarget{objetivos}{%
-\chapter{Objetivos}\label{objetivos}}
+\chapter{Objetivos}\label{objetivos}
 
-\hypertarget{los-objetivos-de-este-proyecto-se-estaruxe1n-afinando-dentro-de-las-proximas-semanas.}{%
 \section{Los objetivos de este proyecto se estarán afinando dentro de
 las proximas
-semanas.}\label{los-objetivos-de-este-proyecto-se-estaruxe1n-afinando-dentro-de-las-proximas-semanas.}}
+semanas.}\label{los-objetivos-de-este-proyecto-se-estaruxe1n-afinando-dentro-de-las-proximas-semanas.}
 
 \bookmarksetup{startatroot}
 
-\hypertarget{existencia-y-unicidad-fuerte}{%
 \chapter{Existencia y unicidad
-fuerte}\label{existencia-y-unicidad-fuerte}}
+fuerte}\label{existencia-y-unicidad-fuerte}
 
 \begin{theorem}[]\protect\hypertarget{thm-varmues}{}\label{thm-varmues}
 
@@ -581,13 +585,13 @@ espacio de probabilidad filtrado que satisface las hipótesis usuales.
 Consideremos la ecuación diferencial estocástica modificada (sin saltos
 grandes):
 
-\begin{equation}\protect\hypertarget{eq-sde}{}{
+\begin{equation}\phantomsection\label{eq-sde}{
 \begin{aligned}
 dZ(t) ={}& b(Z(t-)) \, dt \\
          &+ \sigma(Z(t-)) \, dB(t) \\
          &+ \int_{|x| < c} F(Z(t-), x) \, \widetilde{N}(dt, dx), \qquad t \geq 0,
 \end{aligned}
-}\label{eq-sde}\end{equation}
+}\end{equation}
 
 con condición inicial \(Z(0) = Z_0\), donde \(B(t)\) es un movimiento
 browniano estándar unidimensional (\(r=1\)); \(N(dt, dx)\) es una medida
@@ -605,35 +609,30 @@ Supongamos que los coeficientes \(b: \mathbb{R} \to \mathbb{R}\),
 \(F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}\) son funciones
 medibles que satisfacen las siguientes condiciones:
 
-\hypertarget{c1-condiciuxf3n-de-lipschitz}{%
-\subsubsection*{(C1) Condición de
-Lipschitz:}\label{c1-condiciuxf3n-de-lipschitz}}
-\addcontentsline{toc}{subsubsection}{(C1) Condición de Lipschitz:}
+\subsubsection{(C1) Condición de
+Lipschitz:}\label{c1-condiciuxf3n-de-lipschitz}
 
 Existe una constante \(K_1 > 0\) tal que, para todo
 \(y_1, y_2 \in \mathbb{R}\),
 
-\begin{equation}\protect\hypertarget{eq-lipschitz}{}{
+\begin{equation}\phantomsection\label{eq-lipschitz}{
 \begin{aligned}
 |b(y_1) - b(y_2)|^2 & + |\sigma(y_1) - \sigma(y_2)|^2\\ 
 & + \int_{|x| < c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
 &\leq K_1 |y_1 - y_2|^2.
 \end{aligned}
-}\label{eq-lipschitz}\end{equation}
+}\end{equation}
 
-\hypertarget{c2-condiciuxf3n-de-crecimiento-lineal}{%
-\subsubsection*{(C2) Condición de crecimiento
-lineal:}\label{c2-condiciuxf3n-de-crecimiento-lineal}}
-\addcontentsline{toc}{subsubsection}{(C2) Condición de crecimiento
-lineal:}
+\subsubsection{(C2) Condición de crecimiento
+lineal:}\label{c2-condiciuxf3n-de-crecimiento-lineal}
 
 Existe una constante \(K_2 > 0\) tal que, para todo
 \(y \in \mathbb{R}\),
 
-\begin{equation}\protect\hypertarget{eq-3}{}{
+\begin{equation}\phantomsection\label{eq-3}{
 |b(y)|^2 + |\sigma(y)|^2 + \int_{|x| < c} |F(y, x)|^2 \, \nu(dx)
 \leq K_2 \bigl(1 + |y|^2 \bigr).
-}\label{eq-3}\end{equation}
+}\end{equation}
 
 Bajo las hipótesis anteriores, existe una única solución fuerte
 \(Z = (Z(t))_{t \geq 0}\) de la ecuación (Ecuación~\ref{eq-sde}) tal
@@ -646,15 +645,14 @@ que:
   límites por la izquierda),
 \item
   La solución es única casi seguramente, esto es, si \((Z')\) es otra
-  solución, entonces \begin{equation}\protect\hypertarget{eq-4}{}{
+  solución, entonces \begin{equation}\phantomsection\label{eq-4}{
    \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-   }\label{eq-4}\end{equation}
+   }\end{equation}
 \end{itemize}
 
 \end{theorem}
 
 \begin{proof}
-
 Queremos ver la existencia de una solución \(Z=(Z(t))_{t\geq 0}\) para
 la ecuación (Ecuación~\ref{eq-sde}) con condición inicial \(Z(0)=Z_0\).
 Bajo las hipótesis (Ecuación~\ref{eq-lipschitz}) y (Ecuación~\ref{eq-3})
@@ -701,9 +699,9 @@ Dado que \(Z_0(t)=Z_0\) para todo \(t\geq 0\), entonces,
 
 Considerando la desigualdad
 
-\begin{equation}\protect\hypertarget{eq-des}{}{
+\begin{equation}\phantomsection\label{eq-des}{
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
-}\label{eq-des}\end{equation}
+}\end{equation}
 
 Tomando valor absoulto y elevando al cuadrado la expreción anterior
 tenemos que
@@ -747,7 +745,7 @@ supremos podemos obtener
 
 Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
 
-\begin{equation}\protect\hypertarget{eq-5}{}{
+\begin{equation}\phantomsection\label{eq-5}{
 \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
 & \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\\
@@ -761,7 +759,7 @@ Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
 &\qquad\quad
     +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
 \end{aligned}
-}\label{eq-5}\end{equation}
+}\end{equation}
 
 Trabajaremos término por termino; así notemos que la siguiente integral
 es de Lebesgue
@@ -778,9 +776,9 @@ Por lo tanto
 
 Consideremos ahora el proceso
 
-\begin{equation}\protect\hypertarget{eq-mart}{}{
+\begin{equation}\phantomsection\label{eq-mart}{
     M(s):=\int_0^s \sigma(Z_0)dB(u).
-}\label{eq-mart}\end{equation}
+}\end{equation}
 
 Afirmamos que dicho proceso es una martingala, pues al ser \(Z_0\)
 constante esto implica que \(\sigma(Z_0)\) no dependa de \(u\). Dado que
@@ -797,14 +795,14 @@ cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición
 Esto pues obteniendo el valor esperado de (Ecuación~\ref{eq-3}) ,
 tomando a \(y=Z_0\) tenemos
 
-\begin{equation}\protect\hypertarget{eq-6}{}{
+\begin{equation}\phantomsection\label{eq-6}{
     \begin{aligned}
         \mathbb{E}[|\sigma(Z_0)|^2] & \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\ 
         & \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\ 
         & = K_2\mathbb{E}[1+|Z_0|^2]\\ 
         & = K_2 (1+\mathbb{E}[|Z_0|^2]).
     \end{aligned}
-}\label{eq-6}\end{equation}
+}\end{equation}
 
 Por lo tanto, el proceso \(M(s)\) es una martingala. Así, usando la
 desigualdad maximal de Doob, tenemos que:
@@ -844,7 +842,7 @@ desigualdad maximal de Doob y por el teorema de Fubini
 
 Así, de la igualdad (Ecuación~\ref{eq-5}) tenemos
 
-\begin{equation}\protect\hypertarget{eq-7}{}{
+\begin{equation}\phantomsection\label{eq-7}{
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
         & \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\ 
@@ -857,7 +855,7 @@ Así, de la igualdad (Ecuación~\ref{eq-5}) tenemos
         & = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
         & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
-}\label{eq-7}\end{equation}
+}\end{equation}
 
 Notemos para los terminos en común \(3t^2\) y \(12t\) podemos definir la
 variable \(C_1(t):=\max{\{3t,12\}}\), de aquí
@@ -871,7 +869,7 @@ variable \(C_1(t):=\max{\{3t,12\}}\), de aquí
 
 Por lo tanto, (Ecuación~\ref{eq-7}) queda de la forma
 
-\begin{equation}\protect\hypertarget{eq-8}{}{
+\begin{equation}\phantomsection\label{eq-8}{
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
         & \leq 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
@@ -879,7 +877,7 @@ Por lo tanto, (Ecuación~\ref{eq-7}) queda de la forma
         & \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
         & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
-}\label{eq-8}\end{equation}
+}\end{equation}
 
 Por hipotésis, los coeficientes \(b\), \(\sigma\) y \(F\) cumplen con la
 condición (Ecuación~\ref{eq-3}), vale decir
@@ -892,13 +890,13 @@ De (Ecuación~\ref{eq-6}) podemos afirmar que
 \(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\), tomando valor
 esperado de la ecuación anterior, tenemos
 
-\begin{equation}\protect\hypertarget{eq-9}{}{
+\begin{equation}\phantomsection\label{eq-9}{
     \begin{aligned}
         \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\Bigg] & \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|<c}|F(Z_0,x)|^2\nu(dx)\Bigg] & \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\ 
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)& \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
-}\label{eq-9}\end{equation}
+}\end{equation}
 
 Así de (Ecuación~\ref{eq-8}) y (Ecuación~\ref{eq-9}) tenemos que
 
@@ -945,14 +943,14 @@ Por lo tanto la diferencia \(Z_{n+1}-Z_n\) está dada por
 Elevando al cuadrado, considerando valor absoluto y usando la
 desigualdad (Ecuación~\ref{eq-des}), tenemos que
 
-\begin{equation}\protect\hypertarget{eq-10}{}{
+\begin{equation}\phantomsection\label{eq-10}{
     \begin{aligned}
         |Z_{n+1}(t)-Z_n(t)|^2 & = \Bigg( \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\ 
         &\qquad\quad +\int_0^t\int_{|x|<c}\Delta F(n,s,x)\widetilde{N}(ds,dx)\Bigg)^2\\ 
         & \leq 3\Bigg(\Bigg(\int_0^t \Delta b(n,s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(n,s)ds\Bigg)^2\\ 
         &\qquad\quad +\Bigg(\int_0^t\int_{|x|<c}\Delta F(n,s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
     \end{aligned}
-}\label{eq-10}\end{equation}
+}\end{equation}
 
 Nuevamente, definimos la siguiente notación
 
@@ -967,9 +965,9 @@ Nuevamente, definimos la siguiente notación
 Por tanto de la (Ecuación~\ref{eq-10}), tomando supremo en el intervalo
 \([0,t]\) y aplicando valor esperado, la expresión se reduce a la forma
 
-\begin{equation}\protect\hypertarget{eq-11}{}{
+\begin{equation}\phantomsection\label{eq-11}{
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
-}\label{eq-11}\end{equation}
+}\end{equation}
 
 Trabajaremos con cada termino de la desigualdad para poder acotar
 \(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\).
@@ -1115,9 +1113,9 @@ Así, tenemos que
 Tomando valor esperado, el cual, preserva la desigualdad, además,
 multiplicando por \(K_1>0\), obtenemos
 
-\begin{equation}\protect\hypertarget{eq-12}{}{
+\begin{equation}\phantomsection\label{eq-12}{
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
-}\label{eq-12}\end{equation}
+}\end{equation}
 
 Por la hipotesis (Ecuación~\ref{eq-lipschitz}) la cuál indica que los
 coeficientes \(b\), \(\sigma\) y \(F\) satisfacen
@@ -1163,22 +1161,22 @@ proceso
 
 Hemos demostrado hasta ahora las siguientes desigualdades
 
-\begin{equation}\protect\hypertarget{eq-13}{}{
+\begin{equation}\phantomsection\label{eq-13}{
     d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
-}\label{eq-13}\end{equation}
+}\end{equation}
 
-\begin{equation}\protect\hypertarget{eq-14}{}{
+\begin{equation}\phantomsection\label{eq-14}{
     d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
-}\label{eq-14}\end{equation}
+}\end{equation}
 
 Definimos las variables \(C_2(t):=tC_1(t)\) y
 \(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}\).\textbackslash{}
 
 Afirmamos que para toda \(n\in \mathbb{N}\), se cumple
 
-\begin{equation}\protect\hypertarget{eq-15}{}{
+\begin{equation}\phantomsection\label{eq-15}{
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
-}\label{eq-15}\end{equation}
+}\end{equation}
 
 Procediendo por inducción, veamos que se cumple para \(n=1\). Esto es
 claro, dado que
@@ -1306,9 +1304,9 @@ Definimos la siguiente variable
 
 Reescribiendo el termino de la suma de la siguiente forma
 
-\begin{equation}\protect\hypertarget{eq-16}{}{
+\begin{equation}\phantomsection\label{eq-16}{
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
-}\label{eq-16}\end{equation}
+}\end{equation}
 
 Veamos la convergencía de la serie
 
@@ -1356,9 +1354,9 @@ vale decir, es un espacio completo con la norma \(\|\cdot\|_2\),
 entonces toda sucesión de Cauchy converge en \(L^2\). Luego existe
 \(Z(s)\in L^2\) tal que
 
-\begin{equation}\protect\hypertarget{eq-17}{}{
+\begin{equation}\phantomsection\label{eq-17}{
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
-}\label{eq-17}\end{equation}
+}\end{equation}
 
 Cómo \(m<n\), por la desigualdad del triángulo, afirmamos que
 
@@ -1401,9 +1399,9 @@ Queremos encontrar una cota para
 
 Aplicando a \(X_n^2\) Chebyshev-Markov tenemos que
 
-\begin{equation}\protect\hypertarget{eq-18}{}{
+\begin{equation}\phantomsection\label{eq-18}{
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
-}\label{eq-18}\end{equation}
+}\end{equation}
 
 Notemos que \(\mathbb{E}[X_n^2]\) ya esta acotado dado por la
 Ecuación~\ref{eq-15}, así
@@ -1470,13 +1468,13 @@ para \(i=1,2\), casi seguramente. Queremos ver que
 \(1\). Restando las dos ecuaciones de \(Z^{(1)}\) y \(Z^{(2)}\) tenemos
 que
 
-\begin{equation}\protect\hypertarget{eq-19}{}{
+\begin{equation}\phantomsection\label{eq-19}{
     \begin{aligned}
         Z^{(1)}(t) - Z^{(2)}(t) & = \int_0^t [b(Z^{(1)}(s-)) - b(Z^{(2)}(s-))]\,ds\\ 
         & \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\ 
         & \qquad\quad + \int_0^t \int_{|x|<c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx). 
     \end{aligned}
-}\label{eq-19}\end{equation}
+}\end{equation}
 
 Definimos la siguiente notación
 
@@ -1709,9 +1707,9 @@ Para cada \(N\in \mathbb{N}\), definimos el conjunto
 
 Esto implica, para cualquier \(m>n\geq N\), se tiene
 
-\begin{equation}\protect\hypertarget{eq-20}{}{
+\begin{equation}\phantomsection\label{eq-20}{
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-}\label{eq-20}\end{equation}
+}\end{equation}
 
 Es deicr, en \(\Omega_N\), las condiciones iniciales de \(Z^{(m)}\) y
 \(Z^{(n)}\) son iguales. Por lo tanto, para todo \(t\geq 0\) se cumple
@@ -1744,9 +1742,9 @@ Por la continuidad de la probabilidad, podemos afirmar
 Esto implica que para cualquier \(\varepsilon>0\), existe
 \(N\in \mathbb{N}\) tal que
 
-\begin{equation}\protect\hypertarget{eq-21}{}{
+\begin{equation}\phantomsection\label{eq-21}{
     \mathbb{P}(\Omega_N)>1-\varepsilon.
-}\label{eq-21}\end{equation}
+}\end{equation}
 
 De Ecuación~\ref{eq-20} sabemos que
 
@@ -1869,23 +1867,21 @@ podemos concluir
 \]
 
 Por lo tanto, la solución fuerte es única casi seguramente
-
 \end{proof}
 
 \bookmarksetup{startatroot}
 
-\hypertarget{estabilidad-media-cuadratica}{%
 \chapter{Estabilidad media
-cuadratica}\label{estabilidad-media-cuadratica}}
+cuadratica}\label{estabilidad-media-cuadratica}
 
 \begin{theorem}[]\protect\hypertarget{thm-varmues}{}\label{thm-varmues}
 
 Consideremos la ecuación diferencial estocástica linear escalar con
 saltos de la forma
 
-\begin{equation}\protect\hypertarget{eq-501}{}{
+\begin{equation}\phantomsection\label{eq-501}{
     dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \ \ \ \ t\geq 0,
-}\label{eq-501}\end{equation}
+}\end{equation}
 
 donde \(a,b,c\in \mathbb{R}\) son constantes, \(W(t)\) es un movimiento
 browniano estándar y \(N(t)\) es un proceso de Poisson con intensidad
@@ -1913,7 +1909,6 @@ paso
 \end{theorem}
 
 \begin{proof}
-
 Sea \((Y_n)_{n\geq 0}\) la sucesión generada por el método theta
 estocástico compensado (CSTM) aplicado a la Ecuación~\ref{eq-501} de la
 forma
@@ -1932,13 +1927,12 @@ para cualquier tamaño de paso \(\Delta t>0\), si y solo si
 \[
     \frac{1}{2}\leq \theta\leq 1.
 \]
-
 \end{proof}
 
 \bookmarksetup{startatroot}
 
-\hypertarget{referencias}{%
-\chapter{Referencias}\label{referencias}}
+\chapter{Referencias}\label{referencias}
+
 
 
 
