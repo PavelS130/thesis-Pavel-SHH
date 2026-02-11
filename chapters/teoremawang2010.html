@@ -428,32 +428,23 @@ window.Quarto = {
 
 
 <div id="thm-varmues" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma</p>
+<p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremoss la ecuación diferencial estocástica lineal con saltos de la forma</p>
 <p><span id="eq-501"><span class="math display">\[
-    dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \ \ \ \ t\geq 0,
+    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t),\ \ \ t\geq 0,
 \tag{5.1}\]</span></span></p>
-<p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. La solución de <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es estable en media cuadratica, es decir</p>
+<p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>, independiente de <span class="math inline">\(W\)</span>. Sabemos que la solución de esta ecuación satiface que <span class="math inline">\(\displaystyle \lim\limits_{t\rightarrow\infty}\mathbb{E}[|X(t)|^2]=0\)</span> si y sólo si <span class="math inline">\(l:=2a+b^2+\lambda c(2+c)&lt;0\)</span>.</p>
+<p>Sea <span class="math inline">\((Y_n)_{n\geq 0}\)</span> la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, es decir,</p>
+<p><span id="eq-502"><span class="math display">\[
+    Y_{n+1}=Y_n+(1-\theta)(a+\lambda c)Y_n\Delta t+\theta(a+\lambda c)Y_{n+1}\Delta t+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+\tag{5.2}\]</span></span></p>
+<p>donde <span class="math inline">\(\Delta t&gt;0\)</span> denota el tamaño de paso, <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span>, <span class="math inline">\(\widehat{N}_n=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> y <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span> es el proceso de Poisson compensado.</p>
+<p>Entonces bajo la condición <span class="math inline">\(l&lt;0\)</span>, el método (CSTM) es estable en media cuadratica, es decir, <span class="math inline">\(\lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0\)</span> para todo <span class="math inline">\(\Delta &gt;0\)</span> si y sólo si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>. Par el caso en que <span class="math inline">\(\displaystyle 0\leq\theta&lt;\frac{1}{2}\)</span>, el método es estable en media cuadratica si y sólo si el tamaño de paso satisface</p>
 <p><span class="math display">\[
-    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]=0,
-\]</span></p>
-<p>si y solo si se cumple la condición</p>
-<p><span class="math display">\[
-    l:=2a+b^2+\lambda c(2+c)&lt;0.
-\]</span></p>
-<p>En el caso que <span class="math inline">\(\displaystyle 0\leq \theta&lt; \frac{1}{2}\)</span>, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso</p>
-<p><span class="math display">\[
-    \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
+    \Delta t&lt;-\frac{l}{(1-2\theta)(a+\lambda c)^2}.
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\((Y_n)_{n\geq 0}\)</span> la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> de la forma</p>
-<p><span class="math display">\[
-    Y_{n+1}=Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n+\theta \Delta t(a+\lambda c) Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
-\]</span></p>
-<p>donde <span class="math inline">\(\widetilde{N}_n=\Delta N_n-\lambda\Delta t\)</span> es el incremento del proceso de Poisson compensado. Entonces, bajo la condición de establididad dada por la cuación, el método CSTM es A-estable en media cuadratica, es decir, la solución numérica satisface <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0\)</span> para cualquier tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span>, si y solo si</p>
-<p><span class="math display">\[
-    \frac{1}{2}\leq \theta\leq 1.
-\]</span></p>
+<p><span class="proof-title"><em>Demostración</em>. </span></p>
 </div>
 
 
