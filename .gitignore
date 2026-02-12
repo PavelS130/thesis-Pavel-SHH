@@ -1,22 +1,36 @@
-cat > .gitignore <<EOF
-# Salidas de Quarto
+# === Archivos generados por Quarto ===
 _book/
 _site/
+.quarto/
+*.qmd.json
+quarto-session-*
+project-cache/
+
+# === Salidas de LaTeX ===
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*_files/
+
+# === Documentos generados ===
 *.pdf
+*.tex
 *.html
+*.epub
 
-# LaTeX temporales
-*.aux *.log *.toc *.synctex.gz *.fdb_latexmk *.fls *_files/
-
-# Entornos
+# === Entornos virtuales ===
 venv/
 .venv/
+env/
 
-# Sistema
+# === Sistema ===
 .DS_Store
 Thumbs.db
 *~
-EOF
-/.quarto/
-
-**/*.quarto_ipynb
