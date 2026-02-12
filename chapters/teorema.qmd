@@ -795,7 +795,7 @@ $$
     \end{aligned}
 $$
 
-Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo $[0,t]$ tenemos la siguiente desigualdad
+Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo \$\[0,t\]\$\$ tenemos la siguiente desigualdad
 
 $$
     \begin{aligned}

@@ -12,32 +12,44 @@ format:
 
 ::: {#thm-varmues style="text-align: justify"}
 
-Consideremoss la ecuación diferencial estocástica lineal con saltos de la forma
+Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma
 
 $$
-    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t),\ \ \ t\geq 0,
+    dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \ \ \ \ t\geq 0,
 $$ {#eq-501}
 
-donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$, independiente de $W$. Sabemos que la solución de esta ecuación satiface que $\displaystyle \lim\limits_{t\rightarrow\infty}\mathbb{E}[|X(t)|^2]=0$ si y sólo si $l:=2a+b^2+\lambda c(2+c)<0$.
-
-Sea $(Y_n)_{n\geq 0}$ la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la @eq-501, es decir,
+donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. La solución de @eq-501 es estable en media cuadratica, es decir
 
 $$
-    Y_{n+1}=Y_n+(1-\theta)(a+\lambda c)Y_n\Delta t+\theta(a+\lambda c)Y_{n+1}\Delta t+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
-$$ {#eq-502}
+    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]=0,
+$$
 
-donde $\Delta t>0$ denota el tamaño de paso, $\Delta W_n=W(t_{n+1})-W(t_n)$, $\widetilde{N}_n=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)$ y $\widetilde{N}(t)=N(t)-\lambda t$ es el proceso de Poisson compensado.
-
-Entonces bajo la condición $l<0$, el método (CSTM) es estable en media cuadratica, es decir, $\lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0$ para todo $\Delta t>0$ si y sólo si $\displaystyle \frac{1}{2}\leq \theta\leq 1$. Par el caso en que $\displaystyle 0\leq\theta<\frac{1}{2}$, el método es estable en media cuadratica si y sólo si el tamaño de paso satisface
+si y solo si se cumple la condición
 
 $$
-    \Delta t<-\frac{l}{(1-2\theta)(a+\lambda c)^2}.
+    l:=2a+b^2+\lambda c(2+c)<0.
+$$
+
+En el caso que $\displaystyle 0\leq \theta< \frac{1}{2}$, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso
+
+$$
+    \Delta t<\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 $$
 
 :::
 
 ::: {.proof style="text-align: justify"}
 
-Dado la @eq-501 es lineal y posee coeficientes constantes, definimmos las funciones $f(x)=ax$, $g(x)=bx$, $h(x)=cx$ y $f_{\lambda}(x)=(a+\lambda c)x$. Sustituyendo 
+Sea $(Y_n)_{n\geq 0}$ la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la @eq-501 de la forma
+
+$$
+    Y_{n+1}=Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n+\theta \Delta t(a+\lambda c) Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+$$
+
+donde $\widetilde{N}_n=\Delta N_n-\lambda\Delta t$ es el incremento del proceso de Poisson compensado. Entonces, bajo la condición de establididad dada por la cuación, el método CSTM es A-estable en media cuadratica, es decir, la solución numérica satisface $\displaystyle \lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0$ para cualquier tamaño de paso $\Delta t>0$, si y solo si
+
+$$
+    \frac{1}{2}\leq \theta\leq 1.
+$$
 
 :::
