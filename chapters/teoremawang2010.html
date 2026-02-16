@@ -430,7 +430,7 @@ window.Quarto = {
 <div id="thm-varmues" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma</p>
 <p><span id="eq-501"><span class="math display">\[
-    dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \ \ \ \ t\geq 0,
+    dX(t) = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ \ t\geq 0,
 \tag{5.1}\]</span></span></p>
 <p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. La solución de <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es estable en media cuadratica, es decir</p>
 <p><span class="math display">\[
@@ -446,13 +446,36 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\((Y_n)_{n\geq 0}\)</span> la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> de la forma</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, con condición inical <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cuál es una martingala y satiisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> de la forma equivalente</p>
+<p><span id="eq-502"><span class="math display">\[
+\begin{aligned}
+    dX(t) &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t)\\
+    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d(\widetilde{N}(t)+\lambda t)\\
+    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d\widetilde{N}(t)+ \lambda cX(t-)dt\\
+    &amp; = (a+\lambda c)X(t)dt +bX(t-)dW(t)+cX(t-)d\widetilde{N}(t).
+\end{aligned}
+\tag{5.2}\]</span></span></p>
+<p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-502" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a> genera un sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
+<p><span id="eq-503"><span class="math display">\[
+    \begin{aligned}
+        Y_{n+1}= &amp; Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n \\
+        &amp; \qquad +\theta \Delta t(a+\lambda c)Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+    \end{aligned}
+\tag{5.3}\]</span></span></p>
+<p>donde <span class="math inline">\(\theta\in [0,1]\)</span> es un parámetro del método, los incrementos estocásticos se definen de la forma</p>
 <p><span class="math display">\[
-    Y_{n+1}=Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n+\theta \Delta t(a+\lambda c) Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+    \begin{aligned}
+        \Delta W_n &amp; := W(t_{n+1})-W(t_n) \\
+        \Delta \widetilde{N}_n := \widetilde{N}(t_{n+1})-\widetilde{N}(t_n).
+    \end{aligned}
 \]</span></p>
-<p>donde <span class="math inline">\(\widetilde{N}_n=\Delta N_n-\lambda\Delta t\)</span> es el incremento del proceso de Poisson compensado. Entonces, bajo la condición de establididad dada por la cuación, el método CSTM es A-estable en media cuadratica, es decir, la solución numérica satisface <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0\)</span> para cualquier tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span>, si y solo si</p>
+<p>Notemos que, dichos incrementos son independientes entre sí, además satifacen que <span class="math inline">\(\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>, <span class="math inline">\(\mathbb{E}[|\Delta W_n|^2]=\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t\)</span>.</p>
+<p>Reorganizando la <a href="#eq-503" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> de tal forma que podamos expresar de forma explícita el término <span class="math inline">\(Y_{n+1}\)</span> en términos de <span class="math inline">\(Y_n\)</span>, obtenemos</p>
 <p><span class="math display">\[
-    \frac{1}{2}\leq \theta\leq 1.
+    \begin{aligned}
+        Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
+        &amp; \qquad\quad+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n
+    \end{aligned}
 \]</span></p>
 </div>
 
