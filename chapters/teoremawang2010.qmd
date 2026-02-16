@@ -1,5 +1,5 @@
 ---
-title: "Estabilidad media cuadratica"
+title: "Estabilidad media cuadrática"
 lang: es
 format:
   html: default
@@ -12,25 +12,29 @@ format:
 
 ::: {#thm-varmues style="text-align: justify"}
 
-Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma
+Consideremos la ecuación diferencial estocástica lineal con saltos
 
 $$
-    dX(t) = aX(t-)dt+bX(t-)dW(t-)+cX(t-)dN(t-), \ \ \ \ t\geq 0,
+    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ t\geq 0,
 $$ {#eq-501}
 
-donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. La solución de @eq-501 es estable en media cuadratica, es decir
+donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browiniano y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. Definimos el siguiente parámetro de estabilidad
 
 $$
-    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]=0,
+    l:= 2a+b^2+\lambda c(2+c),
 $$
 
-si y solo si se cumple la condición
+y se sabe que la solución análitica es estable en media cuadrática, es decir
 
 $$
-    l:=2a+b^2+\lambda c(2+c)<0.
+    \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 $$
 
-En el caso que $\displaystyle 0\leq \theta< \frac{1}{2}$, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso
+si y solo si $l<0$. 
+
+Sea  $\Delta t>0$ un tamaño de paso fijo y $\theta\in [0,1]$ el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a @eq-501, si $\displaystyle \frac{1}{2}\leq \theta\leq 1$, entonces el método es estable en media cuadrática, es decir, para todo $\Delta t>0$ se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que $l<0$. 
+
+Si $\displaystyle 0\leq \theta<\frac{1}{2}$, el método es estable en media cuadrática si y solo si el tamaño del paso satisface 
 
 $$
     \Delta t<\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
@@ -38,18 +42,47 @@ $$
 
 :::
 
+
 ::: {.proof style="text-align: justify"}
 
-Sea $(Y_n)_{n\geq 0}$ la sucesión generada por el método theta estocástico compensado (CSTM) aplicado a la @eq-501 de la forma
+Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la @eq-501, con condición inical $X(0)=X_0$. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma $\widetilde{N}(t):=N(t)-\lambda t$, el cuál es una martingala y satiisface $\mathbb{E}[\widetilde{N}(t)]=0$ y $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$. Por lo tanto, esto nos permite reescribir la @eq-501 de la forma equivalente 
 
 $$
-    Y_{n+1}=Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n+\theta \Delta t(a+\lambda c) Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+\begin{aligned}
+    dX(t) & = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t)\\ 
+    & = aX(t-)dt+bX(t-)dW(t)+cX(t-)d(\widetilde{N}(t)+\lambda t)\\ 
+    & = aX(t-)dt+bX(t-)dW(t)+cX(t-)d\widetilde{N}(t)+ \lambda cX(t-)dt\\ 
+    & = (a+\lambda c)X(t)dt +bX(t-)dW(t)+cX(t-)d\widetilde{N}(t).
+\end{aligned}
+$$ {#eq-502}
+
+Para un tamaño de paso constante $\Delta t>0$, definimos la malla $t_n=n\Delta t$ con $n\in \mathbb{N}$. El método (CSTM) aplicado a la @eq-502 genera un sucesión de aproximaciones $Y_n\approx X(t_n)$ mediante la ecuación de diferencias implícita dada por 
+
+$$
+    \begin{aligned}
+        Y_{n+1}= & Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n \\ 
+        & \qquad +\theta \Delta t(a+\lambda c)Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+    \end{aligned}
+$$ {#eq-503}
+
+donde $\theta\in [0,1]$ es un parámetro del método, los incrementos estocásticos se definen de la forma 
+
+$$
+    \begin{aligned}
+        \Delta W_n & : & = W(t_{n+1})-W(t_n) \\ 
+        \Delta \widetilde{N}_n : & = \widetilde{N}(t_{n+1})-\widetilde{N}(t_n). 
+    \end{aligned}
 $$
 
-donde $\widetilde{N}_n=\Delta N_n-\lambda\Delta t$ es el incremento del proceso de Poisson compensado. Entonces, bajo la condición de establididad dada por la cuación, el método CSTM es A-estable en media cuadratica, es decir, la solución numérica satisface $\displaystyle \lim\limits_{n\rightarrow\infty}\mathbb{E}[|Y_n|^2]=0$ para cualquier tamaño de paso $\Delta t>0$, si y solo si
+Notemos que, dichos incrementos son independientes entre sí, además satifacen que $\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0$, $\mathbb{E}[|\Delta W_n|^2]=\Delta t$ y $\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t$.
+
+Reorganizando la @eq-503 de tal forma que podamos expresar de forma explícita el término $Y_{n+1}$ en términos de $Y_n$, obtenemos 
 
 $$
-    \frac{1}{2}\leq \theta\leq 1.
+    \begin{aligned}
+        Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} & = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\ 
+        & \qquad\quad+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n
+    \end{aligned}
 $$
 
 :::
