@@ -441,7 +441,7 @@ window.Quarto = {
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
 <p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
-<p>Sea <span class="math inline">\(\Delta t&gt;0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta\in [0,1]\)</span> el paramétro del método theta compensado estocástico (CSTM). Entonces, al aplicar dicho método a <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>, el método es estable en media cuadrática, es decir, para todo <span class="math inline">\(\Delta t&gt;0\)</span> se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que <span class="math inline">\(l&lt;0\)</span>.</p>
+<p>Sea <span class="math inline">\(\Delta t&gt;0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta\in [0,1]\)</span> el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>, entonces el método es estable en media cuadrática, es decir, para todo <span class="math inline">\(\Delta t&gt;0\)</span> se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que <span class="math inline">\(l&lt;0\)</span>.</p>
 <p>Si <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, el método es estable en media cuadrática si y solo si el tamaño del paso satisface</p>
 <p><span class="math display">\[
     \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
