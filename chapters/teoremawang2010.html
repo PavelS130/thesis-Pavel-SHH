@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Estabilidad media cuadratica – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
+<title>5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,10 +110,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="5&nbsp; Estabilidad media cuadratica – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:title" content="5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="5&nbsp; Estabilidad media cuadratica – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:title" content="5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -287,7 +287,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teoremawang2010.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadratica</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teoremawang2010.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -387,7 +387,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/teoremawang2010.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadratica</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -410,7 +410,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadratica</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></h1>
 </div>
 
 
@@ -428,19 +428,21 @@ window.Quarto = {
 
 
 <div id="thm-varmues" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica linear escalar con saltos de la forma</p>
+<p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica lineal con saltos</p>
 <p><span id="eq-501"><span class="math display">\[
-    dX(t) = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ \ t\geq 0,
+    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ t\geq 0,
 \tag{5.1}\]</span></span></p>
-<p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. La solución de <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es estable en media cuadratica, es decir</p>
+<p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browiniano y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. Definimos el siguiente parámetro de estabilidad</p>
 <p><span class="math display">\[
-    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]=0,
+    l:= 2a+b^2+\lambda c(2+c),
 \]</span></p>
-<p>si y solo si se cumple la condición</p>
+<p>y se sabe que la solución análitica es estable en media cuadrática, es decir</p>
 <p><span class="math display">\[
-    l:=2a+b^2+\lambda c(2+c)&lt;0.
+    \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
-<p>En el caso que <span class="math inline">\(\displaystyle 0\leq \theta&lt; \frac{1}{2}\)</span>, la estabilidad en media cuadratica solo se garantiza bajo la restricción de paso</p>
+<p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
+<p>Sea <span class="math inline">\(\Delta t&gt;0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta\in [0,1]\)</span> el paramétro del método theta compensado estocástico (CSTM). Entonces, al aplicar dicho método a <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>, el método es estable en media cuadrática, es decir, para todo <span class="math inline">\(\Delta t&gt;0\)</span> se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que <span class="math inline">\(l&lt;0\)</span>.</p>
+<p>Si <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, el método es estable en media cuadrática si y solo si el tamaño del paso satisface</p>
 <p><span class="math display">\[
     \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 \]</span></p>
