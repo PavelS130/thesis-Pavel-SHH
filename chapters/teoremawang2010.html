@@ -540,8 +540,42 @@ window.Quarto = {
     \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}&lt;1
 \tag{5.8}\]</span></span></p>
 <p>Recordemos que anteriormente ya se mencionó que el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> es no nulo y positivo, por lo que es posible multiplicar la <a href="#eq-508" class="quarto-xref">Ecuación&nbsp;<span>5.8</span></a> por el denominador y seguir conservando la desigualdad, es decir</p>
-<p><span class="math display">\[
+<p><span id="eq-509"><span class="math display">\[
     (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t&lt;(1-\theta\Delta t(a+\lambda c))^2
+\tag{5.9}\]</span></span></p>
+<p>Para facilitar la notación, definimos la variable <span class="math inline">\(K:=a+\lambda c\)</span>. Además, expandimos la expresión del lado derecho de la desigualdad de la forma</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2 &amp; =(1-\theta\Delta tK)^2\\
+        &amp; = 1-2\theta\Delta t k+\theta^2\Delta t^2K^2.
+    \end{aligned}
+\]</span></p>
+<p>De igual forma, expandimos el término al cuadrado del lado izquierdo de la <a href="#eq-508" class="quarto-xref">Ecuación&nbsp;<span>5.8</span></a></p>
+<p><span class="math display">\[
+    \begin{aligned}
+        (1+(1-\theta)\Delta t (a+\lambda c))^2 &amp; = (1+(1-\theta)\Delta t K)^2\\
+        &amp; = 1+2(1-\theta)\Delta t K+(1-\theta)^2\Delta t^2 K^2.
+    \end{aligned}
+\]</span></p>
+<p>De esta manera, ordenando los terminos, la <a href="#eq-508" class="quarto-xref">Ecuación&nbsp;<span>5.8</span></a> se expresa como se sigue</p>
+<p><span id="eq-509"><span class="math display">\[
+    \begin{aligned}
+        1 &amp; +2(1-\theta)\Delta t K +b^2\Delta t \\
+          &amp; \qquad +\lambda c^2\Delta t+(1-\theta)^2\Delta t^2 K^2 \\
+          &amp; &lt;1-2\theta\Delta t K+\theta^2\Delta t^2 K^2
+    \end{aligned}
+\tag{5.10}\]</span></span></p>
+<p>Restando el termino <span class="math inline">\(1\)</span> en ambos lados de la desigualdad, además reordenando adecuadamente y agrupando los términos con factores <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(\Delta t^2\)</span>, tenemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        -2\theta K\Delta t &amp; -2(1-\theta)K\Delta t-b^2\Delta t \\
+        &amp; -\lambda c^2\Delta t+\theta^2 K^2\Delta t^2-(1-\theta)^2 K^2\Delta t^2&gt;0\\
+        (-2\theta K &amp; -2(1-\theta)K-b^2-\lambda c^2)\Delta t\\
+        &amp; + (\theta^2-(1-\theta)^2)K^2\Delta t^2&gt;0\\
+        (-2\theta K &amp; -2K+2\theta K-b^2-\lambda c^2)\Delta t \\
+        &amp; (\theta^2-(1-2\theta+\theta^2))K^2\Delta t^2&gt;0\\
+        (-2K&amp;-b^2+\lambda c^2)\Delta t +(2\theta-1)K^2\Delta t&gt;0.
+    \end{aligned}
 \]</span></p>
 </div>
 
