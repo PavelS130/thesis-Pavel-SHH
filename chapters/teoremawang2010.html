@@ -565,7 +565,7 @@ window.Quarto = {
     \end{aligned}
 \tag{5.10}\]</span></span></p>
 <p>Restando el termino <span class="math inline">\(1\)</span> en ambos lados de la desigualdad, además reordenando adecuadamente y agrupando los términos con factores <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(\Delta t^2\)</span>, tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-510"><span class="math display">\[
     \begin{aligned}
         &amp; -2\theta K\Delta t -2(1-\theta)K\Delta t-b^2\Delta t \\
         &amp; \qquad\quad-\lambda c^2\Delta t+\theta^2 K^2\Delta t^2-(1-\theta)^2 K^2\Delta t^2&gt;0\\
@@ -576,6 +576,28 @@ window.Quarto = {
         &amp;(-2K-b^2-\lambda c^2)\Delta t +(2\theta-1)K^2\Delta t^2&gt;0\\
         &amp; (2\theta-1)\Delta t^2 K^2-(2K+b^2+\lambda c^2)\Delta t&gt;0.
     \end{aligned}
+\tag{5.11}\]</span></span></p>
+<p>Del parámetro de establilidad <span class="math inline">\(l\)</span>, notemos</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        l &amp; = 2a+b^2+\lambda c(2+c) \\
+        &amp; = 2a+b^2+2\lambda c+\lambda c^2\\
+        &amp; = 2a+2\lambda c+b^2+\lambda c^2\\
+        &amp; = 2(a+\lambda c)+b^2+\lambda c^2\\
+        &amp; = 2K b^2+\lambda c^2.
+    \end{aligned}
+\]</span></p>
+<p>Por lo tanto, sustituyendo <span class="math inline">\(l\)</span> en <a href="#eq-510" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> se tiene</p>
+<p><span class="math display">\[
+    (2\theta-1)\Delta t^2 K^2-l\Delta t&gt;0
+\]</span></p>
+<p>Dado que <span class="math inline">\(\Delta t&gt;0\)</span>, es posible factorizar un término de la forma</p>
+<p><span class="math display">\[
+    \Delta t[(2\theta-1)\Delta t K^2-l]&gt;0,
+\]</span></p>
+<p>más aún</p>
+<p><span class="math display">\[
+    (2\theta-1)\Delta t K^2-l&gt;0.
 \]</span></p>
 </div>
 
