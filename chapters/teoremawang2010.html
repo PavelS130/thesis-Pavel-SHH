@@ -484,7 +484,7 @@ window.Quarto = {
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
         &amp; \qquad\quad +bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n\\
-        &amp; = [1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n]Y_n
+        &amp; = [1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n]Y_n.
     \end{aligned}
 \tag{5.4}\]</span></span></p>
 <p>Dado que por hipotesis sabemos que <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos notar</p>
@@ -522,7 +522,26 @@ window.Quarto = {
 <p>Utilizando las propiedades de los incrementos independientes, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{\Delta W_n}=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. Además, <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
 <p>Por otro lado, <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-506" class="quarto-xref">Ecuación&nbsp;<span>5.6</span></a> tenemos</p>
 <p><span class="math display">\[
-    \mathbb{E}[|A+B+C|^2] = A^2+b^2\Delta t +\lambda c^2\Delta t.
+    \begin{aligned}
+        \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t\\
+        &amp; = (1+(1-\theta)\Delta t(a+\lambda c))^2 \\
+        &amp; \qquad +b^2\Delta t +\lambda c^2\Delta t.
+    \end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en <a href="#eq-505" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a> tenemos</p>
+<p><span id="eq-507"><span class="math display">\[
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \Bigg[(1+(1-\theta)\Delta t(a+\lambda c))^2 \\
+        &amp; \qquad + b^2\Delta t +\lambda c^2\Delta t\Bigg]\mathbb{E}[|Y_n|^2].
+    \end{aligned}
+\tag{5.7}\]</span></span></p>
+<p>Notemos que la <a href="#eq-507" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> sea decreciente y tienda a cero cuando <span class="math inline">\(n\)</span> tiende a infinito. Esto ocurre si y solo si</p>
+<p><span id="eq-508"><span class="math display">\[
+    \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}&lt;1
+\tag{5.8}\]</span></span></p>
+<p>Recordemos que anteriormente ya se mencionó que el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> es no nulo y positivo, por lo que es posible multiplicar la <a href="#eq-508" class="quarto-xref">Ecuación&nbsp;<span>5.8</span></a> por el denominador y seguir conservando la desigualdad, es decir</p>
+<p><span class="math display">\[
+    (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t&lt;(1-\theta\Delta t(a+\lambda c))^2
 \]</span></p>
 </div>
 
