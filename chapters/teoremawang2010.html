@@ -599,6 +599,24 @@ window.Quarto = {
 <p><span class="math display">\[
     (2\theta-1)\Delta t K^2-l&gt;0.
 \]</span></p>
+<p>Despejando de tal forma que podamos expresar la desigualdad anterior en términos de <span class="math inline">\(-l\)</span> tenemos</p>
+<p><span id="eq-512"><span class="math display">\[
+-l &gt;-(2\theta-1)(a+\lambda c)^2\Delta t= (1-2\theta)(a+\lambda c)^2\Delta t
+\tag{5.12}\]</span></span></p>
+<p>Cuando <span class="math inline">\(\displaystyle\theta=\frac{1}{2}\)</span>, esto implica <span class="math inline">\(1-2\theta=0\)</span>, así</p>
+<p><span class="math display">\[
+    0= (1-2\theta)(a+\lambda c)^2\Delta t&lt;-l
+\]</span></p>
+<p>Por hipotesis <span class="math inline">\(l&lt;0\)</span>, de aqui <span class="math inline">\(0&lt;-l\)</span>. Por lo tanto, el método es estable cuando <span class="math inline">\(\displaystyle\theta=\frac{1}{2}\)</span>.</p>
+<p>Luego, cuando <span class="math inline">\(\displaystyle \frac{1}{2}&lt;\theta\leq 1\)</span>, esto implica que <span class="math inline">\(1-2\theta&lt;0\)</span>. Para este caso <span class="math inline">\((1-2\theta)(a+\lambda c)^2\Delta t&lt;0\)</span>, de igual forma <span class="math inline">\(-l&gt;0\)</span>, entonces</p>
+<p><span class="math display">\[
+    (1-2\theta)(a+\lambda c)^2\Delta t&lt;0&lt;-l,
+\]</span></p>
+<p>en consecuencia, el método sigue siendo estable bajo las condiciones de la solución análitica.</p>
+<p>Por último, para el caso <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, esto implica, <span class="math inline">\((1-2\theta)(a+\lambda c)^2&gt;0\)</span>, por lo que la <a href="#eq-512" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a> se cumple si y solo si</p>
+<p><span class="math display">\[
+    \Delta t &lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
+\]</span></p>
 </div>
 
 
