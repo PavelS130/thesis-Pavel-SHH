@@ -513,14 +513,14 @@ window.Quarto = {
         &amp; = [1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n]Y_n.
     \end{aligned}
 \tag{5.5}\]</span></span></p>
-<p>Dado que por hipotesis sabemos que <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos notar</p>
+<p>Dado que por hipótesis sabemos que <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos notar</p>
 <p><span class="math display">\[
     \begin{aligned}
         2a+b^2+\lambda c(2+c) &amp; =2a+2\lambda c+b^2+\lambda c^2\\
         &amp; =2(a+\lambda c)+b^2+\lambda c^2&lt;0,
     \end{aligned}
 \]</span></p>
-<p>es claro que <span class="math inline">\(b^2+\lambda c^2&gt;0\)</span>, esto implica que <span class="math inline">\((a+\lambda c)&lt;0\)</span>. Con esto, podemos afirmar que para <span class="math inline">\(\Delta t\)</span> lo suficientemente pequeño, el termino <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> no se anula y es positivo.</p>
+<p>es claro que <span class="math inline">\(b^2+\lambda c^2&gt;0\)</span>, esto implica que <span class="math inline">\((a+\lambda c)&lt;0\)</span>. Con esto, podemos afirmar que para <span class="math inline">\(\Delta t\)</span> lo suficientemente pequeño, el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> no se anula y es positivo.</p>
 <p>Por otro lado, veamos la esperanza del segundo momento de <a href="#eq-504" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a>. Elevando al cuadrado y obteniendo el valor esperado, tenemos</p>
 <p><span id="eq-505"><span class="math display">\[
     \begin{aligned}
@@ -545,7 +545,7 @@ window.Quarto = {
         &amp; \qquad +\mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
     \end{aligned}
 \tag{5.7}\]</span></span></p>
-<p>Utilizando las propiedades de los incrementos independientes, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{\Delta W_n}=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. Además, <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
+<p>Utilizando las propiedades de los incrementos independientes, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. Además, <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
 <p>Por otro lado, <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-506" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -610,7 +610,7 @@ window.Quarto = {
         &amp; = 2a+b^2+2\lambda c+\lambda c^2\\
         &amp; = 2a+2\lambda c+b^2+\lambda c^2\\
         &amp; = 2(a+\lambda c)+b^2+\lambda c^2\\
-        &amp; = 2K b^2+\lambda c^2.
+        &amp; = 2K +b^2+\lambda c^2.
     \end{aligned}
 \]</span></p>
 <p>Por lo tanto, sustituyendo <span class="math inline">\(l\)</span> en <a href="#eq-510" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> se tiene</p>
