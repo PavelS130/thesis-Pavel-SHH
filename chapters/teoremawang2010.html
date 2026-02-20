@@ -452,6 +452,24 @@ window.Quarto = {
     \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
 \]</span></p>
 <p>Sabemos que este preceso es una martingala con esperanza <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span>, varianza <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>, además los incrementos en dicho proceso son independientes.</p>
+<p>La ecuación que queremos resolver es lineal en el estado <span class="math inline">\(X(t-)\)</span>, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando <span class="math inline">\(c=0\)</span>, la ecuación se reduce al movimiento browniano geométrico</p>
+<p><span class="math display">\[
+    dx(t)=aX(t)dt+bX(t)dW(t),
+\]</span></p>
+<p>cuya solución es conocida por</p>
+<p><span class="math display">\[
+    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)\Bigg].
+\]</span></p>
+<p>Para nuestro caso, el término <span class="math inline">\(cX(t-)dN(t)\)</span> induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma</p>
+<p><span class="math display">\[
+    X(t)=X_0e^{Y(t)},
+\]</span></p>
+<p>donde <span class="math inline">\(Y(t)\)</span> será un proceso que posea un termino lineal en <span class="math inline">\(t\)</span>, un término con <span class="math inline">\(W(t)\)</span> para el ruido browniano y <span class="math inline">\(N(t)\)</span> para los saltos. Por lo que, proponemos que tendrá la siguiente estructura</p>
+<p><span class="math display">\[
+    Y(t)=\alpha t +\beta W(t)+\gamma N(t),
+\]</span></p>
+<p>aquí <span class="math inline">\(\alpha,\ \beta,\ \gamma\)</span> serán constantes que deberemos determinar para que se cumple la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>.</p>
+<p>Aplicando ahora el Lemma de Itô (Falta hacer referencia cruzada),</p>
 </div>
 <div id="thm-varmues" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica lineal con saltos</p>
