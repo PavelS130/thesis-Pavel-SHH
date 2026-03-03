@@ -546,7 +546,7 @@ window.Quarto = {
 <p><span id="eq-304"><span class="math display">\[
     \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
 \tag{5.4}\]</span></span></p>
-<p>Para el término browniano, recordemos que <span class="math inline">\(W(t)\sim \mathcal{N}(0,t)\)</span>, se cumple tambien <span class="math inline">\(\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}\)</span> esto para una variable <span class="math inline">\(Z\sim \mathcal{N}(0,\sigma^2)\)</span>, por tanto, obtenemos7</p>
+<p>Para el término browniano, recordemos que <span class="math inline">\(W(t)\sim \mathcal{N}(0,t)\)</span>, se cumple tambien <span class="math inline">\(\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}\)</span> esto para una variable <span class="math inline">\(Z\sim \mathcal{N}(0,\sigma^2)\)</span>, por tanto, obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right] &amp; = \mathbb{E}[\exp[(2a-b^2)t]]\cdot \mathbb{E}[2W(t)]\\
@@ -571,8 +571,8 @@ window.Quarto = {
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|X(t)|^2] &amp; = X_0^2\cdot e^{(2a+b^2)t}\cdot e^{\lambda c(2+c)t}\\
-        &amp; = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}\\
-        &amp; = X_0^2\cdot e^{lt},\qquad\qquad \text{con }l=2a+b^2+\lambda c(2+c).
+        &amp; = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}, \quad \text{con }l=2a+b^2+\lambda c(2+c),\\
+        &amp; = X_0^2\cdot e^{lt}.
     \end{aligned}
 \]</span></p>
 <p>De aquí podemos afirmar que el segundo momento del proceso <span class="math inline">\(X(t)\)</span> crece de manera exponencial con una tasa <span class="math inline">\(l\)</span>. Por lo que si <span class="math inline">\(l=0\)</span>, el segundo momento es constante e igual a <span class="math inline">\(X_0^2\)</span>. Al tomar el límite cuando <span class="math inline">\(l&gt;0\)</span>, es claro que dicho límite es infinito y por tanto el sistema es inestable. Finalmente cuando <span class="math inline">\(l&lt;0\)</span>, notemos que</p>

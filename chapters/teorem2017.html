@@ -467,6 +467,26 @@ window.Quarto = {
   f_{\lambda}(x):=f(x)+\lambda h(x),\quad x\in \mathbb{R}.
 \]</span></p>
 <p>Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.</p>
+<p>Para poder realizar un análisis de la convergencia del método CSS <span class="math inline">\(theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
+<p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
+<p><span id="eq-602"><span class="math display">\[
+  (x-y)(f(x)-f(y))\leq K|x-y|^2, \quad \forall x,y\in \mathbb{R}.
+\tag{6.2}\]</span></span></p>
+<p>Nótese que esta condición es significativamente más débil que la condición de Lipschitz global, ya que no requiere una cota uniforme para la diferencia de valores absolutos, sino solo para el producto con la diferencia.</p>
+<p>Para los coeficientes de difusión <span class="math inline">\(g\)</span> y de salto <span class="math inline">\(h\)</span>, en cambio, impondremos condiciones de Lipschitz global. Es decir, existirán constantes <span class="math inline">\(L_g,L_h&gt;0\)</span>, tales que para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumplen</p>
+<p><span id="eq-603"><span class="math display">\[
+    |g(x)-g(y)|^2\leq L_g |x-y|^2
+\tag{6.3}\]</span></span></p>
+<p>y</p>
+<p><span id="eq-604"><span class="math display">\[
+    |h(x)-h(y)|^2\leq L_h |x-y|^2.
+\tag{6.4}\]</span></span></p>
+<p>Adicionalmente, supondremos que los momentos iniciales están acotados, es decir, <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span> para todo <span class="math inline">\(p\geq 1\)</span>.</p>
+<p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado <span class="math inline">\(f_{\lambda}(x)=f(x)\lambda h(x)\)</span> hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
+<p><span class="math display">\[
+  (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
+\]</span></p>
+<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
 </div>
 <div id="thm-estabilidad" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> &nbsp;</p>
