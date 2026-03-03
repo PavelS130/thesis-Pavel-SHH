@@ -392,8 +392,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/teorem2017.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/referencias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Referencias</span></span></a>
   </div>
 </li>
     </ul>
@@ -797,7 +803,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span id="eq-12"><span class="math display">\[
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
 \tag{4.14}\]</span></span></p>
-<p>Por la hipotesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
+<p>Por la hipótesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
 <p><span class="math display">\[
     \begin{aligned}
     |b(y_1) - b(y_2)|^2 &amp; + |\sigma(y_1) - \sigma(y_2)|^2\\
@@ -855,7 +861,7 @@ dZ(t) ={}&amp; b(Z(t-)) \, dt \\
 <p><span class="math display">\[
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 \]</span></p>
-<p>Usando la Hipotesis de inducción, podemos afirmar que</p>
+<p>Usando la hipótesis de inducción, podemos afirmar que</p>
 <p><span class="math display">\[
     d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
 \]</span></p>
@@ -1182,7 +1188,8 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span class="math display">\[
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 \]</span></p>
-<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.23</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar <span class="math display">\[
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.23</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
+<p><span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
 <p>Por lo tanto, la sucesión <span class="math inline">\((Z^{(n)})_{n\in \mathbb{N}}\)</span> es uniformemente de Cauchy en probabilidad. Al estar en <span class="math inline">\(L^2\)</span> podemos afirmar que existe un proceso <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> de tal forma que</p>
