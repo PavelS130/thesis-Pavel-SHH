@@ -149,7 +149,7 @@ $$
 \end{aligned}
 $$ {#eq-5}
 
-Trabajaremos término por termino; así notemos que la siguiente integral es de Lebesgue
+Trabajaremos término por término; así notemos que la siguiente integral es de Lebesgue
 
 $$
     \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
@@ -167,7 +167,7 @@ $$
     M(s):=\int_0^s \sigma(Z_0)dB(u).
 $$ {#eq-mart}
 
-Afirmamos que dicho proceso es una martingala, pues al ser $Z_0$ constante esto implica que $\sigma(Z_0)$ no dependa de $u$. Dado que $Z_0$ es $\mathcal{F}_0\text{-medible}$, entonces $\sigma(Z_0)$ también lo es, más aún, es $\mathcal{F}_u\text{-medible}$ para toda $u\geq 0$. Por lo tanto el termino a integrar del proceso $M(s)$, el cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición (C2), podemos afirmar que
+Afirmamos que dicho proceso es una martingala, pues al ser $Z_0$ constante esto implica que $\sigma(Z_0)$ no dependa de $u$. Dado que $Z_0$ es $\mathcal{F}_0\text{-medible}$, entonces $\sigma(Z_0)$ también lo es, más aún, es $\mathcal{F}_u\text{-medible}$ para toda $u\geq 0$. Por lo tanto el término a integrar del proceso $M(s)$, el cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición (C2), podemos afirmar que
 
 $$
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
@@ -202,7 +202,7 @@ $$
     \end{aligned}
 $$
 
-De manera análoga, para el termino
+De manera análoga, para el término
 
 $$
     W(s):= \int_0^s\int_{|x|<c}F(Z_0,x)\widetilde{N}(du,dx).
@@ -235,7 +235,7 @@ $$
     \end{aligned}
 $$ {#eq-7}
 
-Notemos para los terminos en común $3t^2$ y $12t$ podemos definir la variable $C_1(t):=\max{\{3t,12\}}$, de aquí
+Notemos para los términos en común $3t^2$ y $12t$ podemos definir la variable $C_1(t):=\max{\{3t,12\}}$, de aquí
 
 $$
     \begin{aligned}
@@ -340,7 +340,7 @@ $$
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
 $$ {#eq-11}
 
-Trabajaremos con cada termino de la desigualdad para poder acotar $\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]$. Notemos que para $A$ el termino del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que
+Trabajaremos con cada término de la desigualdad para poder acotar $\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]$. Notemos que para $A$ el término del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que
 
 $$  
     \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\leq s \int_0^s |\Delta b(n,u)|^2du,\ \ \forall s\in [0,t].
@@ -478,7 +478,7 @@ $$
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
 $$ {#eq-12}
 
-Por la hipotesis (@eq-lipschitz) la cuál indica que los coeficientes $b$, $\sigma$ y $F$ satisfacen
+Por la hipótesis (@eq-lipschitz) la cuál indica que los coeficientes $b$, $\sigma$ y $F$ satisfacen
 
 $$
     \begin{aligned}
@@ -558,7 +558,7 @@ $$
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 $$
 
-Usando la Hipotesis de inducción, podemos afirmar que
+Usando la hipótesis de inducción, podemos afirmar que
 
 $$
     d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
@@ -621,7 +621,7 @@ $$
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 $$
 
-Dado que son terminos no negativos, tomando raíz se puede afirmar que
+Dado que son términos no negativos, tomando raíz se puede afirmar que
 
 $$
     \begin{aligned}
@@ -645,7 +645,7 @@ $$
     A':=C_2(t)K_3>0.
 $$
 
-Reescribiendo el termino de la suma de la siguiente forma
+Reescribiendo el término de la suma de la siguiente forma
 
 $$
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
@@ -711,7 +711,7 @@ $$
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
 $$
 
-Además el termino $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, por lo tanto
+Además el término $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, por lo tanto
 
 $$
     \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
@@ -805,7 +805,7 @@ $$
     \end{aligned}
 $$
 
-Aplicando la desigualdad de Cauchy–Schwarz para integrales, para el primer termino de la desigualdad tenemos
+Aplicando la desigualdad de Cauchy–Schwarz para integrales, para el primer término de la desigualdad tenemos
 
 $$
     \begin{aligned}
@@ -1025,7 +1025,9 @@ $$
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 $$
 
-Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-21, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar $$
+Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-21, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar
+
+$$
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon, \ \ \forall\ m,n\geq N
 $$
 

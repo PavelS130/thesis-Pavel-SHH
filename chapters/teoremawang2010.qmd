@@ -10,8 +10,215 @@ format:
     latex-engine: pdflatex
 ---
 
-::: {#thm-varmues style="text-align: justify"}
+::: {style="text-align: justify"}
+Consideremos la ecuación diferencial estocástica con saltos
 
+$$
+    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t),\qquad t\geq 0,
+$$ {#eq-301}
+
+con condición inicial $X(0)=X_0$, donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda >0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$.
+
+Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la @eq-301. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t\geq 0}$ de la forma
+
+$$
+    dY(t)=\mu(t)dt+\sigma(t)dW(t)+\gamma(t)dN(t),
+$$
+
+donde $\mu(t), \sigma(t), \gamma(t)$ son procesos adaptados, $W(t)$ es un movimiento browniano y $N(t)$ es un proceso de Poisson. Para una función $f\in C^2\{\mathbb{R}^{+}\times\mathbb{R}^{+}\}$ el diferencial estocástico de $f(t,Y(t))$ está dado por
+
+$$
+    \begin{aligned}
+        df(t,Y(t)) & = \frac{\partial f}{\partial t}(t,Y(t-))dt \\ 
+        & \qquad +\frac{\partial f}{\partial y}(t,Y(t-))[\mu(t)dt+\sigma(t)dW(t)]\\ 
+        & \qquad + \frac{1}{2}\frac{\partial^2 f}{\partial y^2}(t,Y(t-))\sigma(t)^2dt\\ 
+        & \qquad +[f(t,Y(t-)+\gamma(t))-f(t,Y(t-))]dN(t).
+    \end{aligned}
+$$
+
+Notemos que el último término representa el cambio finito en $f$ cuando ocurre un salto de tamaño $\gamma(t)$ en $Y$.
+
+Para nuestro caso, para facilitar el tratamiento de los saltos, vamos a introducir el proceso de Poisson compensado definido por
+
+$$
+    \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
+$$
+
+Sabemos que este preceso es una martingala con esperanza $\mathbb{E}[\widetilde{N}(t)]=0$, varianza $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$, además los incrementos en dicho proceso son independientes.
+
+La ecuación que queremos resolver es lineal en el estado $X(t-)$, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando $c=0$, la ecuación se reduce al movimiento browniano geométrico
+
+$$
+    dx(t)=aX(t)dt+bX(t)dW(t),
+$$
+
+cuya solución es conocida por
+
+$$
+    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)\Bigg].
+$$
+
+Para nuestro caso, el término $cX(t-)dN(t)$ induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma
+
+$$
+    X(t)=X_0e^{Y(t)},
+$$
+
+donde $Y(t)$ será un proceso que posea un término lineal en $t$, un término con $W(t)$ para el ruido browniano y $N(t)$ para los saltos. Por lo que, proponemos que tendrá la siguiente estructura
+
+$$
+    Y(t)=\alpha t +\beta W(t)+\gamma N(t),
+$$ {#eq-302}
+
+aquí $\alpha,\ \beta,\ \gamma$ serán constantes que deberemos determinar para que se cumple la @eq-301.
+
+Tomando a
+
+-   $\mu(t)=\alpha$.
+-   $\sigma(t)=\beta$.
+-   $\gamma(t)=\gamma$ el cuál es el tamaño del salto.
+-   Además, para usar el $f(y)=e^y$, por lo que $f'(y)=f''(y)=e^y=X$.
+
+Así aplicando el Lema de Itô(Falta referencia cruzada), tenemos
+
+$$
+    \begin{aligned}
+        dX(t) & = X(t-)(\alpha dt+\beta W(t))+\frac{1}{2}X(t-)\beta^2dt\\ 
+        & \qquad + \Bigg[e^{Y(t-)+\gamma}-e^{Y(t-)}\Bigg]dN(t).
+    \end{aligned}
+$$
+
+Observemos que, por la función $f(y)$, ya definida anteriormente, podemos afirmar que $e^{Y(t-)}=X(t-)$, por lo que el término de salto pasa a ser de la forma
+
+$$
+    e^{Y(t-)+\gamma}-e^{Y(t-)} = e^{Y(t-)}(e^{\gamma}-1)=X(t-)(e^{\gamma}-1)
+$$
+
+Factorizando los términos en común, podemos obtener
+
+$$
+    dX(t)=X(t-)\Bigg[\left(\alpha+\frac{1}{2}\beta^2\right)dt +\beta W(t)+(e^{\gamma}-1)dN(t)\Bigg].
+$$
+
+La ecuación que debe satisfacer $X(t)$ es
+
+$$
+    dX(t)=X(t-)[adt+bW(t)cN(t)].
+$$
+
+Comparando e igualando los factores de cada ecuación tenemos que para $dW(t)$, $\beta=b$. Luego para $N(t)$, se tiene $e^{\gamma}-1=c$, es decir, $e^{\gamma}=c+1$, esto implica que $\gamma =\ln(1+c)$. Por último, para el término $dt$, considerando el valor de $\beta=b$ tenemos
+
+$$
+    \alpha+\frac{1}{2}\beta^2=\alpha +\frac{1}{2}b^2=a,
+$$
+
+por lo tanto
+
+$$  
+    \alpha = a-\frac{1}{2}b^2.
+$$
+
+Sustituyendo estos valores en nuestra propuesta de la solución en @eq-302
+
+$$
+    Y(t)=\left(a-\frac{1}{2}b^2\right)t+bW(t)+\ln(1+c)N(t).
+$$
+
+Cómo $X(t)=X_0e^{Y(t)}$, entonces
+
+$$
+    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)+\ln(1+c)N(t)\Bigg].
+$$
+
+Por las propiedades del logaritmo, tenemos
+
+$$
+    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)\Bigg](1+c)^{N(t)}.
+$$ {#eq-303}
+:::
+
+::: {#prp-solucion style="text-align: justify"}
+Consideremos la @eq-301 ya definida anteriormente sobre un espacio de probabilidad $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$. Definimos el parámetro
+
+$$
+    l:=2a+b^2 +\lambda c(2+c).
+$$
+
+Entonces, la solución continua de la ecuación dada por @eq-303 es estable en media cuadratica, es decir
+
+$$
+    \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
+$$
+
+si y solo si $l<0$.
+:::
+
+::: {.proof style="text-align: justify"}
+A partir de la solución explicita de la ecuación @eq-301, notemos que
+
+$$
+    \begin{aligned}
+        |X(t)|^2 & = \Bigg|X_0\exp\Bigg(\Bigg(a-\frac{b^2}{2}\Bigg)t+bW(t)\Bigg)(1+c)^{N(t)}\Bigg|^2\\ 
+        & = |X_0|^2\cdot \left|\exp\left(\left(a-\frac{b^2}{2}\right)t+bW(t)\right)\right|^2\cdot\left((1+c)^{N(t)}\right)^2\\ 
+        & = |X_0|^2\cdot\left|\exp\left((2a-b^2)t+2W(t)\right)\right|\cdot (1+c)^{2N(t)}.
+    \end{aligned}
+$$
+
+Dado que $X_0$ es la condición inicial determinita, es decir , no es una variable aleatoria, entonces obteniendo el valor esperado del segundo momento del proceso, tenemos
+
+$$
+    \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
+$$ {#eq-304}
+
+Para el término browniano, recordemos que $W(t)\sim \mathcal{N}(0,t)$, se cumple tambien $\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}$ esto para una variable $Z\sim \mathcal{N}(0,\sigma^2)$, por tanto, obtenemos
+
+$$
+    \begin{aligned}
+        \mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right] & = \mathbb{E}[\exp[(2a-b^2)t]]\cdot \mathbb{E}[2W(t)]\\ 
+        & = \exp((2a-b^2)t)\cdot \exp \left(\frac{1}{2}(2b)^2 t\right)\\
+        & = \exp(2at-b^2t+2b^2t)\\
+        & = \exp((2a+b^2)t).
+    \end{aligned}
+$$
+
+Por otro lado, para el término de Poisson, debemos recordar que la función generadora de momentos de $N(t)$ esta dada por
+
+$$
+    \mathbb{E}[e^{uN(t)}]=\exp(\lambda t(e^u-1)).
+$$
+
+Tomando a $u=ln(1+c)$, tenemos
+
+$$
+    \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp\left(\lambda t (e^{2\ln(1+c)}-1)\right)=\exp(\lambda t((1+c)^2)-1).
+$$
+
+Desarrolando tenemos que $(1+c)^2-1=1+2c+c^2-1=c(2+c)$, por lo que al sustituir tenemos
+
+$$
+    \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp(\lambda c(2+c)t). 
+$$
+
+Finalmente de la @eq-304 tenemos que
+
+$$
+    \begin{aligned}
+        \mathbb{E}[|X(t)|^2] & = X_0^2\cdot e^{(2a+b^2)t}\cdot e^{\lambda c(2+c)t}\\ 
+        & = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}, \quad \text{con }l=2a+b^2+\lambda c(2+c),\\ 
+        & = X_0^2\cdot e^{lt}.
+    \end{aligned}
+$$
+
+De aquí podemos afirmar que el segundo momento del proceso $X(t)$ crece de manera exponencial con una tasa $l$. Por lo que si $l=0$, el segundo momento es constante e igual a $X_0^2$. Al tomar el límite cuando $l>0$, es claro que dicho límite es infinito y por tanto el sistema es inestable. Finalmente cuando $l<0$, notemos que
+
+$$
+    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]= \lim\limits_{t\rightarrow \infty}X_0^2\cdot e^{lt}= 0
+$$
+
+Por lo que el sistema es estable si y solo si $l<0$.
+:::
+
+::: {#thm-estabilidad style="text-align: justify"}
 Consideremos la ecuación diferencial estocástica lineal con saltos
 
 $$
@@ -30,22 +237,19 @@ $$
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 $$
 
-si y solo si $l<0$. 
+si y solo si $l<0$.
 
-Sea  $\Delta t>0$ un tamaño de paso fijo y $\theta\in [0,1]$ el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a @eq-501, si $\displaystyle \frac{1}{2}\leq \theta\leq 1$, entonces el método es estable en media cuadrática, es decir, para todo $\Delta t>0$ se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que $l<0$. 
+Sea $\Delta t>0$ un tamaño de paso fijo y $\theta\in [0,1]$ el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a @eq-501, si $\displaystyle \frac{1}{2}\leq \theta\leq 1$, entonces el método es estable en media cuadrática, es decir, para todo $\Delta t>0$ se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que $l<0$.
 
-Si $\displaystyle 0\leq \theta<\frac{1}{2}$, el método es estable en media cuadrática si y solo si el tamaño del paso satisface 
+Si $\displaystyle 0\leq \theta<\frac{1}{2}$, el método es estable en media cuadrática si y solo si el tamaño del paso satisface
 
 $$
     \Delta t<\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 $$
-
 :::
 
-
 ::: {.proof style="text-align: justify"}
-
-Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la @eq-501, con condición inical $X(0)=X_0$. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma $\widetilde{N}(t):=N(t)-\lambda t$, el cuál es una martingala y satiisface $\mathbb{E}[\widetilde{N}(t)]=0$ y $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$. Por lo tanto, esto nos permite reescribir la @eq-501 de la forma equivalente 
+Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la @eq-501, con condición inicial $X(0)=X_0$. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma $\widetilde{N}(t):=N(t)-\lambda t$, el cuál es una martingala y satiisface $\mathbb{E}[\widetilde{N}(t)]=0$ y $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$. Por lo tanto, esto nos permite reescribir la @eq-501 de la forma equivalente
 
 $$
 \begin{aligned}
@@ -56,7 +260,7 @@ $$
 \end{aligned}
 $$ {#eq-502}
 
-Para un tamaño de paso constante $\Delta t>0$, definimos la malla $t_n=n\Delta t$ con $n\in \mathbb{N}$. El método (CSTM) aplicado a la @eq-502 genera un sucesión de aproximaciones $Y_n\approx X(t_n)$ mediante la ecuación de diferencias implícita dada por 
+Para un tamaño de paso constante $\Delta t>0$, definimos la malla $t_n=n\Delta t$ con $n\in \mathbb{N}$. El método (CSTM) aplicado a la @eq-502 genera un sucesión de aproximaciones $Y_n\approx X(t_n)$ mediante la ecuación de diferencias implícita dada por
 
 $$
     \begin{aligned}
@@ -65,24 +269,207 @@ $$
     \end{aligned}
 $$ {#eq-503}
 
-donde $\theta\in [0,1]$ es un parámetro del método, los incrementos estocásticos se definen de la forma 
+donde $\theta\in [0,1]$ es un parámetro del método, los incrementos estocásticos se definen de la forma
 
 $$
     \begin{aligned}
-        \Delta W_n & : & = W(t_{n+1})-W(t_n) \\ 
+        \Delta W_n : & = W(t_{n+1})-W(t_n) \\ 
         \Delta \widetilde{N}_n : & = \widetilde{N}(t_{n+1})-\widetilde{N}(t_n). 
     \end{aligned}
 $$
 
 Notemos que, dichos incrementos son independientes entre sí, además satifacen que $\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0$, $\mathbb{E}[|\Delta W_n|^2]=\Delta t$ y $\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t$.
 
-Reorganizando la @eq-503 de tal forma que podamos expresar de forma explícita el término $Y_{n+1}$ en términos de $Y_n$, obtenemos 
+Reorganizando la @eq-503 de tal forma que podamos expresar de forma explícita el término $Y_{n+1}$ en términos de $Y_n$, obtenemos
 
 $$
     \begin{aligned}
         Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} & = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\ 
-        & \qquad\quad+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n
+        & \qquad\quad+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n.
     \end{aligned}
 $$
 
+De aquí, factorizando el término $Y_{n+1}$ del lado izquierdo y el término $Y_n$ del lado derecho
+
+$$
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))Y_{n+1} & = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\ 
+        & \qquad\quad +bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n\\
+        & = [1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n]Y_n.
+    \end{aligned}
+$$ {#eq-504}
+
+Dado que por hipótesis sabemos que $l=2a+b^2+\lambda c(2+c)<0$, podemos notar
+
+$$
+    \begin{aligned}
+        2a+b^2+\lambda c(2+c) & =2a+2\lambda c+b^2+\lambda c^2\\ 
+        & =2(a+\lambda c)+b^2+\lambda c^2<0,
+    \end{aligned}
+$$
+
+es claro que $b^2+\lambda c^2>0$, esto implica que $(a+\lambda c)<0$. Con esto, podemos afirmar que para $\Delta t$ lo suficientemente pequeño, el término $1-\theta\Delta t(a+\lambda c)$ no se anula y es positivo.
+
+Por otro lado, veamos la esperanza del segundo momento de @eq-504. Elevando al cuadrado y obteniendo el valor esperado, tenemos
+
+$$
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] & = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c)\\ 
+        & \qquad\quad+b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
+    \end{aligned}
+$$ {#eq-505}
+
+Vamos a desarrollar la esperanza del término estocástico. Para faciliatr el proceso, definimos la siguiente notación
+
+$$
+    \begin{aligned}
+            A & := 1+(1-\theta)\Delta t(a+\lambda c)\\ 
+            B & := b\Delta W_n\\ 
+            C & := c\Delta \widetilde{N}_n.
+    \end{aligned}
+$$
+
+Notemos que $A$ es una constante determinista, mientras que $B$ y $C$ son variables aleatorias. Por tanto, aplicando la linealidad de la esperanza, el término estocástico de la @eq-505 queda de la forma
+
+$$
+    \begin{aligned}
+        \mathbb{E}[|A+B+C|^2] & = \mathbb{E}[A^2+B^2+C^2\\ 
+        & \qquad +2AB+2AC+2BC]\\ 
+        & = \mathbb{E}[A^2]+\mathbb{E}[B^2]+\mathbb{E}[C^2]\\ 
+        & \qquad +\mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
+    \end{aligned}
+$$ {#eq-506}
+
+Utilizando las propiedades de los incrementos independientes, podemos afirmar que $\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0$. Además, $\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0$. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple $\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0$.
+
+Por otro lado, $\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t$ y $\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t$. Por lo tanto, de la @eq-506 tenemos
+
+$$
+    \begin{aligned}
+        \mathbb{E}[|A+B+C|^2] & = A^2+b^2\Delta t +\lambda c^2\Delta t\\ 
+        & = (1+(1-\theta)\Delta t(a+\lambda c))^2 \\ 
+        & \qquad +b^2\Delta t +\lambda c^2\Delta t.
+    \end{aligned}
+$$
+
+Sustituyendo esto en @eq-505 tenemos
+
+$$
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] & = \Bigg[(1+(1-\theta)\Delta t(a+\lambda c))^2 \\ 
+        & \qquad + b^2\Delta t +\lambda c^2\Delta t\Bigg]\mathbb{E}[|Y_n|^2].
+    \end{aligned}
+$$ {#eq-507}
+
+Notemos que la @eq-507 describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión $\mathbb{E}[|Y_n|^2]$ sea decreciente y tienda a cero cuando $n$ tiende a infinito. Esto ocurre si y solo si
+
+$$
+    \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}<1
+$$ {#eq-508}
+
+Recordemos que anteriormente ya se mencionó que el término $1-\theta\Delta t(a+\lambda c)$ es no nulo y positivo, por lo que es posible multiplicar la @eq-508 por el denominador y seguir conservando la desigualdad, es decir
+
+$$
+    (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t<(1-\theta\Delta t(a+\lambda c))^2
+$$ {#eq-509}
+
+Para facilitar la notación, definimos la variable $K:=a+\lambda c$. Además, expandiendo la expresión del lado derecho de la desigualdad de la forma
+
+$$
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2 & =(1-\theta\Delta tK)^2\\ 
+        & = 1-2\theta\Delta t k+\theta^2\Delta t^2K^2.
+    \end{aligned} 
+$$
+
+De igual forma, al extender el término al cuadrado del lado izquierdo de la @eq-509
+
+$$
+    \begin{aligned}
+        (1+(1-\theta)\Delta t (a+\lambda c))^2 & = (1+(1-\theta)\Delta t K)^2\\ 
+        & = 1+2(1-\theta)\Delta t K+(1-\theta)^2\Delta t^2 K^2.
+    \end{aligned}
+$$
+
+De esta manera, ordenando los términos, la @eq-509 se expresa como se sigue
+
+$$
+    \begin{aligned}
+        1 & +2(1-\theta)\Delta t K +b^2\Delta t \\ 
+          & \qquad +\lambda c^2\Delta t+(1-\theta)^2\Delta t^2 K^2<1-2\theta\Delta t K+\theta^2\Delta t^2 K^2.
+    \end{aligned}
+$$ {#eq-510}
+
+Restando el término $1$ en ambos lados de la desigualdad, además reordenando adecuadamente y agrupando los términos con factores $\Delta t$ y $\Delta t^2$, tenemos
+
+$$
+    \begin{aligned}
+        & -2\theta K\Delta t -2(1-\theta)K\Delta t-b^2\Delta t \\
+        & \qquad\quad-\lambda c^2\Delta t+\theta^2 K^2\Delta t^2-(1-\theta)^2 K^2\Delta t^2>0\\ 
+        & (-2\theta K-2(1-\theta)K-b^2-\lambda c^2)\Delta t\\ 
+        & \qquad\quad+ (\theta^2-(1-\theta)^2)K^2\Delta t^2>0\\ 
+        & (-2\theta K-2K+2\theta K-b^2-\lambda c^2)\Delta t \\ 
+        & \qquad\quad+(\theta^2-(1-2\theta+\theta^2))K^2\Delta t^2>0\\ 
+        &(-2K-b^2-\lambda c^2)\Delta t +(2\theta-1)K^2\Delta t^2>0\\ 
+        & (2\theta-1)\Delta t^2 K^2-(2K+b^2+\lambda c^2)\Delta t>0. 
+    \end{aligned}
+$$ {#eq-511}
+
+Del parámetro de establilidad $l$, notemos
+
+$$
+    \begin{aligned}
+        l & = 2a+b^2+\lambda c(2+c) \\ 
+        & = 2a+b^2+2\lambda c+\lambda c^2\\ 
+        & = 2a+2\lambda c+b^2+\lambda c^2\\ 
+        & = 2(a+\lambda c)+b^2+\lambda c^2\\ 
+        & = 2K +b^2+\lambda c^2.
+    \end{aligned}
+$$
+
+Por lo tanto, sustituyendo $l$ en @eq-510 se tiene
+
+$$
+    (2\theta-1)\Delta t^2 K^2-l\Delta t>0
+$$
+
+Dado que $\Delta t>0$, es posible factorizar un término de la forma
+
+$$
+    \Delta t[(2\theta-1)\Delta t K^2-l]>0,
+$$
+
+más aún
+
+$$
+    (2\theta-1)\Delta t K^2-l>0.
+$$
+
+Despejando de tal forma que podamos expresar la desigualdad anterior en términos de $-l$ tenemos
+
+$$
+-l >-(2\theta-1)(a+\lambda c)^2\Delta t= (1-2\theta)(a+\lambda c)^2\Delta t
+$$ {#eq-512}
+
+Cuando $\displaystyle\theta=\frac{1}{2}$, esto implica $1-2\theta=0$, así
+
+$$
+    0= (1-2\theta)(a+\lambda c)^2\Delta t<-l
+$$
+
+Por hipótesis $l<0$, de aqui $0<-l$. Por lo tanto, el método es estable cuando $\displaystyle\theta=\frac{1}{2}$.
+
+Luego, cuando $\displaystyle \frac{1}{2}<\theta\leq 1$, esto implica que $1-2\theta<0$. Para este caso $(1-2\theta)(a+\lambda c)^2\Delta t<0$, de igual forma $-l>0$, entonces
+
+$$
+    (1-2\theta)(a+\lambda c)^2\Delta t<0<-l,
+$$
+
+en consecuencia, el método sigue siendo estable bajo las condiciones de la solución análitica.
+
+Por último, para el caso $\displaystyle 0\leq \theta<\frac{1}{2}$, esto implica, $(1-2\theta)(a+\lambda c)^2>0$, por lo que la @eq-512 se cumple si y solo si
+
+$$
+    \Delta t <\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
+$$
 :::
