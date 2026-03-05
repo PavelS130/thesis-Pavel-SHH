@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
+<title>6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,10 +110,10 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="6&nbsp; Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:title" content="6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="6&nbsp; Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:title" content="6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -287,7 +287,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorem2017.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorem2017.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -393,7 +393,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/teorem2017.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -416,7 +416,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSSθ para ecuaciones diferenciales estocásticas con saltos</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></h1>
 </div>
 
 
@@ -467,7 +467,9 @@ window.Quarto = {
   f_{\lambda}(x):=f(x)+\lambda h(x),\quad x\in \mathbb{R}.
 \]</span></p>
 <p>Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.</p>
-<p>Para poder realizar un análisis de la convergencia del método CSS <span class="math inline">\(theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
+</div>
+<div id="def-CSS" class="theorem definition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Definición 6.1</strong></span> Para poder realizar un análisis de la convergencia del método CSS <span class="math inline">\(theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
 </div>
 <div style="text-align: justify">
 <p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
