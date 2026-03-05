@@ -477,10 +477,14 @@ window.Quarto = {
 \]</span></p>
 <p>donde:</p>
 <ul>
-<li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incemrento del movimiento browniano,</li>
+<li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incremento del movimiento browniano,</li>
 <li><span class="math inline">\(\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> es el incremento del proceso de Poisson compensado.</li>
 </ul>
 <p>Para poder realizar un análisis de la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
+</div>
+<div id="rem-3.1" class="proof remark" style="text-align: justify">
+<p><span class="proof-title"><em>Observación 6.1</em>. </span></p>
+<pre><code>La primera ecuación es implícita en la variable auxiliar  $Y_n^*$</code></pre>
 </div>
 <div style="text-align: justify">
 <p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
