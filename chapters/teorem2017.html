@@ -483,7 +483,28 @@ window.Quarto = {
 <p>Para poder realizar un análisis de la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
 </div>
 <div id="rem-3.1" class="proof remark" style="text-align: justify">
-<p><span class="proof-title"><em>Observación 6.1</em>. </span>La primera ecuación es implícita en la variable auxiliar <span class="math inline">\(Y_n^*\)</span></p>
+<p><span class="proof-title"><em>Observación 6.1</em>. </span>La primera ecuación es implícita en la variable auxiliar <span class="math inline">\(Y_n^*\)</span>, y su resolución requiere de un método auxiliar, más adelante, bajo ciertas hipótesis se demostrará que dicha ecuación admite una única solución <span class="math inline">\(Y_n^*\)</span>. En el caso <span class="math inline">\(\theta=0\)</span>, la ecuación se reduce a <span class="math inline">\(Y_n^*=Y_n\)</span>, y el método se vuelve implícito.</p>
+</div>
+<div id="rem-3.2" class="proof remark" style="text-align: justify">
+<p><span class="proof-title"><em>Observación 6.2</em>. </span>La segunda ecuación actualiza la aproximación utilizando el valor intermedio <span class="math inline">\(Y_n^*\)</span> y lo incrementos de las fuentes de ruido. Notemos que el método utiliza explicitamente el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, lo que constituye su principal diferencia respecto a otros métodos no compensados y le confiere mejores propiedades de estabilidad.</p>
+</div>
+<div id="def-CSSc" class="theorem definition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Definición 6.2</strong></span> Definimos la función <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> de la forma</p>
+<p><span class="math display">\[
+  \begin{aligned}
+      \overline{Y} &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
+      &amp; \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
+  \end{aligned}
+\]</span></p>
+<p>De esta definición se sigue que <span class="math inline">\(\overline{Y}(t_n)=Y_n\)</span> para todo <span class="math inline">\(n\)</span>, es decir, la extensión continua coincide con la solución numérica en los puntos de la malla. Además, <span class="math inline">\(\overline{Y}(t)\)</span> es adaptada a la filtración y tiene trayectorias continuas, lo que permite aplicar herramientas del cálculo estocástico en tiempo continuo.</p>
+<p>Alternativamente, podemos escribir <span class="math inline">\(\overline{Y}(t)\)</span> en forma integral como</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \overline{Y}(t) &amp; = Y_0 +\int_0^t f_{\lambda}(\overline{Y}(s-))ds+\int_0^tg(\overline{Y}(s-))dW(s)\\
+    &amp;  \qquad\quad +\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s),
+  \end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(\overline{Y}(s-)\)</span> denota el límite por la izquierda, que en nuestro caso coincide con la función escalon definida por <span class="math inline">\(Y(s)=Y_n\)</span> para <span class="math inline">\(s\in [t_n,t_{n+1})\)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
