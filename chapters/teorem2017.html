@@ -415,7 +415,14 @@ window.Quarto = {
    
   <ul>
   <li><a href="#método-textcsstheta" id="toc-método-textcsstheta" class="nav-link active" data-scroll-target="#método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></a></li>
-  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a></li>
+  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a>
+  <ul class="collapse">
+  <li><a href="#condición-unilateral-de-lipschitz" id="toc-condición-unilateral-de-lipschitz" class="nav-link" data-scroll-target="#condición-unilateral-de-lipschitz"><span class="header-section-number">6.2.1</span> Condición unilateral de Lipschitz:</a></li>
+  <li><a href="#condición-global-de-lipschitz-para-g" id="toc-condición-global-de-lipschitz-para-g" class="nav-link" data-scroll-target="#condición-global-de-lipschitz-para-g"><span class="header-section-number">6.2.2</span> Condición global de Lipschitz para g:</a></li>
+  <li><a href="#condición-global-de-lipschitz-para-h" id="toc-condición-global-de-lipschitz-para-h" class="nav-link" data-scroll-target="#condición-global-de-lipschitz-para-h"><span class="header-section-number">6.2.3</span> Condición global de Lipschitz para h:</a></li>
+  <li><a href="#acotammiento-del-momennto-incial" id="toc-acotammiento-del-momennto-incial" class="nav-link" data-scroll-target="#acotammiento-del-momennto-incial"><span class="header-section-number">6.2.4</span> Acotammiento del momennto incial:</a></li>
+  <li><a href="#condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" id="toc-condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" class="nav-link" data-scroll-target="#condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -518,26 +525,48 @@ window.Quarto = {
 </div>
 <section id="hipótesis" class="level2" style="text-align: justify" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">6.2</span> Hipótesis</h2>
-<p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
+<section id="condición-unilateral-de-lipschitz" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="condición-unilateral-de-lipschitz"><span class="header-section-number">6.2.1</span> Condición unilateral de Lipschitz:</h3>
+<p>Para el coeficiente <span class="math inline">\(f:\mathbb{R}\rightarrow\mathbb{R}\)</span> existe una constante <span class="math inline">\(K&gt;0\)</span> tal que para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-602"><span class="math display">\[
-  (x-y)(f(x)-f(y))\leq K|x-y|^2, \quad \forall x,y\in \mathbb{R}.
+  (x-y)(f(x)-f(y))\leq K|x-y|^2.
 \tag{6.2}\]</span></span></p>
-<p>Nótese que esta condición es significativamente más débil que la condición de Lipschitz global, ya que no requiere una cota uniforme para la diferencia de valores absolutos, sino solo para el producto con la diferencia.</p>
-<p>Para los coeficientes de difusión <span class="math inline">\(g\)</span> y de salto <span class="math inline">\(h\)</span>, en cambio, impondremos condiciones de Lipschitz global. Es decir, existirán constantes <span class="math inline">\(L_g,L_h&gt;0\)</span>, tales que para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumplen</p>
-<p><span id="eq-603"><span class="math display">\[
-    |g(x)-g(y)|^2\leq L_g |x-y|^2
+</section>
+<section id="condición-global-de-lipschitz-para-g" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="condición-global-de-lipschitz-para-g"><span class="header-section-number">6.2.2</span> Condición global de Lipschitz para g:</h3>
+<p>Para el coeficiente de difusión <span class="math inline">\(g:\mathbb{R}\rightarrow\mathbb{R}\)</span>, existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que para todo <span class="math inline">\(x,y\in\mathbb{R}\)</span>, <span id="eq-603"><span class="math display">\[
+    |g(x)-g(y)|^2\leq L_g |x-y|^2.
 \tag{6.3}\]</span></span></p>
-<p>y</p>
+</section>
+<section id="condición-global-de-lipschitz-para-h" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="condición-global-de-lipschitz-para-h"><span class="header-section-number">6.2.3</span> Condición global de Lipschitz para h:</h3>
+<p>Para el coeficiente de difusión <span class="math inline">\(h:\mathbb{R}\rightarrow\mathbb{R}\)</span>, existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que para todo <span class="math inline">\(x,y\in\mathbb{R}\)</span>,</p>
 <p><span id="eq-604"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.4}\]</span></span></p>
-<p>Adicionalmente, supondremos que los momentos iniciales están acotados, es decir, <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span> para todo <span class="math inline">\(p\geq 1\)</span>.</p>
+</section>
+<section id="acotammiento-del-momennto-incial" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="acotammiento-del-momennto-incial"><span class="header-section-number">6.2.4</span> Acotammiento del momennto incial:</h3>
+<p>Supondremos que los momentos iniciales están acotados, es decir para todo <span class="math inline">\(p\geq 1\)</span></p>
+<p><span class="math display">\[
+\mathbb{E}[|X_0|^p]&lt;\infty.
+\]</span></p>
+</section>
+<section id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</h3>
+<p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
+<p><span class="math display">\[
+  |f(a)-f(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
+\]</span></p>
+</section>
+</section>
+<div style="text-align: justify">
 <p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado <span class="math inline">\(f_{\lambda}(x)=f(x)\lambda h(x)\)</span> hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
 <p><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
 \]</span></p>
 <p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
-</section>
+</div>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.1</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
 <p><span class="math display">\[
