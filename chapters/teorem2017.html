@@ -434,7 +434,7 @@ window.Quarto = {
 
 
 <div style="text-align: justify">
-<p>Vamos a abordar el estudio de la convergencia del método numérico conocido como compensated split-step <span class="math inline">\(\theta\)</span> (<span class="math inline">\(\text{CSS}\theta\)</span>) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S). Para ello, consideremos la ecuación diferencial estocástica con saltos de la forma</p>
+<p>En esta sección abordamos el estudio de la convergencia del método numérico conocido como <em>compensated split-step <span class="math inline">\(\theta\)</span></em> (<span class="math inline">\(\text{CSS}\theta\)</span>) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Para ello, consideremos la ecuación diferencial estocástica con saltos de la forma</p>
 <p><span id="eq-601"><span class="math display">\[
     dX(t) = f(X(t-))dt +g(X(t-))dW(t)+h(X(t-))dN(t), \quad t\geq 0,
 \tag{6.1}\]</span></span></p>
@@ -447,7 +447,7 @@ window.Quarto = {
 <li><span class="math inline">\(\{W(t)\}_{t\geq 0}\)</span> es un movimiento browniano estandar,</li>
 <li><span class="math inline">\(\{N(t)\}_{t\geq 0}\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt;0\)</span>,</li>
 </ul>
-<p>definidos sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})\)</span>.</p>
+<p>definidos sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})\)</span>, cuya solución aproximaremos mediante una discretización del tiempo basada en un paso constante <span class="math inline">\(\Delta t&gt;0\)</span>. Este procedimiento genera una sucesión de aproximaciones <span class="math inline">\(Y_n\)</span> que representan los valores aproximados de la solución exacta <span class="math inline">\(X(t)\)</span> en los puntos de la malla temporal <span class="math inline">\(t_n=n\Delta t\)</span>, con <span class="math inline">\(n=0,1,2,\ldots\)</span>.</p>
 <p>Para facilitar el manejo de los saltos, introducimos el proceso de Poisson compensado dado por</p>
 <p><span class="math display">\[
   \widetilde{N}(t):=N(t)-\lambda t,\quad t\geq 0.
@@ -455,8 +455,7 @@ window.Quarto = {
 <p>Sabemos que dicho proceso es una martingala tal que satisface</p>
 <ul>
 <li><span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span>,</li>
-<li><span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>,</li>
-<li>Los incremenntos dados por <span class="math inline">\(\Delta \widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> son independientes, con media cero y varianza <span class="math inline">\(\lambda \Delta t\)</span>.</li>
+<li><span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>.</li>
 </ul>
 <p>Así, usando la compensación la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> queda de la forma</p>
 <p><span class="math display">\[
@@ -469,7 +468,19 @@ window.Quarto = {
 <p>Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.</p>
 </div>
 <div id="def-CSS" class="theorem definition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Definición 6.1</strong></span> Para poder realizar un análisis de la convergencia del método CSS <span class="math inline">\(theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
+<p><span class="theorem-title"><strong>Definición 6.1</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera las sucesiones <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span> mediante el siguiente sistema de ecuaciones en diferencias:</p>
+<p><span class="math display">\[
+  \begin{cases}
+    Y_n^* &amp; = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,\\
+    Y_{n+1} &amp; = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
+  \end{cases}
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incemrento del movimiento browniano,</li>
+<li><span class="math inline">\(\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> es el incremento del proceso de Poisson compensado.</li>
+</ul>
+<p>Para poder realizar un análisis de la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, es necesario tener condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.</p>
 </div>
 <div style="text-align: justify">
 <p>A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para <span class="math inline">\(f\)</span> adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante <span class="math inline">\(K&gt;0\)</span></p>
