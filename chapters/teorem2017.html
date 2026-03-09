@@ -570,7 +570,7 @@ window.Quarto = {
 \]</span></p>
 <p>Entonces, para todo <span class="math inline">\(p\geq 1\)</span>, existe una constante positiva</p>
 <p><span class="math display">\[
-    A=A(p,T,\Lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
+    A=A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
 <p>independiente de <span class="math inline">\(\Delta t\)</span> y de <span class="math inline">\(N_T\)</span>, tal que</p>
 <p><span class="math display">\[
@@ -581,8 +581,17 @@ window.Quarto = {
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
-  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}
+  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
+<p>Entonces para todo <span class="math inline">\(p\geq 1\)</span>, existe una constante positiva</p>
+<p><span class="math display">\[
+  A_1 = A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
+\]</span></p>
+<p>independiente de <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(N_T\)</span>, tal que</p>
+<p><span class="math display">\[
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
+\]</span></p>
+<p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}\)</span> es la extensión en tiempo continuo dada por la <a href="#eq-605" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>.</p>
 </div>
 
 
