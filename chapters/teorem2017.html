@@ -538,7 +538,7 @@ window.Quarto = {
 <p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.8}\]</span></span></p>
-<p><strong>Acotammiento del momennto incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
+<p><strong>Acotamiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
 \tag{6.9}\]</span></span></p>
@@ -557,14 +557,14 @@ window.Quarto = {
 <p>En efecto, consideremos las hipótesis dadas por Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
+<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
 <p><span class="math display">\[
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
 \]</span></p>
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -577,15 +577,12 @@ window.Quarto = {
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
-<p>Ahora bien <span class="citation" data-cites="hyp-langevin">(<a href="#ref-hyp-langevin" role="doc-biblioref"><strong>hyp-langevin?</strong></a>)</span></p>
 </div>
-<div id="hyp-langevin">
-<p><strong>Hipótesis 1 (Modelo de Langevin).</strong></p>
-<p>La dinámica de la velocidad del sistema se describe mediante la ecuación estocástica</p>
+<div id="lem-6.3" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
-dv(t) = -\gamma v(t)\,dt + \sqrt{2D}\,dW(t)
+  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}
 \]</span></p>
-<p>donde (W(t)) es un proceso de Wiener.</p>
 </div>
 
 
