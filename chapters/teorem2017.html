@@ -551,10 +551,94 @@ window.Quarto = {
 <section id="lemas-sujeto-a-cambios" class="level2" style="text-align: justify" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</h2>
 <p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
-<p><span class="math display">\[
+<p><span id="eq-611"><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
+\tag{6.11}\]</span></span></p>
+<p>En efecto, consideremos la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y las hipótesis dadas por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-608" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Notemos que</p>
+<p><span class="math display">\[
+    (h(x)-h(y))\leq |h(x)-h(y)|\leq \sqrt{L_h}|x-y|, \qquad \forall x,y\in \mathbb{R}.
 \]</span></p>
-<p>En efecto, consideremos las hipótesis dadas por Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
+<p>Por tanto</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (x-y) &amp; (f_{\lambda}(x)-f_{\lambda}(y)) \\
+    &amp; = (x-y)((f(x)+\lambda h(x))-(f(y)+\lambda h(y)))\\
+    &amp; = (x-y)(f(x)-f(y)+\lambda(h(x)-h(y)))\\
+    &amp; = (x-y)(f(x)-f(y))+(x-y)(\lambda(h(x)-h(y)))\\
+    &amp; \leq K|x-y|^2+\lambda (x-y)(h(x)-h(y))\\
+    &amp; \leq K|x-y|^2+\lambda (x-y)|x-y|\sqrt{L_h}\\
+    &amp; \leq K|x-y|^2+\lambda \sqrt{L_h}|x-y|^2\\
+    &amp; = (K+\lambda \sqrt{L_h})|x-y|^2= K_{\lambda}|x-y|^2.
+  \end{aligned}
+\]</span></p>
+<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
+<p>Otras propiedades importanntes que podemos obtener usando las hipótesis anteriores, es ver que es posible acotar <span class="math inline">\(xf(x)\)</span> para toda <span class="math inline">\(x\in \mathbb{R}\)</span>. Notemos que podemos expresar <span class="math inline">\(f(x)\)</span> de la forma <span class="math inline">\(f(x)=f(x)-f(0)+f(0)\)</span>. Entonces</p>
+<p><span class="math display">\[
+  xf(x)= x[f(x)-f(0)]+xf(0).
+\]</span></p>
+<p>Por tanto, tomando <span class="math inline">\(y=0\)</span> y aplicando la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> obtenemos</p>
+<p><span class="math display">\[
+  (x-0)(f(x)-f(0))\leq K|x-0|^2,
+\]</span></p>
+<p>es decir,</p>
+<p><span class="math display">\[
+  x(f(x)-f(0))\leq K|x|^2.
+\]</span></p>
+<p>Para el término <span class="math inline">\(xf(0)\)</span>, podemos aplicar la desigualdad de Young, la cuál afirma que para cualesquiera <span class="math inline">\(a,b\in \mathbb{R}\)</span> se cumple</p>
+<p><span class="math display">\[
+  ab\leq \frac{1}{2}a^2+\frac{1}{2}b^2.
+\]</span></p>
+<p>Así tomando <span class="math inline">\(a=x\)</span>, <span class="math inline">\(b=f(0)\)</span>, tenemos</p>
+<p><span class="math display">\[
+  xf(0)\leq \frac{1}{2}|x|^2+\frac{1}{2}|f(0)|^2.
+\]</span></p>
+<p>Sustituyendo ambos resultados, podemos afirmar que</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    xf(x) &amp; =x(f(x)-f(0))+xf(0)\\
+    &amp; \leq K|x|^2+\frac{1}{2}|x|^2+\frac{1}{2}|f(0)|^2\\
+    &amp; \leq\left(K+\frac{1}{2}\right)|x|^2+\frac{1}{2}|f(0)|^2, \quad\forall x\in \mathbb{R}.
+  \end{aligned}
+\]</span></p>
+<p>De manera similar, podemos expresar a <span class="math inline">\(g(x)\)</span> de la forma <span class="math inline">\(g(x)-g(0)+g(0)\)</span>, de aquí</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |g(x)| &amp; = |g(x)-g(0)+g(0)|\\
+    &amp; \leq |g(x)-g(0)|+|g(0)|.
+  \end{aligned}
+\]</span></p>
+<p>Consideramos la desigualdad <span class="math inline">\((a+b)^2\leq 2(a^2+b^2)\)</span>, tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |g(x)|^2 &amp; \leq (|g(x)-g(0)|+|g(0)|)^2\\
+    &amp; \leq 2(|g(x)-g(0)|^2+|g(0)|^2).
+  \end{aligned}
+\]</span></p>
+<p>Aplicando la <a href="#eq-607" class="quarto-xref">Ecuación&nbsp;<span>6.7</span></a>, tomando a <span class="math inline">\(y=0\)</span>, tenemos que</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |g(x)|^2 &amp; \leq 2(|g(x)-g(0)|^2+|g(0)|^2)\\
+    &amp; \leq 2(L_g|x-0|^2+|g(0)|^2)\\
+    &amp; = 2L_g|x|^2+2|g(0)|^2,
+  \end{aligned}
+\]</span></p>
+<p>Por lo tanto, para toda <span class="math inline">\(x\in \mathbb{R}\)</span></p>
+<p><span id="eq-612"><span class="math display">\[
+  |g(x)|^2\leq 2L_g|x|^2+2|g(0)|^2.
+\tag{6.12}\]</span></span></p>
+<p>Claramente, de manera similar es posible afirmar que también se tiene la cota</p>
+<p><span id="eq-613"><span class="math display">\[
+  |h(x)|^2\leq 2L_h|x|^2+2|h(0)|^2,
+\tag{6.13}\]</span></span></p>
+<p>para todo <span class="math inline">\(x\in \mathbb{R}\)</span>.</p>
+<p>Combinando <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, <span class="citation" data-cites="612">(<a href="#ref-612" role="doc-biblioref"><strong>612?</strong></a>)</span> y <span class="citation" data-cites="613">(<a href="#ref-613" role="doc-biblioref"><strong>613?</strong></a>)</span> podemos encontrar una variable <span class="math inline">\(L&gt;0\)</span> tal que</p>
+<p><span class="math display">\[
+  xf(x)\vee |g(x)|^2\vee |h(x)|^2\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
+\]</span></p>
+<p>donde la constante <span class="math inline">\(L\)</span> podemos tomarla explicitamente como</p>
+<p><span class="math display">\[
+  L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
+\]</span></p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
