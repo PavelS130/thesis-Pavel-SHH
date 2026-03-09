@@ -415,14 +415,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#método-textcsstheta" id="toc-método-textcsstheta" class="nav-link active" data-scroll-target="#método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></a></li>
-  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a>
-  <ul class="collapse">
-  <li><a href="#condición-unilateral-de-lipschitz-deriva" id="toc-condición-unilateral-de-lipschitz-deriva" class="nav-link" data-scroll-target="#condición-unilateral-de-lipschitz-deriva"><span class="header-section-number">6.2.1</span> Condición unilateral de Lipschitz (Deriva):</a></li>
-  <li><a href="#condición-global-de-lipschitz-difusión" id="toc-condición-global-de-lipschitz-difusión" class="nav-link" data-scroll-target="#condición-global-de-lipschitz-difusión"><span class="header-section-number">6.2.2</span> Condición global de Lipschitz (Difusión):</a></li>
-  <li><a href="#condición-global-de-lipschitz-salto" id="toc-condición-global-de-lipschitz-salto" class="nav-link" data-scroll-target="#condición-global-de-lipschitz-salto"><span class="header-section-number">6.2.3</span> Condición global de Lipschitz (Salto):</a></li>
-  <li><a href="#acotammiento-del-momennto-incial" id="toc-acotammiento-del-momennto-incial" class="nav-link" data-scroll-target="#acotammiento-del-momennto-incial"><span class="header-section-number">6.2.4</span> Acotammiento del momennto incial:</a></li>
-  <li><a href="#condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" id="toc-condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" class="nav-link" data-scroll-target="#condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</a></li>
-  </ul></li>
+  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a></li>
   <li><a href="#lemas-sujeto-a-cambios" id="toc-lemas-sujeto-a-cambios" class="nav-link" data-scroll-target="#lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
@@ -531,41 +524,40 @@ window.Quarto = {
 <h2 data-number="6.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">6.2</span> Hipótesis</h2>
 <p>Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.</p>
 <p>Se asume que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> son diferenciables y para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se satisfacen las siguientes condiciones:</p>
-<section id="condición-unilateral-de-lipschitz-deriva" class="level3" data-number="6.2.1">
-<h3 data-number="6.2.1" class="anchored" data-anchor-id="condición-unilateral-de-lipschitz-deriva"><span class="header-section-number">6.2.1</span> Condición unilateral de Lipschitz (Deriva):</h3>
+</section>
+<div id="hip-unilateral" class="definition">
+<p><strong>Condición unilateral de Lipschitz (Deriva)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(K&gt;0\)</span> tal que el coeficiente <span class="math inline">\(f\)</span> satisface</p>
 <p><span id="eq-606"><span class="math display">\[
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
 \tag{6.6}\]</span></span></p>
-</section>
-<section id="condición-global-de-lipschitz-difusión" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="condición-global-de-lipschitz-difusión"><span class="header-section-number">6.2.2</span> Condición global de Lipschitz (Difusión):</h3>
+</div>
+<div id="hip-lipschitzdifusion" class="definition">
+<p>*<strong>Condición global de Lipschitz (Difusión)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple <span id="eq-607"><span class="math display">\[
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
 \tag{6.7}\]</span></span></p>
-</section>
-<section id="condición-global-de-lipschitz-salto" class="level3" data-number="6.2.3">
-<h3 data-number="6.2.3" class="anchored" data-anchor-id="condición-global-de-lipschitz-salto"><span class="header-section-number">6.2.3</span> Condición global de Lipschitz (Salto):</h3>
+</div>
+<div id="hip-lipschitzsalto" class="definition">
+<p><strong>Condición global de Lipschitz (Salto)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que el coeficiente de salto <span class="math inline">\(h\)</span> verifica</p>
 <p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.8}\]</span></span></p>
-</section>
-<section id="acotammiento-del-momennto-incial" class="level3" data-number="6.2.4">
-<h3 data-number="6.2.4" class="anchored" data-anchor-id="acotammiento-del-momennto-incial"><span class="header-section-number">6.2.4</span> Acotammiento del momennto incial:</h3>
-<p>Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
+</div>
+<div id="hip-momentoinicial" class="definition">
+<p><strong>Acotammiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
 \tag{6.9}\]</span></span></p>
-</section>
-<section id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" class="level3" data-number="6.2.5">
-<h3 data-number="6.2.5" class="anchored" data-anchor-id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</h3>
+</div>
+<div id="hip-crecpolinomial" class="definition">
+<p><strong>Condición de crecimiento polinomial para el coeficiente de deriva</strong>:</p>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-610"><span class="math display">\[
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
 \tag{6.10}\]</span></span></p>
-</section>
-</section>
+</div>
 <section id="lemas-sujeto-a-cambios" class="level2" style="text-align: justify" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</h2>
 <p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
@@ -595,12 +587,6 @@ window.Quarto = {
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
-</div>
-<div id="hip-estabilidad" class="definition">
-<p><strong>Hipótesis (Estabilidad).</strong><br>
-Suponemos que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen la condición de Lipschitz global: <span class="math display">\[
-|b(x) - b(y)| + |\sigma(x) - \sigma(y)| + \int_{|z|&lt;c} |F(x,z) - F(y,z)|^2 \nu(dz) \leq K|x - y|^2.
-\]</span></p>
 </div>
 
 
