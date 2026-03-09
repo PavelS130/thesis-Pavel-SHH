@@ -524,40 +524,30 @@ window.Quarto = {
 <h2 data-number="6.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">6.2</span> Hipótesis</h2>
 <p>Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.</p>
 <p>Se asume que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> son diferenciables y para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se satisfacen las siguientes condiciones:</p>
-</section>
-<div id="hip-unilateral" class="definition" style="text-align: justify">
 <p><strong>Condición unilateral de Lipschitz (Deriva)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(K&gt;0\)</span> tal que el coeficiente <span class="math inline">\(f\)</span> satisface</p>
 <p><span id="eq-606"><span class="math display">\[
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
 \tag{6.6}\]</span></span></p>
-</div>
-<div id="hip-lipschitzdifusion" class="definition" style="text-align: justify">
 <p><strong>Condición global de Lipschitz (Difusión)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple <span id="eq-607"><span class="math display">\[
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
 \tag{6.7}\]</span></span></p>
-</div>
-<div id="hip-lipschitzsalto" class="definition" style="text-align: justify">
 <p><strong>Condición global de Lipschitz (Salto)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que el coeficiente de salto <span class="math inline">\(h\)</span> verifica</p>
 <p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.8}\]</span></span></p>
-</div>
-<div id="hip-momentoinicial" class="definition" style="text-align: justify">
-<p><strong>Acotamiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
+<p><strong>Acotammiento del momennto incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
 \tag{6.9}\]</span></span></p>
-</div>
-<div id="hip-crecpolinomial" class="definition" style="text-align: justify">
 <p><strong>Condición de crecimiento polinomial para el coeficiente de deriva</strong>:</p>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-610"><span class="math display">\[
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
 \tag{6.10}\]</span></span></p>
-</div>
+</section>
 <section id="lemas-sujeto-a-cambios" class="level2" style="text-align: justify" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</h2>
 <p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
@@ -574,7 +564,7 @@ window.Quarto = {
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Considerando sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -587,9 +577,6 @@ window.Quarto = {
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
-</div>
-<div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.3</strong></span> &nbsp;</p>
 </div>
 
 
