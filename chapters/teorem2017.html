@@ -525,33 +525,33 @@ window.Quarto = {
 <p>Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.</p>
 <p>Se asume que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> son diferenciables y para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se satisfacen las siguientes condiciones:</p>
 </section>
-<div id="hip-unilateral" class="definition">
+<div id="hip-unilateral" class="definition" style="text-align: justify">
 <p><strong>Condición unilateral de Lipschitz (Deriva)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(K&gt;0\)</span> tal que el coeficiente <span class="math inline">\(f\)</span> satisface</p>
 <p><span id="eq-606"><span class="math display">\[
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
 \tag{6.6}\]</span></span></p>
 </div>
-<div id="hip-lipschitzdifusion" class="definition">
+<div id="hip-lipschitzdifusion" class="definition" style="text-align: justify">
 <p><strong>Condición global de Lipschitz (Difusión)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple <span id="eq-607"><span class="math display">\[
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
 \tag{6.7}\]</span></span></p>
 </div>
-<div id="hip-lipschitzsalto" class="definition">
+<div id="hip-lipschitzsalto" class="definition" style="text-align: justify">
 <p><strong>Condición global de Lipschitz (Salto)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que el coeficiente de salto <span class="math inline">\(h\)</span> verifica</p>
 <p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.8}\]</span></span></p>
 </div>
-<div id="hip-momentoinicial" class="definition">
+<div id="hip-momentoinicial" class="definition" style="text-align: justify">
 <p><strong>Acotamiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
 \tag{6.9}\]</span></span></p>
 </div>
-<div id="hip-crecpolinomial" class="definition">
+<div id="hip-crecpolinomial" class="definition" style="text-align: justify">
 <p><strong>Condición de crecimiento polinomial para el coeficiente de deriva</strong>:</p>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-610"><span class="math display">\[
@@ -574,7 +574,7 @@ window.Quarto = {
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Considerando @ref(hip-unilateral), sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Considerando sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
