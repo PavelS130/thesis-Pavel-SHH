@@ -562,7 +562,7 @@ window.Quarto = {
 <h3 data-number="6.2.5" class="anchored" data-anchor-id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</h3>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-610"><span class="math display">\[
-  |f(a)-f(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
+  |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
 \tag{6.10}\]</span></span></p>
 </section>
 </section>
@@ -595,6 +595,12 @@ window.Quarto = {
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
+</div>
+<div id="hip-estabilidad" class="definition">
+<p><strong>Hipótesis (Estabilidad).</strong><br>
+Suponemos que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen la condición de Lipschitz global: <span class="math display">\[
+|b(x) - b(y)| + |\sigma(x) - \sigma(y)| + \int_{|z|&lt;c} |F(x,z) - F(y,z)|^2 \nu(dz) \leq K|x - y|^2.
+\]</span></p>
 </div>
 
 
