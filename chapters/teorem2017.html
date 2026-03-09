@@ -454,7 +454,10 @@ window.Quarto = {
 <h2 data-number="6.1" class="anchored" data-anchor-id="método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></h2>
 <p>En este capítulo abordamos el estudio de la convergencia del método numérico conocido como <em>compensated split-step <span class="math inline">\(\theta\)</span></em> (<span class="math inline">\(\text{CSS}\theta\)</span>) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos</p>
 <p><span id="eq-601"><span class="math display">\[
-    dX(t) = f(X(t-))dt +g(X(t-))dW(t)+h(X(t-))dN(t), \quad t\geq 0,
+    \begin{aligned}
+      dX(t) &amp; = f(X(t-))dt +g(X(t-))dW(t)\\
+      &amp; \qquad \quad +h(X(t-))dN(t), \qquad t\geq 0,
+    \end{aligned}
 \tag{6.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(X(0-)=X_0\)</span>, donde</p>
 <ul>
@@ -487,12 +490,12 @@ window.Quarto = {
 </section>
 <div id="def-CSS" class="theorem definition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Definición 6.1</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera las sucesiones <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span> mediante el siguiente sistema de ecuaciones en diferencias:</p>
-<p><span class="math display">\[
-  \begin{cases}
-    Y_n^* &amp; = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,\\
-    Y_{n+1} &amp; = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
-  \end{cases}
-\]</span></p>
+<p><span id="eq-603"><span class="math display">\[
+    Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
+\tag{6.3}\]</span></span></p>
+<p><span id="eq-604"><span class="math display">\[
+      Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
+\tag{6.4}\]</span></span></p>
 <p>donde:</p>
 <ul>
 <li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incremento del movimiento browniano,</li>
@@ -508,12 +511,12 @@ window.Quarto = {
 </div>
 <div id="def-CSSc" class="theorem definition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Definición 6.2</strong></span> Definimos la función <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> de la forma</p>
-<p><span class="math display">\[
+<p><span id="eq-605"><span class="math display">\[
   \begin{aligned}
       \overline{Y} &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
       &amp; \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
-\]</span></p>
+\tag{6.5}\]</span></span></p>
 <p>De esta definición se sigue que <span class="math inline">\(\overline{Y}(t_n)=Y_n\)</span> para todo <span class="math inline">\(n\)</span>, es decir, la extensión continua coincide con la solución numérica en los puntos de la malla. Además, <span class="math inline">\(\overline{Y}(t)\)</span> es adaptada a la filtración y tiene trayectorias continuas, lo que permite aplicar herramientas del cálculo estocástico en tiempo continuo.</p>
 <p>Alternativamente, podemos escribir <span class="math inline">\(\overline{Y}(t)\)</span> en forma integral como</p>
 <p><span class="math display">\[
@@ -531,36 +534,36 @@ window.Quarto = {
 <section id="condición-unilateral-de-lipschitz-deriva" class="level3" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="condición-unilateral-de-lipschitz-deriva"><span class="header-section-number">6.2.1</span> Condición unilateral de Lipschitz (Deriva):</h3>
 <p>Existe una constante <span class="math inline">\(K&gt;0\)</span> tal que el coeficiente <span class="math inline">\(f\)</span> satisface</p>
-<p><span id="eq-603"><span class="math display">\[
+<p><span id="eq-606"><span class="math display">\[
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
-\tag{6.3}\]</span></span></p>
+\tag{6.6}\]</span></span></p>
 </section>
 <section id="condición-global-de-lipschitz-difusión" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="condición-global-de-lipschitz-difusión"><span class="header-section-number">6.2.2</span> Condición global de Lipschitz (Difusión):</h3>
-<p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple <span id="eq-604"><span class="math display">\[
+<p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple <span id="eq-607"><span class="math display">\[
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
-\tag{6.4}\]</span></span></p>
+\tag{6.7}\]</span></span></p>
 </section>
 <section id="condición-global-de-lipschitz-salto" class="level3" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="condición-global-de-lipschitz-salto"><span class="header-section-number">6.2.3</span> Condición global de Lipschitz (Salto):</h3>
 <p>Existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que el coeficiente de salto <span class="math inline">\(h\)</span> verifica</p>
-<p><span id="eq-605"><span class="math display">\[
+<p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
-\tag{6.5}\]</span></span></p>
+\tag{6.8}\]</span></span></p>
 </section>
 <section id="acotammiento-del-momennto-incial" class="level3" data-number="6.2.4">
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="acotammiento-del-momennto-incial"><span class="header-section-number">6.2.4</span> Acotammiento del momennto incial:</h3>
 <p>Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
-<p><span id="eq-606"><span class="math display">\[
+<p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
-\tag{6.6}\]</span></span></p>
+\tag{6.9}\]</span></span></p>
 </section>
 <section id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva" class="level3" data-number="6.2.5">
 <h3 data-number="6.2.5" class="anchored" data-anchor-id="condición-de-crecimiento-polinomial-para-el-coeficiente-de-deriva"><span class="header-section-number">6.2.5</span> Condición de crecimiento polinomial para el coeficiente de deriva</h3>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
-<p><span id="eq-607"><span class="math display">\[
+<p><span id="eq-610"><span class="math display">\[
   |f(a)-f(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
-\tag{6.7}\]</span></span></p>
+\tag{6.10}\]</span></span></p>
 </section>
 </section>
 <section id="lemas-sujeto-a-cambios" class="level2" style="text-align: justify" data-number="6.3">
@@ -572,14 +575,14 @@ window.Quarto = {
 <p>En efecto, consideremos las hipótesis dadas por Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
+<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
 <p><span class="math display">\[
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
 \]</span></p>
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
