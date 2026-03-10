@@ -678,6 +678,9 @@ window.Quarto = {
 \]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
 </div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\(M\)</span> un entero positivo tal que <span class="math inline">\(n\Delta t \leq M\Delta t\leq T\)</span>. Veamos la relación entre <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(Y_n\)</span> a partir de la ecuación</p>
+</div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
@@ -692,6 +695,21 @@ window.Quarto = {
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 \]</span></p>
 <p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}\)</span> es la extensión en tiempo continuo dada por la <a href="#eq-605" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>.</p>
+</div>
+<div id="lem-6.4" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-610" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
+<p><span class="math display">\[
+  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
+\]</span></p>
+<p>Entonces, para todo <span class="math inline">\(r\geq 2\)</span>, existe una constante positiva</p>
+<p><span class="math display">\[  
+  E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
+\]</span></p>
+<p>independiente de <span class="math inline">\(\Delta t\)</span>, tal que</p>
+<p><span class="math display">\[
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
+\]</span></p>
+<p>donde <span class="math inline">\(Y(t)\)</span> es la función escalón definida por (checar) y <span class="math inline">\(\overline{Y}(t)\)</span> es la extensión continua definida en…</p>
 </div>
 
 
