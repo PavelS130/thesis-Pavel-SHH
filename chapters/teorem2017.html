@@ -740,6 +740,35 @@ window.Quarto = {
 <p><span class="math display">\[
   \alpha:=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}},\qquad \beta:=1+\alpha=\frac{1}{1-2\theta\Delta t L_{\lambda}}.
 \]</span></p>
+<p>Por lo que la <a href="#eq-621" class="quarto-xref">Ecuación&nbsp;<span>6.21</span></a> queda de la forma</p>
+<p><span id="eq-622"><span class="math display">\[
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha.
+\tag{6.22}\]</span></span></p>
+<p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrados y desarrollando tenemos</p>
+<p><span id="eq-623"><span class="math display">\[
+  \begin{aligned}
+    |Y_{n+1}|^2 &amp; = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta\widetilde{N}_n|^2\\
+    &amp; \quad +2Y_nf_{\lambda}(Y_n^*)\Delta t+2Y_ng(Y_n^*)\Delta W_n+2Y_nh(Y_n^*)\Delta \widetilde{N}_n\\
+    &amp; \quad+ 2f_{\lambda}(Y_n^*)\Delta tg(Y_n^*)\Delta W_n+2f_{\lambda}(Y_n^*)\Delta th(Y_n^*)\Delta\widetilde{N}_n\\
+    &amp; \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
+  \end{aligned}
+\tag{6.23}\]</span></span></p>
+<p>Vamos a simplicar cada término. Primero, notemos que <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> podemos expresarlo en términos de <span class="math inline">\(Y_n^*\)</span> usando la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, por lo tanto</p>
+<p><span class="math display">\[
+  2Y_nf_{\lambda}(Y_n^*)\Delta t= 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta\Delta t^2|f_{\lambda}(Y_n^*)^2|.
+\]</span></p>
+<p>El término <span class="math inline">\(-2\theta\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, por lo que es posible acotar superiormente de tal forma</p>
+<p><span class="math display">\[
+  2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2Y_n^*f_{\lambda}(Y_n^*)\Delta t.
+\]</span></p>
+<p>Más aún, por la condición de crecimiento linal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos</p>
+<p><span class="math display">\[
+  Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
+\]</span></p>
+<p>Sustituyendo</p>
+<p><span class="math display">\[
+  2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
