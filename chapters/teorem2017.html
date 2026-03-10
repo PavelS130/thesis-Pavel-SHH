@@ -691,7 +691,7 @@ window.Quarto = {
 <p><span id="eq-618"><span class="math display">\[
   \begin{aligned}
     Y_nf_{\lambda}(Y_n^*) &amp; = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*)\\
-    &amp; = Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2
+    &amp; = Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2.
   \end{aligned}
 \tag{6.18}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> en <a href="#eq-617" class="quarto-xref">Ecuación&nbsp;<span>6.17</span></a></p>
@@ -701,14 +701,25 @@ window.Quarto = {
       &amp; \qquad +2\theta\Delta t(Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2)\\
       &amp; = |Y_n|^2+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\\
       &amp; \qquad +2\theta\Delta tY_n^*f_{\lambda}(Y_n^*)-2\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\\
-      &amp; = |Y_n|^2-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*)\\  
+      &amp; = |Y_n|^2-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).\\  
   \end{aligned}
 \]</span></p>
 <p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es no positivo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
 <p><span id="eq-619"><span class="math display">\[
-  |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*)
+  |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
 \tag{6.19}\]</span></span></p>
-<p>De aquí, utilizando la condición de crecimiento lineal para <span class="math inline">\(f_\lambda\)</span></p>
+<p>De aquí, utilizando la condición de crecimiento lineal para <span class="math inline">\(f_\lambda\)</span> dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, establece que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que, para todo <span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
+<p><span class="math display">\[
+  xf_{\lambda}(x)\leq L_{\lambda}(1+|x|^2).
+\]</span></p>
+<p>Aplicando esta desigualdad con <span class="math inline">\(x=Y_n^*\)</span>, obtenemos</p>
+<p><span class="math display">\[
+  Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
+\]</span></p>
+<p>Sustituyendo esta cota en <a href="#eq-619" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, llegamos a</p>
+<p><span id="eq-620"><span class="math display">\[
+  |Y_n^*|\leq |Y_n|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2)
+\tag{6.20}\]</span></span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
