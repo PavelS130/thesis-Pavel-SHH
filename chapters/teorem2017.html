@@ -664,6 +664,79 @@ window.Quarto = {
 \]</span></p>
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Definimos la función <span class="math inline">\(G:\mathbb{R}\rightarrow \mathbb{R}\)</span> como +</p>
+<p><span class="math display">\[
+  G(y):=y-\theta\Delta tf_{\lambda}(y).
+\]</span></p>
+<p>Con esta definición, la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> puede escribirse de la forma</p>
+<p><span class="math display">\[
+  G(Y_n^*)=Y_n.
+\]</span></p>
+<p>Por tanto, demostrar la existencia y unicidad de <span class="math inline">\(Y_n^*\)</span> equivale a probar que la ecuación <span class="math inline">\(G(y)=Y_n\)</span> tiene una solución única para cualquier <span class="math inline">\(Y_n\)</span>.</p>
+<p>Sea <span class="math inline">\(x,y\in \mathbb{R}\)</span> con <span class="math inline">\(x\neq y\)</span>. Consideremos la diferencia <span class="math inline">\(G(x)-G(y)\)</span></p>
+<p><span class="math display">\[
+  \begin{aligned}
+    G(x)-G(y) &amp; =x-\theta\Delta tf_{\lambda}(x)-(y-\theta\Delta tf_{\lambda}(y))\\
+    &amp; = (x-y)-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y)).
+  \end{aligned}
+\]</span></p>
+<p>Multiplicando ambos lados por <span class="math inline">\((x-y)\)</span></p>
+<p><span class="math display">\[
+  (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
+\]</span></p>
+<p>Así, aplicando la condición de Lipschitz dada por la <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> para <span class="math inline">\(f_{\lambda}\)</span></p>
+<p><span class="math display">\[
+  (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
+\]</span></p>
+<p>Sustituyendo esta cota en la expresión anterior</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (G(x)-G(y))(x-y) &amp; \geq (x-y)^2-\theta\Delta t K_{\lambda}(x-y)^2\\
+    &amp; = (1-\theta\Delta tK_{\lambda})(x-y)^2.
+  \end{aligned}
+\]</span></p>
+<p>Bajo las hipótesis <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>, definimos <span class="math inline">\(c:=1-\theta\Delta tK_{\lambda}&gt;0\)</span>. Entonces</p>
+<p><span class="math display">\[
+    (G(x)-G(y))(x-y)\geq c(x-y)^2&gt;0, \quad \forall x\neq y.
+\]</span></p>
+<p>Notemos que si <span class="math inline">\(G(x)-G(y)&lt;0\)</span> entonces <span class="math inline">\(x-y&lt;0\)</span>, o bien, si <span class="math inline">\(G(x)-G(y)&gt;0\)</span> entonces <span class="math inline">\(x-y&gt;0\)</span>. Si <span class="math inline">\(x-y&lt;0\)</span> esto implica que <span class="math inline">\(x&lt;y\)</span> y <span class="math inline">\(G(x)&lt;G(y)\)</span> y viceversa para el caso <span class="math inline">\(x-y&gt;0\)</span>. Por tanto, podemos afirmar que <span class="math inline">\(G\)</span> es estrictamente creciente en <span class="math inline">\(\mathbb{R}\)</span>. Así, queda demostrado que <span class="math inline">\(G\)</span> es inyectiva.</p>
+<p>Notemos que por la definición de <span class="math inline">\(f_{\lambda}\)</span>, es una composición de funciones continuas, por tanto <span class="math inline">\(f_{\lambda}\in C^1(\mathbb{R})\)</span>, así la función <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span> como combinación lineal de funciones continuas.</p>
+<p>Considerando la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, sabemos que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
+<p><span class="math display">\[
+  |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
+\]</span></p>
+<p>Sin embargo, por ser <span class="math inline">\(G\)</span> estrictamente creciente, tenemos</p>
+<p><span class="math display">\[
+  (G(x)-G(0))x\geq cx^2,
+\]</span></p>
+<p>tenemos para <span class="math inline">\(x&gt;0\)</span></p>
+<p><span class="math display">\[
+  G(x)\geq G(0)+cx,
+\]</span></p>
+<p>y para <span class="math inline">\(x&lt;0\)</span></p>
+<p><span class="math display">\[
+  G(x)\leq G(0)+cx.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty,\quad \lim\limits_{x\rightarrow-\infty}G(x)=-\infty.
+\]</span></p>
+<p>Sea <span class="math inline">\(Y_n\in \mathbb{R}\)</span> arbitrario. Sabemos que <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span>, además</p>
+<p><span class="math display">\[
+  \lim\limits_{x\rightarrow -\infty}G(x)=-\infty &lt;Y_n,
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty&gt;Y_n.
+\]</span></p>
+<p>Así, existe <span class="math inline">\(R&gt;0\)</span> tal que <span class="math inline">\(G(-R)&lt;Y_n&lt;G(R)\)</span>. Por el Teorema del Valor Intermedio, podemos afirmar que existe un punto <span class="math inline">\(Y_n^*\in (-R,R)\)</span> tal que <span class="math inline">\(G(Y_n^*)=Y_n\)</span>. Por lo tanto <span class="math inline">\(G\)</span> es suprayectivo.</p>
+<p>Al ser <span class="math inline">\(G\)</span> inyectivo y supreyectivo, se afirma que <span class="math inline">\(G\)</span> es biyectivo y la ecuación implícita</p>
+<p><span class="math display">\[
+  Y_n^*=Y_n+\theta\Delta tf_{\lambda}(Y_n^*)
+\]</span></p>
+<p>admite una única solución <span class="math inline">\(Y_n^*\in \mathbb{R}\)</span> para cualquier <span class="math inline">\(Y_n\)</span>.</p>
+</div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
@@ -724,10 +797,10 @@ window.Quarto = {
 <p>Al despejar y factorizar el término <span class="math inline">\(Y_n^*\)</span> a partir de la ecuación anterior, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
-    &amp; |Y_n^*|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2)\leq |Y_n|^2\\
-    &amp; |Y_n^*|^2+ 2\theta\Delta tL_{\lambda}+2\theta\Delta tL_{\lambda}|Y_n^*|^2\leq |Y_n|^2\\
-    &amp; |Y_n^*|^2+2\theta\Delta tL_{\lambda}|Y_n^*|^2\leq |Y_n|^2-2\theta\Delta tL_{\lambda}\\
-    &amp; |Y_n^*|^2(1+2\theta\Delta tL_{\lambda})\leq |Y_n|^2-2\theta\Delta tL_{\lambda}.
+     |Y_n^*|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2)&amp;\leq |Y_n|^2\\
+     |Y_n^*|^2+ 2\theta\Delta tL_{\lambda}+2\theta\Delta tL_{\lambda}|Y_n^*|^2&amp;\leq |Y_n|^2\\
+     |Y_n^*|^2+2\theta\Delta tL_{\lambda}|Y_n^*|^2&amp;\leq |Y_n|^2-2\theta\Delta tL_{\lambda}\\
+     |Y_n^*|^2(1+2\theta\Delta tL_{\lambda})&amp;\leq |Y_n|^2-2\theta\Delta tL_{\lambda}.
   \end{aligned}
 \]</span></p>
 <p>Por hipóetsis, establecimos que</p>
