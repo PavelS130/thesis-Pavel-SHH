@@ -416,7 +416,7 @@ window.Quarto = {
   <ul>
   <li><a href="#método-textcsstheta" id="toc-método-textcsstheta" class="nav-link active" data-scroll-target="#método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></a></li>
   <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a></li>
-  <li><a href="#lemas-sujeto-a-cambios" id="toc-lemas-sujeto-a-cambios" class="nav-link" data-scroll-target="#lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</a></li>
+  <li><a href="#resultados-previos" id="toc-resultados-previos" class="nav-link" data-scroll-target="#resultados-previos"><span class="header-section-number">6.3</span> Resultados Previos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -455,7 +455,7 @@ window.Quarto = {
 <p>con condición inicial <span class="math inline">\(X(0-)=X_0\)</span>, donde</p>
 <ul>
 <li><span class="math inline">\(X(t-)\)</span> denota el límite por la izquierda en el instante <span class="math inline">\(t\)</span>,</li>
-<li><span class="math inline">\(f:\mathbb{R}\rightarrow \mathbb{R}\)</span> es el coeficiente de <span class="math inline">\(\textit{drift}\)</span>,</li>
+<li><span class="math inline">\(f:\mathbb{R}\rightarrow \mathbb{R}\)</span> es el coeficiente de deriva,</li>
 <li><span class="math inline">\(g:\mathbb{R}\rightarrow \mathbb{R}\)</span> es el coeficiente de difusión,</li>
 <li><span class="math inline">\(h:\mathbb{R}\rightarrow \mathbb{R}\)</span> es el coeficiente de los saltos,</li>
 <li><span class="math inline">\(\{W(t)\}_{t\geq 0}\)</span> es un movimiento browniano estándar,</li>
@@ -549,9 +549,9 @@ window.Quarto = {
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
 \tag{6.10}\]</span></span></p>
 </section>
-<section id="lemas-sujeto-a-cambios" class="level2" style="text-align: justify" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="lemas-sujeto-a-cambios"><span class="header-section-number">6.3</span> Lemas (Sujeto a cambios)</h2>
-<p>A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
+<section id="resultados-previos" class="level2" style="text-align: justify" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="resultados-previos"><span class="header-section-number">6.3</span> Resultados Previos</h2>
+<p>A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
 <p><span id="eq-611"><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
 \tag{6.11}\]</span></span></p>
@@ -572,12 +572,12 @@ window.Quarto = {
     &amp; = (K+\lambda \sqrt{L_h})|x-y|^2= K_{\lambda}|x-y|^2.
   \end{aligned}
 \]</span></p>
-<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido.</p>
-<p>Otras propiedades importanntes que podemos obtener usando las hipótesis anteriores, es ver que es posible acotar <span class="math inline">\(xf(x)\)</span> para toda <span class="math inline">\(x\in \mathbb{R}\)</span>. Notemos que podemos expresar <span class="math inline">\(f(x)\)</span> de la forma <span class="math inline">\(f(x)=f(x)-f(0)+f(0)\)</span>. Entonces</p>
+<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> está bien definido.</p>
+<p>Otras propiedades importantes que podemos obtener usando las hipótesis anteriores, es acotar <span class="math inline">\(xf(x)\)</span> para toda <span class="math inline">\(x\in \mathbb{R}\)</span>. Notemos que podemos expresar <span class="math inline">\(f(x)\)</span> de la forma <span class="math inline">\(f(x)=f(x)-f(0)+f(0)\)</span>. Entonces</p>
 <p><span class="math display">\[
   xf(x)= x[f(x)-f(0)]+xf(0).
 \]</span></p>
-<p>Por tanto, tomando <span class="math inline">\(y=0\)</span> y aplicando la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> obtenemos</p>
+<p>Por tanto, tomando <span class="math inline">\(y=0\)</span> y aplicando la hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> obtenemos</p>
 <p><span class="math display">\[
   (x-0)(f(x)-f(0))\leq K|x-0|^2,
 \]</span></p>
@@ -585,7 +585,7 @@ window.Quarto = {
 <p><span class="math display">\[
   x(f(x)-f(0))\leq K|x|^2.
 \]</span></p>
-<p>Para el término <span class="math inline">\(xf(0)\)</span>, podemos aplicar la desigualdad de Young, la cuál afirma que para cualesquiera <span class="math inline">\(a,b\in \mathbb{R}\)</span> se cumple</p>
+<p>Para el término <span class="math inline">\(xf(0)\)</span>, podemos aplicar la desigualdad de Young, la cuál afirma que para <span class="math inline">\(a,b\in \mathbb{R}\)</span> se cumple</p>
 <p><span class="math display">\[
   ab\leq \frac{1}{2}a^2+\frac{1}{2}b^2.
 \]</span></p>
@@ -627,20 +627,20 @@ window.Quarto = {
 <p><span id="eq-612"><span class="math display">\[
   |g(x)|^2\leq 2L_g|x|^2+2|g(0)|^2.
 \tag{6.12}\]</span></span></p>
-<p>Claramente, de manera similar es posible afirmar que también se tiene la cota</p>
+<p>De manera similar es posible afirmar que también se tiene la cota</p>
 <p><span id="eq-613"><span class="math display">\[
   |h(x)|^2\leq 2L_h|x|^2+2|h(0)|^2,
 \tag{6.13}\]</span></span></p>
 <p>para todo <span class="math inline">\(x\in \mathbb{R}\)</span>.</p>
 <p>Combinando <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, <a href="#eq-612" class="quarto-xref">Ecuación&nbsp;<span>6.12</span></a> y <a href="#eq-613" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> podemos encontrar una variable <span class="math inline">\(L&gt;0\)</span> tal que</p>
 <p><span id="eq-614"><span class="math display">\[
-  xf(x)\vee |g(x)|^2\vee |h(x)|^2\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
+  \max\{xf(x),|g(x)|^2,|h(x)|^2\}\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
 \tag{6.14}\]</span></span></p>
 <p>donde la constante <span class="math inline">\(L\)</span> podemos tomarla explicitamente como</p>
 <p><span class="math display">\[
   L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 \]</span></p>
-<p>Al incluir el proceso de Poisson compensado y el coeficiendo de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para ello recordemos que satisface la condición de Lipschitz con constante</p>
+<p>Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para ello recordemos que satisface la condición de Lipschitz con constante</p>
 <p><span class="math display">\[
   K_{\lambda}=K+\lambda\sqrt{L_h}
 \]</span></p>
@@ -650,11 +650,11 @@ window.Quarto = {
 \tag{6.15}\]</span></span></p>
 <p>Contemplando dicha condición y siguiendo el mismo procedimiento previo, podemos afirmar que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
 <p><span id="eq-616"><span class="math display">\[
-  xf_{\lambda}(x)\vee |g(x)|^2\vee|h(x)|^2\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}
+  xf_{\lambda}(x)\vee |g(x)|^2\vee|h(x)|^2\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
 \tag{6.16}\]</span></span></p>
 <p>La expresión explícita para esta constante, viene dada por</p>
 <p><span class="math display">\[
-  L_{\lambda}=\max\left\{K_{\lambda}+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f_{\lambda}(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}
+  L_{\lambda}=\max\left\{K_{\lambda}+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f_{\lambda}(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 \]</span></p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
@@ -753,7 +753,7 @@ window.Quarto = {
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\(M\)</span> un entero positivo tal que <span class="math inline">\(n\Delta t \leq M\Delta t\leq T\)</span>. Veamos la relación entre <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(Y_n\)</span> a partir de la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> que define la variable auxiliar. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\(M\)</span> un entero positivo tal que <span class="math inline">\(n\Delta t \leq M\Delta t\leq T\)</span>. Veamos la relación entre <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(Y_n\)</span> a partir de la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> que define la variable auxiliar, <span class="math inline">\(Y_n^*\)</span>. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que</p>
 <p><span id="eq-617"><span class="math display">\[
   |Y_n^*|^2=|Y_n|^2+2\theta\Delta tY_nf_{\lambda}(Y_n^*)+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2.
 \tag{6.17}\]</span></span></p>
@@ -778,7 +778,7 @@ window.Quarto = {
       &amp; = |Y_n|^2-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).\\  
   \end{aligned}
 \]</span></p>
-<p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es no positivo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
+<p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
 <p><span id="eq-619"><span class="math display">\[
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
 \tag{6.19}\]</span></span></p>
@@ -819,7 +819,7 @@ window.Quarto = {
 <p><span id="eq-622"><span class="math display">\[
   |Y_n^*|^2\leq \beta|Y_n|^2+\alpha.
 \tag{6.22}\]</span></span></p>
-<p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrados y desarrollando tenemos</p>
+<p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y desarrollando tenemos</p>
 <p><span id="eq-623"><span class="math display">\[
   \begin{aligned}
     |Y_{n+1}|^2 &amp; = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta\widetilde{N}_n|^2\\
@@ -836,7 +836,7 @@ window.Quarto = {
 <p><span class="math display">\[
   2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2Y_n^*f_{\lambda}(Y_n^*)\Delta t.
 \]</span></p>
-<p>Más aún, por la condición de crecimiento linal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos</p>
+<p>Más aún, por la condición de crecimiento lineal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos</p>
 <p><span class="math display">\[
   Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
 \]</span></p>
