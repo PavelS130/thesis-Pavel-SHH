@@ -822,8 +822,9 @@ window.Quarto = {
 <p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y desarrollando tenemos</p>
 <p><span id="eq-623"><span class="math display">\[
   \begin{aligned}
-    |Y_{n+1}|^2 &amp; = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta\widetilde{N}_n|^2\\
-    &amp; \quad +2Y_nf_{\lambda}(Y_n^*)\Delta t+2Y_ng(Y_n^*)\Delta W_n+2Y_nh(Y_n^*)\Delta \widetilde{N}_n\\
+    |Y_{n+1}|^2 &amp; = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2\\
+    &amp; \quad +|h(Y_n^*)\Delta\widetilde{N}_n|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t\\
+    &amp; \quad +2Y_ng(Y_n^*)\Delta W_n+2Y_nh(Y_n^*)\Delta \widetilde{N}_n\\  
     &amp; \quad+ 2f_{\lambda}(Y_n^*)\Delta tg(Y_n^*)\Delta W_n+2f_{\lambda}(Y_n^*)\Delta th(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
@@ -844,6 +845,11 @@ window.Quarto = {
 <p><span class="math display">\[
   2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
 \]</span></p>
+<p>De <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> podemos despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
+<p><span class="math display">\[
+    Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
+\]</span></p>
+<p>De aquí, podemos escribir los términos <span class="math inline">\(2Y_ng(Y_n^*)\Delta W_n\)</span> y <span class="math inline">\(2Y_nh(Y_n^*)\Delta\widetilde{N}_n\)</span> en términos de <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(f_{\lambda}(Y_n^*)\)</span>. En efecto</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
