@@ -857,9 +857,20 @@ window.Quarto = {
   \end{aligned}
 \]</span></p>
 <p>Así, agrupando los términos en <span class="math inline">\(|f_{\lambda}(Y_n^*)\Delta t|^2\)</span>,</p>
-<p><span class="math display">\[
+<p><span id="eq-626"><span class="math display">\[
   |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t =2Y_n^*f_{\lambda}(Y_n^*)\Delta+(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2
+\tag{6.26}\]</span></span></p>
+<p>Veamos por separado el término <span class="math inline">\((1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2\)</span>; este término puede ser acotado o eliminado dependiendo del valor de <span class="math inline">\(\theta\)</span>. Para encontrar una desigualdad valida para todo <span class="math inline">\(\theta\in [0,1]\)</span>, utilizaremos la siguiente cota</p>
+<p><span class="math display">\[
+  (1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2\leq B\Delta t(1+|Y_n|^*),
 \]</span></p>
+<p>donde <span class="math inline">\(B\)</span> es una constante que dependerá de <span class="math inline">\(\theta\)</span> y <span class="math inline">\(L_{\lambda}\)</span>. Esta cota se justifica considerando los siguientes casos:</p>
+<p><strong>Caso 1</strong>: Si <span class="math inline">\(\displaystyle\theta\geq \frac{1}{2}\)</span>, esto implica que <span class="math inline">\(1-2\theta&lt;0\)</span> y por tanto</p>
+<p><span class="math display">\[
+  (1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2&lt;0.
+\]</span></p>
+<p>Con esto, la desigualdad se cumple para cualquier <span class="math inline">\(B\geq 0\)</span>.</p>
+<p><strong>Caso 2</strong>: Si <span class="math inline">\(\displaystyle \theta&lt;\frac{1}{2}\)</span>, entonces podemos usar la condición de crecimiento lineal dada por <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, donde <span class="math inline">\(f_{\lambda}(Y_n^*)\)</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
