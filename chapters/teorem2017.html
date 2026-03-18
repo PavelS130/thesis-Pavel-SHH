@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
+<title>6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,11 +110,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="6&nbsp; Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:title" content="6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta property="og:description" content="">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="6&nbsp; Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:title" content="6&nbsp; Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -289,7 +289,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorem2017.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorem2017.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -395,7 +395,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/teorem2017.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -414,9 +414,12 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#método-textcsstheta" id="toc-método-textcsstheta" class="nav-link active" data-scroll-target="#método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></a></li>
-  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.2</span> Hipótesis</a></li>
-  <li><a href="#resultados-previos" id="toc-resultados-previos" class="nav-link" data-scroll-target="#resultados-previos"><span class="header-section-number">6.3</span> Resultados Previos</a></li>
+  <li><a href="#convergencia-del-método-textcsstheta-para-ecuaciones-diferenciales-estocásticas-con-saltos" id="toc-convergencia-del-método-textcsstheta-para-ecuaciones-diferenciales-estocásticas-con-saltos" class="nav-link active" data-scroll-target="#convergencia-del-método-textcsstheta-para-ecuaciones-diferenciales-estocásticas-con-saltos"><span class="header-section-number">7</span> Convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span> para ecuaciones diferenciales estocásticas con saltos</a>
+  <ul class="collapse">
+  <li><a href="#método-textcsstheta" id="toc-método-textcsstheta" class="nav-link" data-scroll-target="#método-textcsstheta"><span class="header-section-number">7.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></a></li>
+  </ul></li>
+  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">7.2</span> Hipótesis</a></li>
+  <li><a href="#resultados-previos" id="toc-resultados-previos" class="nav-link" data-scroll-target="#resultados-previos"><span class="header-section-number">7.3</span> Resultados Previos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorem2017.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -426,7 +429,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS-theta para ecuaciones diferenciales estocásticas con saltos</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos</span></h1>
 </div>
 
 
@@ -443,15 +446,17 @@ window.Quarto = {
 </header>
 
 
-<section id="método-textcsstheta" class="level2" style="text-align: justify" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="método-textcsstheta"><span class="header-section-number">6.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></h2>
+<section id="convergencia-del-método-textcsstheta-para-ecuaciones-diferenciales-estocásticas-con-saltos" class="level1" style="text-align: justify" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span> para ecuaciones diferenciales estocásticas con saltos</h1>
+<section id="método-textcsstheta" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="método-textcsstheta"><span class="header-section-number">7.1</span> Método <span class="math inline">\(\text{CSS}\theta\)</span></h2>
 <p>En este capítulo abordamos el estudio de la convergencia del método numérico conocido como <em>compensated split-step</em> <span class="math inline">\(\theta\)</span> (<span class="math inline">\(\text{CSS}\theta\)</span>) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos</p>
 <p><span id="eq-601"><span class="math display">\[
     \begin{aligned}
       dX(t) &amp; = f(X(t-))dt +g(X(t-))dW(t)\\
       &amp; \qquad \quad +h(X(t-))dN(t), \qquad t\geq 0,
     \end{aligned}
-\tag{6.1}\]</span></span></p>
+\tag{7.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(X(0-)=X_0\)</span>, donde</p>
 <ul>
 <li><span class="math inline">\(X(t-)\)</span> denota el límite por la izquierda en el instante <span class="math inline">\(t\)</span>,</li>
@@ -471,24 +476,25 @@ window.Quarto = {
 <li><span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span>,</li>
 <li><span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>.</li>
 </ul>
-<p>Así, usando la compensación, la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> queda de la forma</p>
+<p>Así, usando la compensación, la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>7.1</span></a> queda de la forma</p>
 <p><span class="math display">\[
   dX(t) = f_{\lambda}(X(t-))dt+g(X(t-))dW(t)+h(X(t-))d\widetilde{N}(t),
 \]</span></p>
 <p>donde</p>
 <p><span id="eq-602"><span class="math display">\[
   f_{\lambda}(x):=f(x)+\lambda h(x),\quad x\in \mathbb{R}.
-\tag{6.2}\]</span></span></p>
+\tag{7.2}\]</span></span></p>
 <p>Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.</p>
 </section>
+</section>
 <div id="def-CSS" class="theorem definition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Definición 6.1</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera las sucesiones <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span> mediante el siguiente sistema de ecuaciones en diferencias:</p>
+<p><span class="theorem-title"><strong>Definición 7.1</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera las sucesiones <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span> mediante el siguiente sistema de ecuaciones en diferencias:</p>
 <p><span id="eq-603"><span class="math display">\[
     Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
-\tag{6.3}\]</span></span></p>
+\tag{7.3}\]</span></span></p>
 <p><span id="eq-604"><span class="math display">\[
       Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
-\tag{6.4}\]</span></span></p>
+\tag{7.4}\]</span></span></p>
 <p>donde:</p>
 <ul>
 <li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incremento del movimiento browniano,</li>
@@ -497,19 +503,19 @@ window.Quarto = {
 <p>Para analizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span> es necesario imponer condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas.</p>
 </div>
 <div id="rem-3.1" class="proof remark" style="text-align: justify">
-<p><span class="proof-title"><em>Observación 6.1</em>. </span>La primera ecuación es implícita en la variable auxiliar <span class="math inline">\(Y_n^*\)</span>, y su resolución requiere resolver una ecuación implícita, más adelante, bajo ciertas hipótesis, se demostrará que dicha ecuación admite una única solución <span class="math inline">\(Y_n^*\)</span>. En el caso <span class="math inline">\(\theta=0\)</span>, la ecuación se reduce a <span class="math inline">\(Y_n^*=Y_n\)</span>, y el método se vuelve explícito. En el caso <span class="math inline">\(\theta&gt;0\)</span>, la ecuación es implícita.</p>
+<p><span class="proof-title"><em>Observación 7.1</em>. </span>La primera ecuación es implícita en la variable auxiliar <span class="math inline">\(Y_n^*\)</span>, y su resolución requiere resolver una ecuación implícita, más adelante, bajo ciertas hipótesis, se demostrará que dicha ecuación admite una única solución <span class="math inline">\(Y_n^*\)</span>. En el caso <span class="math inline">\(\theta=0\)</span>, la ecuación se reduce a <span class="math inline">\(Y_n^*=Y_n\)</span>, y el método se vuelve explícito. En el caso <span class="math inline">\(\theta&gt;0\)</span>, la ecuación es implícita.</p>
 </div>
 <div id="rem-3.2" class="proof remark" style="text-align: justify">
-<p><span class="proof-title"><em>Observación 6.2</em>. </span>La segunda ecuación actualiza la aproximación utilizando el valor intermedio <span class="math inline">\(Y_n^*\)</span> y los incrementos de las fuentes de ruido. Notemos que el método utiliza explicitamente el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, lo que constituye su principal diferencia respecto a otros métodos no compensados y le confiere mejores propiedades de estabilidad.</p>
+<p><span class="proof-title"><em>Observación 7.2</em>. </span>La segunda ecuación actualiza la aproximación utilizando el valor intermedio <span class="math inline">\(Y_n^*\)</span> y los incrementos de las fuentes de ruido. Notemos que el método utiliza explicitamente el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, lo que constituye su principal diferencia respecto a otros métodos no compensados y le confiere mejores propiedades de estabilidad.</p>
 </div>
 <div id="def-CSSc" class="theorem definition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Definición 6.2</strong></span> Definimos la función <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> de la forma</p>
+<p><span class="theorem-title"><strong>Definición 7.2</strong></span> Definimos la función <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> de la forma</p>
 <p><span id="eq-605"><span class="math display">\[
   \begin{aligned}
       \overline{Y} &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
       &amp; \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
-\tag{6.5}\]</span></span></p>
+\tag{7.5}\]</span></span></p>
 <p>De esta definición se sigue que <span class="math inline">\(\overline{Y}(t_n)=Y_n\)</span> para todo <span class="math inline">\(n\)</span>, es decir, la extensión continua coincide con la solución numérica en los puntos de la malla. Además, <span class="math inline">\(\overline{Y}(t)\)</span> es adaptada a la filtración y tiene trayectorias continuas, lo que permite aplicar herramientas del cálculo estocástico en tiempo continuo.</p>
 <p>Alternativamente, podemos escribir <span class="math inline">\(\overline{Y}(t)\)</span> en forma integral como</p>
 <p><span class="math display">\[
@@ -520,42 +526,42 @@ window.Quarto = {
 \]</span></p>
 <p>donde <span class="math inline">\(\overline{Y}(s-)\)</span> denota el límite por la izquierda, que en nuestro caso coincide con la función escalon definida por <span class="math inline">\(Y(s)=Y_n\)</span> para <span class="math inline">\(s\in [t_n,t_{n+1})\)</span>.</p>
 </div>
-<section id="hipótesis" class="level2" style="text-align: justify" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">6.2</span> Hipótesis</h2>
+<section id="hipótesis" class="level2" style="text-align: justify" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">7.2</span> Hipótesis</h2>
 <p>Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.</p>
 <p>Se asume que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> son diferenciables y para todo <span class="math inline">\(x,y\in \mathbb{R}\)</span> se satisfacen las siguientes condiciones:</p>
 <p><strong>Condición unilateral de Lipschitz (Deriva)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(K&gt;0\)</span> tal que el coeficiente <span class="math inline">\(f\)</span> satisface</p>
 <p><span id="eq-606"><span class="math display">\[
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
-\tag{6.6}\]</span></span></p>
+\tag{7.6}\]</span></span></p>
 <p><strong>Condición global de Lipschitz (Difusión)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_g&gt;0\)</span> tal que el coeficiente de difusión <span class="math inline">\(g\)</span> cumple</p>
 <p><span id="eq-607"><span class="math display">\[
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
-\tag{6.7}\]</span></span></p>
+\tag{7.7}\]</span></span></p>
 <p><strong>Condición global de Lipschitz (Salto)</strong>:</p>
 <p>Existe una constante <span class="math inline">\(L_h&gt;0\)</span> tal que el coeficiente de salto <span class="math inline">\(h\)</span> verifica</p>
 <p><span id="eq-608"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
-\tag{6.8}\]</span></span></p>
+\tag{7.8}\]</span></span></p>
 <p><strong>Acotamiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-609"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
-\tag{6.9}\]</span></span></p>
+\tag{7.9}\]</span></span></p>
 <p><strong>Condición de crecimiento polinomial para el coeficiente de deriva</strong>:</p>
 <p>Supondremos que existen constantes <span class="math inline">\(D&gt;0\)</span> y <span class="math inline">\(q\in\mathbb{Z}^+\)</span> tales que para todo <span class="math inline">\(a,b\in \mathbb{R}\)</span>,</p>
 <p><span id="eq-610"><span class="math display">\[
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
-\tag{6.10}\]</span></span></p>
+\tag{7.10}\]</span></span></p>
 </section>
-<section id="resultados-previos" class="level2" style="text-align: justify" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="resultados-previos"><span class="header-section-number">6.3</span> Resultados Previos</h2>
-<p>A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
+<section id="resultados-previos" class="level2" style="text-align: justify" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="resultados-previos"><span class="header-section-number">7.3</span> Resultados Previos</h2>
+<p>A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>7.2</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
 <p><span id="eq-611"><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
-\tag{6.11}\]</span></span></p>
-<p>En efecto, consideremos la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y las hipótesis dadas por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-608" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Notemos que</p>
+\tag{7.11}\]</span></span></p>
+<p>En efecto, consideremos la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>7.2</span></a> y las hipótesis dadas por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a> y <a href="#eq-608" class="quarto-xref">Ecuación&nbsp;<span>7.8</span></a>. Notemos que</p>
 <p><span class="math display">\[
     (h(x)-h(y))\leq |h(x)-h(y)|\leq \sqrt{L_h}|x-y|, \qquad \forall x,y\in \mathbb{R}.
 \]</span></p>
@@ -572,12 +578,12 @@ window.Quarto = {
     &amp; = (K+\lambda \sqrt{L_h})|x-y|^2= K_{\lambda}|x-y|^2.
   \end{aligned}
 \]</span></p>
-<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> está bien definido.</p>
+<p>Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> está bien definido.</p>
 <p>Otras propiedades importantes que podemos obtener usando las hipótesis anteriores, es acotar <span class="math inline">\(xf(x)\)</span> para toda <span class="math inline">\(x\in \mathbb{R}\)</span>. Notemos que podemos expresar <span class="math inline">\(f(x)\)</span> de la forma <span class="math inline">\(f(x)=f(x)-f(0)+f(0)\)</span>. Entonces</p>
 <p><span class="math display">\[
   xf(x)= x[f(x)-f(0)]+xf(0).
 \]</span></p>
-<p>Por tanto, tomando <span class="math inline">\(y=0\)</span> y aplicando la hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> obtenemos</p>
+<p>Por tanto, tomando <span class="math inline">\(y=0\)</span> y aplicando la hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a> obtenemos</p>
 <p><span class="math display">\[
   (x-0)(f(x)-f(0))\leq K|x-0|^2,
 \]</span></p>
@@ -615,7 +621,7 @@ window.Quarto = {
     &amp; \leq 2(|g(x)-g(0)|^2+|g(0)|^2).
   \end{aligned}
 \]</span></p>
-<p>Aplicando la <a href="#eq-607" class="quarto-xref">Ecuación&nbsp;<span>6.7</span></a>, tomando a <span class="math inline">\(y=0\)</span>, tenemos que</p>
+<p>Aplicando la <a href="#eq-607" class="quarto-xref">Ecuación&nbsp;<span>7.7</span></a>, tomando a <span class="math inline">\(y=0\)</span>, tenemos que</p>
 <p><span class="math display">\[
   \begin{aligned}
     |g(x)|^2 &amp; \leq 2(|g(x)-g(0)|^2+|g(0)|^2)\\
@@ -626,39 +632,39 @@ window.Quarto = {
 <p>Por lo tanto, para toda <span class="math inline">\(x\in \mathbb{R}\)</span></p>
 <p><span id="eq-612"><span class="math display">\[
   |g(x)|^2\leq 2L_g|x|^2+2|g(0)|^2.
-\tag{6.12}\]</span></span></p>
+\tag{7.12}\]</span></span></p>
 <p>De manera similar es posible afirmar que también se tiene la cota</p>
 <p><span id="eq-613"><span class="math display">\[
   |h(x)|^2\leq 2L_h|x|^2+2|h(0)|^2,
-\tag{6.13}\]</span></span></p>
+\tag{7.13}\]</span></span></p>
 <p>para todo <span class="math inline">\(x\in \mathbb{R}\)</span>.</p>
-<p>Combinando <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, <a href="#eq-612" class="quarto-xref">Ecuación&nbsp;<span>6.12</span></a> y <a href="#eq-613" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> podemos encontrar una variable <span class="math inline">\(L&gt;0\)</span> tal que</p>
+<p>Combinando <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>7.11</span></a>, <a href="#eq-612" class="quarto-xref">Ecuación&nbsp;<span>7.12</span></a> y <a href="#eq-613" class="quarto-xref">Ecuación&nbsp;<span>7.13</span></a> podemos encontrar una variable <span class="math inline">\(L&gt;0\)</span> tal que</p>
 <p><span id="eq-614"><span class="math display">\[
   \max\{xf(x),|g(x)|^2,|h(x)|^2\}\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
-\tag{6.14}\]</span></span></p>
+\tag{7.14}\]</span></span></p>
 <p>donde la constante <span class="math inline">\(L\)</span> podemos tomarla explicitamente como</p>
 <p><span class="math display">\[
   L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 \]</span></p>
-<p>Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para ello recordemos que satisface la condición de Lipschitz con constante</p>
+<p>Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>7.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para ello recordemos que satisface la condición de Lipschitz con constante</p>
 <p><span class="math display">\[
   K_{\lambda}=K+\lambda\sqrt{L_h}
 \]</span></p>
 <p>es decir, <span class="math inline">\(f_{\lambda}\)</span> cumple</p>
 <p><span id="eq-615"><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2, \quad\forall x\in\mathbb{R}.
-\tag{6.15}\]</span></span></p>
+\tag{7.15}\]</span></span></p>
 <p>Contemplando dicha condición y siguiendo el mismo procedimiento previo, podemos afirmar que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
 <p><span id="eq-616"><span class="math display">\[
   xf_{\lambda}(x)\vee |g(x)|^2\vee|h(x)|^2\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
-\tag{6.16}\]</span></span></p>
+\tag{7.16}\]</span></span></p>
 <p>La expresión explícita para esta constante, viene dada por</p>
 <p><span class="math display">\[
   L_{\lambda}=\max\left\{K_{\lambda}+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f_{\lambda}(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 \]</span></p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
+<p><span class="theorem-title"><strong>Lema 7.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
 <p><span class="math display">\[
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
 \]</span></p>
@@ -669,7 +675,7 @@ window.Quarto = {
 <p><span class="math display">\[
   G(y):=y-\theta\Delta tf_{\lambda}(y).
 \]</span></p>
-<p>Con esta definición, la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> puede escribirse de la forma</p>
+<p>Con esta definición, la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> puede escribirse de la forma</p>
 <p><span class="math display">\[
   G(Y_n^*)=Y_n.
 \]</span></p>
@@ -685,7 +691,7 @@ window.Quarto = {
 <p><span class="math display">\[
   (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
 \]</span></p>
-<p>Así, aplicando la condición de Lipschitz dada por la <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> para <span class="math inline">\(f_{\lambda}\)</span></p>
+<p>Así, aplicando la condición de Lipschitz dada por la <a href="#eq-611" class="quarto-xref">Ecuación&nbsp;<span>7.11</span></a> para <span class="math inline">\(f_{\lambda}\)</span></p>
 <p><span class="math display">\[
   (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
 \]</span></p>
@@ -702,7 +708,7 @@ window.Quarto = {
 \]</span></p>
 <p>Notemos que si <span class="math inline">\(G(x)-G(y)&lt;0\)</span> entonces <span class="math inline">\(x-y&lt;0\)</span>, o bien, si <span class="math inline">\(G(x)-G(y)&gt;0\)</span> entonces <span class="math inline">\(x-y&gt;0\)</span>. Si <span class="math inline">\(x-y&lt;0\)</span> esto implica que <span class="math inline">\(x&lt;y\)</span> y <span class="math inline">\(G(x)&lt;G(y)\)</span> y viceversa para el caso <span class="math inline">\(x-y&gt;0\)</span>. Por tanto, podemos afirmar que <span class="math inline">\(G\)</span> es estrictamente creciente en <span class="math inline">\(\mathbb{R}\)</span>. Así, queda demostrado que <span class="math inline">\(G\)</span> es inyectiva.</p>
 <p>Notemos que por la definición de <span class="math inline">\(f_{\lambda}\)</span>, es una composición de funciones continuas, por tanto <span class="math inline">\(f_{\lambda}\in C^1(\mathbb{R})\)</span>, así la función <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span> como combinación lineal de funciones continuas.</p>
-<p>Considerando la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, sabemos que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
+<p>Considerando la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>7.16</span></a>, sabemos que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
 <p><span class="math display">\[
   |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
 \]</span></p>
@@ -738,7 +744,7 @@ window.Quarto = {
 <p>admite una única solución <span class="math inline">\(Y_n^*\in \mathbb{R}\)</span> para cualquier <span class="math inline">\(Y_n\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 7.2</strong></span> Bajo la hipótesis dada por la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -750,25 +756,25 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
-<p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>.</p>
+<p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> y <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>7.4</span></a>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\(M\)</span> un entero positivo tal que <span class="math inline">\(n\Delta t \leq M\Delta t\leq T\)</span>. Veamos la relación entre <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(Y_n\)</span> a partir de la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> que define la variable auxiliar, <span class="math inline">\(Y_n^*\)</span>. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Sea <span class="math inline">\(M\)</span> un entero positivo tal que <span class="math inline">\(n\Delta t \leq M\Delta t\leq T\)</span>. Veamos la relación entre <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(Y_n\)</span> a partir de la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> que define la variable auxiliar, <span class="math inline">\(Y_n^*\)</span>. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que</p>
 <p><span id="eq-617"><span class="math display">\[
   |Y_n^*|^2=|Y_n|^2+2\theta\Delta tY_nf_{\lambda}(Y_n^*)+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2.
-\tag{6.17}\]</span></span></p>
-<p>De la misma <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> podemos expresar <span class="math inline">\(Y_n\)</span> en términos <span class="math inline">\(Y_n^*\)</span> de la forma</p>
+\tag{7.17}\]</span></span></p>
+<p>De la misma <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> podemos expresar <span class="math inline">\(Y_n\)</span> en términos <span class="math inline">\(Y_n^*\)</span> de la forma</p>
 <p><span class="math display">\[
   Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
 \]</span></p>
-<p>Así, sustituyendo esta expresión en el producto de la <a href="#eq-617" class="quarto-xref">Ecuación&nbsp;<span>6.17</span></a>, obtenemos</p>
+<p>Así, sustituyendo esta expresión en el producto de la <a href="#eq-617" class="quarto-xref">Ecuación&nbsp;<span>7.17</span></a>, obtenemos</p>
 <p><span id="eq-618"><span class="math display">\[
   \begin{aligned}
     Y_nf_{\lambda}(Y_n^*) &amp; = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*)\\
     &amp; = Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2.
   \end{aligned}
-\tag{6.18}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> en <a href="#eq-617" class="quarto-xref">Ecuación&nbsp;<span>6.17</span></a></p>
+\tag{7.18}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>7.18</span></a> en <a href="#eq-617" class="quarto-xref">Ecuación&nbsp;<span>7.17</span></a></p>
 <p><span class="math display">\[
   \begin{aligned}
       |Y_n^*|^2 &amp; = |Y_n|^2+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2 \\
@@ -781,8 +787,8 @@ window.Quarto = {
 <p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
 <p><span id="eq-619"><span class="math display">\[
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
-\tag{6.19}\]</span></span></p>
-<p>De aquí, utilizando la condición de crecimiento lineal para <span class="math inline">\(f_\lambda\)</span> dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, establece que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que, para todo <span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
+\tag{7.19}\]</span></span></p>
+<p>De aquí, utilizando la condición de crecimiento lineal para <span class="math inline">\(f_\lambda\)</span> dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>7.16</span></a>, establece que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que, para todo <span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
 <p><span class="math display">\[
   xf_{\lambda}(x)\leq L_{\lambda}(1+|x|^2).
 \]</span></p>
@@ -790,10 +796,10 @@ window.Quarto = {
 <p><span class="math display">\[
   Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
 \]</span></p>
-<p>Sustituyendo esta cota en <a href="#eq-619" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, llegamos a</p>
+<p>Sustituyendo esta cota en <a href="#eq-619" class="quarto-xref">Ecuación&nbsp;<span>7.19</span></a>, llegamos a</p>
 <p><span id="eq-620"><span class="math display">\[
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2).
-\tag{6.20}\]</span></span></p>
+\tag{7.20}\]</span></span></p>
 <p>Al despejar y factorizar el término <span class="math inline">\(Y_n^*\)</span> a partir de la ecuación anterior, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -810,16 +816,16 @@ window.Quarto = {
 <p>En particular <span class="math inline">\(\Delta t&lt;\frac{1}{2\theta L_{\lambda}}\)</span>, esto implica que <span class="math inline">\(2\theta\Delta tL_{\lambda}&lt;1\)</span>, por lo tanto <span class="math inline">\(1-2\theta\Delta tL_{\lambda}&gt;0\)</span>. Por tanto, es posible dividir y conservar la desigualdad, es decir</p>
 <p><span id="eq-621"><span class="math display">\[
   |Y_n^*|^2\leq \frac{1}{1-2\theta\Delta t L_{\lambda}} |Y_n|^2+\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}.
-\tag{6.21}\]</span></span></p>
+\tag{7.21}\]</span></span></p>
 <p>Para facilitar la notación, definimos las siguientes constantes</p>
 <p><span class="math display">\[
   \alpha:=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}},\qquad \beta:=1+\alpha=\frac{1}{1-2\theta\Delta t L_{\lambda}}.
 \]</span></p>
-<p>Por lo que la <a href="#eq-621" class="quarto-xref">Ecuación&nbsp;<span>6.21</span></a> queda de la forma</p>
+<p>Por lo que la <a href="#eq-621" class="quarto-xref">Ecuación&nbsp;<span>7.21</span></a> queda de la forma</p>
 <p><span id="eq-622"><span class="math display">\[
   |Y_n^*|^2\leq \beta|Y_n|^2+\alpha.
-\tag{6.22}\]</span></span></p>
-<p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y desarrollando tenemos</p>
+\tag{7.22}\]</span></span></p>
+<p>Utilizando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>7.4</span></a>, elevando al cuadrado y desarrollando tenemos</p>
 <p><span id="eq-623"><span class="math display">\[
   \begin{aligned}
     |Y_{n+1}|^2 &amp; = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2\\
@@ -829,8 +835,8 @@ window.Quarto = {
     &amp; \quad +2f_{\lambda}(Y_n^*)\Delta th(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
-\tag{6.23}\]</span></span></p>
-<p>Vamos a simplicar cada término. Primero, notemos que <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> podemos expresarlo en términos de <span class="math inline">\(Y_n^*\)</span> usando la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, por lo tanto</p>
+\tag{7.23}\]</span></span></p>
+<p>Vamos a simplicar cada término. Primero, notemos que <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> podemos expresarlo en términos de <span class="math inline">\(Y_n^*\)</span> usando la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>7.18</span></a>, por lo tanto</p>
 <p><span class="math display">\[
   2Y_nf_{\lambda}(Y_n^*)\Delta t= 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta\Delta t^2|f_{\lambda}(Y_n^*)^2|.
 \]</span></p>
@@ -838,7 +844,7 @@ window.Quarto = {
 <p><span class="math display">\[
   2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2Y_n^*f_{\lambda}(Y_n^*)\Delta t.
 \]</span></p>
-<p>Más aún, por la condición de crecimiento lineal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos</p>
+<p>Más aún, por la condición de crecimiento lineal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>7.16</span></a>, tenemos</p>
 <p><span class="math display">\[
   Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
 \]</span></p>
@@ -846,14 +852,14 @@ window.Quarto = {
 <p><span class="math display">\[
   2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
 \]</span></p>
-<p>De <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> podemos despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
+<p>De <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>7.3</span></a> podemos despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
 <p><span class="math display">\[
     Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
 \]</span></p>
 <p>De aquí, podemos escribir los términos <span class="math inline">\(2Y_ng(Y_n^*)\Delta W_n\)</span> y <span class="math inline">\(2Y_nh(Y_n^*)\Delta\widetilde{N}_n\)</span> en términos de <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(f_{\lambda}(Y_n^*)\)</span>. En efecto</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 7.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
@@ -865,10 +871,10 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 \]</span></p>
-<p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}\)</span> es la extensión en tiempo continuo dada por la <a href="#eq-605" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>.</p>
+<p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-601" class="quarto-xref">Ecuación&nbsp;<span>7.1</span></a> y <span class="math inline">\(\overline{Y}\)</span> es la extensión en tiempo continuo dada por la <a href="#eq-605" class="quarto-xref">Ecuación&nbsp;<span>7.5</span></a>.</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-610" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 7.4</strong></span> Usando las hipótesis dada por <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a> y <a href="#eq-610" class="quarto-xref">Ecuación&nbsp;<span>7.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
