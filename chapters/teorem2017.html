@@ -830,27 +830,36 @@ window.Quarto = {
     &amp; \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
 \tag{6.23}\]</span></span></p>
-<p>Vamos a simplicar cada término. Primero, notemos que <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> podemos expresarlo en términos de <span class="math inline">\(Y_n^*\)</span> usando la <a href="#eq-618" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, por lo tanto</p>
+<p>Vamos a simplicar cada término.</p>
+<p>De la ecuación implícita dada por <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, es posible despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
+<p><span id="eq-624"><span class="math display">\[
+  Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*),
+\tag{6.24}\]</span></span></p>
+<p>más aún, podemos obtener una expresión para <span class="math inline">\(f_{\lambda}(Y_n^*)\Delta t\)</span> mediante</p>
+<p><span id="eq-625"><span class="math display">\[
+  f_{\lambda}(Y_n^*)\Delta =\frac{Y_n^*-Y_n}{\theta}.
+\tag{6.25}\]</span></span></p>
+<p>A partir de <a href="#eq-624" class="quarto-xref">Ecuación&nbsp;<span>6.24</span></a>, calculamos</p>
 <p><span class="math display">\[
-  2Y_nf_{\lambda}(Y_n^*)\Delta t= 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta\Delta t^2|f_{\lambda}(Y_n^*)^2|.
+  \begin{aligned}
+    Y_nf_{\lambda}(Y_n^*) &amp; = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*).
+  \end{aligned}
 \]</span></p>
-<p>El término <span class="math inline">\(-2\theta\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, por lo que es posible acotar superiormente de tal forma</p>
+<p>Multiplicando por <span class="math inline">\(2\Delta t\)</span>,</p>
 <p><span class="math display">\[
-  2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2Y_n^*f_{\lambda}(Y_n^*)\Delta t.
+  2Y_nf_{\lambda}(Y_n^*)\Delta t = 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
 \]</span></p>
-<p>Más aún, por la condición de crecimiento lineal dada por la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos</p>
+<p>Considerando los términos <span class="math inline">\(|f_{\lambda}(Y_n^*)\Delta t|^2\)</span> y <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> de <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos</p>
 <p><span class="math display">\[
-  Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
+  \begin{aligned}
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t &amp; = 2Y_n^*f_{\lambda}(Y_n^*)\Delta t\\
+    &amp; \quad + 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
+  \end{aligned}
 \]</span></p>
-<p>Sustituyendo</p>
+<p>Así, agrupando los términos en <span class="math inline">\(|f_{\lambda}(Y_n^*)\Delta t|^2\)</span>,</p>
 <p><span class="math display">\[
-  2Y_nf_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
+  |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t =2Y_n^*f_{\lambda}(Y_n^*)\Delta+(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2
 \]</span></p>
-<p>De <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> podemos despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
-<p><span class="math display">\[
-    Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
-\]</span></p>
-<p>De aquí, podemos escribir los términos <span class="math inline">\(2Y_ng(Y_n^*)\Delta W_n\)</span> y <span class="math inline">\(2Y_nh(Y_n^*)\Delta\widetilde{N}_n\)</span> en términos de <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(f_{\lambda}(Y_n^*)\)</span>. En efecto</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
