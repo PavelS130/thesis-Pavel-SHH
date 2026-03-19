@@ -650,7 +650,7 @@ window.Quarto = {
 \tag{6.15}\]</span></span></p>
 <p>Contemplando dicha condición y siguiendo el mismo procedimiento previo, podemos afirmar que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
 <p><span id="eq-616"><span class="math display">\[
-  xf_{\lambda}(x)\vee |g(x)|^2\vee|h(x)|^2\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
+  \max\{xf_{\lambda}(x),|g(x)|^2,|h(x)|^2\}\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
 \tag{6.16}\]</span></span></p>
 <p>La expresión explícita para esta constante, viene dada por</p>
 <p><span class="math display">\[
@@ -665,7 +665,7 @@ window.Quarto = {
 <p>admite una única solución <span class="math inline">\(Y_n^{*}\in \mathbb{R}\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Definimos la función <span class="math inline">\(G:\mathbb{R}\rightarrow \mathbb{R}\)</span> como +</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Definimos la función <span class="math inline">\(G:\mathbb{R}\rightarrow \mathbb{R}\)</span> como</p>
 <p><span class="math display">\[
   G(y):=y-\theta\Delta tf_{\lambda}(y).
 \]</span></p>
@@ -803,7 +803,7 @@ window.Quarto = {
      |Y_n^*|^2(1-2\theta\Delta tL_{\lambda})&amp;\leq |Y_n|^2+2\theta\Delta tL_{\lambda}.
   \end{aligned}
 \]</span></p>
-<p>Por hipóetsis, establecimos que</p>
+<p>Por hipótesis, establecimos que</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt; \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -830,7 +830,6 @@ window.Quarto = {
     &amp; \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
 \tag{6.23}\]</span></span></p>
-<p>Vamos a simplicar cada término.</p>
 <p>De la ecuación implícita dada por <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, es posible despejar <span class="math inline">\(Y_n\)</span> de la forma</p>
 <p><span id="eq-624"><span class="math display">\[
   Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*),
@@ -852,7 +851,7 @@ window.Quarto = {
 <p>Considerando los términos <span class="math inline">\(|f_{\lambda}(Y_n^*)\Delta t|^2\)</span> y <span class="math inline">\(2Y_nf_{\lambda}(Y_n^*)\Delta t\)</span> de <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
-    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t &amp; = 2Y_n^*f_{\lambda}(Y_n^*)\Delta t\\
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t &amp; = |f_{\lambda}(Y_n^*)\Delta t|^2\\
     &amp; \quad + 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
   \end{aligned}
 \]</span></p>
