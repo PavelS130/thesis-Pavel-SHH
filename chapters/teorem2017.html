@@ -905,17 +905,37 @@ window.Quarto = {
 <p><span id="eq-629"><span class="math display">\[
   2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n.
 \tag{6.29}\]</span></span></p>
-<p>Sustutuyendo <a href="#eq-627" class="quarto-xref">Ecuación&nbsp;<span>6.27</span></a>, <a href="#eq-628" class="quarto-xref">Ecuación&nbsp;<span>6.28</span></a> y <a href="#eq-629" class="quarto-xref">Ecuación&nbsp;<span>6.29</span></a> en <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos,</p>
-<p><span class="math display">\[
+<p>Sustituyendo <a href="#eq-627" class="quarto-xref">Ecuación&nbsp;<span>6.27</span></a>, <a href="#eq-628" class="quarto-xref">Ecuación&nbsp;<span>6.28</span></a> y <a href="#eq-629" class="quarto-xref">Ecuación&nbsp;<span>6.29</span></a> en <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos,</p>
+<p><span id="eq-630"><span class="math display">\[
   \begin{aligned}
-    |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ L_{\lambda}\Delta t(1+|Y_n^*|^2)\\
+    |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ 2L_{\lambda}\Delta t(1+|Y_n^*|^2)\\
     &amp; \quad +|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\  
     &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\
     &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
+\tag{6.30}\]</span></span></p>
+<p>Por <a href="#eq-627" class="quarto-xref">Ecuación&nbsp;<span>6.27</span></a> podemos acotar el término <span class="math inline">\(2L_{\lambda}\Delta t(1+|Y_n^*|^2)\)</span> de la forma</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    2L_{\lambda}\Delta t(1+|Y_n^*|^2) &amp; = 2L_{\lambda}\Delta t +2L_{\lambda}\Delta t |Y_n^*|^2\\
+    &amp; \leq 2L_{\lambda}\Delta t +2L_{\lambda}\Delta t(\beta|Y_n|^2+\alpha)\\
+    &amp; = 2L_{\lambda}\Delta t+2L_{\lambda}\Delta t\beta|Y_n|^2+2L_{\lambda}\Delta t \alpha\\
+    &amp; = 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1).
+  \end{aligned}
 \]</span></p>
+<p>Reemplazando el término <span class="math inline">\(2L_{\lambda}\Delta t(1+|Y_n^*|^2)\)</span> en <a href="#eq-630" class="quarto-xref">Ecuación&nbsp;<span>6.30</span></a> por la cota anterior</p>
+<p><span id="eq-631"><span class="math display">\[
+  \begin{aligned}
+    |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1)\\
+    &amp; \quad +|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\  
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n\\
+    &amp; \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
+    &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
+  \end{aligned}
+\tag{6.31}\]</span></span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
