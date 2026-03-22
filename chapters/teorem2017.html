@@ -857,7 +857,10 @@ window.Quarto = {
 \]</span></p>
 <p>Agrupando los términos en <span class="math inline">\(|f_{\lambda}(Y_n^*)\Delta t|^2\)</span>,</p>
 <p><span id="eq-626"><span class="math display">\[
-  |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t =2Y_n^*f_{\lambda}(Y_n^*)\Delta t+(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2.
+  \begin{aligned}
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t &amp; =2Y_n^*f_{\lambda}(Y_n^*)\Delta t\\
+    &amp; \quad +(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2.
+  \end{aligned}
 \tag{6.26}\]</span></span></p>
 <p><strong>Caso <span class="math inline">\(\theta\geq \frac{1}{2}\)</span></strong>: Es claro que, para <span class="math inline">\(\displaystyle \theta\geq\frac{1}{2}\)</span> se tiene <span class="math inline">\(1-2\theta\leq 0\)</span>. Por lo tanto</p>
 <p><span class="math display">\[
@@ -905,10 +908,12 @@ window.Quarto = {
 <p>La <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a> queda de la forma</p>
 <p><span class="math display">\[
   \begin{aligned}
-    |Y_{n+1}|^2 &amp; \leq |Y_n|^2+|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\
-    &amp; \quad + L_{\lambda}\Delta t(1+|Y_n^*|^2)+2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\
-    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n+\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n\\
-    &amp; \quad +\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n+2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.\\
+    |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ L_{\lambda}\Delta t(1+|Y_n^*|^2)\\
+    &amp; \quad +|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\  
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n\\
+    &amp; \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
+    &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
 \]</span></p>
 </div>
