@@ -1004,6 +1004,23 @@ window.Quarto = {
 <li><span class="math inline">\(T_8:=\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j),\)</span></li>
 <li><span class="math inline">\(T_9:=2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).\)</span></li>
 </ul>
+<p>Elevando <a href="#eq-634" class="quarto-xref">Ecuación&nbsp;<span>6.34</span></a> a la potencia <span class="math inline">\(p\geq 0\)</span> tenemos</p>
+<p><span id="eq-635"><span class="math display">\[
+  \begin{aligned}
+    |Y_n|^2p &amp; \leq (T_0+T_1+T_2+T_3+T_4+T_5+T_6+T_7+T_8+T_9)^p.
+  \end{aligned}
+\tag{6.35}\]</span></span></p>
+<p>Consideremos la siguiente desigualdad elemental (citar) para numeros reales <span class="math inline">\((a_1,a_2,\ldots,a_m)\)</span>,</p>
+<p><span class="math display">\[
+  \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
+\]</span></p>
+<p>Aplicando dicha desigualdad a <a href="#eq-635" class="quarto-xref">Ecuación&nbsp;<span>6.35</span></a>, donde <span class="math inline">\(m=10\)</span>, tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |Y_n|^2 &amp; \leq 10^{p-1}(|T_0|^p+|T_1|^p+ |T_2|^p+|T_3|^p+|T_4|^p\\
+    &amp; \quad +|T_5|^p+|T_6|^p+|T_7|^p+|T_8|^p+|T_9|^p).
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
