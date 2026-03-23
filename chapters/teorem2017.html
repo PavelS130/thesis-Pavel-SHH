@@ -936,6 +936,61 @@ window.Quarto = {
     &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
 \tag{6.31}\]</span></span></p>
+<p>Esta desigualdad se cumple para cada índice <span class="math inline">\(j=0,1,2\ldots, n-1\)</span>. Definimos, para simplificar la siguiente notación</p>
+<p><span class="math display">\[
+  B_j:= 2\beta L_{\lambda}\Delta t|Y_j|^2+2(\alpha+1)L_{\lambda}\Delta t.
+\]</span></p>
+<p>y</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    C_j &amp; := |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2\\  
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_j\, g(Y_j^*)\Delta W_n\\
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)Y_j\,h(Y_j^*)\Delta\widetilde{N}_n\\
+    &amp; \quad +\frac{2}{\theta}Y_j^*g(Y_j^*)\Delta W_j+\frac{2}{\theta}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\\
+    &amp; \quad +2g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j.
+  \end{aligned}
+\]</span></p>
+<p>Por tanto, <a href="#eq-631" class="quarto-xref">Ecuación&nbsp;<span>6.31</span></a> queda de la forma</p>
+<p><span id="eq-632"><span class="math display">\[
+  |Y_{n+1}| \leq |Y_n|^2+B_n+C_n.
+\tag{6.32}\]</span></span></p>
+<p>Sumando <a href="#eq-632" class="quarto-xref">Ecuación&nbsp;<span>6.32</span></a> desde <span class="math inline">\(0\)</span> hasta <span class="math inline">\(n-1\)</span>,</p>
+<p><span class="math display">\[
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2\leq \sum\limits_{j=0}^{n-1} |Y_j|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+\]</span></p>
+<p>Pasando del lado izquierdo el primer sumando</p>
+<p><span class="math display">\[
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2-\sum\limits_{j=0}^{n-1} |Y_j|^2\leq +\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+\]</span></p>
+<p>Notemos que del lado izquierdo de la desigualdad se trata de una suma telescópica, es decir,</p>
+<p><span class="math display">\[
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2-\sum\limits_{j=0}^{n-1} |Y_j|^2 = |Y_n|^2-|Y_0|^2.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span id="eq-633"><span class="math display">\[
+  |Y_{n}|^2\leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+\tag{6.33}\]</span></span></p>
+<p>Recordemos que los puntos en la malla están definidos por <span class="math inline">\(t_n=n\Delta t\)</span>, además se tiene que <span class="math inline">\(t_n\leq T\)</span>, por lo que <span class="math inline">\(n\Delta t\leq T\)</span>. Con esto, para el término <span class="math inline">\(B_j\)</span> se tiene</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \sum\limits_{j=0}^{n-1}B_j &amp; = \sum\limits_{j=0}^{n-1} 2\beta L_{\lambda}\Delta t|Y_j|^2+\sum\limits_{j=0}^{n-1}2(\alpha+1)L_{\lambda}\Delta t\\
+    &amp; = 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}\Delta t\cdot n\\
+    &amp; \leq 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}T.
+  \end{aligned}
+\]</span></p>
+<p>Expandiendo <a href="#eq-633" class="quarto-xref">Ecuación&nbsp;<span>6.33</span></a> queda de la forma</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |Y_{n}|^2 &amp; \leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j\\
+    &amp; \leq |Y_0|^2+ 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}T\\
+    &amp; \quad +\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^2+\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^2\\  
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\, g(Y_j^*)\Delta W_j)\\
+    &amp; \quad +2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\,h(Y_j^*)\Delta\widetilde{N}_j)\\
+    &amp; \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*g(Y_j^*)\Delta W_j)\\
+    &amp; \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j)\\
+    &amp; \quad +2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
