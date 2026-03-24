@@ -1021,6 +1021,63 @@ window.Quarto = {
     &amp; \quad +|T_5|^p+|T_6|^p+|T_7|^p+|T_8|^p+|T_9|^p).
   \end{aligned}
 \]</span></p>
+<p>Para <span class="math inline">\(|T_0|^p\)</span> no es posible encontrar una cota. Luego para <span class="math inline">\(T_1\)</span>, notemos primero</p>
+<p><span class="math display">\[
+  T_1^p=(2\beta L_{\lambda}\Delta t)^p\left(\sum\limits_{j=0}^{n-1}|Y_j|^2\right)^p.
+\]</span></p>
+<p>Para acotar este término podemos usar la desigualdad de la potencia de una suma (enunciar en preliminares y citar), la cuál indica</p>
+<p><span class="math display">\[
+  \left(\sum\limits_{j=0}^{n-1}a_j\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p, \qquad a_j\geq 0.
+\]</span></p>
+<p>Tomando <span class="math inline">\(a_j=|Y_j|^2\)</span>, obtenemos</p>
+<p><span class="math display">\[
+  \left(\sum\limits_{j=0}^{n-1}|Y_j|^{2}\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|Y_j|^{2p}.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+  T_1^p \leq n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}|Y_j|^{2p}.
+\]</span></p>
+<p>Para <span class="math inline">\(T_2\)</span>, al ser una constante, tenemos que <span class="math inline">\(|T_2|^p=(2(\alpha+1)L_{\lambda}T)^p\)</span>. Para <span class="math inline">\(T_3\)</span> y <span class="math inline">\(T_4\)</span> aplicamos la misma desigualdad que se usa para <span class="math inline">\(T_1\)</span>, de aquí para <span class="math inline">\(T_3\)</span></p>
+<p><span class="math display">\[
+  T_3^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^{2p}.
+\]</span></p>
+<p>Análogamente para <span class="math inline">\(T_4\)</span>,</p>
+<p><span class="math display">\[
+  T_4^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}.
+\]</span></p>
+<p>Para los términos restantes, dado que son sumas de martingalas, estás pueden tomar valores tannto negativos como positivos. Por tanto, para poder obtener una cota superior, vamos a utilizar valores absolutos, además notemos que para <span class="math inline">\(\theta\in (0,1]\)</span> se cumple <span class="math inline">\(\displaystyle\left|1-\frac{1}{\theta}\right|=\frac{1}{\theta}-1\)</span>. Por tanto</p>
+<p><span class="math display">\[
+  |T_5|^p=2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p.
+\]</span></p>
+<p>Da manera identica para el término <span class="math inline">\(T_6\)</span>, se tiene</p>
+<p><span class="math display">\[
+  |T_6|^p=2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+\]</span></p>
+<p>Para <span class="math inline">\(T_7\)</span> tomando valor absoluto y elevando a la potencia <span class="math inline">\(p\)</span>,</p>
+<p><span class="math display">\[  
+  |T_7|^p = \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,g(Y_j^*)\Delta W_j\right|^p.
+\]</span></p>
+<p>De igual forma para <span class="math inline">\(T_8\)</span>,</p>
+<p><span class="math display">\[
+  |T_8|^p = \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+\]</span></p>
+<p>Para <span class="math inline">\(T_9\)</span> se tiene</p>
+<p><span class="math display">\[
+  |T_9|^p= 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+\]</span></p>
+<p>Sustituyendo todas las expresiones obtenidad en cada paso anterior, se obtiene</p>
+<p><span id="eq-636"><span class="math display">\[
+  \begin{aligned}
+    |Y_n|^{2p} &amp; \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+ n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\\
+    &amp; \quad +(2(\alpha+1)L_{\lambda}T)^p + n^{p-1}\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^{2p}\\
+    &amp; \quad + n^{p-1}\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}\\
+    &amp; \quad + 2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p\\
+    &amp; \quad + 2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\
+    &amp; \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,g(Y_j^*)\Delta W_j\right|^p\\
+    &amp; \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\
+    &amp; \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
+  \end{aligned}
+\tag{6.36}\]</span></span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
