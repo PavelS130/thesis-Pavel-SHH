@@ -1121,6 +1121,14 @@ M_Z(s) = \mathbb{E}[e^{sZ}] = \int_{-\infty}^{\infty} e^{sz} \cdot \frac{1}{\sqr
 <p><span class="math display">\[
   M_Z(s)=e^{\frac{e^{s^2}}{2}}.
 \]</span></p>
+<p>Sabemos que los momentos de <span class="math inline">\(Z\)</span> se obtienen derivando la función generadora de momentos</p>
+<p><span class="math display">\[
+  \mathbb{E}[Z^n] = M_Z^{(n)}(0),
+\]</span></p>
+<p>donde <span class="math inline">\(M_Z^{(n)}(s)\)</span> denota la derivada de orden <span class="math inline">\(n\)</span> de <span class="math inline">\(M_Z(s)\)</span>. Usando la expansión en serie de Taylor alrededor de <span class="math inline">\(s=0\)</span> en la función <span class="math inline">\(M_Z(s)\)</span></p>
+<p><span class="math display">\[
+  M_Z(s)=e^{\frac{s^2}{2}}=\sum\limits_{k=0}^{\infty}\frac{(s^2/2)^k}{k!}=\sum\limits_{k=0}^{\infty}\frac{s^{2k}}{2^k\cdot k!}.
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
