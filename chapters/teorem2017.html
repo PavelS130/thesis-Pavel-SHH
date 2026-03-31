@@ -1096,6 +1096,31 @@ window.Quarto = {
     &amp; \quad + 2^p \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\Bigg\}.
   \end{aligned}
 \]</span></p>
+<p>Tenemos que <span class="math inline">\(Y_n^*\in \mathbfcal{F}_{t_n}\)</span>, esto significaa que el valor depende exclusivamente de la información hasta el tiempo <span class="math inline">\(t_n\)</span>. Ahora bien, el incremento browniano denotado por <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span> es independiente de <span class="math inline">\(\mathbfcal{F}_{t_n}\)</span>, con esto, podemos aplicar la propiedad de independencia en la esperanza, es decir, se cumple</p>
+<p><span class="math display">\[
+  \mathbb{E}[|g(Y_n^*)\Delta W_n|^{2p}]=\mathbb{E}[|g(Y_n^*)|^{2p}]\cdot \mathbb{E}[\Delta W_n^{2p}].
+\]</span></p>
+<p>Vamos a estudiar <span class="math inline">\(\mathbb{E}[\Delta W_n^{2p}]\)</span>, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, <span class="math inline">\(\Delta W_j \sim \mathbfcal{N}(0,\Delta t)\)</span>, así afirmamos que tiene media <span class="math inline">\(0\)</span> y varianza <span class="math inline">\(\Delta t\)</span>. Por tanto</p>
+<p><span class="math display">\[
+  \Delta W_j \overset{\text{d}}{=} \sqrt{\Delta t}\cdot Z,
+\]</span></p>
+<p>donde <span class="math inline">\(Z\sim \mathbfcal{N}(0,1)\)</span> es una variable aleatoria estándar. Utilizando la igualdad anterior, tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+      \mathbb{E}\left[|\Delta W_j|^{2p}\right] &amp; = \mathbb{E}\left[\left(\sqrt{\Delta t}\cdot Z\right)^{2p}\right]\\
+      &amp; = \mathbb{E}[(\Delta t)^p\cdot |Z|^{2p}]\\
+      &amp; = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\
+      &amp; = (\Delta t)^p\cdot \mathbb{E}[|Z|^{2p}].
+  \end{aligned}
+\]</span></p>
+<p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Denotamos por <span class="math inline">\(M_Z(s)\)</span> a la función generadora de momento de la variable <span class="math inline">\(Z\)</span>, la cuál se define mediante</p>
+<p><span class="math display">\[
+M_Z(s) = \mathbb{E}[e^{sZ}] = \int_{-\infty}^{\infty} e^{sz} \cdot \frac{1}{\sqrt{2\pi}} e^2/2 \ dz.
+\]</span></p>
+<p>Luego, para nuestro caso de una variable normal estándar, se puede calcular explícitamente</p>
+<p><span class="math display">\[
+  M_Z(s)=e^{\frac{e^{s^2}}{2}}.
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
