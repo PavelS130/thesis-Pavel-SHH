@@ -1113,21 +1113,46 @@ window.Quarto = {
       &amp; = (\Delta t)^p\cdot \mathbb{E}[|Z|^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Denotamos por <span class="math inline">\(M_Z(s)\)</span> a la función generadora de momento de la variable <span class="math inline">\(Z\)</span>, la cuál se define mediante</p>
+<p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Vamos a demostrar que se cumple</p>
 <p><span class="math display">\[
-M_Z(s) = \mathbb{E}[e^{sZ}] = \int_{-\infty}^{\infty} e^{sz} \cdot \frac{1}{\sqrt{2\pi}} e^2/2 \ dz.
+  \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
-<p>Luego, para nuestro caso de una variable normal estándar, se puede calcular explícitamente</p>
+<p>Procedicendo por inducción, para nuestro caso base, para <span class="math inline">\(p=1\)</span> es claro que <span class="math inline">\(\mathbb{E}[Z^2]=Var(Z)=1\)</span>. Por definición, se tiene que <span class="math inline">\((2\cdot 1-1)!!=1!!=1\)</span>. Por lo tanto, la igualdad se cumple para <span class="math inline">\(p=1\)</span>,</p>
 <p><span class="math display">\[
-  M_Z(s)=e^{\frac{e^{s^2}}{2}}.
+  \mathbb{E}[Z^2]=1=(2\cdot 1-1)!!
 \]</span></p>
-<p>Sabemos que los momentos de <span class="math inline">\(Z\)</span> se obtienen derivando la función generadora de momentos</p>
+<p>Supongamos que se cumple para algún entero <span class="math inline">\(p\geq 1\)</span>, es decir, la siguiente igualdad es valida</p>
 <p><span class="math display">\[
-  \mathbb{E}[Z^n] = M_Z^{(n)}(0),
+  \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
-<p>donde <span class="math inline">\(M_Z^{(n)}(s)\)</span> denota la derivada de orden <span class="math inline">\(n\)</span> de <span class="math inline">\(M_Z(s)\)</span>. Usando la expansión en serie de Taylor alrededor de <span class="math inline">\(s=0\)</span> en la función <span class="math inline">\(M_Z(s)\)</span></p>
+<p>Veamos que se cumple ahora para <span class="math inline">\(p+1\)</span>, queremos ver que</p>
 <p><span class="math display">\[
-  M_Z(s)=e^{\frac{s^2}{2}}=\sum\limits_{k=0}^{\infty}\frac{(s^2/2)^k}{k!}=\sum\limits_{k=0}^{\infty}\frac{s^{2k}}{2^k\cdot k!}.
+  \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(29+1)!!
+\]</span></p>
+<p>Por definición, el momento <span class="math inline">\(2(p+1)\)</span> de <span class="math inline">\(Z\)</span> esta dado por</p>
+<p><span class="math display">\[
+  \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2(p+1)} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
+\]</span></p>
+<p>Reescribiendo el integrando</p>
+<p><span class="math display">\[
+  \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
+\]</span></p>
+<p>Consideremos las siguientes elecciónes</p>
+<ul>
+<li><span class="math inline">\(u=z^{2p+1}\)</span>,</li>
+<li><span class="math inline">\(z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\)</span>.</li>
+</ul>
+<p>Esto implica que</p>
+<ul>
+<li><span class="math inline">\(du = (2p+1)z^{2p}dz\)</span></li>
+<li><span class="math inline">\(v=-\frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span></li>
+</ul>
+<p>Procediendo a integrar por partes</p>
+<p><span class="math display">\[
+  \begin{aligned}
+     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}+ (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
+     &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}+(2p+1)\mathbb{E}[Z^{2p}].
+  \end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
