@@ -1097,9 +1097,9 @@ window.Quarto = {
   \end{aligned}
 \tag{6.37}\]</span></span></p>
 <p>Tenemos que <span class="math inline">\(Y_n^*\in \mathbfcal{F}_{t_n}\)</span>, esto significaa que el valor depende exclusivamente de la información hasta el tiempo <span class="math inline">\(t_n\)</span>. Ahora bien, el incremento browniano denotado por <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span> es independiente de <span class="math inline">\(\mathbfcal{F}_{t_n}\)</span>, con esto, podemos aplicar la propiedad de independencia en la esperanza, es decir, se cumple</p>
-<p><span class="math display">\[
+<p><span id="eq-6375"><span class="math display">\[
   \mathbb{E}[|g(Y_n^*)\Delta W_n|^{2p}]=\mathbb{E}[|g(Y_n^*)|^{2p}]\cdot \mathbb{E}[\Delta W_n^{2p}].
-\]</span></p>
+\tag{6.38}\]</span></span></p>
 <p>Vamos a estudiar <span class="math inline">\(\mathbb{E}[\Delta W_n^{2p}]\)</span>, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, <span class="math inline">\(\Delta W_j \sim \mathbfcal{N}(0,\Delta t)\)</span>, así afirmamos que tiene media <span class="math inline">\(0\)</span> y varianza <span class="math inline">\(\Delta t\)</span>. Por tanto</p>
 <p><span class="math display">\[
   \Delta W_j \overset{\text{d}}{=} \sqrt{\Delta t}\cdot Z,
@@ -1112,7 +1112,7 @@ window.Quarto = {
       &amp; = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\
       &amp; = \Delta t^p\cdot \mathbb{E}[|Z|^{2p}].
   \end{aligned}
-\tag{6.38}\]</span></span></p>
+\tag{6.39}\]</span></span></p>
 <p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Vamos a demostrar que se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
@@ -1124,7 +1124,7 @@ window.Quarto = {
 <p>Supongamos que se cumple para algún entero <span class="math inline">\(p\geq 1\)</span>, es decir, la siguiente igualdad es valida</p>
 <p><span id="eq-639"><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
-\tag{6.39}\]</span></span></p>
+\tag{6.40}\]</span></span></p>
 <p>Veamos que se cumple ahora para <span class="math inline">\(p+1\)</span>, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(29+1)!!
@@ -1155,7 +1155,7 @@ window.Quarto = {
      &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp;\qquad+(2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
-\tag{6.40}\]</span></span></p>
+\tag{6.41}\]</span></span></p>
 <p>Vamos a estudiar el término <span class="math inline">\(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>. Usando la expansión en serie de Taylor de la exponencial, tenemos</p>
 <p><span class="math display">\[
   e^{z^2/2} = \sum\limits_{k=0}^{\infty} \frac{(z^2/2)^k}{k!}&gt;\frac{(z^2/2)^{p+1}}{(p+1)!}.
@@ -1172,7 +1172,7 @@ window.Quarto = {
 <p><span class="math display">\[
   \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
 \]</span></p>
-<p>Retomando <a href="#eq-640" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> se tiene</p>
+<p>Retomando <a href="#eq-640" class="quarto-xref">Ecuación&nbsp;<span>6.41</span></a> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; =  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
@@ -1180,7 +1180,7 @@ window.Quarto = {
     &amp; = (2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Usando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>,</p>
+<p>Usando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a>,</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[Z^{2(p+1)}] &amp; =\int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\
@@ -1194,6 +1194,11 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
+<p>Definimos entonces la constante <span class="math inline">\(c_p\)</span> de la forma</p>
+<p><span class="math display">\[
+  c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
+\]</span></p>
+<p>Retomando <a href="#eq-6375" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a>, considerando la <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
