@@ -1172,9 +1172,13 @@ window.Quarto = {
 <p><span class="math display">\[
   \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
 \]</span></p>
-<p>Retomando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> se tiene</p>
+<p>Retomando <a href="#eq-637" class="quarto-xref">Ecuación&nbsp;<span>6.37</span></a> se tiene</p>
 <p><span class="math display">\[
-  \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz = (2p+1)\mathbb{E}[Z^{2p}]
+  \begin{aligned}
+    \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; =  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
+    &amp; \qquad +(2p+1)\mathbb{E}[Z^{2p}]\\
+    &amp; = (2p+1)\mathbb{E}[Z^{2p}].
+  \end{aligned}
 \]</span></p>
 <p>Usando <a href="#eq-638" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a>,</p>
 <p><span class="math display">\[
