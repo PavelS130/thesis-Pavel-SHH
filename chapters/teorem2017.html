@@ -1150,8 +1150,10 @@ window.Quarto = {
 <p>Procediendo a integrar por partes</p>
 <p><span id="eq-639"><span class="math display">\[
   \begin{aligned}
-     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}+ (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
-     &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}+(2p+1)\mathbb{E}[Z^{2p}].
+     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
+     &amp; \qquad + (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
+     &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
+     &amp;\qquad+(2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
 \tag{6.39}\]</span></span></p>
 <p>Vamos a estudiar el término <span class="math inline">\(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>. Usando la expansión en serie de Taylor de la exponencial, tenemos</p>
