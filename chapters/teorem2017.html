@@ -1105,14 +1105,14 @@ window.Quarto = {
   \Delta W_j \overset{\text{d}}{=} \sqrt{\Delta t}\cdot Z,
 \]</span></p>
 <p>donde <span class="math inline">\(Z\sim \mathbfcal{N}(0,1)\)</span> es una variable aleatoria estándar. Utilizando la igualdad anterior, tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-638"><span class="math display">\[
   \begin{aligned}
       \mathbb{E}\left[|\Delta W_j|^{2p}\right] &amp; = \mathbb{E}\left[\left(\sqrt{\Delta t}\cdot Z\right)^{2p}\right]\\
       &amp; = \mathbb{E}[(\Delta t)^p\cdot |Z|^{2p}]\\
       &amp; = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\
-      &amp; = (\Delta t)^p\cdot \mathbb{E}[|Z|^{2p}].
+      &amp; = \Delta t^p\cdot \mathbb{E}[|Z|^{2p}].
   \end{aligned}
-\]</span></p>
+\tag{6.38}\]</span></span></p>
 <p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Vamos a demostrar que se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
@@ -1122,9 +1122,9 @@ window.Quarto = {
   \mathbb{E}[Z^2]=1=(2\cdot 1-1)!!
 \]</span></p>
 <p>Supongamos que se cumple para algún entero <span class="math inline">\(p\geq 1\)</span>, es decir, la siguiente igualdad es valida</p>
-<p><span id="eq-638"><span class="math display">\[
+<p><span id="eq-639"><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
-\tag{6.38}\]</span></span></p>
+\tag{6.39}\]</span></span></p>
 <p>Veamos que se cumple ahora para <span class="math inline">\(p+1\)</span>, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(29+1)!!
@@ -1148,14 +1148,14 @@ window.Quarto = {
 <li><span class="math inline">\(v=-\frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span></li>
 </ul>
 <p>Procediendo a integrar por partes</p>
-<p><span id="eq-639"><span class="math display">\[
+<p><span id="eq-640"><span class="math display">\[
   \begin{aligned}
      \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp; \qquad + (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
      &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp;\qquad+(2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
-\tag{6.39}\]</span></span></p>
+\tag{6.40}\]</span></span></p>
 <p>Vamos a estudiar el término <span class="math inline">\(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>. Usando la expansión en serie de Taylor de la exponencial, tenemos</p>
 <p><span class="math display">\[
   e^{z^2/2} = \sum\limits_{k=0}^{\infty} \frac{(z^2/2)^k}{k!}&gt;\frac{(z^2/2)^{p+1}}{(p+1)!}.
@@ -1172,7 +1172,7 @@ window.Quarto = {
 <p><span class="math display">\[
   \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
 \]</span></p>
-<p>Retomando <a href="#eq-637" class="quarto-xref">Ecuación&nbsp;<span>6.37</span></a> se tiene</p>
+<p>Retomando <a href="#eq-640" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; =  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
@@ -1180,7 +1180,7 @@ window.Quarto = {
     &amp; = (2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Usando <a href="#eq-638" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a>,</p>
+<p>Usando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>,</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[Z^{2(p+1)}] &amp; =\int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\
