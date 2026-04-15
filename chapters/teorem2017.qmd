@@ -1,5 +1,5 @@
 ---
-title: "Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos"
+# title: "Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos"
 lang: es
 format:
   html: default
@@ -11,89 +11,305 @@ format:
 ---
 
 ::: {style="text-align: justify"}
+# Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos
+## Método $\text{CSS}\theta$
 
-Vamos a abordar el estudio de la convergencia del método numérico conocido como compensated split-step $\theta$ (CSS $\theta$) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S). Para ello, consideremos la ecuación diferencial estocástica con saltos de la forma
+En este capítulo abordamos el estudio de la convergencia del método numérico conocido como *compensated split-step* $\theta$ ($\text{CSS}\theta$) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos
 
 $$
-    dX(t) = f(X(t-))dt +g(X(t-))dW(t)+h(X(t-))dN(t), \quad t\geq 0,
+    \begin{aligned}
+      dX(t) & = f(X(t-))dt +g(X(t-))dW(t)\\ 
+      & \qquad \quad +h(X(t-))dN(t), \qquad t\geq 0,
+    \end{aligned}
 $$ {#eq-601}
 
-con condición incial $X(0-)=X_0$, donde 
+con condición inicial $X(0-)=X_0$, donde
 
-- $X(t-)$ denota el límite por la izquierda en el instante $t$, 
-- $f:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de $\textit{driff}$, 
-- $g:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de difusión, 
-- $h:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de los saltos, 
-- $\{W(t)\}_{t\geq 0}$ es un movimiento browniano estandar, 
-- $\{N(t)\}_{t\geq 0}$ es un proceso de Poisson con intensidad $\lambda >0$, 
+-   $X(t-)$ denota el límite por la izquierda en el instante $t$,
+-   $f:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de deriva,
+-   $g:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de difusión,
+-   $h:\mathbb{R}\rightarrow \mathbb{R}$ es el coeficiente de los saltos,
+-   $\{W(t)\}_{t\geq 0}$ es un movimiento browniano estándar,
+-   $\{N(t)\}_{t\geq 0}$ es un proceso de Poisson con intensidad $\lambda >0$,
 
-definidos sobre un espacio de probabilidad filtrado $(\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})$.
+definidos sobre un espacio de probabilidad filtrado $(\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})$. La solución de esta ecuación se aproximará mediante una discretización temporal con paso constante $\Delta t>0$, generando una sucesión $Y_n$ que aproxima los valores de la solución exacta $X(t)$ en los puntos de la malla $t_n=n\Delta t$.
 
-Para facilitar el manejo de los saltos, introducimos el proceso de Poisson compensado dado por 
+Para facilitar el manejo de los saltos, introducimos el proceso de Poisson compensado dado por
 
 $$
   \widetilde{N}(t):=N(t)-\lambda t,\quad t\geq 0.
 $$
 
-Sabemos que dicho proceso es una martingala tal que satisface 
+Sabemos que dicho proceso es una martingala tal que satisface
 
-- $\mathbb{E}[\widetilde{N}(t)]=0$, 
-- $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$, 
--  Los incremenntos dados por $\Delta \widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)$ son independientes, con media cero y varianza $\lambda \Delta t$. 
+-   $\mathbb{E}[\widetilde{N}(t)]=0$,
+-   $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$.
 
-Así, usando la compensación la @eq-601 queda de la forma
+Así, usando la compensación, la @eq-601 queda de la forma
 
 $$
   dX(t) = f_{\lambda}(X(t-))dt+g(X(t-))dW(t)+h(X(t-))d\widetilde{N}(t),
 $$
 
-donde 
+donde
 
 $$
   f_{\lambda}(x):=f(x)+\lambda h(x),\quad x\in \mathbb{R}.
-$$
-
-Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.
-
-Para poder realizar un análisis de la convergencia del método CSS $theta$, es necesario tener condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. Estas condiciones deben ser lo suficientemente restrictivas para permitir el uso de las herramientas del cálculo estocástico y del análisis numérico.
-
-A diferencia de los coeficientes de difusión y salto, que por razones técnicas será necesario suponer globalmente Lipschitz, para $f$ adoptaremos una condición más débil conocida como condición unilateral de Lipschitz. Más concretamente, supondremos que existe una constante $K>0$
-
-$$
-  (x-y)(f(x)-f(y))\leq K|x-y|^2, \quad \forall x,y\in \mathbb{R}.
 $$ {#eq-602}
 
-Nótese que esta condición es significativamente más débil que la condición de Lipschitz global, ya que no requiere una cota uniforme para la diferencia de valores absolutos, sino solo para el producto con la diferencia.
+Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.
+:::
 
-Para los coeficientes de difusión $g$ y de salto $h$, en cambio, impondremos condiciones de Lipschitz global. Es decir, existirán constantes $L_g,L_h>0$, tales que para todo $x,y\in \mathbb{R}$ se cumplen 
+::: {#def-CSS style="text-align: justify"}
+Dado un parámetro $\theta\in[0,1]$, un tamaño de paso $\Delta t>0$ y la condición inicial $Y_0=X_0$, el método $\text{CSS}\theta$ genera las sucesiones $\{Y_n\}_{n\geq 0}$ y $\{Y_n^{*}\}_{n\geq 0}$ mediante el siguiente sistema de ecuaciones en diferencias:
 
 $$
-    |g(x)-g(y)|^2\leq L_g |x-y|^2
+    Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
 $$ {#eq-603}
 
-y 
+$$
+      Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
+$$ {#eq-604}
+
+donde:
+
+-   $\Delta W_n:=W(t_{n+1})-W(t_n)$ es el incremento del movimiento browniano,
+-   $\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)$ es el incremento del proceso de Poisson compensado.
+
+Para analizar la convergencia del método $\text{CSS}\theta$ es necesario imponer condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas.
+:::
+
+::: {#rem-3.1 style="text-align: justify"}
+La primera ecuación es implícita en la variable auxiliar $Y_n^*$, y su resolución requiere resolver una ecuación implícita, más adelante, bajo ciertas hipótesis, se demostrará que dicha ecuación admite una única solución $Y_n^*$. En el caso $\theta=0$, la ecuación se reduce a $Y_n^*=Y_n$, y el método se vuelve explícito. En el caso $\theta>0$, la ecuación es implícita.
+:::
+
+::: {#rem-3.2 style="text-align: justify"}
+La segunda ecuación actualiza la aproximación utilizando el valor intermedio $Y_n^*$ y los incrementos de las fuentes de ruido. Notemos que el método utiliza explicitamente el proceso de Poisson compensado $\widetilde{N}(t)$, lo que constituye su principal diferencia respecto a otros métodos no compensados y le confiere mejores propiedades de estabilidad.
+:::
+
+::: {#def-CSSc style="text-align: justify"}
+Definimos la función $\overline{Y}:[0,T]\rightarrow\mathbb{R}$ de la forma
+
+$$
+  \begin{aligned}
+      \overline{Y} & = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\ 
+      & \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
+  \end{aligned}
+$$ {#eq-605}
+
+De esta definición se sigue que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración y tiene trayectorias continuas, lo que permite aplicar herramientas del cálculo estocástico en tiempo continuo.
+
+Alternativamente, podemos escribir $\overline{Y}(t)$ en forma integral como
+
+$$
+  \begin{aligned}
+    \overline{Y}(t) & = Y_0 +\int_0^t f_{\lambda}(\overline{Y}(s-))ds+\int_0^tg(\overline{Y}(s-))dW(s)\\ 
+    &  \qquad\quad +\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s),
+  \end{aligned}
+$$
+
+donde $\overline{Y}(s-)$ denota el límite por la izquierda, que en nuestro caso coincide con la función escalon definida por $Y(s)=Y_n$ para $s\in [t_n,t_{n+1})$.
+:::
+
+::: {style="text-align: justify"}
+## Hipótesis
+
+Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.
+
+Se asume que los coeficientes $f,g,h:\mathbb{R}\rightarrow\mathbb{R}$ son diferenciables y para todo $x,y\in \mathbb{R}$ se satisfacen las siguientes condiciones:
+
+**Condición unilateral de Lipschitz (Deriva)**:
+
+Existe una constante $K>0$ tal que el coeficiente $f$ satisface
+
+$$
+  (x-y)(f(x)-f(y))\leq K|x-y|^2.
+$$ {#eq-606}
+
+**Condición global de Lipschitz (Difusión)**:
+
+Existe una constante $L_g>0$ tal que el coeficiente de difusión $g$ cumple 
+
+$$
+    |g(x)-g(y)|^2\leq L_g |x-y|^2.
+$$ {#eq-607}
+
+**Condición global de Lipschitz (Salto)**:
+
+Existe una constante $L_h>0$ tal que el coeficiente de salto $h$ verifica
 
 $$
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
-$$ {#eq-604}
+$$ {#eq-608}
 
-Adicionalmente, supondremos que los momentos iniciales están acotados, es decir, $\mathbb{E}[|X_0|^p]<\infty$ para todo $p\geq 1$. 
+**Acotamiento del momento incial**: Supondremos que los momentos iniciales están acotados, es decir, para todo $p\geq 1$
 
-A partir de estas hipótesis fundamentales, se pueden derivar varias propiedades que serán de utilidad en el análisis posterior. En particular, el coeficiente compensado $f_{\lambda}(x)=f(x)\lambda h(x)$ hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple 
+$$
+\mathbb{E}[|X_0|^p]<\infty.
+$$ {#eq-609}
+
+**Condición de crecimiento polinomial para el coeficiente de deriva**:
+
+Supondremos que existen constantes $D>0$ y $q\in\mathbb{Z}^+$ tales que para todo $a,b\in \mathbb{R}$,
+
+$$
+  |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
+$$ {#eq-610}
+:::
+
+::: {style="text-align: justify"}
+## Resultados Previos
+
+A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-602, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
 
 $$
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
+$$ {#eq-611}
+
+En efecto, consideremos la @eq-602 y las hipótesis dadas por @eq-606 y @eq-608. Notemos que
+
+$$
+    (h(x)-h(y))\leq |h(x)-h(y)|\leq \sqrt{L_h}|x-y|, \qquad \forall x,y\in \mathbb{R}.
 $$
 
-Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito está bien definido. 
+Por tanto
+
+$$
+  \begin{aligned}
+    (x-y) & (f_{\lambda}(x)-f_{\lambda}(y)) \\ 
+    & = (x-y)((f(x)+\lambda h(x))-(f(y)+\lambda h(y)))\\ 
+    & = (x-y)(f(x)-f(y)+\lambda(h(x)-h(y)))\\ 
+    & = (x-y)(f(x)-f(y))+(x-y)(\lambda(h(x)-h(y)))\\ 
+    & \leq K|x-y|^2+\lambda (x-y)(h(x)-h(y))\\ 
+    & \leq K|x-y|^2+\lambda (x-y)|x-y|\sqrt{L_h}\\ 
+    & \leq K|x-y|^2+\lambda \sqrt{L_h}|x-y|^2\\ 
+    & = (K+\lambda \sqrt{L_h})|x-y|^2= K_{\lambda}|x-y|^2.
+  \end{aligned}
+$$
+
+Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la @eq-603 está bien definido.
+
+Otras propiedades importantes que podemos obtener usando las hipótesis anteriores, es acotar $xf(x)$ para toda $x\in \mathbb{R}$. Notemos que podemos expresar $f(x)$ de la forma $f(x)=f(x)-f(0)+f(0)$. Entonces
+
+$$
+  xf(x)= x[f(x)-f(0)]+xf(0).
+$$
+
+Por tanto, tomando $y=0$ y aplicando la hipótesis dada por @eq-606 obtenemos
+
+$$
+  (x-0)(f(x)-f(0))\leq K|x-0|^2,
+$$
+
+es decir,
+
+$$
+  x(f(x)-f(0))\leq K|x|^2.
+$$
+
+Para el término $xf(0)$, podemos aplicar la desigualdad de Young, la cuál afirma que para $a,b\in \mathbb{R}$ se cumple
+
+$$
+  ab\leq \frac{1}{2}a^2+\frac{1}{2}b^2.
+$$
+
+Así tomando $a=x$, $b=f(0)$, tenemos
+
+$$
+  xf(0)\leq \frac{1}{2}|x|^2+\frac{1}{2}|f(0)|^2.
+$$
+
+Sustituyendo ambos resultados, podemos afirmar que
+
+$$
+  \begin{aligned}
+    xf(x) & =x(f(x)-f(0))+xf(0)\\ 
+    & \leq K|x|^2+\frac{1}{2}|x|^2+\frac{1}{2}|f(0)|^2\\ 
+    & \leq\left(K+\frac{1}{2}\right)|x|^2+\frac{1}{2}|f(0)|^2, \quad\forall x\in \mathbb{R}.
+  \end{aligned}
+$$
+
+De manera similar, podemos expresar a $g(x)$ de la forma $g(x)-g(0)+g(0)$, de aquí
+
+$$
+  \begin{aligned}
+    |g(x)| & = |g(x)-g(0)+g(0)|\\ 
+    & \leq |g(x)-g(0)|+|g(0)|.
+  \end{aligned}
+$$
+
+Consideramos la desigualdad $(a+b)^2\leq 2(a^2+b^2)$, tenemos
+
+$$
+  \begin{aligned}
+    |g(x)|^2 & \leq (|g(x)-g(0)|+|g(0)|)^2\\ 
+    & \leq 2(|g(x)-g(0)|^2+|g(0)|^2).
+  \end{aligned}
+$$
+
+Aplicando la @eq-607, tomando a $y=0$, tenemos que
+
+$$
+  \begin{aligned}
+    |g(x)|^2 & \leq 2(|g(x)-g(0)|^2+|g(0)|^2)\\ 
+    & \leq 2(L_g|x-0|^2+|g(0)|^2)\\ 
+    & = 2L_g|x|^2+2|g(0)|^2,
+  \end{aligned}
+$$
+
+Por lo tanto, para toda $x\in \mathbb{R}$
+
+$$
+  |g(x)|^2\leq 2L_g|x|^2+2|g(0)|^2.
+$$ {#eq-612}
+
+De manera similar es posible afirmar que también se tiene la cota
+
+$$
+  |h(x)|^2\leq 2L_h|x|^2+2|h(0)|^2,
+$$ {#eq-613}
+
+para todo $x\in \mathbb{R}$.
+
+Combinando @eq-611, @eq-612 y @eq-613 podemos encontrar una variable $L>0$ tal que
+
+$$
+  \max\{xf(x),|g(x)|^2,|h(x)|^2\}\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
+$$ {#eq-614}
+
+donde la constante $L$ podemos tomarla explicitamente como
+
+$$
+  L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
+$$
+
+Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la @eq-602, es necesario tener una estimación análoga para $f_{\lambda}$. Para ello recordemos que satisface la condición de Lipschitz con constante
+
+$$
+  K_{\lambda}=K+\lambda\sqrt{L_h}
+$$
+
+es decir, $f_{\lambda}$ cumple
+
+$$
+  (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2, \quad\forall x\in\mathbb{R}.
+$$ {#eq-615}
+
+Contemplando dicha condición y siguiendo el mismo procedimiento previo, podemos afirmar que existe una constante $L_{\lambda}>0$ tal que
+
+$$
+  \max\{xf_{\lambda}(x),|g(x)|^2,|h(x)|^2\}\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
+$$ {#eq-616}
+
+La expresión explícita para esta constante, viene dada por
+
+$$
+  L_{\lambda}=\max\left\{K_{\lambda}+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f_{\lambda}(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
+$$
 :::
 
-
-
 ::: {#lem-6.1 style="text-align: justify"}
-
-Bajo la condición de unilateral de Lipchitz dada por la @eq-602, sea $\theta\in [0,1]$
-y $\Delta t>0$ tal que $\theta\Delta tK_{\lambda}<1$. Entonces, para cada $Y_n\in \mathbb{R}$ dado, la condición explicita 
+Por la condición de unilateral de Lipchitz dada por la @eq-606, sea $\theta\in [0,1]$ y $\Delta t>0$ tal que $\theta\Delta tK_{\lambda}<1$. Entonces, para cada $Y_n\in \mathbb{R}$ dado, la condición explicita
 
 $$
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
@@ -103,20 +319,876 @@ admite una única solución $Y_n^{*}\in \mathbb{R}$.
 
 :::
 
+
+::: {.proof style="text-align: justify"}
+
+Definimos la función $G:\mathbb{R}\rightarrow \mathbb{R}$ como
+
+$$
+  G(y):=y-\theta\Delta tf_{\lambda}(y).
+$$
+
+Con esta definición, la @eq-603 puede escribirse de la forma 
+
+$$
+  G(Y_n^*)=Y_n.
+$$
+
+Por tanto, demostrar la existencia y unicidad de $Y_n^*$ equivale a probar que la ecuación $G(y)=Y_n$ tiene una solución única para cualquier $Y_n$. 
+
+Sea $x,y\in \mathbb{R}$ con $x\neq y$. Consideremos la diferencia $G(x)-G(y)$
+
+$$
+  \begin{aligned}
+    G(x)-G(y) & =x-\theta\Delta tf_{\lambda}(x)-(y-\theta\Delta tf_{\lambda}(y))\\ 
+    & = (x-y)-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y)).
+  \end{aligned}
+$$
+
+Multiplicando ambos lados por $(x-y)$
+
+$$
+  (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
+$$
+
+Así, aplicando la condición de Lipschitz dada por la @eq-611 para $f_{\lambda}$
+
+$$
+  (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
+$$
+
+Sustituyendo esta cota en la expresión anterior
+
+$$
+  \begin{aligned}
+    (G(x)-G(y))(x-y) & \geq (x-y)^2-\theta\Delta t K_{\lambda}(x-y)^2\\ 
+    & = (1-\theta\Delta tK_{\lambda})(x-y)^2.
+  \end{aligned}
+$$
+
+Bajo las hipótesis $\theta\Delta tK_{\lambda}<1$, definimos $c:=1-\theta\Delta tK_{\lambda}>0$. Entonces 
+
+$$
+    (G(x)-G(y))(x-y)\geq c(x-y)^2>0, \quad \forall x\neq y.
+$$
+
+Notemos que si $G(x)-G(y)<0$ entonces $x-y<0$, o bien, si $G(x)-G(y)>0$ entonces $x-y>0$. Si $x-y<0$ esto implica que $x<y$ y $G(x)<G(y)$ y viceversa para el caso $x-y>0$. Por tanto, podemos afirmar que $G$ es estrictamente creciente en $\mathbb{R}$. Así, queda demostrado que $G$ es inyectiva. 
+
+Notemos que por la definición de $f_{\lambda}$, es una composición de funciones continuas, por tanto $f_{\lambda}\in C^1(\mathbb{R})$, así la función $G$ es continua en $\mathbb{R}$ como combinación lineal de funciones continuas.
+
+Considerando la @eq-616, sabemos que existe una constante $L_{\lambda}>0$ tal que 
+
+$$
+  |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
+$$
+
+Sin embargo, por ser $G$ estrictamente creciente, tenemos 
+
+$$
+  (G(x)-G(0))x\geq cx^2, 
+$$
+
+tenemos para $x>0$
+
+$$
+  G(x)\geq G(0)+cx,
+$$
+
+y para $x<0$
+
+$$
+  G(x)\leq G(0)+cx. 
+$$
+
+Por lo tanto 
+
+$$
+  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty,\quad \lim\limits_{x\rightarrow-\infty}G(x)=-\infty.
+$$
+
+Sea $Y_n\in \mathbb{R}$ arbitrario. Sabemos que $G$ es continua en $\mathbb{R}$, además 
+
+$$
+  \lim\limits_{x\rightarrow -\infty}G(x)=-\infty <Y_n,
+$$
+
+y 
+
+$$
+  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty>Y_n.
+$$
+
+Así, existe $R>0$ tal que $G(-R)<Y_n<G(R)$. Por el Teorema del Valor Intermedio, podemos afirmar que existe un punto $Y_n^*\in (-R,R)$ tal que $G(Y_n^*)=Y_n$. Por lo tanto $G$ es suprayectivo.
+
+Al ser $G$ inyectivo y supreyectivo, se afirma que $G$ es biyectivo y la ecuación implícita  
+
+$$
+  Y_n^*=Y_n+\theta\Delta tf_{\lambda}(Y_n^*)
+$$
+
+admite una única solución $Y_n^*\in \mathbb{R}$ para cualquier $Y_n$.
+:::
+
 ::: {#lem-6.2 style="text-align: justify"}
 
-Bajo la condición de unilateral de Lipchitz dada por la @eq-602, sea $\theta\in [0,1]$. Supongamos que $\Delta t>0$ satisface
+Bajo la hipótesis dada por la @eq-606, sea $\theta\in [0,1]$. Supongamos que $\Delta t>0$ satisface
 
 $$
   0<\Delta t<\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 $$
 
-Entonces, para todo $p\geq 1$, existe una constante positiva 
+Entonces, para todo $p\geq 1$, existe una constante positiva
 
 $$
-    A=A(p,T,\Lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
+    A=A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
 $$
 
-independiente de $\Delta t$ y de $N_T$, tal que 
+independiente de $\Delta t$ y de $N_T$, tal que
 
+$$
+  \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
+$$
+
+donde $Y_n$ y $Y_n^*$ son las sucesiones generadas por el método $\text{CSS}\theta$ mediante la @eq-603 y @eq-604.
+:::
+
+::: {.proof style="text-align: justify"}
+Sea $M$ un entero positivo tal que $n\Delta t \leq M\Delta t\leq T$. Veamos la relación entre $Y_n^*$ y $Y_n$ a partir de la @eq-603 que define la variable auxiliar, $Y_n^*$. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que
+
+$$
+  |Y_n^*|^2=|Y_n|^2+2\theta\Delta tY_nf_{\lambda}(Y_n^*)+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2.
+$$ {#eq-617}
+
+De la misma @eq-603 podemos expresar $Y_n$ en términos $Y_n^*$ de la forma
+
+$$
+  Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
+$$
+
+Así, sustituyendo esta expresión en el producto de la @eq-617, obtenemos
+
+$$
+  \begin{aligned}
+    Y_nf_{\lambda}(Y_n^*) & = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*)\\ 
+    & = Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2.
+  \end{aligned}
+$$ {#eq-618}
+
+Sustituyendo la @eq-618 en @eq-617
+
+$$
+  \begin{aligned}
+      |Y_n^*|^2 & = |Y_n|^2+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2 \\ 
+      & \qquad +2\theta\Delta t(Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2)\\ 
+      & = |Y_n|^2+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\\ 
+      & \qquad +2\theta\Delta tY_n^*f_{\lambda}(Y_n^*)-2\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\\ 
+      & = |Y_n|^2-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).\\  
+  \end{aligned}
+$$
+
+Es claro que el término $-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2$ es negativo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad
+
+$$
+  |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
+$$ {#eq-619}
+
+De aquí, utilizando la condición de crecimiento lineal para $f_\lambda$ dada por la @eq-616, establece que existe una constante $L_{\lambda}>0$ tal que, para todo $x\in \mathbb{R}$,
+
+$$
+  xf_{\lambda}(x)\leq L_{\lambda}(1+|x|^2).
+$$
+
+Aplicando esta desigualdad con $x=Y_n^*$, obtenemos
+
+$$
+  Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
+$$
+
+Sustituyendo esta cota en @eq-619, llegamos a
+
+$$
+  |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2).
+$$ {#eq-620}
+
+Al despejar y factorizar el término $Y_n^*$ a partir de la ecuación anterior, tenemos
+
+$$
+  \begin{aligned}
+     |Y_n^*|^2-2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2)&\leq |Y_n|^2\\ 
+     |Y_n^*|^2- 2\theta\Delta tL_{\lambda}-2\theta\Delta tL_{\lambda}|Y_n^*|^2&\leq |Y_n|^2\\ 
+     |Y_n^*|^2-2\theta\Delta tL_{\lambda}|Y_n^*|^2&\leq |Y_n|^2+2\theta\Delta tL_{\lambda}\\ 
+     |Y_n^*|^2(1-2\theta\Delta tL_{\lambda})&\leq |Y_n|^2+2\theta\Delta tL_{\lambda}. 
+  \end{aligned}
+$$
+
+Por hipótesis, establecimos que 
+
+$$
+  0<\Delta t< \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
+$$
+
+En particular $\Delta t<\frac{1}{2\theta L_{\lambda}}$, esto implica que $2\theta\Delta tL_{\lambda}<1$, por lo tanto $1-2\theta\Delta tL_{\lambda}>0$. Por tanto, es posible dividir y conservar la desigualdad, es decir
+
+$$
+  |Y_n^*|^2\leq \frac{1}{1-2\theta\Delta t L_{\lambda}} |Y_n|^2+\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}.
+$$ {#eq-621}
+
+Para facilitar la notación, definimos las siguientes constantes
+
+$$
+  \alpha:=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}},\qquad \beta:=1+\alpha=\frac{1}{1-2\theta\Delta t L_{\lambda}}.
+$$
+
+Por lo que la @eq-621 queda de la forma
+
+$$
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha.
+$$ {#eq-622}
+
+Utilizando la @eq-604, elevando al cuadrado y desarrollando tenemos
+
+$$
+  \begin{aligned}
+    |Y_{n+1}|^2 & = |Y_n|^2+|f_{\lambda}(Y_n^*)\Delta t|^2+|g(Y_n^*)\Delta W_n|^2\\ 
+    & \quad +|h(Y_n^*)\Delta\widetilde{N}_n|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t\\
+    & \quad +2Y_ng(Y_n^*)\Delta W_n+2Y_nh(Y_n^*)\Delta \widetilde{N}_n\\  
+    & \quad +2f_{\lambda}(Y_n^*)\Delta tg(Y_n^*)\Delta W_n\\
+    & \quad +2f_{\lambda}(Y_n^*)\Delta th(Y_n^*)\Delta\widetilde{N}_n\\
+    & \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
+  \end{aligned}
+$$ {#eq-623}
+
+De la ecuación implícita dada por @eq-603, es posible despejar $Y_n$ de la forma 
+
+$$
+  Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*),
+$$ {#eq-624}
+
+más aún, podemos obtener una expresión para $f_{\lambda}(Y_n^*)\Delta t$ mediante 
+
+$$
+  f_{\lambda}(Y_n^*)\Delta t=\frac{Y_n^*-Y_n}{\theta}.
+$$ {#eq-625}
+
+A partir de @eq-624, calculamos 
+
+$$
+  \begin{aligned}
+    Y_nf_{\lambda}(Y_n^*) & = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*).
+  \end{aligned}
+$$
+
+Multiplicando por $2\Delta t$, 
+
+$$
+  2Y_nf_{\lambda}(Y_n^*)\Delta t = 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
+$$
+
+Considerando los términos $|f_{\lambda}(Y_n^*)\Delta t|^2$ y $2Y_nf_{\lambda}(Y_n^*)\Delta t$ de @eq-623, tenemos 
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t & = |f_{\lambda}(Y_n^*)\Delta t|^2\\ 
+    & \quad + 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
+  \end{aligned}
+$$
+
+Agrupando los términos en $|f_{\lambda}(Y_n^*)\Delta t|^2$, 
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t & =2Y_n^*f_{\lambda}(Y_n^*)\Delta t\\ 
+    & \quad +(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2.
+  \end{aligned}
+$$ {#eq-626}
+
+**Caso $\theta\geq \frac{1}{2}$**: Es claro que, para $\displaystyle \theta\geq\frac{1}{2}$ se tiene $1-2\theta\leq 0$. Por lo tanto 
+
+$$
+  (1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2\leq 0.
+$$
+
+De aquí, se puede eliminar dicho término, obteniendo la siguiente desigualdad
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t & =2Y_n^*f_{\lambda}(Y_n^*)\Delta t+(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2\\ 
+    & \leq 2Y_n^*f_{\lambda}(Y_n^*)\Delta t.
+  \end{aligned}
+$$
+
+Luego, usando @eq-616 en la desigualdad anterior
+
+$$
+  2Y_n^*f_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
+$$ {#eq-627}
+
+Consideremos ahora la suma de los siguientes términos de @eq-623
+
+$$
+  2Y_ng(Y_n^*)\Delta W_n+2f_{\lambda}(Y_n^*)\Delta t\, g(Y_n^*)\Delta W_n.
+$$
+
+Sustituyendo @eq-625 para reemplazar $f_{\lambda}(Y_n^*)\Delta t$, 
+
+$$
+  2Y_ng(Y_n^*)\Delta W_n+2\left(\frac{Y_n^*-Y_n}{\theta}\right)\Delta t\, g(Y_n^*)\Delta W_n. 
+$$
+
+Factorizando $2g(Y_n^*)\Delta W_n$
+
+$$
+  2\left[Y_n+\frac{1}{\theta}(Y_n^*-Y_n)\right] g(Y_n^*)\Delta W_n.
+$$
+
+Simplificando el término del corchete
+
+$$
+  Y_n+\frac{1}{\theta}(Y_n^*-Y_n)=\left(1-\frac{1}{\theta}\right)Y_n+\frac{1}{\theta}Y_n^*.
+$$
+
+Por lo tanto 
+
+$$
+  2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n.
+$$ {#eq-628}
+
+De manera identica, para la suma de los términos 
+
+$$
+  2Y_n\, h(Y_n^*)\Delta \widetilde{N}_n+2f_{\lambda}(Y_n^*)\Delta t\, h(Y_n^*)\Delta \widetilde{N}_n.
+$$
+
+Sustituyendo @eq-625, factorizando y simplificando, 
+
+$$
+  2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n.
+$$ {#eq-629}
+
+Sustituyendo @eq-627, @eq-628 y @eq-629 en @eq-623, tenemos,
+
+$$
+  \begin{aligned}
+    |Y_{n+1}|^2 & \leq |Y_n|^2+ 2L_{\lambda}\Delta t(1+|Y_n^*|^2)\\
+    & \quad +|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\  
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\ 
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n\\ 
+    & \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
+    & \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n. 
+  \end{aligned}
+$$ {#eq-630}
+
+Por @eq-622 podemos acotar el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ de la forma 
+
+$$
+  \begin{aligned}
+    2L_{\lambda}\Delta t(1+|Y_n^*|^2) & = 2L_{\lambda}\Delta t +2L_{\lambda}\Delta t |Y_n^*|^2\\ 
+    & \leq 2L_{\lambda}\Delta t +2L_{\lambda}\Delta t(\beta|Y_n|^2+\alpha)\\ 
+    & = 2L_{\lambda}\Delta t+2L_{\lambda}\Delta t\beta|Y_n|^2+2L_{\lambda}\Delta t \alpha\\ 
+    & = 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1).
+  \end{aligned}
+$$
+
+Reemplazando el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ en @eq-630 por la cota anterior 
+
+$$
+  \begin{aligned}
+    |Y_{n+1}|^2 & \leq |Y_n|^2+ 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1)\\
+    & \quad +|g(Y_n^*)\Delta W_n|^2+|h(Y_n^*)\Delta \widetilde{N}_n|^2\\  
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n\\ 
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n\\ 
+    & \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
+    & \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n. 
+  \end{aligned}
+$$ {#eq-631}
+
+Esta desigualdad se cumple para cada índice $j=0,1,2\ldots, n-1$. Definimos, para simplificar, la siguiente notación
+
+$$
+  B_j:= 2\beta L_{\lambda}\Delta t|Y_j|^2+2(\alpha+1)L_{\lambda}\Delta t. 
+$$
+
+y 
+
+$$
+  \begin{aligned}
+    C_j & := |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2\\  
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_j\, g(Y_j^*)\Delta W_j\\ 
+    & \quad +2\left(1-\frac{1}{\theta}\right)Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\\ 
+    & \quad +\frac{2}{\theta}Y_j^*g(Y_j^*)\Delta W_j+\frac{2}{\theta}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\\
+    & \quad +2g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j. 
+  \end{aligned}
+$$
+
+Por tanto, @eq-631 queda de la forma
+
+$$
+  |Y_{n+1}|^2 \leq |Y_n|^2+B_n+C_n.
+$$ {#eq-632}
+
+Sumando @eq-632 desde $0$ hasta $n-1$, 
+
+$$
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2\leq \sum\limits_{j=0}^{n-1} |Y_j|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+$$
+
+Pasando del lado izquierdo el primer sumando
+
+$$
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2-\sum\limits_{j=0}^{n-1} |Y_j|^2\leq +\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+$$
+
+Notemos que del lado izquierdo de la  desigualdad se trata de una suma telescópica, es decir,
+
+$$
+  \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2-\sum\limits_{j=0}^{n-1} |Y_j|^2 = |Y_n|^2-|Y_0|^2.
+$$
+
+Por lo tanto 
+
+$$
+  |Y_{n}|^2\leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
+$$ {#eq-633}
+
+Recordemos que los puntos en la malla están definidos por $t_n=n\Delta t$, además se tiene que $t_n\leq T$, por lo que $n\Delta t\leq T$. Con esto, para el término $B_j$ se tiene 
+
+$$
+  \begin{aligned}
+    \sum\limits_{j=0}^{n-1}B_j & = \sum\limits_{j=0}^{n-1} 2\beta L_{\lambda}\Delta t|Y_j|^2+\sum\limits_{j=0}^{n-1}2(\alpha+1)L_{\lambda}\Delta t\\ 
+    & = 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}\Delta t\cdot n\\ 
+    & \leq 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}T.
+  \end{aligned}
+$$
+
+Expandiendo @eq-633 queda de la forma 
+
+$$
+  \begin{aligned}
+    |Y_{n}|^2 & \leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j\\ 
+    & \leq |Y_0|^2+ 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}T\\ 
+    & \quad +\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^2+\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^2\\  
+    & \quad +2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\, g(Y_j^*)\Delta W_j)\\ 
+    & \quad +2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\,h(Y_j^*)\Delta\widetilde{N}_j)\\ 
+    & \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*g(Y_j^*)\Delta W_j)\\
+    & \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j)\\
+    & \quad +2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j). 
+  \end{aligned} 
+$$ {#eq-634}
+
+Nuevamente, para simplificar, nos apoyaremos de la siguiente notación 
+
+- $T_0:= |Y_0|^2,$
+- $T_1:=2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2,$
+- $T_2:=2(\alpha+1)L_{\lambda}T,$
+- $T_3:=\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^2,$
+- $T_4:=\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^2,$
+- $T_5:=2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\, g(Y_j^*)\Delta W_j),$
+- $T_6:=2\left(1-\frac{1}{\theta}\right)\sum\limits_{j=0}^{n-1}(Y_j\,h(Y_j^*)\Delta\widetilde{N}_j),$
+- $T_7:=\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*g(Y_j^*)\Delta W_j),$
+- $T_8:=\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j),$
+- $T_9:=2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).$
+
+Elevando @eq-634 a la potencia $p\geq 0$ tenemos 
+
+$$
+  \begin{aligned}
+    |Y_n|^{2p} & \leq (T_0+T_1+T_2+T_3+T_4\\ 
+    & \qquad +T_5+T_6+T_7+T_8+T_9)^p.
+  \end{aligned}
+$$ {#eq-635}
+
+Consideremos la siguiente desigualdad elemental (citar) para numeros reales $(a_1,a_2,\ldots,a_m)$,
+
+$$
+  \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
+$$
+
+Aplicando dicha desigualdad a @eq-635, donde $m=10$, tenemos
+
+$$
+  \begin{aligned}
+    |Y_n|^{2p} & \leq 10^{p-1}(|T_0|^p+|T_1|^p+ |T_2|^p+|T_3|^p+|T_4|^p\\ 
+    & \quad +|T_5|^p+|T_6|^p+|T_7|^p+|T_8|^p+|T_9|^p).
+  \end{aligned}
+$$
+
+Para $|T_0|^p$ no es posible encontrar una cota. Luego para $T_1$, notemos primero 
+
+$$
+  T_1^p=(2\beta L_{\lambda}\Delta t)^p\left(\sum\limits_{j=0}^{n-1}|Y_j|^2\right)^p.
+$$
+
+Para acotar este término podemos usar la desigualdad de la potencia de una suma (enunciar en preliminares y citar), la cuál indica 
+
+$$
+  \left(\sum\limits_{j=0}^{n-1}a_j\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p, \qquad a_j\geq 0.
+$$  
+
+Tomando $a_j=|Y_j|^2$, obtenemos
+
+$$
+  \left(\sum\limits_{j=0}^{n-1}|Y_j|^{2}\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|Y_j|^{2p}.
+$$
+
+Por lo tanto
+
+$$
+  T_1^p \leq n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}|Y_j|^{2p}.
+$$
+
+Para $T_2$, al ser una constante, tenemos que $|T_2|^p=(2(\alpha+1)L_{\lambda}T)^p$. Para $T_3$ y  $T_4$ aplicamos la misma desigualdad que se usa para $T_1$, de aquí para $T_3$
+
+$$
+  T_3^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^{2p}.
+$$
+
+Análogamente para $T_4$,
+
+$$
+  T_4^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}.
+$$
+
+Para los términos restantes, dado que son sumas de martingalas, estás pueden tomar valores tannto negativos como positivos. Por tanto, para poder obtener una cota superior, vamos a utilizar valores absolutos, además notemos que para $\theta\in (0,1]$ se cumple $\displaystyle\left|1-\frac{1}{\theta}\right|=\frac{1}{\theta}-1$. Por tanto 
+
+$$
+  |T_5|^p=2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p.
+$$
+
+De manera identica para el término $T_6$, se tiene 
+
+$$
+  |T_6|^p=2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+$$
+
+Para $T_7$ tomando valor absoluto y elevando a la potencia $p$,
+
+$$  
+  |T_7|^p = \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,g(Y_j^*)\Delta W_j\right|^p.
+$$
+
+De igual forma para $T_8$, 
+
+$$
+  |T_8|^p = \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+$$
+
+Para $T_9$ se tiene 
+
+$$
+  |T_9|^p= 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p.
+$$
+
+Sustituyendo todas las expresiones obtenidas en cada paso anterior, se obtiene 
+
+$$
+  \begin{aligned}
+    |Y_n|^{2p} & \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+ n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\\ 
+    & \quad +(2(\alpha+1)L_{\lambda}T)^p + n^{p-1}\sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^{2p}\\ 
+    & \quad + n^{p-1}\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}\\ 
+    & \quad + 2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p\\ 
+    & \quad + 2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,g(Y_j^*)\Delta W_j\right|^p\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\ 
+    & \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
+  \end{aligned}
+$$ {#eq-636}
+
+Considerando la propieda elemental 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\Bigg)\Bigg]=\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+$$ {#eq-6365}
+
+Definimos la notación
+
+$$
+  r:=\frac{1}{\theta}-1.
+$$
+
+Entonces, para $0\leq M \leq N_t$, aplicando supremo y sacando valor esperado a @eq-636, tenemos
+
+$$
+  \begin{aligned}
+    \mathbb{E}[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})] & \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p \\ 
+    &\quad + n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_j|^{2p})\Bigg]\\ 
+    & \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\ 
+    & \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta \widetilde{N}_j|^{2p})\Bigg]\\ 
+    & \quad + 2^p r^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p\Bigg]\\ 
+    & \quad + 2^p r^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j^*\,g(Y_j^*)\Delta W_j\right|^p\Bigg]\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\\ 
+    & \quad + 2^p \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\Bigg\}.
+  \end{aligned}
+$$ {#eq-637}
+
+Usando @eq-6365 tenemos
+
+$$
+  n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg] =n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}].
+$$
+
+Tenemos que $Y_n^*\in \mathbfcal{F}_{t_n}$, esto significa que el valor depende exclusivamente de la información hasta el tiempo $t_n$. Ahora bien, el incremento browniano denotado por $\Delta W_n=W(t_{n+1})-W(t_n)$ es independiente de $\mathbfcal{F}_{t_n}$, con esto, podemos aplicar la propiedad de independencia en la esperanza, además  
+
+$$
+   n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]= n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
+$$ {#eq-6375}
+
+Vamos a estudiar $\mathbb{E}[\Delta W_n^{2p}]$, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, $\Delta W_j \sim \mathbfcal{N}(0,\Delta t)$, así afirmamos que tiene media $0$ y varianza $\Delta t$. Por tanto
+
+$$
+  \Delta W_j \overset{\text{d}}{=} \sqrt{\Delta t}\cdot Z,
+$$
+
+donde $Z\sim \mathbfcal{N}(0,1)$ es una variable aleatoria estándar. Utilizando la igualdad anterior, tenemos 
+
+$$
+  \begin{aligned}
+      \mathbb{E}\left[|\Delta W_j|^{2p}\right] & = \mathbb{E}\left[\left(\sqrt{\Delta t}\cdot Z\right)^{2p}\right]\\ 
+      & = \mathbb{E}[(\Delta t)^p\cdot |Z|^{2p}]\\ 
+      & = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\ 
+      & = \Delta t^p\cdot \mathbb{E}[|Z|^{2p}].
+  \end{aligned}
+$$ {#eq-638}
+
+
+Al ser una potencia par, podemos afirmar $\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]$. Vamos a demostrar que se cumple
+
+$$
+  \mathbb{E}[Z^{2p}]=(2p-1)!!
+$$
+
+Procedicendo por inducción, para nuestro caso base, para $p=1$ es claro que $\mathbb{E}[Z^2]=Var(Z)=1$. Por definición, se tiene que $(2\cdot 1-1)!!=1!!=1$. Por lo tanto, la igualdad se cumple para $p=1$, 
+
+$$
+  \mathbb{E}[Z^2]=1=(2\cdot 1-1)!!
+$$
+
+Supongamos que se cumple para algún entero $p\geq 1$, es decir, la siguiente igualdad es valida
+
+$$
+  \mathbb{E}[Z^{2p}]=(2p-1)!!
+$$ {#eq-639}
+
+Veamos que se cumple ahora para $p+1$, queremos ver que 
+
+$$
+  \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(2p+1)!!
+$$
+
+Por definición, el momento $2(p+1)$ de $Z$ esta dado por 
+
+$$
+  \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2(p+1)} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
+$$
+
+Reescribiendo el integrando
+
+$$
+  \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
+$$
+
+Consideremos las siguientes elecciónes 
+
+- $u=z^{2p+1}$, 
+- $z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz$. 
+
+Esto implica que  
+
+- $du = (2p+1)z^{2p}dz$
+- $v=-\frac{1}{\sqrt{2\pi}}e^{-z^2/2}$
+
+Procediendo a integrar por partes
+
+$$
+  \begin{aligned}
+     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz & = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
+     & \qquad + (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\ 
+     & = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
+     &\qquad+(2p+1)\mathbb{E}[Z^{2p}].
+  \end{aligned}
+$$ {#eq-640}
+
+Vamos a estudiar el término $-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$. Usando la expansión en serie de Taylor de la exponencial, tenemos 
+
+$$
+  e^{z^2/2} = \sum\limits_{k=0}^{\infty} \frac{(z^2/2)^k}{k!}>\frac{(z^2/2)^{p+1}}{(p+1)!}.
+$$
+
+Entonces
+
+$$
+  0<\frac{z^{2p+1}}{e^{z^2/2}}<z^{2p+1}\cdot \frac{(p+1)!}{(z^2/2)^{p+1}}=\frac{2^{p+1}(p+1)!}{z}.
+$$
+
+Tomando límite cuando $z\rightarrow\pm\infty$ se tiene 
+
+$$
+  \lim\limits_{z\rightarrow\pm\infty} \frac{2^{p+1}(p+1)!}{z} = 0.
+$$
+
+Por la ley del Sandwich, se afirma que 
+$$
+  \lim\limits_{z\rightarrow\pm\infty}\left(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\right)\leq \lim\limits_{z\rightarrow\pm\infty}\frac{z^{2p+1}}{e^{z^2/2}}=0.
+$$
+
+Por lo tanto 
+
+$$
+  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
+$$ 
+
+Retomando @eq-640 se tiene 
+
+$$
+  \begin{aligned}
+    \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz & =  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
+    & \qquad +(2p+1)\mathbb{E}[Z^{2p}]\\ 
+    & = (2p+1)\mathbb{E}[Z^{2p}].
+  \end{aligned}
+$$
+
+Usando @eq-639, 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[Z^{2(p+1)}] & =\int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\ 
+    &  = (2p+1)\mathbb{E}[Z^{2p}]\\ 
+    & = (2p+1)(2p-1)!!\\ 
+    & = (2p+1)!!\\ 
+    & = (2(p+1)-1)!!
+  \end{aligned}
+$$
+
+Con esto completamos el paso inductivo y afirmamos que para todo entero $p\geq 0$ se cumple
+
+$$
+  \mathbb{E}[Z^{2p}]=(2p-1)!!
+$$
+
+Definimos entonces la constante $c_p$ de la forma 
+
+$$
+  c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
+$$
+
+Por lo tanto $\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p$. Ahora es posible acotar @eq-6375 de la forma 
+
+$$
+  n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}] = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
+$$ {#eq-641}
+
+Veamos ahora el término $\mathbb{E}[|g(Y_j^*)|^{2p}]$, para esto, elevamos a la potencia $p$ la cota dada por @eq-616, 
+
+$$
+  |g(Y_j^*)|^{2p}\leq L_{\lambda}^p(1+|Y_j^*|^2)^p.
+$$
+
+Esto implica que $\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p$, por @eq-641 tenemos 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] & \mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \quad  = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p\\ 
+    & \quad\leq n^{p-1}\sum\limits_{j=0}^{M-1} L_{\lambda}^pc_p\Delta t^p\mathbb{E}[(1+|Y_j^*|)]^p\\ 
+    & \quad= n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p.
+  \end{aligned}
+$$ {#eq-642}
+
+Sabemos que $n\Delta t\leq T$, esto implica $n^{p-1}\Delta t^{p-1}$, luego 
+
+$$
+  n^{p-1}L_{\lambda}^pc_p\Delta t^p \leq T^{p-1}c_p\Delta tL_{\lambda}^p.
+$$
+
+Recordando que tenemos la cota @eq-622, elevando al la potencia $p$ el término de la suma de @eq-642, tenemos 
+
+$$
+  \mathbb{E}[1+|Y_j^*|^2]^p\leq\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
+$$
+
+Por tanto, de @eq-642, 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] & \mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \leq n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p\\ 
+    & \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
+  \end{aligned}
+$$ {#eq-643}
+
+Afirmamos que $\beta\geq 1$. Por hipótesis, sabemos que 
+
+$$
+  \Delta t<\frac{1}{2\theta L_{\lambda}}.
+$$
+
+Esto implica que $2\theta\Delta tL_{\lambda}<1$, multiplicando por $-1$ se tiene que $-1<-2\theta\Delta tL_{\lambda}$, de aquí 
+
+$$
+  0<1-2\theta\Delta tL_{\lambda}.
+$$
+
+Por tanto, el inverso multiplicativo del término anterior también es positivo, es decir 
+
+$$
+  \frac{1}{1-2\theta\Delta tL_{\lambda}}>0.
+$$
+
+Sumando ambos lados $1$ y usando la definición de $\beta$ se tiene
+
+$$
+  \beta = 1+\frac{1}{1-2\theta\Delta tL_{\lambda}}>1.
+$$
+
+Usaremos la siguiente desigualdad para $p\geq 1$ y $a,b\geq 0$,
+
+$$
+  (a+b)^p\leq 2^{p-1}(a^p+b^p).
+$$
+
+:::
+
+::: {#lem-6.3 style="text-align: justify"}
+Considerando la @eq-606, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
+
+$$
+  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
+$$
+
+
+Entonces para todo $p\geq 1$, existe una constante positiva
+
+$$
+  A_1 = A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
+$$
+
+independiente de $\Delta t$ y $N_T$, tal que
+
+$$
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
+$$
+
+donde $X(t)$ es la solución exacta de la @eq-601 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-605.
+:::
+
+::: {#lem-6.4 style="text-align: justify"}
+Usando las hipótesis dada por @eq-606 y @eq-610, sea $0\leq\theta\leq 1$ y supongamos que $\Delta t$ satisface
+
+$$
+  0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
+$$
+
+Entonces, para todo $r\geq 2$, existe una constante positiva
+
+$$  
+  E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
+$$
+
+independiente de $\Delta t$, tal que
+
+$$
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
+$$
+
+donde $Y(t)$ es la función escalón definida por (checar) y $\overline{Y}(t)$ es la extensión continua definida en...
 :::

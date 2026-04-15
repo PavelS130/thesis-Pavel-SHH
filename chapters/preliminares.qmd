@@ -32,27 +32,21 @@ Un espacio métrico $(X, d)$ se dice completo si toda sucesión de Cauchy en $X$
 
 ::: {style="text-align: justify"}
 El espacio $\mathbb{R}$ con la métrica $d(x, y) = |x - y|$ es completo.
-
 :::
-
 
 ::: {#def-sigma_algebra .definition}
 $\sigma$-álgebra de Borel.\
 La $\sigma$-álgebra de Borel en $\mathbb{R}$, denotada $\mathcal{B}(\mathbb{R})$, es la $\sigma$-álgebra generada por los intervalos abiertos de $\mathbb{R}$.
-
 :::
-
 
 ::: {#def-fun_borel .definition}
 **Función Borel Medible**\
 Una función $f: \mathbb{R} \to \mathbb{R}$ es Borel-medible si para todo $B \in \mathcal{B}(\mathbb{R})$, se tiene que $f^{-1}(B) \in \mathcal{B}(\mathbb{R})$.
 :::
 
-
 ::: {#thm-}
 Toda función continua $f: \mathbb{R}\to \mathbb{R}$ es Borel-medible.
 :::
-
 
 ::: proof
 Si $f$ es continua, la preimagen de cualquier conjunto abierto es abierta. Como los abiertos generan $\mathcal{B}(\mathbb{R})$ y la preimagen conmuta con uniones, intersecciones numerables y complementos, se sigue que $f^{-1}(B) \in \mathcal{B}(\mathbb{R})$ para todo $B \in \mathcal{B}(\mathbb{R})$.
