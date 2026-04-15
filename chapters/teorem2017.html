@@ -1136,7 +1136,7 @@ window.Quarto = {
 \tag{6.41}\]</span></span></p>
 <p>Veamos que se cumple ahora para <span class="math inline">\(p+1\)</span>, queremos ver que</p>
 <p><span class="math display">\[
-  \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(29+1)!!
+  \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(2p+1)!!
 \]</span></p>
 <p>Por definición, el momento <span class="math inline">\(2(p+1)\)</span> de <span class="math inline">\(Z\)</span> esta dado por</p>
 <p><span class="math display">\[
@@ -1214,7 +1214,7 @@ window.Quarto = {
 <p><span id="eq-641"><span class="math display">\[
   n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}] = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
 \tag{6.43}\]</span></span></p>
-<p>Veamos ahora el término <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\)</span>, para ello, elevamos a la potencia <span class="math inline">\(p\)</span> lla cota dada por <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>,</p>
+<p>Veamos ahora el término <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\)</span>, para esto, elevamos a la potencia <span class="math inline">\(p\)</span> la cota dada por <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>,</p>
 <p><span class="math display">\[
   |g(Y_j^*)|^{2p}\leq L_{\lambda}^p(1+|Y_j^*|^2)^p.
 \]</span></p>
@@ -1243,6 +1243,26 @@ window.Quarto = {
     &amp; \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
   \end{aligned}
 \tag{6.45}\]</span></span></p>
+<p>Afirmamos que <span class="math inline">\(\beta\geq 1\)</span>. Por hipótesis, sabemos que</p>
+<p><span class="math display">\[
+  \Delta t&lt;\frac{1}{2\theta L_{\lambda}}.
+\]</span></p>
+<p>Esto implica que <span class="math inline">\(2\theta\Delta tL_{\lambda}&lt;1\)</span>, multiplicando por <span class="math inline">\(-1\)</span> se tiene que <span class="math inline">\(-1&lt;-2\theta\Delta tL_{\lambda}\)</span>, de aquí</p>
+<p><span class="math display">\[
+  0&lt;1-2\theta\Delta tL_{\lambda}.
+\]</span></p>
+<p>Por tanto, el inverso multiplicativo del término anterior también es positivo, es decir</p>
+<p><span class="math display">\[
+  \frac{1}{1-2\theta\Delta tL_{\lambda}}&gt;0.
+\]</span></p>
+<p>Sumando ambos lados <span class="math inline">\(1\)</span> y usando la definición de <span class="math inline">\(\beta\)</span> se tiene</p>
+<p><span class="math display">\[
+  \beta = 1+\frac{1}{1-2\theta\Delta tL_{\lambda}}&gt;1.
+\]</span></p>
+<p>Usaremos la siguiente desigualdad para <span class="math inline">\(p\geq 1\)</span> y <span class="math inline">\(a,b\geq 0\)</span>,</p>
+<p><span class="math display">\[
+  (a+b)^p\leq 2^{p-1}(a^p+b^p).
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
