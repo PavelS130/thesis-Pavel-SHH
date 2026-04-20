@@ -882,10 +882,10 @@ window.Quarto = {
   2Y_ng(Y_n^*)\Delta W_n+2f_{\lambda}(Y_n^*)\Delta t\, g(Y_n^*)\Delta W_n.
 \]</span></p>
 <p>Sustituyendo <a href="#eq-625" class="quarto-xref">Ecuación&nbsp;<span>6.25</span></a> para reemplazar <span class="math inline">\(f_{\lambda}(Y_n^*)\Delta t\)</span>,</p>
-<p><span class="math display">\[
+<p><span id="eq-6275"><span class="math display">\[
   2Y_ng(Y_n^*)\Delta W_n+2\left(\frac{Y_n^*-Y_n}{\theta}\right)\Delta t\, g(Y_n^*)\Delta W_n.
-\]</span></p>
-<p>Factorizando <span class="math inline">\(2g(Y_n^*)\Delta W_n\)</span></p>
+\tag{6.28}\]</span></span></p>
+<p>Factorizando <span class="math inline">\(2g(Y_n^*)\Delta W_n\)</span> de la ecuación anterior,</p>
 <p><span class="math display">\[
   2\left[Y_n+\frac{1}{\theta}(Y_n^*-Y_n)\right] g(Y_n^*)\Delta W_n.
 \]</span></p>
@@ -893,10 +893,10 @@ window.Quarto = {
 <p><span class="math display">\[
   Y_n+\frac{1}{\theta}(Y_n^*-Y_n)=\left(1-\frac{1}{\theta}\right)Y_n+\frac{1}{\theta}Y_n^*.
 \]</span></p>
-<p>Por lo tanto</p>
+<p>Por lo tanto <a href="#eq-6275" class="quarto-xref">Ecuación&nbsp;<span>6.28</span></a> queda de la forma</p>
 <p><span id="eq-628"><span class="math display">\[
   2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n.
-\tag{6.28}\]</span></span></p>
+\tag{6.29}\]</span></span></p>
 <p>De manera identica, para la suma de los términos</p>
 <p><span class="math display">\[
   2Y_n\, h(Y_n^*)\Delta \widetilde{N}_n+2f_{\lambda}(Y_n^*)\Delta t\, h(Y_n^*)\Delta \widetilde{N}_n.
@@ -904,8 +904,8 @@ window.Quarto = {
 <p>Sustituyendo <a href="#eq-625" class="quarto-xref">Ecuación&nbsp;<span>6.25</span></a>, factorizando y simplificando,</p>
 <p><span id="eq-629"><span class="math display">\[
   2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n.
-\tag{6.29}\]</span></span></p>
-<p>Sustituyendo <a href="#eq-627" class="quarto-xref">Ecuación&nbsp;<span>6.27</span></a>, <a href="#eq-628" class="quarto-xref">Ecuación&nbsp;<span>6.28</span></a> y <a href="#eq-629" class="quarto-xref">Ecuación&nbsp;<span>6.29</span></a> en <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos,</p>
+\tag{6.30}\]</span></span></p>
+<p>Sustituyendo <a href="#eq-627" class="quarto-xref">Ecuación&nbsp;<span>6.27</span></a>, <a href="#eq-628" class="quarto-xref">Ecuación&nbsp;<span>6.29</span></a> y <a href="#eq-629" class="quarto-xref">Ecuación&nbsp;<span>6.30</span></a> en <a href="#eq-623" class="quarto-xref">Ecuación&nbsp;<span>6.23</span></a>, tenemos,</p>
 <p><span id="eq-630"><span class="math display">\[
   \begin{aligned}
     |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ 2L_{\lambda}\Delta t(1+|Y_n^*|^2)\\
@@ -915,7 +915,7 @@ window.Quarto = {
     &amp; \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
-\tag{6.30}\]</span></span></p>
+\tag{6.31}\]</span></span></p>
 <p>Por <a href="#eq-622" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a> podemos acotar el término <span class="math inline">\(2L_{\lambda}\Delta t(1+|Y_n^*|^2)\)</span> de la forma</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -925,7 +925,7 @@ window.Quarto = {
     &amp; = 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1).
   \end{aligned}
 \]</span></p>
-<p>Reemplazando el término <span class="math inline">\(2L_{\lambda}\Delta t(1+|Y_n^*|^2)\)</span> en <a href="#eq-630" class="quarto-xref">Ecuación&nbsp;<span>6.30</span></a> por la cota anterior</p>
+<p>Reemplazando el término <span class="math inline">\(2L_{\lambda}\Delta t(1+|Y_n^*|^2)\)</span> en <a href="#eq-630" class="quarto-xref">Ecuación&nbsp;<span>6.31</span></a> por la cota anterior</p>
 <p><span id="eq-631"><span class="math display">\[
   \begin{aligned}
     |Y_{n+1}|^2 &amp; \leq |Y_n|^2+ 2\beta L_{\lambda}\Delta t|Y_n|^2+2L_{\lambda}\Delta t(\alpha +1)\\
@@ -935,7 +935,7 @@ window.Quarto = {
     &amp; \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
     &amp; \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
-\tag{6.31}\]</span></span></p>
+\tag{6.32}\]</span></span></p>
 <p>Esta desigualdad se cumple para cada índice <span class="math inline">\(j=0,1,2\ldots, n-1\)</span>. Definimos, para simplificar, la siguiente notación</p>
 <p><span class="math display">\[
   B_j:= 2\beta L_{\lambda}\Delta t|Y_j|^2+2(\alpha+1)L_{\lambda}\Delta t.
@@ -950,11 +950,11 @@ window.Quarto = {
     &amp; \quad +2g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j.
   \end{aligned}
 \]</span></p>
-<p>Por tanto, <a href="#eq-631" class="quarto-xref">Ecuación&nbsp;<span>6.31</span></a> queda de la forma</p>
+<p>Por tanto, <a href="#eq-631" class="quarto-xref">Ecuación&nbsp;<span>6.32</span></a> queda de la forma</p>
 <p><span id="eq-632"><span class="math display">\[
   |Y_{n+1}|^2 \leq |Y_n|^2+B_n+C_n.
-\tag{6.32}\]</span></span></p>
-<p>Sumando <a href="#eq-632" class="quarto-xref">Ecuación&nbsp;<span>6.32</span></a> desde <span class="math inline">\(0\)</span> hasta <span class="math inline">\(n-1\)</span>,</p>
+\tag{6.33}\]</span></span></p>
+<p>Sumando <a href="#eq-632" class="quarto-xref">Ecuación&nbsp;<span>6.33</span></a> desde <span class="math inline">\(0\)</span> hasta <span class="math inline">\(n-1\)</span>,</p>
 <p><span class="math display">\[
   \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2\leq \sum\limits_{j=0}^{n-1} |Y_j|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
 \]</span></p>
@@ -969,7 +969,7 @@ window.Quarto = {
 <p>Por lo tanto</p>
 <p><span id="eq-633"><span class="math display">\[
   |Y_{n}|^2\leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
-\tag{6.33}\]</span></span></p>
+\tag{6.34}\]</span></span></p>
 <p>Recordemos que los puntos en la malla están definidos por <span class="math inline">\(t_n=n\Delta t\)</span>, además se tiene que <span class="math inline">\(t_n\leq T\)</span>, por lo que <span class="math inline">\(n\Delta t\leq T\)</span>. Con esto, para el término <span class="math inline">\(B_j\)</span> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -978,7 +978,7 @@ window.Quarto = {
     &amp; \leq 2\beta L_{\lambda}\Delta t\sum\limits_{j=0}^{n-1} |Y_j|^2+2(\alpha+1)L_{\lambda}T.
   \end{aligned}
 \]</span></p>
-<p>Expandiendo <a href="#eq-633" class="quarto-xref">Ecuación&nbsp;<span>6.33</span></a> queda de la forma</p>
+<p>Expandiendo <a href="#eq-633" class="quarto-xref">Ecuación&nbsp;<span>6.34</span></a> queda de la forma</p>
 <p><span id="eq-634"><span class="math display">\[
   \begin{aligned}
     |Y_{n}|^2 &amp; \leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j\\
@@ -990,7 +990,7 @@ window.Quarto = {
     &amp; \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j)\\
     &amp; \quad +2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).
   \end{aligned}
-\tag{6.34}\]</span></span></p>
+\tag{6.35}\]</span></span></p>
 <p>Nuevamente, para simplificar, nos apoyaremos de la siguiente notación</p>
 <ul>
 <li><span class="math inline">\(T_0:= |Y_0|^2,\)</span></li>
@@ -1004,18 +1004,18 @@ window.Quarto = {
 <li><span class="math inline">\(T_8:=\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j),\)</span></li>
 <li><span class="math inline">\(T_9:=2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).\)</span></li>
 </ul>
-<p>Elevando <a href="#eq-634" class="quarto-xref">Ecuación&nbsp;<span>6.34</span></a> a la potencia <span class="math inline">\(p\geq 0\)</span> tenemos</p>
+<p>Elevando <a href="#eq-634" class="quarto-xref">Ecuación&nbsp;<span>6.35</span></a> a la potencia <span class="math inline">\(p\geq 0\)</span> tenemos</p>
 <p><span id="eq-635"><span class="math display">\[
   \begin{aligned}
     |Y_n|^{2p} &amp; \leq (T_0+T_1+T_2+T_3+T_4\\
     &amp; \qquad +T_5+T_6+T_7+T_8+T_9)^p.
   \end{aligned}
-\tag{6.35}\]</span></span></p>
+\tag{6.36}\]</span></span></p>
 <p>Consideremos la siguiente desigualdad elemental (citar) para numeros reales <span class="math inline">\((a_1,a_2,\ldots,a_m)\)</span>,</p>
 <p><span class="math display">\[
   \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
 \]</span></p>
-<p>Aplicando dicha desigualdad a <a href="#eq-635" class="quarto-xref">Ecuación&nbsp;<span>6.35</span></a>, donde <span class="math inline">\(m=10\)</span>, tenemos</p>
+<p>Aplicando dicha desigualdad a <a href="#eq-635" class="quarto-xref">Ecuación&nbsp;<span>6.36</span></a>, donde <span class="math inline">\(m=10\)</span>, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
     |Y_n|^{2p} &amp; \leq 10^{p-1}(|T_0|^p+|T_1|^p+ |T_2|^p+|T_3|^p+|T_4|^p\\
@@ -1078,16 +1078,16 @@ window.Quarto = {
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\
     &amp; \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
   \end{aligned}
-\tag{6.36}\]</span></span></p>
+\tag{6.37}\]</span></span></p>
 <p>Considerando la propieda elemental</p>
 <p><span id="eq-6365"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\Bigg)\Bigg]=\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
-\tag{6.37}\]</span></span></p>
+\tag{6.38}\]</span></span></p>
 <p>Definimos la notación</p>
 <p><span class="math display">\[
   r:=\frac{1}{\theta}-1.
 \]</span></p>
-<p>Entonces, para <span class="math inline">\(0\leq M \leq N_t\)</span>, aplicando supremo y sacando valor esperado a <a href="#eq-636" class="quarto-xref">Ecuación&nbsp;<span>6.36</span></a>, tenemos</p>
+<p>Entonces, para <span class="math inline">\(0\leq M \leq N_t\)</span>, aplicando supremo y sacando valor esperado a <a href="#eq-636" class="quarto-xref">Ecuación&nbsp;<span>6.37</span></a>, tenemos</p>
 <p><span id="eq-637"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})] &amp; \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p \\
@@ -1100,15 +1100,15 @@ window.Quarto = {
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\\
     &amp; \quad + 2^p \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\Bigg\}.
   \end{aligned}
-\tag{6.38}\]</span></span></p>
-<p>Usando <a href="#eq-6365" class="quarto-xref">Ecuación&nbsp;<span>6.37</span></a> tenemos</p>
+\tag{6.39}\]</span></span></p>
+<p>Usando <a href="#eq-6365" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a> tenemos</p>
 <p><span class="math display">\[
   n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg] =n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}].
 \]</span></p>
 <p>Tenemos que <span class="math inline">\(Y_n^*\in \mathbfcal{F}_{t_n}\)</span>, esto significa que el valor depende exclusivamente de la información hasta el tiempo <span class="math inline">\(t_n\)</span>. Ahora bien, el incremento browniano denotado por <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span> es independiente de <span class="math inline">\(\mathbfcal{F}_{t_n}\)</span>, con esto, podemos aplicar la propiedad de independencia en la esperanza, además</p>
 <p><span id="eq-6375"><span class="math display">\[
    n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]= n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
-\tag{6.39}\]</span></span></p>
+\tag{6.40}\]</span></span></p>
 <p>Vamos a estudiar <span class="math inline">\(\mathbb{E}[\Delta W_n^{2p}]\)</span>, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, <span class="math inline">\(\Delta W_j \sim \mathbfcal{N}(0,\Delta t)\)</span>, así afirmamos que tiene media <span class="math inline">\(0\)</span> y varianza <span class="math inline">\(\Delta t\)</span>. Por tanto</p>
 <p><span class="math display">\[
   \Delta W_j \overset{\text{d}}{=} \sqrt{\Delta t}\cdot Z,
@@ -1121,7 +1121,7 @@ window.Quarto = {
       &amp; = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\
       &amp; = \Delta t^p\cdot \mathbb{E}[|Z|^{2p}].
   \end{aligned}
-\tag{6.40}\]</span></span></p>
+\tag{6.41}\]</span></span></p>
 <p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Vamos a demostrar que se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
@@ -1130,15 +1130,15 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}[Z^2]=1=(2\cdot 1-1)!!
 \]</span></p>
-<p>Supongamos que se cumple para algún entero <span class="math inline">\(p\geq 1\)</span>, es decir, la siguiente igualdad es valida</p>
+<p>Supongamos que se cumple para algún entero <span class="math inline">\(p\geq 1\)</span>, es decir, la siguiente igualdad es válida</p>
 <p><span id="eq-639"><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
-\tag{6.41}\]</span></span></p>
+\tag{6.42}\]</span></span></p>
 <p>Veamos que se cumple ahora para <span class="math inline">\(p+1\)</span>, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(2p+1)!!
 \]</span></p>
-<p>Por definición, el momento <span class="math inline">\(2(p+1)\)</span> de <span class="math inline">\(Z\)</span> esta dado por</p>
+<p>Por definición, el momento <span class="math inline">\(2(p+1)\)</span> de <span class="math inline">\(Z\)</span> está dado por</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2(p+1)} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
 \]</span></p>
@@ -1149,7 +1149,7 @@ window.Quarto = {
 <p>Consideremos las siguientes elecciónes</p>
 <ul>
 <li><span class="math inline">\(u=z^{2p+1}\)</span>,</li>
-<li><span class="math inline">\(z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\)</span>.</li>
+<li><span class="math inline">\(z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dv\)</span>.</li>
 </ul>
 <p>Esto implica que</p>
 <ul>
@@ -1164,7 +1164,7 @@ window.Quarto = {
      &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp;\qquad+(2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
-\tag{6.42}\]</span></span></p>
+\tag{6.43}\]</span></span></p>
 <p>Vamos a estudiar el término <span class="math inline">\(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\)</span>. Usando la expansión en serie de Taylor de la exponencial, tenemos</p>
 <p><span class="math display">\[
   e^{z^2/2} = \sum\limits_{k=0}^{\infty} \frac{(z^2/2)^k}{k!}&gt;\frac{(z^2/2)^{p+1}}{(p+1)!}.
@@ -1184,7 +1184,7 @@ window.Quarto = {
 <p><span class="math display">\[
   \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
 \]</span></p>
-<p>Retomando <a href="#eq-640" class="quarto-xref">Ecuación&nbsp;<span>6.42</span></a> se tiene</p>
+<p>Retomando <a href="#eq-640" class="quarto-xref">Ecuación&nbsp;<span>6.43</span></a> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; =  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
@@ -1192,7 +1192,7 @@ window.Quarto = {
     &amp; = (2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Usando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.41</span></a>,</p>
+<p>Usando <a href="#eq-639" class="quarto-xref">Ecuación&nbsp;<span>6.42</span></a>,</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[Z^{2(p+1)}] &amp; =\int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\
@@ -1210,15 +1210,15 @@ window.Quarto = {
 <p><span class="math display">\[
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
-<p>Por lo tanto <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p\)</span>. Ahora es posible acotar <a href="#eq-6375" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> de la forma</p>
+<p>Por lo tanto <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p\)</span>. Ahora es posible acotar <a href="#eq-6375" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> de la forma</p>
 <p><span id="eq-641"><span class="math display">\[
   n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}] = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
-\tag{6.43}\]</span></span></p>
+\tag{6.44}\]</span></span></p>
 <p>Veamos ahora el término <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\)</span>, para esto, elevamos a la potencia <span class="math inline">\(p\)</span> la cota dada por <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>,</p>
 <p><span class="math display">\[
   |g(Y_j^*)|^{2p}\leq L_{\lambda}^p(1+|Y_j^*|^2)^p.
 \]</span></p>
-<p>Esto implica que <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p\)</span>, por <a href="#eq-641" class="quarto-xref">Ecuación&nbsp;<span>6.43</span></a> tenemos</p>
+<p>Esto implica que <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p\)</span>, por <a href="#eq-641" class="quarto-xref">Ecuación&nbsp;<span>6.44</span></a> tenemos</p>
 <p><span id="eq-642"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
@@ -1226,23 +1226,23 @@ window.Quarto = {
     &amp; \quad\leq n^{p-1}\sum\limits_{j=0}^{M-1} L_{\lambda}^pc_p\Delta t^p\mathbb{E}[(1+|Y_j^*|)]^p\\
     &amp; \quad= n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p.
   \end{aligned}
-\tag{6.44}\]</span></span></p>
+\tag{6.45}\]</span></span></p>
 <p>Sabemos que <span class="math inline">\(n\Delta t\leq T\)</span>, esto implica <span class="math inline">\(n^{p-1}\Delta t^{p-1}\)</span>, luego</p>
 <p><span class="math display">\[
   n^{p-1}L_{\lambda}^pc_p\Delta t^p \leq T^{p-1}c_p\Delta tL_{\lambda}^p.
 \]</span></p>
-<p>Recordando que tenemos la cota <a href="#eq-622" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, elevando al la potencia <span class="math inline">\(p\)</span> el término de la suma de <a href="#eq-642" class="quarto-xref">Ecuación&nbsp;<span>6.44</span></a>, tenemos</p>
+<p>Recordando que tenemos la cota <a href="#eq-622" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, elevando al la potencia <span class="math inline">\(p\)</span> el término de la suma de <a href="#eq-642" class="quarto-xref">Ecuación&nbsp;<span>6.45</span></a>, tenemos</p>
 <p><span class="math display">\[
   \mathbb{E}[1+|Y_j^*|^2]^p\leq\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
 \]</span></p>
-<p>Por tanto, de <a href="#eq-642" class="quarto-xref">Ecuación&nbsp;<span>6.44</span></a>,</p>
+<p>Por tanto, de <a href="#eq-642" class="quarto-xref">Ecuación&nbsp;<span>6.45</span></a>,</p>
 <p><span id="eq-643"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p\\
     &amp; \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
   \end{aligned}
-\tag{6.45}\]</span></span></p>
+\tag{6.46}\]</span></span></p>
 <p>Afirmamos que <span class="math inline">\(\beta\geq 1\)</span>. Por hipótesis, sabemos que</p>
 <p><span class="math display">\[
   \Delta t&lt;\frac{1}{2\theta L_{\lambda}}.
