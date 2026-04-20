@@ -1107,7 +1107,10 @@ window.Quarto = {
 \]</span></p>
 <p>Tenemos que <span class="math inline">\(Y_n^*\in \mathbfcal{F}_{t_n}\)</span>, esto significa que el valor depende exclusivamente de la información hasta el tiempo <span class="math inline">\(t_n\)</span>. Ahora bien, el incremento browniano denotado por <span class="math inline">\(\Delta W_n=W(t_{n+1})-W(t_n)\)</span> es independiente de <span class="math inline">\(\mathbfcal{F}_{t_n}\)</span>, con esto, podemos aplicar la propiedad de independencia en la esperanza, además</p>
 <p><span id="eq-6375"><span class="math display">\[
-   n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]= n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
+  \begin{aligned}
+       n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E} &amp; [|g(Y_j^*)\Delta W_j|^{2p}]= \\
+       &amp;\qquad n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
+  \end{aligned}
 \tag{6.40}\]</span></span></p>
 <p>Vamos a estudiar <span class="math inline">\(\mathbb{E}[\Delta W_n^{2p}]\)</span>, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, <span class="math inline">\(\Delta W_j \sim \mathbfcal{N}(0,\Delta t)\)</span>, así afirmamos que tiene media <span class="math inline">\(0\)</span> y varianza <span class="math inline">\(\Delta t\)</span>. Por tanto</p>
 <p><span class="math display">\[
