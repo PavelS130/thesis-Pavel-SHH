@@ -1262,9 +1262,70 @@ window.Quarto = {
 <p><span class="math display">\[
   \beta = 1+\frac{1}{1-2\theta\Delta tL_{\lambda}}&gt;1.
 \]</span></p>
-<p>Usaremos la siguiente desigualdad para <span class="math inline">\(p\geq 1\)</span> y <span class="math inline">\(a,b\geq 0\)</span>,</p>
+<p>Considerando la siguiente desigualdad para <span class="math inline">\(p\geq 1\)</span> y <span class="math inline">\(a,b\geq 0\)</span>,</p>
 <p><span class="math display">\[
   (a+b)^p\leq 2^{p-1}(a^p+b^p).
+\]</span></p>
+<p>Aplicaremos dicho resultado a la expresión <a href="#eq-643" class="quarto-xref">Ecuación&nbsp;<span>6.46</span></a> de forma iterativa como se sigue</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (1+\beta|Y_j|^2+\alpha)^p &amp; \leq 2^{p-1}[1^p+(\beta|Y_j|^2+\alpha)^p]\\
+    &amp; \leq 2^{p-1}(1+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p)).
+  \end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(p\geq 1\)</span> esto implica que <span class="math inline">\(1\leq 2^{p-1}\)</span>, por tanto</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (1+\beta|Y_j|^2+\alpha)^p &amp; \leq 2^{p-1}(1+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\
+    &amp;\leq 2^{p-1}(2^{p-1}+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\
+    &amp; = 2^{2(p-1)}(1+\alpha^p+\beta^p|Y_j|^{2p}).
+  \end{aligned}
+\]</span></p>
+<p>Retomando <a href="#eq-643" class="quarto-xref">Ecuación&nbsp;<span>6.46</span></a> se tiene</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    &amp; \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p\\
+    &amp; \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{2(p-1)}(1+\alpha^p+\beta^p|Y_j|^{2p})]\\
+    &amp; \leq 4^{(p-1)}T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+\alpha^p+\beta^p|Y_j|^{2p})].
+  \end{aligned}
+\]</span></p>
+<p>Como <span class="math inline">\(\beta=1+\alpha\geq 1\)</span> entonces, podemos afirmar que <span class="math inline">\(1+\alpha^p\leq (1+\alpha)^p=\beta^p\)</span>, de aquí</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    &amp; \leq 4^{p-1}T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+\alpha^p+\beta^p|Y_j|^{2p})]\\
+    &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(\beta^p +\beta^p|Y_j|^{2p})]\\
+    &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}].
+  \end{aligned}
+\]</span></p>
+<p>Notemos que</p>
+<p><span id="eq-644"><span class="math display">\[
+  \begin{aligned}
+    \sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]&amp; = \sum\limits_{j=0}^{M-1} \mathbb{E}[1]+\mathbb{E}[|Y_j|^{2p}]\\
+    &amp; = \sum\limits_{j=0}^{M-1} 1+\sum\limits_{j=0}^{M-1} \mathbb{E}[|Y_j|^{2p}]\\
+    &amp; = M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+\tag{6.47}\]</span></span></p>
+<p>De aquí, <a href="#eq-644" class="quarto-xref">Ecuación&nbsp;<span>6.47</span></a> queda de la forma</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]\\
+    &amp; =(4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg).
+  \end{aligned}
+\]</span></p>
+<p>Definimos la variable</p>
+<p><span class="math display">\[
+  C:=(4T)^{p-1}c_pL_{\lambda}^p\beta^p M.
+\]</span></p>
+<p>Tenemos entonces</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    n^{p-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
+    &amp; \leq(4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \leq C+C
+  \end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
