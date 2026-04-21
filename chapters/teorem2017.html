@@ -1312,10 +1312,25 @@ window.Quarto = {
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]\\
-    &amp; =(4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg).
+    &amp; =(2^2 T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg).
   \end{aligned}
 \tag{6.48}\]</span></span></p>
-<p>Definiendo a la constante <span class="math inline">\(C:=(4T)^{p-1}c_pL_{\lambda}^p\Beta^p\)</span>, es posible acotar <a href="#eq-645" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a> de la forma</p>
+<p>Por hipótesis, sabemos que <span class="math inline">\(M\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>, de aquí, esto implica que <span class="math inline">\(M\Delta t\leq (M\Delta t)^{p-1}\leq T^{p-1}\)</span>, de aquí</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (2^2 T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p M &amp; \leq 2^{2(p-1)}T^{p-1}c_pL_{\lambda}^p\beta^p (M\Delta t)^{p-1}\\
+    &amp; \leq 2^{2(p-1)}T^{p-1}T^{p-1}c_pL_{\lambda}^p\beta^p\\
+    &amp; = (2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p.
+  \end{aligned}
+\]</span></p>
+<p>Definiendo a la constante <span class="math inline">\(C_1:=(2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(C_1:= (4T)^{p-1}c_pL_{\lambda}^p\beta^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{C_1,C_2\}\)</span>. COn esta constante, es posible acotar <a href="#eq-645" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a> de la forma</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
