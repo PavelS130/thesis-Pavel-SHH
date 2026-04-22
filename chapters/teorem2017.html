@@ -1162,7 +1162,8 @@ window.Quarto = {
 <p>Procediendo a integrar por partes</p>
 <p><span id="eq-640"><span class="math display">\[
   \begin{aligned}
-     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
+     \int_{-\infty}^{\infty} z^{2p+2} &amp; \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\
+     &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp; \qquad + (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\
      &amp; = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\
      &amp;\qquad+(2p+1)\mathbb{E}[Z^{2p}].
@@ -1215,7 +1216,10 @@ window.Quarto = {
 \]</span></p>
 <p>Por lo tanto <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p\)</span>. Ahora es posible acotar <a href="#eq-6375" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> de la forma</p>
 <p><span id="eq-641"><span class="math display">\[
-  n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}] = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
+  \begin{aligned}
+  n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]&amp;\mathbb{E}[|\Delta W_j|^{2p}]\\
+  &amp; = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
+  \end{aligned}
 \tag{6.44}\]</span></span></p>
 <p>Veamos ahora el término <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\)</span>, para esto, elevamos a la potencia <span class="math inline">\(p\)</span> la cota dada por <a href="#eq-616" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>,</p>
 <p><span class="math display">\[
@@ -1241,7 +1245,7 @@ window.Quarto = {
 <p>Por tanto, de <a href="#eq-642" class="quarto-xref">Ecuación&nbsp;<span>6.45</span></a>,</p>
 <p><span id="eq-643"><span class="math display">\[
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    n^{p-1}\sum\limits_{j=0}^{M-1} &amp; \mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p\\
     &amp; \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
   \end{aligned}
@@ -1310,7 +1314,7 @@ window.Quarto = {
 <p>De aquí, <a href="#eq-644" class="quarto-xref">Ecuación&nbsp;<span>6.47</span></a> queda de la forma</p>
 <p><span id="eq-645"><span class="math display">\[
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]\\
     &amp; =(2^2 T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg).
   \end{aligned}
