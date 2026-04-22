@@ -1217,7 +1217,7 @@ window.Quarto = {
 <p>Por lo tanto <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p\)</span>. Ahora es posible acotar <a href="#eq-6375" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> de la forma</p>
 <p><span id="eq-641"><span class="math display">\[
   \begin{aligned}
-  n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]&amp;\mathbb{E}[|\Delta W_j|^{2p}]\\
+  n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
   &amp; = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
   \end{aligned}
 \tag{6.44}\]</span></span></p>
@@ -1228,7 +1228,7 @@ window.Quarto = {
 <p>Esto implica que <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p\)</span>, por <a href="#eq-641" class="quarto-xref">Ecuación&nbsp;<span>6.44</span></a> tenemos</p>
 <p><span id="eq-642"><span class="math display">\[
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \quad  = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p\\
     &amp; \quad\leq n^{p-1}\sum\limits_{j=0}^{M-1} L_{\lambda}^pc_p\Delta t^p\mathbb{E}[(1+|Y_j^*|)]^p\\
     &amp; \quad= n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p.
@@ -1330,7 +1330,7 @@ window.Quarto = {
 <p>Definiendo a la constante <span class="math inline">\(C_1:=(2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(C_1:= (4T)^{p-1}c_pL_{\lambda}^p\beta^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{C_1,C_2\}\)</span>. Con esta constante, es posible acotar <a href="#eq-645" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a> de la forma</p>
 <p><span class="math display">\[
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] &amp; \mathbb{E}[|\Delta W_j|^{2p}]\\
+    n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
