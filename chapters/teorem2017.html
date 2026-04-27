@@ -1335,7 +1335,79 @@ window.Quarto = {
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parametros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span> y <span class="math inline">\(\theta\)</span> y su valor cambiará dependiendo del proceso</p>
+<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parametros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span> y <span class="math inline">\(\theta\)</span> y su valor cambiará dependiendo del proceso.</p>
+<p>Siguiendo un proceso similar, podemos afirmar que para el término <span class="math inline">\(|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}\)</span> existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, entonces tenemos</p>
+<p><span class="math display">\[
+  n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^2p].
+\]</span></p>
+<p>Retomando la <a href="#eq-637" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estudiaremos el siguiente término</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg],
+\]</span></p>
+<p>definimos la siguiente notación</p>
+<p><span class="math display">\[
+  M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j.
+\]</span></p>
+<p>Afirmamos que <span class="math inline">\(M_n\)</span> es una martingala discreta. Veamos que <span class="math inline">\(M_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, para esto, debemos analizar la medibilidad de cada factor en cada término de la suma. Procediendo por inducción, para <span class="math inline">\(j=0\)</span>, por hipótesis, sabemos que <span class="math inline">\(Y_0=X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible. Suponemos de forma inductiva que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Usando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> es posible obtener <span class="math inline">\(Y_{n+1}\)</span> la cuál es <span class="math inline">\(\mathcal{F}_{n+1}\)</span>-medible, con esto se afirma que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible, pues <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathbb{F}_{t_{j+1}}\)</span>.</p>
+<p>Por otro lado, por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> se tiene que <span class="math inline">\(Y_j^*\)</span> se define implícitamente</p>
+<p><span class="math display">\[
+  Y_j^*=Y_j+\theta\Delta tf_{\lambda}(Y_j^*)
+\]</span></p>
+<p>Por el lema anterior (citar, se me olvidó como hacerlo :), se garantiza que la función</p>
+<p><span class="math display">\[
+  G(y)=y-\theta\Delta tf_{\lambda}(y),
+\]</span></p>
+<p>es una función biyectiva y por tanto, existe una función inversa continua <span class="math inline">\(\phi=G^{-1}\)</span> tal que</p>
+<p><span class="math display">\[
+  Y_j^*=\phi(Y_j).
+\]</span></p>
+<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una fucnión continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por difinición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto</p>
+<p><span class="math display">\[
+  Y_jg(Y_j^*)\Delta W_j
+\]</span></p>
+<p>es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
+<p>Veamos ahora que <span class="math inline">\(M_n\)</span> cumple con la propiedad de maryingala, es decir, queremos ver que</p>
+<p><span class="math display">\[
+  \mathbb{E}[M_{n+1}|\mathcal{F}_{t_n}]=M_n.
+\]</span></p>
+<p>Descomponiendo <span class="math inline">\(M_{n+1}\)</span> tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    M_{n+1} &amp; = \sum\limits_{j=0}^n Y_jg(Y_j^*)\Delta W_j\\
+    &amp; = \sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j + Y_ng(Y_n^*)\Delta W_n\\
+    &amp; = M_n + Y_ng(Y_n^*)\Delta W_n.
+  \end{aligned}
+\]</span></p>
+<p>Como <span class="math inline">\(M_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, esto implica que <span class="math inline">\(\mathbb{E}[M_n|\mathcal{F}_{t_n}]=M_n\)</span>, de igual forma, se tiene que <span class="math inline">\(\mathbb{E}[Y_ng(Y_n^*)|\mathcal{F}_{t_n}]=Y_ng(Y_n^*)\)</span>, además por propiedades del movimiento browniano sabemos <span class="math inline">\(\mathbb{E}[\Delta W_j]=0\)</span>, por último note que <span class="math inline">\(\Delta W_j\)</span> es independiente a <span class="math inline">\(\mathcal{F}_{t_n}\)</span>, por tanto</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}[|M_{n+1}|\mathcal{F}_{t_n}] &amp; = \mathbb{E}[M_n + Y_ng(Y_n^*)\Delta W_n|\mathcal{F}_{t_n}]\\
+    &amp; = \mathbb{E}[M_n|\mathcal{F}_{t_n}]+\mathbb{E}[Y_ng(Y_n^*)\Delta W_n|\mathcal{F}_{t_n}]\\
+    &amp; = M_n+\mathbb{E}[Y_ng(Y_n^*)|\mathcal{F}_{t_n}]\mathbb{E}[\Delta W_n|\mathcal{F}_{t_n}]\\
+    &amp; = M_n +Y_ng(Y_n^*)\cdot 0 \\
+    &amp; = M_n.
+  \end{aligned}
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(M_n\)</span> es una martingala.</p>
+<p>Notemos que <span class="math display">\[
+  \Delta M_j = M_{j+1}-M_j=Y_jg(Y_j^*)\Delta W_j.
+\]</span></p>
+<p>Con esto, tenemos</p>
+<p><span class="math display">\[
+   \begin{aligned}
+    \mathbb{E}[|\Delta M_j|^2|\mathcal{F}_{t_j}] &amp; = \mathbb{E}[|Y_jg(Y_j^*)|^2|\Delta W_j|^2|\mathcal{F}_{t_j}]\\
+    &amp; = |Y_jg(Y_j^*)|^2\mathbb{E}[\Delta W_j^2]\\
+    &amp; = |Y_j|^2|g(Y_j^*)|^2\Delta t.
+   \end{aligned}
+\]</span></p>
+<p>Por tanto, usando la desigualdad BDG</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
+    &amp; \leq C \mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\
+    &amp; = C\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}.
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-606" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
