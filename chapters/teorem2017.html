@@ -1349,11 +1349,11 @@ window.Quarto = {
   M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j.
 \]</span></p>
 <p>Afirmamos que <span class="math inline">\(M_n\)</span> es una martingala discreta. Veamos que <span class="math inline">\(M_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, para esto, debemos analizar la medibilidad de cada factor en cada término de la suma. Procediendo por inducción, para <span class="math inline">\(j=0\)</span>, por hipótesis, sabemos que <span class="math inline">\(Y_0=X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible. Suponemos de forma inductiva que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Usando la <a href="#eq-604" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> es posible obtener <span class="math inline">\(Y_{n+1}\)</span> la cuál es <span class="math inline">\(\mathcal{F}_{n+1}\)</span>-medible, con esto se afirma que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible, pues <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathbb{F}_{t_{j+1}}\)</span>.</p>
-<p>Por otro lado, por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> se tiene que <span class="math inline">\(Y_j^*\)</span> se define implícitamente</p>
+<p>Por la <a href="#eq-603" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> se tiene que <span class="math inline">\(Y_j^*\)</span> se define implícitamente</p>
 <p><span class="math display">\[
-  Y_j^*=Y_j+\theta\Delta tf_{\lambda}(Y_j^*)
+  Y_j^*=Y_j+\theta\Delta tf_{\lambda}(Y_j^*).
 \]</span></p>
-<p>Por el lema anterior (citar, se me olvidó como hacerlo :), se garantiza que la función</p>
+<p>Así, considerando el lema anterior (citar, se me olvidó como hacerlo :), se garantiza que la función</p>
 <p><span class="math display">\[
   G(y)=y-\theta\Delta tf_{\lambda}(y),
 \]</span></p>
@@ -1361,11 +1361,7 @@ window.Quarto = {
 <p><span class="math display">\[
   Y_j^*=\phi(Y_j).
 \]</span></p>
-<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una fucnión continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por difinición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto</p>
-<p><span class="math display">\[
-  Y_jg(Y_j^*)\Delta W_j
-\]</span></p>
-<p>es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
+<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una fucnión continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por difinición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto <span class="math inline">\(Y_jg(Y_j^*)\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
 <p>Veamos ahora que <span class="math inline">\(M_n\)</span> cumple con la propiedad de maryingala, es decir, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[M_{n+1}|\mathcal{F}_{t_n}]=M_n.
