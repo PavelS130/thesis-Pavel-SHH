@@ -1336,6 +1336,10 @@ window.Quarto = {
   \end{aligned}
 \]</span></p>
 <p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span> y <span class="math inline">\(\theta\)</span> y su valor cambiará dependiendo del proceso.</p>
+<p>De forma similar, afirmamos que existe una constante <span class="math inline">\(c_p&gt;0\)</span> la cual solo depende de <span class="math inline">\(p\)</span> y es tal que <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_n|^{2p}]&lt;c_p\Delta t^p\)</span>, así se tiene que</p>
+<p><span class="math display">\[
+  n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_n|^{2p}\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\]</span></p>
 <p>Siguiendo un proceso similar, podemos afirmar que para el término <span class="math inline">\(|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}\)</span> existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, entonces tenemos</p>
 <p><span class="math display">\[
   n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^2p].
