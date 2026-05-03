@@ -640,7 +640,7 @@ window.Quarto = {
 <p><span class="math display">\[
   L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 \]</span></p>
-<p>Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para ello recordemos que satisface la condición de Lipschitz con constante</p>
+<p>Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la <a href="#eq-602" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a>, es necesario tener una estimación análoga para <span class="math inline">\(f_{\lambda}\)</span>. Para esto recordemos que satisface la condición de Lipschitz con constante</p>
 <p><span class="math display">\[
   K_{\lambda}=K+\lambda\sqrt{L_h}
 \]</span></p>
@@ -970,7 +970,7 @@ window.Quarto = {
 <p><span id="eq-633"><span class="math display">\[
   |Y_{n}|^2\leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
 \tag{6.34}\]</span></span></p>
-<p>Recordemos que los puntos en la malla están definidos por <span class="math inline">\(t_n=n\Delta t\)</span>, además se tiene que <span class="math inline">\(t_n\leq T\)</span>, por lo que <span class="math inline">\(n\Delta t\leq T\)</span>. Con esto, para el término <span class="math inline">\(B_j\)</span> se tiene</p>
+<p>Recordemos que por hipótesis de la malla <span class="math inline">\(t_n=n\Delta t\leq T\)</span>, esto implica que para el término <span class="math inline">\(B_j\)</span> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \sum\limits_{j=0}^{n-1}B_j &amp; = \sum\limits_{j=0}^{n-1} 2\beta L_{\lambda}\Delta t|Y_j|^2+\sum\limits_{j=0}^{n-1}2(\alpha+1)L_{\lambda}\Delta t\\
@@ -1129,6 +1129,10 @@ window.Quarto = {
 <p>Al ser una potencia par, podemos afirmar <span class="math inline">\(\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]\)</span>. Vamos a demostrar que se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[Z^{2p}]=(2p-1)!!
+\]</span></p>
+<p>Donde el doble factorial para un número impar, en nuestro caso <span class="math inline">\(2p-1\)</span>, está definido mediante</p>
+<p><span class="math display">\[
+  (2p-1)!!=1\cdot 3\cdot 5\cdots(2p-1).
 \]</span></p>
 <p>Procedicendo por inducción, para nuestro caso base, para <span class="math inline">\(p=1\)</span> es claro que <span class="math inline">\(\mathbb{E}[Z^2]=Var(Z)=1\)</span>. Por definición, se tiene que <span class="math inline">\((2\cdot 1-1)!!=1!!=1\)</span>. Por lo tanto, la igualdad se cumple para <span class="math inline">\(p=1\)</span>,</p>
 <p><span class="math display">\[
@@ -1336,7 +1340,7 @@ window.Quarto = {
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span> y <span class="math inline">\(\theta\)</span> y su valor cambiará dependiendo del proceso.</p>
+<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span>, <span class="math inline">\(\theta\)</span> y <span class="math inline">\(\Delta t\)</span>, su valor cambiará dependiendo del proceso.</p>
 <p>De forma similar, afirmamos que existe una constante <span class="math inline">\(c_p&gt;0\)</span> la cual solo depende de <span class="math inline">\(p\)</span> y es tal que <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_n|^{2p}]&lt;c_p\Delta t^p\)</span>, así se tiene que</p>
 <p><span class="math display">\[
   n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_n|^{2p}\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
@@ -1366,8 +1370,8 @@ window.Quarto = {
 <p><span class="math display">\[
   Y_j^*=\phi(Y_j).
 \]</span></p>
-<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una fucnión continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por difinición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto <span class="math inline">\(Y_jg(Y_j^*)\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
-<p>Veamos ahora que <span class="math inline">\(M_n\)</span> cumple con la propiedad de maryingala, es decir, queremos ver que</p>
+<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una función continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por definición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto <span class="math inline">\(Y_jg(Y_j^*)\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
+<p>Veamos ahora que <span class="math inline">\(M_n\)</span> cumple con la propiedad de martingala, es decir, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[M_{n+1}|\mathcal{F}_{t_n}]=M_n.
 \]</span></p>
@@ -1401,7 +1405,7 @@ window.Quarto = {
     &amp; = |Y_j|^2|g(Y_j^*)|^2\Delta t.
    \end{aligned}
 \]</span></p>
-<p>Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante <span class="math inline">\(C_p\geq 0\)</span> que depende únicammente de <span class="math inline">\(p\)</span>, que cumple</p>
+<p>Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante <span class="math inline">\(C_p\geq 0\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, que cumple</p>
 <p><span id="eq-645"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
