@@ -1421,9 +1421,11 @@ window.Quarto = {
 <p><span id="eq-6.51"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|Y_{j+1}|^2] \leq 4&amp; \Bigg(\mathbb{E}[|Y_j|^2]+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\mathbb{E}[\Delta t^2]\\
-    &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]+\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2\Bigg)\\
+    &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
+    &amp; \quad +\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2]\Bigg)\\
     = 4 &amp; \Bigg(\mathbb{E}[|Y_j|^2]+\Delta t^2\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\\
-    &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]+\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2\Bigg).
+    &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
+    &amp; \quad +\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2]\Bigg).
   \end{aligned}
 \tag{6.51}\]</span></span></p>
 <p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene que</p>
@@ -1483,9 +1485,13 @@ window.Quarto = {
 \]</span></p>
 <p>Al aplicar valor esperado tenemos que</p>
 <p><span class="math display">\[
-\mathbb{E}[|Y_j^*|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}]).
+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}]).
 \]</span></p>
-<p>Dado que por hipótesis inductiva <span class="math inline">\(\mathbb{E}[|Y_j^*|]&lt;\infty\)</span> y al ser <span class="math inline">\(q\)</span> fijo, entonces <span class="math inline">\(\mathbb{E}[|Y_j^*|^{q+2}]&lt;\infty\)</span>. Por lo tanto, se afirmar que <span class="math inline">\(\mathbb{E}[|Y_j^*|^2]&lt;\infty\)</span>. Retomanodo la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
+<p>Dado que por hipótesis inductiva <span class="math inline">\(\mathbb{E}[|Y_j^*|]&lt;\infty\)</span> y al ser <span class="math inline">\(q\)</span> fijo, entonces <span class="math inline">\(\mathbb{E}[|Y_j^*|^{q+2}]&lt;\infty\)</span>. Por lo tanto, se afirmar que</p>
+<p><span class="math display">\[
+   \mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}])&lt;\infty.
+\]</span></p>
+<p>Retomanodo la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
 <p><span class="math display">\[
   \mathbb{E}[|Y_j^*|^2]\leq \beta\mathbb{E}[|Y_{j+1}|^2]+\alpha&lt;\infty.
 \]</span></p>
