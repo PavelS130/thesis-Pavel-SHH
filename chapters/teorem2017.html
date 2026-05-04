@@ -1391,14 +1391,14 @@ window.Quarto = {
   \mathbb{E}[|g(Y_j^*)|^2]\leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2]).
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> se tiene</p>
-<p><span class="math display">\[
-  \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|])}.
-\]</span></p>
-<p>Por lo tannto, para garantizar que <span class="math inline">\(\mathbb{E}[|M_n|]&lt;\infty\)</span>, basta demostrar que para cada <span class="math inline">\(j=0,1,\ldots,n\)</span> se cumple</p>
 <p><span id="eq-6.50"><span class="math display">\[
-  \mathbb{E}[|Y_j|^2]&lt; \infty \quad \text{y}\quad \mathbb{E}[|Y_j^*|^2]&lt;\infty.
+  \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|])}.
 \tag{6.50}\]</span></span></p>
-<p>Vamos a proceder por inducción sobre <span class="math inline">\(j\)</span> que <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> se cumple para todo <span class="math inline">\(j\leq n\)</span>, donde <span class="math inline">\(n\)</span> lo tomaremos como fijo. Así para <span class="math inline">\(j=0\)</span>, por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> que <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span>, además, por la construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> se tiene que <span class="math inline">\(Y_0=X_0\)</span>, por lo tanto, para <span class="math inline">\(p=2\)</span> se cumple</p>
+<p>Por lo tannto, para garantizar que <span class="math inline">\(\mathbb{E}[|M_n|]&lt;\infty\)</span>, basta demostrar que para cada <span class="math inline">\(j=0,1,\ldots,n\)</span> se cumple</p>
+<p><span id="eq-6.51"><span class="math display">\[
+  \mathbb{E}[|Y_j|^2]&lt; \infty \quad \text{y}\quad \mathbb{E}[|Y_j^*|^2]&lt;\infty.
+\tag{6.51}\]</span></span></p>
+<p>Vamos a proceder por inducción sobre <span class="math inline">\(j\)</span> que <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> se cumple para todo <span class="math inline">\(j\leq n\)</span>, donde <span class="math inline">\(n\)</span> lo tomaremos como fijo. Así para <span class="math inline">\(j=0\)</span>, por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> que <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span>, además, por la construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> se tiene que <span class="math inline">\(Y_0=X_0\)</span>, por lo tanto, para <span class="math inline">\(p=2\)</span> se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[|X_0|^2]=\mathbb{E}[|Y_0|^2]&lt;\infty.
 \]</span></p>
@@ -1406,7 +1406,7 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}[|Y_0^*|^2]\leq \beta \mathbb{E}[|Y_0|^2]+\alpha&lt;\infty.
 \]</span></p>
-<p>Suponemos que para algún <span class="math inline">\(j&lt;n\)</span> se cumple la <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a>. Veamos que se cumple <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|Y_{j+1}^*|^2]&lt;\infty\)</span>. De la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y aplicando la siguiente desigualdad</p>
+<p>Suponemos que para algún <span class="math inline">\(j&lt;n\)</span> se cumple la <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a>. Veamos que se cumple <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|Y_{j+1}^*|^2]&lt;\infty\)</span>. De la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y aplicando la siguiente desigualdad</p>
 <p><span class="math display">\[
   (a+b+c+d)^2\leq 4(a^2+b^2+c^2+d^2),
 \]</span></p>
@@ -1418,7 +1418,7 @@ window.Quarto = {
   \end{aligned}
 \]</span></p>
 <p>Aplicando esperanza se tiene</p>
-<p><span id="eq-6.51"><span class="math display">\[
+<p><span id="eq-6.52"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|Y_{j+1}|^2] \leq 4&amp; \Bigg(\mathbb{E}[|Y_j|^2]+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\mathbb{E}[\Delta t^2]\\
     &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
@@ -1427,33 +1427,33 @@ window.Quarto = {
     &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
     &amp; \quad +\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2]\Bigg).
   \end{aligned}
-\tag{6.51}\]</span></span></p>
-<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene que</p>
-<p><span id="eq-6.52"><span class="math display">\[
-  |g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\quad \text{y}\quad |h(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2).
 \tag{6.52}\]</span></span></p>
-<p>Por hipótesis inductiva, sabemos que <span class="math inline">\(\mathbb{E}[|Y_j^*|^2]&lt;\infty\)</span>. Aplicando valor esperado a la <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a>, se tiene</p>
+<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene que</p>
+<p><span id="eq-6.53"><span class="math display">\[
+  |g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\quad \text{y}\quad |h(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2).
+\tag{6.53}\]</span></span></p>
+<p>Por hipótesis inductiva, sabemos que <span class="math inline">\(\mathbb{E}[|Y_j^*|^2]&lt;\infty\)</span>. Aplicando valor esperado a la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a>, se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|g(Y_j^*)|^2] &amp; \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])&lt;\infty,\\
     \mathbb{E}[|h(Y_j^*)|^2] &amp; \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])&lt;\infty.
   \end{aligned}
 \]</span></p>
-<p>Además, <span class="math inline">\(\mathbb{E}[|\Delta W_j|^2]=\Delta t&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t&lt;\infty\)</span>. La <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> queda de la forma</p>
-<p><span id="eq-6.53"><span class="math display">\[
+<p>Además, <span class="math inline">\(\mathbb{E}[|\Delta W_j|^2]=\Delta t&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t&lt;\infty\)</span>. La <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> queda de la forma</p>
+<p><span id="eq-6.54"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|Y_{j+1}|^2] \leq 4 &amp; \Bigg(\mathbb{E}[|Y_j|^2]+\Delta t^2\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\\
     &amp; \quad +L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])\Delta t\\
     &amp; \quad +L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])\lambda\Delta t\Bigg).
   \end{aligned}
-\tag{6.53}\]</span></span></p>
+\tag{6.54}\]</span></span></p>
 <p>Por lo que ahora, solo basta demostrar que <span class="math inline">\(\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]&lt;\infty\)</span>. Para esto, vamos a considerar la hipótesis <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, tomando a <span class="math inline">\(a=Y_j^*\)</span> y <span class="math inline">\(b=0\)</span> se tiene</p>
-<p><span id="eq-6.54"><span class="math display">\[
+<p><span id="eq-6.55"><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)-f_{\lambda}(0)|^2 &amp; \leq D(1+|Y_j^*|^q+|0|^q)|Y_j^*-0|^2\\
     &amp; = D|Y_j^*|^2+D|Y_j^*|^{q+2}.
   \end{aligned}
-\tag{6.54}\]</span></span></p>
+\tag{6.55}\]</span></span></p>
 <p>Usando la desigualdad del triángulo para <span class="math inline">\(|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|\)</span>,</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -1468,14 +1468,14 @@ window.Quarto = {
     &amp; \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2.
     \end{aligned}
 \]</span></p>
-<p>Usando la <a href="#eq-6.54" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a> en esta cota</p>
-<p><span id="eq-6.55"><span class="math display">\[
+<p>Usando la <a href="#eq-6.55" class="quarto-xref">Ecuación&nbsp;<span>6.55</span></a> en esta cota</p>
+<p><span id="eq-6.56"><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)|^2 &amp; \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2\\
     &amp; \leq 2(D|Y_j^*|^2+|Y_j^*|^{q+2})+2|f_{\lambda}(0)|^2.
   \end{aligned}
-\tag{6.55}\]</span></span></p>
-<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2, 1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.55" class="quarto-xref">Ecuación&nbsp;<span>6.55</span></a> tenemos</p>
+\tag{6.56}\]</span></span></p>
+<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2, 1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.56" class="quarto-xref">Ecuación&nbsp;<span>6.56</span></a> tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)|^2 &amp;\leq 2D|Y_j^*|^2+2D|Y_j^*|^{q+2}+2|f_{\lambda}(0)|^2\\
@@ -1491,7 +1491,7 @@ window.Quarto = {
 <p><span class="math display">\[
    \mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}])&lt;\infty.
 \]</span></p>
-<p>Retomanodo la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
+<p>Retomanodo la <a href="#eq-6.54" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
 <p><span class="math display">\[
   \mathbb{E}[|Y_j^*|^2]\leq \beta\mathbb{E}[|Y_{j+1}|^2]+\alpha&lt;\infty.
 \]</span></p>
@@ -1499,7 +1499,17 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}[|Y_j|^2]&lt;\infty\quad\text{y}\quad\mathbb{E}[|Y_j^*|^2]&lt;\infty.
 \]</span></p>
-<p>Para <span class="math inline">\(j=0,1,\ldots,n\)</span>.</p>
+<p>Para <span class="math inline">\(j=0,1,\ldots,n\)</span>. Retomando <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a>, notamos que para todo <span class="math inline">\(j\&lt;n\)</span></p>
+<p><span class="math display">\[
+  \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])}&lt;\infty.
+\]</span></p>
+<p>Esto implica que</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}[|M_n|]&amp;\leq \sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)|]\mathbb{E}[|\Delta W_j|]\\
+    &amp; \leq \sqrt{\frac{2\Delta t}{\pi}}\sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)|]&lt;\infty.
+  \end{aligned}
+\]</span></p>
 <p>Por último, es necesario ver que <span class="math inline">\(M_n\)</span> cumple con la propiedad de martingala, es decir, queremos ver que</p>
 <p><span class="math display">\[
   \mathbb{E}[M_{n+1}|\mathcal{F}_{t_n}]=M_n.
