@@ -1618,7 +1618,7 @@ window.Quarto = {
     &amp; \quad + C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p).
   \end{aligned}
 \tag{6.60}\]</span></span></p>
-<p>Definimos de manera similar a <span class="math inline">\(c_3=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})\)</span> y <span class="math inline">\(c_4=C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\)</span>, tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4\}\)</span>, entonces es posible acotar la ecuación anterior, la <span class="quarto-unresolved-ref">?eq-60</span> de la forma</p>
+<p>Definimos de manera similar a <span class="math inline">\(c_3=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})\)</span> y <span class="math inline">\(c_4=C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\)</span>, tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.60" class="quarto-xref">Ecuación&nbsp;<span>6.60</span></a> de la forma</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
@@ -1627,6 +1627,11 @@ window.Quarto = {
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
+<p>Siguiendo con el séptimo término de la <span class="quarto-unresolved-ref">?eq-639</span>, se utilizan las mismas técnicas para acotar. Definimos el proceso</p>
+<p><span class="math display">\[
+  N_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
+\]</span></p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(N_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(N_n\)</span> es una marti8ngala discreta.</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
