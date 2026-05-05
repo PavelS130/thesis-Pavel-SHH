@@ -1631,7 +1631,29 @@ window.Quarto = {
 <p><span class="math display">\[
   N_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
 \]</span></p>
-<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(N_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(N_n\)</span> es una marti8ngala discreta.</p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(N_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(N_n\)</span> es una martingala discreta. Con esto, es posible aplicar la desigualdad de BDG, para eso, primero calculamos la variación cuadrática tenemos que</p>
+<p><span id="eq-6.61"><span class="math display">\[
+  \begin{aligned}
+      \mathbb{E}[|Y_jh(Y_j^*)\Delta\widetilde{N}_j|^2|\mathcal{F}_{t_j}]&amp; = |Y_j|^2|h(Y_j^*)|^2\mathbb{E}[|\Delta\widetilde{N}_{j}|^2|\mathcal{F}_{t_j}]\\
+      &amp; = |Y_j|^2|h(Y_j^*)|^2\mathbb{E}[|\Delta\widetilde{N}_{j}|^2].
+  \end{aligned}
+\tag{6.61}\]</span></span></p>
+<p>Recordemos que para un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span> se tiene</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}[|\Delta\widetilde{N}_j|^2] &amp; = \operatorname{Var}(\Delta N_j-\lambda\Delta t)\\
+    &amp; = \operatorname{Var}(\Delta N_j)\\
+    &amp; = \lambda\Delta t.
+  \end{aligned}
+\]</span></p>
+<p>Por lo que la <a href="#eq-6.61" class="quarto-xref">Ecuación&nbsp;<span>6.61</span></a> queda de la forma</p>
+<p><span class="math display">\[
+  \mathbb{E}[|Y_jh(Y_j^*)\Delta\widetilde{N}_j|^2|\mathcal{F}_{t_j}]= |Y_j|^2|h(Y_j^*)|^2\lambda\Delta t.
+\]</span></p>
+<p>De aquí</p>
+<p><span class="math display">\[
+  \mathbb{E}\left[\sup\limits_{0\leq n\leq M}|N_n|^p\right]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|h(Y_j^*)|^2\lambda\Delta t\Bigg]^{p/2}.
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
