@@ -1079,7 +1079,7 @@ window.Quarto = {
     &amp; \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
   \end{aligned}
 \tag{6.37}\]</span></span></p>
-<p>Considerando la propieda elemental</p>
+<p>Considerando la propiedad elemental</p>
 <p><span id="eq-6.38"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\Bigg)\Bigg]=\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.38}\]</span></span></p>
@@ -1357,20 +1357,20 @@ window.Quarto = {
 <p><span class="math display">\[
   M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j.
 \]</span></p>
-<p>Afirmamos que <span class="math inline">\(M_n\)</span> es una martingala discreta. Veamos que <span class="math inline">\(M_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, para esto, debemos analizar la medibilidad de cada factor en cada término de la suma. Procediendo por inducción, para <span class="math inline">\(j=0\)</span>, por hipótesis, sabemos que <span class="math inline">\(Y_0=X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible. Suponemos de forma inductiva que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Usando la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> es posible obtener <span class="math inline">\(Y_{n+1}\)</span> la cuál es <span class="math inline">\(\mathcal{F}_{n+1}\)</span>-medible, con esto se afirma que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible, pues <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathbb{F}_{t_{j+1}}\)</span>.</p>
-<p>Por la <a href="#eq-6.3" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> se tiene que <span class="math inline">\(Y_j^*\)</span> se define implícitamente</p>
+<p>Veamos que el proceso <span class="math inline">\(M_n\)</span> es una martingala discreta, para esto debemos demostrar que es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, integrabilidad y que posee la propiedad de martingala.</p>
+<p>Como primer paso, veamos que el <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Recordemos que el movimiento browniano <span class="math inline">\(W\)</span> es un proceso adaptado, por lo que <span class="math inline">\(\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Con esto, veremos que para todo <span class="math inline">\(j\geq 0\)</span>, los términos <span class="math inline">\(Y_j\)</span> y <span class="math inline">\(g(Y_j^*)\)</span> son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medibles. Procediendo por inducción sobre <span class="math inline">\(j\geq 0\)</span>, sabemos que <span class="math inline">\(Y_0=X_0\)</span>, por la hipótesis dada por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> podemos afirmar que <span class="math inline">\(X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible, por lo tanto, <span class="math inline">\(Y_0\)</span> también lo es.</p>
+<p>Suponemos que para algún <span class="math inline">\(j\geq 0\)</span> se cumple que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Veamos que <span class="math inline">\(Y_{j+1}\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible.</p>
+<p>Notemos que por el <a href="#lem-6.1" class="quarto-xref">Lema&nbsp;<span>6.1</span></a>, el operador <span class="math inline">\(G:\mathbb{R}\rightarrow\mathbb{R}\)</span> definido por</p>
 <p><span class="math display">\[
-  Y_j^*=Y_j+\theta\Delta tf_{\lambda}(Y_j^*).
+  G(y)=y-\theta\Delta tf_{\lambda}(Y),
 \]</span></p>
-<p>Así, considerando el <a href="#lem-6.1" class="quarto-xref">Lema&nbsp;<span>6.1</span></a> se garantiza que la función</p>
+<p>es una función biyectiva con inversa continua bajo la condición <span class="math inline">\(\theta\Delta tL_{\lambda}&lt;1\)</span>, digamos <span class="math inline">\(\phi=G^{-1}\)</span>, esto implica <span class="math inline">\(Y_j^*=\phi(Y_j)\)</span>. Al ser <span class="math inline">\(\phi\)</span> una función continua, por tanto, una función Borel-medible y por la hipótesis inductiva, <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, entonces <span class="math inline">\(Y_j^*\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Notemos que por la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, <span class="math inline">\(Y_{j+1}\)</span> está definido mediante</p>
 <p><span class="math display">\[
-  G(y)=y-\theta\Delta tf_{\lambda}(y),
+  Y_{j+1}=Y_j+f_{\lambda}(Y_j^*)\Delta t+g(Y_j^*)\Delta W_j+h(Y_j^*)\Delta\widetilde{N}_j.
 \]</span></p>
-<p>es una función biyectiva y por tanto, existe una función inversa continua <span class="math inline">\(\phi=G^{-1}\)</span> tal que</p>
-<p><span class="math display">\[
-  Y_j^*=\phi(Y_j).
-\]</span></p>
-<p>Dado que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, <span class="math inline">\(\phi\)</span> es una función continua, entonces al ser un composición de una variable aleatoria medible con una función continua, podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Luego, dado que <span class="math inline">\(g\)</span> es una función continua, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Por último, por definición de movimiento browniano, se tiene que <span class="math inline">\(\Delta W_j\)</span> es independiente de <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Por lo tanto <span class="math inline">\(Y_jg(Y_j^*)\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible y así <span class="math inline">\(M_n\)</span> también lo es.</p>
+<p>Por hipótesis inductiva <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Recordemos que por definición del movimiento browniano y del proceso de Poisson se afirma que <span class="math inline">\(\Delta W_j\)</span> y <span class="math inline">\(\Delta\widetilde{N}_j\)</span> son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medibles. además las funciónes <span class="math inline">\(f_{\lambda},g,h\in C^1\)</span> por lo que la composición de una función continua y <span class="math inline">\(Y_j^*\)</span>, el cuál es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible, entonces <span class="math inline">\(f_{\lambda}(Y_j^*),\ g(Y_j^*)\)</span> y <span class="math inline">\(h(Y_j^*)\)</span> son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>. Entonces, <span class="math inline">\(Y_{j+1}\)</span> es composición de variables <span class="math inline">\(\mathcal{F}_{t_{j}}\)</span>-medibles. Por ser <span class="math inline">\(\mathcal{F}_{t_j}\)</span> una filtración discreta, esto implica que <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathcal{F}_{t_{j+1}}\)</span>. Por lo tanto <span class="math inline">\(Y_{j+1}\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible.</p>
+<p>Por lo tanto se afirmar que para todo <span class="math inline">\(j\geq 0\)</span> el término <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Bajo argumentos y procedimientos similares, es posible concluir que <span class="math inline">\(Y_j^*\)</span> y <span class="math inline">\(g(Y_j^*)\)</span> tambien son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medibles para todo <span class="math inline">\(j\geq 0\)</span>.</p>
+<p>De aquí que, el proceso <span class="math inline">\(M_n\)</span> al ser una composición lineal finita de elemento <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medibles, se afirma entonces que <span class="math inline">\(M_n\)</span> es adaptado.</p>
 <p>Necesitamos ver si el proceso <span class="math inline">\(M_n\)</span> es integrable, es decir, demostraremos que <span class="math inline">\(\mathbb{E}[|M_n|]&lt;\infty\)</span>. Aplicando la desigualdad triangular y la linealidad de la esperanza, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -1629,31 +1629,20 @@ window.Quarto = {
 \]</span></p>
 <p>Siguiendo con el séptimo término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se utilizan las mismas técnicas para acotar. Definimos el proceso</p>
 <p><span class="math display">\[
-  N_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
+  S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
 \]</span></p>
-<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(N_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(N_n\)</span> es una martingala discreta. Con esto, es posible aplicar la desigualdad de BDG, para eso, primero calculamos la variación cuadrática tenemos que</p>
-<p><span id="eq-6.61"><span class="math display">\[
-  \begin{aligned}
-      \mathbb{E}[|Y_jh(Y_j^*)\Delta\widetilde{N}_j|^2|\mathcal{F}_{t_j}]&amp; = |Y_j|^2|h(Y_j^*)|^2\mathbb{E}[|\Delta\widetilde{N}_{j}|^2|\mathcal{F}_{t_j}]\\
-      &amp; = |Y_j|^2|h(Y_j^*)|^2\mathbb{E}[|\Delta\widetilde{N}_{j}|^2].
-  \end{aligned}
-\tag{6.61}\]</span></span></p>
-<p>Recordemos que para un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span> se tiene</p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(S_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(S_n\)</span> es una martingala discreta. Con esto, es posible aplicar la desigualdad de BDG, de tal forma que el término</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
+\]</span></p>
+<p>queda acotado de la forma</p>
 <p><span class="math display">\[
   \begin{aligned}
-    \mathbb{E}[|\Delta\widetilde{N}_j|^2] &amp; = \operatorname{Var}(\Delta N_j-\lambda\Delta t)\\
-    &amp; = \operatorname{Var}(\Delta N_j)\\
-    &amp; = \lambda\Delta t.
+  \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
   \end{aligned}
 \]</span></p>
-<p>Por lo que la <a href="#eq-6.61" class="quarto-xref">Ecuación&nbsp;<span>6.61</span></a> queda de la forma</p>
-<p><span class="math display">\[
-  \mathbb{E}[|Y_jh(Y_j^*)\Delta\widetilde{N}_j|^2|\mathcal{F}_{t_j}]= |Y_j|^2|h(Y_j^*)|^2\lambda\Delta t.
-\]</span></p>
-<p>De aquí</p>
-<p><span class="math display">\[
-  \mathbb{E}\left[\sup\limits_{0\leq n\leq M}|N_n|^p\right]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|h(Y_j^*)|^2\lambda\Delta t\Bigg]^{p/2}.
-\]</span></p>
+<p>Donde la constante <span class="math inline">\(C\)</span> depende de los términos <span class="math inline">\((p,T,L_{\lambda},\theta,\Delta t)\)</span>.</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
