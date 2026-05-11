@@ -1628,20 +1628,17 @@ window.Quarto = {
   \end{aligned}
 \]</span></p>
 <p>Siguiendo con el séptimo término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se utilizan las mismas técnicas para acotar. Definimos el proceso</p>
-<p><span class="math display">\[
+<p><span id="eq-6.62"><span class="math display">\[
   S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
-\]</span></p>
-<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, podemos afirmar que <span class="math inline">\(S_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, es integrable y cumple con la propiedad de martingala, por lo tanto , <span class="math inline">\(S_n\)</span> es una martingala discreta. Con esto, es posible aplicar la desigualdad de BDG, de tal forma que el término</p>
+\tag{6.62}\]</span></span></p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, siguiendo el mismo procedimiento que se realizó con la <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> es posible afirmar que <span class="math inline">\(S_n\)</span> es una martingala discreta. Usando la desigualdad de BDG, acotar el término</p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
 \]</span></p>
-<p>queda acotado de la forma</p>
-<p><span class="math display">\[
-  \begin{aligned}
-  \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
-  &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
-  \end{aligned}
-\]</span></p>
+<p>da la forma</p>
+<p><span id="eq-6.63"><span class="math display">\[
+  \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
+\tag{6.63}\]</span></span></p>
 <p>Donde la constante <span class="math inline">\(C\)</span> depende de los términos <span class="math inline">\((p,T,L_{\lambda},\theta,\Delta t)\)</span>.</p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
