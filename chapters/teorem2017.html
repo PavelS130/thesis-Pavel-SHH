@@ -1358,7 +1358,7 @@ window.Quarto = {
   M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j.
 \tag{6.49}\]</span></span></p>
 <p>Veamos que el proceso <span class="math inline">\(M_n\)</span> es una martingala discreta, para esto debemos demostrar que es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, integrabilidad y que posee la propiedad de martingala.</p>
-<p>Como primer paso, veamos que el <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Recordemos que el movimiento browniano <span class="math inline">\(W\)</span> es un proceso adaptado, por lo que <span class="math inline">\(\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Con esto, veremos que para todo <span class="math inline">\(j\geq 0\)</span>, los términos <span class="math inline">\(Y_j\)</span> y <span class="math inline">\(g(Y_j^*)\)</span> son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medibles. Procediendo por inducción sobre <span class="math inline">\(j\geq 0\)</span>, sabemos que <span class="math inline">\(Y_0=X_0\)</span>, por la hipótesis dada por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> podemos afirmar que <span class="math inline">\(X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible, por lo tanto, <span class="math inline">\(Y_0\)</span> también lo es.</p>
+<p>Como primer paso, veamos que <span class="math inline">\(M_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Recordemos que el movimiento browniano <span class="math inline">\(W\)</span> es un proceso adaptado, por lo que <span class="math inline">\(\Delta W_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Con esto, veremos que para todo <span class="math inline">\(j\geq 0\)</span>, los términos <span class="math inline">\(Y_j\)</span> y <span class="math inline">\(g(Y_j^*)\)</span> son <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medibles. Procediendo por inducción sobre <span class="math inline">\(j\geq 0\)</span>, sabemos que <span class="math inline">\(Y_0=X_0\)</span>, por la hipótesis dada por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> podemos afirmar que <span class="math inline">\(X_0\)</span> es <span class="math inline">\(\mathcal{F}_{t_0}\)</span>-medible, por lo tanto, <span class="math inline">\(Y_0\)</span> también lo es.</p>
 <p>Suponemos que para algún <span class="math inline">\(j\geq 0\)</span> se cumple que <span class="math inline">\(Y_j\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Veamos que <span class="math inline">\(Y_{j+1}\)</span> es <span class="math inline">\(\mathcal{F}_{t_{j+1}}\)</span>-medible.</p>
 <p>Notemos que por el <a href="#lem-6.1" class="quarto-xref">Lema&nbsp;<span>6.1</span></a>, el operador <span class="math inline">\(G:\mathbb{R}\rightarrow\mathbb{R}\)</span> definido por</p>
 <p><span class="math display">\[
@@ -1640,6 +1640,27 @@ window.Quarto = {
   \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
 \tag{6.63}\]</span></span></p>
 <p>Donde la constante <span class="math inline">\(C\)</span> depende de los términos <span class="math inline">\((p,T,L_{\lambda},\theta,\Delta t)\)</span>.</p>
+<p>Para el octavo término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, dado por</p>
+<p><span id="eq-6.64"><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg].
+\tag{6.64}\]</span></span></p>
+<p>Notemos que el proceso</p>
+<p><span class="math display">\[
+  Z_n:=\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j
+\]</span></p>
+<p>es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término <span class="math inline">\(M_n\)</span> dad por la <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a>. Por lo que se asume que <span class="math inline">\(Z_n\)</span> es una martingala.</p>
+<p>Calculamos la variación cuadrática</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}[|Y_j^*g(Y_j^*)\Delta W_j|^2|\mathcal{F}_{t_j}] &amp; = \mathbb{E}[|Y_j^*g(Y_j^*)|^2|\mathcal{F}_{t_j}]\mathbb{E}[|\Delta W_j|^2|\mathcal{F}_{t_j}]\\
+    &amp; = |Y_j^*|^2|g(Y_j^*)|^2\mathbb{E}[\Delta W_j^2]\\
+    &amp; = |Y_j^*|^2|g(Y_j^*)|^2\Delta t.
+  \end{aligned}
+\]</span></p>
+<p>Usando la desigualdad de BDG, existe una constannte <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.64</span></a> queda acotada mediante</p>
+<p><span id="eq-6.65"><span class="math display">\[
+  \mathbb{E}[\sup\limits_{0\leq n\leq M}|M_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}
+\tag{6.65}\]</span></span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
