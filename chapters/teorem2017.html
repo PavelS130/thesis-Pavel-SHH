@@ -1688,7 +1688,7 @@ window.Quarto = {
 \tag{6.68}\]</span></span></p>
 <p>Para facilitar la notación, definimos la siguiente constante auxiliar</p>
 <p><span class="math display">\[
-  \widetilde{c}=\frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}
+  \widetilde{c}=\frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}.
 \]</span></p>
 <p>De esta manera, la <a href="#eq-6.68" class="quarto-xref">Ecuación&nbsp;<span>6.68</span></a> queda de la forma</p>
 <p><span id="eq-6.69"><span class="math display">\[
@@ -1697,6 +1697,52 @@ window.Quarto = {
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right].
   \end{aligned}
 \tag{6.69}\]</span></span></p>
+<p>Para el término <span class="math inline">\((1+|Y_j^*|^2)^p\)</span> usaremos nuevamente la desigualdad (citar peliminares:), considerando la cota dada por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    |Y_j^*|^{2p}+(1+|Y_j^*|^2)^p &amp; \leq |Y_j^*|^{2p}+2^{p-1}(1+|Y_j^*|^{2p})\\
+    &amp; = |Y_j^*|^{2p}+2^{p-1}+2^{p-1}|Y_j^*|^{2p}\\
+    &amp; = 2^{p-1}+(1+2^{p-1})|Y_j^*|^{2p}\\
+    &amp; \leq 2^{p-1}+(1+2^{p-1})(\beta|Y_j|^2+\alpha)^p\\
+    &amp; \leq 2^{p-1}+(1+2^{p-1})(2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\
+    &amp; \leq 2^{p-1}+(2^{p-1}+2^{p-1})(2^{p-1}\beta^p|Y_j|^{2p}+2^{p-1}\alpha^p)\\
+    &amp; = 2^{p-1}+(2^{2(p-1)})(2^{p-1}\beta^p|Y_j|^{2p}+2^{p-1}\alpha^p)\\
+    &amp; = (1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}.
+  \end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en la <a href="#eq-6.69" class="quarto-xref">Ecuación&nbsp;<span>6.69</span></a> y aplicando la linealidad del valor esperado tenemos</p>
+<p><span id="eq-6.70"><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right]\\
+    &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}(1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}\right]\\
+    &amp; = \widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+2^{2(p-1)})2^{p-1}]+\widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{3(p-1)}\beta^p|Y_j|^{2p}]\\
+    &amp; = \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+\tag{6.70}\]</span></span></p>
+<p>Por definición de la constante <span class="math inline">\(\widetilde{c}\)</span> tenemos que</p>
+<p><span id="eq-6.71"><span class="math display">\[
+  \begin{aligned}
+  \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1} &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot\Delta t M(1+2^{2(p-1)})2^{p-1}\\
+  &amp; \leq \frac{C_pT^{p/2-1}L_{\lambda}^{p/2}T(1+2^{2(p-1)})(2^{p-1})}{2}\\
+  &amp; = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}).
+  \end{aligned}
+\tag{6.71}\]</span></span></p>
+<p>Por otro lado</p>
+<p><span id="eq-6.72"><span class="math display">\[
+  \begin{aligned}
+    \widetilde{c}2^{3(p-1)}\beta^p &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot 2^{3(p-1)}\\
+    &amp; \leq C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
+  \end{aligned}
+\tag{6.72}\]</span></span></p>
+<p>De la <a href="#eq-6.71" class="quarto-xref">Ecuación&nbsp;<span>6.71</span></a> y <a href="#eq-6.72" class="quarto-xref">Ecuación&nbsp;<span>6.72</span></a> definimos las constantes <span class="math inline">\(c_5 = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1})\)</span> y <span class="math inline">\(c_6=C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}\)</span>. Reconstruyendo nuevamente la constante <span class="math inline">\(C\)</span> mediante <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_3,c_5,c_6\}\)</span>, entonces la <a href="#eq-6.70" class="quarto-xref">Ecuación&nbsp;<span>6.70</span></a> queda acotada</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    &amp; \leq \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
+    &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
