@@ -1011,7 +1011,7 @@ window.Quarto = {
     &amp; \qquad +T_5+T_6+T_7+T_8+T_9)^p.
   \end{aligned}
 \tag{6.36}\]</span></span></p>
-<p>Consideremos la siguiente desigualdad elemental (citar) para numeros reales <span class="math inline">\((a_1,a_2,\ldots,a_m)\)</span>,</p>
+<p>Consideremos la siguiente desigualdad (citar) para numeros reales <span class="math inline">\((a_1,a_2,\ldots,a_m)\)</span>,</p>
 <p><span class="math display">\[
   \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
 \]</span></p>
@@ -1079,7 +1079,7 @@ window.Quarto = {
     &amp; \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
   \end{aligned}
 \tag{6.37}\]</span></span></p>
-<p>Considerando la propiedad elemental</p>
+<p>Considerando la propiedad</p>
 <p><span id="eq-6.38"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\Bigg)\Bigg]=\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.38}\]</span></span></p>
@@ -1461,7 +1461,7 @@ window.Quarto = {
     &amp; \leq |f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|.
     \end{aligned}
 \]</span></p>
-<p>Elevando al cuadrado y aplicando la desigualdad elemental <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, entonces</p>
+<p>Elevando al cuadrado y aplicando la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, entonces</p>
 <p><span class="math display">\[
   \begin{aligned}
     |f(Y_j^*)|^2 &amp; \leq (|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\
@@ -1475,7 +1475,7 @@ window.Quarto = {
     &amp; \leq 2(D|Y_j^*|^2+|Y_j^*|^{q+2})+2|f_{\lambda}(0)|^2.
   \end{aligned}
 \tag{6.57}\]</span></span></p>
-<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2, 1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> tenemos</p>
+<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2\leq 1+|Y_j^*|^{q+2}\)</span> y <span class="math inline">\(1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)|^2 &amp;\leq 2D|Y_j^*|^2+2D|Y_j^*|^{q+2}+2|f_{\lambda}(0)|^2\\
@@ -1648,7 +1648,7 @@ window.Quarto = {
 <p><span class="math display">\[
   Z_n:=\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j
 \]</span></p>
-<p>es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término <span class="math inline">\(M_n\)</span> dad por la <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a>. Por lo que se asume que <span class="math inline">\(Z_n\)</span> es una martingala.</p>
+<p>es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término <span class="math inline">\(M_n\)</span> dado por la <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a>. Por lo que se asume que <span class="math inline">\(Z_n\)</span> es una martingala.</p>
 <p>Calculamos la variación cuadrática</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -1735,13 +1735,28 @@ window.Quarto = {
     &amp; \leq C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
   \end{aligned}
 \tag{6.72}\]</span></span></p>
-<p>De la <a href="#eq-6.71" class="quarto-xref">Ecuación&nbsp;<span>6.71</span></a> y <a href="#eq-6.72" class="quarto-xref">Ecuación&nbsp;<span>6.72</span></a> definimos las constantes <span class="math inline">\(c_5 = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1})\)</span> y <span class="math inline">\(c_6=C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}\)</span>. Reconstruyendo nuevamente la constante <span class="math inline">\(C\)</span> mediante <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_3,c_5,c_6\}\)</span>, entonces la <a href="#eq-6.70" class="quarto-xref">Ecuación&nbsp;<span>6.70</span></a> queda acotada</p>
+<p>De la <a href="#eq-6.71" class="quarto-xref">Ecuación&nbsp;<span>6.71</span></a> y <a href="#eq-6.72" class="quarto-xref">Ecuación&nbsp;<span>6.72</span></a> definimos las constantes</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  c_5 &amp; = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}),\\
+  c_6 &amp; = C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
+  \end{aligned}
+\]</span></p>
+<p>Reconstruyendo nuevamente la constante <span class="math inline">\(C\)</span> mediante</p>
+<p><span class="math display">\[
+C:=\max\{c_1,c_2,c_3,c_3,c_5,c_6\}.
+\]</span></p>
+<p>Entonces la <a href="#eq-6.70" class="quarto-xref">Ecuación&nbsp;<span>6.70</span></a> queda acotada</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp; \leq \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
+\]</span></p>
+<p>Para el noveno término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> basta notar que la función <span class="math inline">\(h\)</span> posse las mismas propiedades que la función <span class="math inline">\(g\)</span> y considerar que <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t\)</span>. Por ende es posible realizar un proceso similar y obtener la siguiente cota</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
