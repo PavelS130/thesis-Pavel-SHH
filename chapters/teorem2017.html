@@ -1659,8 +1659,44 @@ window.Quarto = {
 \]</span></p>
 <p>Usando la desigualdad de BDG, existe una constannte <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.64</span></a> queda acotada mediante</p>
 <p><span id="eq-6.65"><span class="math display">\[
-  \mathbb{E}[\sup\limits_{0\leq n\leq M}|M_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}
+  \mathbb{E}[\sup\limits_{0\leq n\leq M}|Z_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}.
 \tag{6.65}\]</span></span></p>
+<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> podemos afirmar que <span class="math inline">\(|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>. De la ecuación <a href="#eq-6.65" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a> al extraer <span class="math inline">\(\Delta t\)</span>, aplicar la desigualdad de Hölder para sumas finitas con <span class="math inline">\(k=p/2\)</span> y considerando la cota anterior derivada de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene</p>
+<p><span id="eq-6.66"><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    &amp;\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\
+    &amp; = C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*||g(Y_j^*)|^2\Bigg]^{p/2}\\
+    &amp; \leq C_p\Delta t^{p/2}\mathbb{E}\Bigg[M^{p/2-1}\sum\limits_{j=0}^{M-1}(|Y_j^*|^2|g(Y_j^*)|^2)^{p/2}\Bigg]\\
+    &amp; = C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|Y_j^*|^2|g(Y_j^*)|^2)^{p/2}\Bigg]\\
+    &amp; = C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p|g(Y_j^*)|^p\Bigg]\\
+    &amp; \leq C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^pL_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    &amp; = C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p(1+|Y_j^*|^2)^{p/2}\Bigg].\\
+  \end{aligned}
+\tag{6.66}\]</span></span></p>
+<p>Por hipótesis, tenemos que <span class="math inline">\(M\in \mathbb{N}\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>, de aquí,</p>
+<p><span id="eq-6.67"><span class="math display">\[
+  \Delta t^{p/2}M^{p/2-1}=(\Delta tM)^{p/2-1}\Delta t\leq T^{p/2-1}\Delta t.
+\tag{6.67}\]</span></span></p>
+<p>Aplicando la desigualdad de Young y la <a href="#eq-6.67" class="quarto-xref">Ecuación&nbsp;<span>6.67</span></a> a la <a href="#eq-6.66" class="quarto-xref">Ecuación&nbsp;<span>6.66</span></a> tenemos</p>
+<p><span id="eq-6.68"><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    &amp; \leq C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    &amp; \leq C_p T^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\left[\sum\limits_{j=0}^{M-1}\frac{|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p}{2}\right].
+  \end{aligned}
+\tag{6.68}\]</span></span></p>
+<p>Para facilitar la notación, definimos la siguiente constante auxiliar</p>
+<p><span class="math display">\[
+  \widetilde{c}=\frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}
+\]</span></p>
+<p>De esta manera, la <a href="#eq-6.68" class="quarto-xref">Ecuación&nbsp;<span>6.68</span></a> queda de la forma</p>
+<p><span id="eq-6.69"><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right].
+  \end{aligned}
+\tag{6.69}\]</span></span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
