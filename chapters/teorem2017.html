@@ -1816,7 +1816,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   \begin{aligned}
     \Bigg|\sum\limits_{j=0}^{n-1}a_j\Bigg|^p &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p\\
-    &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p.
+    &amp; \leq M^{p-1}\sum\limits_{j=0}^{n-1}a_j^p.
   \end{aligned}
 \]</span></p>
 <p>Al tomar supremo en <span class="math inline">\(0\leq n\leq M\)</span></p>
@@ -1833,6 +1833,22 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg]\\
   &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\
   &amp; = \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg].
+\end{aligned}
+\]</span></p>
+<p>Para cada <span class="math inline">\(j\)</span> aplicamos la desigualdad <span class="math inline">\((a+b)^p\leq 2^{p-1}(a^p+b^p)\)</span>, de aquí</p>
+<p><span class="math display">\[
+(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)\leq 2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}).
+\]</span></p>
+<p>Sustituyendo esto en la ecuación anterior, se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\
+  &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
+  &amp; = \frac{2^{p-1}}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
+  &amp; = \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
+  &amp; = \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
+  &amp;\qquad\quad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
 \end{aligned}
 \]</span></p>
 </div>
