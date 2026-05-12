@@ -1772,7 +1772,7 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 <p>Entonces la <a href="#eq-6.74" class="quarto-xref">Ecuación&nbsp;<span>6.74</span></a> queda acotada</p>
 <p><span id="eq-6.77"><span class="math display">\[
   \begin{aligned}
-    \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
+    \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
@@ -1856,20 +1856,35 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> y <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> respectivamente, tenemos que</p>
 <p><span class="math display">\[
   \begin{aligned}
-    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] &amp; \leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],\\
-    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]&amp; \leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],\\
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]&amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en <a href="#eq-6.81" class="quarto-xref">Ecuación&nbsp;<span>6.81</span></a></p>
-<p><span class="math display">\[
+<p><span id="eq-6.82"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
   &amp; \leq \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
   &amp;\qquad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\\
-  &amp; \leq \frac{1}{2}\Bigg(C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
-  &amp; \qquad + \frac{1}{2}\Bigg(C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
-  &amp; = C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  &amp; \leq \frac{1}{2}\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+  &amp; \qquad + \frac{1}{2}\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+  &amp; = C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \end{aligned}
+\tag{6.82}\]</span></span></p>
+<p>Usando siguientes ecuaciones - <a href="#eq-6.40" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> (1°, 2°, 3° término), - <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> (4° término), - <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> (5° término), - <a href="#eq-6.65" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a> (6° término), - <a href="#eq-6.67" class="quarto-xref">Ecuación&nbsp;<span>6.67</span></a> (7° término), - <a href="#eq-6.77" class="quarto-xref">Ecuación&nbsp;<span>6.77</span></a> (8° término), - <a href="#eq-6.78" class="quarto-xref">Ecuación&nbsp;<span>6.78</span></a> (9° término), - <a href="#eq-6.82" class="quarto-xref">Ecuación&nbsp;<span>6.82</span></a> (10° término),</p>
+<p>en la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}&amp;(|Y_n|^{2p})\Bigg]\\
+    &amp; \leq 10^{p-1}\Bigg\{C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}] \\  
+    &amp; \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
+    &amp; \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
+    &amp; \quad + 2^p r^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \quad + 2^p r^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+    &amp; \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}.
+  \end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
