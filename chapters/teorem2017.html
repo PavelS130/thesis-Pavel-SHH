@@ -1360,7 +1360,9 @@ window.Quarto = {
 <p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\beta^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> de la forma</p>
 <p><span id="eq-6.50"><span class="math display">\[
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
+    n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\
+    &amp; = n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]\\
+    &amp; = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
@@ -1368,7 +1370,7 @@ window.Quarto = {
 <p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span>, <span class="math inline">\(\theta\)</span> y <span class="math inline">\(\Delta t\)</span>, su valor cambiará dependiendo del proceso.</p>
 <p>Siguiendo un proceso similar, para el quinto término de <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se puede afirmar que existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, tal que nos permite acotar de la forma</p>
 <p><span id="eq-6.51"><span class="math display">\[
-  n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.51}\]</span></span></p>
 <p>Retomando la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estudiaremos el sexto término</p>
 <p><span class="math display">\[
@@ -1858,7 +1860,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg] &amp; \leq M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
 \end{aligned}
 \]</span></p>
-<p>Recordando las cotas para el cuarto y quinto término dada por la</p>
+<p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> y <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
