@@ -1092,7 +1092,7 @@ window.Quarto = {
   \begin{aligned}
     \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}&amp;(|Y_n|^{2p})\Bigg]\\
     &amp; \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p \\
-    &amp;\quad + n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_j|^{2p})\Bigg]\\
+    &amp;\quad + n^{p-1}(2\beta L_{\lambda}\Delta t)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|Y_j|^{2p})\Bigg]\\
     &amp; \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\
     &amp; \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta \widetilde{N}_j|^{2p})\Bigg]\\
     &amp; \quad + 2^p r^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p\Bigg]\\
@@ -1102,7 +1102,7 @@ window.Quarto = {
     &amp; \quad + 2^p \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\Bigg\}.
   \end{aligned}
 \tag{6.39}\]</span></span></p>
-<p>Usando <a href="#eq-6.38" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a> tenemos</p>
+<p>Para el tercer término de la Usando <a href="#eq-6.38" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a> tenemos</p>
 <p><span class="math display">\[
   n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg] =n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}].
 \]</span></p>
