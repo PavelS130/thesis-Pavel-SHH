@@ -1907,9 +1907,20 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \]</span></p>
-<p>Por la forma en la que se estado construyendo la constante <span class="math inline">\(C\)</span>, es posible realizar los ajustes necesarios de tal forma que <span class="math inline">\(C\)</span> absorba la constante <span class="math inline">\(l\)</span>, de esta forma</p>
-<p><span class="math display">\[
+<p>Por la forma en la que se ha estado construyendo la constante <span class="math inline">\(C\)</span>, es posible realizar los ajustes necesarios de tal forma que <span class="math inline">\(C\)</span> absorba la constante <span class="math inline">\(l\)</span>, de esta forma</p>
+<p><span id="eq-6.83"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\tag{6.83}\]</span></span></p>
+<p>Es claro que para cada <span class="math inline">\(j=0,1,\ldots,M-1\)</span> se cumple</p>
+<p><span class="math display">\[
+|Y_j|^{2p}\leq \sup\limits_{0\leq n\leq j} |Y_n|^{2p}.
+\]</span></p>
+<p>Aplicando la esperanza y sustituyendo en la <a href="#eq-6.83" class="quarto-xref">Ecuación&nbsp;<span>6.83</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg] &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
+  &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}\left(\sup\limits_{0\leq n\leq j}|Y_n|^{2p}\right).
+\end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
