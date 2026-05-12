@@ -1885,7 +1885,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p>en la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
-    \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}&amp;(|Y_n|^{2p})\Bigg]\\
+    \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\\
     &amp; \leq 10^{p-1}\Bigg\{C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}] \\  
     &amp; \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
     &amp; \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
@@ -1893,7 +1893,10 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
     &amp; \quad + 2^p r^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
-    &amp; \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}.
+    &amp; \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}\\
+    &amp; =\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\\
+    &amp; \qquad\quad + \Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p\\
+    &amp; \qquad\qquad\qquad\qquad +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
 </div>
