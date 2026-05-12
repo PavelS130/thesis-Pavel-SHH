@@ -1779,6 +1779,62 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 <p><span id="eq-6.78"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.78}\]</span></span></p>
+<p>El décimo y último término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> viene dado por</p>
+<p><span id="eq-6.79"><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|\Bigg].
+\tag{6.79}\]</span></span></p>
+<p>Notemos que para cada <span class="math inline">\(j=0,1\ldots,n-1\)</span> se tiene</p>
+<p><span class="math display">\[
+  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)
+\]</span></p>
+<p>Sumando sobre <span class="math inline">\(j=0,1,\ldots,n-1\)</span> y considerando la desigualdad del triángulo se tiene</p>
+<p><span class="math display">\[
+  \begin{aligned}
+  \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|&amp; \leq \sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\\
+  &amp; \leq \sum\limits_{j=0}^{n-1}\frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\\
+  &amp; = \frac{1}{2}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2).
+  \end{aligned}
+\]</span></p>
+<p>al elevar ambos lados de la desigualdad anterior a la potencia p y tomar supremo sobre <span class="math inline">\(n=0,1,\ldots,M\)</span>, entonces</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\\
+  &amp; \leq \frac{1}{2^p}\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p.
+\end{aligned}
+\]</span></p>
+<p>Notemos que la tomar valor esperado, tenemos como resultado la primera cota de la <a href="#eq-6.79" class="quarto-xref">Ecuación&nbsp;<span>6.79</span></a></p>
+<p><span id="eq-6.80"><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  &amp; \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg].
+\end{aligned}
+\tag{6.80}\]</span></span></p>
+<p>Consideramos la siguiente notación <span class="math display">\[
+a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
+\]</span></p>
+<p>Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la <a href="#eq-6.80" class="quarto-xref">Ecuación&nbsp;<span>6.80</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \Bigg|\sum\limits_{j=0}^{n-1}a_j\Bigg|^p &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p\\
+    &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p.
+  \end{aligned}
+\]</span></p>
+<p>Al tomar supremo en <span class="math inline">\(0\leq n\leq M\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sup\limits_{0\leq n\leq M} &amp; \Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\\
+  &amp; \leq M^{p-1}\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p.
+\end{aligned}
+\]</span></p>
+<p>Note que para cada <span class="math inline">\(j=0,1,\ldots n\)</span> se tiene que <span class="math inline">\(a_j^p&gt;0\)</span>, por lo que la suma anterior es creciente y por tanto alcanza su supremo cuando <span class="math inline">\(n=M\)</span>, así tomando valor esperado y sustituyendo en <a href="#eq-6.80" class="quarto-xref">Ecuación&nbsp;<span>6.80</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  &amp; \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg]\\
+  &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\
+  &amp; = \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg].
+\end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
