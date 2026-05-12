@@ -1842,7 +1842,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 (|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)\leq 2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}).
 \]</span></p>
 <p>Sustituyendo esto en la ecuación anterior, se tiene</p>
-<p><span class="math display">\[
+<p><span id="eq-6.81"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
   &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\
@@ -1852,15 +1852,25 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; = \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
   &amp;\qquad\quad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
 \end{aligned}
+\tag{6.81}\]</span></span></p>
+<p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> y <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> respectivamente, tenemos que</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] &amp; \leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],\\
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]&amp; \leq C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
 \]</span></p>
-<p>Dado que <span class="math inline">\(n\leq M\)</span>, entonces</p>
+<p>Sustituyendo esto en <a href="#eq-6.81" class="quarto-xref">Ecuación&nbsp;<span>6.81</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-  n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] &amp; \leq M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg],\\
-  n^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg] &amp; \leq M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
+  \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  &amp; \leq \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
+  &amp;\qquad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\\
+  &amp; \leq \frac{1}{2}\Bigg(C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+  &amp; \qquad + \frac{1}{2}\Bigg(C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
+  &amp; = C+\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \end{aligned}
 \]</span></p>
-<p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> y <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
