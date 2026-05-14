@@ -1110,9 +1110,39 @@ window.Quarto = {
 <p><span class="math display">\[
 \begin{aligned}
   n^{p-1}(2\beta L_{\lambda}\Delta t)^p &amp; = n^{p-1}\Delta t^{p-1}\Delta t(2\beta L_{\lambda})^p\\
-  &amp; \leq T^{p-1}(2\beta L_{\lambda})^p\Delta t.
+  &amp; \leq T^{p-1}(2\beta L_{\lambda})^p\Delta t\\
+  &amp; = T^{p-1}(2L_{\lambda})^p\beta^p\Delta t
 \end{aligned}
 \]</span></p>
+<p>Recordemos que <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> están definidos por</p>
+<p><span class="math display">\[
+\alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta tL_{\lambda}},\quad \beta=1+\alpha.
+\]</span></p>
+<p>Por hipótesis, sabemos que <span class="math inline">\(\Delta tM\leq T\)</span>, esto implica <span class="math inline">\(\Delta t\leq T/M\leq T\)</span>. Por tanto, podemos definir</p>
+<p><span class="math display">\[
+  \widetilde{\alpha}:=\frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}},\quad \beta=1+\widetilde{\alpha}.
+\]</span></p>
+<p>Afirmamos que <span class="math inline">\(\alpha\leq\widetilde{\alpha}\)</span> y <span class="math inline">\(\beta\leq\widetilde{\beta}\)</span>. Tenemos que <span class="math inline">\(\Delta t\leq T\)</span>, entonces</p>
+<p><span class="math display">\[
+  2\theta\Delta tL_{\lambda}\leq 2\theta TL_{\lambda}.
+\]</span></p>
+<p>Note que</p>
+<p><span class="math display">\[
+1-2\theta TL_{\lambda}\leq 1-2\theta\Delta tL_{\lambda},
+\]</span></p>
+<p>multiplicando por <span class="math inline">\(\Delta t\leq T\)</span> se tiene</p>
+<p><span class="math display">\[
+  \Delta t(1-2\theta TL_{\lambda})\leq T(1-2\theta\Delta t L_{\lambda}),
+\]</span></p>
+<p>por definición de <span class="math inline">\(L_{\lambda}\)</span> tenemos <span class="math inline">\(2\theta L_{\lambda}&gt;0\)</span>, multiplicando la desigualdad anterior y reordenando se tiene</p>
+<p><span class="math display">\[
+  2\theta\Delta tL_{\lambda}(1-2\theta TL_{\lambda})\leq 2\theta TL_{\lambda}(1-2\theta\Delta t L_{\lambda}).
+\]</span></p>
+<p>De aquí</p>
+<p><span class="math display">\[
+\alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}\leq \frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}}=\widetilde{\alpha}
+\]</span></p>
+<p>Por lo tanto <span class="math inline">\(\alpha\leq\widetilde{\alpha}\)</span>, esto implica de forma inmediata <span class="math inline">\(\beta\leq\widetilde{\beta}\)</span>.</p>
 <p>Definimos a las constante</p>
 <p><span class="math display">\[
   \begin{aligned}
