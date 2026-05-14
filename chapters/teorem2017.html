@@ -1118,7 +1118,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta tL_{\lambda}},\quad \beta=1+\alpha.
 \]</span></p>
-<p>Por hipótesis, sabemos que <span class="math inline">\(\Delta tM\leq T\)</span>, esto implica <span class="math inline">\(\Delta t\leq T/M\leq T\)</span>. Por tanto, podemos definir</p>
+<p>Por hipótesis, sabemos que <span class="math inline">\(\Delta tM\leq T\)</span>, esto implica <span class="math inline">\(\Delta t\leq T/M\leq T\)</span>. Podemos definir</p>
 <p><span class="math display">\[
   \widetilde{\alpha}:=\frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}},\quad \beta=1+\widetilde{\alpha}.
 \]</span></p>
@@ -1143,11 +1143,18 @@ window.Quarto = {
 \alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}\leq \frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}}=\widetilde{\alpha}
 \]</span></p>
 <p>Por lo tanto <span class="math inline">\(\alpha\leq\widetilde{\alpha}\)</span>, esto implica de forma inmediata <span class="math inline">\(\beta\leq\widetilde{\beta}\)</span>.</p>
-<p>Definimos a las constante</p>
+<p>Ahora bien, con esto se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+  |Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p &amp; \leq |Y_0|^{2p}+(2(\widetilde{\alpha}+1)L_{\lambda}T)^p\\
+  T^{p-1}(2\beta L_{\lambda})^p &amp; \leq T^{p-1}(2\widetilde{\beta} L_{\lambda})^p
+\end{aligned}
+\]</span></p>
+<p>Definimos a las constantes</p>
 <p><span class="math display">\[
   \begin{aligned}
-    c_1 &amp; := |Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p,\\
-    c_2 &amp; := T^{p-1}(2\beta L_{\lambda})^p.
+    c_1 &amp; := |Y_0|^{2p}+(2(\widetilde{\alpha}+1)L_{\lambda}T)^p,\\
+    c_2 &amp; := T^{p-1}(2\widetilde{\beta} L_{\lambda})^p.
   \end{aligned}
 \]</span></p>
 <p>Tomamos a <span class="math inline">\(C:=\max\{c_1,c_2\}\)</span>. De esta forma, los primeros tres términos de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> quedan de la forma</p>
@@ -1157,6 +1164,7 @@ window.Quarto = {
   &amp; \leq C+C\Delta t \sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \end{aligned}
 \tag{6.40}\]</span></span></p>
+<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span> y <span class="math inline">\(\theta\)</span>, su valor cambiará dependiendo del proceso.</p>
 <p>Procediendo con el cuarto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, considerando la <a href="#eq-6.38" class="quarto-xref">Ecuación&nbsp;<span>6.38</span></a>, con esto, tenemos</p>
 <p><span class="math display">\[
   n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg] =n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}].
@@ -1397,7 +1405,6 @@ window.Quarto = {
     &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \tag{6.50}\]</span></span></p>
-<p>Es necesario mencionar que dicha constante <span class="math inline">\(C\)</span> solo depende de los parámetros constantes <span class="math inline">\(p\)</span>, <span class="math inline">\(T\)</span>, <span class="math inline">\(L_{\lambda}\)</span>, <span class="math inline">\(\theta\)</span> y <span class="math inline">\(\Delta t\)</span>, su valor cambiará dependiendo del proceso.</p>
 <p>Siguiendo un proceso similar, para el quinto término de <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se puede afirmar que existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, tal que nos permite acotar de la forma</p>
 <p><span id="eq-6.51"><span class="math display">\[
 n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
