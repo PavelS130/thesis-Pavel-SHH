@@ -1778,14 +1778,16 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right]\\
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}(1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}\right]\\
-    &amp; = \widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+2^{2(p-1)})2^{p-1}]+\widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{3(p-1)}\beta^p|Y_j|^{2p}]\\
+    &amp; = \widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+2^{2(p-1)})2^{p-1}]\\
+    &amp; \qquad +\widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{3(p-1)}\beta^p|Y_j|^{2p}]\\
     &amp; = \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \tag{6.75}\]</span></span></p>
 <p>Por definición de la constante <span class="math inline">\(\widetilde{c}\)</span> tenemos que</p>
 <p><span id="eq-6.75"><span class="math display">\[
   \begin{aligned}
-  \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1} &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot\Delta t M(1+2^{2(p-1)})2^{p-1}\\
+  \widetilde{c}\Delta t M &amp; (1+2^{2(p-1)})2^{p-1}\\
+  &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot\Delta t M(1+2^{2(p-1)})2^{p-1}\\
   &amp; \leq \frac{C_pT^{p/2-1}L_{\lambda}^{p/2}T(1+2^{2(p-1)})(2^{p-1})}{2}\\
   &amp; \leq C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}).
   \end{aligned}
