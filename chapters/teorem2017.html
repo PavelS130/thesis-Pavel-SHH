@@ -1390,7 +1390,7 @@ window.Quarto = {
     (4T)^{p-1}c_pL_{\lambda}^p\beta^p &amp; \leq (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p.
   \end{aligned}
 \]</span></p>
-<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> de la forma</p>
+<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>. Por otro lado, también definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> de la forma</p>
 <p><span id="eq-6.50"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\
@@ -1402,7 +1402,10 @@ window.Quarto = {
 \tag{6.51}\]</span></span></p>
 <p>Siguiendo un proceso similar, para el quinto término de <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se puede afirmar que existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, tal que nos permite acotar de la forma</p>
 <p><span id="eq-6.51"><span class="math display">\[
-n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\begin{aligned}
+n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
+&amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\end{aligned}
 \tag{6.52}\]</span></span></p>
 <p>Retomando la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estudiaremos el sexto término</p>
 <p><span class="math display">\[
@@ -1673,7 +1676,11 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j
     &amp; \quad + C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p).
   \end{aligned}
 \tag{6.65}\]</span></span></p>
-<p>Definimos de manera similar a <span class="math inline">\(c_5=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})\)</span> y <span class="math inline">\(c_6=C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\)</span>, tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a> de la forma</p>
+<p>Definimos de manera similar a <span class="math inline">\(c_5=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})\)</span>, ademas, consderando las cotas dadas por la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> se tiene</p>
+<p><span class="math display">\[
+C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
+\]</span></p>
+<p>Definiendo a <span class="math inline">\(c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)\)</span>, tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a> de la forma</p>
 <p><span id="eq-6.65"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
