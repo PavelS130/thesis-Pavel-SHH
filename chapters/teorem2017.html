@@ -1122,7 +1122,7 @@ window.Quarto = {
 <p><span class="math display">\[
   \widetilde{\alpha}:=\frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}},\quad \beta=1+\widetilde{\alpha}.
 \]</span></p>
-<p>Afirmamos que <span class="math inline">\(\alpha\leq\widetilde{\alpha}\)</span> y <span class="math inline">\(\beta\leq\widetilde{\beta}\)</span>. Tenemos que <span class="math inline">\(\Delta t\leq T\)</span>, entonces</p>
+<p>Veamos que se cumple <span class="math inline">\(\alpha\leq\widetilde{\alpha}\)</span> y <span class="math inline">\(\beta\leq\widetilde{\beta}\)</span>. Tenemos que <span class="math inline">\(\Delta t\leq T\)</span>, entonces</p>
 <p><span class="math display">\[
   2\theta\Delta tL_{\lambda}\leq 2\theta TL_{\lambda}.
 \]</span></p>
@@ -1383,7 +1383,14 @@ window.Quarto = {
     &amp; = (2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p.
   \end{aligned}
 \]</span></p>
-<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\beta^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> de la forma</p>
+<p>Ahora bien, por la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> tenemos que</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p &amp; \leq (2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p,
+    (4T)^{p-1}c_pL_{\lambda}^p\beta^p &amp; \leq (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p.
+  \end{aligned}
+\]</span></p>
+<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>. Por otro lado, tammbién definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> de la forma</p>
 <p><span id="eq-6.50"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\
