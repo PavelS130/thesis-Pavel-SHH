@@ -1968,8 +1968,59 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   u_{M}:=\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg], \quad A=B=C.
 \]</span></p>
 <p>Recordando que <span class="math inline">\(M\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>. Entonces</p>
-<p><span class="math display">\[
+<p><span id="eq-6.85"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]\leq Ce^{CM\Delta t}\leq Ce^{CT}.
+\tag{6.85}\]</span></span></p>
+<p>Por último, recordando la cota para <span class="math inline">\(|Y_n^*|^2\)</span> dada por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, tenemos que</p>
+<p><span class="math display">\[
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha
+\]</span></p>
+<p>Elevando a la potencia <span class="math inline">\(p\)</span> y aplicando nuevamente la desigualdad <span class="math inline">\((a+b)^p\leq 2^{p-1}(a^p+b^p)\)</span>, tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    (|Y_n^*|^2)^p &amp; = |Y_n^*|^{2p}\\
+    &amp; \leq (\beta|Y_n|^2+\alpha)\\
+    &amp; \leq 2^{p-1}(\beta^p|Y_n|^{2p}+\alpha^p).
+  \end{aligned}
+\]</span></p>
+<p>Tomando supremo en <span class="math inline">\(0\leq n\leq M\)</span> y valor esperado tenemos</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]+2^{p-1}\alpha^p.
+\]</span></p>
+<p>Usando la cota dada por la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a>, se tiene que</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p.
+\]</span></p>
+<p>Por la <a href="#eq-6.40" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> es posible tener la siguiente cota</p>
+<p><span id="eq-6.86"><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] &amp; \leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p\\
+  &amp; \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p.
+\end{aligned}
+\tag{6.86}\]</span></span></p>
+<p>Definimos las siguientes constantes</p>
+<p><span class="math display">\[
+  C':= 2^{p-1}\widetilde{\beta}^pC, \quad C'':= 2^{p-1}\widetilde{\alpha}^p.
+\]</span></p>
+<p>Dado que <span class="math inline">\(C&gt;0\)</span> y <span class="math inline">\(T\geq 0\)</span>, se puede afirmar que <span class="math inline">\(e^{CT}\geq e^0 = 1\)</span>, por lo tanto, de la <a href="#eq-6.86" class="quarto-xref">Ecuación&nbsp;<span>6.86</span></a> se tiene</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] &amp; \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p\\
+    &amp;\leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^pe^{CT}\\
+    &amp;= (2^{p-1}\widetilde{\beta}^pC+2^{p-1}\widetilde{\alpha}^p)e^{CT}\\
+    &amp; = (C'+C'')e^{CT}.
+  \end{aligned}
+\]</span></p>
+<p>Tomando a <span class="math inline">\(\widetilde{C}:=\max\{C',C''\}\)</span> tenemos la cota</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq (C'+C'')e^{CT}\leq \widetilde{C}e^{CT}.
+\]</span></p>
+<p>Notemos que las constantes <span class="math inline">\(C\)</span> y <span class="math inline">\(\widetilde{C}\)</span> son positivas y dependen únicamente de <span class="math inline">\((p,T,\lambda,\theta,L_{\lambda},K_{\lambda},f_{\lambda}(0),g(0),h(0))\)</span> e independiente de <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(N_T\)</span>. Con esto, hemos logrado obtener las siguientes cotas</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]&amp;\leq Ce^{CT},\\
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]&amp; \leq \widetilde{C}e^{CT}.
+\end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
