@@ -778,8 +778,8 @@ window.Quarto = {
       &amp; = |Y_n|^2-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).\\  
   \end{aligned}
 \]</span></p>
-<p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
-<p><span id="eq-6.19"><span class="math display">\[
+<p>Es claro que el término <span class="math inline">\(-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2\)</span> es negativo, porque es el valor negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad</p>
+<p><span id="eq-6.19"><span class="math display">\[0
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
 \tag{6.19}\]</span></span></p>
 <p>De aquí, utilizando la condición de crecimiento lineal para <span class="math inline">\(f_\lambda\)</span> dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, establece que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que, para todo <span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
@@ -1960,8 +1960,16 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg] &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
-  &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}\left(\sup\limits_{0\leq n\leq j}|Y_n|^{2p}\right).
+  &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}\left(\sup\limits_{0\leq k\leq j}|Y_n|^{2p}\right).
 \end{aligned}
+\]</span></p>
+<p>Considerando el Lema de Grownwall Discreto (citar en preliminares), tomaremos a</p>
+<p><span class="math display">\[
+  u_{M}:=\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg], \quad A=B=C.
+\]</span></p>
+<p>Recordando que <span class="math inline">\(M\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>. Entonces</p>
+<p><span class="math display">\[
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]\leq Ce^{CM\Delta t}\leq Ce^{CT}.
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
