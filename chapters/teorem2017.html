@@ -506,7 +506,7 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Definición 6.2</strong></span> Definimos la función <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> de la forma</p>
 <p><span id="eq-6.5"><span class="math display">\[
   \begin{aligned}
-      \overline{Y} &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
+      \overline{Y}(t) &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
       &amp; \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
 \tag{6.5}\]</span></span></p>
@@ -2037,6 +2037,44 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 \]</span></p>
 <p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}\)</span> es la extensión en tiempo continuo dada por la <a href="#eq-6.5" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>.</p>
+</div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Comenzaremos acotando la extensión continua denotada por <span class="math inline">\(\overline{Y}(t)\)</span> y definida en la <a href="#eq-6.5" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>, recordemos que dicha extensión se deriva de forma directa de la <a href="#eq-6.3" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>. Definimos a <span class="math inline">\(s\in [0,\Delta t)\)</span> como el tiempo local dentro del intervalo <span class="math inline">\([t_n,t_{n+1}]\)</span>. Sustituyendo <span class="math inline">\(t=t_n+s\)</span> en <a href="#eq-6.5" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \overline{Y}(t_n+s) &amp; = Y_n+f_{\lambda}(Y_n^*)((t_n+s)-t_n)\\
+  &amp; \quad +g(Y_n^*)(W(t_n+s)-W(t_n))+h(Y_n^*)(\widetilde{N}(t_n+s)-\widetilde{N}(t_n)).
+\end{aligned}
+\]</span></p>
+<p>Considerando la siguiente notación</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \Delta W_n(s) &amp; :=W(t_n+s)-W(t_n)\\
+    \Delta\widetilde{N}_n(s)&amp;:=\widetilde{N}(t_n+s)-\widetilde{N}(t_n).
+  \end{aligned}
+\]</span></p>
+<p>Con esto, la ecuación anterior queda de la forma</p>
+<p><span id="eq-6.87"><span class="math display">\[
+  \begin{aligned}
+  \overline{Y}(t_n+s) &amp; = Y_n+f_{\lambda}(Y_n^*)(s)\\
+  &amp; \quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).
+\end{aligned}
+\tag{6.87}\]</span></span></p>
+<p>Considerando la <a href="#eq-6.3" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> tenemos</p>
+<p><span id="eq-6.88"><span class="math display">\[
+  f_{\lambda}(Y_n^*)=\frac{Y_n^*-Y_n}{\theta\Delta t}.
+\tag{6.88}\]</span></span></p>
+<p>Definimos <span class="math inline">\(a:=s/\Delta t\)</span>, es facil notar que <span class="math inline">\(s\in[0,1)\)</span>, de aquí, sustituyendo la <a href="#eq-6.88" class="quarto-xref">Ecuación&nbsp;<span>6.88</span></a> en la <a href="#eq-6.87" class="quarto-xref">Ecuación&nbsp;<span>6.87</span></a>, reorganizando los términos usando la definición de la variable auxiliar <span class="math inline">\(a\)</span> tenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+    \overline{Y}(t_n+s) &amp; = Y_n+\frac{Y_n^*-Y_n}{\theta\Delta t}s\\
+    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\
+    &amp; = Y_n+\frac{a}{\theta}(Y_n^*-Y_n)\\
+    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\
+    &amp; = \frac{a}{\theta}Y_n^*+(1-\frac{a}{\theta})Y_n\\
+    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).\\
+  \end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
