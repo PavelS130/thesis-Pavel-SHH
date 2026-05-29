@@ -2069,16 +2069,65 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   f_{\lambda}(Y_n^*)=\frac{Y_n^*-Y_n}{\theta\Delta t}.
 \tag{6.88}\]</span></span></p>
 <p>Definimos <span class="math inline">\(a:=s/\Delta t\)</span>, es facil notar que <span class="math inline">\(s\in[0,1)\)</span>, de aquí, sustituyendo la <a href="#eq-6.88" class="quarto-xref">Ecuación&nbsp;<span>6.88</span></a> en la <a href="#eq-6.87" class="quarto-xref">Ecuación&nbsp;<span>6.87</span></a>, reorganizando los términos usando la definición de la variable auxiliar <span class="math inline">\(a\)</span> tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-6.89"><span class="math display">\[
   \begin{aligned}
     \overline{Y}(t_n+s) &amp; = Y_n+\frac{Y_n^*-Y_n}{\theta\Delta t}s\\
     &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\
     &amp; = Y_n+\frac{a}{\theta}(Y_n^*-Y_n)\\
     &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\
     &amp; = \frac{a}{\theta}Y_n^*+(1-\frac{a}{\theta})Y_n\\
-    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).\\
+    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).
   \end{aligned}
+\tag{6.89}\]</span></span></p>
+<p>Considerando la siguiente desigualdad</p>
+<p><span class="math display">\[
+  |x_1+x_2+x_3+x_4|^2\leq 4(|x_1|^2+|x_2|^2+|x_3|^2+|x_4|^2).
 \]</span></p>
+<p>Con esto, tomando valor absoluto y elevando al cuadrado la <a href="#eq-6.89" class="quarto-xref">Ecuación&nbsp;<span>6.89</span></a> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 &amp; = \Bigg|\frac{a}{\theta}Y_n^*+\left(1-\frac{a}{\theta}\right)Y_n\\
+    &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\Bigg|^2\\
+    &amp; \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)
+\end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(a\in [0,1)\)</span> y <span class="math inline">\(\theta\in(0,1]\)</span>, esto implica que <span class="math inline">\(\displaystyle \frac{a}{\theta}\leq \frac{1}{\theta}\)</span>, más aún, se cumple <span class="math inline">\(\displaystyle \left|1-\frac{a}{\theta}\right|\leq 1+ \frac{1}{\theta}\)</span>. De aquí</p>
+<p><span class="math display">\[
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 &amp; \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\
+    &amp; \leq 4\Bigg(\frac{1}{\theta^2}|Y_n^*|^2+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
+\end{aligned}
+\]</span></p>
+<p>Recordando la cota para el término <span class="math inline">\(|Y_n^*|^2\)</span> dada por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a> y sustituyendo por los términos de la <a href="#eq-6.40" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> tenemos que</p>
+<p><span class="math display">\[
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha\leq \widetilde{\beta}|Y_n|^2+\widetilde{\alpha}^2.
+\]</span></p>
+<p>Sustituyendo esto en la ecuación anterior</p>
+<p><span id="eq-6.90"><span class="math display">\[
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 &amp; \leq 4\Bigg(\frac{1}{\theta^2}|Y_n^*|^2+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\
+    &amp; \leq 4\Bigg(\frac{1}{\theta^2}\left(\widetilde{\beta}|Y_n|^2+\widetilde{\alpha}^2\right)+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\
+    &amp; = 4\Bigg(\frac{\alpha}{\theta^2}+\left(\frac{\widetilde{\beta}}{\theta^2}\left(1+\frac{1}{\theta}\right)^2\right)|Y_n|^2\\
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
+\end{aligned}
+\tag{6.90}\]</span></span></p>
+<p>Usando la constante <span class="math inline">\(C\)</span> definida en el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, donde ahora</p>
+<p><span class="math display">\[
+  C_1:=\max\Bigg\{C,\frac{4\widetilde{\alpha}}{\theta^2},\frac{4\widetilde{\beta}}{\theta^2}+4\left(1+\frac{1}{\theta}\right),4\Bigg\}.
+\]</span></p>
+<p>De esta forma, la <a href="#eq-6.90" class="quarto-xref">Ecuación&nbsp;<span>6.90</span></a> queda acotada de la forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+|\overline{Y}(t_n+s)|^2 &amp; \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\
+&amp;\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg]
+\end{aligned}
+\]</span></p>
+<p>Notemos que esta nueva constante <span class="math inline">\(C_1\)</span> es independiente de <span class="math inline">\(\Delta t\)</span>.</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
