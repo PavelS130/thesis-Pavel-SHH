@@ -2089,7 +2089,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   |\overline{Y}(t_n+s)|^2 &amp; = \Bigg|\frac{a}{\theta}Y_n^*+\left(1-\frac{a}{\theta}\right)Y_n\\
     &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\Bigg|^2\\
     &amp; \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\
-    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)
+    &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
 \end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(a\in [0,1)\)</span> y <span class="math inline">\(\theta\in(0,1]\)</span>, esto implica que <span class="math inline">\(\displaystyle \frac{a}{\theta}\leq \frac{1}{\theta}\)</span>, más aún, se cumple <span class="math inline">\(\displaystyle \left|1-\frac{a}{\theta}\right|\leq 1+ \frac{1}{\theta}\)</span>. De aquí</p>
@@ -2124,10 +2124,37 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
 \begin{aligned}
 |\overline{Y}(t_n+s)|^2 &amp; \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\
-&amp;\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg]
+&amp;\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg].
 \end{aligned}
 \]</span></p>
-<p>Notemos que esta nueva constante <span class="math inline">\(C_1\)</span> es independiente de <span class="math inline">\(\Delta t\)</span>.</p>
+<p>Notemos que esta nueva constante <span class="math inline">\(C_1\)</span> es independiente de <span class="math inline">\(\Delta t\)</span>. Elevando a la potencia <span class="math inline">\(p\)</span> tenemos</p>
+<p><span id="eq-6.91"><span class="math display">\[
+\begin{aligned}
+|\overline{Y}(t_n+s)|^{2p} &amp; \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\
+&amp;\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg]^p\\
+&amp; \leq C_1\Bigg[4^{p-1}\Bigg(1+|Y_n|^{2p}+|g(Y_n^*)\Delta W_n(s)|^{2p}\\
+&amp; \qquad\quad\quad + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\Bigg]\\
+&amp; \leq C_1\Bigg(1+|Y_n|^{2p}+|g(Y_n^*)\Delta W_n(s)|^{2p}\\
+&amp; \qquad\quad\quad + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg).
+\end{aligned}
+\tag{6.91}\]</span></span></p>
+<p>Al ser <span class="math inline">\(4^{p-1}\)</span> dependiente de <span class="math inline">\(p\)</span> es posible realizar los arreglos de tal forma que la contante <span class="math inline">\(C_1\)</span> pueda absorber dicho término. Recordemos que <span class="math inline">\(t_n=n\Delta t\)</span>, luego el intervalo <span class="math inline">\([0,T]\)</span> se divide en <span class="math inline">\(N_T+1\)</span> subintervalos definidos por la malla de la forma</p>
+<p><span class="math display">\[
+  [0,T]=[t_0,t_1)\cup [t_1,t_2)\cup\cdots\cup[t_{N_T-1},t_{N_T})\cup [t_{N_T},T).
+\]</span></p>
+<p>Donde <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>. Por otro lado, recordemos que para cualquier función real definida sobre un intervalo, en nuestro caso <span class="math inline">\([0,T]\)</span>, el supremo global coincide con el supremo de los supremos locales, es decir,</p>
+<p><span class="math display">\[
+\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
+\]</span></p>
+<p>Por tanto, tomando supremo local a la <a href="#eq-6.91" class="quarto-xref">Ecuación&nbsp;<span>6.91</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
+  &amp; \leq \sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\
+  &amp; \qquad\qquad\qquad\qquad\qquad\quad  + |g(Y_n^*)\Delta W_n(s)|^{2p}\\
+  &amp; \qquad\qquad\qquad\qquad\qquad\quad  + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\Bigg).
+\end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
