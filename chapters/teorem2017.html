@@ -2144,22 +2144,33 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
 <p>Donde <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>. Por otro lado, recordemos que para cualquier función real definida sobre un intervalo, en nuestro caso <span class="math inline">\([0,T]\)</span>, el supremo global coincide con el supremo de los supremos locales, es decir,</p>
 <p><span class="math display">\[
-\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
+\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
 \]</span></p>
 <p>Por tanto, tomando supremo local a la <a href="#eq-6.91" class="quarto-xref">Ecuación&nbsp;<span>6.91</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
-  &amp; \leq \sup\limits_{0\leq n\leq N_t}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\
+  \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
+  &amp; \leq \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad\qquad\quad  + |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad\qquad\quad  + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\Bigg)\\
-  &amp; = C_1\sup\limits_{0\leq n\leq N_t}\Bigg(1+\sup\limits_{0\leq s\leq \Delta t}|Y_n|^{2p}\\
+  &amp; = C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+\sup\limits_{0\leq s\leq \Delta t}|Y_n|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\
-  &amp; = C_1\sup\limits_{0\leq n\leq N_t}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
+  &amp; = C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg).
 \end{aligned}
+\]</span> {<span class="quarto-unresolved-ref">?eq-6.92</span>}</p>
+<p>Para el tercer y cuarto término de la ecuación anterior, consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función <span class="math inline">\(F(n,s)\)</span> definida sobre un conjunto de índices discretos <span class="math inline">\(n\in \{0,1,\ldots,T\}\)</span> y un parámetro continuo <span class="math inline">\(s\in [0,\Delta t]\)</span>, se cumple</p>
+<p><span class="math display">\[
+\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t} F(n,s)\Bigg)=\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T} F(n,s)\Bigg).
 \]</span></p>
+<p>Tomando a</p>
+<p><span class="math display">\[
+  F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p}.
+\]</span></p>
+<p>Entonces de la <span class="quarto-unresolved-ref">?eq-6.92</span> tenemos</p>
+<p>$$</p>
+<p>$$</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
