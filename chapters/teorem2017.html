@@ -2202,7 +2202,17 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; \leq C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\
   &amp; \leq C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
-  &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
+  &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg)\\
+  &amp; = C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
+  &amp; \qquad\quad\qquad + \sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
+\end{aligned}
+\]</span></p>
+<p>Tomando esperanza y aplicando la linealidad obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}\Bigg] \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
+  &amp; \qquad\qquad\qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
+  &amp; \qquad\qquad\qquad\qquad + \mathbb{E}\Bigg[\sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
 \end{aligned}
 \]</span></p>
 <p>Veamos que el término <span class="math inline">\(g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))\)</span> es una martingala continua. Para ello, fijaremos un paso discreto mediante <span class="math inline">\(j\in\{0,1,2,\ldots,N_t\}\)</span> y definimos la siguiente filtración</p>
