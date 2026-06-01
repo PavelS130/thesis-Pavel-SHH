@@ -2243,7 +2243,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 &amp; \leq \sqrt{L_{\lambda}(1+A)}\cdot \sqrt{\Delta t}&lt;\infty.
 \end{aligned}
 \]</span></p>
-<p>Por lo tannto, el proceso es integrable. Por ultimo, debemos probar que posee la propiedad de martingala, es decir, para <span class="math inline">\(0\leq u\leq s\)</span> se debe cumplir</p>
+<p>Por lo tanto, el proceso es integrable. Por ultimo, debemos probar que posee la propiedad de martingala, es decir, para <span class="math inline">\(0\leq u\leq s\)</span> se debe cumplir</p>
 <p><span class="math display">\[
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]= g(Y_j^*)\Delta W_j(u).
 \]</span></p>
@@ -2262,6 +2262,19 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
   &amp;\qquad +\mathbb{E}[W(t_j+u) - W(t_j)|\mathcal{F}_{t_j+u}].
 \end{aligned}
 \]</span></p>
+<p>Por la propiedad de incrementos independientes del movimiento browniano, tenemos que</p>
+<p><span class="math display">\[
+\mathbb{E}[W(t_j+s) - W(t_j+u)|\mathcal{F}_{t_j+u}]=0.
+\]</span></p>
+<p>Además, dado que <span class="math inline">\(W(t_j+u)-W(t_j)\)</span> es <span class="math inline">\(\mathcal{F}_{t_j+u}\)</span>-medible, por lo que</p>
+<p><span class="math display">\[
+  \mathbb{E}[W(t_j+u) - W(t_j)|\mathcal{F}_{t_j+u}]=W(t_j+u) - W(t_j)=\Delta W_j(u).
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+  \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}]=g(Y_j^*)\Delta W_j(u).
+\]</span></p>
+<p>Por lo que podemos concluir que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es una martingala continua, así es posible usar la desigualdad maximal de Doob</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
