@@ -2205,6 +2205,37 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
 \end{aligned}
 \]</span></p>
+<p>Veamos que el término <span class="math inline">\(g(Y_j^*)\Delta W_n(s)=g(Y_j^*)(W(t_n+s)-W(t_n))\)</span> es una martingala continua. Para ello, fijaremos un paso discreto mediante <span class="math inline">\(j\in\{0,1,2,\ldots,N_t\}\)</span> y definimos la siguiente filtración</p>
+<p><span class="math display">\[
+  \mathcal{G}_s:=\mathcal{F}_{t_j+s},\qquad s\in [0,\Delta t].
+\]</span></p>
+<p>Notemos que bajo las condiciones del espacio de probabilidad en el que se esta trabajando, la filtración anteriormente definida es completa y continua por la derecha, por lo que es valida. Luego como primer paso, demostraremos que <span class="math inline">\(g(Y_j^*)\Delta W_n(s)=g(Y_j^*)(W(t_n+s)-W(t_n))\)</span> es <span class="math inline">\(\mathcal{G}_s\)</span>-medible para todo <span class="math inline">\(s\in [0,\Delta t]\)</span>.</p>
+<p>Por construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> sabemos que <span class="math inline">\(Y_j\)</span> y <span class="math inline">\(Y_j^*\)</span> son funciones medibles de los incrementos estocásticos hasta el tiempo <span class="math inline">\(t\)</span>, por lo que podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Dado que <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathcal{F}_{t_j+s}=\mathcal{G}_s\)</span>, esto implica que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{G}_s\)</span>-medible. Por ser <span class="math inline">\(g(Y_j^*)\)</span> composición de una función continua con una variable <span class="math inline">\(\mathcal{G}_s\)</span>-medible, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{G}_s\)</span>-medible. Por definición de movimiento browniano, los incrementos, <span class="math inline">\(\Delta W_n(s)\)</span> son <span class="math inline">\(\mathcal{F}_t\)</span>-medible, por lo tanto, tambien son <span class="math inline">\(\mathcal{G}_s\)</span>-medibles. El producto de variables <span class="math inline">\(\mathcal{G}_s\)</span>-medibles, en nuestro caso, <span class="math inline">\(g(Y_j^*)\)</span> y <span class="math inline">\(\Delta W_n(s)\)</span>, es <span class="math inline">\(\mathcal{G}_s\)</span>-medible.</p>
+<p>Desmotramos que <span class="math inline">\(g(Y_j^*)\Delta W_n(s)=g(Y_j^*)(W(t_n+s)-W(t_n))\)</span> es integrable, es decir, <span class="math inline">\(\mathbb{E}[|g(Y_j^*)\Delta W_n(s)=g(Y_j^*)(W(t_n+s)-W(t_n))|]&lt;\infty\)</span> para tod <span class="math inline">\(s\in [0,\Delta t]\)</span>. Usando la desigualdad dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando <span class="math inline">\(x=Y_j^*\)</span>, tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+|g(Y_j^*)|^{2p} &amp; \leq (L_{\lambda}(1+|Y_j^*|^2))^p\\
+&amp; = L_{\lambda}^p(1+|Y_j^*|^2)^p\\
+&amp; \leq L_{\lambda}^p(2^{p-1}(1+|Y_j^*|^{2p}))\\
+&amp; = 2^{p-1}L_{\lambda}^p(1+|Y_j^*|^{2p}).
+\end{aligned}
+\]</span></p>
+<p>Al aplicar esperanza y usar el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> tenemos que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}[|g(Y_j^*)|^{2p}]&amp; \leq \mathbb{E}[2^{p-1}L_{\lambda}^p(1+|Y_j^*|^{2p})]\\
+&amp; = 2^{p-1}L_{\lambda}^p(1+\mathbb{E}[|Y_j^*|^{2p}])\\
+&amp; \leq 2^{p-1}L_{\lambda}^p(1+A)&lt;\infty.
+\end{aligned}  
+\]</span></p>
+<p>Para nuestro caso, <span class="math inline">\(p=1\)</span>, con esto</p>
+<p><span class="math display">\[
+\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}(1+A)&lt;\infty.
+\]</span></p>
+<p>Luego, al ser <span class="math inline">\(\Delta W_j(s)\)</span> un incremento browniano, entonces se cumple</p>
+<p><span class="math display">\[
+\mathbb{E}[|\Delta W_j(s)|^2]=\mathbb{E}[|W(t_j+s)-W(t_j)|^2]=(t_j+s)-t_j=s\leq \Delta t&lt;\infty.
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
