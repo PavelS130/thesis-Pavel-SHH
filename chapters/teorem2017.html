@@ -2247,6 +2247,21 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]= g(Y_j^*)\Delta W_j(u).
 \]</span></p>
+<p>Mediante argumentos previamente abordados se puede afirmar que el factor <span class="math inline">\(g(Y_j^*)\)</span> es <span class="math inline">\(\mathcal{G}_u\)</span>-medible y es posible factorizarlo fuer de la esperanza condicional, esto es</p>
+<p><span class="math display">\[
+\mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}],
+\]</span></p>
+<p>donde recordemos que <span class="math inline">\(\mathcal{G}_u=\mathcal{F}_{t_j+u}\)</span>. Por otro lado, realizando la siguiente manipulación al incremento browniano</p>
+<p><span class="math display">\[
+W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
+\]</span></p>
+<p>Aplicando esperanza condicional y su respectiva linealidad se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E} [W(t_j+s) - W(t_j)|\mathcal{F}_{t_j+u}] &amp; = \mathbb{E}[W(t_j+s) - W(t_j+u)|\mathcal{F}_{t_j+u}]\\
+  &amp;\qquad +\mathbb{E}[W(t_j+u) - W(t_j)|\mathcal{F}_{t_j+u}].
+\end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
