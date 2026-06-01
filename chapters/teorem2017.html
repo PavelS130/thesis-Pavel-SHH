@@ -2147,7 +2147,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
 \]</span></p>
 <p>Por tanto, tomando supremo local a la <a href="#eq-6.91" class="quarto-xref">Ecuación&nbsp;<span>6.91</span></a> tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-6.92"><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
   &amp; \leq \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\
@@ -2159,8 +2159,8 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; = C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg).
 \end{aligned}
-\]</span> {<span class="quarto-unresolved-ref">?eq-6.92</span>}</p>
-<p>Para el tercer y cuarto término de la ecuación anterior, consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función <span class="math inline">\(F(n,s)\)</span> definida sobre un conjunto de índices discretos <span class="math inline">\(n\in \{0,1,\ldots,T\}\)</span> y un parámetro continuo <span class="math inline">\(s\in [0,\Delta t]\)</span>, se cumple</p>
+\tag{6.92}\]</span></span></p>
+<p>Consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función <span class="math inline">\(F(n,s)\)</span> definida sobre un conjunto de índices discretos <span class="math inline">\(n\in \{0,1,\ldots,T\}\)</span> y un parámetro continuo <span class="math inline">\(s\in [0,\Delta t]\)</span>, se cumple</p>
 <p><span class="math display">\[
 \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t} F(n,s)\Bigg)=\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T} F(n,s)\Bigg).
 \]</span></p>
@@ -2168,9 +2168,43 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p}.
 \]</span></p>
-<p>Entonces de la <span class="quarto-unresolved-ref">?eq-6.92</span> tenemos</p>
-<p>$$</p>
-<p>$$</p>
+<p>Entonces, al distribuir el segundo supremo de la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.92</span></a>, notemos que para el tercer término, tenemos</p>
+<p><span id="eq-6.93"><span class="math display">\[
+   \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg).
+\tag{6.93}\]</span></span></p>
+<p>De igual forma, aplicamos este mismo resultado para el cuarto término, es decir,</p>
+<p><span id="eq-6.94"><span class="math display">\[
+   \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg) =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg).
+\tag{6.94}\]</span></span></p>
+<p>Por definición, tenemos que <span class="math inline">\(N_T=\max\{n\in \mathbb{N}:n\Delta t\leq T\}\)</span>, con esto, la condición <span class="math inline">\(0\leq n\Delta t\leq T\)</span> es equivalente para <span class="math inline">\(n\in \{0,1,2,\ldots,N_T\}\)</span>. Queremos usar el siguiente resultado el cuál dicta que para cualquier secuencia finita de números reales no negativos <span class="math inline">\(\{a_j\}_{j=0}^N\)</span> se cumple</p>
+<p><span class="math display">\[
+  \max\limits_{0\leq j\leq N}a_j\leq \sum\limits_{j=0}^N a_j.
+\]</span></p>
+<p>En nuestro caso los términos no negativos son <span class="math inline">\(|g(Y_n^*)\Delta W_n(s)|^{2p}\)</span> y <span class="math inline">\(|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\)</span>, además, notemos que el supremo sobre un conjunto discreto finito, <span class="math inline">\(n\Delta t\in [0,T]\)</span> o bien <span class="math inline">\(n\in\{0,1,2,\ldots, N_t\}\)</span>, va a coincidir con el máximo y por lo tanto es valido usar la desigualdad mencionada, de tal forma que obtenemos</p>
+<p><span class="math display">\[
+  \sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}.
+\]</span></p>
+<p>De igual forma se tiene</p>
+<p><span class="math display">\[
+  \sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}.
+\]</span></p>
+<p>Por lo tanto, <a href="#eq-6.93" class="quarto-xref">Ecuación&nbsp;<span>6.93</span></a> y <a href="#eq-6.94" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a> quedan de la forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) &amp; \leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg),\\
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)&amp;\leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg).
+\end{aligned}
+\]</span></p>
+<p>De aquí, la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.92</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
+  &amp; \leq C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
+  &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\
+  &amp; \leq C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
+  &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
+\end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
