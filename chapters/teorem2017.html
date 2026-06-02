@@ -2188,17 +2188,17 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
 <p>En nuestro caso los términos no negativos son <span class="math inline">\(|g(Y_n^*)\Delta W_n(s)|^{2p}\)</span> y <span class="math inline">\(|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\)</span>, además, notemos que el supremo sobre un conjunto discreto finito, <span class="math inline">\(n\Delta t\in [0,T]\)</span> o bien <span class="math inline">\(n\in\{0,1,2,\ldots, N_t\}\)</span>, va a coincidir con el máximo y por lo tanto es valido usar la desigualdad mencionada, de tal forma que obtenemos</p>
 <p><span class="math display">\[
-  \sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}.
+  \sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}.
 \]</span></p>
 <p>De igual forma se tiene</p>
 <p><span class="math display">\[
-  \sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}.
+  \sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}.
 \]</span></p>
 <p>Por lo tanto, <a href="#eq-6.93" class="quarto-xref">Ecuación&nbsp;<span>6.93</span></a> y <a href="#eq-6.94" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a> quedan de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) &amp; \leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg),\\
-  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)&amp;\leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg).
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) &amp; \leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg),\\
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)&amp;\leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg).
 \end{aligned}
 \]</span></p>
 <p>De aquí, la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.92</span></a></p>
@@ -2207,10 +2207,10 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
   &amp; \leq C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\
-  &amp; \leq C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
-  &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_t} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg)\\
-  &amp; = C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
-  &amp; \qquad\quad\qquad + \sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
+  &amp; \leq C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
+  &amp; \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg)\\
+  &amp; = C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sum\limits_{j=0}^{N_T} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\
+  &amp; \qquad\quad\qquad + \sum\limits_{j=0}^{N_T} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
 \end{aligned}
 \]</span></p>
 <p>Tomando esperanza y aplicando la linealidad obtenemos</p>
@@ -2218,8 +2218,8 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
   &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
-  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
-  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
 \end{aligned}
 \tag{6.95}\]</span></span></p>
 <p>Veamos que el término <span class="math inline">\(g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))\)</span> es una martingala continua. Para ello, fijaremos un paso discreto mediante <span class="math inline">\(j\in\{0,1,2,\ldots,N_t\}\)</span> y definimos la siguiente filtración</p>
@@ -2338,9 +2338,9 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
   &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
-  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
-  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg)\\
-  &amp; \leq C_1\Bigg(1+A+\sum\limits_{j=0}^{N_t} C\Delta t + \sum\limits_{j=0}^{N_t} C\Delta t\Bigg)\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg)\\
+  &amp; \leq C_1\Bigg(1+A+\sum\limits_{j=0}^{N_T} C\Delta t + \sum\limits_{j=0}^{N_T} C\Delta t\Bigg)\\
   &amp; = C_1(1+A+C_1 N_T\Delta t +  C_1N_T\Delta t)
 \end{aligned}
 \]</span></p>
