@@ -2216,9 +2216,10 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p>Tomando esperanza y aplicando la linealidad obtenemos</p>
 <p><span id="eq-6.95"><span class="math display">\[
 \begin{aligned}
-  \mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}\Bigg] \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
-  &amp; \qquad\qquad\qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
-  &amp; \qquad\qquad\qquad\qquad + \mathbb{E}\Bigg[\sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
+  \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
+  &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
+  &amp; \qquad\qquad + \mathbb{E}\Bigg[\sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
 \end{aligned}
 \tag{6.95}\]</span></span></p>
 <p>Veamos que el término <span class="math inline">\(g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))\)</span> es una martingala continua. Para ello, fijaremos un paso discreto mediante <span class="math inline">\(j\in\{0,1,2,\ldots,N_t\}\)</span> y definimos la siguiente filtración</p>
@@ -2294,14 +2295,40 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg]\leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}].
 \]</span></p>
-<p>Usando la linealidad del valor esperando, la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> en la ecuación anterior tenemos que</p>
+<p>Usando la linealidad del valor esperando la ecuación anterior tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}]\\
 &amp; = \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}].
 \end{aligned}
 \]</span></p>
-<p>En <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se abordó, el valor esperado de un incremento browniano discreto, es decir, sabemos que existe una constante <span class="math inline">\(c_p\)</span> que depende únicamente de <span class="math inline">\(p\)</span> tal que <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]\)</span>. En este caso, se esta abordando el caso continuo, por lo tanto mediante un análisis similar, es posible afirmar que existe una constante <span class="math inline">\(K_p\)</span> tal que solo depende del valor de <span class="math inline">\(p\)</span> de tal forma que <span class="math inline">\(\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\leq K_p(\Delta t)^p\)</span>.</p>
+<p>En <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se abordó, el valor esperado de un incremento browniano discreto, es decir, sabemos que existe una constante <span class="math inline">\(c_p\)</span> que depende únicamente de <span class="math inline">\(p\)</span> tal que <span class="math inline">\(\mathbb{E}[|\Delta W_j|^{2p}]\)</span>. En este caso, se esta abordando el caso continuo, por lo tanto mediante un análisis similar, es posible afirmar que existe una constante <span class="math inline">\(K_p\)</span> tal que solo depende del valor de <span class="math inline">\(p\)</span> de tal forma que <span class="math inline">\(\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\leq K_p(\Delta t)^p\)</span>. Por otro lado considerando que <span class="math inline">\(\Delta t\leq 1\)</span> y esto a su vez implica <span class="math inline">\(\Delta t\leq (\Delta t)^{p-1}\leq 1\)</span>, además de usar la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene entonces</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\\
+&amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[(L_{\lambda}(1+|Y_j^*|^2))^{p}]K_p(\Delta t)^{p}\\
+&amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[L_{\lambda}^p 2^{p-1}(1+|Y_j^*|^{2p})]K_p\Delta t(\Delta t)^{p-1}\\
+&amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t.
+\end{aligned}
+\]</span></p>
+<p>Usando la constante <span class="math inline">\(A\)</span> del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se tiene que <span class="math inline">\(\mathbb{E}[1+|Y_j^*|^{2p}]\leq \mathbb{E}[1+A]=(1+A)\)</span>, entonces</p>
+<p><span class="math display">\[
+  \begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t\\
+&amp; \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t.
+\end{aligned}
+\]</span></p>
+<p>Bajo la misma metodología que se ha estado usando, Los términos <span class="math inline">\(\Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\)</span> quedarán absorbidos por la constante <span class="math inline">\(C_1\)</span> de tal forma que de la desigualdad anterior obtenemos</p>
+<p><span class="math display">\[
+  \begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t\\
+&amp; \leq C\Delta t.
+\end{aligned}
+\]</span></p>
+<p>De forma análoga, afirmamos que <span class="math inline">\(h(Y_j^*)\Delta \Delta\widetilde{N}_j(s)\)</span> es una martingala y es posible usar el mismo método previo para obtener</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|h(Y_j^*)\Delta \Delta\widetilde{N}_j(s)|^{2p}\Bigg]\leq C\Delta t.
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
