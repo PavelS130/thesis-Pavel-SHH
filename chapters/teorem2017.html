@@ -2219,7 +2219,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
   &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
   &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
-  &amp; \qquad\qquad + \mathbb{E}\Bigg[\sum\limits_{j=0}^{N_t} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
 \end{aligned}
 \tag{6.95}\]</span></span></p>
 <p>Veamos que el término <span class="math inline">\(g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))\)</span> es una martingala continua. Para ello, fijaremos un paso discreto mediante <span class="math inline">\(j\in\{0,1,2,\ldots,N_t\}\)</span> y definimos la siguiente filtración</p>
@@ -2311,23 +2311,42 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 &amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t.
 \end{aligned}
 \]</span></p>
-<p>Usando la constante <span class="math inline">\(A\)</span> del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se tiene que <span class="math inline">\(\mathbb{E}[1+|Y_j^*|^{2p}]\leq \mathbb{E}[1+A]=(1+A)\)</span>, entonces</p>
+<p>Usando la constante <span class="math inline">\(A\)</span> del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se tiene que</p>
+<p><span class="math display">\[
+\mathbb{E}[1+|Y_j^*|^{2p}]\leq \mathbb{E}[1+A]=(1+A),
+\]</span></p>
+<p>entonces</p>
 <p><span class="math display">\[
   \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t\\
 &amp; \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t.
 \end{aligned}
 \]</span></p>
-<p>Bajo la misma metodología que se ha estado usando, Los términos <span class="math inline">\(\Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\)</span> quedarán absorbidos por la constante <span class="math inline">\(C_1\)</span> de tal forma que de la desigualdad anterior obtenemos</p>
-<p><span class="math display">\[
+<p>Bajo la misma metodología que se ha estado usando, los términos <span class="math inline">\(\Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\)</span> quedarán absorbidos por la constante <span class="math inline">\(C_1\)</span> de tal forma que de la desigualdad anterior obtenemos</p>
+<p><span id="eq-6.96"><span class="math display">\[
   \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t\\
-&amp; \leq C\Delta t.
+&amp; \leq C_1\Delta t.
+\end{aligned}
+\tag{6.96}\]</span></span></p>
+<p>De forma análoga, afirmamos que <span class="math inline">\(h(Y_j^*)\Delta\widetilde{N}_j(s)\)</span> es una martingala y es posible usar el mismo método previo para obtener</p>
+<p><span id="eq-6.97"><span class="math display">\[
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|h(Y_j^*)\Delta\widetilde{N}_j(s)|^{2p}\Bigg]\leq C_1\Delta t.
+\tag{6.97}\]</span></span></p>
+<p>Usando las cotas de la <a href="#eq-6.96" class="quarto-xref">Ecuación&nbsp;<span>6.96</span></a> y <a href="#eq-6.97" class="quarto-xref">Ecuación&nbsp;<span>6.97</span></a>, además usando el resultado del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, la <a href="#eq-6.95" class="quarto-xref">Ecuación&nbsp;<span>6.95</span></a> queda de la forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
+  &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
+  &amp; \qquad\qquad + \sum\limits_{j=0}^{N_t}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg)\\
+  &amp; \leq C_1\Bigg(1+A+\sum\limits_{j=0}^{N_t} C\Delta t + \sum\limits_{j=0}^{N_t} C\Delta t\Bigg)\\
+  &amp; = C_1(1+A+C_1 N_T\Delta t +  C_1N_T\Delta t)
 \end{aligned}
 \]</span></p>
-<p>De forma análoga, afirmamos que <span class="math inline">\(h(Y_j^*)\Delta \Delta\widetilde{N}_j(s)\)</span> es una martingala y es posible usar el mismo método previo para obtener</p>
+<p>Dado que <span class="math inline">\(N_T\)</span> es tal que <span class="math inline">\(N_T\Delta t\leq T\)</span> entonces</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|h(Y_j^*)\Delta \Delta\widetilde{N}_j(s)|^{2p}\Bigg]\leq C\Delta t.
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T)
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
