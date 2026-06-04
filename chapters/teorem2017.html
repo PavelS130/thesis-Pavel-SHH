@@ -1286,11 +1286,11 @@ window.Quarto = {
 <p><span class="math display">\[
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
-<p>Por lo tanto <span id="eq-agregar1"><span class="math display">\[
+<p>Por lo tanto <span id="eq-6.46"><span class="math display">\[
 \mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p.
 \tag{6.46}\]</span></span></p>
 <p>Ahora es posible acotar <a href="#eq-6.42" class="quarto-xref">Ecuación&nbsp;<span>6.42</span></a> de la forma</p>
-<p><span id="eq-6.46"><span class="math display">\[
+<p><span id="eq-6.47"><span class="math display">\[
   \begin{aligned}
   n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
   &amp; = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p.
@@ -1300,8 +1300,8 @@ window.Quarto = {
 <p><span class="math display">\[
   |g(Y_j^*)|^{2p}\leq L_{\lambda}^p(1+|Y_j^*|^2)^p.
 \]</span></p>
-<p>Esto implica que <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p\)</span>, por <a href="#eq-6.46" class="quarto-xref">Ecuación&nbsp;<span>6.47</span></a> tenemos</p>
-<p><span id="eq-6.47"><span class="math display">\[
+<p>Esto implica que <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p\)</span>, por <a href="#eq-6.47" class="quarto-xref">Ecuación&nbsp;<span>6.47</span></a> tenemos</p>
+<p><span id="eq-6.48"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \quad  = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p\\
@@ -1313,12 +1313,12 @@ window.Quarto = {
 <p><span class="math display">\[
   n^{p-1}L_{\lambda}^pc_p\Delta t^p \leq T^{p-1}c_p\Delta tL_{\lambda}^p.
 \]</span></p>
-<p>Recordando que tenemos la cota <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, elevando al la potencia <span class="math inline">\(p\)</span> el término de la suma de <a href="#eq-6.47" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a>, tenemos</p>
+<p>Recordando que tenemos la cota <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, elevando al la potencia <span class="math inline">\(p\)</span> el término de la suma de <a href="#eq-6.48" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a>, tenemos</p>
 <p><span class="math display">\[
   \mathbb{E}[1+|Y_j^*|^2]^p\leq\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
 \]</span></p>
-<p>Por tanto, de <a href="#eq-6.47" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a>,</p>
-<p><span id="eq-6.48"><span class="math display">\[
+<p>Por tanto, de <a href="#eq-6.48" class="quarto-xref">Ecuación&nbsp;<span>6.48</span></a>,</p>
+<p><span id="eq-6.49"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1} &amp; \mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p\\
@@ -1329,7 +1329,7 @@ window.Quarto = {
 <p><span class="math display">\[
   (a+b)^p\leq 2^{p-1}(a^p+b^p).
 \]</span></p>
-<p>Aplicaremos dicho resultado a la expresión <a href="#eq-6.48" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> de forma iterativa como se sigue</p>
+<p>Aplicaremos dicho resultado a la expresión <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> de forma iterativa como se sigue</p>
 <p><span class="math display">\[
   \begin{aligned}
     (1+\beta|Y_j|^2+\alpha)^p &amp; \leq 2^{p-1}[1^p+(\beta|Y_j|^2+\alpha)^p]\\
@@ -1344,7 +1344,7 @@ window.Quarto = {
     &amp; = 2^{2(p-1)}(1+\alpha^p+\beta^p|Y_j|^{2p}).
   \end{aligned}
 \]</span></p>
-<p>Retomando <a href="#eq-6.48" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> se tiene</p>
+<p>Retomando <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.49</span></a> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1} &amp; \mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\
@@ -1363,15 +1363,15 @@ window.Quarto = {
   \end{aligned}
 \]</span></p>
 <p>Notemos que</p>
-<p><span id="eq-6.49"><span class="math display">\[
+<p><span id="eq-6.50"><span class="math display">\[
   \begin{aligned}
     \sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]&amp; = \sum\limits_{j=0}^{M-1} \mathbb{E}[1]+\mathbb{E}[|Y_j|^{2p}]\\
     &amp; = \sum\limits_{j=0}^{M-1} 1+\sum\limits_{j=0}^{M-1} \mathbb{E}[|Y_j|^{2p}]\\
     &amp; = M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \tag{6.50}\]</span></span></p>
-<p>De aquí, <a href="#eq-6.49" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> queda de la forma</p>
-<p><span id="eq-6.50"><span class="math display">\[
+<p>De aquí, <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.50</span></a> queda de la forma</p>
+<p><span id="eq-6.51"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{M-1}&amp;\mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\
     &amp; \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]\\
@@ -1393,8 +1393,8 @@ window.Quarto = {
     (4T)^{p-1}c_pL_{\lambda}^p\beta^p &amp; \leq (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p.
   \end{aligned}
 \]</span></p>
-<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>. Por otro lado, también definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.50" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> de la forma</p>
-<p><span id="eq-6.51"><span class="math display">\[
+<p>Definiendo a la constante <span class="math inline">\(c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>. Por otro lado, también definimos la constante <span class="math inline">\(c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p\)</span>, así tomamos a <span class="math inline">\(C:=\max\{c_1,c_2,c_3,c_4\}\)</span>. Con esta constante, es posible acotar <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.51</span></a> de la forma</p>
+<p><span id="eq-6.52"><span class="math display">\[
   \begin{aligned}
     n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\
     &amp; = n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]\\
@@ -1404,7 +1404,7 @@ window.Quarto = {
   \end{aligned}
 \tag{6.52}\]</span></span></p>
 <p>Siguiendo un proceso similar, para el quinto término de <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se puede afirmar que existe una constante <span class="math inline">\(c_p\)</span>, de tal forma que <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p\)</span>, tal que nos permite acotar de la forma</p>
-<p><span id="eq-6.52"><span class="math display">\[
+<p><span id="eq-6.53"><span class="math display">\[
 \begin{aligned}
 n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
 &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
@@ -1415,7 +1415,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg],
 \]</span></p>
 <p>definimos la siguiente notación</p>
-<p><span id="eq-6.53"><span class="math display">\[
+<p><span id="eq-6.54"><span class="math display">\[
   M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j.
 \tag{6.54}\]</span></span></p>
 <p>Veamos que el proceso <span class="math inline">\(M_n\)</span> es una martingala discreta, para esto debemos demostrar que es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible, integrabilidad y que posee la propiedad de martingala.</p>
@@ -1444,22 +1444,22 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \mathbb{E}[|\Delta W_j|]=\sqrt{\frac{2\Delta t}{\pi}}&lt;\infty.
 \]</span></p>
 <p>Por lo que la integrabilidad de <span class="math inline">\(M_n\)</span> se reduce a demostrar que <span class="math inline">\(\mathbb{E}[|Y_jg(Y_j^*)|]&lt;\infty\)</span>, para todo <span class="math inline">\(j=1,2,\ldots,n-1\)</span>. Aplicando la desigualdad de Cauchy-Schwarz a la esperanza del producto, se tiene</p>
-<p><span id="eq-6.54"><span class="math display">\[
+<p><span id="eq-6.55"><span class="math display">\[
   \mathbb{E}[|Y_jg(Y_j^*)|]\leq (\mathbb{E}[|Y_j|^2])^{1/2}(\mathbb{E}[|g(Y_j^*)|^2])^{1/2}.
 \tag{6.55}\]</span></span></p>
 <p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, podemos acotar el término <span class="math inline">\(\mathbb{E}[|g(Y_j^*)|^2]\)</span> de la forma</p>
 <p><span class="math display">\[
   \mathbb{E}[|g(Y_j^*)|^2]\leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2]).
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-6.54" class="quarto-xref">Ecuación&nbsp;<span>6.55</span></a> se tiene</p>
-<p><span id="eq-6.55"><span class="math display">\[
+<p>Sustituyendo esto en la <a href="#eq-6.55" class="quarto-xref">Ecuación&nbsp;<span>6.55</span></a> se tiene</p>
+<p><span id="eq-6.56"><span class="math display">\[
   \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|])}.
 \tag{6.56}\]</span></span></p>
 <p>Por lo tanto, para garantizar que <span class="math inline">\(\mathbb{E}[|M_n|]&lt;\infty\)</span>, basta demostrar que para cada <span class="math inline">\(j=0,1,\ldots,n\)</span> se cumple</p>
-<p><span id="eq-6.56"><span class="math display">\[
+<p><span id="eq-6.57"><span class="math display">\[
   \mathbb{E}[|Y_j|^2]&lt; \infty \quad \text{y}\quad \mathbb{E}[|Y_j^*|^2]&lt;\infty.
 \tag{6.57}\]</span></span></p>
-<p>Vamos a proceder por inducción sobre <span class="math inline">\(j\)</span> que <a href="#eq-6.56" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> se cumple para todo <span class="math inline">\(j\leq n\)</span>, donde <span class="math inline">\(n\)</span> lo tomaremos como fijo. Así para <span class="math inline">\(j=0\)</span>, por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> que <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span>, además, por la construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> se tiene que <span class="math inline">\(Y_0=X_0\)</span>, por lo tanto, para <span class="math inline">\(p=2\)</span> se cumple</p>
+<p>Vamos a proceder por inducción sobre <span class="math inline">\(j\)</span> que <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> se cumple para todo <span class="math inline">\(j\leq n\)</span>, donde <span class="math inline">\(n\)</span> lo tomaremos como fijo. Así para <span class="math inline">\(j=0\)</span>, por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> que <span class="math inline">\(\mathbb{E}[|X_0|^p]&lt;\infty\)</span>, además, por la construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> se tiene que <span class="math inline">\(Y_0=X_0\)</span>, por lo tanto, para <span class="math inline">\(p=2\)</span> se cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[|X_0|^2]=\mathbb{E}[|Y_0|^2]&lt;\infty.
 \]</span></p>
@@ -1467,7 +1467,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
   \mathbb{E}[|Y_0^*|^2]\leq \beta \mathbb{E}[|Y_0|^2]+\alpha&lt;\infty.
 \]</span></p>
-<p>Suponemos que para algún <span class="math inline">\(j&lt;n\)</span> se cumple la <a href="#eq-6.56" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a>. Veamos que se cumple <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|Y_{j+1}^*|^2]&lt;\infty\)</span>. De la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y aplicando la siguiente desigualdad</p>
+<p>Suponemos que para algún <span class="math inline">\(j&lt;n\)</span> se cumple la <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a>. Veamos que se cumple <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|Y_{j+1}^*|^2]&lt;\infty\)</span>. De la <a href="#eq-6.4" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, elevando al cuadrado y aplicando la siguiente desigualdad</p>
 <p><span class="math display">\[
   (a+b+c+d)^2\leq 4(a^2+b^2+c^2+d^2),
 \]</span></p>
@@ -1479,7 +1479,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \end{aligned}
 \]</span></p>
 <p>Aplicando esperanza se tiene</p>
-<p><span id="eq-6.57"><span class="math display">\[
+<p><span id="eq-6.58"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|Y_{j+1}|^2] \leq 4&amp; \Bigg(\mathbb{E}[|Y_j|^2]+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\mathbb{E}[\Delta t^2]\\
     &amp; \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
@@ -1490,18 +1490,18 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \end{aligned}
 \tag{6.58}\]</span></span></p>
 <p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene que</p>
-<p><span id="eq-6.58"><span class="math display">\[
+<p><span id="eq-6.59"><span class="math display">\[
   |g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\quad \text{y}\quad |h(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2).
 \tag{6.59}\]</span></span></p>
-<p>Por hipótesis inductiva, sabemos que <span class="math inline">\(\mathbb{E}[|Y_j^*|^2]&lt;\infty\)</span>. Aplicando valor esperado a la <a href="#eq-6.58" class="quarto-xref">Ecuación&nbsp;<span>6.59</span></a>, se tiene</p>
+<p>Por hipótesis inductiva, sabemos que <span class="math inline">\(\mathbb{E}[|Y_j^*|^2]&lt;\infty\)</span>. Aplicando valor esperado a la <a href="#eq-6.59" class="quarto-xref">Ecuación&nbsp;<span>6.59</span></a>, se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|g(Y_j^*)|^2] &amp; \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])&lt;\infty,\\
     \mathbb{E}[|h(Y_j^*)|^2] &amp; \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])&lt;\infty.
   \end{aligned}
 \]</span></p>
-<p>Además, <span class="math inline">\(\mathbb{E}[|\Delta W_j|^2]=\Delta t&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t&lt;\infty\)</span>. La <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.58</span></a> queda de la forma</p>
-<p><span id="eq-6.59"><span class="math display">\[
+<p>Además, <span class="math inline">\(\mathbb{E}[|\Delta W_j|^2]=\Delta t&lt;\infty\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t&lt;\infty\)</span>. La <a href="#eq-6.58" class="quarto-xref">Ecuación&nbsp;<span>6.58</span></a> queda de la forma</p>
+<p><span id="eq-6.60"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}[|Y_{j+1}|^2] \leq 4 &amp; \Bigg(\mathbb{E}[|Y_j|^2]+\Delta t^2\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\\
     &amp; \quad +L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])\Delta t\\
@@ -1509,7 +1509,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \end{aligned}
 \tag{6.60}\]</span></span></p>
 <p>Por lo que ahora, solo basta demostrar que <span class="math inline">\(\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]&lt;\infty\)</span>. Para esto, vamos a considerar la hipótesis <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, tomando a <span class="math inline">\(a=Y_j^*\)</span> y <span class="math inline">\(b=0\)</span> se tiene</p>
-<p><span id="eq-6.60"><span class="math display">\[
+<p><span id="eq-6.61"><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)-f_{\lambda}(0)|^2 &amp; \leq D(1+|Y_j^*|^q+|0|^q)|Y_j^*-0|^2\\
     &amp; = D|Y_j^*|^2+D|Y_j^*|^{q+2}.
@@ -1529,14 +1529,14 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2.
     \end{aligned}
 \]</span></p>
-<p>Usando la <a href="#eq-6.60" class="quarto-xref">Ecuación&nbsp;<span>6.61</span></a> en esta cota</p>
-<p><span id="eq-6.61"><span class="math display">\[
+<p>Usando la <a href="#eq-6.61" class="quarto-xref">Ecuación&nbsp;<span>6.61</span></a> en esta cota</p>
+<p><span id="eq-6.62"><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)|^2 &amp; \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2\\
     &amp; \leq 2(D|Y_j^*|^2+|Y_j^*|^{q+2})+2|f_{\lambda}(0)|^2.
   \end{aligned}
 \tag{6.62}\]</span></span></p>
-<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2\leq 1+|Y_j^*|^{q+2}\)</span> y <span class="math inline">\(1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.61" class="quarto-xref">Ecuación&nbsp;<span>6.62</span></a> tenemos</p>
+<p>Dado que <span class="math inline">\(q\in \mathbb{Z}^{+}\)</span>, esto implica que <span class="math inline">\(q+2\geq 3\)</span>, así <span class="math inline">\(|Y_j^*|^2\leq 1+|Y_j^*|^{q+2}\)</span> y <span class="math inline">\(1\leq 1+|Y_j^*|^{q+2}\)</span>, por tanto de <a href="#eq-6.62" class="quarto-xref">Ecuación&nbsp;<span>6.62</span></a> tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
     |f_{\lambda}(Y_j^*)|^2 &amp;\leq 2D|Y_j^*|^2+2D|Y_j^*|^{q+2}+2|f_{\lambda}(0)|^2\\
@@ -1552,7 +1552,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
    \mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}])&lt;\infty.
 \]</span></p>
-<p>Retomando la <a href="#eq-6.59" class="quarto-xref">Ecuación&nbsp;<span>6.60</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
+<p>Retomando la <a href="#eq-6.60" class="quarto-xref">Ecuación&nbsp;<span>6.60</span></a>, el término <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]\)</span> al estar acotado por términos finitos, se afirma que <span class="math inline">\(\mathbb{E}[|Y_{j+1}|^2]&lt;\infty\)</span>. Finalmente, por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, aplicado al paso <span class="math inline">\(j+1\)</span> es posible afirmar que</p>
 <p><span class="math display">\[
   \mathbb{E}[|Y_j^*|^2]\leq \beta\mathbb{E}[|Y_{j+1}|^2]+\alpha&lt;\infty.
 \]</span></p>
@@ -1560,7 +1560,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
   \mathbb{E}[|Y_j|^2]&lt;\infty\quad\text{y}\quad\mathbb{E}[|Y_j^*|^2]&lt;\infty.
 \]</span></p>
-<p>Para <span class="math inline">\(j=0,1,\ldots,n\)</span>. Retomando <a href="#eq-6.55" class="quarto-xref">Ecuación&nbsp;<span>6.56</span></a>, notamos que para todo <span class="math inline">\(j&lt;n\)</span></p>
+<p>Para <span class="math inline">\(j=0,1,\ldots,n\)</span>. Retomando <a href="#eq-6.56" class="quarto-xref">Ecuación&nbsp;<span>6.56</span></a>, notamos que para todo <span class="math inline">\(j&lt;n\)</span></p>
 <p><span class="math display">\[
   \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])}&lt;\infty.
 \]</span></p>
@@ -1606,7 +1606,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
    \end{aligned}
 \]</span></p>
 <p>Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante <span class="math inline">\(C_p\geq 0\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, que cumple</p>
-<p><span id="eq-6.62"><span class="math display">\[
+<p><span id="eq-6.63"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq C_p \mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\
@@ -1618,14 +1618,14 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \Bigg(\sum\limits_{j=0}^{M-1}a_j\Bigg)^k\leq M^{k-1}\sum\limits_{j=0}^{M-1}a_j^k,
 \]</span></p>
 <p>para nuestro caso, contemplamos a <span class="math inline">\(a_j=|Y_j|^2|g(Y_j^*)|^2\)</span> y a <span class="math inline">\(k=p/2\)</span>, de aquí</p>
-<p><span id="eq-6.63"><span class="math display">\[
+<p><span id="eq-6.64"><span class="math display">\[
   \begin{aligned}
     \Bigg(\sum\limits_{j=0}^{M-1} &amp; |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\
     &amp; \leq M^{p/2-1}\sum\limits_{j=0}^{M-1}(|Y_j|^2|g(Y_j^*)|^2)^{p/2}\\
     &amp; = M^{p/2-1}\sum\limits_{j=0}^{M-1} |Y_j|^p(|g(Y_j^*)|^2)^{p/2}.
   \end{aligned}
 \tag{6.64}\]</span></span></p>
-<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos que <span class="math inline">\(|g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\)</span>, esto implica que <span class="math inline">\((|g(Y_j^*)|^2)^{p/2}\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>, de esta forma, la <a href="#eq-6.63" class="quarto-xref">Ecuación&nbsp;<span>6.64</span></a> queda acotada mediante</p>
+<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tenemos que <span class="math inline">\(|g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\)</span>, esto implica que <span class="math inline">\((|g(Y_j^*)|^2)^{p/2}\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>, de esta forma, la <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.64</span></a> queda acotada mediante</p>
 <p><span class="math display">\[
   \begin{aligned}
     \Bigg(\sum\limits_{j=0}^{M-1} &amp; |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\
@@ -1634,8 +1634,8 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = M^{p/2-1}L_{\lambda}^{p/2}\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}.
   \end{aligned}  
 \]</span></p>
-<p>Sustituyendo este resultado en <a href="#eq-6.62" class="quarto-xref">Ecuación&nbsp;<span>6.63</span></a>, además recordando que <span class="math inline">\(\Delta tM\leq T\)</span>, se tiene</p>
-<p><span id="eq-6.64"><span class="math display">\[
+<p>Sustituyendo este resultado en <a href="#eq-6.63" class="quarto-xref">Ecuación&nbsp;<span>6.63</span></a>, además recordando que <span class="math inline">\(\Delta tM\leq T\)</span>, se tiene</p>
+<p><span id="eq-6.65"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M} \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}\\
@@ -1662,8 +1662,8 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = \frac{|Y_j|^{2p}(1+2^{2(p-1)})+2^{2(p-1)}(1+\alpha^p)}{2}.
   \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en <a href="#eq-6.64" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a>, se tiene</p>
-<p><span id="eq-6.65"><span class="math display">\[
+<p>Sustituyendo esto en <a href="#eq-6.65" class="quarto-xref">Ecuación&nbsp;<span>6.65</span></a>, se tiene</p>
+<p><span id="eq-6.66"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq C_pT^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
@@ -1683,8 +1683,8 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
 C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
 \]</span></p>
-<p>Se define a <span class="math inline">\(c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)\)</span>, de aquí tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.65" class="quarto-xref">Ecuación&nbsp;<span>6.66</span></a> de la forma</p>
-<p><span id="eq-6.66"><span class="math display">\[
+<p>Se define a <span class="math inline">\(c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)\)</span>, de aquí tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.66" class="quarto-xref">Ecuación&nbsp;<span>6.66</span></a> de la forma</p>
+<p><span id="eq-6.67"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}(1+2^{2(p-1)})\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}\Bigg]\\
@@ -1693,27 +1693,27 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
   \end{aligned}
 \tag{6.67}\]</span></span></p>
 <p>Siguiendo con el séptimo término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, se utilizan las mismas técnicas para acotar. Definimos el proceso</p>
-<p><span id="eq-6.67"><span class="math display">\[
+<p><span id="eq-6.68"><span class="math display">\[
   S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
 \tag{6.68}\]</span></span></p>
-<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, siguiendo el mismo procedimiento que se realizó con la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a> es posible afirmar que <span class="math inline">\(S_n\)</span> es una martingala discreta. Usando la desigualdad de BDG, acotar el término</p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, siguiendo el mismo procedimiento que se realizó con la <a href="#eq-6.54" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a> es posible afirmar que <span class="math inline">\(S_n\)</span> es una martingala discreta. Usando la desigualdad de BDG, acotar el término</p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
 \]</span></p>
 <p>da la forma</p>
-<p><span id="eq-6.68"><span class="math display">\[
+<p><span id="eq-6.69"><span class="math display">\[
   \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
 \tag{6.69}\]</span></span></p>
 <p>Donde la constante <span class="math inline">\(C\)</span> depende de los términos <span class="math inline">\((p,T,L_{\lambda},\theta)\)</span>.</p>
 <p>Para el octavo término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, dado por</p>
-<p><span id="eq-6.69"><span class="math display">\[
+<p><span id="eq-6.70"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg].
 \tag{6.70}\]</span></span></p>
 <p>Denotamos el proceso y observamos que</p>
 <p><span class="math display">\[
   Z_n:=\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j
 \]</span></p>
-<p>es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término <span class="math inline">\(M_n\)</span> dado por la <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a>. Por lo que se asume que <span class="math inline">\(Z_n\)</span> es una martingala.</p>
+<p>es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término <span class="math inline">\(M_n\)</span> dado por la <a href="#eq-6.54" class="quarto-xref">Ecuación&nbsp;<span>6.54</span></a>. Por lo que se asume que <span class="math inline">\(Z_n\)</span> es una martingala.</p>
 <p>Calculamos la variación cuadrática</p>
 <p><span class="math display">\[
   \begin{aligned}
@@ -1722,12 +1722,12 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
     &amp; = |Y_j^*|^2|g(Y_j^*)|^2\Delta t.
   \end{aligned}
 \]</span></p>
-<p>Usando la desigualdad de BDG, existe una constante <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.69" class="quarto-xref">Ecuación&nbsp;<span>6.70</span></a> queda acotada mediante</p>
-<p><span id="eq-6.70"><span class="math display">\[
+<p>Usando la desigualdad de BDG, existe una constante <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.70" class="quarto-xref">Ecuación&nbsp;<span>6.70</span></a> queda acotada mediante</p>
+<p><span id="eq-6.71"><span class="math display">\[
   \mathbb{E}[\sup\limits_{0\leq n\leq M}|Z_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}.
 \tag{6.71}\]</span></span></p>
-<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> podemos afirmar que <span class="math inline">\(|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>. De la ecuación <a href="#eq-6.70" class="quarto-xref">Ecuación&nbsp;<span>6.71</span></a> al extraer <span class="math inline">\(\Delta t\)</span>, aplicar la desigualdad de Hölder para sumas finitas con <span class="math inline">\(k=p/2\)</span> y considerando la cota anterior derivada de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene</p>
-<p><span id="eq-6.71"><span class="math display">\[
+<p>Por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> podemos afirmar que <span class="math inline">\(|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>. De la ecuación <a href="#eq-6.71" class="quarto-xref">Ecuación&nbsp;<span>6.71</span></a> al extraer <span class="math inline">\(\Delta t\)</span>, aplicar la desigualdad de Hölder para sumas finitas con <span class="math inline">\(k=p/2\)</span> y considerando la cota anterior derivada de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> se tiene</p>
+<p><span id="eq-6.72"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp;\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\
@@ -1740,11 +1740,11 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
   \end{aligned}
 \tag{6.72}\]</span></span></p>
 <p>Por hipótesis, tenemos que <span class="math inline">\(M\in \mathbb{N}\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>, de aquí,</p>
-<p><span id="eq-6.72"><span class="math display">\[
+<p><span id="eq-6.73"><span class="math display">\[
   \Delta t^{p/2}M^{p/2-1}=(\Delta tM)^{p/2-1}\Delta t\leq T^{p/2-1}\Delta t.
 \tag{6.73}\]</span></span></p>
-<p>Aplicando la desigualdad de Young y la <a href="#eq-6.72" class="quarto-xref">Ecuación&nbsp;<span>6.73</span></a> a la <a href="#eq-6.71" class="quarto-xref">Ecuación&nbsp;<span>6.72</span></a> tenemos</p>
-<p><span id="eq-6.73"><span class="math display">\[
+<p>Aplicando la desigualdad de Young y la <a href="#eq-6.73" class="quarto-xref">Ecuación&nbsp;<span>6.73</span></a> a la <a href="#eq-6.72" class="quarto-xref">Ecuación&nbsp;<span>6.72</span></a> tenemos</p>
+<p><span id="eq-6.74"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp; \leq C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
@@ -1755,8 +1755,8 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
 <p><span class="math display">\[
   \widetilde{c}=\frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}.
 \]</span></p>
-<p>De esta manera, la <a href="#eq-6.73" class="quarto-xref">Ecuación&nbsp;<span>6.74</span></a> queda de la forma</p>
-<p><span id="eq-6.74"><span class="math display">\[
+<p>De esta manera, la <a href="#eq-6.74" class="quarto-xref">Ecuación&nbsp;<span>6.74</span></a> queda de la forma</p>
+<p><span id="eq-6.75"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right].
@@ -1775,8 +1775,8 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
     &amp; = (1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}.
   \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-6.74" class="quarto-xref">Ecuación&nbsp;<span>6.75</span></a> y aplicando la linealidad del valor esperado tenemos</p>
-<p><span id="eq-6.75"><span class="math display">\[
+<p>Sustituyendo esto en la <a href="#eq-6.75" class="quarto-xref">Ecuación&nbsp;<span>6.75</span></a> y aplicando la linealidad del valor esperado tenemos</p>
+<p><span id="eq-6.76"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right]\\
@@ -1787,7 +1787,7 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
   \end{aligned}
 \tag{6.76}\]</span></span></p>
 <p>Por definición de la constante <span class="math inline">\(\widetilde{c}\)</span> tenemos que</p>
-<p><span id="eq-6.76"><span class="math display">\[
+<p><span id="eq-6.77"><span class="math display">\[
   \begin{aligned}
   \widetilde{c}\Delta t M &amp; (1+2^{2(p-1)})2^{p-1}\\
   &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot\Delta t M(1+2^{2(p-1)})2^{p-1}\\
@@ -1796,13 +1796,13 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
   \end{aligned}
 \tag{6.77}\]</span></span></p>
 <p>Por otro lado</p>
-<p><span id="eq-6.77"><span class="math display">\[
+<p><span id="eq-6.78"><span class="math display">\[
   \begin{aligned}
     \widetilde{c}2^{3(p-1)}\beta^p &amp; = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot 2^{3(p-1)}\\
     &amp; \leq C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
   \end{aligned}
 \tag{6.78}\]</span></span></p>
-<p>De la <a href="#eq-6.76" class="quarto-xref">Ecuación&nbsp;<span>6.77</span></a> y <a href="#eq-6.77" class="quarto-xref">Ecuación&nbsp;<span>6.78</span></a> definimos las constantes</p>
+<p>De la <a href="#eq-6.77" class="quarto-xref">Ecuación&nbsp;<span>6.77</span></a> y <a href="#eq-6.78" class="quarto-xref">Ecuación&nbsp;<span>6.78</span></a> definimos las constantes</p>
 <p><span class="math display">\[
   \begin{aligned}
   c_7 &amp; = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}),\\
@@ -1813,8 +1813,8 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
 <p><span class="math display">\[
 C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 \]</span></p>
-<p>Entonces la <a href="#eq-6.75" class="quarto-xref">Ecuación&nbsp;<span>6.76</span></a> queda acotada</p>
-<p><span id="eq-6.78"><span class="math display">\[
+<p>Entonces la <a href="#eq-6.76" class="quarto-xref">Ecuación&nbsp;<span>6.76</span></a> queda acotada</p>
+<p><span id="eq-6.79"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
     &amp; \leq \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
@@ -1822,11 +1822,11 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
   \end{aligned}
 \tag{6.79}\]</span></span></p>
 <p>Para el noveno término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> basta notar que la función <span class="math inline">\(h\)</span> posse las mismas propiedades que la función <span class="math inline">\(g\)</span> y considerar que <span class="math inline">\(\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t\)</span>. Por ende es posible realizar un proceso similar y obtener la siguiente cota</p>
-<p><span id="eq-6.79"><span class="math display">\[
+<p><span id="eq-6.80"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.80}\]</span></span></p>
 <p>El décimo y último término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> viene dado por</p>
-<p><span id="eq-6.80"><span class="math display">\[
+<p><span id="eq-6.81"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|\Bigg].
 \tag{6.81}\]</span></span></p>
 <p>Notemos que para cada <span class="math inline">\(j=0,1\ldots,n-1\)</span> se tiene</p>
@@ -1848,8 +1848,8 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
   &amp; \leq \frac{1}{2^p}\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p.
 \end{aligned}
 \]</span></p>
-<p>Notemos que la tomar valor esperado, tenemos como resultado la primera cota de la <a href="#eq-6.80" class="quarto-xref">Ecuación&nbsp;<span>6.81</span></a></p>
-<p><span id="eq-6.81"><span class="math display">\[
+<p>Notemos que la tomar valor esperado, tenemos como resultado la primera cota de la <a href="#eq-6.81" class="quarto-xref">Ecuación&nbsp;<span>6.81</span></a></p>
+<p><span id="eq-6.82"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M} \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
   &amp; \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg].
@@ -1858,7 +1858,7 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 <p>Consideramos la siguiente notación <span class="math display">\[
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
-<p>Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la <a href="#eq-6.81" class="quarto-xref">Ecuación&nbsp;<span>6.82</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
+<p>Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la <a href="#eq-6.82" class="quarto-xref">Ecuación&nbsp;<span>6.82</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
 <p><span class="math display">\[
   \begin{aligned}
     \Bigg|\sum\limits_{j=0}^{n-1}a_j\Bigg|^p &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p\\
@@ -1872,7 +1872,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; \leq M^{p-1}\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p.
 \end{aligned}
 \]</span></p>
-<p>Note que para cada <span class="math inline">\(j=0,1,\ldots n\)</span> se tiene <span class="math inline">\(a_j^p&gt;0\)</span>, por lo que la suma anterior es creciente y por tanto alcanza su supremo cuando <span class="math inline">\(n=M\)</span>, así tomando valor esperado y sustituyendo en <a href="#eq-6.81" class="quarto-xref">Ecuación&nbsp;<span>6.82</span></a></p>
+<p>Note que para cada <span class="math inline">\(j=0,1,\ldots n\)</span> se tiene <span class="math inline">\(a_j^p&gt;0\)</span>, por lo que la suma anterior es creciente y por tanto alcanza su supremo cuando <span class="math inline">\(n=M\)</span>, así tomando valor esperado y sustituyendo en <a href="#eq-6.82" class="quarto-xref">Ecuación&nbsp;<span>6.82</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
@@ -1886,7 +1886,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 (|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)\leq 2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}).
 \]</span></p>
 <p>Sustituyendo esto en la ecuación anterior, se tiene</p>
-<p><span id="eq-6.82"><span class="math display">\[
+<p><span id="eq-6.83"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
   &amp; \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\
@@ -1897,15 +1897,15 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp;\qquad\quad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
 \end{aligned}
 \tag{6.83}\]</span></span></p>
-<p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> y <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a> respectivamente, tenemos que</p>
+<p>Notemos que por la construcción de las cotas para el cuarto y quinto término de la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a>, estás dadas por la <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> y <a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a> respectivamente, tenemos que</p>
 <p><span class="math display">\[
   \begin{aligned}
     M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],\\
     M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]&amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
   \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en <a href="#eq-6.82" class="quarto-xref">Ecuación&nbsp;<span>6.83</span></a></p>
-<p><span id="eq-6.83"><span class="math display">\[
+<p>Sustituyendo esto en <a href="#eq-6.83" class="quarto-xref">Ecuación&nbsp;<span>6.83</span></a></p>
+<p><span id="eq-6.84"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
   &amp; \leq \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\
@@ -1918,13 +1918,13 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p>Usando siguientes ecuaciones</p>
 <ul>
 <li><p><a href="#eq-6.41" class="quarto-xref">Ecuación&nbsp;<span>6.41</span></a> (1°, 2°, 3° término),</p></li>
-<li><p><a href="#eq-6.51" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> (4° término),</p></li>
-<li><p><a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a> (5° término),</p></li>
-<li><p><a href="#eq-6.66" class="quarto-xref">Ecuación&nbsp;<span>6.67</span></a> (6° término),</p></li>
-<li><p><a href="#eq-6.68" class="quarto-xref">Ecuación&nbsp;<span>6.69</span></a> (7° término),</p></li>
-<li><p><a href="#eq-6.78" class="quarto-xref">Ecuación&nbsp;<span>6.79</span></a> (8° término),</p></li>
-<li><p><a href="#eq-6.79" class="quarto-xref">Ecuación&nbsp;<span>6.80</span></a> (9° término),</p></li>
-<li><p><a href="#eq-6.83" class="quarto-xref">Ecuación&nbsp;<span>6.84</span></a> (10° término),</p></li>
+<li><p><a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> (4° término),</p></li>
+<li><p><a href="#eq-6.53" class="quarto-xref">Ecuación&nbsp;<span>6.53</span></a> (5° término),</p></li>
+<li><p><a href="#eq-6.67" class="quarto-xref">Ecuación&nbsp;<span>6.67</span></a> (6° término),</p></li>
+<li><p><a href="#eq-6.69" class="quarto-xref">Ecuación&nbsp;<span>6.69</span></a> (7° término),</p></li>
+<li><p><a href="#eq-6.79" class="quarto-xref">Ecuación&nbsp;<span>6.79</span></a> (8° término),</p></li>
+<li><p><a href="#eq-6.80" class="quarto-xref">Ecuación&nbsp;<span>6.80</span></a> (9° término),</p></li>
+<li><p><a href="#eq-6.84" class="quarto-xref">Ecuación&nbsp;<span>6.84</span></a> (10° término),</p></li>
 </ul>
 <p>en la <a href="#eq-6.39" class="quarto-xref">Ecuación&nbsp;<span>6.39</span></a> tenemos</p>
 <p><span class="math display">\[
@@ -1952,14 +1952,14 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \]</span></p>
 <p>Por la forma en la que se ha estado construyendo la constante <span class="math inline">\(C\)</span>, es posible realizar los ajustes necesarios de tal forma que <span class="math inline">\(C\)</span> absorba la constante <span class="math inline">\(l\)</span>, de esta forma</p>
-<p><span id="eq-6.84"><span class="math display">\[
+<p><span id="eq-6.85"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.85}\]</span></span></p>
 <p>Es claro que para cada <span class="math inline">\(j=0,1,\ldots,M-1\)</span> se cumple</p>
 <p><span class="math display">\[
 |Y_j|^{2p}\leq \sup\limits_{0\leq n\leq j} |Y_n|^{2p}.
 \]</span></p>
-<p>Aplicando la esperanza y sustituyendo en la <a href="#eq-6.84" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a> tenemos</p>
+<p>Aplicando la esperanza y sustituyendo en la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg] &amp; \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\
@@ -1971,7 +1971,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   u_{M}:=\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg] \quad\text{y}\quad A=B=C.
 \]</span></p>
 <p>Recordando que <span class="math inline">\(M\)</span> es tal que <span class="math inline">\(M\Delta t\leq T\)</span>. Entonces</p>
-<p><span id="eq-6.85"><span class="math display">\[
+<p><span id="eq-6.86"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]\leq Ce^{CM\Delta t}\leq Ce^{CT}.
 \tag{6.86}\]</span></span></p>
 <p>Por último, recordando la cota para <span class="math inline">\(|Y_n^*|^2\)</span> dada por la <a href="#eq-6.22" class="quarto-xref">Ecuación&nbsp;<span>6.22</span></a>, tenemos que</p>
@@ -1990,12 +1990,12 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]+2^{p-1}\alpha^p.
 \]</span></p>
-<p>Usando la cota dada por la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.86</span></a>, se tiene que</p>
+<p>Usando la cota dada por la <a href="#eq-6.86" class="quarto-xref">Ecuación&nbsp;<span>6.86</span></a>, se tiene que</p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p.
 \]</span></p>
 <p>Por la <a href="#eq-6.40" class="quarto-xref">Ecuación&nbsp;<span>6.40</span></a> es posible tener la siguiente cota</p>
-<p><span id="eq-6.86"><span class="math display">\[
+<p><span id="eq-6.87"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] &amp; \leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p\\
   &amp; \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p.
@@ -2005,7 +2005,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   C':= 2^{p-1}\widetilde{\beta}^pC, \quad C'':= 2^{p-1}\widetilde{\alpha}^p.
 \]</span></p>
-<p>Dado que <span class="math inline">\(C&gt;0\)</span> y <span class="math inline">\(T\geq 0\)</span>, se puede afirmar que <span class="math inline">\(e^{CT}\geq e^0 = 1\)</span>, por lo tanto, de la <a href="#eq-6.86" class="quarto-xref">Ecuación&nbsp;<span>6.87</span></a> se tiene</p>
+<p>Dado que <span class="math inline">\(C&gt;0\)</span> y <span class="math inline">\(T\geq 0\)</span>, se puede afirmar que <span class="math inline">\(e^{CT}\geq e^0 = 1\)</span>, por lo tanto, de la <a href="#eq-6.87" class="quarto-xref">Ecuación&nbsp;<span>6.87</span></a> se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] &amp; \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p\\
@@ -2061,18 +2061,18 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   \end{aligned}
 \]</span></p>
 <p>Con esto, la ecuación anterior queda de la forma</p>
-<p><span id="eq-6.87"><span class="math display">\[
+<p><span id="eq-6.88"><span class="math display">\[
   \begin{aligned}
   \overline{Y}(t_n+s) &amp; = Y_n+f_{\lambda}(Y_n^*)(s)\\
   &amp; \quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).
 \end{aligned}
 \tag{6.88}\]</span></span></p>
 <p>Considerando la <a href="#eq-6.3" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> tenemos</p>
-<p><span id="eq-6.88"><span class="math display">\[
+<p><span id="eq-6.89"><span class="math display">\[
   f_{\lambda}(Y_n^*)=\frac{Y_n^*-Y_n}{\theta\Delta t}.
 \tag{6.89}\]</span></span></p>
-<p>Definimos <span class="math inline">\(a:=s/\Delta t\)</span>, de esta forma <span class="math inline">\(a\in[0,1)\)</span>, de aquí, sustituyendo la <a href="#eq-6.88" class="quarto-xref">Ecuación&nbsp;<span>6.89</span></a> en la <a href="#eq-6.87" class="quarto-xref">Ecuación&nbsp;<span>6.88</span></a>, y usando la definición de la variable auxiliar <span class="math inline">\(a\)</span> tenemos</p>
-<p><span id="eq-6.89"><span class="math display">\[
+<p>Definimos <span class="math inline">\(a:=s/\Delta t\)</span>, de esta forma <span class="math inline">\(a\in[0,1)\)</span>, de aquí, sustituyendo la <a href="#eq-6.89" class="quarto-xref">Ecuación&nbsp;<span>6.89</span></a> en la <a href="#eq-6.88" class="quarto-xref">Ecuación&nbsp;<span>6.88</span></a>, y usando la definición de la variable auxiliar <span class="math inline">\(a\)</span> tenemos</p>
+<p><span id="eq-6.90"><span class="math display">\[
   \begin{aligned}
     \overline{Y}(t_n+s) &amp; = Y_n+\frac{Y_n^*-Y_n}{\theta\Delta t}s\\
     &amp; \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\
@@ -2086,7 +2086,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   |x_1+x_2+x_3+x_4|^2\leq 4(|x_1|^2+|x_2|^2+|x_3|^2+|x_4|^2),
 \]</span></p>
-<p>tomando valor absoluto y elevando al cuadrado la <a href="#eq-6.89" class="quarto-xref">Ecuación&nbsp;<span>6.90</span></a> se genera la siguiente cota</p>
+<p>tomando valor absoluto y elevando al cuadrado la <a href="#eq-6.90" class="quarto-xref">Ecuación&nbsp;<span>6.90</span></a> se genera la siguiente cota</p>
 <p><span class="math display">\[
 \begin{aligned}
   |\overline{Y}(t_n+s)|^2 &amp; = \Bigg|\frac{a}{\theta}Y_n^*+\left(1-\frac{a}{\theta}\right)Y_n\\
@@ -2096,7 +2096,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(a\in [0,1)\)</span> y <span class="math inline">\(\theta\in(0,1]\)</span>, esto implica que <span class="math inline">\(\displaystyle \frac{a}{\theta}\leq \frac{1}{\theta}\)</span>, más aún, se cumple <span class="math inline">\(\displaystyle \left|1-\frac{a}{\theta}\right|\leq 1+ \frac{1}{\theta}\)</span>. De aquí</p>
-<p><span id="eq-agregar2"><span class="math display">\[
+<p><span id="eq-6.91"><span class="math display">\[
 \begin{aligned}
   |\overline{Y}(t_n+s)|^2 &amp; \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\
     &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\
@@ -2108,8 +2108,8 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   |Y_n^*|^2\leq \beta|Y_n|^2+\alpha\leq \widetilde{\beta}|Y_n|^2+\widetilde{\alpha}^2.
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>6.91</span></a></p>
-<p><span id="eq-6.90"><span class="math display">\[
+<p>Sustituyendo esto en la <a href="#eq-6.91" class="quarto-xref">Ecuación&nbsp;<span>6.91</span></a></p>
+<p><span id="eq-6.92"><span class="math display">\[
 \begin{aligned}
   |\overline{Y}(t_n+s)|^2 &amp; \leq 4\Bigg(\frac{1}{\theta^2}|Y_n^*|^2+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\
     &amp; \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\
@@ -2123,7 +2123,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   C_1:=\max\Bigg\{\frac{4\widetilde{\alpha}}{\theta^2},\frac{4\widetilde{\beta}}{\theta^2}+4\left(1+\frac{1}{\theta}\right),4\Bigg\}.
 \]</span></p>
-<p>De esta forma, la <a href="#eq-6.90" class="quarto-xref">Ecuación&nbsp;<span>6.92</span></a> queda acotada de la forma</p>
+<p>De esta forma, la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.92</span></a> queda acotada de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
 |\overline{Y}(t_n+s)|^2 &amp; \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\
@@ -2131,7 +2131,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \end{aligned}
 \]</span></p>
 <p>Notemos que esta nueva constante <span class="math inline">\(C_1\)</span> es independiente de <span class="math inline">\(\Delta t\)</span>. Elevando a la potencia <span class="math inline">\(p\)</span> tenemos</p>
-<p><span id="eq-6.91"><span class="math display">\[
+<p><span id="eq-6.93"><span class="math display">\[
 \begin{aligned}
 |\overline{Y}(t_n+s)|^{2p} &amp; \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\
 &amp;\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg]^p\\
@@ -2149,8 +2149,8 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
 \sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
 \]</span></p>
-<p>Por tanto, tomando supremo local a la <a href="#eq-6.91" class="quarto-xref">Ecuación&nbsp;<span>6.93</span></a> tenemos</p>
-<p><span id="eq-6.92"><span class="math display">\[
+<p>Por tanto, tomando supremo local a la <a href="#eq-6.93" class="quarto-xref">Ecuación&nbsp;<span>6.93</span></a> tenemos</p>
+<p><span id="eq-6.94"><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
   &amp; \leq \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\
@@ -2171,15 +2171,15 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p},
 \]</span></p>
-<p>entonces, al distribuir el segundo supremo de la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a>, notemos que para el tercer término, tenemos</p>
-<p><span id="eq-6.93"><span class="math display">\[
+<p>entonces, al distribuir el segundo supremo de la <a href="#eq-6.94" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a>, notemos que para el tercer término, tenemos</p>
+<p><span id="eq-6.95"><span class="math display">\[
 \begin{aligned}
      \sup\limits_{0\leq n\Delta t\leq T}&amp;\Bigg(\sup\limits_{0\leq s\leq \Delta t}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg)\\
      &amp; =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg).
 \end{aligned}
 \tag{6.95}\]</span></span></p>
 <p>De igual forma, aplicamos este mismo resultado para el cuarto término, es decir,</p>
-<p><span id="eq-6.94"><span class="math display">\[
+<p><span id="eq-6.96"><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq n\Delta t\leq T} &amp; \Bigg(\sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)\\
   &amp; =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg).
@@ -2197,14 +2197,14 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   \sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}.
 \]</span></p>
-<p>Por lo tanto, <a href="#eq-6.93" class="quarto-xref">Ecuación&nbsp;<span>6.95</span></a> y <a href="#eq-6.94" class="quarto-xref">Ecuación&nbsp;<span>6.96</span></a> quedan de la forma</p>
+<p>Por lo tanto, <a href="#eq-6.95" class="quarto-xref">Ecuación&nbsp;<span>6.95</span></a> y <a href="#eq-6.96" class="quarto-xref">Ecuación&nbsp;<span>6.96</span></a> quedan de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) &amp; \leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg),\\
   \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)&amp;\leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg).
 \end{aligned}
 \]</span></p>
-<p>De aquí, la <a href="#eq-6.92" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a></p>
+<p>De aquí, la <a href="#eq-6.94" class="quarto-xref">Ecuación&nbsp;<span>6.94</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq t\leq T}&amp;|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\
@@ -2217,7 +2217,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \end{aligned}
 \]</span></p>
 <p>Tomando esperanza y aplicando la linealidad obtenemos</p>
-<p><span id="eq-6.95"><span class="math display">\[
+<p><span id="eq-6.97"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
   &amp; \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\
@@ -2311,7 +2311,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span class="math display">\[
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}]=g(Y_j^*)\Delta W_j(u).
 \]</span></p>
-<p>Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es una martingala continua, lo que nos permite usar la desigualdad maximal de Doob al tercer término de la <a href="#eq-6.95" class="quarto-xref">Ecuación&nbsp;<span>6.97</span></a></p>
+<p>Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es una martingala continua, lo que nos permite usar la desigualdad maximal de Doob al tercer término de la <a href="#eq-6.97" class="quarto-xref">Ecuación&nbsp;<span>6.97</span></a></p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg]\leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}].
 \]</span></p>
@@ -2322,7 +2322,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 &amp; = \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}].
 \end{aligned}
 \]</span></p>
-<p>En el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se abordó que el valor esperado del incremento browniano está acotado por una constante <span class="math inline">\(c_p\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, esto en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.46</span></a>. Para nuestro caso, tenemos el caso continuo, por lo que mediante un análisis similar, es posible afirmar que existe una constante <span class="math inline">\(K_p\)</span> tal que solo depende de <span class="math inline">\(p\)</span> y que cumple</p>
+<p>En el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> se abordó que el valor esperado del incremento browniano está acotado por una constante <span class="math inline">\(c_p\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, esto en <a href="#eq-6.46" class="quarto-xref">Ecuación&nbsp;<span>6.46</span></a>. Para nuestro caso, tenemos el caso continuo, por lo que mediante un análisis similar, es posible afirmar que existe una constante <span class="math inline">\(K_p\)</span> tal que solo depende de <span class="math inline">\(p\)</span> y que cumple</p>
 <p><span class="math display">\[
   \mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\leq K_p(\Delta t)^p.
 \]</span></p>
@@ -2347,17 +2347,17 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 \end{aligned}
 \]</span></p>
 <p>Bajo la misma metodología que se ha estado usando, los términos <span class="math inline">\(\displaystyle\Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\)</span> quedarán absorbidos por la constante <span class="math inline">\(C_1\)</span> de tal forma que de la desigualdad anterior se reduce</p>
-<p><span id="eq-6.96"><span class="math display">\[
+<p><span id="eq-6.98"><span class="math display">\[
   \begin{aligned}
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] &amp; \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t\\
 &amp; \leq C_1\Delta t.
 \end{aligned}
 \tag{6.98}\]</span></span></p>
 <p>De forma análoga, afirmamos que <span class="math inline">\(h(Y_j^*)\Delta\widetilde{N}_j(s)\)</span> es una martingala lo que nos permite usar el mismo método previo para obtener</p>
-<p><span id="eq-6.97"><span class="math display">\[
+<p><span id="eq-6.99"><span class="math display">\[
 \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|h(Y_j^*)\Delta\widetilde{N}_j(s)|^{2p}\Bigg]\leq C_1\Delta t.
 \tag{6.99}\]</span></span></p>
-<p>Usando las cotas de la <a href="#eq-6.96" class="quarto-xref">Ecuación&nbsp;<span>6.98</span></a> y <a href="#eq-6.97" class="quarto-xref">Ecuación&nbsp;<span>6.99</span></a>, además usando el resultado del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, la <a href="#eq-6.95" class="quarto-xref">Ecuación&nbsp;<span>6.97</span></a> queda de la forma</p>
+<p>Usando las cotas de la <a href="#eq-6.98" class="quarto-xref">Ecuación&nbsp;<span>6.98</span></a> y <a href="#eq-6.99" class="quarto-xref">Ecuación&nbsp;<span>6.99</span></a>, además usando el resultado del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, la <a href="#eq-6.97" class="quarto-xref">Ecuación&nbsp;<span>6.97</span></a> queda de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   \mathbb{E}&amp;\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\
