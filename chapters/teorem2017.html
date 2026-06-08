@@ -2379,7 +2379,8 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itó generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
 <p><span id="eq-6.101"><span class="math display">\[
 \begin{aligned}
-  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds+\int_0^t U'(X(s^{-}))dW(s)\\
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds\\
+  &amp; \qquad +\int_0^t U'(X(s^{-}))g(X(s^{-}))dW(s)\\
   &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s),
 \end{aligned}
 \tag{6.101}\]</span></span></p>
@@ -2399,23 +2400,24 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p>Con esto, el segundo término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> queda</p>
 <p><span class="math display">\[
 \begin{aligned}
-\int_0^t \mathcal{L}U(X(s^{-}))ds &amp; = \int_0^t \Bigg(U'(X(s^{-}))f(X(s^{-}))+\frac{1}{2}g(X(s^{-}))^2U''(X(s^{-}))\Bigg)ds\\
+\int_0^t &amp; \mathcal{L}U(X(s^{-}))ds\\
+&amp; = \int_0^t \Bigg(U'(X(s^{-}))f(X(s^{-}))+\frac{1}{2}g(X(s^{-}))^2U''(X(s^{-}))\Bigg)ds\\
 &amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
-&amp; \qquad\qquad + \frac{1}{2}g(X(s^{-}))^2\Bigg(p(p-2)(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
-&amp; \qquad\qquad + p(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\
+&amp; \qquad + \frac{1}{2}g(X(s^{-}))^2\Bigg(p(p-2)(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
+&amp; \qquad + p(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\
 &amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
-&amp; \qquad\qquad + \frac{p(p-2)}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
-&amp; \qquad\qquad + \frac{p}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)ds\\
+&amp; \qquad + \frac{p(p-2)}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
+&amp; \qquad + \frac{p}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)ds\\
 &amp; =p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\\
-&amp; \qquad\qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
-&amp; \qquad\qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
+&amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
+&amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
 \end{aligned}
 \]</span></p>
 <p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica resécto al movimiento browniano basta sustituir la primer derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
 <p><span class="math display">\[
 \begin{aligned}
 \int_0^t &amp; U'(X(s^{-}))g(X(s^{-}))dW(s) \\
-&amp; = \int_0^t
+&amp; = p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
 \end{aligned}
 \]</span></p>
 </div>
