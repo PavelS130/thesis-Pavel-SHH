@@ -2365,12 +2365,27 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
   &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\
   &amp; \qquad\qquad + \sum\limits_{j=0}^{N_T}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg)\\
   &amp; \leq C_1\Bigg(1+A+\sum\limits_{j=0}^{N_T} C\Delta t + \sum\limits_{j=0}^{N_T} C\Delta t\Bigg)\\
-  &amp; = C_1(1+A+C_1 N_T\Delta t +  C_1N_T\Delta t)
+  &amp; = C_1(1+A+C_1 N_T\Delta t +  C_1N_T\Delta t).
 \end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(N_T\)</span> es tal que <span class="math inline">\(N_T\Delta t\leq T\)</span> entonces</p>
+<p><span id="eq-6.100"><span class="math display">\[
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T).
+\tag{6.100}\]</span></span></p>
+<p>Para términar, debemos acotar la sokución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 2\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T)
+  U(x)=(1+x^2)^{p/2}, \qquad p\geq 2,
+\]</span></p>
+<p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itó generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
+<p><span class="math display">\[
+\begin{aligned}
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds+\int_0^t U'(X(s^{-}))dW(s)\\
+  &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s),
+\end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(\mathcal{L}\)</span> es el operador infinitesimal para la parte de difusión, dado que estamos abordando el caso particular unidimensional dicho operador se reduce a</p>
+<p><span class="math display">\[
+\mathcal{L}U(x)=U'(x)f(x)+\frac{1}{2}g(x)^2U''(x).
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
