@@ -2372,20 +2372,51 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span id="eq-6.100"><span class="math display">\[
 \mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T).
 \tag{6.100}\]</span></span></p>
-<p>Para términar, debemos acotar la sokución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 2\)</span>. Consideremos la siguiente función</p>
+<p>Para términar, debemos acotar la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 2\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 2,
 \]</span></p>
 <p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itó generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
-<p><span class="math display">\[
+<p><span id="eq-6.101"><span class="math display">\[
 \begin{aligned}
   U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds+\int_0^t U'(X(s^{-}))dW(s)\\
   &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s),
 \end{aligned}
-\]</span></p>
+\tag{6.101}\]</span></span></p>
 <p>donde <span class="math inline">\(\mathcal{L}\)</span> es el operador infinitesimal para la parte de difusión, dado que estamos abordando el caso particular unidimensional dicho operador se reduce a</p>
 <p><span class="math display">\[
 \mathcal{L}U(x)=U'(x)f(x)+\frac{1}{2}g(x)^2U''(x).
+\]</span></p>
+<p>Calculando la primera y segunda derivada de la función <span class="math inline">\(U\)</span></p>
+<p><span id="eq-6.102"><span class="math display">\[
+\begin{aligned}
+U'(x) &amp; = \frac{p}{2}(1+x^2)^{p/2-1}\cdot 2x\\
+&amp; = p(1+x^2)^{(p-2)/2}x, \\
+U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-2)/2}\cdot 1\Bigg]\\
+&amp; = p(p-2)(1+x^2)^{(p-4)/2}x^2+p(1+x^2)^{(p-2)/2}.
+\end{aligned}
+\tag{6.102}\]</span></span></p>
+<p>Con esto, el segundo término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> queda</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^t \mathcal{L}U(X(s^{-}))ds &amp; = \int_0^t \Bigg(U'(X(s^{-}))f(X(s^{-}))+\frac{1}{2}g(X(s^{-}))^2U''(X(s^{-}))\Bigg)ds\\
+&amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
+&amp; \qquad\qquad + \frac{1}{2}g(X(s^{-}))^2\Bigg(p(p-2)(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
+&amp; \qquad\qquad + p(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\
+&amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
+&amp; \qquad\qquad + \frac{p(p-2)}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
+&amp; \qquad\qquad + \frac{p}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)ds\\
+&amp; =p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\\
+&amp; \qquad\qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
+&amp; \qquad\qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
+\end{aligned}
+\]</span></p>
+<p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica resécto al movimiento browniano basta sustituir la primer derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^t &amp; U'(X(s^{-}))g(X(s^{-}))dW(s) \\
+&amp; = \int_0^t
+\end{aligned}
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
