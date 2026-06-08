@@ -2442,6 +2442,21 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
   &amp; \qquad + \int_0^t\Bigg[(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \tag{6.106}\]</span></span></p>
+<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, esto implica que</p>
+<p><span class="math display">\[
+\begin{aligned}
+1+(|x|-|h(x)|)^2 &amp; \leq 1 + 2|x|^2-2|h(x)|^2\\
+&amp; \leq 1+2|x^2|+2(2L_h|x|^2+2|h(0)|^2)\\
+&amp; = 1+4|h(0)|^2+(2+4L_h)|x|^2.
+\end{aligned}
+\]</span></p>
+<p>Tomando a <span class="math inline">\(K_1:=\max\{1+4|h(0)|^2,2+4L_h\}\)</span> se tiene <span class="math inline">\(1+(|x|-|h(x)|)^2\leq K_1(1+|x|^2)\)</span>, elevando a la potencia <span class="math inline">\(p/2\)</span></p>
+<p><span class="math display">\[
+(1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
+\]</span></p>
+<p>Al restar de ambos lados el término <span class="math inline">\((1+|x|^2)^{p/2}\)</span> y definiendo a <span class="math inline">\(K:=K_1^{p/2}-1\)</span> es posible obtener</p>
+<p>$$</p>
+<p>$$</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
