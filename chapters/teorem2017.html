@@ -2398,7 +2398,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 \end{aligned}
 \tag{6.102}\]</span></span></p>
 <p>Con esto, el segundo término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> queda</p>
-<p><span class="math display">\[
+<p><span id="eq-6.103"><span class="math display">\[
 \begin{aligned}
 \int_0^t &amp; \mathcal{L}U(X(s^{-}))ds\\
 &amp; = \int_0^t \Bigg(U'(X(s^{-}))f(X(s^{-}))+\frac{1}{2}g(X(s^{-}))^2U''(X(s^{-}))\Bigg)ds\\
@@ -2412,12 +2412,33 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
 &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
 \end{aligned}
-\]</span></p>
-<p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica resécto al movimiento browniano basta sustituir la primer derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
-<p><span class="math display">\[
+\tag{6.103}\]</span></span></p>
+<p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica resécto al movimiento browniano basta con sustituir la primera derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
+<p><span id="eq-6.104"><span class="math display">\[
 \begin{aligned}
 \int_0^t &amp; U'(X(s^{-}))g(X(s^{-}))dW(s) \\
 &amp; = p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
+\end{aligned}
+\tag{6.104}\]</span></span></p>
+<p>Finalmente para el cuarto y último término tenemos</p>
+<p><span id="eq-6.105"><span class="math display">\[
+\begin{aligned}
+\int_0^t &amp; [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s)\\
+&amp; = \int_0^t\Bigg[(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg]dN(s).
+\end{aligned}
+\tag{6.105}\]</span></span></p>
+<p>Juntando la <a href="#eq-6.103" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a>, <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a> y <a href="#eq-6.105" class="quarto-xref">Ecuación&nbsp;<span>6.105</span></a> en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds\\
+  &amp; \qquad +\int_0^t U'(X(s^{-}))g(X(s^{-}))dW(s)\\
+  &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s)\\
+  &amp; = (1+X_0^2)^{p/2}\\
+  &amp; \qquad + p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\\
+  &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\\
+  &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
+  &amp; \qquad + p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\\
+  &amp; \qquad + \int_0^t\Bigg[(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \]</span></p>
 </div>
