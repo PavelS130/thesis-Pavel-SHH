@@ -2470,7 +2470,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p>Necesitamos definir los siguientes tiempos de paro meniante</p>
 <p><span class="math display">\[
 \tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
-\]</span></p>
+\]</span> {eq-6.107}</p>
 <p>Nuestro objetivo ahora es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar con los siguientes resultados</p>
 <blockquote class="blockquote">
 <p><strong>Lema.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
@@ -2504,6 +2504,27 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 <p><span class="math display">\[
   \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|&lt;\infty\right\}.
 \]</span></p>
+<p>Por el lema anterior, tenemos que <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>. Fijando <span class="math inline">\(\omega\in\Omega_0\)</span>, tenemos por definición que existe <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
+<p><span class="math display">\[
+|X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T].
+\]</span></p>
+<p>Sea <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(N&gt;M_{\omega}\)</span>, la definición de tiempos de paro dada en la <span class="quarto-unresolved-ref">?eq-6.107</span> indica que</p>
+<p><span class="math display">\[
+  \tau_N(\omega)=\min\{T,\inf\{t\in[0,T]:|X(t,\omega)|\geq N\}\}.
+\]</span></p>
+<p>Luego, como <span class="math inline">\(|X(t,\omega)|\leq M_{\omega}&lt;N\)</span> para todo <span class="math inline">\(t\in[0,T]\)</span>, entonces</p>
+<p><span class="math display">\[
+  \{t\in[0,T]:|X(t,\omega)|\geq N\}=\emptyset.
+\]</span></p>
+<p>Por la definición del ínfimo en los reales extendidos se tiene que <span class="math inline">\(\inf\emptyset=+\infty\)</span>. Por lo tanto</p>
+<p><span class="math display">\[
+\tau_N(\omega)=\min\{T,+\infty\}=T.
+\]</span></p>
+<p>Con esto, para cada <span class="math inline">\(\omega\in\Omega_0\)</span> se tiene que existe <span class="math inline">\(N_{\omega}\)</span> tal que <span class="math inline">\(\tau_N=T\)</span> para todo <span class="math inline">\(N\geq N_0\)</span>, en particular podemos afirmar</p>
+<p><span class="math display">\[
+  \lim\limits_{N\rightarrow\infty}\tau_N(\omega)=T, \qquad\forall \omega\in\Omega_0
+\]</span></p>
+<p>Cómo <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>, entonces <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>.</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
