@@ -2476,11 +2476,17 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty.
 \]</span></p>
-<p>Por el Teorema de Bolzado-Weierstrass(citar en preliminares), como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t*\in[0,T]\)</span>, vale decir</p>
+<p>Por el Teorema de Bolzado-Weierstrass(citar en preliminares), como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t^*\in[0,T]\)</span>, vale decir</p>
 <p><span class="math display">\[
 t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
-<p><strong><em>Caso 1.</em></strong></p>
+<p><strong><em>Caso 1.</em></strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como f es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
+\lim\limits_{s\downarrow t} f(s)=f(t^*).
+\]</span></p>
+<p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que <span class="math display">\[
+|f(s)-f(t^*)|&lt;\varepsilon\qquad\forall s\in [t^*,t^*+\delta).
+\]</span></p>
+<p>En particular, <span class="math inline">\(f\)</span> está acotada en <span class="math inline">\([t^*,t^*+\delta)\)</span>, lo que contardice que <span class="math inline">\(|f(t_n)|\rightarrow\infty\)</span> para <span class="math inline">\(t_{n_k}\geq t^*\)</span>.</p>
 <p>Ahora veamos que</p>
 </blockquote>
 <p>Ahora veamos que</p>
