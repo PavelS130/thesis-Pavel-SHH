@@ -2471,6 +2471,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 \tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
 \]</span></p>
+<p>Nuestro objetivo ahora es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar con los siguientes resultados</p>
 <blockquote class="blockquote">
 <p><strong>Lema.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
 <p><span class="math display">\[
@@ -2480,16 +2481,29 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
-<p><strong><em>Caso 1.</em></strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como f es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
+<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como f es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
 \lim\limits_{s\downarrow t} f(s)=f(t^*).
 \]</span></p>
 <p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que <span class="math display">\[
-|f(s)-f(t^*)|&lt;\varepsilon\qquad\forall s\in [t^*,t^*+\delta).
+|f(s)-f(t^*)|&lt;\varepsilon,\qquad\forall s\in [t^*,t^*+\delta).
 \]</span></p>
 <p>En particular, <span class="math inline">\(f\)</span> está acotada en <span class="math inline">\([t^*,t^*+\delta)\)</span>, lo que contardice que <span class="math inline">\(|f(t_n)|\rightarrow\infty\)</span> para <span class="math inline">\(t_{n_k}\geq t^*\)</span>.</p>
-<p>Ahora veamos que</p>
+<p>Para el caso cuando <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto <span class="math inline">\(f\)</span> debe ser acotada en [0,T].</p>
 </blockquote>
-<p>Ahora veamos que</p>
+<blockquote class="blockquote">
+<p><strong>Lema.</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
+<p><span class="math display">\[
+f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
+\]</span></p>
+<p>es càdlàg. Por el lema previo, podemos afirmar que cada <span class="math inline">\(f_{\omega}\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. Por lo tanto, para casi todo <span class="math inline">\(\omega\)</span>, existe una constante <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que <span class="math display">\[
+\sup\limits_{t\in[0,T]}|X(t,\omega)|\leq M_\omega&lt;\infty.
+\]</span></p>
+<p>Basta definir a la variable <span class="math inline">\(\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|\)</span>, entonces <span class="math inline">\(M&lt;\infty\)</span> casi seguramente.</p>
+</blockquote>
+<p>Veamos ahora que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante</p>
+<p><span class="math display">\[
+  \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|&lt;\infty\right\}.
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
