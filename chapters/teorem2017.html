@@ -2581,12 +2581,12 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \tag{6.109}\]</span></span></p>
 <p>Comenzaremos estudiando el término correspondiente al movimiento browniano dado por</p>
 <p><span id="eq-6.110"><span class="math display">\[
-  \int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
+  \int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
 \tag{6.110}\]</span></span></p>
 <p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar que</p>
-<p><span class="math display">\[
+<p><span id="eq-6.111"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
-\]</span></p>
+\tag{6.111}\]</span></span></p>
 <p>Si esto se cumple, entonces la propiedad de martingala nos asegura que</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
@@ -2599,13 +2599,13 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \end{aligned}
 \]</span></p>
 <p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene que</p>
-<p><span id="eq-6.111"><span class="math display">\[
+<p><span id="eq-6.112"><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).\\
 \end{aligned}
-\tag{6.111}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{(p-2)/2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a></p>
+\tag{6.112}\]</span></span></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{(p-2)/2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
@@ -2619,6 +2619,14 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; = I\cdot\mathbb{E}[t\wedge\tau_N]\\
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
+\]</span></p>
+<p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a></p>
+<p><span class="math display">\[
+\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2,
+\]</span></p>
+<p>es una martingala cuadrado integrable, por la propiedad de la martingalas se afirma que</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
