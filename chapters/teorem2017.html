@@ -2572,13 +2572,25 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \begin{aligned}
 \mathbb{E} &amp; (1+X(t\wedge\tau_N)^{2})^{p/2}\\
 &amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
-&amp; \quad + p\mathbb{E}\Bigg[\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
-&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad + p\mathbb{E}\Bigg[\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^t\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
+&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \end{aligned}
 \tag{6.109}\]</span></span></p>
+<p>Comenzaremos estudiando el término correspondiente al movimiento browniano dado por</p>
+<p><span id="eq-6.110"><span class="math display">\[
+  \int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
+\tag{6.110}\]</span></span></p>
+<p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar que</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
+\]</span></p>
+<p>Si esto se cumple, entonces la propiedad de martingala nos asegura que</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
