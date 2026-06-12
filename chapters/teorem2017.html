@@ -2524,7 +2524,26 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 <p><span class="math display">\[
   \lim\limits_{N\rightarrow\infty}\tau_N(\omega)=T, \qquad\forall \omega\in\Omega_0
 \]</span></p>
-<p>Cómo <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>, entonces <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>.</p>
+<p>Cómo <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>, entonces <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, afirmamos que la secuencia <span class="math inline">\(\{\tau_N\}_{N\in \mathbb{N}}\)</span> es creciente. Pues si <span class="math inline">\(N_1,N_2\in\mathbb{N}\)</span> son tales que <span class="math inline">\(N_1&lt;N_2\)</span>, esto implica que</p>
+<p><span class="math display">\[
+\{t:|X(T)|\geq N_2\}\subset\{t:|X(T)|\geq N_1\}.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+\inf\{t:|X(T)|\geq N_2\}\geq\inf\{t:|X(T)|\geq N_1\}.
+\]</span></p>
+<p>Y así</p>
+<p><span class="math display">\[
+\tau_{N_2}=\min\{T,\inf\{t:|X(T)|\geq N_2\}\}\geq\min\{T,\inf\{t:|X(T)|\geq N_1\}\}=\tau_{N_1}.
+\]</span></p>
+<p>Ya definido completamente los tiempos de paro, procedemos a definir el proceso parado de la siguiente forma</p>
+<p><span class="math display">\[
+X^{\tau_N}(t):=X(\min\{t,\tau_N\}) =
+            \begin{cases}
+            X(t) &amp; \text{si}\quad t&lt;\tau_N,\\
+            X(\tau_N) &amp; \text{si}\quad t\geq\tau_N.
+            \end{cases}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
