@@ -2481,14 +2481,14 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
-<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como f es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
+<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como <span class="math inline">\(f\)</span> es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
 \lim\limits_{s\downarrow t} f(s)=f(t^*).
 \]</span></p>
 <p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que <span class="math display">\[
 |f(s)-f(t^*)|&lt;\varepsilon,\qquad\forall s\in [t^*,t^*+\delta).
 \]</span></p>
 <p>En particular, <span class="math inline">\(f\)</span> está acotada en <span class="math inline">\([t^*,t^*+\delta)\)</span>, lo que contardice que <span class="math inline">\(|f(t_n)|\rightarrow\infty\)</span> para <span class="math inline">\(t_{n_k}\geq t^*\)</span>.</p>
-<p>Para el caso cuando <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto <span class="math inline">\(f\)</span> debe ser acotada en [0,T].</p>
+<p>Para el caso cuando <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p><strong>Lema.</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
@@ -2536,14 +2536,36 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 <p><span class="math display">\[
 \tau_{N_2}=\min\{T,\inf\{t:|X(T)|\geq N_2\}\}\geq\min\{T,\inf\{t:|X(T)|\geq N_1\}\}=\tau_{N_1}.
 \]</span></p>
-<p>Ya definido completamente los tiempos de paro, procedemos a definir el proceso parado de la siguiente forma</p>
+<p>Ya definido completamente los tiempos de paro, procedemos a definir el proceso truncado de la siguiente forma</p>
 <p><span class="math display">\[
-X^{\tau_N}(t):=X(\min\{t,\tau_N\}) =
+X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
             \begin{cases}
             X(t) &amp; \text{si}\quad t&lt;\tau_N,\\
             X(\tau_N) &amp; \text{si}\quad t\geq\tau_N.
             \end{cases}
 \]</span></p>
+<p>Afirmamos que existe una constante <span class="math inline">\(K_N&lt;\infty\)</span> tal que depende de <span class="math inline">\(N\)</span> y cumple</p>
+<p><span class="math display">\[
+\sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
+\]</span></p>
+<p>Dado que <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg, entonces para casi todo <span class="math inline">\(\omega\in \Omega\)</span> y todo <span class="math inline">\(t&lt;\tau_N(\Omega)\)</span> se tiene <span class="math inline">\(|X(t,\omega)|&lt;N\)</span> por la definición de ínfimo.</p>
+<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. Cómo <span class="math inline">\(|X(\tau_N^{-},\omega)|\leq N\)</span> y el tamaño del salto está dado por <span class="math inline">\(h(X(\tau_N^{-},\omega))\)</span>, donde <span class="math inline">\(h\)</span> es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto de valores posible para el límite por la izquierda <span class="math inline">\(X(\tau_N^{-},\omega)\)</span> está contenido en el siguiente intervalo</p>
+<p><span class="math display">\[
+D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
+\]</span></p>
+<p>Por el Teorema de Heine-Borel(va preliminares), dicho intervalo es un conjunto compacto, pues es cerrado y acotado. Luego el Teorema de Weiertrass(va preliminares) indica que toda función continua definida sobre un intervalo compacto alcanza su máximo y mínimo absolutos en dicho conjunto. Al ser <span class="math inline">\(h\)</span> continua en el compacto <span class="math inline">\(D_N\)</span>, entonces existe un punto <span class="math inline">\(x^*\in D_N\)</span> tal que</p>
+<p><span class="math display">\[
+|h(x^*)|=\sup\limits_{x\in[-N,N]}|h(x)|=\max\limits_{|x|\leq N}|h(x)|.
+\]</span></p>
+<p>Por tanto, podemos definir la constante <span class="math inline">\(\displaystyle C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty\)</span>.</p>
+<p><span class="math display">\[
+|X(\tau_N,\omega)|\leq |X(\tau_N^{-},\omega)|+|h(X(\tau_N^{-},\omega))|\leq N+C_N.
+\]</span></p>
+<p>Con esto, para <span class="math inline">\(t&gt;\tau_N(\omega)\)</span>, el proceso se mantiene constante en <span class="math inline">\(X(\tau_N,\omega)\)</span>. Por lo tanto basta tomar a <span class="math inline">\(K_N=N+C_N\)</span> lo que cumple</p>
+<p><span class="math display">\[
+\sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,
+\]</span></p>
+<p>casi seguramente.</p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
