@@ -2439,7 +2439,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
   &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\\
   &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
   &amp; \qquad + p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\\
-  &amp; \qquad + \int_0^t\Bigg[(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg]dN(s).
+  &amp; \qquad + \int_0^t\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s).
 \end{aligned}
 \tag{6.106}\]</span></span></p>
 <p>Haremos uso de la desigualdad dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, esto implica que</p>
@@ -2459,18 +2459,19 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 (1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
 \]</span></p>
 <p>Al restar de ambos lados el término <span class="math inline">\((1+|x|^2)^{p/2}\)</span> y definiendo a <span class="math inline">\(K:=2^{(p-2)/2}(K_1^{p/2}-1)\)</span> es posible obtener</p>
-<p><span class="math display">\[
+<p><span id="eq-6.107"><span class="math display">\[
 \begin{aligned}
-(1+(|x|-|h(x)|)^2)^{p/2} - (1+|x|^2)^{p/2}&amp; \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\
+(1+(|x|-|h(x)|)^2)^{p/2} &amp; - (1+|x|^2)^{p/2}\\
+&amp; \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\
 &amp; = (K_1^{p/2}-1)(1+|x|^2)^{p/2} \\
 &amp; \leq (K_1^{p/2}-1)2^{p/2-1}(1+(|x|^2)^{p/2})\\
 &amp; = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p).
 \end{aligned}
-\]</span></p>
-<p>Necesitamos definir los siguientes tiempos de paro meniante</p>
-<p><span id="eq-6.107"><span class="math display">\[
-\tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
 \tag{6.107}\]</span></span></p>
+<p>Necesitamos definir los siguientes tiempos de paro meniante</p>
+<p><span id="eq-6.108"><span class="math display">\[
+\tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
+\tag{6.108}\]</span></span></p>
 <p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar con los siguientes resultados</p>
 <blockquote class="blockquote">
 <p><strong>Lema.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
@@ -2508,7 +2509,7 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 <p><span class="math display">\[
 |X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T].
 \]</span></p>
-<p>Sea <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(N&gt;M_{\omega}\)</span>, la definición de tiempos de paro dada en la <a href="#eq-6.107" class="quarto-xref">Ecuación&nbsp;<span>6.107</span></a> indica que</p>
+<p>Sea <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(N&gt;M_{\omega}\)</span>, la definición de tiempos de paro dada en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a> indica que</p>
 <p><span class="math display">\[
   \tau_N(\omega)=\min\{T,\inf\{t\in[0,T]:|X(t,\omega)|\geq N\}\}.
 \]</span></p>
@@ -2566,6 +2567,18 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,
 \]</span></p>
 <p>casi seguramente.</p>
+<p>Ya definidos estos resultados, evaluamos la <a href="#eq-6.106" class="quarto-xref">Ecuación&nbsp;<span>6.106</span></a> en el tiempo de paro y tomamos esperanza</p>
+<p><span id="eq-6.109"><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; (1+X(t\wedge\tau_N)^{2})^{p/2}\\
+&amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
+&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^t\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\end{aligned}
+\tag{6.109}\]</span></span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
