@@ -2603,7 +2603,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}&amp;X(s^{-})g(X(s^{-}))|^2\\
 &amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
-&amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).\\
+&amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).
 \end{aligned}
 \tag{6.112}\]</span></span></p>
 <p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
@@ -2642,7 +2642,7 @@ N(t)=\widetilde{N}(t)-\lambda t.
 \begin{aligned}
 \int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\\
 &amp; = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds
+&amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds.
 \end{aligned}
 \tag{6.115}\]</span></span></p>
 <p>Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> debemos probar que</p>
@@ -2656,30 +2656,62 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|\\
+|(1+(X(s^{-}) &amp; + h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|\\
 &amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|.  
 \end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(X(s^{-})\leq|X(s^{-})|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, además considerando la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|\\
+|(1+(X(s^{-}) &amp; +h(X(s^{-})))^2)^{p/2} -(1+X(s^{-})^2)^{p/2}|\\
 &amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|\\
 &amp; \leq |(1+2X(s^{-})^2+2L_{\lambda}(1+X(s^{-})^2))^{p/2}-(1+X(s^{-})^2)^ {p/2}|\\
-&amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|\\
-&amp; = .
+&amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|.\\
 \end{aligned}
 \]</span></p>
-<p>Por lo que <span class="math display">\[
+<p>Al elevar al cuadrado se mantiene la desigualdad y se tiene</p>
+<p><span class="math display">\[
 \begin{aligned}
-  |(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}|^2 &amp; \leq |((1+N^2)(1+2L_{\lambda})+N^2)^{p/2}|^2\\
-  &amp; = ((1+N^2)(1+2L_{\lambda})+N^2)^p&lt;\infty.
+|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|^2\\
+&amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2&lt;\infty.
 \end{aligned}
 \]</span></p>
 <p>Con esto, al integrar sobre el el intervalo <span class="math inline">\([0,t\wedge\tau_N]\)</span> y tomar esperanza se tiene que</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg]  
+\mathbb{E} &amp; \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|^2ds\Bigg]\\
+&amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}|(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2 ds\Bigg]\\
+&amp; = |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}ds\Bigg]\\
+&amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}[t\wedge\tau_N]\\
+&amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2T&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Entonces la integral estocástica dada por</p>
+<p><span class="math display">\[
+\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+\]</span></p>
+<p>está bien definida y además cumple que su esperanza sea cero, es decir</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
+\]</span></p>
+<p>Tomando valor esperado a la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a> tenemos que y considerando lo anterior, tenemos</p>
+<p><span id="eq-6.117"><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
+&amp; = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\
+&amp; \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg]\\
+&amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
+\end{aligned}
+\tag{6.117}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a> y la <span class="citation" data-cites="eq6.117">(<a href="#ref-eq6.117" role="doc-biblioref"><strong>eq6.117?</strong></a>)</span> en la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> se obtiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; (1+X(t\wedge\tau_N)^{2})^{p/2}\\
+&amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
+&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
+&amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \]</span></p>
 </div>
