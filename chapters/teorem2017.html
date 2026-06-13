@@ -2621,35 +2621,39 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a></p>
+<p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a> dada por</p>
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2,
 \]</span></p>
-<p>es una martingala cuadrado integrable, por la propiedad de la martingalas se afirma que</p>
+<p>es una martingala cuadrado integrable, por la propiedad de martingalas se afirma que</p>
 <p><span id="eq-6.113"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]ds=0.
 \tag{6.113}\]</span></span></p>
 <p>Analizaremos el último término de la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> dado por</p>
 <p><span id="eq-6.114"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \tag{6.114}\]</span></span></p>
-<p>Recordemos que el proceso de Poisson compensado esta definido mediante</p>
+<p>Recordemos que el proceso de Poisson compensado está definido mediante</p>
 <p><span class="math display">\[
 N(t)=\widetilde{N}(t)-\lambda t.
 \]</span></p>
-<p>Esto implica que <span class="math inline">\(dN(s)=d\widetilde{N}(s)+\lambda ds\)</span>, sustituyendo en la integral de la <a href="#eq-6.114" class="quarto-xref">Ecuación&nbsp;<span>6.114</span></a> se tiene que</p>
-<p><span class="math display">\[
+<p>Esto implica <span class="math inline">\(dN(s)=d\widetilde{N}(s)+\lambda ds\)</span>, sustituyendo en la integral de la <a href="#eq-6.114" class="quarto-xref">Ecuación&nbsp;<span>6.114</span></a> se tiene</p>
+<p><span id="eq-6.115"><span class="math display">\[
 \begin{aligned}
 \int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\\
 &amp; = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\
 &amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds
 \end{aligned}
-\]</span></p>
+\tag{6.115}\]</span></span></p>
 <p>Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> debemos probar que</p>
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
-<p>es una martingala. Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
+<p>es una martingala cuadrado integrable, es decir</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
+\]</span></p>
+<p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
 <p><span class="math display">\[
 (1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}\leq (1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}.
 \]</span></p>
