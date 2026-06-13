@@ -2601,18 +2601,19 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 <p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene que</p>
 <p><span id="eq-6.112"><span class="math display">\[
 \begin{aligned}
-|(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
+|(1+X(s^{-}))^{(p-2)/2}&amp;X(s^{-})g(X(s^{-}))|^2\\
+&amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).\\
 \end{aligned}
 \tag{6.112}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{(p-2)/2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
-&amp; \leq L_{\lambda}(1+N)^{p-2}N^2(1+N^2)&lt;\infty,
+&amp; \leq L_{\lambda}N^2(1+N)^{p-2}(1+N^2)&lt;\infty,
 \end{aligned}
 \]</span></p>
-<p>al definir <span class="math inline">\(I:=L_{\lambda}(1+N)^{p-2}N^2(1+N^2)\)</span>, dicha variable depende de <span class="math inline">\(N\)</span>, <span class="math inline">\(p\)</span> y <span class="math inline">\(L_{\lambda}\)</span>, además considerando que el tiempo de paro satisface <span class="math inline">\(t\wedge\tau_N\leq T\)</span> se tiene</p>
+<p>al definir <span class="math inline">\(I:=L_{\lambda}N^2(1+N)^{p-2}(1+N^2)\)</span>, dicha variable depende de <span class="math inline">\(N\)</span>, <span class="math inline">\(p\)</span> y <span class="math inline">\(L_{\lambda}\)</span>, además considerando que el tiempo de paro satisface <span class="math inline">\(t\wedge\tau_N\leq T\)</span> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\
@@ -2627,6 +2628,10 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 <p>es una martingala cuadrado integrable, por la propiedad de la martingalas se afirma que</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
+\]</span></p>
+<p>Analizaremos el último término de la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> dado por</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
