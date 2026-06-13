@@ -2649,19 +2649,23 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
-<p>es una martingala cuadrado integrable, es decir</p>
-<p><span class="math display">\[
+<p>es una martingala cuadrado integrable, es decir que cumple</p>
+<p><span id="eq-6.116"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
-\]</span></p>
+\tag{6.116}\]</span></span></p>
 <p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
 <p><span class="math display">\[
-(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}\leq (1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}.
+\begin{aligned}
+|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|\\
+&amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|.  
+\end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(X(s^{-})\leq|X(s^{-})|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, además considerando la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}| &amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}|\\
-&amp; \leq |(1+2X(s^{-})^2+2L_{\lambda}(1+X(s^{-})^2))^{p/2}|\\
+|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|\\
+&amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|\\
+&amp; \leq |(1+2X(s^{-})^2+2L_{\lambda}(1+X(s^{-})^2))^{p/2}-(1+N^2)^ {p/2}|\\
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}|\\
 &amp; = |((1+N^2)(1+2L_{\lambda})+N^2)^{p/2}|.
 \end{aligned}
@@ -2670,6 +2674,12 @@ N(t)=\widetilde{N}(t)-\lambda t.
 \begin{aligned}
   |(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}|^2 &amp; \leq |((1+N^2)(1+2L_{\lambda})+N^2)^{p/2}|^2\\
   &amp; = ((1+N^2)(1+2L_{\lambda})+N^2)^p&lt;\infty.
+\end{aligned}
+\]</span></p>
+<p>Con esto, al integrar sobre el el intervalo <span class="math inline">\([0,t\wedge\tau_N]\)</span> y tomar esperanza se tiene que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg]  
 \end{aligned}
 \]</span></p>
 </div>
