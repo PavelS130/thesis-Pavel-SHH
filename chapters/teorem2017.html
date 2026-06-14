@@ -2785,6 +2785,26 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 <p><span class="math display">\[
 \mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s^{-})^2)^{p/2}\Bigg].
 \]</span></p>
+<p>Dado que el integrando del segundo término es no negativo, por tanto es posible usar el Teorema de Fubini para intercambiar el orden de integración entre la esperanza y la integral temporal, es decir</p>
+<p><span class="math display">\[
+\mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s^{-})^2)^{p/2}].
+\]</span></p>
+<p>Por hipótesis se tiene que <span class="math inline">\(X(t)\)</span> es càdlàg, esto implica que <span class="math inline">\(X(s^{-})=X(s)\)</span> para casi todo <span class="math inline">\(s\in[0,T]\)</span>, casi seguramente esto implica</p>
+<p><span class="math display">\[
+\mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s)^2)^{p/2}]ds.
+\]</span></p>
+<p>Para poder aplicar la desigualdad de Grownwall (citar en preliminares) en su forma continua y determinista debemos ajustar la integral sobre un intervalo fijo <span class="math inline">\([0,t]\)</span> en lugar de un intervallo aleatorio <span class="math inline">\([0,t\wedge\tau_N]\)</span>. Para esto utilizamos la función indicadora <span class="math inline">\(1_{\{s\leq\tau_N\}}\)</span> definida mediante</p>
+<p><span class="math display">\[
+1_{s\leq\tau_N} =
+\begin{cases}
+1 &amp; \text{si } s\leq\tau_N,\\
+0 &amp; \text{si } s&gt;\tau_{N}.
+\end{cases}
+\]</span></p>
+<p>Con esto, podemos garantizar que se cumple la siguiente igualdad</p>
+<p><span class="math display">\[
+\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s)^2)^{p/2}]ds=\int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds.
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
