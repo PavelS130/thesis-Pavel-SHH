@@ -2867,7 +2867,11 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p><span class="math display">\[
 \mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \]</span></p>
-<p>Notemos que la sucesión de variables aleatorias <span class="math inline">\(\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}\)</span> son no negativas para todo <span class="math inline">\(N\in\mathbb{N}\)</span>. Recordemos que <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Aplicando el Lema de Fatou (preliminares) tenemos que</p>
+<p>Notemos que la sucesión de variables aleatorias <span class="math inline">\(\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}\)</span> son no negativas para todo <span class="math inline">\(N\in\mathbb{N}\)</span>. Recordemos que <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, por la continuidad de la función <span class="math inline">\(x\mapsto(1+x^2)^{p/2}\)</span> podemos afirmar que</p>
+<p><span class="math display">\[
+\lim\limits_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
+\]</span></p>
+<p>Aplicando el Lema de Fatou (preliminares) tenemos que</p>
 <p><span class="math display">\[
 \mathbb{E}\left[\lim\limits_{N\rightarrow\infty}\inf(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \lim\limits_{N\rightarrow\infty}\inf\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \]</span></p>
