@@ -2570,7 +2570,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 <p>Ya definidos estos resultados, evaluamos la <a href="#eq-6.106" class="quarto-xref">Ecuación&nbsp;<span>6.106</span></a> en el tiempo de paro y tomamos esperanza</p>
 <p><span id="eq-6.109"><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; (1+X(t\wedge\tau_N)^{2})^{p/2}\\
+\mathbb{E}(1+ X( &amp; t\wedge\tau_N)^{2})^{p/2}\\
 &amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
 &amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
 &amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
@@ -2583,22 +2583,22 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 <p><span id="eq-6.110"><span class="math display">\[
   \int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
 \tag{6.110}\]</span></span></p>
-<p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar que</p>
+<p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar</p>
 <p><span id="eq-6.111"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
 \tag{6.111}\]</span></span></p>
-<p>Si esto se cumple, entonces la propiedad de martingala nos asegura que</p>
+<p>Si esto se cumple, entonces la propiedad de martingala nos asegura</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
 \]</span></p>
-<p>Notemos que</p>
+<p>Notemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; = |(1+X(s^{-}))^{(p-2)/2}|^2|X(s^{-})|^2|g(X(s^{-}))|^2\\
 &amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2.   
 \end{aligned}
 \]</span></p>
-<p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene que</p>
+<p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene</p>
 <p><span id="eq-6.112"><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}&amp;X(s^{-})g(X(s^{-}))|^2\\
@@ -2606,7 +2606,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).
 \end{aligned}
 \tag{6.112}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
@@ -2679,7 +2679,7 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p>Con esto, al integrar sobre el el intervalo <span class="math inline">\([0,t\wedge\tau_N]\)</span> y tomar esperanza se tiene que</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|^2ds\Bigg]\\
+\mathbb{E} \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s^{-}) &amp; + h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|^2ds\Bigg]\\
 &amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}|(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2 ds\Bigg]\\
 &amp; = |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}ds\Bigg]\\
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}[t\wedge\tau_N]\\
@@ -2690,11 +2690,11 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
-<p>está bien definida y además cumple que su esperanza sea cero, es decir</p>
+<p>está bien definida, con esto, se garantiza que su esperanza sea cero, es decir</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
 \]</span></p>
-<p>Tomando valor esperado a la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a> tenemos que y considerando lo anterior, tenemos</p>
+<p>Tomando valor esperado a la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a> y considerando lo anterior, tenemos</p>
 <p><span id="eq-6.117"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
@@ -2703,15 +2703,65 @@ N(t)=\widetilde{N}(t)-\lambda t.
 &amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.117}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a> y la <span class="citation" data-cites="eq6.117">(<a href="#ref-eq6.117" role="doc-biblioref"><strong>eq6.117?</strong></a>)</span> en la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> se obtiene</p>
-<p><span class="math display">\[
+<p>Sustituyendo la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a> y la <a href="#eq-6.117" class="quarto-xref">Ecuación&nbsp;<span>6.117</span></a> en la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> se obtiene</p>
+<p><span id="eq-6.118"><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; (1+X(t\wedge\tau_N)^{2})^{p/2}\\
+\mathbb{E} (1+X( &amp; t\wedge\tau_N)^{2})^{p/2}\\
 &amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
 &amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
 &amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
 &amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
 &amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
+\end{aligned}
+\tag{6.118}\]</span></span></p>
+<p>Para facilitar la notación en lo que resta, usaremos la notación <span class="math inline">\(x=X(s^{-})\)</span>, de esta forma, acotaremos término a término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.118</span></a>. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>. Comenzando con el segundo término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.118</span></a> tenemos</p>
+<p><span id="eq-6.119"><span class="math display">\[
+\begin{aligned}
+p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
+&amp; = L_{\lambda}p(1+x^2)^{p/2}.
+\end{aligned}
+\tag{6.119}\]</span></span></p>
+<p>Para el tercer término, contemplamos que <span class="math inline">\(g(x)^2\leq |g(x)|^2\)</span> para poder hacer uso de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, con esto</p>
+<p><span id="eq-6.120"><span class="math display">\[
+\begin{aligned}
+\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 &amp; \leq \frac{p}{2}(1+x^2)^{(p-2)/2}|g(x)|^2\\
+&amp; \leq  \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
+&amp; = \frac{pL_{\lambda}}{2}(1+x^2)^{p/2}.
+\end{aligned}
+\tag{6.120}\]</span></span></p>
+<p>Dado que <span class="math inline">\(L_{\lambda}&gt;0\)</span> en la manera que se define, entonces <span class="math inline">\(L_{\lambda}\leq 1+L_{\lambda}\)</span>. El producto <span class="math inline">\(xg(x)\)</span> se puede acotar de la siguiente forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+xg(x) &amp; \leq |xg(x)|\\
+&amp; \leq \frac{1}{2}(x^2+g(x)^2)\\
+&amp; \leq \frac{1}{2}(x^2+L_{\lambda}(1+x^2))\\
+&amp; = \frac{1}{2}(L_{\lambda}+(1+L_{\lambda})x^2)\\
+&amp; \leq \frac{1}{2}((1+L_{\lambda})+(1+L_{\lambda})x^2) \\
+&amp; = \frac{1+L_{\lambda}}{2}(1+x^2).
+\end{aligned}
+\]</span></p>
+<p>Esto implica que</p>
+<p><span class="math display">\[
+x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
+\]</span></p>
+<p>Con esto, el cuarto término se acota mediante</p>
+<p><span id="eq-6.121"><span class="math display">\[
+\begin{aligned}
+\frac{p(p-2)}{2}(1+x^2)^{(p-4)/2}x^2g(x)^2 &amp; \leq \frac{p(p-2)}{2}(1+x^2)^{(p-4)/2}\frac{(1+L_{\lambda})^2}{4}(1+x^2)^2\\
+&amp; = \frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+x^2)^{p/2}.
+\end{aligned}
+\tag{6.121}\]</span></span></p>
+<p>Finalmente, para el quinto término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.118</span></a>, haremos uso de la misma herramienta, considerando que <span class="math inline">\(1+L_{\lambda}\leq 2+L_{\lambda}\)</span>, de esta forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+\lambda((1+(x+h(x))^2)^{p/2}-(1+x^2)^{p/2})&amp; \leq \lambda((1+2x^2+2h(x)^2)^{p/2}-(1+x^2)^{p/2})\\
+&amp; \leq \lambda((1+2x^2+2(L_{\lambda}(1+x^2)))^{p/2}-(1+x^2)^{p/2})\\
+&amp; = \lambda((1+2x^2+2L_{\lambda}+2L_{\lambda}x^2)^{p/2}-(1+x^2)^{p/2})\\
+&amp; = \lambda((1+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\
+&amp; \leq \lambda((2+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\
+&amp; = \lambda((2+2L_{\lambda})(1+x^2))^{p/2}-(1+x^2)^{p/2}\\
+&amp; =  \lambda(2+2L_{\lambda})^{p/2}(1+x^2)^{p/2}-(1+x^2)^{p/2}\\
+&amp; = (\lambda(2+2L_{\lambda})^{p/2}-1)(1+x^2)^{p/2}.
 \end{aligned}
 \]</span></p>
 </div>
