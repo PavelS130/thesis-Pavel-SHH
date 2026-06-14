@@ -2538,13 +2538,13 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 \tau_{N_2}=\min\{T,\inf\{t:|X(T)|\geq N_2\}\}\geq\min\{T,\inf\{t:|X(T)|\geq N_1\}\}=\tau_{N_1}.
 \]</span></p>
 <p>Ya definido completamente los tiempos de paro, procedemos a definir el proceso truncado de la siguiente forma</p>
-<p><span class="math display">\[
+<p><span id="eq-6.109"><span class="math display">\[
 X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
             \begin{cases}
             X(t) &amp; \text{si}\quad t&lt;\tau_N,\\
             X(\tau_N) &amp; \text{si}\quad t\geq\tau_N.
             \end{cases}
-\]</span></p>
+\tag{6.109}\]</span></span></p>
 <p>Afirmamos que existe una constante <span class="math inline">\(K_N&lt;\infty\)</span> tal que depende de <span class="math inline">\(N\)</span> y cumple</p>
 <p><span class="math display">\[
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
@@ -2568,7 +2568,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \]</span></p>
 <p>casi seguramente.</p>
 <p>Ya definidos estos resultados, evaluamos la <a href="#eq-6.106" class="quarto-xref">Ecuación&nbsp;<span>6.106</span></a> en el tiempo de paro y tomamos esperanza</p>
-<p><span id="eq-6.109"><span class="math display">\[
+<p><span id="eq-6.110"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}(1+ X( &amp; t\wedge\tau_N)^{2})^{p/2}\\
 &amp; = \mathbb{E}(1+X_0^2)^{p/2}\\
@@ -2578,15 +2578,15 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]\\
 &amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \end{aligned}
-\tag{6.109}\]</span></span></p>
-<p>Comenzaremos estudiando el término correspondiente al movimiento browniano dado por</p>
-<p><span id="eq-6.110"><span class="math display">\[
-  \int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
 \tag{6.110}\]</span></span></p>
-<p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar</p>
+<p>Comenzaremos estudiando el término correspondiente al movimiento browniano dado por</p>
 <p><span id="eq-6.111"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
+  \int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
 \tag{6.111}\]</span></span></p>
+<p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar</p>
+<p><span id="eq-6.112"><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
+\tag{6.112}\]</span></span></p>
 <p>Si esto se cumple, entonces la propiedad de martingala nos asegura</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
@@ -2599,14 +2599,14 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \end{aligned}
 \]</span></p>
 <p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene</p>
-<p><span id="eq-6.112"><span class="math display">\[
+<p><span id="eq-6.113"><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}&amp;X(s^{-})g(X(s^{-}))|^2\\
 &amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).
 \end{aligned}
-\tag{6.112}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a></p>
+\tag{6.113}\]</span></span></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
@@ -2621,38 +2621,38 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a> dada por</p>
+<p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a> dada por</p>
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2,
 \]</span></p>
 <p>es una martingala cuadrado integrable, por la propiedad de martingalas se afirma que</p>
-<p><span id="eq-6.113"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]ds=0.
-\tag{6.113}\]</span></span></p>
-<p>Analizaremos el último término de la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> dado por</p>
 <p><span id="eq-6.114"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]ds=0.
 \tag{6.114}\]</span></span></p>
+<p>Analizaremos el último término de la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a> dado por</p>
+<p><span id="eq-6.115"><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\tag{6.115}\]</span></span></p>
 <p>Recordemos que el proceso de Poisson compensado está definido mediante</p>
 <p><span class="math display">\[
 N(t)=\widetilde{N}(t)-\lambda t.
 \]</span></p>
-<p>Esto implica <span class="math inline">\(dN(s)=d\widetilde{N}(s)+\lambda ds\)</span>, sustituyendo en la integral de la <a href="#eq-6.114" class="quarto-xref">Ecuación&nbsp;<span>6.114</span></a> se tiene</p>
-<p><span id="eq-6.115"><span class="math display">\[
+<p>Esto implica <span class="math inline">\(dN(s)=d\widetilde{N}(s)+\lambda ds\)</span>, sustituyendo en la integral de la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a> se tiene</p>
+<p><span id="eq-6.116"><span class="math display">\[
 \begin{aligned}
 \int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\\
 &amp; = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\
 &amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds.
 \end{aligned}
-\tag{6.115}\]</span></span></p>
+\tag{6.116}\]</span></span></p>
 <p>Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> debemos probar que</p>
 <p><span class="math display">\[
 \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
 <p>es una martingala cuadrado integrable, es decir que cumple</p>
-<p><span id="eq-6.116"><span class="math display">\[
+<p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
-\tag{6.116}\]</span></span></p>
+\]</span></p>
 <p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -2694,7 +2694,7 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
 \]</span></p>
-<p>Tomando valor esperado a la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a> y considerando lo anterior, tenemos</p>
+<p>Tomando valor esperado a la <a href="#eq-6.116" class="quarto-xref">Ecuación&nbsp;<span>6.116</span></a> y considerando lo anterior, tenemos</p>
 <p><span id="eq-6.117"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
@@ -2703,7 +2703,7 @@ N(t)=\widetilde{N}(t)-\lambda t.
 &amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.117}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a> y la <a href="#eq-6.117" class="quarto-xref">Ecuación&nbsp;<span>6.117</span></a> en la <a href="#eq-6.109" class="quarto-xref">Ecuación&nbsp;<span>6.109</span></a> se obtiene</p>
+<p>Sustituyendo la <a href="#eq-6.114" class="quarto-xref">Ecuación&nbsp;<span>6.114</span></a> y la <a href="#eq-6.117" class="quarto-xref">Ecuación&nbsp;<span>6.117</span></a> en la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a> se obtiene</p>
 <p><span id="eq-6.118"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} (1+X( &amp; t\wedge\tau_N)^{2})^{p/2}\\
@@ -2784,26 +2784,6 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 <p>la cual es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. De esta forma, la <a href="#eq-6.123" class="quarto-xref">Ecuación&nbsp;<span>6.123</span></a> queda</p>
 <p><span class="math display">\[
 \mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s^{-})^2)^{p/2}\Bigg].
-\]</span></p>
-<p>Dado que el integrando del segundo término es no negativo, por tanto es posible usar el Teorema de Fubini para intercambiar el orden de integración entre la esperanza y la integral temporal, es decir</p>
-<p><span class="math display">\[
-\mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s^{-})^2)^{p/2}].
-\]</span></p>
-<p>Por hipótesis se tiene que <span class="math inline">\(X(t)\)</span> es càdlàg, esto implica que <span class="math inline">\(X(s^{-})=X(s)\)</span> para casi todo <span class="math inline">\(s\in[0,T]\)</span>, casi seguramente esto implica</p>
-<p><span class="math display">\[
-\mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s)^2)^{p/2}]ds.
-\]</span></p>
-<p>Para poder aplicar la desigualdad de Grownwall (citar en preliminares) en su forma continua y determinista debemos ajustar la integral sobre un intervalo fijo <span class="math inline">\([0,t]\)</span> en lugar de un intervallo aleatorio <span class="math inline">\([0,t\wedge\tau_N]\)</span>. Para esto utilizamos la función indicadora <span class="math inline">\(1_{\{s\leq\tau_N\}}\)</span> definida mediante</p>
-<p><span class="math display">\[
-1_{s\leq\tau_N} =
-\begin{cases}
-1 &amp; \text{si } s\leq\tau_N,\\
-0 &amp; \text{si } s&gt;\tau_{N}.
-\end{cases}
-\]</span></p>
-<p>Con esto, podemos garantizar que se cumple la siguiente igualdad</p>
-<p><span class="math display">\[
-\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s)^2)^{p/2}]ds=\int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds.
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
