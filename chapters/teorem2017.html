@@ -2766,6 +2766,25 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 &amp; = (\lambda(2+2L_{\lambda})^{p/2}-1)(1+x^2)^{p/2}.
 \end{aligned}
 \tag{6.122}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-6.119" class="quarto-xref">Ecuación&nbsp;<span>6.119</span></a>, <a href="#eq-6.120" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a>, <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> y <a href="#eq-6.122" class="quarto-xref">Ecuación&nbsp;<span>6.122</span></a> en la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.118</span></a></p>
+<p><span id="eq-6.123"><span class="math display">\[
+\begin{aligned}
+\mathbb{E} (1+X( &amp; t\wedge\tau_N)^{2})^{p/2}\\
+&amp; \leq \mathbb{E}(1+X_0^2)^{p/2}\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda(2+2L_{\lambda})^{p/2}-1)(1+X(s^{-})^2)^{p/2}ds\Bigg].
+\end{aligned}
+\tag{6.123}\]</span></span></p>
+<p>Definimos la constante</p>
+<p><span class="math display">\[
+K:= L_{\lambda}p + L_{\lambda}p + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (\lambda(2+2L_{\lambda})^{p/2}-1),  
+\]</span></p>
+<p>la cual es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. De esta forma, la <a href="#eq-6.123" class="quarto-xref">Ecuación&nbsp;<span>6.123</span></a> queda de la forma</p>
+<p><span class="math display">\[
+\mathbb{E} (1+X(t\wedge\tau_N)^{2})^{p/2}\leq \mathbb{E}(1+X_0^2)^{p/2} + K\int_{0}^{t\wedge\tau_N}\mathbb{E}[(1+X(s^{-})^2)^{p/2}].
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
