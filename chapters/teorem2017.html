@@ -2801,7 +2801,7 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 <p><span class="math display">\[
 \int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds = \int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds.
 \]</span></p>
-<p>Al tomar esperanza a esta integral. Además como el inetgarndo es no negativo, es posible aplicar el Teorema de Fubini-Tonelli para intercambiar el orden de la integral y la esperanza, con esto</p>
+<p>Al tomar esperanza a esta integral. Además como el integrando es no negativo, es posible aplicar el Teorema de Fubini-Tonelli (preliminares)para intercambiar el orden de la integral y la esperanza, con esto</p>
 <p><span id="eq-6.125"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] &amp; = \mathbb{E}\Bigg[\int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds\Bigg]\\
@@ -2817,7 +2817,10 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 \]</span></p>
 <p>Ahora bien, la función indicadora satisface <span class="math inline">\(\displaystyle 1_{s\leq\tau_N}\leq 1\)</span>, por lo que podemos eliminar dicha función de la expresión anterior y obtener una cota superior mediante</p>
 <p><span id="eq-6.126"><span class="math display">\[
-\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\leq  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}]ds.
+\begin{aligned}
+\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] &amp; =  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}1_{s\leq\tau_N}]ds\\
+&amp; \leq  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}]ds.
+\end{aligned}
 \tag{6.126}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-6.126" class="quarto-xref">Ecuación&nbsp;<span>6.126</span></a> en la <a href="#eq-6.124" class="quarto-xref">Ecuación&nbsp;<span>6.124</span></a> obtenemos</p>
 <p><span id="eq-6.127"><span class="math display">\[
