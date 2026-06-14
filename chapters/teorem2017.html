@@ -2837,9 +2837,39 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 <p><span class="math display">\[
   \mathbb{E}[(1+X_0^2)^{p/2}]\leq \mathbb{E}[2^{(p-2)/2}(1+X_0^p)]=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-6.127" class="quarto-xref">Ecuación&nbsp;<span>6.127</span></a> se obtiene</p>
+<p>Notemos que por hipótesis se tiene <span class="math inline">\(\mathbb{E}[X_0^p]&lt;\infty\)</span>, por tanto <span class="math inline">\(2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\)</span> una constante. Sustituyendo esto en la <a href="#eq-6.127" class="quarto-xref">Ecuación&nbsp;<span>6.127</span></a> se obtiene</p>
 <p><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p]) + K\int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}]ds.
+\]</span></p>
+<p>Ahora bien, Teorema de la Desigualdad de Gronwall en su forma continua (va a preliminares), indica que si <span class="math inline">\(u:[0,T]\rightarrow[0,\infty)\)</span> es una función medible y no negativa, <span class="math inline">\(a\geq 0\)</span> una constante, y <span class="math inline">\(b:[0,T]\rightarrow[0,\infty)\)</span> una función integrable. Entonces si <span class="math inline">\(u\)</span> satisface</p>
+<p><span class="math display">\[
+u(t)\leq a+\int_0^t b(s)u(s)ds,\quad \forall t\in[0,T],
+\]</span></p>
+<p>entonces</p>
+<p><span class="math display">\[
+u(t)\leq a\exp\Bigg(\int_0^t b(s)ds\Bigg),\quad \forall t\in[0,T].
+\]</span></p>
+<p>Para nuestro caso, basta tomar a:</p>
+<ul>
+<li><p><span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]\geq 0\)</span> por propiedad de esperanza,</p></li>
+<li><p><span class="math inline">\(a=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0\)</span>, por la <a href="#eq-6.9" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>,</p></li>
+<li><p><span class="math inline">\(b(s)=K\)</span>,</p></li>
+</ul>
+<p>Con esto, todas las hipótesis del TDG se satisfacen y es posible aplicarlo, por ende, calculamos</p>
+<p><span class="math display">\[
+\int_0^t b(s)ds=\int_0^t Kds=Kt.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
+\]</span></p>
+<p>Al escribir explícitamente <span class="math inline">\(u(t)\)</span></p>
+<p><span class="math display">\[
+\mathbb{E}[1+X(t\wedge\tau_N)]\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
+\]</span></p>
+<p>Notemos que la sucesión de variables aleatorias <span class="math inline">\(\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}\)</span> son no negativas para todo <span class="math inline">\(N\in\mathbb{N}\)</span>. Recordemos que <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Aplicando el Lema de Fatou (preliminares) tenemos que</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\lim\limits_{N\rightarrow\infty}\inf(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \lim\limits_{N\rightarrow\infty}\inf\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
