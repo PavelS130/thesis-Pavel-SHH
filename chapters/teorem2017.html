@@ -2939,7 +2939,7 @@ u(X(t)) &amp; = X(t)^2 \\
   \int_0^t (2X(s^{-})h(X(s^{-})) &amp; +h(X(s^{-}))^2)dN(s)\\
   &amp; = \int_0^t(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)(d\widetilde{N}(s)+\lambda ds)\\
   &amp; = \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)d\widetilde{N}(s)\\
-  &amp; \qquad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds
+  &amp; \qquad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds.
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-6.134" class="quarto-xref">Ecuación&nbsp;<span>6.134</span></a> tenemos</p>
@@ -3008,16 +3008,38 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
 \end{aligned}
 \]</span></p>
 <p>Al elevar a la potencia <span class="math inline">\(p/2\)</span> y al aplicar la desigualdad de potencias para sumas (preliminares)</p>
-<p><span class="math display">\[
+<p><span id="eq-6.137"><span class="math display">\[
 \begin{aligned}
 \Bigg(\sup_{0\leq\tau\leq t}|X(t)|^2\Bigg)^{p/2} &amp; \leq \Bigg(|X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
 &amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|\Bigg)^{p/2}\\
-&amp; \leq 5^{(p-2)/2}\Bigg(|X_0^2|^{p/2} +(4L_{\lambda})^{p2}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
+&amp; \leq 5^{(p-2)/2}\Bigg(|X_0^2|^{p/2} +(4L_{\lambda})^{p/2}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
 &amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
 &amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg)
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+\end{aligned}
+\tag{6.137}\]</span></span></p>
+<p>Para reducir la expresión anterior, definimos la siguiente constante</p>
+<p><span class="math display">\[
+\widehat{K}:=\max\{5^{(p-2)/2},5^{(p-2)/2}\cdot(4L_{\lambda})^{p/2}, 5^{(p-2)/2}\cdot 2^{p/2}\}.
+\]</span></p>
+<p>Es claro que <span class="math inline">\(\widehat{K}&gt;0\)</span>, con esto, la <a href="#eq-6.137" class="quarto-xref">Ecuación&nbsp;<span>6.137</span></a> queda de la forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sup_{0\leq\tau\leq t}|X(t)|^p &amp; \leq \widehat{K}\Bigg(|X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+\end{aligned}
+\]</span></p>
+<p>Más aún, es posible despejar la constante <span class="math inline">\(\widehat{K}\)</span> de tal forma que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\widehat{K}^{-1}\sup_{0\leq\tau\leq t}|X(t)|^p &amp; \leq |X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}.
 \end{aligned}
 \]</span></p>
 </div>
