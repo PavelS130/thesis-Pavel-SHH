@@ -2947,7 +2947,25 @@ u(x) &amp; = x^2 \\
 x^2 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
 &amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
 &amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \lambda\int_0^t (2xh(x)+h(x)^2)ds
+&amp; \qquad\quad + \lambda\int_0^t (2xh(x)+h(x)^2)ds.
+\end{aligned}
+\]</span></p>
+<p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distrubuyendo la terminal correspondiente al procceso de Poisson compensado tenemos</p>
+<p><span id="eq-6.135"><span class="math display">\[
+\begin{aligned}
+x^2 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2+\lambda(2xh(x)+h(x)^2))ds\\
+&amp; \qquad\quad + 2\int_0^t xg(x)dW(s)\\
+&amp; \qquad\quad + 2\int_0^t xh(x)d\widetilde{N}(s)\\
+&amp; \qquad\quad + \int_0^t h(x)^2d\widetilde{N}(s).
+\end{aligned}
+\tag{6.135}\]</span></span></p>
+<p>Considerando la función <span class="math inline">\(f_\lambda\)</span> definida en <a href="#eq-6.2" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> podemos encontrar la cota para la integral determinista de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^t (2xf(x)+g(x)^2+\lambda(2xh(x)+h(x)^2))ds &amp; = \int_0^t (2x(f(x)+\lambda h(x))+g(x)^2+\lambda h(x)^2)ds\\
+&amp; \leq \int_0^t (2xf_{\lambda}(x)+L_{\lambda}(1+x^2)+L_{\lambda}(1+x^2))ds\\
+&amp; \leq \int_0^t (2L_{\lambda}(1+x^2)+2L_{\lambda}(1+x^2))ds\\
+&amp; = \int_0^t 4L_{\lambda}(1+x^2)ds.
 \end{aligned}
 \]</span></p>
 </div>
