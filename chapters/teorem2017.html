@@ -2869,11 +2869,15 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \tag{6.128}\]</span></span></p>
 <p>Recordemos que <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, por la continuidad de la función <span class="math inline">\(x\mapsto(1+x^2)^{p/2}\)</span> podemos afirmar que</p>
 <p><span class="math display">\[
-\lim\limits_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
+\lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
+\]</span></p>
+<p>Más aún, cómo dicho límite existe, entonces también se cumple</p>
+<p><span class="math display">\[
+\liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \left( 1 + X(t)^2 \right)^{p/2}, \quad \text{c.s.}
 \]</span></p>
 <p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}\)</span>, la cual es una sucesión de términos no negativos, lo que nos permite usar el Lema de Fatou (preliminares) de tal forma que se cumple</p>
 <p><span class="math display">\[
-\mathbb{E}\left[\lim\limits_{N\rightarrow\infty}\inf(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \lim\limits_{N\rightarrow\infty}\inf\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
+\mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \]</span></p>
 <p>Con esto, tenemos</p>
 </div>
