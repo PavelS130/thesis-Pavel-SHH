@@ -2898,7 +2898,7 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \tag{6.133}\]</span></span></p>
 <p>Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\sup_{0\leq t\leq T}X(t)\Bigg].
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^{2p}\Bigg].
 \]</span></p>
 <p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Formula de Itô generalizada para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s^{-})\)</span>. Es claro que las primer y segunda derivada de la función <span class="math inline">\(u\)</span> estan dados por</p>
 <p><span class="math display">\[
@@ -2927,45 +2927,56 @@ u(x+h(x))-u(x) &amp; = (x+h(x))^2-x^2\\
 <p>Sustituyendo todo lo anterior en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> se tiene</p>
 <p><span id="eq-6.134"><span class="math display">\[
 \begin{aligned}
-u(x) &amp; = x^2 \\
-&amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
-&amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
-&amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)dN(s).
+u(X(t)) &amp; = X(t)^2 \\
+&amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2)ds\\
+&amp; \qquad\quad + \int_0^t  2X(s^{-})g(X(s^{-}))dW(s)\\
+&amp; \qquad\quad + \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)dN(s).
 \end{aligned}
 \tag{6.134}\]</span></span></p>
 <p>Recordemos que el término de Poisson compensado está definido por <span class="math inline">\(N(t)=\widetilde{N}(t)+\lambda t\)</span>, entonces la integral con respecto a dicho proceso queda de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \int_0^t (2xh(x)+h(x)^2)dN(s) &amp; = \int_0^t(2xh(x)+h(x)^2)(d\widetilde{N}(s)+\lambda ds)\\
-  &amp; = \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
-  &amp; \qquad + \lambda\int_0^t (2xh(x)+h(x)^2)ds
+  \int_0^t (2X(s^{-})h(X(s^{-})) &amp; +h(X(s^{-}))^2)dN(s)\\
+  &amp; = \int_0^t(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)(d\widetilde{N}(s)+\lambda ds)\\
+  &amp; = \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)d\widetilde{N}(s)\\
+  &amp; \qquad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-6.134" class="quarto-xref">Ecuación&nbsp;<span>6.134</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-x^2 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
-&amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
-&amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \lambda\int_0^t (2xh(x)+h(x)^2)ds.
+X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2)ds\\
+&amp; \qquad\quad + \int_0^t  2X(s^{-})g(X(s^{-}))dW(s)\\
+&amp; \qquad\quad + \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)d\widetilde{N}(s)\\
+&amp; \qquad\quad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds.
 \end{aligned}
 \]</span></p>
 <p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distrubuyendo la terminal correspondiente al procceso de Poisson compensado tenemos</p>
 <p><span id="eq-6.135"><span class="math display">\[
 \begin{aligned}
-x^2 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2+\lambda(2xh(x)+h(x)^2))ds\\
-&amp; \qquad\quad + 2\int_0^t xg(x)dW(s)\\
-&amp; \qquad\quad + 2\int_0^t xh(x)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \int_0^t h(x)^2d\widetilde{N}(s).
+X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2+\lambda(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2))ds\\
+&amp; \qquad\quad + 2\int_0^t X(s^{-})g(X(s^{-}))dW(s)\\
+&amp; \qquad\quad + 2\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\\
+&amp; \qquad\quad + \int_0^t h(X(s^{-}))^2d\widetilde{N}(s).
 \end{aligned}
 \tag{6.135}\]</span></span></p>
 <p>Considerando la función <span class="math inline">\(f_\lambda\)</span> definida en <a href="#eq-6.2" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.16</span></a> podemos encontrar la cota para la integral determinista de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-\int_0^t (2xf(x)+g(x)^2+\lambda(2xh(x)+h(x)^2))ds &amp; = \int_0^t (2x(f(x)+\lambda h(x))+g(x)^2+\lambda h(x)^2)ds\\
-&amp; \leq \int_0^t (2xf_{\lambda}(x)+L_{\lambda}(1+x^2)+L_{\lambda}(1+x^2))ds\\
-&amp; \leq \int_0^t (2L_{\lambda}(1+x^2)+2L_{\lambda}(1+x^2))ds\\
-&amp; = \int_0^t 4L_{\lambda}(1+x^2)ds.
+\int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2 &amp; +\lambda(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2))ds\\
+&amp; = \int_0^t (2X(s^{-})(f(X(s^{-}))+\lambda h(X(s^{-})))+g(X(s^{-}))^2+\lambda h(x)^2)ds\\
+&amp; \leq \int_0^t (2X(s^{-})f_{\lambda}(X(s^{-}))+L_{\lambda}(1+X(s^{-})^2)+L_{\lambda}(1+X(s^{-})^2))ds\\
+&amp; \leq \int_0^t (2L_{\lambda}(1+X(s^{-})^2)+2L_{\lambda}(1+X(s^{-})^2))ds\\
+&amp; = \int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds.
+\end{aligned}
+\]</span></p>
+<p>Entonces la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se reduce a</p>
+<p><span class="math display">\[
+\begin{aligned}
+X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
+&amp; \qquad\quad + 2\int_0^t X(s^{-})g(X(s^{-}))dW(s)\\
+&amp; \qquad\quad + 2\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\\
+&amp; \qquad\quad + \int_0^t h(X(s^{-}))^2d\widetilde{N}(s).
 \end{aligned}
 \]</span></p>
 </div>
