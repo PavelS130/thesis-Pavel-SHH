@@ -2925,20 +2925,29 @@ u(x+h(x))-u(x) &amp; = (x+h(x))^2-x^2\\
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo todo lo anterior en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> se tiene</p>
-<p><span class="math display">\[
+<p><span id="eq-6.134"><span class="math display">\[
 \begin{aligned}
 u(x) &amp; = x^2 \\
 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
 &amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
 &amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)dN(s).
 \end{aligned}
-\]</span></p>
-<p>Recordemos que el términode Poisson compensado está definido por <span class="math inline">\(N(t)=\widetilde{N}(t)+\lambda t\)</span>, entonces la integral con respecto a dicho proceso queda de la forma</p>
+\tag{6.134}\]</span></span></p>
+<p>Recordemos que el término de Poisson compensado está definido por <span class="math inline">\(N(t)=\widetilde{N}(t)+\lambda t\)</span>, entonces la integral con respecto a dicho proceso queda de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   \int_0^t (2xh(x)+h(x)^2)dN(s) &amp; = \int_0^t(2xh(x)+h(x)^2)(d\widetilde{N}(s)+\lambda ds)\\
   &amp; = \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
   &amp; \qquad + \lambda\int_0^t (2xh(x)+h(x)^2)ds
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en la <a href="#eq-6.134" class="quarto-xref">Ecuación&nbsp;<span>6.134</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+x^2 &amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
+&amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
+&amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
+&amp; \qquad\quad + \lambda\int_0^t (2xh(x)+h(x)^2)ds
 \end{aligned}
 \]</span></p>
 </div>
