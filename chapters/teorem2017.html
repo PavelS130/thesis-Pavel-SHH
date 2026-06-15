@@ -2376,7 +2376,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span class="math display">\[
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 2,
 \]</span></p>
-<p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itó generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
+<p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
 <p><span id="eq-6.101"><span class="math display">\[
 \begin{aligned}
   U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds\\
@@ -2896,6 +2896,51 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 2\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.132" class="quarto-xref">Ecuación&nbsp;<span>6.132</span></a> se obtiene <span id="eq-6.133"><span class="math display">\[
 \mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.133}\]</span></span></p>
+<p>Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}X(t)\Bigg].
+\]</span></p>
+<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Formula de Itô generalizada para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s^{-})\)</span>. Es claro que las primer y segunda derivada de la función <span class="math inline">\(u\)</span> estan dados por</p>
+<p><span class="math display">\[
+u'(x)=2x,\quad  u''(x)=2,
+\]</span></p>
+<p>respectivamente. Procedemos a calcular los términos de cada integrando de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a>, para el operador de la parte de difusión se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathcal{L}u(x) &amp; = u'(x)f(x)+\frac{1}{2}g(x)^2u''(x)\\
+  &amp; = 2xf(x)+\frac{1}{2}g(x)^2\cdot 2\\
+  &amp; = 2xf(x)+g(x)^2.
+\end{aligned}
+\]</span></p>
+<p>Para el término correspondiente al movimiento browniano tenemos</p>
+<p><span class="math display">\[
+u'(x)g(x) = 2xg(x).
+\]</span></p>
+<p>Por último, para el termino de Poisson se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+u(x+h(x))-u(x) &amp; = (x+h(x))^2-x^2\\
+&amp; = x^2+2xh(x)+h(x)^2-x^2\\
+&amp; = 2xh(x)+h(x)^2.
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo todo lo anterior en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+u(x) &amp; = x^2 \\
+&amp; = x_0^2 + \int_0^t (2xf(x)+g(x)^2)ds\\
+&amp; \qquad\quad + \int_0^t  2xg(x)dW(s)\\
+&amp; \qquad\quad + \int_0^t (2xh(x)+h(x)^2)dN(s).
+\end{aligned}
+\]</span></p>
+<p>Recordemos que el términode Poisson compensado está definido por <span class="math inline">\(N(t)=\widetilde{N}(t)+\lambda t\)</span>, entonces la integral con respecto a dicho proceso queda de la forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \int_0^t (2xh(x)+h(x)^2)dN(s) &amp; = \int_0^t(2xh(x)+h(x)^2)(d\widetilde{N}(s)+\lambda ds)\\
+  &amp; = \int_0^t (2xh(x)+h(x)^2)d\widetilde{N}(s)\\
+  &amp; \qquad + \lambda\int_0^t (2xh(x)+h(x)^2)ds
+\end{aligned}
+\]</span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.6" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <a href="#eq-6.10" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
