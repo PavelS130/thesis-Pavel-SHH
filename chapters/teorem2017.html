@@ -2983,7 +2983,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
 <p>Note que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s^{-})\)</span>, pues por la hipótesis el proceso <span class="math inline">\(X(t)\)</span> es continuo, mientras que en las integrales estocásticas es necesario usar <span class="math inline">\(X(s^{-})\)</span> esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la <a href="#eq-6.136" class="quarto-xref">Ecuación&nbsp;<span>6.136</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)\Bigg|ds\\
+|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)ds\Bigg|\\
 &amp; \qquad\quad + 2\Bigg|\int_0^t X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
 &amp; \qquad\quad + 2\Bigg|\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
 &amp; \qquad\quad + \Bigg|\int_0^t h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
@@ -2992,7 +2992,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
 <p>Aplicando supremos sobre el intervalo <span class="math inline">\([0,t]\)</span>, haciendo los respectivos cambios en los límites de integración además de considerar la propiedad de supremos para funciones no negativas, se obtiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} (1+X(s)^2)\Bigg|ds\\
+\sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} (1+X(s)^2)ds\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
 &amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
@@ -3001,10 +3001,23 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
 <p>Dado que el integrando <span class="math inline">\((1+X(s))^2\)</span> es no negativo, esto implica que su integral correspondiente es creciente y por tanto alcanza su supremo en el extremo del intervalo, es decir, cuando <span class="math inline">\(\tau=t\)</span>. Con esto</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|ds\\
+\sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
 &amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
+\end{aligned}
+\]</span></p>
+<p>Al elevar a la potencia <span class="math inline">\(p/2\)</span> y al aplicar la desigualdad de potencias para sumas (preliminares)</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Bigg(\sup_{0\leq\tau\leq t}|X(t)|^2\Bigg)^{p/2} &amp; \leq \Bigg(|X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|\Bigg)^{p/2}\\
+&amp; \leq 5^{(p-2)/2}\Bigg(|X_0^2|^{p/2} +(4L_{\lambda})^{p2}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
+&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg)
 \end{aligned}
 \]</span></p>
 </div>
