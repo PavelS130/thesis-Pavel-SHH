@@ -2241,7 +2241,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
 \mathcal{G}_s=\mathcal{F}_{t_j+s}=\bigcap\limits_{v&gt;t_j+s}\mathcal{F}_v=\bigcap\limits_{u&gt;s}\mathcal{F}_{t_j+u}=\bigcap\limits_{u&gt;s}\mathcal{G}_u,
 \]</span></p>
-<p>por lo que <span class="math inline">\(\{\mathcal{G}_s\}\)</span> hereda la continuidad por la derecha de la filtración <span class="math inline">\(\{\mathcal{F}_t\}\)</span>. Finalmente, por hipótesis <span class="math inline">\(\mathcal{F}_0\)</span> contiene todos los conjuntos <span class="math inline">\(P\)</span>-nulos. Dado que <span class="math inline">\(t_j\geq 0\)</span> y la filtración es creciente, esto implica que <span class="math inline">\(\mathcal{F}_0\subset\mathcal{F}_{t_j}=\mathcal{G}_0\)</span>, por lo tanto <span class="math inline">\(\mathcal{G}_0\)</span> también contiene los conjuntos <span class="math inline">\(P\)</span>-nulos. Con esto la filtración <span class="math inline">\(\{G\}_s\)</span> es completamente valida.</p>
+<p>por lo que <span class="math inline">\(\{\mathcal{G}_s\}\)</span> hereda la continuidad por la derecha de la filtración <span class="math inline">\(\{\mathcal{F}_t\}\)</span>. Finalmente, por hipótesis <span class="math inline">\(\mathcal{F}_0\)</span> contiene todos los conjuntos <span class="math inline">\(P\)</span>-nulos. Dado que <span class="math inline">\(t_j\geq 0\)</span> y la filtración es creciente, esto implica que <span class="math inline">\(\mathcal{F}_0\subset\mathcal{F}_{t_j}=\mathcal{G}_0\)</span>, por lo tanto <span class="math inline">\(\mathcal{G}_0\)</span> también contiene los conjuntos <span class="math inline">\(P\)</span>-nulos. Con esto la filtración <span class="math inline">\(\{G\}_s\)</span> esestá bien definida.</p>
 <p>Luego como primer paso, demostraremos que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es <span class="math inline">\(\mathcal{G}_s\)</span>-medible para todo <span class="math inline">\(s\in [0,\Delta t]\)</span>.</p>
 <p>Por construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> sabemos que <span class="math inline">\(Y_j\)</span> y <span class="math inline">\(Y_j^*\)</span> son funciones medibles de los incrementos estocásticos hasta el tiempo <span class="math inline">\(t\)</span>, por lo que podemos afirmar que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{F}_{t_j}\)</span>-medible. Dado que <span class="math inline">\(\mathcal{F}_{t_j}\subset \mathcal{F}_{t_j+s}=\mathcal{G}_s\)</span>, esto implica que <span class="math inline">\(Y_j^*\)</span> es <span class="math inline">\(\mathcal{G}_s\)</span>-medible. Por ser <span class="math inline">\(g(Y_j^*)\)</span> composición de una función continua con una variable <span class="math inline">\(\mathcal{G}_s\)</span>-medible, entonces <span class="math inline">\(g(Y_j^*)\)</span> también es <span class="math inline">\(\mathcal{G}_s\)</span>-medible. Por definición de movimiento browniano, los incrementos, <span class="math inline">\(\Delta W_j(s)\)</span> son <span class="math inline">\(\mathcal{F}_t\)</span>-medibles, por lo tanto, tambien son <span class="math inline">\(\mathcal{G}_s\)</span>-medibles. El producto de variables <span class="math inline">\(\mathcal{G}_s\)</span>-medibles, en nuestro caso, <span class="math inline">\(g(Y_j^*)\)</span> y <span class="math inline">\(\Delta W_j(s)\)</span>, es <span class="math inline">\(\mathcal{G}_s\)</span>-medible.</p>
 <p>Procedemos a demostrar que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))\)</span> es integrable, es decir, que cumple</p>
@@ -2280,7 +2280,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 &amp; \leq \sqrt{L_{\lambda}(1+A)}\cdot \sqrt{\Delta t}&lt;\infty.
 \end{aligned}
 \]</span></p>
-<p>Por lo tanto, el proceso es integrable. Por ultimo, debemos probar que posee la propiedad de martingala, es decir, para <span class="math inline">\(0\leq u\leq s\)</span> se debe cumplir</p>
+<p>Por lo tanto, el proceso es integrable. Por último, debemos probar que posee la propiedad de martingala, es decir, para <span class="math inline">\(0\leq u\leq s\)</span> se debe cumplir</p>
 <p><span class="math display">\[
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]= g(Y_j^*)\Delta W_j(u).
 \]</span></p>
@@ -2413,7 +2413,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
 \end{aligned}
 \tag{6.103}\]</span></span></p>
-<p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica resécto al movimiento browniano basta con sustituir la primera derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
+<p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.101</span></a> que corresponde a la integral estocástica respecto al movimiento browniano basta con sustituir la primera derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.102</span></a>, de aquí</p>
 <p><span id="eq-6.104"><span class="math display">\[
 \begin{aligned}
 \int_0^t &amp; U'(X(s^{-}))g(X(s^{-}))dW(s) \\
@@ -2472,7 +2472,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span id="eq-6.108"><span class="math display">\[
 \tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
 \tag{6.108}\]</span></span></p>
-<p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar con los siguientes resultados</p>
+<p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar previamente con la validez de los siguientes resultados</p>
 <blockquote class="blockquote">
 <p><strong>Lema.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
 <p><span class="math display">\[
@@ -2482,7 +2482,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
-<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constannte. Como <span class="math inline">\(f\)</span> es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
+<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constante. Como <span class="math inline">\(f\)</span> es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
 \lim\limits_{s\downarrow t} f(s)=f(t^*).
 \]</span></p>
 <p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que <span class="math display">\[
