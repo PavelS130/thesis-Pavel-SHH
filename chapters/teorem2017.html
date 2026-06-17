@@ -2372,9 +2372,9 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span id="eq-6.100"><span class="math display">\[
 \mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T).
 \tag{6.100}\]</span></span></p>
-<p>Para términar, debemos acotar la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 2\)</span>. Consideremos la siguiente función</p>
+<p>Para términar, debemos acotar la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.1" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 1\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
-  U(x)=(1+x^2)^{p/2}, \qquad p\geq 2,
+  U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
 \]</span></p>
 <p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
 <p><span id="eq-6.101"><span class="math display">\[
@@ -2606,7 +2606,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).
 \end{aligned}
 \tag{6.113}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 2\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 1\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
@@ -2653,7 +2653,7 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
 \]</span></p>
-<p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 2\)</span>, tenemos que</p>
+<p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 1\)</span>, tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+(X(s^{-}) &amp; + h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|\\
@@ -2893,7 +2893,7 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p><span class="math display">\[
 \widehat{C}:=2^{(p-2)/2}e^{KT},
 \]</span></p>
-<p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 2\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.132" class="quarto-xref">Ecuación&nbsp;<span>6.132</span></a> se obtiene <span id="eq-6.133"><span class="math display">\[
+<p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 1\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.132" class="quarto-xref">Ecuación&nbsp;<span>6.132</span></a> se obtiene <span id="eq-6.133"><span class="math display">\[
 \mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.133}\]</span></span></p>
 <p>Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
