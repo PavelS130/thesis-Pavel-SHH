@@ -2373,9 +2373,9 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
 <p><span id="eq-6.101"><span class="math display">\[
 \begin{aligned}
-  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds\\
-  &amp; \qquad +\int_0^t U'(X(s^{-}))g(X(s^{-}))dW(s)\\
-  &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s),
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\
+  &amp; \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\
+  &amp; \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s),
 \end{aligned}
 \tag{6.103}\]</span></span></p>
 <p>donde <span class="math inline">\(\mathcal{L}\)</span> es el operador infinitesimal para la parte de difusión, dado que estamos abordando el caso particular unidimensional dicho operador se reduce a</p>
@@ -2394,46 +2394,46 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p>Con esto, el segundo término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a> queda</p>
 <p><span id="eq-6.103"><span class="math display">\[
 \begin{aligned}
-\int_0^t &amp; \mathcal{L}U(X(s^{-}))ds\\
-&amp; = \int_0^t \Bigg(U'(X(s^{-}))f(X(s^{-}))+\frac{1}{2}g(X(s^{-}))^2U''(X(s^{-}))\Bigg)ds\\
-&amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
-&amp; \qquad + \frac{1}{2}g(X(s^{-}))^2\Bigg(p(p-2)(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
-&amp; \qquad + p(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\
-&amp; = \int_0^t\Bigg(p(1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))\\
-&amp; \qquad + \frac{p(p-2)}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2\\
-&amp; \qquad + \frac{p}{2}g(X(s^{-}))^2(1+(X(s^{-}))^2)^{(p-2)/2}\Bigg)ds\\
-&amp; =p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\\
-&amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
-&amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds.
+\int_0^t &amp; \mathcal{L}U(X(s-))ds\\
+&amp; = \int_0^t \Bigg(U'(X(s-))f(X(s-))+\frac{1}{2}g(X(s-))^2U''(X(s-))\Bigg)ds\\
+&amp; = \int_0^t\Bigg(p(1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))\\
+&amp; \qquad + \frac{1}{2}g(X(s-))^2\Bigg(p(p-2)(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2\\
+&amp; \qquad + p(1+(X(s-))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\
+&amp; = \int_0^t\Bigg(p(1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))\\
+&amp; \qquad + \frac{p(p-2)}{2}g(X(s-))^2(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2\\
+&amp; \qquad + \frac{p}{2}g(X(s-))^2(1+(X(s-))^2)^{(p-2)/2}\Bigg)ds\\
+&amp; =p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\\
+&amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\
+&amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds.
 \end{aligned}
 \tag{6.105}\]</span></span></p>
 <p>Para el tercer término de la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a> que corresponde a la integral estocástica respecto al movimiento browniano basta con sustituir la primera derivada de la función <span class="math inline">\(U\)</span> dada en la <a href="#eq-6.102" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a>, de aquí</p>
 <p><span id="eq-6.104"><span class="math display">\[
 \begin{aligned}
-\int_0^t &amp; U'(X(s^{-}))g(X(s^{-}))dW(s) \\
-&amp; = p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
+\int_0^t &amp; U'(X(s-))g(X(s-))dW(s) \\
+&amp; = p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s).
 \end{aligned}
 \tag{6.106}\]</span></span></p>
 <p>Finalmente para el cuarto y último término tenemos</p>
 <p><span id="eq-6.105"><span class="math display">\[
 \begin{aligned}
-\int_0^t &amp; [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s)\\
-&amp; = \int_0^t\Bigg[(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}\\
-&amp; \qquad\qquad\qquad\qquad\quad-(1+(X(s^{-}))^2)^{p/2}\Bigg]dN(s).
+\int_0^t &amp; [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\
+&amp; = \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}\\
+&amp; \qquad\qquad\qquad\qquad\quad-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \tag{6.107}\]</span></span></p>
 <p>Juntando la <a href="#eq-6.103" class="quarto-xref">Ecuación&nbsp;<span>6.105</span></a>, <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.106</span></a> y <a href="#eq-6.105" class="quarto-xref">Ecuación&nbsp;<span>6.107</span></a> en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a> tenemos</p>
 <p><span id="eq-6.106"><span class="math display">\[
 \begin{aligned}
-  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s^{-}))ds\\
-  &amp; \qquad +\int_0^t U'(X(s^{-}))g(X(s^{-}))dW(s)\\
-  &amp; \qquad +\int_0^t [U(X(s^{-})+h(X(s^{-})))-U(X(s^{-}))]dN(s)\\
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\
+  &amp; \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\
+  &amp; \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\
   &amp; = (1+X_0^2)^{p/2}\\
-  &amp; \qquad + p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\\
-  &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\\
-  &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\\
-  &amp; \qquad + p\int_0^t (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\\
-  &amp; \qquad + \int_0^t\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s).
+  &amp; \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\\
+  &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\\
+  &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\
+  &amp; \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\\
+  &amp; \qquad + \int_0^t\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s).
 \end{aligned}
 \tag{6.108}\]</span></span></p>
 <p>Haremos uso de la desigualdad dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, esto implica que</p>
@@ -2544,7 +2544,7 @@ X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
 \]</span></p>
 <p>Dado que <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg, entonces para casi todo <span class="math inline">\(\omega\in \Omega\)</span> y todo <span class="math inline">\(t&lt;\tau_N(\Omega)\)</span> se tiene <span class="math inline">\(|X(t,\omega)|&lt;N\)</span> por la definición de ínfimo.</p>
-<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. Cómo <span class="math inline">\(|X(\tau_N^{-},\omega)|\leq N\)</span> y el tamaño del salto está dado por <span class="math inline">\(h(X(\tau_N^{-},\omega))\)</span>, donde <span class="math inline">\(h\)</span> es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto de valores posible para el límite por la izquierda <span class="math inline">\(X(\tau_N^{-},\omega)\)</span> está contenido en el siguiente intervalo</p>
+<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. Cómo <span class="math inline">\(|X(\tau_N-,\omega)|\leq N\)</span> y el tamaño del salto está dado por <span class="math inline">\(h(X(\tau_N-,\omega))\)</span>, donde <span class="math inline">\(h\)</span> es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto de valores posible para el límite por la izquierda <span class="math inline">\(X(\tau_N-,\omega)\)</span> está contenido en el siguiente intervalo</p>
 <p><span class="math display">\[
 D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \]</span></p>
@@ -2554,7 +2554,7 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \]</span></p>
 <p>Por tanto, podemos definir la constante <span class="math inline">\(\displaystyle C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty\)</span>.</p>
 <p><span class="math display">\[
-|X(\tau_N,\omega)|\leq |X(\tau_N^{-},\omega)|+|h(X(\tau_N^{-},\omega))|\leq N+C_N.
+|X(\tau_N,\omega)|\leq |X(\tau_N-,\omega)|+|h(X(\tau_N-,\omega))|\leq N+C_N.
 \]</span></p>
 <p>Con esto, para <span class="math inline">\(t&gt;\tau_N(\omega)\)</span>, el proceso se mantiene constante en <span class="math inline">\(X(\tau_N,\omega)\)</span>. Por lo tanto basta tomar a <span class="math inline">\(K_N=N+C_N\)</span> lo que cumple</p>
 <p><span class="math display">\[
@@ -2566,66 +2566,66 @@ D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \begin{aligned}
 \mathbb{E}[1+ X( &amp; t\wedge\tau_N)^{2}]^{p/2}\\
 &amp; = \mathbb{E}[1+X_0^2]^{p/2}\\
-&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
-&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
+&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\
+&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \end{aligned}
 \tag{6.112}\]</span></span></p>
 <p>Comenzaremos estudiando el término correspondiente al movimiento browniano dado por</p>
 <p><span id="eq-6.111"><span class="math display">\[
-  \int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s).
+  \int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s).
 \tag{6.113}\]</span></span></p>
 <p>Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar</p>
 <p><span id="eq-6.112"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
 \tag{6.114}\]</span></span></p>
 <p>Si esto se cumple, entonces la propiedad de martingala nos asegura</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]=0.
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]=0.
 \]</span></p>
 <p>Notemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; = |(1+X(s^{-}))^{(p-2)/2}|^2|X(s^{-})|^2|g(X(s^{-}))|^2\\
-&amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2.   
+|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 &amp; = |(1+X(s-))^{(p-2)/2}|^2|X(s-)|^2|g(X(s-))|^2\\
+&amp; = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2.   
 \end{aligned}
 \]</span></p>
-<p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, tomando a <span class="math inline">\(x=X(s^{-})\)</span> se tiene</p>
+<p>Usando la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, tomando a <span class="math inline">\(x=X(s-)\)</span> se tiene</p>
 <p><span id="eq-6.113"><span class="math display">\[
 \begin{aligned}
-|(1+X(s^{-}))^{(p-2)/2}&amp;X(s^{-})g(X(s^{-}))|^2\\
-&amp; = (1+X(s^{-}))^{p-2}X(s^{-})^2|g(X(s^{-}))|^2\\
-&amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2).
+|(1+X(s-))^{(p-2)/2}&amp;X(s-)g(X(s-))|^2\\
+&amp; = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2\\
+&amp; \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2).
 \end{aligned}
 \tag{6.115}\]</span></span></p>
-<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s^{-})|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s^{-})^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 1\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a></p>
+<p>Por la definición del tiempo de paro dado en la <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a>, sabemos que para cualquier <span class="math inline">\(s\leq\tau_N\)</span> el proceso satisface <span class="math inline">\(|X(s-)|\leq N\)</span> casi seguramente. Esto implica que <span class="math inline">\(X(s-)^2\leq N^2\)</span>. Recordemos que para <span class="math inline">\(p\geq 1\)</span>, la función <span class="math inline">\(u\mapsto u^{p-2}\)</span> es creciente para <span class="math inline">\(u\geq 1\)</span>. Por tanto de la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.115</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2 &amp; \leq (1+X(s^{-}))^{p-2}X(s^{-})^2L_{\lambda}(1+X(s^{-})^2)\\
+|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 &amp; \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2)\\
 &amp; \leq L_{\lambda}N^2(1+N)^{p-2}(1+N^2)&lt;\infty,
 \end{aligned}
 \]</span></p>
 <p>al definir <span class="math inline">\(I:=L_{\lambda}N^2(1+N)^{p-2}(1+N^2)\)</span>, dicha variable depende de <span class="math inline">\(N\)</span>, <span class="math inline">\(p\)</span> y <span class="math inline">\(L_{\lambda}\)</span>, además considerando que el tiempo de paro satisface <span class="math inline">\(t\wedge\tau_N\leq T\)</span> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\
 &amp; = I\cdot\mathbb{E}[t\wedge\tau_N]\\
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
 \]</span></p>
 <p>Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la <a href="#eq-6.112" class="quarto-xref">Ecuación&nbsp;<span>6.114</span></a> dada por</p>
 <p><span class="math display">\[
-\int_0^{t\wedge\tau_N} |(1+X(s^{-}))^{(p-2)/2}X(s^{-})g(X(s^{-}))|^2,
+\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2,
 \]</span></p>
 <p>es una martingala cuadrado integrable, por la propiedad de martingalas se afirma que</p>
 <p><span id="eq-6.114"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})g(X(s^{-})) dW(s)\Bigg]ds=0.
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
 \tag{6.116}\]</span></span></p>
 <p>Analizaremos el último término de la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a> dado por</p>
 <p><span id="eq-6.115"><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg].
 \tag{6.117}\]</span></span></p>
 <p>Recordemos que el proceso de Poisson compensado está definido mediante</p>
 <p><span class="math display">\[
@@ -2634,46 +2634,46 @@ N(t)=\widetilde{N}(t)-\lambda t.
 <p>Esto implica <span class="math inline">\(dN(s)=d\widetilde{N}(s)+\lambda ds\)</span>, sustituyendo en la integral de la <a href="#eq-6.115" class="quarto-xref">Ecuación&nbsp;<span>6.117</span></a> se tiene</p>
 <p><span id="eq-6.116"><span class="math display">\[
 \begin{aligned}
-\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\\
-&amp; = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds.
+\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\\
+&amp; = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\
+&amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds.
 \end{aligned}
 \tag{6.118}\]</span></span></p>
 <p>Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> debemos probar que</p>
 <p><span class="math display">\[
-\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
 <p>es una martingala cuadrado integrable, es decir que cumple</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg|^2ds\Bigg]&lt;\infty.
 \]</span></p>
 <p>Al usar la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 1\)</span>, tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-}) &amp; + h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|\\
-&amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|.  
+|(1+(X(s-) &amp; + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|\\
+&amp; \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|.  
 \end{aligned}
 \]</span></p>
-<p>Dado que <span class="math inline">\(X(s^{-})\leq|X(s^{-})|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, además considerando la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> tenemos que</p>
+<p>Dado que <span class="math inline">\(X(s-)\leq|X(s-)|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, además considerando la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> tenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-}) &amp; +h(X(s^{-})))^2)^{p/2} -(1+X(s^{-})^2)^{p/2}|\\
-&amp; \leq |(1+2X(s^{-})^2+2h(X(s^{-}))^2)^{p/2}-(1+X(s^{-})^2)^{p/2}|\\
-&amp; \leq |(1+2X(s^{-})^2+2L_{\lambda}(1+X(s^{-})^2))^{p/2}-(1+X(s^{-})^2)^ {p/2}|\\
+|(1+(X(s-) &amp; +h(X(s-)))^2)^{p/2} -(1+X(s-)^2)^{p/2}|\\
+&amp; \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|\\
+&amp; \leq |(1+2X(s-)^2+2L_{\lambda}(1+X(s-)^2))^{p/2}-(1+X(s-)^2)^ {p/2}|\\
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|.\\
 \end{aligned}
 \]</span></p>
 <p>Al elevar al cuadrado se mantiene la desigualdad y se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-|(1+(X(s^{-})+h(X(s^{-})))^2)^{p/2} &amp; -(1+X(s^{-})^2)^{p/2}|^2\\
+|(1+(X(s-)+h(X(s-)))^2)^{p/2} &amp; -(1+X(s-)^2)^{p/2}|^2\\
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2&lt;\infty.
 \end{aligned}
 \]</span></p>
 <p>Con esto, al integrar sobre el el intervalo <span class="math inline">\([0,t\wedge\tau_N]\)</span> y tomar esperanza se tiene que</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E} \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s^{-}) &amp; + h(X(s^{-})))^2)^{p/2} - (1+X(s^{-})^2)^{p/2}|^2ds\Bigg]\\
+\mathbb{E} \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s-) &amp; + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|^2ds\Bigg]\\
 &amp; \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}|(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2 ds\Bigg]\\
 &amp; = |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}ds\Bigg]\\
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}[t\wedge\tau_N]\\
@@ -2682,19 +2682,19 @@ N(t)=\widetilde{N}(t)-\lambda t.
 \]</span></p>
 <p>Entonces la integral estocástica dada por</p>
 <p><span class="math display">\[
-\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
 \]</span></p>
 <p>está bien definida, con esto, se garantiza que su esperanza sea cero, es decir</p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
 \]</span></p>
 <p>Tomando valor esperado a la <a href="#eq-6.116" class="quarto-xref">Ecuación&nbsp;<span>6.118</span></a> y considerando lo anterior, tenemos</p>
 <p><span id="eq-6.117"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
-&amp; = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\
-&amp; \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg]\\
-&amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
+&amp; = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\
+&amp; \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg]\\
+&amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.119}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-6.114" class="quarto-xref">Ecuación&nbsp;<span>6.116</span></a> y la <a href="#eq-6.117" class="quarto-xref">Ecuación&nbsp;<span>6.119</span></a> en la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.112</span></a> se obtiene</p>
@@ -2702,13 +2702,13 @@ N(t)=\widetilde{N}(t)-\lambda t.
 \begin{aligned}
 \mathbb{E} [1+X( &amp; t\wedge\tau_N)^{2}]^{p/2}\\
 &amp; = \mathbb{E}[1+X_0^2]^{p/2}\\
-&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s^{-}))^2)^{(p-2)/2}X(s^{-})f(X(s^{-}))ds\Bigg]\\
-&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-2)/2}g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s^{-}))^2)^{(p-4)/2}(X(s^{-}))^2g(X(s^{-}))^2ds\Bigg]\\
-&amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s^{-})+h(X(s^{-})))^2)^{p/2}-(1+(X(s^{-}))^2)^{p/2}\Bigg)ds\Bigg].
+&amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
+&amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\
+&amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\
+&amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.120}\]</span></span></p>
-<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s^{-})\)</span>, de esta forma, acotaremos término a término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a>. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>. Comenzando con el segundo término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a> tenemos</p>
+<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s-)\)</span>, de esta forma, acotaremos término a término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a>. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>. Comenzando con el segundo término de la <a href="#eq-6.118" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a> tenemos</p>
 <p><span id="eq-6.119"><span class="math display">\[
 \begin{aligned}
 p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
@@ -2765,10 +2765,10 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 \begin{aligned}
 \mathbb{E} [1+X( &amp; t\wedge\tau_N)^{2}]^{p/2}\\
 &amp; \leq \mathbb{E}[1+X_0^2]^{p/2}\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+X(s^{-})^2)^{p/2}ds\Bigg]\\
-&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda(2+2L_{\lambda})^{p/2}-1)(1+X(s^{-})^2)^{p/2}ds\Bigg].
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+X(s-)^2)^{p/2}ds\Bigg]\\
+&amp; \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda(2+2L_{\lambda})^{p/2}-1)(1+X(s-)^2)^{p/2}ds\Bigg].
 \end{aligned}
 \tag{6.125}\]</span></span></p>
 <p>Definimos la constante</p>
@@ -2777,9 +2777,9 @@ K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + 
 \]</span></p>
 <p>la cual es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. De esta forma, la <a href="#eq-6.123" class="quarto-xref">Ecuación&nbsp;<span>6.125</span></a> queda</p>
 <p><span class="math display">\[
-\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s^{-})^2)^{p/2}ds\Bigg].
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s-)^2)^{p/2}ds\Bigg].
 \]</span></p>
-<p>Dado que la solución <span class="math inline">\(X(t)\)</span> es un proceso càdlàg, es decir, continua por la derecha y con límites por la izquierda y además el conjunto de puntos de discontinuidad de un proceso càdlàg tiene medida de Lebesgue cero, por tanto <span class="math inline">\(X(s^{-})=X(s)\)</span> para casi todo <span class="math inline">\(s\in[0,t]\)</span> , casi seguramente. En términos de la medida de Lebesgue <span class="math inline">\(ds\)</span> tenemos</p>
+<p>Dado que la solución <span class="math inline">\(X(t)\)</span> es un proceso càdlàg, es decir, continua por la derecha y con límites por la izquierda y además el conjunto de puntos de discontinuidad de un proceso càdlàg tiene medida de Lebesgue cero, por tanto <span class="math inline">\(X(s-)=X(s)\)</span> para casi todo <span class="math inline">\(s\in[0,t]\)</span> , casi seguramente. En términos de la medida de Lebesgue <span class="math inline">\(ds\)</span> tenemos</p>
 <p><span id="eq-6.124"><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg].
 \tag{6.126}\]</span></span></p>
@@ -2894,7 +2894,7 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^{2p}\Bigg].
 \]</span></p>
-<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Formula de Itô generalizada para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s^{-})\)</span>. Es claro que las primer y segunda derivada de la función <span class="math inline">\(u\)</span> estan dados por</p>
+<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Formula de Itô generalizada para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.101" class="quarto-xref">Ecuación&nbsp;<span>6.103</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s-)\)</span>. Es claro que las primer y segunda derivada de la función <span class="math inline">\(u\)</span> estan dados por</p>
 <p><span class="math display">\[
 u'(x)=2x,\quad  u''(x)=2,
 \]</span></p>
@@ -2922,96 +2922,96 @@ u(x+h(x))-u(x) &amp; = (x+h(x))^2-x^2\\
 <p><span id="eq-6.134"><span class="math display">\[
 \begin{aligned}
 u(X(t)) &amp; = X(t)^2 \\
-&amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2)ds\\
-&amp; \qquad\quad + \int_0^t  2X(s^{-})g(X(s^{-}))dW(s)\\
-&amp; \qquad\quad + \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)dN(s).
+&amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
+&amp; \qquad\quad + \int_0^t  2X(s-)g(X(s-))dW(s)\\
+&amp; \qquad\quad + \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)dN(s).
 \end{aligned}
 \tag{6.136}\]</span></span></p>
 <p>Recordemos que el término de Poisson compensado está definido por <span class="math inline">\(N(t)=\widetilde{N}(t)+\lambda t\)</span>, entonces la integral con respecto a dicho proceso queda de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \int_0^t (2X(s^{-})h(X(s^{-})) &amp; +h(X(s^{-}))^2)dN(s)\\
-  &amp; = \int_0^t(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)(d\widetilde{N}(s)+\lambda ds)\\
-  &amp; = \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)d\widetilde{N}(s)\\
-  &amp; \qquad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds.
+  \int_0^t (2X(s-)h(X(s-)) &amp; +h(X(s-))^2)dN(s)\\
+  &amp; = \int_0^t(2X(s-)h(X(s-))+h(X(s-))^2)(d\widetilde{N}(s)+\lambda ds)\\
+  &amp; = \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)d\widetilde{N}(s)\\
+  &amp; \qquad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-6.134" class="quarto-xref">Ecuación&nbsp;<span>6.136</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2)ds\\
-&amp; \qquad\quad + \int_0^t  2X(s^{-})g(X(s^{-}))dW(s)\\
-&amp; \qquad\quad + \int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)d\widetilde{N}(s)\\
-&amp; \qquad\quad + \lambda\int_0^t (2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2)ds.
+X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
+&amp; \qquad\quad + \int_0^t  2X(s-)g(X(s-))dW(s)\\
+&amp; \qquad\quad + \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)d\widetilde{N}(s)\\
+&amp; \qquad\quad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
 \end{aligned}
 \]</span></p>
 <p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distrubuyendo la terminal correspondiente al procceso de Poisson compensado tenemos</p>
 <p><span id="eq-6.135"><span class="math display">\[
 \begin{aligned}
-X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s^{-})f(X(s^{-}))+g(X(s^{-}))^2\\
-&amp; \qquad\qquad\qquad\qquad +\lambda(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2))ds\\
-&amp; \qquad\quad + 2\int_0^t X(s^{-})g(X(s^{-}))dW(s)\\
-&amp; \qquad\quad + 2\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\\
-&amp; \qquad\quad + \int_0^t h(X(s^{-}))^2d\widetilde{N}(s).
+X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\
+&amp; \qquad\qquad\qquad\qquad +\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\
+&amp; \qquad\quad + 2\int_0^t X(s-)g(X(s-))dW(s)\\
+&amp; \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\
+&amp; \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s).
 \end{aligned}
 \tag{6.137}\]</span></span></p>
 <p>Considerando la función <span class="math inline">\(f_\lambda\)</span> definida en <a href="#eq-6.2" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a> y la cota dada por la <a href="#eq-6.16" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> podemos encontrar la cota para la integral determinista de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.137</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-\int_0^t (2X(s^{-}) &amp; f(X(s^{-}))+g(X(s^{-}))^2+\lambda(2X(s^{-})h(X(s^{-}))+h(X(s^{-}))^2))ds\\
-&amp; = \int_0^t (2X(s^{-})(f(X(s^{-}))+\lambda h(X(s^{-})))+g(X(s^{-}))^2+\lambda h(x)^2)ds\\
-&amp; \leq \int_0^t (2X(s^{-})f_{\lambda}(X(s^{-}))+L_{\lambda}(1+X(s^{-})^2)+L_{\lambda}(1+X(s^{-})^2))ds\\
-&amp; \leq \int_0^t (2L_{\lambda}(1+X(s^{-})^2)+2L_{\lambda}(1+X(s^{-})^2))ds\\
-&amp; = \int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds.
+\int_0^t (2X(s-) &amp; f(X(s-))+g(X(s-))^2+\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\
+&amp; = \int_0^t (2X(s-)(f(X(s-))+\lambda h(X(s-)))+g(X(s-))^2+\lambda h(x)^2)ds\\
+&amp; \leq \int_0^t (2X(s-)f_{\lambda}(X(s-))+L_{\lambda}(1+X(s-)^2)+L_{\lambda}(1+X(s-)^2))ds\\
+&amp; \leq \int_0^t (2L_{\lambda}(1+X(s-)^2)+2L_{\lambda}(1+X(s-)^2))ds\\
+&amp; = \int_0^t 4L_{\lambda}(1+X(s-)^2)ds.
 \end{aligned}
 \]</span></p>
 <p>Entonces la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.137</span></a> se reduce a</p>
 <p><span id="eq-6.136"><span class="math display">\[
 \begin{aligned}
-X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
-&amp; \qquad\quad + 2\int_0^t X(s^{-})g(X(s^{-}))dW(s)\\
-&amp; \qquad\quad + 2\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\\
-&amp; \qquad\quad + \int_0^t h(X(s^{-}))^2d\widetilde{N}(s).
+X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
+&amp; \qquad\quad + 2\int_0^t X(s-)g(X(s-))dW(s)\\
+&amp; \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\
+&amp; \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s).
 \end{aligned}
 \tag{6.138}\]</span></span></p>
-<p>Note que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s^{-})\)</span>, pues por la hipótesis el proceso <span class="math inline">\(X(t)\)</span> es continuo, mientras que en las integrales estocásticas es necesario usar <span class="math inline">\(X(s^{-})\)</span> esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la <a href="#eq-6.136" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
+<p>Note que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s-)\)</span>, pues por la hipótesis el proceso <span class="math inline">\(X(t)\)</span> es continuo, mientras que en las integrales estocásticas es necesario usar <span class="math inline">\(X(s-)\)</span> esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la <a href="#eq-6.136" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 |X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)ds\Bigg|\\
-&amp; \qquad\quad + 2\Bigg|\int_0^t X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
-&amp; \qquad\quad + 2\Bigg|\int_0^t X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
-&amp; \qquad\quad + \Bigg|\int_0^t h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
+&amp; \qquad\quad + 2\Bigg|\int_0^t X(s-)g(X(s-))dW(s)\Bigg|\\
+&amp; \qquad\quad + 2\Bigg|\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\
+&amp; \qquad\quad + \Bigg|\int_0^t h(X(s-))^2d\widetilde{N}(s)\Bigg|.
 \end{aligned}
 \]</span></p>
 <p>Aplicando supremos sobre el intervalo <span class="math inline">\([0,t]\)</span>, haciendo los respectivos cambios en los límites de integración además de considerar la propiedad de supremos para funciones no negativas, se obtiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} (1+X(s)^2)ds\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|.
 \end{aligned}
 \]</span></p>
 <p>Dado que el integrando <span class="math inline">\((1+X(s))^2\)</span> es no negativo, esto implica que su integral correspondiente es creciente y por tanto alcanza su supremo en el extremo del intervalo, es decir, cuando <span class="math inline">\(\tau=t\)</span>. Con esto</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq\tau\leq t}|X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|.
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|.
 \end{aligned}
 \]</span></p>
 <p>Al elevar a la potencia <span class="math inline">\(p/2\)</span> y al aplicar la desigualdad de potencias para sumas (preliminares)</p>
 <p><span id="eq-6.137"><span class="math display">\[
 \begin{aligned}
 \Bigg(\sup_{0\leq\tau\leq t}|X(t)|^2\Bigg)^{p/2} &amp; \leq \Bigg(|X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|\\
-&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|\Bigg)^{p/2}\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\
+&amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|\Bigg)^{p/2}\\
 &amp; \leq 5^{(p-2)/2}\Bigg(|X_0^2|^{p/2} +(4L_{\lambda})^{p/2}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
-&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
 \end{aligned}
 \tag{6.139}\]</span></span></p>
 <p>Para reducir la expresión anterior, definimos la siguiente constante</p>
@@ -3022,18 +3022,18 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s^{-})^2)ds\\
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq\tau\leq t}|X(t)|^p &amp; \leq \widehat{K}\Bigg(|X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
 \end{aligned}
 \]</span></p>
 <p>Más aún, es posible despejar la constante <span class="math inline">\(\widehat{K}\)</span> de tal forma que</p>
 <p><span class="math display">\[
 \begin{aligned}
 \widehat{K}^{-1}\sup_{0\leq\tau\leq t}|X(t)|^p &amp; \leq |X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})g(X(s^{-}))dW(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s^{-})h(X(s^{-}))d\widetilde{N}(s)\Bigg|^{p/2}\\
-&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s^{-}))^2d\widetilde{N}(s)\Bigg|^{p/2}.
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\
+&amp; \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}.
 \end{aligned}
 \]</span></p>
 </div>
