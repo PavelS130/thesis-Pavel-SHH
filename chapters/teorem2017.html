@@ -658,7 +658,7 @@ window.Quarto = {
 \]</span></p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
+<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Por la condición de unilateral de Lipchitz dada por la <a href="#eq-6.18" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> tal que <span class="math inline">\(\theta\Delta tK_{\lambda}&lt;1\)</span>. Entonces, para cada <span class="math inline">\(Y_n\in \mathbb{R}\)</span> dado, la condición explicita</p>
 <p><span class="math display">\[
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
 \]</span></p>
@@ -3008,7 +3008,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 \end{aligned}
 \]</span></p>
 <p>Al elevar a la potencia <span class="math inline">\(p/2\)</span> y al aplicar la desigualdad de potencias para sumas (preliminares)</p>
-<p><span id="eq-6.170"><span class="math display">\[
+<p><span id="eq-6.140"><span class="math display">\[
 \begin{aligned}
 \Bigg(\sup_{0\leq\tau\leq t}|X(t)|^2\Bigg)^{p/2} &amp; \leq \Bigg(|X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\
 &amp; \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\
@@ -3024,7 +3024,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span class="math display">\[
 \widehat{K}:=\max\{5^{(p-2)/2},5^{(p-2)/2}\cdot(4L_{\lambda})^{p/2}, 5^{(p-2)/2}\cdot 2^{p/2}\}.
 \]</span></p>
-<p>Es claro que <span class="math inline">\(\widehat{K}&gt;0\)</span>, con esto, la <a href="#eq-6.170" class="quarto-xref">Ecuación&nbsp;<span>6.140</span></a> queda de la forma</p>
+<p>Es claro que <span class="math inline">\(\widehat{K}&gt;0\)</span>, con esto, la <span class="quarto-unresolved-ref">?eq-6.170</span> queda de la forma</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq\tau\leq t}|X(t)|^p &amp; \leq \widehat{K}\Bigg(|X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\
@@ -3056,7 +3056,35 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span class="math display">\[
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
 \]</span></p>
-<p>donde <span class="math inline">\(Y(t)\)</span> es la función escalón definida por (checar) y <span class="math inline">\(\overline{Y}(t)\)</span> es la extensión continua definida en…</p>
+<p>donde <span class="math inline">\(Y(t)\)</span> es la función escalón definida por <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> es la extensión continua definida en la <a href="#eq-6.07" class="quarto-xref">Ecuación&nbsp;<span>6.7</span></a></p>
+</div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Tomemos a <span class="math inline">\(t\in[n\Delta t,(n+1)\Delta t]\)</span>. Por la función escalonada está definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, se tiene que <span class="math inline">\(Y(t)=Y_n^*\)</span>, usando la definidición de <span class="math inline">\(Y_n^*\)</span> dada en la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> tenemos entonces <span class="math inline">\(Y(t)=Y_n+\theta f_{\lambda}(Y_n^*)\Delta t\)</span>. Con esto, la diferencia entre la función escalonada <span class="math inline">\(Y(t)\)</span> y la extensión continua <span class="math inline">\(\overline{Y}(t)\)</span> obtenemos</p>
+<p><span id="eq-6.141"><span class="math display">\[
+\begin{aligned}
+Y(t)-\overline{Y}(t) &amp; = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\lambda}(Y_n^*)(t-t_n)\\
+&amp; \qquad\quad +g(Y_n^*)(W(t)-W(t_n))+ h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n)))\\
+&amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n)).
+\end{aligned}
+\tag{6.141}\]</span></span></p>
+<p>Sea <span class="math inline">\(s=t-t_n\)</span>, entonces, como <span class="math inline">\(t\in[n\Delta t,(n+1)\Delta t]\)</span>, se tiene que <span class="math inline">\(s\in[0,\Delta t]\)</span>. Por lo que</p>
+<p><span class="math display">\[
+\theta\Delta t-(t-t_n)=\theta\Delta t-s.
+\]</span></p>
+<p>Cuando <span class="math inline">\(\theta=0\)</span> y <span class="math inline">\(s=\Delta t\)</span>, entonces <span class="math inline">\(\theta\Delta t-s=-\Delta t\)</span>. Mientras que si <span class="math inline">\(\theta=1\)</span> y <span class="math inline">\(s=0\)</span> se obtiene <span class="math inline">\(\theta\Delta t-s=\Delta t\)</span>. Como tanto <span class="math inline">\(\theta\)</span> como <span class="math inline">\(s\)</span> varían continuamente en intervalos cerrados, la expresión toma todos los valores intermedios, es decir</p>
+<p><span class="math display">\[
+-\Delta t\leq \theta\Delta t-(t-t_n)\leq \Delta t.
+\]</span></p>
+<p>Con esto, la <a href="#eq-6.141" class="quarto-xref">Ecuación&nbsp;<span>6.141</span></a> queda acotada mediante</p>
+<p><span class="math display">\[
+\begin{aligned}
+Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n))\\
+&amp; \leq f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n))
+\end{aligned}
+\]</span></p>
 </div>
 
 
