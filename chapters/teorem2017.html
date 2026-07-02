@@ -3145,24 +3145,33 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 \begin{aligned}
 |Y(t) &amp; - \overline{Y}(t)|^r\\
 &amp; \leq 3^{r-1}\Bigg(2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2})\Delta t^r\\
-&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|(W(t)-W(t_n))|^r\\
-&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg).
+&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|W(t)-W(t_n)|^r\\
+&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg).
 \end{aligned}
 \tag{6.147}\]</span></span></p>
 <p>Definimos a las siguientes constantes</p>
 <p><span class="math display">\[
 \begin{aligned}
 C_r &amp; :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\
-u &amp; := \max\{r,\frac{(q+2)r}{2}\}.
+u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\}.
 \end{aligned}
 \]</span></p>
-<p>Con estas manupilaciones es posible acotra de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
+<p>Con estas manupilaciones es posible acotar de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 |Y(t) &amp; - \overline{Y}(t)|^r\\
 &amp; \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|(W(t)-W(t_n))|^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg).
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg).
+\end{aligned}
+\]</span></p>
+<p>Tomando supremo sobre <span class="math inline">\([0,T]\)</span> y tomando valor esperado se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\Bigg]\\
+&amp; \leq C_r\mathbb{E}\Bigg[\sup_{0\leq t\leq T}\Bigg((1+|Y_n^*|^u)\Delta t^r\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg)\Bigg]
 \end{aligned}
 \]</span></p>
 </div>
