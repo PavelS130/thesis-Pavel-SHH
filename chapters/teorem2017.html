@@ -3063,9 +3063,9 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span id="eq-6.141"><span class="math display">\[
 \begin{aligned}
 Y(t)-\overline{Y}(t) &amp; = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\lambda}(Y_n^*)(t-t_n)\\
-&amp; \qquad\quad +g(Y_n^*)(W(t)-W(t_n))+ h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n)))\\
+&amp; \qquad\quad +g(Y_n^*)(W(t)-W(t_n))+ h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)))\\
 &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\
-&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n)).
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)).
 \end{aligned}
 \tag{6.141}\]</span></span></p>
 <p>Sea <span class="math inline">\(s=t-t_n\)</span>, entonces, como <span class="math inline">\(t\in[n\Delta t,(n+1)\Delta t]\)</span>, se tiene que <span class="math inline">\(s\in[0,\Delta t]\)</span>. Por lo que</p>
@@ -3080,11 +3080,65 @@ Y(t)-\overline{Y}(t) &amp; = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\la
 <p><span class="math display">\[
 \begin{aligned}
 Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\
-&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))\\
 &amp; \leq f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
-&amp; \qquad\quad - h(Y_n^*)(\widehat{N}(t)-\widehat{N}(t_n))
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)).
 \end{aligned}
 \]</span></p>
+<p>Tomando valor absoluto, aplicando desigualdad triangular y al elevar a la potencia <span class="math inline">\(r\geq 2\)</span> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+|Y(t)-\overline{Y}(t)|^r &amp; \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\\
+&amp; \leq 3^{r-1}\Bigg(|f_{\lambda}(Y_n^*)|^r\Delta t^r+|g(Y_n^*)(W(t)-W(t_n))|^r\\
+&amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg).
+\end{aligned}
+\]</span></p>
+<p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
+<p><span id="eq-6.142"><span class="math display">\[
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^2 &amp; \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\
+&amp;  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\
+&amp; \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\
+&amp; = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\
+&amp; = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
+\end{aligned}
+\tag{6.142}\]</span></span></p>
+<p>Notemos que <span class="math inline">\(|Y_n^*|^2&gt;0\)</span>, por lo que <span class="math inline">\(|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}\)</span>, sustituyendo esto en la <a href="#eq-6.142" class="quarto-xref">Ecuación&nbsp;<span>6.142</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\
+&amp; = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
+\end{aligned}
+\]</span></p>
+<p>Tomando a <span class="math inline">\(D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
+<p><span class="math display">\[
+|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
+\]</span></p>
+<p>Al elevar por ambos lados a la potencia <span class="math inline">\(r/2\geq 1\)</span> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^r &amp; = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\
+&amp; \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\
+&amp; \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
+\end{aligned}
+\]</span></p>
+<p>Para los terminos de difusión y salto haremos uso de la cota dada en la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto tenemos</p>
+<p><span class="math display">\[
+|g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
+\]</span></p>
+<p>procediendo de manera similar, al elevar a la potencia <span class="math inline">\(r/2\)</span> es posible obtener</p>
+<p><span id="eq-6.143"><span class="math display">\[
+\begin{aligned}
+|g(Y_n^*)|^r &amp; = (|g(Y_n^*)|^2)^{r/2}\\
+&amp; \leq (L_{\lambda}(1+|Y_n^*|^2))\\
+&amp; \leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)
+\end{aligned}
+\tag{6.143}\]</span></span></p>
+<p>De forma similar se obtiene</p>
+<p><span id="eq-6.144"><span class="math display">\[
+|h(Y_n^*)|^r\leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r).
+\tag{6.144}\]</span></span></p>
 </div>
 
 
