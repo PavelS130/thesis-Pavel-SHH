@@ -49,12 +49,15 @@ $$ {#eq-3}
 Bajo las hipótesis anteriores, existe una única solución fuerte $Z = (Z(t))_{t \geq 0}$ de la ecuación (@eq-sde) tal que:
 
 -   $Z$ es un proceso adaptado y cádlág (continuo por la derecha con límites por la izquierda),
--   La solución es única casi seguramente, esto es, si $(Z')$ es otra solución, entonces $$
+-   La solución es única casi seguramente, esto es, si $(Z')$ es otra solución, entonces 
+$$
      \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-     $$ {#eq-4}
+$$ {#eq-4}
+
 :::
 
 ::: {.proof style="text-align: justify"}
+
 Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-sde) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis (@eq-lipschitz) y (@eq-3) para los coeficientes $b$, $\sigma$ y $F$. Analizaremos primero el caso cuando $\mathbb{E}[|Z_0|^2]<\infty$. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
 
 $$
@@ -283,7 +286,7 @@ $$
     \end{aligned}
 $$
 
-Peamos la diferencia para $Z_{n+1}$ y $Z_n$, por la iteración de Picard, tenemos que
+Veamos la diferencia para $Z_{n+1}$ y $Z_n$, por la iteración de Picard, tenemos que
 
 $$
     \begin{aligned}
@@ -606,7 +609,7 @@ $$
 
 Veamos que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en $L^2$ usando la norma $\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}$ el cuál hace de $L^2$ un espacio completo.
 
-Sean $m,n\mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$, aplicando la desigualdad del triangulo, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
+Sean $m,n \in \mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$, aplicando la desigualdad del triangulo, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
 
 $$
     \begin{aligned}
@@ -747,7 +750,7 @@ $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 $$
 
-Más aún, sabemos que la seríe $\displaystyle \frac{C_2(t)^nK_3^n}{n!}$, esto implica que $\displaystyle \frac{(4C_2(t)K_3)^n}{n!}$ también coverge, por lo tanto
+Más aún, sabemos que la seríe $\displaystyle \frac{C_2(t)^nK_3^n}{n!}$ converge, esto implica que $\displaystyle \frac{(4C_2(t)K_3)^n}{n!}$ también converge, por lo tanto
 
 $$
     \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}<\infty.
@@ -795,7 +798,7 @@ $$
     \end{aligned}
 $$
 
-Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo \$\[0,t\]\$\$ tenemos la siguiente desigualdad
+Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo $[0,1]$ tenemos la siguiente desigualdad
 
 $$
     \begin{aligned}

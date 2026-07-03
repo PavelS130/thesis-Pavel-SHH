@@ -18,10 +18,10 @@ En este capítulo abordamos el estudio de la convergencia del método numérico 
 
 $$
     \begin{aligned}
-      dX(t) & = f(X(t-))dt +g(X(t-))dW(t)\\ 
-      & \qquad \quad +h(X(t-))dN(t), \qquad t\geq 0,
+        d X(t) & = f(X(t-))\,d t + g(X(t-))\,d W(t) \\ 
+        & \qquad \quad + h(X(t-))\, N(t), \qquad t\geq 0,
     \end{aligned}
-$$ {#eq-601}
+$$ {#eq-6.01}
 
 con condición inicial $X(0-)=X_0$, donde
 
@@ -34,82 +34,95 @@ con condición inicial $X(0-)=X_0$, donde
 
 definidos sobre un espacio de probabilidad filtrado $(\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})$. La solución de esta ecuación se aproximará mediante una discretización temporal con paso constante $\Delta t>0$, generando una sucesión $Y_n$ que aproxima los valores de la solución exacta $X(t)$ en los puntos de la malla $t_n=n\Delta t$.
 
-Para facilitar el manejo de los saltos, introducimos el proceso de Poisson compensado dado por
+Para facilitar el manejo análitico y numérico de los saltos, introducimos el proceso de Poisson compensado definido por
 
 $$
   \widetilde{N}(t):=N(t)-\lambda t,\quad t\geq 0.
 $$
 
-Sabemos que dicho proceso es una martingala tal que satisface
+Dicho proceso constituye una martingala que satisface $\mathbb{E}[\widetilde{N}(t)]=0$ y $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$, propiedades fundamentales que simplifican notablemente el análisis de momentos en las demostraciones posteriores.
 
--   $\mathbb{E}[\widetilde{N}(t)]=0$,
--   $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$.
-
-Así, usando la compensación, la @eq-601 queda de la forma
+Usando esta compensación, la @eq-6.01 puede reescribirse en la forma equivalente
 
 $$
   dX(t) = f_{\lambda}(X(t-))dt+g(X(t-))dW(t)+h(X(t-))d\widetilde{N}(t),
-$$
+$$ {#eq-6.02}
 
-donde
+donde el coeficiente de deriva compensado se define como
 
 $$
   f_{\lambda}(x):=f(x)+\lambda h(x),\quad x\in \mathbb{R}.
-$$ {#eq-602}
+$$ {#eq-6.03}
 
-Esta formulación resulta especialmente útil en el análisis numérico, ya que separa la parte determinista de la parte puramente martingala.
+Esta formulación resulta especialmente útil en el análisis numérico, pues permite separar de manera natural la componente determinista de la componente puramente martingala del sistema, facilitando así el estudio de las propiedades de convergencia y estabilidad del esquema. 
+
+Con el propósito de aproximar la solución de la ecuación @eq-6.01, fijamos un horizonte $T>0$ y construimos una discretización uniforme del intervalo $[0,T]$. Sea $N_T\in \mathbb{N}$ el número de subintervalos de la partición, y definimos el tamaño del paso $\Delta t= T/N_T$  junto con los nodos de la malla $t_n=n\Delta t$ para $n=1,\ldots, N_T$. A partir  de esta malla, el método $\text{CSS}\theta$ genera dos suceciones de aproximacciones numéricas, $\{Y_n^{*}\}_{n=0}^{N_T}$  y $\{Y_n\}_{n=0}^{N_T}$, que aproximan los valores de la solución exacta $X(t)$ en los puntos de la malla. 
+
 :::
 
 ::: {#def-CSS style="text-align: justify"}
-Dado un parámetro $\theta\in[0,1]$, un tamaño de paso $\Delta t>0$ y la condición inicial $Y_0=X_0$, el método $\text{CSS}\theta$ genera las sucesiones $\{Y_n\}_{n\geq 0}$ y $\{Y_n^{*}\}_{n\geq 0}$ mediante el siguiente sistema de ecuaciones en diferencias:
+Dado un parámetro $\theta\in[0,1]$, un tamaño de paso $\Delta t>0$ y la condición inicial $Y_0=X_0$, se generan las sucesiones $\{Y_n\}_{n\geq 0}$ y $\{Y_n^{*}\}_{n\geq 0}$ mediante el siguiente sistema de ecuaciones en diferencias. En primer lugar, se define la variable auxiliar $Y_n^{*}$ a través de la ecuación implícita 
 
 $$
     Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
-$$ {#eq-603}
+$$ {#eq-6.04}
+
+la cual, en el caso particular $\theta=0$, se reduce a $Y_n^{*}=Y_n$, tomando al método en explícito. Cuando $\theta>0$, la ecuación @eq-6.04 es implícita en la variable $Y_n^{*}$, y su solución requiere el uso de técnicas numéricas adicionales; no obstante, bajo hipótesis adecuadas sobre el coeficiente $f_{\lambda}$, se demostrará más adelante que dicha ecuación admite una única solución. En segundo lugar, la aproximación se actualiza mediante la relación 
 
 $$
       Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
-$$ {#eq-604}
+$$ {#eq-6.05}
 
 donde:
 
 -   $\Delta W_n:=W(t_{n+1})-W(t_n)$ es el incremento del movimiento browniano,
 -   $\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)$ es el incremento del proceso de Poisson compensado.
 
-Para analizar la convergencia del método $\text{CSS}\theta$ es necesario imponer condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas.
-:::
-
-::: {#rem-3.1 style="text-align: justify"}
-La primera ecuación es implícita en la variable auxiliar $Y_n^*$, y su resolución requiere resolver una ecuación implícita, más adelante, bajo ciertas hipótesis, se demostrará que dicha ecuación admite una única solución $Y_n^*$. En el caso $\theta=0$, la ecuación se reduce a $Y_n^*=Y_n$, y el método se vuelve explícito. En el caso $\theta>0$, la ecuación es implícita.
-:::
-
-::: {#rem-3.2 style="text-align: justify"}
-La segunda ecuación actualiza la aproximación utilizando el valor intermedio $Y_n^*$ y los incrementos de las fuentes de ruido. Notemos que el método utiliza explicitamente el proceso de Poisson compensado $\widetilde{N}(t)$, lo que constituye su principal diferencia respecto a otros métodos no compensados y le confiere mejores propiedades de estabilidad.
+Cabe destacar que el método utiliza explícitamente el proceso de Poisson compensado $\widetilde{N}(t)$, lo cual constituye su principal diferencia respecto a otros esquemas no compensados y le confiere propiedades de estabilidad significativamente mejores.
 :::
 
 ::: {#def-CSSc style="text-align: justify"}
-Definimos la función $\overline{Y}:[0,T]\rightarrow\mathbb{R}$ de la forma
+Con el proposito de analizar la convergencia del método $\text{CSS}\theta$ en tiempo continuo, es necesario construir extensiones continuas de las sucesiones discretas $\{Y_n^{*}\}$ y $\{Y_n\}$ al intervalo completo $[0,T]$. Con este propósito, definimos en primer lugar el proceso estocástico $\overline{Y}:[0,T]\times\Omega\rightarrow\mathbb{R}$, conocido como la aproximación por pasos, mediante 
+
+$$
+  Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T], 
+$$ {#eq-6.06}
+
+donde $1_A$ denota la función indicadora del conjunto $A$. Este proceso es predecible, ya que $Y_n^*$ es $\mathcal{F}$-medible, y constituye una función escalonada constante por tramos con saltos en los nodos $t_n$.  
+
+La aproximación por pasos $\overline{Y}(t)$ es precisamente la versión del proceso numérico que se utiliza como argumento en los coeficientes del esquema $\text{CSS}\theta$, definimos dicha extensión en tiempo continuo $\overline{Y}:[0,T]\rightarrow\mathbb{R}$ mediante
 
 $$
   \begin{aligned}
-      \overline{Y} & = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\ 
+      \overline{Y}(t) & = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\ 
       & \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
-$$ {#eq-605}
+$$ {#eq-6.07}
 
-De esta definición se sigue que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración y tiene trayectorias continuas, lo que permite aplicar herramientas del cálculo estocástico en tiempo continuo.
+De esta definición se desprende inmediatamente que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.
 
-Alternativamente, podemos escribir $\overline{Y}(t)$ en forma integral como
+Alternativamente, la extensión continua $\overline{Y}(t)$ admite una representación integral que resulta de pparticular utilidad en las demostraciones de convergencia. En efecto, puede verificarse 
 
 $$
   \begin{aligned}
     \overline{Y}(t) & = Y_0 +\int_0^t f_{\lambda}(\overline{Y}(s-))ds+\int_0^tg(\overline{Y}(s-))dW(s)\\ 
     &  \qquad\quad +\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s),
   \end{aligned}
-$$
+$$ {#eq-6.08}
 
-donde $\overline{Y}(s-)$ denota el límite por la izquierda, que en nuestro caso coincide con la función escalon definida por $Y(s)=Y_n$ para $s\in [t_n,t_{n+1})$.
+donde $\overline{Y}(s-)$ denota el límite por la izquierda, el cual en nuestro caso coincide con la función escalonada definida por $\overline{Y}(s)=Y_n^{*}$ para $s\in[t_n,t_{n+1})$. Esta representación integral pone de manifiesto la estructura del método $\text{CSS}\theta$ como una discretización del sistema compensado original, donde los coeficientes se evalúan en el punto "congelado" $Y_n^{*}$ dentro de cada subintervalo de la malla. 
 :::
+
+
+::: {style="text-align: justify"}
+
+Para analizar rigurosamente la convergencia del método $\text{CSS}\theta$ es necesario imponer condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. En las secciones siguientes estableceremos dichas hipótesis y demostraremos los resultado principales de convergencia fuerte  y tasa de convergencia del esquema proouesto. 
+
+:::
+
+
+
+
 
 ::: {style="text-align: justify"}
 ## Hipótesis
@@ -124,7 +137,7 @@ Existe una constante $K>0$ tal que el coeficiente $f$ satisface
 
 $$
   (x-y)(f(x)-f(y))\leq K|x-y|^2.
-$$ {#eq-606}
+$$ {#eq-6.09}
 
 **Condición global de Lipschitz (Difusión)**:
 
@@ -132,7 +145,7 @@ Existe una constante $L_g>0$ tal que el coeficiente de difusión $g$ cumple
 
 $$
     |g(x)-g(y)|^2\leq L_g |x-y|^2.
-$$ {#eq-607}
+$$ {#eq-6.010}
 
 **Condición global de Lipschitz (Salto)**:
 
@@ -140,13 +153,13 @@ Existe una constante $L_h>0$ tal que el coeficiente de salto $h$ verifica
 
 $$
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
-$$ {#eq-608}
+$$ {#eq-6.11}
 
 **Acotamiento del momento incial**: Supondremos que los momentos iniciales están acotados, es decir, para todo $p\geq 1$
 
 $$
 \mathbb{E}[|X_0|^p]<\infty.
-$$ {#eq-609}
+$$ {#eq-6.12}
 
 **Condición de crecimiento polinomial para el coeficiente de deriva**:
 
@@ -154,19 +167,19 @@ Supondremos que existen constantes $D>0$ y $q\in\mathbb{Z}^+$ tales que para tod
 
 $$
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
-$$ {#eq-610}
+$$ {#eq-6.13}
 :::
 
 ::: {style="text-align: justify"}
 ## Resultados Previos
 
-A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-602, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
+A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-6.03, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
 
 $$
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
-$$ {#eq-611}
+$$ {#eq-6.14}
 
-En efecto, consideremos la @eq-602 y las hipótesis dadas por @eq-606 y @eq-608. Notemos que
+En efecto, consideremos la @eq-6.03 y las hipótesis dadas por @eq-6.09 y @eq-6.11. Notemos que
 
 $$
     (h(x)-h(y))\leq |h(x)-h(y)|\leq \sqrt{L_h}|x-y|, \qquad \forall x,y\in \mathbb{R}.
@@ -187,7 +200,7 @@ $$
   \end{aligned}
 $$
 
-Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la @eq-603 está bien definido.
+Dicha constante es importante en la determinación de la condición bajo la cuál el método implícito dado por la @eq-6.04 está bien definido.
 
 Otras propiedades importantes que podemos obtener usando las hipótesis anteriores, es acotar $xf(x)$ para toda $x\in \mathbb{R}$. Notemos que podemos expresar $f(x)$ de la forma $f(x)=f(x)-f(0)+f(0)$. Entonces
 
@@ -195,7 +208,7 @@ $$
   xf(x)= x[f(x)-f(0)]+xf(0).
 $$
 
-Por tanto, tomando $y=0$ y aplicando la hipótesis dada por @eq-606 obtenemos
+Por tanto, tomando $y=0$ y aplicando la hipótesis dada por @eq-6.09 obtenemos
 
 $$
   (x-0)(f(x)-f(0))\leq K|x-0|^2,
@@ -247,7 +260,7 @@ $$
   \end{aligned}
 $$
 
-Aplicando la @eq-607, tomando a $y=0$, tenemos que
+Aplicando la @eq-6.010, tomando a $y=0$, tenemos que
 
 $$
   \begin{aligned}
@@ -261,21 +274,21 @@ Por lo tanto, para toda $x\in \mathbb{R}$
 
 $$
   |g(x)|^2\leq 2L_g|x|^2+2|g(0)|^2.
-$$ {#eq-612}
+$$ {#eq-6.15}
 
 De manera similar es posible afirmar que también se tiene la cota
 
 $$
   |h(x)|^2\leq 2L_h|x|^2+2|h(0)|^2,
-$$ {#eq-613}
+$$ {#eq-6.16}
 
 para todo $x\in \mathbb{R}$.
 
-Combinando @eq-611, @eq-612 y @eq-613 podemos encontrar una variable $L>0$ tal que
+Combinando @eq-6.14, @eq-6.15 y @eq-6.16 podemos encontrar una variable $L>0$ tal que
 
 $$
   \max\{xf(x),|g(x)|^2,|h(x)|^2\}\leq L(1+|x|^2),\quad \forall x\in\mathbb{R},
-$$ {#eq-614}
+$$ {#eq-6.17}
 
 donde la constante $L$ podemos tomarla explicitamente como
 
@@ -283,7 +296,7 @@ $$
   L=\max\left\{K+\frac{1}{2}, 2L_g,2L_h,\frac{1}{2}|f(0)|^2, 2|g(0)|^2,2|h(0)|^2\right\}.
 $$
 
-Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la @eq-602, es necesario tener una estimación análoga para $f_{\lambda}$. Para ello recordemos que satisface la condición de Lipschitz con constante
+Al incluir el proceso de Poisson compensado y el coeficiente de deriva compensado dado por la @eq-6.03, es necesario tener una estimación análoga para $f_{\lambda}$. Para esto recordemos que satisface la condición de Lipschitz con constante
 
 $$
   K_{\lambda}=K+\lambda\sqrt{L_h}
@@ -293,13 +306,13 @@ es decir, $f_{\lambda}$ cumple
 
 $$
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2, \quad\forall x\in\mathbb{R}.
-$$ {#eq-615}
+$$ {#eq-6.18}
 
 Contemplando dicha condición y siguiendo el mismo procedimiento previo, podemos afirmar que existe una constante $L_{\lambda}>0$ tal que
 
 $$
   \max\{xf_{\lambda}(x),|g(x)|^2,|h(x)|^2\}\leq L_{\lambda}(1+|x|^2),\quad \forall x\in \mathbb{R}.
-$$ {#eq-616}
+$$ {#eq-6.19}
 
 La expresión explícita para esta constante, viene dada por
 
@@ -309,7 +322,7 @@ $$
 :::
 
 ::: {#lem-6.1 style="text-align: justify"}
-Por la condición de unilateral de Lipchitz dada por la @eq-606, sea $\theta\in [0,1]$ y $\Delta t>0$ tal que $\theta\Delta tK_{\lambda}<1$. Entonces, para cada $Y_n\in \mathbb{R}$ dado, la condición explicita
+Por la condición de unilateral de Lipchitz dada por la @eq-6.18, sea $\theta\in [0,1]$ y $\Delta t>0$ tal que $\theta\Delta tK_{\lambda}<1$. Entonces, para cada $Y_n\in \mathbb{R}$ dado, la condición explicita
 
 $$
   Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
@@ -328,7 +341,7 @@ $$
   G(y):=y-\theta\Delta tf_{\lambda}(y).
 $$
 
-Con esta definición, la @eq-603 puede escribirse de la forma 
+Con esta definición, la @eq-6.04 puede escribirse de la forma 
 
 $$
   G(Y_n^*)=Y_n.
@@ -351,7 +364,7 @@ $$
   (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
 $$
 
-Así, aplicando la condición de Lipschitz dada por la @eq-611 para $f_{\lambda}$
+Así, aplicando la condición de Lipschitz dada por la @eq-6.14 para $f_{\lambda}$
 
 $$
   (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
@@ -376,7 +389,7 @@ Notemos que si $G(x)-G(y)<0$ entonces $x-y<0$, o bien, si $G(x)-G(y)>0$ entonces
 
 Notemos que por la definición de $f_{\lambda}$, es una composición de funciones continuas, por tanto $f_{\lambda}\in C^1(\mathbb{R})$, así la función $G$ es continua en $\mathbb{R}$ como combinación lineal de funciones continuas.
 
-Considerando la @eq-616, sabemos que existe una constante $L_{\lambda}>0$ tal que 
+Considerando la @eq-6.19, sabemos que existe una constante $L_{\lambda}>0$ tal que 
 
 $$
   |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
@@ -431,7 +444,7 @@ admite una única solución $Y_n^*\in \mathbb{R}$ para cualquier $Y_n$.
 
 ::: {#lem-6.2 style="text-align: justify"}
 
-Bajo la hipótesis dada por la @eq-606, sea $\theta\in [0,1]$. Supongamos que $\Delta t>0$ satisface
+Bajo la hipótesis dada por la @eq-6.09, sea $\theta\in [0,1]$. Supongamos que $\Delta t>0$ satisface
 
 $$
   0<\Delta t<\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
@@ -449,32 +462,32 @@ $$
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 $$
 
-donde $Y_n$ y $Y_n^*$ son las sucesiones generadas por el método $\text{CSS}\theta$ mediante la @eq-603 y @eq-604.
+donde $Y_n$ y $Y_n^*$ son las sucesiones generadas por el método $\text{CSS}\theta$ mediante la @eq-6.04 y @eq-6.05.
 :::
 
 ::: {.proof style="text-align: justify"}
-Sea $M$ un entero positivo tal que $n\Delta t \leq M\Delta t\leq T$. Veamos la relación entre $Y_n^*$ y $Y_n$ a partir de la @eq-603 que define la variable auxiliar, $Y_n^*$. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que
+Sea $M$ un entero positivo tal que $n\Delta t \leq M\Delta t\leq T$. Veamos la relación entre $Y_n^*$ y $Y_n$ a partir de la @eq-6.04 que define la variable auxiliar, $Y_n^*$. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que
 
 $$
   |Y_n^*|^2=|Y_n|^2+2\theta\Delta tY_nf_{\lambda}(Y_n^*)+\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2.
-$$ {#eq-617}
+$$ {#eq-6.20}
 
-De la misma @eq-603 podemos expresar $Y_n$ en términos $Y_n^*$ de la forma
+De la misma @eq-6.04 podemos expresar $Y_n$ en términos $Y_n^*$ de la forma
 
 $$
   Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*).
 $$
 
-Así, sustituyendo esta expresión en el producto de la @eq-617, obtenemos
+Así, sustituyendo esta expresión en el producto de la @eq-6.20, obtenemos
 
 $$
   \begin{aligned}
     Y_nf_{\lambda}(Y_n^*) & = (Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*))f_{\lambda}(Y_n^*)\\ 
     & = Y_n^*f_{\lambda}(Y_n^*)-\theta\Delta t|f_{\lambda}(Y_n^*)|^2.
   \end{aligned}
-$$ {#eq-618}
+$$ {#eq-6.21}
 
-Sustituyendo la @eq-618 en @eq-617
+Sustituyendo la @eq-6.21 en @eq-6.20
 
 $$
   \begin{aligned}
@@ -486,13 +499,13 @@ $$
   \end{aligned}
 $$
 
-Es claro que el término $-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2$ es negativo, dado que es el negativo de un cuadrado. Por lo tanto, es posible eliminarlo y conseguir la siguiente desigualdad
+Es claro que el término $-\theta^2\Delta t^2|f_{\lambda}(Y_n^*)|^2$ es negativo, por lo tanto es posible eliminarlo y conseguir la siguiente desigualdad
 
 $$
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tY_n^*f_{\lambda}(Y_n^*).
-$$ {#eq-619}
+$$ {#eq-6.22}
 
-De aquí, utilizando la condición de crecimiento lineal para $f_\lambda$ dada por la @eq-616, establece que existe una constante $L_{\lambda}>0$ tal que, para todo $x\in \mathbb{R}$,
+De aquí, utilizando la condición de crecimiento lineal para $f_\lambda$ dada por la @eq-6.19, establece que existe una constante $L_{\lambda}>0$ tal que, para todo $x\in \mathbb{R}$,
 
 $$
   xf_{\lambda}(x)\leq L_{\lambda}(1+|x|^2).
@@ -504,11 +517,11 @@ $$
   Y_n^*f_{\lambda}(Y_n^*)\leq L_{\lambda}(1+|Y_n^*|^2).
 $$
 
-Sustituyendo esta cota en @eq-619, llegamos a
+Sustituyendo esta cota en @eq-6.22, llegamos a
 
 $$
   |Y_n^*|^2\leq |Y_n|^2+2\theta\Delta tL_{\lambda}(1+|Y_n^*|^2).
-$$ {#eq-620}
+$$ {#eq-6.23}
 
 Al despejar y factorizar el término $Y_n^*$ a partir de la ecuación anterior, tenemos
 
@@ -531,7 +544,7 @@ En particular $\Delta t<\frac{1}{2\theta L_{\lambda}}$, esto implica que $2\thet
 
 $$
   |Y_n^*|^2\leq \frac{1}{1-2\theta\Delta t L_{\lambda}} |Y_n|^2+\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}.
-$$ {#eq-621}
+$$ {#eq-6.24}
 
 Para facilitar la notación, definimos las siguientes constantes
 
@@ -539,13 +552,13 @@ $$
   \alpha:=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}},\qquad \beta:=1+\alpha=\frac{1}{1-2\theta\Delta t L_{\lambda}}.
 $$
 
-Por lo que la @eq-621 queda de la forma
+Por lo que la @eq-6.24 queda de la forma
 
 $$
   |Y_n^*|^2\leq \beta|Y_n|^2+\alpha.
-$$ {#eq-622}
+$$ {#eq-6.25}
 
-Utilizando la @eq-604, elevando al cuadrado y desarrollando tenemos
+Utilizando la @eq-6.05, elevando al cuadrado y desarrollando tenemos
 
 $$
   \begin{aligned}
@@ -556,21 +569,21 @@ $$
     & \quad +2f_{\lambda}(Y_n^*)\Delta th(Y_n^*)\Delta\widetilde{N}_n\\
     & \quad+2g(Y_n^*)\Delta W_nh(Y_n^*)\Delta\widetilde{N}_n.
   \end{aligned}
-$$ {#eq-623}
+$$ {#eq-6.26}
 
-De la ecuación implícita dada por @eq-603, es posible despejar $Y_n$ de la forma 
+De la ecuación implícita dada por @eq-6.04, es posible despejar $Y_n$ de la forma 
 
 $$
   Y_n=Y_n^*-\theta\Delta tf_{\lambda}(Y_n^*),
-$$ {#eq-624}
+$$ {#eq-6.27}
 
 más aún, podemos obtener una expresión para $f_{\lambda}(Y_n^*)\Delta t$ mediante 
 
 $$
   f_{\lambda}(Y_n^*)\Delta t=\frac{Y_n^*-Y_n}{\theta}.
-$$ {#eq-625}
+$$ {#eq-6.28}
 
-A partir de @eq-624, calculamos 
+A partir de @eq-6.27, calculamos 
 
 $$
   \begin{aligned}
@@ -584,7 +597,7 @@ $$
   2Y_nf_{\lambda}(Y_n^*)\Delta t = 2Y_n^*f_{\lambda}(Y_n^*)\Delta t-2\theta|f_{\lambda}(Y_n^*)\Delta t|^2.
 $$
 
-Considerando los términos $|f_{\lambda}(Y_n^*)\Delta t|^2$ y $2Y_nf_{\lambda}(Y_n^*)\Delta t$ de @eq-623, tenemos 
+Considerando los términos $|f_{\lambda}(Y_n^*)\Delta t|^2$ y $2Y_nf_{\lambda}(Y_n^*)\Delta t$ de @eq-6.26, tenemos 
 
 $$
   \begin{aligned}
@@ -600,7 +613,7 @@ $$
     |f_{\lambda}(Y_n^*)\Delta t|^2+2Y_nf_{\lambda}(Y_n^*)\Delta t & =2Y_n^*f_{\lambda}(Y_n^*)\Delta t\\ 
     & \quad +(1-2\theta)|f_{\lambda}(Y_n^*)\Delta t|^2.
   \end{aligned}
-$$ {#eq-626}
+$$ {#eq-6.29}
 
 **Caso $\theta\geq \frac{1}{2}$**: Es claro que, para $\displaystyle \theta\geq\frac{1}{2}$ se tiene $1-2\theta\leq 0$. Por lo tanto 
 
@@ -617,25 +630,25 @@ $$
   \end{aligned}
 $$
 
-Luego, usando @eq-616 en la desigualdad anterior
+Luego, usando @eq-6.19 en la desigualdad anterior
 
 $$
   2Y_n^*f_{\lambda}(Y_n^*)\Delta t\leq 2L_{\lambda}\Delta t(1+|Y_n^*|^2).
-$$ {#eq-627}
+$$ {#eq-6.30}
 
-Consideremos ahora la suma de los siguientes términos de @eq-623
+Consideremos ahora la suma de los siguientes términos de @eq-6.26
 
 $$
   2Y_ng(Y_n^*)\Delta W_n+2f_{\lambda}(Y_n^*)\Delta t\, g(Y_n^*)\Delta W_n.
 $$
 
-Sustituyendo @eq-625 para reemplazar $f_{\lambda}(Y_n^*)\Delta t$, 
+Sustituyendo @eq-6.28 para reemplazar $f_{\lambda}(Y_n^*)\Delta t$, 
 
 $$
   2Y_ng(Y_n^*)\Delta W_n+2\left(\frac{Y_n^*-Y_n}{\theta}\right)\Delta t\, g(Y_n^*)\Delta W_n. 
-$$
+$$ {#eq-6.31}
 
-Factorizando $2g(Y_n^*)\Delta W_n$
+Factorizando $2g(Y_n^*)\Delta W_n$ de la ecuación anterior, 
 
 $$
   2\left[Y_n+\frac{1}{\theta}(Y_n^*-Y_n)\right] g(Y_n^*)\Delta W_n.
@@ -647,11 +660,11 @@ $$
   Y_n+\frac{1}{\theta}(Y_n^*-Y_n)=\left(1-\frac{1}{\theta}\right)Y_n+\frac{1}{\theta}Y_n^*.
 $$
 
-Por lo tanto 
+Por lo tanto @eq-6.31 queda de la forma 
 
 $$
   2\left(1-\frac{1}{\theta}\right)Y_n\, g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n.
-$$ {#eq-628}
+$$ {#eq-6.32}
 
 De manera identica, para la suma de los términos 
 
@@ -659,13 +672,13 @@ $$
   2Y_n\, h(Y_n^*)\Delta \widetilde{N}_n+2f_{\lambda}(Y_n^*)\Delta t\, h(Y_n^*)\Delta \widetilde{N}_n.
 $$
 
-Sustituyendo @eq-625, factorizando y simplificando, 
+Sustituyendo @eq-6.28, factorizando y simplificando, 
 
 $$
   2\left(1-\frac{1}{\theta}\right)Y_nh(Y_n^*)\Delta\widetilde{N}_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n.
-$$ {#eq-629}
+$$ {#eq-6.33}
 
-Sustituyendo @eq-627, @eq-628 y @eq-629 en @eq-623, tenemos,
+Sustituyendo @eq-6.30, @eq-6.32 y @eq-6.33 en @eq-6.26, tenemos,
 
 $$
   \begin{aligned}
@@ -676,9 +689,9 @@ $$
     & \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
     & \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n. 
   \end{aligned}
-$$ {#eq-630}
+$$ {#eq-6.34}
 
-Por @eq-622 podemos acotar el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ de la forma 
+Por @eq-6.25 podemos acotar el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ de la forma 
 
 $$
   \begin{aligned}
@@ -689,7 +702,7 @@ $$
   \end{aligned}
 $$
 
-Reemplazando el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ en @eq-630 por la cota anterior 
+Reemplazando el término $2L_{\lambda}\Delta t(1+|Y_n^*|^2)$ en @eq-6.34 por la cota anterior 
 
 $$
   \begin{aligned}
@@ -700,7 +713,7 @@ $$
     & \quad +\frac{2}{\theta}Y_n^*g(Y_n^*)\Delta W_n+\frac{2}{\theta}Y_n^*h(Y_n^*)\Delta\widetilde{N}_n\\
     & \quad +2g(Y_n^*)\Delta W_n\, h(Y_n^*)\Delta\widetilde{N}_n. 
   \end{aligned}
-$$ {#eq-631}
+$$ {#eq-6.35}
 
 Esta desigualdad se cumple para cada índice $j=0,1,2\ldots, n-1$. Definimos, para simplificar, la siguiente notación
 
@@ -720,13 +733,13 @@ $$
   \end{aligned}
 $$
 
-Por tanto, @eq-631 queda de la forma
+Por tanto, @eq-6.35 queda de la forma
 
 $$
   |Y_{n+1}|^2 \leq |Y_n|^2+B_n+C_n.
-$$ {#eq-632}
+$$ {#eq-6.36}
 
-Sumando @eq-632 desde $0$ hasta $n-1$, 
+Sumando @eq-6.36 desde $0$ hasta $n-1$, 
 
 $$
   \sum\limits_{j=0}^{n-1}|Y_{j+1}|^2\leq \sum\limits_{j=0}^{n-1} |Y_j|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
@@ -748,9 +761,9 @@ Por lo tanto
 
 $$
   |Y_{n}|^2\leq |Y_0|^2+\sum\limits_{j=0}^{n-1}B_j+\sum\limits_{j=0}^{n-1} C_j.
-$$ {#eq-633}
+$$ {#eq-6.37}
 
-Recordemos que los puntos en la malla están definidos por $t_n=n\Delta t$, además se tiene que $t_n\leq T$, por lo que $n\Delta t\leq T$. Con esto, para el término $B_j$ se tiene 
+Recordemos que por hipótesis de la malla $t_n=n\Delta t\leq T$, esto implica que para el término $B_j$ se tiene 
 
 $$
   \begin{aligned}
@@ -760,7 +773,7 @@ $$
   \end{aligned}
 $$
 
-Expandiendo @eq-633 queda de la forma 
+Expandiendo @eq-6.37 queda de la forma 
 
 $$
   \begin{aligned}
@@ -773,7 +786,7 @@ $$
     & \quad +\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j)\\
     & \quad +2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j). 
   \end{aligned} 
-$$ {#eq-634}
+$$ {#eq-6.38}
 
 Nuevamente, para simplificar, nos apoyaremos de la siguiente notación 
 
@@ -788,22 +801,22 @@ Nuevamente, para simplificar, nos apoyaremos de la siguiente notación
 - $T_8:=\frac{2}{\theta}\sum\limits_{j=0}^{n-1}(Y_j^*h(Y_j^*)\Delta\widetilde{N}_j),$
 - $T_9:=2\sum\limits_{j=0}^{n-1}(g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j).$
 
-Elevando @eq-634 a la potencia $p\geq 0$ tenemos 
+Elevando @eq-6.38 a la potencia $p\geq 0$ tenemos 
 
 $$
   \begin{aligned}
     |Y_n|^{2p} & \leq (T_0+T_1+T_2+T_3+T_4\\ 
     & \qquad +T_5+T_6+T_7+T_8+T_9)^p.
   \end{aligned}
-$$ {#eq-635}
+$$ {#eq-6.39}
 
-Consideremos la siguiente desigualdad elemental (citar) para numeros reales $(a_1,a_2,\ldots,a_m)$,
+Consideremos la siguiente desigualdad (citar) para números reales $(a_1,a_2,\ldots,a_m)$,
 
 $$
   \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
 $$
 
-Aplicando dicha desigualdad a @eq-635, donde $m=10$, tenemos
+Aplicando dicha desigualdad a @eq-6.39, donde $m=10$, tenemos
 
 $$
   \begin{aligned}
@@ -848,7 +861,7 @@ $$
   T_4^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}|h(Y_j^*)\Delta \widetilde{N}_j|^{2p}.
 $$
 
-Para los términos restantes, dado que son sumas de martingalas, estás pueden tomar valores tannto negativos como positivos. Por tanto, para poder obtener una cota superior, vamos a utilizar valores absolutos, además notemos que para $\theta\in (0,1]$ se cumple $\displaystyle\left|1-\frac{1}{\theta}\right|=\frac{1}{\theta}-1$. Por tanto 
+Para los términos restantes, dado que son sumas de martingalas, estás pueden tomar valores tanto negativos como positivos. Por tanto, para poder obtener una cota superior, vamos a utilizar valores absolutos, además notemos que para $\theta\in (0,1]$ se cumple $\displaystyle\left|1-\frac{1}{\theta}\right|=\frac{1}{\theta}-1$. Por tanto 
 
 $$
   |T_5|^p=2^p\left(\frac{1}{\theta}-1\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p.
@@ -891,13 +904,13 @@ $$
     & \quad + \left(\frac{2}{\theta}\right)^p\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\\ 
     & \quad + 2^p\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg\}.
   \end{aligned}
-$$ {#eq-636}
+$$ {#eq-6.40}
 
-Considerando la propieda elemental 
+Considerando la propiedad 
 
 $$
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}|Y_j|^{2p}\Bigg)\Bigg]=\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
-$$ {#eq-6365}
+$$ {#eq-6.41}
 
 Definimos la notación
 
@@ -905,12 +918,13 @@ $$
   r:=\frac{1}{\theta}-1.
 $$
 
-Entonces, para $0\leq M \leq N_t$, aplicando supremo y sacando valor esperado a @eq-636, tenemos
+Entonces, para $0\leq M \leq N_t$, aplicando supremo y sacando valor esperado a @eq-6.40, tenemos
 
 $$
   \begin{aligned}
-    \mathbb{E}[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})] & \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p \\ 
-    &\quad + n^{p-1}(2\beta L_{\lambda}\Delta t)^p\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_j|^{2p})\Bigg]\\ 
+    \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}&(|Y_n|^{2p})\Bigg]\\ 
+    & \leq 10^{p-1}\Bigg\{|Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p \\ 
+    &\quad + n^{p-1}(2\beta L_{\lambda}\Delta t)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|Y_j|^{2p})\Bigg]\\ 
     & \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\ 
     & \quad + n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta \widetilde{N}_j|^{2p})\Bigg]\\ 
     & \quad + 2^p r^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j\,g(Y_j^*)\Delta W_j\right|^p\Bigg]\\ 
@@ -919,9 +933,103 @@ $$
     & \quad + \left(\frac{2}{\theta}\right)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}Y_j^*\,h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\\ 
     & \quad + 2^p \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\left|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_j\, h(Y_j^*)\Delta\widetilde{N}_j\right|^p\Bigg]\Bigg\}.
   \end{aligned}
-$$ {#eq-637}
+$$ {#eq-6.42}
 
-Usando @eq-6365 tenemos
+Para el tercer término de la @eq-6.42, aplicando la @eq-6.41  se tiene que 
+
+$$
+  \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|Y_j|^{2p})\Bigg]= \sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+$$
+
+Por construcción tenemos que $n\Delta t\leq T$, entonces 
+
+$$
+\begin{aligned}
+  n^{p-1}(2\beta L_{\lambda}\Delta t)^p & = n^{p-1}\Delta t^{p-1}\Delta t(2\beta L_{\lambda})^p\\ 
+  & \leq T^{p-1}(2\beta L_{\lambda})^p\Delta t\\ 
+  & = T^{p-1}(2L_{\lambda})^p\beta^p\Delta t.
+\end{aligned}
+$$
+
+Recordemos que $\alpha$ y $\beta$ están definidos por 
+
+$$
+\alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta tL_{\lambda}},\quad \beta=1+\alpha.
+$$
+
+Por hipótesis, sabemos que $\Delta tM\leq T$, esto implica $\Delta t\leq T/M\leq T$. Podemos definir 
+
+$$
+  \widetilde{\alpha}:=\frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}},\quad \widetilde{\beta}=1+\widetilde{\alpha}.
+$$
+
+Veamos que se cumple $\alpha\leq\widetilde{\alpha}$ y $\beta\leq\widetilde{\beta}$. Tenemos que $\Delta t\leq T$, entonces 
+
+$$
+  2\theta\Delta tL_{\lambda}\leq 2\theta TL_{\lambda}. 
+$$
+
+Note que 
+
+$$
+1-2\theta TL_{\lambda}\leq 1-2\theta\Delta tL_{\lambda},
+$$ 
+
+multiplicando por $\Delta t\leq T$ se tiene 
+
+$$
+  \Delta t(1-2\theta TL_{\lambda})\leq T(1-2\theta\Delta t L_{\lambda}),
+$$
+
+por definición de $L_{\lambda}$ tenemos $2\theta L_{\lambda}>0$, multiplicando la desigualdad anterior y reordenando se tiene 
+
+$$
+  2\theta\Delta tL_{\lambda}(1-2\theta TL_{\lambda})\leq 2\theta TL_{\lambda}(1-2\theta\Delta t L_{\lambda}).
+$$
+
+De aquí 
+
+$$
+\alpha=\frac{2\theta\Delta tL_{\lambda}}{1-2\theta\Delta t L_{\lambda}}\leq \frac{2\theta TL_{\lambda}}{1-2\theta TL_{\lambda}}=\widetilde{\alpha}.
+$$
+
+Considerando la definición de $\beta$ y $\widetilde{\beta}$ concluimos que 
+
+$$
+\alpha\leq\widetilde{\alpha},\qquad \beta\leq\widetilde{\beta}, 
+$$ {#eq-6.43}
+
+donde $\widetilde{\alpha}$ y $\widetilde{\beta}$ dependen únicamente de $\theta,\ L_{\lambda}$ y  $T$. Con esto se tiene
+
+$$
+\begin{aligned}
+  |Y_0|^{2p}+(2(\alpha+1)L_{\lambda}T)^p & \leq |Y_0|^{2p}+(2(\widetilde{\alpha}+1)L_{\lambda}T)^p,\\ 
+  T^{p-1}(2\beta L_{\lambda})^p & \leq T^{p-1}(2\widetilde{\beta} L_{\lambda})^p.
+\end{aligned}
+$$
+
+Definimos a las constantes 
+
+$$
+  \begin{aligned}
+    c_1 & := |Y_0|^{2p}+(2(\widetilde{\alpha}+1)L_{\lambda}T)^p,\\ 
+    c_2 & := T^{p-1}(2\widetilde{\beta} L_{\lambda})^p.
+  \end{aligned}
+$$
+
+Tomamos a $C:=\max\{c_1,c_2\}$. De esta forma, los primeros tres términos de la @eq-6.42 quedan de la forma 
+
+$$
+\begin{aligned}
+  |Y_0|^{2p} & + (2(\alpha+1)L_{\lambda}T)^p\\ 
+   & \qquad+ n^{p-1}(2\beta L_{\lambda}\Delta t)^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|Y_j|^{2p})\Bigg]\\ 
+  & \qquad\qquad\leq C+C\Delta t \sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\end{aligned} 
+$$ {#eq-6.44}
+
+Es necesario mencionar que dicha constante $C$ solo depende de los parámetros constantes $p$, $T$, $L_{\lambda}$ y $\theta$, su valor cambiará dependiendo del proceso.
+
+Procediendo con el cuarto término de la @eq-6.42, considerando la @eq-6.41, con esto, tenemos
 
 $$
   n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg] =n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}].
@@ -930,8 +1038,11 @@ $$
 Tenemos que $Y_n^*\in \mathbfcal{F}_{t_n}$, esto significa que el valor depende exclusivamente de la información hasta el tiempo $t_n$. Ahora bien, el incremento browniano denotado por $\Delta W_n=W(t_{n+1})-W(t_n)$ es independiente de $\mathbfcal{F}_{t_n}$, con esto, podemos aplicar la propiedad de independencia en la esperanza, además  
 
 $$
-   n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]= n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
-$$ {#eq-6375}
+  \begin{aligned}
+       n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E} & [|g(Y_j^*)\Delta W_j|^{2p}] \\ 
+       & = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]
+  \end{aligned}
+$$ {#eq-6.45}
 
 Vamos a estudiar $\mathbb{E}[\Delta W_n^{2p}]$, para esto, debemos recordar que al tratarse de un movimiento browniano, este tiene las propiedades de incrementos estacionarios e independientes, es decir, $\Delta W_j \sim \mathbfcal{N}(0,\Delta t)$, así afirmamos que tiene media $0$ y varianza $\Delta t$. Por tanto
 
@@ -948,7 +1059,7 @@ $$
       & = \mathbb{E}[(\Delta t)^p]\cdot \mathbb{E}[|Z|^{2p}]\\ 
       & = \Delta t^p\cdot \mathbb{E}[|Z|^{2p}].
   \end{aligned}
-$$ {#eq-638}
+$$ {#eq-6.46}
 
 
 Al ser una potencia par, podemos afirmar $\mathbb{E}[|Z|^{2p}]=\mathbb{E}[Z^{2p}]$. Vamos a demostrar que se cumple
@@ -957,17 +1068,23 @@ $$
   \mathbb{E}[Z^{2p}]=(2p-1)!!
 $$
 
+Donde el doble factorial para un número impar, en nuestro caso $2p-1$, está definido mediante
+
+$$
+  (2p-1)!!=1\cdot 3\cdot 5\cdots(2p-1).
+$$
+
 Procedicendo por inducción, para nuestro caso base, para $p=1$ es claro que $\mathbb{E}[Z^2]=Var(Z)=1$. Por definición, se tiene que $(2\cdot 1-1)!!=1!!=1$. Por lo tanto, la igualdad se cumple para $p=1$, 
 
 $$
   \mathbb{E}[Z^2]=1=(2\cdot 1-1)!!
 $$
 
-Supongamos que se cumple para algún entero $p\geq 1$, es decir, la siguiente igualdad es valida
+Supongamos que se cumple para algún entero $p\geq 1$, es decir, la siguiente igualdad es válida
 
 $$
   \mathbb{E}[Z^{2p}]=(2p-1)!!
-$$ {#eq-639}
+$$ {#eq-6.47}
 
 Veamos que se cumple ahora para $p+1$, queremos ver que 
 
@@ -975,7 +1092,7 @@ $$
   \mathbb{E}[Z^{2(p+1)}]=(2(p+1)-1)!!=(2p+1)!!
 $$
 
-Por definición, el momento $2(p+1)$ de $Z$ esta dado por 
+Por definición, el momento $2(p+1)$ de $Z$ está dado por 
 
 $$
   \mathbb{E}[Z^{2(p+1)}] = \int_{-\infty}^{\infty} z^{2(p+1)} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz.
@@ -990,7 +1107,7 @@ $$
 Consideremos las siguientes elecciónes 
 
 - $u=z^{2p+1}$, 
-- $z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz$. 
+- $z\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dv$. 
 
 Esto implica que  
 
@@ -1001,12 +1118,13 @@ Procediendo a integrar por partes
 
 $$
   \begin{aligned}
-     \int_{-\infty}^{\infty} z^{2p+2} \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz & = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
+     \int_{-\infty}^{\infty} z^{2p+2} & \cdot \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz\\ 
+     & = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
      & \qquad + (2p+1)\int_{-\infty}^{\infty}z^{2p}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz\\ 
      & = \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}\\ 
      &\qquad+(2p+1)\mathbb{E}[Z^{2p}].
   \end{aligned}
-$$ {#eq-640}
+$$ {#eq-6.48}
 
 Vamos a estudiar el término $-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}$. Usando la expansión en serie de Taylor de la exponencial, tenemos 
 
@@ -1034,10 +1152,10 @@ $$
 Por lo tanto 
 
 $$
-  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0
+  \Bigg[-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\Bigg]_{-\infty}^{\infty}=0.
 $$ 
 
-Retomando @eq-640 se tiene 
+Retomando @eq-6.48 se tiene 
 
 $$
   \begin{aligned}
@@ -1047,7 +1165,7 @@ $$
   \end{aligned}
 $$
 
-Usando @eq-639, 
+Usando @eq-6.47, 
 
 $$
   \begin{aligned}
@@ -1071,85 +1189,997 @@ $$
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 $$
 
-Por lo tanto $\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p$. Ahora es posible acotar @eq-6375 de la forma 
+Por lo tanto 
+$$
+\mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p. 
+$$ {#eq-6.49}
+
+ Ahora es posible acotar @eq-6.45 de la forma 
 
 $$
-  n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}] = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p
-$$ {#eq-641}
+  \begin{aligned}
+  n^{p-1}\sum\limits_{j=0}^{M-1}&\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\ 
+  & = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p.
+  \end{aligned}
+$$ {#eq-6.50}
 
-Veamos ahora el término $\mathbb{E}[|g(Y_j^*)|^{2p}]$, para esto, elevamos a la potencia $p$ la cota dada por @eq-616, 
+Veamos ahora el término $\mathbb{E}[|g(Y_j^*)|^{2p}]$, para esto, elevamos a la potencia $p$ la cota dada por @eq-6.19, 
 
 $$
   |g(Y_j^*)|^{2p}\leq L_{\lambda}^p(1+|Y_j^*|^2)^p.
 $$
 
-Esto implica que $\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p$, por @eq-641 tenemos 
+Esto implica que $\mathbb{E}[|g(Y_j^*)|^{2p}]\leq L_{\lambda}^p\mathbb{E}[(1+|Y_j^*|)]^p$, por @eq-6.50 tenemos 
 
 $$
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] & \mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    n^{p-1}\sum\limits_{j=0}^{M-1}&\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\ 
     & \quad  = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] c_p\Delta t^p\\ 
     & \quad\leq n^{p-1}\sum\limits_{j=0}^{M-1} L_{\lambda}^pc_p\Delta t^p\mathbb{E}[(1+|Y_j^*|)]^p\\ 
     & \quad= n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p.
   \end{aligned}
-$$ {#eq-642}
+$$ {#eq-6.51}
 
-Sabemos que $n\Delta t\leq T$, esto implica $n^{p-1}\Delta t^{p-1}$, luego 
+Sabemos que $n\Delta t\leq T$, esto implica $n^{p-1}\Delta t^{p-1}\leq T^{p-1}$, luego 
 
 $$
   n^{p-1}L_{\lambda}^pc_p\Delta t^p \leq T^{p-1}c_p\Delta tL_{\lambda}^p.
 $$
 
-Recordando que tenemos la cota @eq-622, elevando al la potencia $p$ el término de la suma de @eq-642, tenemos 
+Recordando que tenemos la cota @eq-6.25, elevando al la potencia $p$ el término de la suma de @eq-6.51, tenemos 
 
 $$
   \mathbb{E}[1+|Y_j^*|^2]^p\leq\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
 $$
 
-Por tanto, de @eq-642, 
+Por tanto, de @eq-6.51, 
 
 $$
   \begin{aligned}
-    n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}] & \mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    n^{p-1}\sum\limits_{j=0}^{M-1} & \mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\ 
     & \leq n^{p-1}L_{\lambda}^pc_p\Delta t^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+|Y_j^*|)]^p\\ 
     & \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p.
   \end{aligned}
-$$ {#eq-643}
+$$ {#eq-6.52}
 
-Afirmamos que $\beta\geq 1$. Por hipótesis, sabemos que 
-
-$$
-  \Delta t<\frac{1}{2\theta L_{\lambda}}.
-$$
-
-Esto implica que $2\theta\Delta tL_{\lambda}<1$, multiplicando por $-1$ se tiene que $-1<-2\theta\Delta tL_{\lambda}$, de aquí 
-
-$$
-  0<1-2\theta\Delta tL_{\lambda}.
-$$
-
-Por tanto, el inverso multiplicativo del término anterior también es positivo, es decir 
-
-$$
-  \frac{1}{1-2\theta\Delta tL_{\lambda}}>0.
-$$
-
-Sumando ambos lados $1$ y usando la definición de $\beta$ se tiene
-
-$$
-  \beta = 1+\frac{1}{1-2\theta\Delta tL_{\lambda}}>1.
-$$
-
-Usaremos la siguiente desigualdad para $p\geq 1$ y $a,b\geq 0$,
+Considerando la siguiente desigualdad para $p\geq 1$ y $a,b\geq 0$,
 
 $$
   (a+b)^p\leq 2^{p-1}(a^p+b^p).
 $$
 
+Aplicaremos dicho resultado a la expresión @eq-6.52 de forma iterativa como se sigue
+
+$$
+  \begin{aligned}
+    (1+\beta|Y_j|^2+\alpha)^p & \leq 2^{p-1}[1^p+(\beta|Y_j|^2+\alpha)^p]\\ 
+    & \leq 2^{p-1}(1+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p)).
+  \end{aligned}
+$$
+
+Dado que $p\geq 1$ esto implica que $1\leq 2^{p-1}$, por tanto 
+
+$$
+  \begin{aligned}
+    (1+\beta|Y_j|^2+\alpha)^p & \leq 2^{p-1}(1+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\ 
+    &\leq 2^{p-1}(2^{p-1}+2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\ 
+    & = 2^{2(p-1)}(1+\alpha^p+\beta^p|Y_j|^{2p}).
+  \end{aligned}
+$$
+
+Retomando @eq-6.52 se tiene 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1} & \mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+\beta|Y_j|^2+\alpha]^p\\ 
+    & \leq T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{2(p-1)}(1+\alpha^p+\beta^p|Y_j|^{2p})]\\ 
+    & \leq 4^{(p-1)}T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+\alpha^p+\beta^p|Y_j|^{2p})].
+  \end{aligned}
+$$
+
+Como $\beta=1+\alpha\geq 1$ entonces, podemos afirmar que $1+\alpha^p\leq (1+\alpha)^p=\beta^p$, de aquí 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1} & \mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \leq 4^{p-1}T^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+\alpha^p+\beta^p|Y_j|^{2p})]\\ 
+    & \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\sum\limits_{j=0}^{M-1}\mathbb{E}[(\beta^p +\beta^p|Y_j|^{2p})]\\ 
+    & \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]. 
+  \end{aligned}
+$$
+
+Notemos que 
+
+$$
+  \begin{aligned}
+    \sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]& = \sum\limits_{j=0}^{M-1} \mathbb{E}[1]+\mathbb{E}[|Y_j|^{2p}]\\ 
+    & = \sum\limits_{j=0}^{M-1} 1+\sum\limits_{j=0}^{M-1} \mathbb{E}[|Y_j|^{2p}]\\ 
+    & = M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$ {#eq-6.53}
+
+De aquí, @eq-6.53 queda de la forma 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{M-1}&\mathbb{E}[|g(Y_j^*)|^{2p}] \mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\sum\limits_{j=0}^{M-1}\mathbb{E}[1+|Y_j|^{2p}]\\ 
+    & =(2^2 T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg). 
+  \end{aligned}
+$$ {#eq-6.54}
+
+Por hipótesis, sabemos que $M$ es tal que $M\Delta t\leq T$, de aquí, esto implica que $M\Delta t\leq (M\Delta t)^{p-1}\leq T^{p-1}$, de aquí 
+
+$$
+  \begin{aligned}
+    (2^2 T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p M & \leq 2^{2(p-1)}T^{p-1}c_pL_{\lambda}^p\beta^p (M\Delta t)^{p-1}\\ 
+    & \leq 2^{2(p-1)}T^{p-1}T^{p-1}c_pL_{\lambda}^p\beta^p\\ 
+    & = (2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p.
+  \end{aligned}
+$$
+
+Ahora bien, por la @eq-6.43 tenemos que 
+
+$$
+  \begin{aligned}
+    (2T)^{2(p-1)}c_pL_{\lambda}^p\beta^p & \leq (2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p,\\
+    (4T)^{p-1}c_pL_{\lambda}^p\beta^p & \leq (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p.
+  \end{aligned}
+$$
+
+Definiendo a la constante $c_3:=(2T)^{2(p-1)}c_pL_{\lambda}^p\widetilde{\beta}^p$. Por otro lado, también definimos la constante $c_4:= (4T)^{p-1}c_pL_{\lambda}^p\widetilde{\beta}^p$, así tomamos a $C:=\max\{c_1,c_2,c_3,c_4\}$. Con esta constante, es posible acotar @eq-6.54  de la forma 
+
+$$
+  \begin{aligned}
+    n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E}&\Bigg[\sup\limits_{0\leq n\leq M}(|g(Y_j^*)\Delta W_j|^{2p})\Bigg]\\ 
+    & = n^{p-1} \sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)\Delta W_j|^{2p}]\\ 
+    & = n^{p-1}\sum\limits_{j=0}^{M-1}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j|^{2p}]\\ 
+    & \leq (4T)^{p-1}c_p\Delta tL_{\lambda}^p\beta^p\Bigg(M+\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+    & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$ {#eq-6.55}
+
+Siguiendo un proceso similar, para el quinto término de @eq-6.42, se puede afirmar que existe una constante $c_p$, de tal forma que $\mathbb{E}[\Delta \widetilde{N}_j]^{2p}\leq c_p\Delta t^p$, tal que nos permite acotar de la forma 
+
+$$ 
+\begin{aligned}
+n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} & \Bigg[\sup\limits_{0\leq n\leq M}(|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\ 
+& \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\end{aligned}
+$$ {#eq-6.56}
+
+Retomando la @eq-6.42, estudiaremos el sexto término
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg],
+$$
+
+definimos la siguiente notación 
+
+$$
+  M_n:=\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j. 
+$$ {#eq-6.57}
+
+Veamos que el proceso $M_n$ es una martingala discreta, para esto debemos demostrar que es $\mathcal{F}_{t_n}$-medible, integrabilidad y que posee la propiedad de martingala. 
+
+Como primer paso, veamos que $M_n$ es $\mathcal{F}_{t_j}$-medible. Recordemos que el movimiento browniano $W$ es un proceso adaptado, por lo que $\Delta W_j$ es $\mathcal{F}_{t_j}$-medible. Con esto, veremos que para todo $j\geq 0$, los términos $Y_j$ y $g(Y_j^*)$ son $\mathcal{F}_{t_j}$-medibles. Procediendo por inducción sobre $j\geq 0$, sabemos que $Y_0=X_0$, por la hipótesis dada por la @eq-6.12 podemos afirmar que $X_0$ es $\mathcal{F}_{t_0}$-medible, por lo tanto, $Y_0$ también lo es. 
+
+Suponemos que para algún $j\geq 0$ se cumple que $Y_j$ es $\mathcal{F}_{t_j}$-medible. Veamos que $Y_{j+1}$ es $\mathcal{F}_{t_{j+1}}$-medible. 
+
+Notemos que por el @lem-6.1, el operador $G:\mathbb{R}\rightarrow\mathbb{R}$ definido por 
+
+$$
+  G(y)=y-\theta\Delta tf_{\lambda}(Y),
+$$
+
+es una función biyectiva con inversa continua bajo la condición $\theta\Delta tL_{\lambda}<1$, digamos $\phi=G^{-1}$, esto implica $Y_j^*=\phi(Y_j)$. Al ser $\phi$ una función continua, por tanto, una función Borel-medible y por la hipótesis inductiva, $Y_j$  es $\mathcal{F}_{t_j}$-medible, entonces $Y_j^*$ también es $\mathcal{F}_{t_j}$-medible. Notemos que por la @eq-6.05, $Y_{j+1}$ está definido mediante 
+
+$$
+  Y_{j+1}=Y_j+f_{\lambda}(Y_j^*)\Delta t+g(Y_j^*)\Delta W_j+h(Y_j^*)\Delta\widetilde{N}_j.
+$$
+
+Por hipótesis inductiva $Y_j$ es $\mathcal{F}_{t_j}$-medible. Recordemos que por definición del movimiento browniano y del proceso  de Poisson se afirma que $\Delta W_j$ y $\Delta\widetilde{N}_j$ son $\mathcal{F}_{t_j}$-medibles. además las funciónes $f_{\lambda},g,h\in C^1$ por lo que la composición de una función continua y $Y_j^*$, el cuál es $\mathcal{F}_{t_j}$-medible, entonces $f_{\lambda}(Y_j^*),\ g(Y_j^*)$ y $h(Y_j^*)$ son $\mathcal{F}_{t_j}$. Entonces, $Y_{j+1}$ es composición de variables $\mathcal{F}_{t_{j}}$-medibles. Por ser $\mathcal{F}_{t_j}$ una filtración discreta, esto implica que $\mathcal{F}_{t_j}\subset \mathcal{F}_{t_{j+1}}$. Por lo tanto $Y_{j+1}$ es $\mathcal{F}_{t_{j+1}}$-medible.
+
+Por lo tanto  se afirmar que para todo $j\geq 0$ el término $Y_j$ es $\mathcal{F}_{t_j}$-medible. Bajo argumentos y procedimientos similares, es posible concluir que $Y_j^*$ y $g(Y_j^*)$ tambien son $\mathcal{F}_{t_j}$-medibles para todo $j\geq 0$. 
+
+De aquí que, el proceso $M_n$ al ser una composición lineal finita de elemento $\mathcal{F}_{t_n}$-medibles, se afirma entonces que $M_n$ es adaptado.
+
+Necesitamos ver si el proceso $M_n$ es integrable, es decir, demostraremos que $\mathbb{E}[|M_n|]<\infty$. Aplicando la desigualdad triangular y la linealidad de la esperanza, tenemos
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|M_n|] & \leq \sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)\Delta W_j|]\\ 
+    & = \sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)|]\mathbb{E}[|\Delta W_j|].
+  \end{aligned}
+$$
+
+Usando la cota conocida
+
+$$
+  \mathbb{E}[|\Delta W_j|]=\sqrt{\frac{2\Delta t}{\pi}}<\infty.
+$$
+
+Por lo que la integrabilidad de $M_n$ se reduce a demostrar que $\mathbb{E}[|Y_jg(Y_j^*)|]<\infty$, para todo $j=1,2,\ldots,n-1$. Aplicando la desigualdad de Cauchy-Schwarz a la esperanza del producto, se tiene 
+
+$$
+  \mathbb{E}[|Y_jg(Y_j^*)|]\leq (\mathbb{E}[|Y_j|^2])^{1/2}(\mathbb{E}[|g(Y_j^*)|^2])^{1/2}.
+$$ {#eq-6.58}
+
+Por la @eq-6.19, podemos acotar el término $\mathbb{E}[|g(Y_j^*)|^2]$ de la forma 
+
+$$
+  \mathbb{E}[|g(Y_j^*)|^2]\leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2]). 
+$$
+
+Sustituyendo esto en la @eq-6.58 se tiene 
+
+$$
+  \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|])}.
+$$ {#eq-6.59}
+
+Por lo tanto, para garantizar que $\mathbb{E}[|M_n|]<\infty$, basta demostrar que para cada $j=0,1,\ldots,n$ se cumple
+
+$$
+  \mathbb{E}[|Y_j|^2]< \infty \quad \text{y}\quad \mathbb{E}[|Y_j^*|^2]<\infty.
+$$ {#eq-6.60}
+
+Vamos a proceder por inducción sobre $j$ que @eq-6.60 se cumple para todo $j\leq n$, donde $n$ lo tomaremos como fijo. Así para $j=0$, por la @eq-6.12 que $\mathbb{E}[|X_0|^p]<\infty$, además, por la construcción del método $\text{CSS}\theta$ se tiene que $Y_0=X_0$, por lo tanto, para $p=2$ se cumple 
+
+$$
+  \mathbb{E}[|X_0|^2]=\mathbb{E}[|Y_0|^2]<\infty.
+$$
+
+Aplicando esperanza a la @eq-6.25 se tiene 
+
+$$
+  \mathbb{E}[|Y_0^*|^2]\leq \beta \mathbb{E}[|Y_0|^2]+\alpha<\infty.
+$$
+
+Suponemos que para algún $j<n$ se cumple la @eq-6.60. Veamos que se cumple $\mathbb{E}[|Y_{j+1}|^2]<\infty$ y $\mathbb{E}[|Y_{j+1}^*|^2]<\infty$. De la @eq-6.05, elevando al cuadrado y aplicando la siguiente desigualdad 
+
+$$
+  (a+b+c+d)^2\leq 4(a^2+b^2+c^2+d^2),
+$$
+
+tenemos 
+
+$$
+  \begin{aligned}
+    |Y_{j+1}|^2 \leq 4& \Bigg(|Y_j|^2+|f_{\lambda}(Y_j^*)|^2\Delta t^2\\ 
+    & \quad +|g(Y_j^*)|^2|\Delta W_j|^2+|h(Y_j^*)|^2|\Delta\widetilde{N}_j|^2\Bigg).
+  \end{aligned}
+$$
+
+Aplicando esperanza se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|Y_{j+1}|^2] \leq 4& \Bigg(\mathbb{E}[|Y_j|^2]+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\mathbb{E}[\Delta t^2]\\ 
+    & \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\
+    & \quad +\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2]\Bigg)\\
+    = 4 & \Bigg(\mathbb{E}[|Y_j|^2]+\Delta t^2\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\\ 
+    & \quad +\mathbb{E}[|g(Y_j^*)|^2]\mathbb{E}[|\Delta W_j|^2]\\ 
+    & \quad +\mathbb{E}[|h(Y_j^*)|^2|]\mathbb{E}[\Delta\widetilde{N}_j|^2]\Bigg).
+  \end{aligned}
+$$ {#eq-6.61}
+
+Por la @eq-6.19 se tiene que 
+
+$$
+  |g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)\quad \text{y}\quad |h(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2).
+$$ {#eq-6.62}
+
+Por hipótesis inductiva, sabemos que $\mathbb{E}[|Y_j^*|^2]<\infty$. Aplicando valor esperado a la @eq-6.62, se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|g(Y_j^*)|^2] & \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])<\infty,\\
+    \mathbb{E}[|h(Y_j^*)|^2] & \leq L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])<\infty.
+  \end{aligned}
+$$
+
+Además, $\mathbb{E}[|\Delta W_j|^2]=\Delta t<\infty$ y $\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t<\infty$. La @eq-6.61 queda de la forma 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|Y_{j+1}|^2] \leq 4 & \Bigg(\mathbb{E}[|Y_j|^2]+\Delta t^2\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\\ 
+    & \quad +L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])\Delta t\\ 
+    & \quad +L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])\lambda\Delta t\Bigg).
+  \end{aligned}
+$$ {#eq-6.63}
+
+Por lo que ahora, solo basta demostrar que $\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]<\infty$. Para esto, vamos a considerar la hipótesis @eq-6.13, tomando a $a=Y_j^*$ y $b=0$ se tiene 
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_j^*)-f_{\lambda}(0)|^2 & \leq D(1+|Y_j^*|^q+|0|^q)|Y_j^*-0|^2\\ 
+    & = D|Y_j^*|^2+D|Y_j^*|^{q+2}. 
+  \end{aligned}
+$$ {#eq-6.64} 
+
+Usando la desigualdad del triángulo para $|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|$,
+
+$$
+    \begin{aligned}
+    |f(Y_j^*)| & = |f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|\\ 
+    & \leq |f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|.
+    \end{aligned}
+$$
+
+Elevando al cuadrado y aplicando la desigualdad $(a+b)^2\leq 2a^2+2b^2$, entonces
+
+$$
+  \begin{aligned}
+    |f(Y_j^*)|^2 & \leq (|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\ 
+    & \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2.
+    \end{aligned}
+$$
+
+Usando la @eq-6.64 en esta cota
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_j^*)|^2 & \leq 2|f_{\lambda}(Y_j^*)-f_{\lambda}(0)|+2|f_{\lambda}(0)|^2\\ 
+    & \leq 2(D|Y_j^*|^2+|Y_j^*|^{q+2})+2|f_{\lambda}(0)|^2.
+  \end{aligned}
+$$ {#eq-6.65}
+
+Dado que $q\in \mathbb{Z}^{+}$, esto implica que $q+2\geq 3$, así $|Y_j^*|^2\leq 1+|Y_j^*|^{q+2}$ y $1\leq 1+|Y_j^*|^{q+2}$, por tanto de @eq-6.65 tenemos 
+
+$$
+  \begin{aligned}
+    |f_{\lambda}(Y_j^*)|^2 &\leq 2D|Y_j^*|^2+2D|Y_j^*|^{q+2}+2|f_{\lambda}(0)|^2\\ 
+    & \leq 2D(1+|Y_j^*|^{q+2})+2D(1+|Y_j^*|^{q+2})+2|f_{\lambda}(0)|^2(1+|Y_j^*|^{q+2})\\ 
+    & = (4D+2|f_{\lambda}(0)|^2)(1+|Y_j^*|^{q+2}).
+  \end{aligned}
+$$
+
+Al aplicar valor esperado tenemos que 
+
+$$
+\mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}]). 
+$$
+
+Dado que por hipótesis inductiva $\mathbb{E}[|Y_j^*|]<\infty$ y al ser $q$ fijo, entonces $\mathbb{E}[|Y_j^*|^{q+2}]<\infty$. Por lo tanto, se afirma que
+
+$$
+   \mathbb{E}[|f_{\lambda}(Y_j^*)|^2]\leq (4D+2|f_{\lambda}(0)|^2)(1+\mathbb{E}[|Y_j^*|^{q+2}])<\infty.
+$$
+
+Retomando la @eq-6.63, el término $\mathbb{E}[|Y_{j+1}|^2]$ al estar acotado por términos finitos, se afirma que $\mathbb{E}[|Y_{j+1}|^2]<\infty$. Finalmente, por la @eq-6.25, aplicado al paso $j+1$ es posible afirmar que 
+
+$$
+  \mathbb{E}[|Y_j^*|^2]\leq \beta\mathbb{E}[|Y_{j+1}|^2]+\alpha<\infty. 
+$$
+
+Por el principio de inducción matemática finita, concluimos que 
+
+$$
+  \mathbb{E}[|Y_j|^2]<\infty\quad\text{y}\quad\mathbb{E}[|Y_j^*|^2]<\infty. 
+$$
+
+Para $j=0,1,\ldots,n$. Retomando @eq-6.59, notamos que para todo $j<n$ 
+
+$$
+  \mathbb{E}[|Y_jg(Y_j^*)|]\leq \sqrt{\mathbb{E}[|Y_j|^2]}\cdot \sqrt{L_{\lambda}(1+\mathbb{E}[|Y_j^*|^2])}<\infty.
+$$
+
+Esto implica que 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|M_n|]&\leq \sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)|]\mathbb{E}[|\Delta W_j|]\\ 
+    & \leq \sqrt{\frac{2\Delta t}{\pi}}\sum\limits_{j=0}^{n-1}\mathbb{E}[|Y_jg(Y_j^*)|]<\infty.
+  \end{aligned}
+$$
+
+Por último, es necesario ver que $M_n$ cumple con la propiedad de martingala, es decir, queremos ver que 
+
+$$
+  \mathbb{E}[M_{n+1}|\mathcal{F}_{t_n}]=M_n.
+$$
+
+Descomponiendo $M_{n+1}$ tenemos 
+
+$$
+  \begin{aligned}
+    M_{n+1} & = \sum\limits_{j=0}^n Y_jg(Y_j^*)\Delta W_j\\ 
+    & = \sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j + Y_ng(Y_n^*)\Delta W_n\\ 
+    & = M_n + Y_ng(Y_n^*)\Delta W_n.
+  \end{aligned}
+$$
+
+Como $M_n$ es $\mathcal{F}_{t_n}$-medible, esto implica que $\mathbb{E}[M_n|\mathcal{F}_{t_n}]=M_n$, de igual forma, se tiene que 
+$\mathbb{E}[Y_ng(Y_n^*)|\mathcal{F}_{t_n}]=Y_ng(Y_n^*)$, además por propiedades del movimiento browniano sabemos $\mathbb{E}[\Delta W_j]=0$, por último note que $\Delta W_j$ es independiente a $\mathcal{F}_{t_n}$, de aquí 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|M_{n+1}|\mathcal{F}_{t_n}] & = \mathbb{E}[M_n + Y_ng(Y_n^*)\Delta W_n|\mathcal{F}_{t_n}]\\ 
+    & = \mathbb{E}[M_n|\mathcal{F}_{t_n}]+\mathbb{E}[Y_ng(Y_n^*)\Delta W_n|\mathcal{F}_{t_n}]\\ 
+    & = M_n+\mathbb{E}[Y_ng(Y_n^*)|\mathcal{F}_{t_n}]\mathbb{E}[\Delta W_n|\mathcal{F}_{t_n}]\\ 
+    & = M_n +Y_ng(Y_n^*)\cdot 0 \\ 
+    & = M_n.
+  \end{aligned}
+$$
+
+Por lo tanto, $M_n$ es una martingala. 
+
+Notemos que
+$$
+  \Delta M_j = M_{j+1}-M_j=Y_jg(Y_j^*)\Delta W_j. 
+$$
+
+Con esto, tenemos 
+
+$$
+   \begin{aligned}
+    \mathbb{E}[|\Delta M_j|^2|\mathcal{F}_{t_j}] & = \mathbb{E}[|Y_jg(Y_j^*)|^2|\Delta W_j|^2|\mathcal{F}_{t_j}]\\ 
+    & = |Y_jg(Y_j^*)|^2\mathbb{E}[\Delta W_j^2]\\ 
+    & = |Y_j|^2|g(Y_j^*)|^2\Delta t.
+   \end{aligned}
+$$
+
+Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante $C_p\geq 0$ que depende únicamente de $p$, que cumple 
+
+$$
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} & \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\ 
+    & \leq C_p \mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\ 
+    & = C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}.
+  \end{aligned}
+$$ {#eq-6.66}
+
+Usando la desigualdad de Hölder, dada por 
+
+$$
+  \Bigg(\sum\limits_{j=0}^{M-1}a_j\Bigg)^k\leq M^{k-1}\sum\limits_{j=0}^{M-1}a_j^k,
+$$
+
+para nuestro caso, contemplamos a $a_j=|Y_j|^2|g(Y_j^*)|^2$ y a $k=p/2$, de aquí 
+
+$$
+  \begin{aligned}
+    \Bigg(\sum\limits_{j=0}^{M-1} & |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\ 
+    & \leq M^{p/2-1}\sum\limits_{j=0}^{M-1}(|Y_j|^2|g(Y_j^*)|^2)^{p/2}\\ 
+    & = M^{p/2-1}\sum\limits_{j=0}^{M-1} |Y_j|^p(|g(Y_j^*)|^2)^{p/2}.
+  \end{aligned} 
+$$ {#eq-6.67}
+
+Por la @eq-6.19, tenemos que $|g(Y_j^*)|^2\leq L_{\lambda}(1+|Y_j^*|^2)$, esto implica que $(|g(Y_j^*)|^2)^{p/2}\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}$, de esta forma, la @eq-6.67 queda acotada mediante 
+
+$$
+  \begin{aligned}
+    \Bigg(\sum\limits_{j=0}^{M-1} & |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\ 
+    & \leq M^{p/2-1}\sum\limits_{j=0}^{M-1} |Y_j|^p(|g(Y_j^*)|^2)^{p/2}\\ 
+    & \leq M^{p/2-1}\sum\limits_{j=0}^{M-1} |Y_j|^p(L_{\lambda}(1+|Y_j^*|^2))^{p/2}\\ 
+    & = M^{p/2-1}L_{\lambda}^{p/2}\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}.
+  \end{aligned}  
+$$
+
+Sustituyendo este resultado en @eq-6.66, además recordando que $\Delta tM\leq T$, se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E} & \Bigg[\sup\limits_{0\leq n\leq M} \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\ 
+    & \leq C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}\\ 
+    & \leq C_p\Delta t^{p/2}\mathbb{E}\Bigg[M^{p/2-1}L_{\lambda}^{p/2}\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    & = C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg] \\ 
+    & = C_p\Delta t^{p/2-1}M^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\ 
+    & \leq C_pT^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg].
+  \end{aligned}
+$$ {#eq-6.68}
+
+Vamos a trabajar con cada término $|Y_j|^p(1+|Y_j^*|^2)^{p/2}$ para $0\leq j\leq M-1$. Usando las siguientes desigualdades para $a,b\geq 0$ y $p\geq 1$
+
+$$
+  ab\leq \frac{a^2+b^2}{2} \quad \text{y}\quad (a+b)^p\leq 2^{p-1}(a^p+b^p).
+$$
+
+Tomando en cuenta la @eq-6.25, tenemos 
+
+$$
+  \begin{aligned}
+    |Y_j|^p(1+|Y_j^*|^2)^{p/2} & \leq \frac{|Y_j|^{2p}+(1+|Y_j^*|^2)^p}{2}\\ 
+    & \leq\frac{|Y_j|^{2p}+2^{p-1}(1+|Y_j^*|^{2p})}{2}\\ 
+    & \leq \frac{|Y_j|^{2p}+2^{p-1}(1+(\beta|Y_n|^2+\alpha|)^p)}{2}\\ 
+    & \leq \frac{|Y_j|^{2p}+2^{p-1}(1+2^{p-1}(\beta^p|Y_n|^{2p}+\alpha^p))}{2}\\ 
+    & \leq \frac{|Y_j|^{2p}+2^{p-1}(2^{p-1}+2^{p-1}(\beta^p|Y_n|^{2p}+\alpha^p))}{2}\\ 
+    & = \frac{|Y_j|^{2p}+2^{p-1}2^{p-1}(1+\beta^p|Y_n|^{2p}+\alpha^p)}{2}\\ 
+    & = \frac{|Y_j|^{2p}+2^{2(p-1)}+2^{2(p-1)}\beta^p|Y_n|^{2p}+2^{2(p-1)}\alpha^p}{2}\\ 
+    & = \frac{|Y_j|^{2p}(1+2^{2(p-1)})+2^{2(p-1)}(1+\alpha^p)}{2}.
+  \end{aligned}
+$$
+
+Sustituyendo esto en @eq-6.68, se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} & \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\ 
+    & \leq C_pT^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1} |Y_j|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    & \leq C_pT^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}\frac{|Y_j|^{2p}(1+2^{2(p-1)})}{2}\\ 
+    & \qquad \qquad\qquad\qquad\qquad\quad +\frac{2^{2(p-1)}(1+\alpha^p)}{2}\Bigg]\\ 
+    & =C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}(1+2^{2(p-1)})\\ 
+    & \qquad \qquad\qquad\qquad\qquad\quad+2^{2(p-1)}(1+\alpha^p)\Bigg]\\ 
+    & = C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}(1+2^{2(p-1)})\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}\Bigg]\\ 
+    & \quad + C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}2^{2(p-1)}(1+\alpha^p)\Bigg]\\
+    & = C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}(1+2^{2(p-1)})\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}\Bigg]\\ 
+    & \quad + C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)M\\ 
+    & \leq C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}(1+2^{2(p-1)})\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}\Bigg]\\ 
+    & \quad + C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p).
+  \end{aligned}
+$$ {#eq-6.69}
+
+Definimos de manera similar a $c_5=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})$, ademas, consderando las cotas dadas por la @eq-6.43 se tiene 
+
+$$
+C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
+$$
+
+Se define a $c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)$, de aquí tomando a $C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}$, entonces es posible acotar la ecuación anterior, la @eq-6.69 de la forma 
+
+$$
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} & \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\ 
+    & \leq C_p\frac{T^{p/2-1}}{2}\Delta tL_{\lambda}^{p/2}(1+2^{2(p-1)})\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^{2p}\Bigg]\\ 
+    & \quad + C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)\\ 
+    & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$ {#eq-6.70}
+
+Siguiendo con el séptimo término de la @eq-6.42, se utilizan las mismas técnicas para acotar. Definimos el proceso
+
+$$
+  S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
+$$ {#eq-6.71}
+
+Dado que la función $h$ posee las mismas propiedades que la función $g$, siguiendo el mismo procedimiento que se realizó con la @eq-6.57 es posible afirmar que $S_n$ es una martingala discreta. Usando la desigualdad de BDG, acotar el término
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
+$$
+
+da la forma
+
+$$
+  \mathbb{E} \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].    
+$$ {#eq-6.72}
+
+Donde la constante $C$ depende de los términos $(p,T,L_{\lambda},\theta)$.
+
+Para el octavo término de la @eq-6.42, dado por 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg].
+$$ {#eq-6.73}
+
+Denotamos el proceso y observamos que  
+
+$$
+  Z_n:=\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j
+$$
+
+es una martingala discreta. La prueba de medibilidad, integrabilidad y la propiedad de martingala se desglosa directamente de la misma forma en que se hizo para el término $M_n$ dado por la @eq-6.57. Por lo que se asume que $Z_n$ es una martingala.
+
+Calculamos la variación cuadrática 
+
+$$
+  \begin{aligned}
+    \mathbb{E}[|Y_j^*g(Y_j^*)\Delta W_j|^2|\mathcal{F}_{t_j}] & = \mathbb{E}[|Y_j^*g(Y_j^*)|^2|\mathcal{F}_{t_j}]\mathbb{E}[|\Delta W_j|^2|\mathcal{F}_{t_j}]\\ 
+    & = |Y_j^*|^2|g(Y_j^*)|^2\mathbb{E}[\Delta W_j^2]\\ 
+    & = |Y_j^*|^2|g(Y_j^*)|^2\Delta t.
+  \end{aligned}
+$$
+
+Usando la desigualdad de BDG, existe una constante $C_p$, la cual depende únicamente de $p$ de tal forma que la @eq-6.73 queda acotada mediante 
+
+$$
+  \mathbb{E}[\sup\limits_{0\leq n\leq M}|Z_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}.
+$$ {#eq-6.74}
+
+Por la @eq-6.19 podemos afirmar que $|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}$. De la ecuación @eq-6.74 al extraer $\Delta t$, aplicar la desigualdad de Hölder para sumas finitas con $k=p/2$ y considerando la cota anterior derivada de la @eq-6.19 se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E} & [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\ 
+    &\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}\\ 
+    & = C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*||g(Y_j^*)|^2\Bigg]^{p/2}\\ 
+    & \leq C_p\Delta t^{p/2}\mathbb{E}\Bigg[M^{p/2-1}\sum\limits_{j=0}^{M-1}(|Y_j^*|^2|g(Y_j^*)|^2)^{p/2}\Bigg]\\ 
+    & = C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|Y_j^*|^2|g(Y_j^*)|^2)^{p/2}\Bigg]\\ 
+    & = C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p|g(Y_j^*)|^p\Bigg]\\ 
+    & \leq C_p\Delta t^{p/2}M^{p/2-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^pL_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    & = C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p(1+|Y_j^*|^2)^{p/2}\Bigg].\\
+  \end{aligned}
+$$ {#eq-6.75}
+
+Por hipótesis, tenemos que $M\in \mathbb{N}$ es tal que $M\Delta t\leq T$, de aquí, 
+
+$$
+  \Delta t^{p/2}M^{p/2-1}=(\Delta tM)^{p/2-1}\Delta t\leq T^{p/2-1}\Delta t.
+$$ {#eq-6.76} 
+
+Aplicando la desigualdad de Young y la @eq-6.76 a la @eq-6.75 tenemos 
+
+$$
+  \begin{aligned}
+    \mathbb{E} & [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\ 
+    & \leq C_p\Delta t^{p/2}M^{p/2-1}L_{\lambda}^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^p(1+|Y_j^*|^2)^{p/2}\Bigg]\\
+    & \leq C_p T^{p/2-1}\Delta tL_{\lambda}^{p/2}\mathbb{E}\left[\sum\limits_{j=0}^{M-1}\frac{|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p}{2}\right].
+  \end{aligned}
+$$ {#eq-6.77}
+
+
+Para facilitar la notación, definimos la siguiente constante auxiliar
+
+$$
+  \widetilde{c}=\frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}.
+$$ 
+
+De esta manera, la @eq-6.77 queda de la forma 
+
+$$
+  \begin{aligned}
+    \mathbb{E} & [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\ 
+    & \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right].
+  \end{aligned}
+$$ {#eq-6.78}
+
+Para el término $(1+|Y_j^*|^2)^p$ usaremos nuevamente la desigualdad (citar peliminares:), considerando la cota dada por la @eq-6.25, tenemos 
+
+$$
+  \begin{aligned}
+    |Y_j^*|^{2p}+(1+|Y_j^*|^2)^p & \leq |Y_j^*|^{2p}+2^{p-1}(1+|Y_j^*|^{2p})\\ 
+    & = |Y_j^*|^{2p}+2^{p-1}+2^{p-1}|Y_j^*|^{2p}\\ 
+    & = 2^{p-1}+(1+2^{p-1})|Y_j^*|^{2p}\\ 
+    & \leq 2^{p-1}+(1+2^{p-1})(\beta|Y_j|^2+\alpha)^p\\ 
+    & \leq 2^{p-1}+(1+2^{p-1})(2^{p-1}(\beta^p|Y_j|^{2p}+\alpha^p))\\ 
+    & \leq 2^{p-1}+(2^{p-1}+2^{p-1})(2^{p-1}\beta^p|Y_j|^{2p}+2^{p-1}\alpha^p)\\
+    & = 2^{p-1}+(2^{2(p-1)})(2^{p-1}\beta^p|Y_j|^{2p}+2^{p-1}\alpha^p)\\
+    & = (1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}.
+  \end{aligned}
+$$
+
+Sustituyendo esto en la @eq-6.78 y aplicando la linealidad del valor esperado tenemos
+
+$$
+  \begin{aligned}
+    \mathbb{E} & [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\ 
+    & \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right]\\ 
+    & \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}(1+2^{2(p-1)})2^{p-1}+2^{3(p-1)}\beta^p|Y_j|^{2p}\right]\\ 
+    & = \widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[(1+2^{2(p-1)})2^{p-1}]\\ 
+    & \qquad +\widetilde{c}\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[2^{3(p-1)}\beta^p|Y_j|^{2p}]\\ 
+    & = \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$ {#eq-6.79}
+
+Por definición de la constante $\widetilde{c}$ tenemos que 
+
+$$
+  \begin{aligned}
+  \widetilde{c}\Delta t M & (1+2^{2(p-1)})2^{p-1}\\ 
+  & = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot\Delta t M(1+2^{2(p-1)})2^{p-1}\\ 
+  & \leq \frac{C_pT^{p/2-1}L_{\lambda}^{p/2}T(1+2^{2(p-1)})(2^{p-1})}{2}\\ 
+  & \leq C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}).
+  \end{aligned}
+$$ {#eq-6.80}
+
+Por otro lado 
+
+$$
+  \begin{aligned}
+    \widetilde{c}2^{3(p-1)}\beta^p & = \frac{C_p T^{p/2-1}L_{\lambda}^{p/2}}{2}\cdot 2^{3(p-1)}\\ 
+    & \leq C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
+  \end{aligned}
+$$ {#eq-6.81}
+
+De la @eq-6.80 y @eq-6.81 definimos las constantes 
+
+$$
+  \begin{aligned}
+  c_7 & = C_pT^{p/2}L_{\lambda}^{p/2}(1+2^{2(p-1)})(2^{p-1}),\\ 
+  c_8 & = C_p T^{p/2-1}L_{\lambda}^{p/2}2^{3(p-1)}.
+  \end{aligned}
+$$
+
+Reconstruyendo nuevamente la constante $C$ mediante 
+
+$$
+C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
+$$
+
+Entonces la @eq-6.79 queda acotada 
+
+$$
+  \begin{aligned}
+    \mathbb{E} & \Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*g(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\ 
+    & \leq \widetilde{c}\Delta t M(1+2^{2(p-1)})2^{p-1}+\widetilde{c}2^{3(p-1)}\beta^p\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\ 
+    & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$ {#eq-6.82}
+
+Para el noveno término de la @eq-6.42 basta notar que la función $h$ posse las mismas propiedades que la función $g$ y considerar que $\mathbb{E}[|\Delta\widetilde{N}_j|^2]=\lambda\Delta t$. Por ende es posible realizar un proceso similar y obtener la siguiente cota 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_j^*h(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+$$ {#eq-6.83}
+
+El décimo y último término de la @eq-6.42 viene dado por 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|\Bigg].
+$$ {#eq-6.84} 
+
+Notemos que para cada $j=0,1\ldots,n-1$ se tiene 
+
+$$
+  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)
+$$
+
+Sumando sobre $j=0,1,\ldots,n-1$ y considerando la desigualdad del triángulo se tiene
+
+$$
+  \begin{aligned}
+  \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|& \leq \sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\\ 
+  & \leq \sum\limits_{j=0}^{n-1}\frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\\ 
+  & = \frac{1}{2}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2).
+  \end{aligned}
+$$
+
+al elevar ambos lados de la desigualdad anterior a la potencia $p$ y tomar supremo sobre $n=0,1,\ldots,M$, entonces
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq n\leq M} & \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\\ 
+  & \leq \frac{1}{2^p}\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p.
+\end{aligned}
+$$
+
+Notemos que la tomar valor esperado, tenemos como resultado la primera cota de la @eq-6.84
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq n\leq M} \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\ 
+  & \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg].
+\end{aligned}
+$$ {#eq-6.85}
+
+Consideramos la siguiente notación 
+$$
+a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
+$$ 
+
+Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la @eq-6.85, además, considerando que $n\leq M$ entonces 
+
+$$
+  \begin{aligned}
+    \Bigg|\sum\limits_{j=0}^{n-1}a_j\Bigg|^p & \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p\\
+    & \leq M^{p-1}\sum\limits_{j=0}^{n-1}a_j^p.
+  \end{aligned}
+$$
+
+Al tomar supremo en $0\leq n\leq M$
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq n\leq M} & \Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\\ 
+  & \leq M^{p-1}\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p.
+\end{aligned}
+$$
+
+Note que para cada $j=0,1,\ldots n$ se tiene $a_j^p>0$, por lo que la suma anterior es creciente y por tanto alcanza su supremo cuando $n=M$, así tomando valor esperado y sustituyendo en @eq-6.85
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\ 
+  & \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg]\\ 
+  & \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\ 
+  & = \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg].
+\end{aligned}
+$$
+
+Para cada $j$ aplicamos la desigualdad $(a+b)^p\leq 2^{p-1}(a^p+b^p)$, de aquí 
+
+$$
+(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\leq 2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}).
+$$
+
+Sustituyendo esto en la ecuación anterior, se tiene 
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\ 
+  & \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)^p\Bigg]\\ 
+  & \leq \frac{1}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}2^{p-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\ 
+  & = \frac{2^{p-1}}{2^p}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\ 
+  & = \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}(|g(Y_j^*)\Delta W_j|^{2p}+|h(Y_j^*)\Delta\widetilde{N}_j|^{2p})\Bigg]\\
+  & = \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\ 
+  &\qquad\quad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg].
+\end{aligned}
+$$ {#eq-6.86}
+
+Notemos que por la construcción de las cotas para el cuarto y quinto término de la @eq-6.42, estás dadas por la @eq-6.55 y @eq-6.56 respectivamente, tenemos que 
+
+$$
+  \begin{aligned}
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg] & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],\\ 
+    M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]& \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$
+
+Sustituyendo esto en @eq-6.86
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg]\\
+  & \leq \frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|g(Y_j^*)\Delta W_j|^{2p}\Bigg]\\ 
+  &\qquad +\frac{1}{2}M^{p-1}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|h(Y_j^*)\Delta\widetilde{N}_j|^{2p}\Bigg]\\ 
+  & \leq \frac{1}{2}\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+  & \qquad + \frac{1}{2}\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+  & = C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+\end{aligned}
+$$ {#eq-6.87}
+
+Usando siguientes ecuaciones
+
+- @eq-6.44 (1°, 2°, 3° término),
+
+- @eq-6.55 (4° término),
+
+- @eq-6.56 (5° término),
+
+- @eq-6.70 (6° término),
+
+- @eq-6.72 (7° término),
+
+- @eq-6.82 (8° término),
+
+- @eq-6.83 (9° término),
+
+- @eq-6.87 (10° término),
+
+en la @eq-6.42 tenemos
+
+$$
+  \begin{aligned}
+    \mathbb{E} & \Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\\ 
+    & \leq 10^{p-1}\Bigg\{C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}] \\  
+    & \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\ 
+    & \quad + C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\ 
+    & \quad + 2^p r^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+    & \quad + 2^p r^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+    & \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
+    & \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}\\
+    & =\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\\ 
+    & \qquad\quad + \Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p\\ 
+    & \qquad\qquad\qquad\qquad +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+  \end{aligned}
+$$
+
+Para reducir la notación, definimos la constante auxiliar 
+
+$$
+  l:=\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg). 
+$$
+
+De esta forma, la ecuación anterior queda 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+$$ 
+
+Por la forma en la que se ha estado construyendo la constante $C$, es posible realizar los ajustes necesarios de tal forma que $C$ absorba la constante $l$, de esta forma 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+$$ {#eq-6.88}
+
+Es claro que para cada $j=0,1,\ldots,M-1$ se cumple 
+
+$$
+|Y_j|^{2p}\leq \sup\limits_{0\leq n\leq j} |Y_n|^{2p}. 
+$$
+
+Aplicando la esperanza y sustituyendo en la @eq-6.88 tenemos 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg] & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\\ 
+  & \leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}\left(\sup\limits_{0\leq k\leq j}|Y_n|^{2p}\right).
+\end{aligned}
+$$
+
+Considerando el Lema de Grownwall Discreto (citar en preliminares), tomaremos a 
+
+$$
+  u_{M}:=\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg] \quad\text{y}\quad A=B=C.
+$$
+
+Recordando que $M$ es tal que $M\Delta t\leq T$. Entonces 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]\leq Ce^{CM\Delta t}\leq Ce^{CT}. 
+$$ {#eq-6.89}
+
+Por último, recordando la cota para $|Y_n^*|^2$ dada por la @eq-6.25, tenemos que 
+
+$$
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha
+$$
+
+Elevando a la potencia $p$ y aplicando nuevamente la desigualdad $(a+b)^p\leq 2^{p-1}(a^p+b^p)$, tenemos 
+
+$$
+  \begin{aligned}
+    (|Y_n^*|^2)^p & = |Y_n^*|^{2p}\\ 
+    & \leq (\beta|Y_n|^2+\alpha)\\ 
+    & \leq 2^{p-1}(\beta^p|Y_n|^{2p}+\alpha^p).
+  \end{aligned}
+$$
+
+Tomando supremo en $0\leq n\leq M$ y valor esperado tenemos 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^p\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]+2^{p-1}\alpha^p.
+$$
+
+Usando la cota dada por la @eq-6.89, se tiene que 
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p.
+$$ 
+
+Por la @eq-6.43 es posible tener la siguiente cota 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] & \leq 2^{p-1}\beta^pCe^{CT}+2^{p-1}\alpha^p\\ 
+  & \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p.
+\end{aligned}
+$$ {#eq-6.90}
+
+Definimos las siguientes constantes
+
+$$
+  C':= 2^{p-1}\widetilde{\beta}^pC, \quad C'':= 2^{p-1}\widetilde{\alpha}^p.
+$$
+
+Dado que $C>0$ y $T\geq 0$, se puede afirmar que $e^{CT}\geq e^0 = 1$, por lo tanto, de la @eq-6.90 se tiene 
+
+$$
+  \begin{aligned}
+    \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg] & \leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^p\\ 
+    &\leq 2^{p-1}\widetilde{\beta}^pCe^{CT}+2^{p-1}\widetilde{\alpha}^pe^{CT}\\ 
+    &= (2^{p-1}\widetilde{\beta}^pC+2^{p-1}\widetilde{\alpha}^p)e^{CT}\\ 
+    & = (C'+C'')e^{CT}. 
+  \end{aligned}
+$$
+
+Tomando a $\widetilde{C}:=\max\{C',C''\}$ tenemos la cota 
+
+$$
+\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\leq (C'+C'')e^{CT}\leq \widetilde{C}e^{CT}.
+$$
+
+Notemos que las constantes $C$ y $\widetilde{C}$ son positivas y dependen únicamente de $(p,T,\lambda,\theta,L_{\lambda},K_{\lambda},f_{\lambda}(0),g(0),h(0))$ e independiente de $\Delta t$ y $N_T$. Con esto, hemos logrado obtener las siguientes cotas
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg]&\leq Ce^{CT},\\
+  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]& \leq \widetilde{C}e^{CT}.
+\end{aligned}
+$$
+
+Por tanto, basta tommar $A:=\max\{Ce^{CT}, \widetilde{C}e^{CT}\}$, con esto podemos concluir que 
+
+$$
+  \max\Bigg\{ \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg], \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n^*|^{2p}\Bigg]\Bigg\}\leq A.
+$$
+
 :::
 
 ::: {#lem-6.3 style="text-align: justify"}
-Considerando la @eq-606, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
+Considerando la @eq-6.09, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
 
 $$
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
@@ -1168,11 +2198,1342 @@ $$
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 $$
 
-donde $X(t)$ es la solución exacta de la @eq-601 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-605.
+donde $X(t)$ es la solución exacta de la @eq-6.01 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
 :::
 
+::: {.proof style="text-align: justify"}
+
+Comenzaremos acotando la extensión continua denotada por $\overline{Y}(t)$ y definida en la @eq-6.07, recordemos que dicha extensión se deriva de forma directa de la @eq-6.04 y @eq-6.05. Definimos $s\in [0,\Delta t)$ como el tiempo local dentro del intervalo $[t_n,t_{n+1}]$. Sustituyendo $t=t_n+s$ en @eq-6.07 tenemos 
+
+$$
+\begin{aligned}
+  \overline{Y}(t_n+s) & = Y_n+f_{\lambda}(Y_n^*)((t_n+s)-t_n)\\ 
+  & \quad +g(Y_n^*)(W(t_n+s)-W(t_n))+h(Y_n^*)(\widetilde{N}(t_n+s)-\widetilde{N}(t_n)).
+\end{aligned}
+$$
+
+Considerando la siguiente notación 
+
+$$
+  \begin{aligned}
+    \Delta W_n(s) & :=W(t_n+s)-W(t_n)\\ 
+    \Delta\widetilde{N}_n(s)&:=\widetilde{N}(t_n+s)-\widetilde{N}(t_n). 
+  \end{aligned}
+$$
+
+Con esto, la ecuación anterior queda de la forma 
+
+$$
+  \begin{aligned}
+  \overline{Y}(t_n+s) & = Y_n+f_{\lambda}(Y_n^*)(s)\\ 
+  & \quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).
+\end{aligned}
+$$ {#eq-6.91}
+
+Considerando la @eq-6.04 tenemos 
+
+$$
+  f_{\lambda}(Y_n^*)=\frac{Y_n^*-Y_n}{\theta\Delta t}.
+$$ {#eq-6.92}
+
+Definimos $a:=s/\Delta t$, de esta forma $a\in[0,1)$, de aquí, sustituyendo la @eq-6.92 en la @eq-6.91, y usando la definición de la variable auxiliar $a$ tenemos 
+
+$$
+  \begin{aligned}
+    \overline{Y}(t_n+s) & = Y_n+\frac{Y_n^*-Y_n}{\theta\Delta t}s\\ 
+    & \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\ 
+    & = Y_n+\frac{a}{\theta}(Y_n^*-Y_n)\\ 
+    & \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\\ 
+    & = \frac{a}{\theta}Y_n^*+(1-\frac{a}{\theta})Y_n\\ 
+    & \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s).
+  \end{aligned}
+$$ {#eq-6.93}
+
+Considerando la siguiente desigualdad
+
+$$
+  |x_1+x_2+x_3+x_4|^2\leq 4(|x_1|^2+|x_2|^2+|x_3|^2+|x_4|^2),
+$$
+
+tomando valor absoluto y elevando al cuadrado la @eq-6.93 se genera la siguiente cota
+
+$$
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 & = \Bigg|\frac{a}{\theta}Y_n^*+\left(1-\frac{a}{\theta}\right)Y_n\\ 
+    & \qquad\quad +g(Y_n^*)\Delta W_n(s)+h(Y_n^*)\Delta\widetilde{N}_n(s)\Bigg|^2\\ 
+    & \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
+\end{aligned}
+$$
+
+Dado que $a\in [0,1)$ y $\theta\in(0,1]$, esto implica que $\displaystyle \frac{a}{\theta}\leq \frac{1}{\theta}$, más aún, se cumple $\displaystyle \left|1-\frac{a}{\theta}\right|\leq 1+ \frac{1}{\theta}$. De aquí 
+
+$$
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 & \leq 4\Bigg(\Bigg|\frac{a}{\theta}Y_n^*\Bigg|^2+\Bigg|\left(1-\frac{a}{\theta}\right)Y_n\Bigg|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\ 
+    & \leq 4\Bigg(\frac{1}{\theta^2}|Y_n^*|^2+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
+\end{aligned}
+$$ {#eq-6.94}
+
+Recordando la cota para el término $|Y_n^*|^2$ dada por la @eq-6.25 y sustituyendo por los términos de la @eq-6.43 tenemos que 
+
+$$
+  |Y_n^*|^2\leq \beta|Y_n|^2+\alpha\leq \widetilde{\beta}|Y_n|^2+\widetilde{\alpha}^2.
+$$
+
+Sustituyendo esto en la @eq-6.94
+
+$$
+\begin{aligned}
+  |\overline{Y}(t_n+s)|^2 & \leq 4\Bigg(\frac{1}{\theta^2}|Y_n^*|^2+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\ 
+    & \leq 4\Bigg(\frac{1}{\theta^2}\left(\widetilde{\beta}|Y_n|^2+\widetilde{\alpha}^2\right)+\left(1+\frac{1}{\theta}\right)^2|Y_n|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg)\\ 
+    & = 4\Bigg(\frac{\alpha}{\theta^2}+\left(\frac{\widetilde{\beta}}{\theta^2}\left(1+\frac{1}{\theta}\right)^2\right)|Y_n|^2\\ 
+    & \qquad\quad + |g(Y_n^*)\Delta W_n(s)|^2+|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg).
+\end{aligned}
+$$ {#eq-6.95}
+
+Definimos ahora la constante $C_1$ como se sigue
+
+$$
+  C_1:=\max\Bigg\{\frac{4\widetilde{\alpha}}{\theta^2},\frac{4\widetilde{\beta}}{\theta^2}+4\left(1+\frac{1}{\theta}\right),4\Bigg\}.
+$$
+
+De esta forma, la @eq-6.95 queda acotada de la forma 
+
+$$
+\begin{aligned}
+|\overline{Y}(t_n+s)|^2 & \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\ 
+&\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg].
+\end{aligned}
+$$
+
+Notemos que esta nueva constante $C_1$ es independiente de $\Delta t$. Elevando a la potencia $p$ tenemos 
+
+$$
+\begin{aligned}
+|\overline{Y}(t_n+s)|^{2p} & \leq C_1\Bigg[1+|Y_n|^2+|g(Y_n^*)\Delta W_n(s)|^2\\ 
+&\qquad\quad\quad +|h(Y_n^*)\Delta\widetilde{N}_n(s)|^2\Bigg]^p\\ 
+& \leq C_1\Bigg[4^{p-1}\Bigg(1+|Y_n|^{2p}+|g(Y_n^*)\Delta W_n(s)|^{2p}\\ 
+& \qquad\quad\quad + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\Bigg]\\ 
+& \leq C_1\Bigg(1+|Y_n|^{2p}+|g(Y_n^*)\Delta W_n(s)|^{2p}\\ 
+& \qquad\quad\quad + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg). 
+\end{aligned}
+$$ {#eq-6.96}
+
+Al ser $4^{p-1}$ dependiente de $p$ es posible realizar los arreglos de tal forma que la constante $C_1$ pueda absorber dicho término, como se realizó en el @lem-6.2 con la constante $C$. Recordemos que $t_n=n\Delta t$, luego el intervalo $[0,T]$ se divide en $N_T+1$ subintervalos definidos por la malla de la forma
+
+$$
+  [0,T]=[t_0,t_1)\cup [t_1,t_2)\cup\cdots\cup[t_{N_T-1},t_{N_T})\cup [t_{N_T},T). 
+$$
+
+Donde $N_T$ es el mayor entero tal que $N_T\Delta t\leq T$. Por otro lado, recordemos que para cualquier función real definida sobre un intervalo, en nuestro caso $[0,T]$, el supremo global coincide con el supremo de los supremos locales, es decir, 
+
+$$
+\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}=\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg).
+$$
+
+Por tanto, tomando supremo local a la @eq-6.96 tenemos 
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq t\leq T}&|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\ 
+  & \leq \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}C_1\Bigg(1+|Y_n|^{2p}\\ 
+  & \qquad\qquad\qquad\qquad\qquad\quad  + |g(Y_n^*)\Delta W_n(s)|^{2p}\\ 
+  & \qquad\qquad\qquad\qquad\qquad\quad  + |h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\Bigg)\\ 
+  & = C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+\sup\limits_{0\leq s\leq \Delta t}|Y_n|^{2p}\\ 
+  & \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\ 
+  & \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\ 
+  & = C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
+  & \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg).
+\end{aligned}
+$$ {#eq-6.97}
+
+Consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función $F(n,s)$ definida sobre un conjunto de índices discretos $n\in \{0,1,\ldots,T\}$ y un parámetro continuo $s\in [0,\Delta t]$, se cumple 
+
+$$
+\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t} F(n,s)\Bigg)=\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T} F(n,s)\Bigg)
+$$
+
+Tomando a 
+
+$$
+  F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p},
+$$ 
+
+entonces, al distribuir el segundo supremo de la @eq-6.97, notemos que para el tercer término, tenemos 
+
+$$
+\begin{aligned}
+     \sup\limits_{0\leq n\Delta t\leq T}&\Bigg(\sup\limits_{0\leq s\leq \Delta t}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg)\\ 
+     & =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg).
+\end{aligned} 
+$$ {#eq-6.98}
+
+De igual forma, aplicamos este mismo resultado para el cuarto término, es decir, 
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq n\Delta t\leq T} & \Bigg(\sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)\\ 
+  & =\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg).
+\end{aligned} 
+$$ {#eq-6.99}
+
+Por definición, tenemos que $N_T=\max\{n\in \mathbb{N}:n\Delta t\leq T\}$, con esto, la condición $0\leq n\Delta t\leq T$ es equivalente para $n\in \{0,1,2,\ldots,N_T\}$. Queremos usar el siguiente resultado el cuál dicta que para cualquier secuencia finita de  números reales no negativos $\{a_j\}_{j=0}^N$ se cumple 
+
+$$
+  \max\limits_{0\leq j\leq N}a_j\leq \sum\limits_{j=0}^N a_j.
+$$
+
+En nuestro caso los términos no negativos son $|g(Y_n^*)\Delta W_n(s)|^{2p}$ y $|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}$, además, notemos que el supremo sobre un conjunto discreto finito, $n\Delta t\in [0,T]$ o bien $n\in\{0,1,2,\ldots, N_T\}$ va a coincidir con el máximo, por lo tanto es valido usar la desigualdad mencionada, de tal forma que obtenemos 
+
+$$
+  \sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}.
+$$
+
+De igual forma se tiene 
+
+$$
+  \sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\leq \sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}.
+$$
+
+Por lo tanto, @eq-6.98 y @eq-6.99 quedan de la forma 
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|g(Y_n^*)\Delta W_n(s)|^{2p}\Bigg) & \leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg),\\ 
+  \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T}|h(Y_n^*)\Delta \widetilde{N}_n(s)|^{2p}\Bigg)&\leq \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg).
+\end{aligned}
+$$
+
+De aquí, la @eq-6.97 
+
+$$
+\begin{aligned}
+  \sup\limits_{0\leq t\leq T}&|\overline{Y}(t)|^{2p}= \sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t}|\overline{Y}(t_n+s)|^{2p}\Bigg)\\ 
+  & \leq C_1\sup\limits_{0\leq n\Delta t\leq T}\Bigg(1+|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t} |g(Y_n^*)\Delta W_n(s)|^{2p}\\
+  & \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg)\\ 
+  & \leq C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\ 
+  & \qquad\quad\qquad + \sup\limits_{0\leq s\leq \Delta t}\Bigg(\sum\limits_{j=0}^{N_T} |h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg)\\ 
+  & = C_1\Bigg(1+\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}+ \sum\limits_{j=0}^{N_T} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\\ 
+  & \qquad\quad\qquad + \sum\limits_{j=0}^{N_T} \sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg).
+\end{aligned}
+$$
+
+Tomando esperanza y aplicando la linealidad obtenemos 
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\ 
+  & \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\ 
+  & \qquad\qquad + \sum\limits_{j=0}^{N_T} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\ 
+  & \qquad\qquad + \sum\limits_{j=0}^{N_T}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg).
+\end{aligned}
+$$ {#eq-6.100}
+
+Puesto que $g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))$, veamos que es una martingala continua. Para ello,  fijaremos un paso discreto mediante $j\in\{0,1,2,\ldots,N_T\}$ y definimos la siguiente filtración 
+
+$$
+  \mathcal{G}_s:=\mathcal{F}_{t_j+s},\qquad s\in [0,\Delta t].
+$$
+
+Para $0\leq s_1\leq s_2\leq \Delta t$, se tiene que $t_j+s_1\leq t_j+s_2$, al ser $\{\mathcal{F}_t\}$ una filtración, entonces por definición es creciente y por tanto 
+
+$$
+  \mathcal{F}_{t_j+s_1}\subset \mathcal{F}_{t_j+s_2},
+$$
+
+esto equivale a $\mathcal{G}_{s_1}\subset \mathcal{G}_{s_2}$, por lo que $\{\mathcal{G}_s\}$ es una filtración. Recordemos que por construcción del método $\text{CSS}\theta$ la filtración $\mathcal{F}_t$ es continua por la derecha, es decir, satisface 
+
+$$
+  \mathcal{F}_t=\bigcap\limits_{u>t}\mathcal{F}_u,\quad \forall t\geq 0. 
+$$
+
+Note que para cualquier $s\in[0,\Delta t]$  se cumple 
+
+$$
+\mathcal{G}_s=\mathcal{F}_{t_j+s}=\bigcap\limits_{v>t_j+s}\mathcal{F}_v=\bigcap\limits_{u>s}\mathcal{F}_{t_j+u}=\bigcap\limits_{u>s}\mathcal{G}_u,
+$$
+
+por lo que $\{\mathcal{G}_s\}$ hereda la continuidad por la derecha de la filtración $\{\mathcal{F}_t\}$. Finalmente, por hipótesis $\mathcal{F}_0$ contiene todos los conjuntos $P$-nulos. Dado que $t_j\geq 0$ y la filtración es creciente, esto implica que $\mathcal{F}_0\subset\mathcal{F}_{t_j}=\mathcal{G}_0$, por lo tanto $\mathcal{G}_0$ también contiene los conjuntos $P$-nulos. Con esto la filtración $\{G\}_s$ esestá bien definida.
+
+Luego como primer paso, demostraremos que $g(Y_j^*)\Delta W_j(s)$ es $\mathcal{G}_s$-medible para todo $s\in [0,\Delta t]$. 
+
+Por construcción del método  $\text{CSS}\theta$ sabemos que $Y_j$ y $Y_j^*$ son funciones medibles de los incrementos estocásticos hasta el tiempo $t$, por lo que podemos afirmar que $Y_j^*$ es $\mathcal{F}_{t_j}$-medible. Dado que $\mathcal{F}_{t_j}\subset \mathcal{F}_{t_j+s}=\mathcal{G}_s$, esto implica que $Y_j^*$ es $\mathcal{G}_s$-medible. Por ser $g(Y_j^*)$ composición de una función continua con una variable $\mathcal{G}_s$-medible, entonces $g(Y_j^*)$ también es $\mathcal{G}_s$-medible. Por definición de movimiento browniano, los incrementos, $\Delta W_j(s)$ son $\mathcal{F}_t$-medibles, por lo tanto, tambien son $\mathcal{G}_s$-medibles. El producto de variables $\mathcal{G}_s$-medibles, en nuestro caso, $g(Y_j^*)$ y $\Delta W_j(s)$, es $\mathcal{G}_s$-medible. 
+
+Procedemos a demostrar que $g(Y_j^*)\Delta W_j(s)=g(Y_j^*)(W(t_j+s)-W(t_j))$ es integrable, es decir, que cumple
+
+$$
+\mathbb{E}[|g(Y_j^*)\Delta W_j(s)|]=g(Y_j^*)(W(t_j+s)-W(t_j))<\infty, \quad \forall s\in [0,\Delta t].
+$$
+
+Usando la desigualdad dada por la @eq-6.19, tomando $x=Y_j^*$, tenemos 
+
+$$
+\begin{aligned}
+|g(Y_j^*)|^{2p} & \leq (L_{\lambda}(1+|Y_j^*|^2))^p\\ 
+& = L_{\lambda}^p(1+|Y_j^*|^2)^p\\ 
+& \leq L_{\lambda}^p(2^{p-1}(1+|Y_j^*|^{2p}))\\ 
+& = 2^{p-1}L_{\lambda}^p(1+|Y_j^*|^{2p}). 
+\end{aligned}
+$$
+
+Al aplicar esperanza y usar el @lem-6.2 tenemos que 
+
+$$
+\begin{aligned}
+\mathbb{E}[|g(Y_j^*)|^{2p}]& \leq \mathbb{E}[2^{p-1}L_{\lambda}^p(1+|Y_j^*|^{2p})]\\ 
+& = 2^{p-1}L_{\lambda}^p(1+\mathbb{E}[|Y_j^*|^{2p}])\\ 
+& \leq 2^{p-1}L_{\lambda}^p(1+A)<\infty.
+\end{aligned}  
+$$
+
+Para nuestro caso, $p=1$, con esto 
+
+$$
+\mathbb{E}[|g(Y_j^*)|^{2}]\leq L_{\lambda}(1+A)<\infty.
+$$
+
+Luego, al ser $\Delta W_j(s)$ un incremento browniano, entonces se cumple 
+
+$$
+\mathbb{E}[|\Delta W_j(s)|^2]=\mathbb{E}[|W(t_j+s)-W(t_j)|^2]=(t_j+s)-t_j=s\leq \Delta t<\infty.
+$$
+
+Usando la desigualdad de Cauchy-Schwarz
+
+$$
+\begin{aligned}
+\mathbb{E}[|g(Y_j^*)\Delta W_j(s)|] & \leq \sqrt{\mathbb{E}[|g(Y_j^*)|^2]}\cdot \sqrt{\mathbb{E}[|\Delta W_j(s)|^2]}\\ 
+& \leq \sqrt{L_{\lambda}(1+A)}\cdot \sqrt{\Delta t}<\infty.
+\end{aligned}
+$$
+
+Por lo tanto, el proceso es integrable. Por último, debemos probar que posee la propiedad de martingala, es decir, para $0\leq u\leq s$ se debe cumplir 
+
+$$
+  \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]= g(Y_j^*)\Delta W_j(u).
+$$
+
+Mediante argumentos previamente abordados se puede afirmar que el factor $g(Y_j^*)$ es $\mathcal{G}_u$-medible y además es posible factorizarlo fuera de la esperanza condicional, esto es 
+
+$$
+\mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}],
+$$
+
+donde recordemos que $\mathcal{G}_u=\mathcal{F}_{t_j+u}$. Por otro lado, realizando la siguiente manipulación al incremento browniano 
+
+$$
+W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
+$$
+
+Aplicando esperanza condicional y su respectiva linealidad se tiene
+
+$$
+\begin{aligned}
+  \mathbb{E} [W(t_j+s) - W(t_j)|\mathcal{F}_{t_j+u}] & = \mathbb{E}[W(t_j+s) - W(t_j+u)|\mathcal{F}_{t_j+u}]\\ 
+  &\qquad +\mathbb{E}[W(t_j+u) - W(t_j)|\mathcal{F}_{t_j+u}].
+\end{aligned}
+$$
+
+Por la propiedad de incrementos independientes del movimiento browniano, tenemos que 
+
+$$
+\mathbb{E}[W(t_j+s) - W(t_j+u)|\mathcal{F}_{t_j+u}]=0.
+$$
+
+Además, dado que $W(t_j+u)-W(t_j)$ es $\mathcal{F}_{t_j+u}$-medible, por lo que 
+
+$$
+  \mathbb{E}[W(t_j+u) - W(t_j)|\mathcal{F}_{t_j+u}]=W(t_j+u) - W(t_j)=\Delta W_j(u).
+$$
+
+Por lo tanto 
+
+$$
+  \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}]=g(Y_j^*)\Delta W_j(u).
+$$
+
+Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que $g(Y_j^*)\Delta W_j(s)$ es una martingala continua, lo que nos permite usar la desigualdad maximal de Doob al tercer término de la @eq-6.100
+
+$$
+  \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg]\leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}].
+$$
+
+Usando la linealidad del valor esperado a la ecuación anterior tenemos que 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] & \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}]\\ 
+& = \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}].
+\end{aligned}
+$$
+
+En el @lem-6.2 se abordó que el valor esperado del incremento browniano está acotado por una constante $c_p$ que depende únicamente de $p$, esto en @eq-6.49. Para nuestro caso, tenemos el caso continuo, por lo que mediante un análisis similar, es posible afirmar que existe una constante $K_p$ tal que solo depende de $p$ y que cumple
+
+$$
+  \mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\leq K_p(\Delta t)^p. 
+$$
+
+Considerando que $\Delta t\leq 1$, esto a su vez implica que $(\Delta t)^{p-1}\leq 1$, además de usar la @eq-6.19 logramos obtener la siguiente cota
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] & \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)|^{2p}]\mathbb{E}[|\Delta W_j(\Delta t)|^{2p}]\\ 
+& \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[(L_{\lambda}(1+|Y_j^*|^2))^{p}]K_p(\Delta t)^{p}\\
+& \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[L_{\lambda}^p 2^{p-1}(1+|Y_j^*|^{2p})]K_p\Delta t(\Delta t)^{p-1}\\
+& \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t. 
+\end{aligned}
+$$
+
+Usando la constante $A$ del @lem-6.2 se tiene que 
+
+$$
+\mathbb{E}[1+|Y_j^*|^{2p}]\leq \mathbb{E}[1+A]=(1+A),
+$$
+
+entonces 
+
+$$
+  \begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] & \leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p\mathbb{E}[1+|Y_j^*|^{2p}]\Delta t\\ 
+& \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t.
+\end{aligned}
+$$
+
+Bajo la misma metodología que se ha estado usando, los términos $\displaystyle\Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)$ quedarán absorbidos por la constante $C_1$ de tal forma que de la desigualdad anterior se reduce 
+
+$$
+  \begin{aligned}
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg] & \leq  \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}2^{p-1}L_{\lambda}^pK_p(1+A)\Delta t\\ 
+& \leq C_1\Delta t.
+\end{aligned}
+$$ {#eq-6.101}
+
+De forma análoga, afirmamos que $h(Y_j^*)\Delta\widetilde{N}_j(s)$ es una martingala lo que nos permite usar el mismo método previo para obtener
+
+$$
+\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|h(Y_j^*)\Delta\widetilde{N}_j(s)|^{2p}\Bigg]\leq C_1\Delta t.
+$$ {#eq-6.102}
+
+Usando las cotas de la @eq-6.101 y @eq-6.102, además usando el resultado del @lem-6.2, la @eq-6.100 queda de la forma 
+
+$$
+\begin{aligned}
+  \mathbb{E}&\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\\ 
+  & \leq C_1\Bigg(1+\mathbb{E}\Bigg[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\Bigg]\\ 
+  & \qquad\qquad + \sum\limits_{j=0}^{N_T} \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg)\Bigg]\\ 
+  & \qquad\qquad + \sum\limits_{j=0}^{N_T}\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}\Bigg(|h(Y_j^*)\Delta \widetilde{N}_j(s)|^{2p}\Bigg)\Bigg]\Bigg)\\ 
+  & \leq C_1\Bigg(1+A+\sum\limits_{j=0}^{N_T} C\Delta t + \sum\limits_{j=0}^{N_T} C\Delta t\Bigg)\\
+  & = C_1(1+A+C_1 N_T\Delta t +  C_1N_T\Delta t). 
+\end{aligned}
+$$
+
+Dado que $N_T$ es tal que $N_T\Delta t\leq T$ entonces 
+
+$$
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T). 
+$$ {#eq-6.103}
+
+Para términar, debemos acotar la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 1$. Consideremos la siguiente función 
+
+$$
+  U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
+$$
+
+tomando a $x=X(t)$, aplicaremos la fórmula de Itô generalizada para $U\in C^2(\mathbb{R})$, la cuál está dada por (citar en preliminares)
+
+$$
+\begin{aligned}
+  U(X(t)) & = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\ 
+  & \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\ 
+  & \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s), 
+\end{aligned}
+$$ {#eq-6.104}
+
+donde $\mathcal{L}$ es el operador infinitesimal para la parte de difusión, dado que estamos abordando el caso particular unidimensional dicho operador se reduce a 
+
+$$
+\mathcal{L}U(x)=U'(x)f(x)+\frac{1}{2}g(x)^2U''(x). 
+$$
+
+Calculando la primera y segunda derivada de la función $U$
+
+$$
+\begin{aligned}
+U'(x) & = \frac{p}{2}(1+x^2)^{p/2-1}\cdot 2x\\ 
+& = p(1+x^2)^{(p-2)/2}x, \\ 
+U''(x) & = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-2)/2}\cdot 1\Bigg]\\ 
+& = p(p-2)(1+x^2)^{(p-4)/2}x^2+p(1+x^2)^{(p-2)/2}.
+\end{aligned}
+$$ {#eq-6.105}
+
+Con esto, el segundo término de la @eq-6.104 queda 
+
+$$
+\begin{aligned}
+\int_0^t & \mathcal{L}U(X(s-))ds\\ 
+& = \int_0^t \Bigg(U'(X(s-))f(X(s-))+\frac{1}{2}g(X(s-))^2U''(X(s-))\Bigg)ds\\ 
+& = \int_0^t\Bigg(p(1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))\\ 
+& \qquad + \frac{1}{2}g(X(s-))^2\Bigg(p(p-2)(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2\\ 
+& \qquad + p(1+(X(s-))^2)^{(p-2)/2}\Bigg)\Bigg)ds\\ 
+& = \int_0^t\Bigg(p(1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))\\ 
+& \qquad + \frac{p(p-2)}{2}g(X(s-))^2(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2\\ 
+& \qquad + \frac{p}{2}g(X(s-))^2(1+(X(s-))^2)^{(p-2)/2}\Bigg)ds\\ 
+& =p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\\ 
+& \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\ 
+& \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds.
+\end{aligned}
+$$ {#eq-6.106}
+
+Para el tercer término de la @eq-6.104 que corresponde a la integral estocástica respecto al movimiento browniano basta con sustituir la primera derivada de la función $U$ dada en la @eq-6.105, de aquí 
+
+$$
+\begin{aligned}
+\int_0^t & U'(X(s-))g(X(s-))dW(s) \\ 
+& = p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s).
+\end{aligned}
+$$ {#eq-6.107}
+
+Finalmente para el cuarto y último término tenemos 
+
+$$
+\begin{aligned}
+\int_0^t & [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\ 
+& = \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}\\ 
+& \qquad\qquad\qquad\qquad\quad-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
+\end{aligned}
+$$ {#eq-6.108}
+
+Juntando la @eq-6.106, @eq-6.107 y @eq-6.108 en la @eq-6.104 tenemos 
+
+$$
+\begin{aligned}
+  U(X(t)) & = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\ 
+  & \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\ 
+  & \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\
+  & = (1+X_0^2)^{p/2}\\ 
+  & \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\\ 
+  & \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\\ 
+  & \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\ 
+  & \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\\ 
+  & \qquad + \int_0^t\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s).
+\end{aligned}
+$$ {#eq-6.109}
+
+Haremos uso de la desigualdad dada por la @eq-6.19, sabemos que para números no negativos se cumple la desigualdad $(a+b)^2\leq 2a^2+2b^2$, esto implica que 
+
+$$
+\begin{aligned}
+1+(|x|-|h(x)|)^2 & \leq 1 + 2|x|^2-2|h(x)|^2\\ 
+& \leq 1+2|x^2|+2(2L_h|x|^2+2|h(0)|^2)\\ 
+& = 1+4|h(0)|^2+(2+4L_h)|x|^2.
+\end{aligned}
+$$
+
+Tomando a $K_1:=\max\{1+4|h(0)|^2,2+4L_h\}$ se tiene 
+
+$$
+1+(|x|-|h(x)|)^2\leq K_1(1+|x|^2),
+$$
+
+ elevando a la potencia $p/2$ 
+
+$$
+(1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
+$$
+
+Al restar de ambos lados el término $(1+|x|^2)^{p/2}$ y definiendo a $K:=2^{(p-2)/2}(K_1^{p/2}-1)$ es posible obtener 
+
+$$
+\begin{aligned}
+(1+(|x|-|h(x)|)^2)^{p/2} & - (1+|x|^2)^{p/2}\\ 
+& \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\ 
+& = (K_1^{p/2}-1)(1+|x|^2)^{p/2} \\ 
+& \leq (K_1^{p/2}-1)2^{p/2-1}(1+(|x|^2)^{p/2})\\ 
+& = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p).
+\end{aligned} 
+$$ {#eq-6.110}
+
+Necesitamos definir los siguientes tiempos de paro meniante 
+
+$$
+\tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}. 
+$$ {#eq-6.111}
+
+Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando $N\rightarrow\infty$, sin embargo, es necesario contar previamente con la validez de los siguientes resultados
+
+> **Lema.**
+> Una función càdlàg definida en un intervalo compacto $[0,T]$ es acotada.
+> *Demostración.* Procediendo por contradicción, supongamos que $f:[0,T]\rightarrow\mathbb{R}$ es una función càdlàg, tal que no es acotada en $[0,T]$, es decir, existe una sucesión $\{t_n\}_{n\in\mathbb{N}}\subset[0,T]$ tal que
+>
+> $$
+> |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty. 
+> $$
+>
+> Por el Teorema de Bolzado-Weierstrass(citar en preliminares), como $[0,T]$ es compacto, existe una subsucesión $\{t_{n_k}\}$ que converge a algún punto $t^*\in[0,T]$, vale decir 
+> 
+>$$
+>t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
+>$$
+> 
+> **Caso 1.** $t_{n_k}\rightarrow t^*$ por la derecha o eventualmente es constante. 
+> Como $f$ es continua por la derecha en $t^*$, tenemos que 
+> $$
+> \lim\limits_{s\downarrow t} f(s)=f(t^*). 
+> $$
+> 
+> Esto implica que para cualquier $\varepsilon>0$, existe $\delta> 0$ tal que 
+> $$
+> |f(s)-f(t^*)|<\varepsilon,\qquad\forall s\in [t^*,t^*+\delta).
+> $$
+> 
+> En particular, $f$ está acotada en $[t^*,t^*+\delta)$, lo que contardice que $|f(t_n)|\rightarrow\infty$ para $t_{n_k}\geq t^*$.
+>  
+> Para el caso cuando $t_{n_k}\rightarrow t^*$ por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto $f$ debe ser acotada en $[0,T]$.
+
+> **Lema.**
+> Para casi todo $\omega\in\Omega$, la trayectoria $t\mapsto X(t,\omega)$ es acotada en $[0,T]$.
+> *Demostración.* Por hipótesis, $X(t)$  es càdlàg. Esto implica que para cada $\omega\in\Omega$, la función 
+>
+> $$
+> f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
+> $$
+> 
+>
+> es càdlàg. Por el lema previo, podemos afirmar que cada $f_{\omega}$ es acotada en $[0,T]$. Por lo tanto, para casi todo $\omega$, existe una constante $M_{\omega}<\infty$ tal que 
+> $$
+> \sup\limits_{t\in[0,T]}|X(t,\omega)|\leq M_\omega<\infty. 
+> $$
+> 
+> Basta definir a la variable $\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|$, entonces $M<\infty$ casi seguramente.
+
+Definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante 
+
+$$
+  \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|<\infty\right\}. 
+$$
+
+Por el lema anterior, tenemos que $\mathbb{P}(\Omega_0)=1$. Fijando $\omega\in\Omega_0$, tenemos por definición que existe $M_{\omega}<\infty$ tal que 
+
+$$
+|X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T]. 
+$$
+
+Sea $N\in\mathbb{N}$ tal que $N>M_{\omega}$, la definición de tiempos de paro dada en la @eq-6.111 indica que
+
+$$
+  \tau_N(\omega)=\min\{T,\inf\{t\in[0,T]:|X(t,\omega)|\geq N\}\}. 
+$$
+
+Luego, como $|X(t,\omega)|\leq M_{\omega}<N$ para todo $t\in[0,T]$, entonces 
+
+$$
+  \{t\in[0,T]:|X(t,\omega)|\geq N\}=\emptyset. 
+$$
+
+Por la definición del ínfimo en los reales extendidos se tiene que $\inf\emptyset=+\infty$. Por lo tanto 
+
+$$
+\tau_N(\omega)=\min\{T,+\infty\}=T. 
+$$
+
+Con esto, para cada $\omega\in\Omega_0$ se tiene que existe $N_{\omega}$ tal que $\tau_N=T$ para todo $N\geq N_{\omega}$, en particular podemos afirmar 
+
+$$
+  \lim\limits_{N\rightarrow\infty}\tau_N(\omega)=T, \qquad\forall \omega\in\Omega_0
+$$
+
+Cómo $\mathbb{P}(\Omega_0)=1$, entonces $\tau_N$ converge a $T$ casi seguramente cuando $N\rightarrow\infty$. Por otro lado, afirmamos que la secuencia $\{\tau_N\}_{N\in \mathbb{N}}$ es creciente. Pues si $N_1,N_2\in\mathbb{N}$ son tales que $N_1<N_2$, esto implica que 
+
+$$
+\{t:|X(T)|\geq N_2\}\subset\{t:|X(T)|\geq N_1\}.
+$$
+
+Por lo tanto 
+
+$$
+\inf\{t:|X(T)|\geq N_2\}\geq\inf\{t:|X(T)|\geq N_1\}.
+$$ 
+
+Y así 
+
+$$
+\tau_{N_2}=\min\{T,\inf\{t:|X(T)|\geq N_2\}\}\geq\min\{T,\inf\{t:|X(T)|\geq N_1\}\}=\tau_{N_1}.
+$$
+
+Ya definido completamente los tiempos de paro, procedemos a definir el proceso truncado de la siguiente forma
+
+$$
+X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) = 
+            \begin{cases}
+            X(t) & \text{si}\quad t<\tau_N,\\ 
+            X(\tau_N) & \text{si}\quad t\geq\tau_N.
+            \end{cases}
+$$ {#eq-6.112}
+
+Afirmamos que existe una constante $K_N<\infty$ tal que depende de $N$ y cumple 
+
+$$
+\sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
+$$
+
+Dado que $X(t)$ tiene trayectorias càdlàg, entonces para casi todo $\omega\in \Omega$ y todo $t<\tau_N(\Omega)$ se tiene $|X(t,\omega)|<N$ por la definición de ínfimo. 
+
+Notemos que cuando $t=\tau_N(\omega)$ el proceso $X(t)$ puede experimentar un salto de Poisson. Cómo $|X(\tau_N-,\omega)|\leq N$ y el tamaño del salto está dado por $h(X(\tau_N-,\omega))$, donde $h$ es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto  de valores posible para el límite por la izquierda $X(\tau_N-,\omega)$ está contenido en el siguiente intervalo
+
+$$
+D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N]. 
+$$
+
+Por el Teorema de Heine-Borel(va preliminares), dicho intervalo es un conjunto compacto, pues es cerrado y acotado. Luego el Teorema de Weiertrass(va preliminares) indica que toda función continua definida sobre un intervalo compacto alcanza su máximo y mínimo absolutos en dicho conjunto. Al ser $h$ continua en el compacto $D_N$, entonces existe un punto $x^*\in D_N$ tal que 
+
+$$
+|h(x^*)|=\sup\limits_{x\in[-N,N]}|h(x)|=\max\limits_{|x|\leq N}|h(x)|.
+$$
+
+Por tanto, podemos definir la constante $\displaystyle C_N:=\max\limits_{|x|\leq N}|h(x)|<\infty$. 
+
+$$
+|X(\tau_N,\omega)|\leq |X(\tau_N-,\omega)|+|h(X(\tau_N-,\omega))|\leq N+C_N. 
+$$
+
+Con esto, para $t>\tau_N(\omega)$, el proceso se mantiene constante en $X(\tau_N,\omega)$. Por lo tanto basta tomar a $K_N=N+C_N$ lo que cumple 
+
+$$
+\sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N, 
+$$
+
+casi seguramente.
+
+Ya definidos estos resultados, evaluamos la @eq-6.109 en el tiempo de paro y tomamos esperanza
+
+$$
+\begin{aligned}
+ \mathbb{E}[1+ X( & t\wedge\tau_N)^{2}]^{p/2}\\ 
+ & = \mathbb{E}[1+X_0^2]^{p/2}\\ 
+ & \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
+ & \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\ 
+ & \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\ 
+ & \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]\\ 
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\end{aligned}
+$$ {#eq-6.113}
+
+Comenzaremos estudiando el término correspondiente al movimiento browniano dado por 
+
+$$
+  \int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s). 
+$$ {#eq-6.114}
+
+Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg]<\infty,\quad s\in[0,t\wedge\tau_N]. 
+$$ {#eq-6.115}
+
+Si esto se cumple, entonces la propiedad de martingala nos asegura
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]=0. 
+$$
+
+Notemos
+
+$$
+\begin{aligned}
+|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 & = |(1+X(s-))^{(p-2)/2}|^2|X(s-)|^2|g(X(s-))|^2\\ 
+& = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2.   
+\end{aligned}
+$$
+
+Usando la cota dada por la @eq-6.19, tomando a $x=X(s-)$ se tiene
+
+$$
+\begin{aligned}
+|(1+X(s-))^{(p-2)/2}&X(s-)g(X(s-))|^2\\ 
+& = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2\\ 
+& \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2).
+\end{aligned}
+$$ {#eq-6.116}
+
+Por la definición del tiempo de paro dado en la @eq-6.111, sabemos que para cualquier $s\leq\tau_N$ el proceso satisface $|X(s-)|\leq N$ casi seguramente. Esto implica que $X(s-)^2\leq N^2$. Recordemos que para $p\geq 1$, la función $u\mapsto u^{p-2}$ es creciente para $u\geq 1$. Por tanto de la @eq-6.116
+
+$$
+\begin{aligned}
+|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 & \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2)\\ 
+& \leq L_{\lambda}N^2(1+N)^{p-2}(1+N^2)<\infty,
+\end{aligned}
+$$
+
+al definir $I:=L_{\lambda}N^2(1+N)^{p-2}(1+N^2)$, dicha variable depende de $N$, $p$ y $L_{\lambda}$, además considerando que el tiempo de paro satisface $t\wedge\tau_N\leq T$ se tiene   
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg] & \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\ 
+& = I\cdot\mathbb{E}[t\wedge\tau_N]\\ 
+& \leq I\cdot T\leq \infty.
+\end{aligned}
+$$
+
+Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la @eq-6.115 dada por
+
+$$
+\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2, 
+$$ 
+
+es una martingala cuadrado integrable, por la propiedad de martingalas se afirma que 
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
+$$ {#eq-6.117}
+
+Analizaremos el último término de la @eq-6.113 dado por 
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg].
+$$ {#eq-6.118}
+
+Recordemos que el proceso de Poisson compensado está definido mediante 
+
+$$
+N(t)=\widetilde{N}(t)-\lambda t. 
+$$
+
+Esto implica $dN(s)=d\widetilde{N}(s)+\lambda ds$, sustituyendo en la integral de la @eq-6.118 se tiene 
+
+$$
+\begin{aligned}
+\int_0^{t\wedge\tau_N} & \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\\ 
+& = \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\\ 
+& \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds.
+\end{aligned}
+$$ {#eq-6.119}
+
+Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a $d\widetilde{N}(s)$ debemos probar que 
+
+$$
+\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+$$
+
+es una martingala cuadrado integrable, es decir que cumple
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg|^2ds\Bigg]<\infty.
+$$ 
+
+Al usar la desigualdad $(a+b)^2\leq 2a^2+2b^2$ y la monotonía de la función $u\mapsto u^{p/2}$ para $p\geq 1$, tenemos que 
+
+$$
+\begin{aligned}
+|(1+(X(s-) & + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|\\ 
+& \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|.  
+\end{aligned}
+$$
+
+Dado que $X(s-)\leq|X(s-)|\leq N$ para $s\leq\tau_N$, además considerando la @eq-6.19 tenemos que 
+
+$$
+\begin{aligned}
+|(1+(X(s-) & +h(X(s-)))^2)^{p/2} -(1+X(s-)^2)^{p/2}|\\ 
+& \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|\\ 
+& \leq |(1+2X(s-)^2+2L_{\lambda}(1+X(s-)^2))^{p/2}-(1+X(s-)^2)^ {p/2}|\\ 
+& \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|.\\ 
+\end{aligned}
+$$
+
+Al elevar al cuadrado se mantiene la desigualdad y se tiene 
+
+$$
+\begin{aligned}
+|(1+(X(s-)+h(X(s-)))^2)^{p/2} & -(1+X(s-)^2)^{p/2}|^2\\ 
+& \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2<\infty.
+\end{aligned}
+$$
+
+Con esto, al integrar sobre el el intervalo $[0,t\wedge\tau_N]$ y tomar esperanza se tiene que 
+
+$$
+\begin{aligned}
+\mathbb{E} \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s-) & + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|^2ds\Bigg]\\ 
+& \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}|(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2 ds\Bigg]\\ 
+& = |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}ds\Bigg]\\ 
+& \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}[t\wedge\tau_N]\\ 
+& \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2T<\infty.
+\end{aligned}
+$$
+
+Entonces la integral estocástica dada por 
+
+$$
+\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+$$
+
+está bien definida, con esto, se garantiza que su esperanza sea cero, es decir
+
+$$
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
+$$
+
+Tomando valor esperado a la @eq-6.119 y considerando lo anterior, tenemos 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} & \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\ 
+& = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\ 
+& \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg]\\ 
+& = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
+\end{aligned}
+$$ {#eq-6.120}
+
+Sustituyendo la @eq-6.117 y la @eq-6.120 en la @eq-6.113 se obtiene 
+
+$$
+\begin{aligned}
+ \mathbb{E} [1+X( & t\wedge\tau_N)^{2}]^{p/2}\\ 
+ & = \mathbb{E}[1+X_0^2]^{p/2}\\ 
+ & \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
+ & \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\ 
+ & \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\ 
+ & \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
+\end{aligned}
+$$ {#eq-6.121}
+
+Para facilitar la notación en lo que resta, usaremos $x=X(s-)$, de esta forma, acotaremos término a término de la @eq-6.121. Para las siguientes manipulaciones, haremos uso de la @eq-6.19. Comenzando con el segundo término de la @eq-6.121 tenemos 
+
+$$
+\begin{aligned}
+p(1+x^2)^{(p-2)/2}xf(x) & \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\ 
+& = L_{\lambda}p(1+x^2)^{p/2}. 
+\end{aligned}
+$$ {#eq-6.122}
+
+Para el tercer término, contemplamos que $g(x)^2\leq |g(x)|^2$ para poder hacer uso de la @eq-6.19, con esto 
+
+$$
+\begin{aligned}
+\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 & \leq \frac{p}{2}(1+x^2)^{(p-2)/2}|g(x)|^2\\ 
+& \leq  \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\ 
+& = \frac{pL_{\lambda}}{2}(1+x^2)^{p/2}.
+\end{aligned}
+$$ {#eq-6.123}
+
+Dado que $L_{\lambda}>0$ en la manera que se define, entonces $L_{\lambda}\leq 1+L_{\lambda}$. El producto $xg(x)$ se puede acotar de la siguiente forma 
+
+$$
+\begin{aligned}
+xg(x) & \leq |xg(x)|\\ 
+& \leq \frac{1}{2}(x^2+g(x)^2)\\ 
+& \leq \frac{1}{2}(x^2+L_{\lambda}(1+x^2))\\ 
+& = \frac{1}{2}(L_{\lambda}+(1+L_{\lambda})x^2)\\
+& \leq \frac{1}{2}((1+L_{\lambda})+(1+L_{\lambda})x^2) \\ 
+& = \frac{1+L_{\lambda}}{2}(1+x^2).
+\end{aligned}
+$$
+
+Esto implica que 
+
+$$
+x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
+$$
+
+Con esto, el cuarto término se acota mediante 
+
+$$
+\begin{aligned}
+\frac{p(p-2)}{2}(1 & +x^2)^{(p-4)/2} x^2g(x)^2\\ 
+& \leq \frac{p(p-2)}{2}(1+x^2)^{(p-4)/2}\frac{(1+L_{\lambda})^2}{4}(1+x^2)^2\\ 
+& = \frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+x^2)^{p/2}.
+\end{aligned}
+$$ {#eq-6.124}
+
+Finalmente, para el quinto término de la @eq-6.121, haremos uso de la misma herramienta, considerando que $1+L_{\lambda}\leq 2+L_{\lambda}$, de esta forma 
+
+$$
+\begin{aligned}
+\lambda((1+(x+h(x))^2)^{p/2} & -(1+x^2)^{p/2})\\ 
+& \leq \lambda((1+2x^2+2h(x)^2)^{p/2}-(1+x^2)^{p/2})\\ 
+& \leq \lambda((1+2x^2+2(L_{\lambda}(1+x^2)))^{p/2}-(1+x^2)^{p/2})\\ 
+& = \lambda((1+2x^2+2L_{\lambda}+2L_{\lambda}x^2)^{p/2}-(1+x^2)^{p/2})\\ 
+& = \lambda((1+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\ 
+& \leq \lambda((2+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\ 
+& = \lambda((2+2L_{\lambda})(1+x^2))^{p/2}-(1+x^2)^{p/2}\\ 
+& =  \lambda(2+2L_{\lambda})^{p/2}(1+x^2)^{p/2}-(1+x^2)^{p/2}\\ 
+& = (\lambda(2+2L_{\lambda})^{p/2}-1)(1+x^2)^{p/2}.
+\end{aligned}
+$$ {#eq-6.125}
+
+Sustituyendo la @eq-6.122, @eq-6.123, @eq-6.124 y @eq-6.125 en la @eq-6.121
+
+$$
+\begin{aligned}
+ \mathbb{E} [1+X( & t\wedge\tau_N)^{2}]^{p/2}\\ 
+ & \leq \mathbb{E}[1+X_0^2]^{p/2}\\ 
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\ 
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+X(s-)^2)^{p/2}ds\Bigg]\\ 
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda(2+2L_{\lambda})^{p/2}-1)(1+X(s-)^2)^{p/2}ds\Bigg].
+\end{aligned}
+$$ {#eq-6.126}
+
+Definimos la constante 
+
+$$
+K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (\lambda(2+2L_{\lambda})^{p/2}-1),  
+$$
+
+la cual es independiente de $N$ y $t$. De esta forma, la @eq-6.126 queda  
+
+$$
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s-)^2)^{p/2}ds\Bigg]. 
+$$
+
+Dado que la solución $X(t)$ es un proceso càdlàg, es decir, continua por la derecha y con límites por la izquierda  y además el conjunto de puntos de discontinuidad de un proceso càdlàg tiene medida de Lebesgue cero, por tanto $X(s-)=X(s)$ para casi todo $s\in[0,t]$ , casi seguramente. En términos de la medida de Lebesgue $ds$ tenemos 
+
+$$
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]. 
+$$ {#eq-6.127}
+
+
+Para poder aplicar la desigualdad de Gronwall es necesario cambiar el límite superior de integración de $t\wedge\tau_N$ a $t$. Haremos uso de la función indicadora definida por
+
+$$
+1_{s\leq\tau_N} = 
+\begin{cases}
+1 & \text{si } s\leq\tau_N,\\ 
+0 & \text{si } s>\tau_N.
+\end{cases}
+$$
+
+Con esto, podemos reescribir la integral de la @eq-6.127 de la forma 
+
+$$
+\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds = \int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds.
+$$
+
+Al tomar esperanza a esta integral. Además como el integrando es no negativo, es posible aplicar el Teorema de Fubini-Tonelli (preliminares)para intercambiar el orden de la integral y la esperanza, con esto 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & = \mathbb{E}\Bigg[\int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds\Bigg]\\ 
+& = \int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds. 
+\end{aligned}
+$$ {#eq-6.128}
+
+Notemos que dentro de la esperanza, estamos evaluando la función en el evento $\{s\leq\tau_N\}$, entonces por definición dada el la @eq-6.112 tenemos $X(s)=X(s\wedge\tau_N)$. Por lo tanto, podemos en la @eq-6.128 sin cambiar el valor de la expresión en dicho evento, es decir 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & =  \int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds\\ 
+& =  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}1_{s\leq\tau_N}]ds.
+\end{aligned}
+$$ 
+
+Ahora bien, la función indicadora satisface $\displaystyle 1_{s\leq\tau_N}\leq 1$, por lo que podemos eliminar dicha función de la expresión anterior y obtener una cota superior mediante 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & =  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}1_{s\leq\tau_N}]ds\\ 
+& \leq  \int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+\end{aligned}
+$$ {#eq-6.129}
+
+Sustituyendo la @eq-6.129 en la @eq-6.127 obtenemos 
+
+$$
+\begin{aligned}
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} & \leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\\ 
+& \leq \mathbb{E}[1+X_0^2]^{p/2} + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+\end{aligned}
+$$ {#eq-6.160}
+
+Partiendo de la expresión $(1+X_0^2)^{p/2}$, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con esto tenemos que 
+
+$$
+  (1+X_0^2)^{p/2}\leq 2^{(p/2)-1}(1^{p/2}+(X_0^2)^{p/2})=2^{(p-2)/2}(1+X_0^p). 
+$$
+
+Aplicando valor esperado se tiene 
+
+$$
+  \mathbb{E}[(1+X_0^2)^{p/2}]\leq \mathbb{E}[2^{(p-2)/2}(1+X_0^p)]=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])
+$$ 
+
+Notemos que por hipótesis se tiene $\mathbb{E}[X_0^p]<\infty$, por tanto $2^{(p-2)/2}(1+\mathbb{E}[X_0^p])$ una constante. Sustituyendo esto en la @eq-6.160 se obtiene 
+
+$$
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p]) + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+$$
+
+Ahora bien, Teorema de la Desigualdad de Gronwall en su forma continua (va a preliminares), indica que si $u:[0,T]\rightarrow[0,\infty)$ es una función medible y no negativa, $a\geq 0$ una constante, y $b:[0,T]\rightarrow[0,\infty)$ una función integrable. Entonces si $u$ satisface 
+
+$$
+u(t)\leq a+\int_0^t b(s)u(s)ds,\quad \forall t\in[0,T], 
+$$
+
+entonces
+
+$$
+u(t)\leq a\exp\Bigg(\int_0^t b(s)ds\Bigg),\quad \forall t\in[0,T]. 
+$$
+
+Para nuestro caso, basta tomar a: 
+
+- $u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\geq 0$ por propiedad de esperanza, 
+
+- $a=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0$, por la @eq-6.12, 
+
+- $b(s)=K$, 
+
+Con esto, todas las hipótesis del TDG se satisfacen y es posible aplicarlo, por ende, calculamos 
+
+$$
+\int_0^t b(s)ds=\int_0^t Kds=Kt. 
+$$
+
+Por lo tanto 
+
+$$
+u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}. 
+$$
+
+Al escribir explícitamente $u(t)$
+
+$$
+\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}. 
+$$ {#eq-6.161}
+
+Recordemos que $\tau_N$ converge a $T$ casi seguramente cuando $N\rightarrow\infty$, al ser $X(t)$ un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple $X(t\wedge\tau_N)\rightarrow X(t)$ casi seguramente cuando $N\rightarrow\infty$. Por otro lado, por la continuidad de la función $x\mapsto(1+x^2)^{p/2}$ podemos afirmar que 
+
+$$
+\lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
+$$ {#eq-6.162}
+
+Como dicho límite existe, entonces el límite inferior coincide, es decir  
+
+$$
+\liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
+$$ {#eq-6.163}
+
+Consideremos la sucesión de variables aleatorias $\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares) de tal forma que se cumple 
+
+$$
+\mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
+$$ {#eq-6.164}
+
+Por tanto, de la @eq-6.161, @eq-6.162, @eq-6.163 y @eq-6.164 se tiene 
+
+$$
+\begin{aligned}
+\mathbb{E}[1+X(t)^2]^{p/2} & = \mathbb{E}\Bigg[\lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\Bigg]\\ 
+& = \mathbb{E}\Bigg[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\Bigg]\\ 
+& \leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}\\ 
+& \leq \liminf_{N\rightarrow\infty}2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}\\ 
+& = 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
+\end{aligned}
+$$ {#eq-6.165}
+
+Definimos la siguiente constante, la cuál es independiente de $N$
+
+$$
+\widehat{C}:=2^{(p-2)/2}e^{KT}, 
+$$
+
+Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene
+$$
+\mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
+$$ {#eq-6.166}
+
+Haremos uso de las mismas técnicas para encontrar una cota para el término
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^{2p}\Bigg]. 
+$$
+
+Considerando la función $u(x)=x^2$. A dicha función aplicaremos la Formula de Itô generalizada para $u\in C^2(\mathbb{R})$ dada en la @eq-6.104. Nuevamente para facilitar la notación, haremos uso de $x=X(s-)$. Es claro que las primer y segunda derivada de la función $u$ estan dados por 
+
+$$
+u'(x)=2x,\quad  u''(x)=2, 
+$$
+
+respectivamente. Procedemos a calcular los términos de cada integrando de la @eq-6.104, para el operador de la parte de difusión se tiene 
+
+$$
+\begin{aligned}
+  \mathcal{L}u(x) & = u'(x)f(x)+\frac{1}{2}g(x)^2u''(x)\\ 
+  & = 2xf(x)+\frac{1}{2}g(x)^2\cdot 2\\ 
+  & = 2xf(x)+g(x)^2. 
+\end{aligned}
+$$
+
+Para el término correspondiente al movimiento browniano tenemos 
+
+$$
+u'(x)g(x) = 2xg(x). 
+$$
+
+Por último, para el termino de Poisson se tiene 
+
+$$
+\begin{aligned}
+u(x+h(x))-u(x) & = (x+h(x))^2-x^2\\ 
+& = x^2+2xh(x)+h(x)^2-x^2\\ 
+& = 2xh(x)+h(x)^2. 
+\end{aligned}
+$$
+
+Sustituyendo todo lo anterior en la @eq-6.104 se tiene
+
+$$
+\begin{aligned}
+u(X(t)) & = X(t)^2 \\ 
+& = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\ 
+& \qquad\quad + \int_0^t  2X(s-)g(X(s-))dW(s)\\ 
+& \qquad\quad + \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)dN(s). 
+\end{aligned}
+$$ {#eq-6.167}
+
+Recordemos que el término de Poisson compensado está definido por $N(t)=\widetilde{N}(t)+\lambda t$, entonces la integral con respecto a dicho proceso queda de la forma 
+
+$$
+\begin{aligned}
+  \int_0^t (2X(s-)h(X(s-)) & +h(X(s-))^2)dN(s)\\ 
+  & = \int_0^t(2X(s-)h(X(s-))+h(X(s-))^2)(d\widetilde{N}(s)+\lambda ds)\\ 
+  & = \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)d\widetilde{N}(s)\\ 
+  & \qquad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
+\end{aligned}
+$$
+
+Sustituyendo esto en la @eq-6.167 tenemos 
+
+$$
+\begin{aligned}
+X(t)^2 & = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\ 
+& \qquad\quad + \int_0^t  2X(s-)g(X(s-))dW(s)\\ 
+& \qquad\quad + \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)d\widetilde{N}(s)\\ 
+& \qquad\quad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
+\end{aligned}
+$$
+
+Agrupando las integrales respecto a $ds$ y distrubuyendo la terminal correspondiente al procceso de Poisson compensado tenemos 
+
+$$
+\begin{aligned}
+X(t)^2 & = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\ 
+& \qquad\qquad\qquad\qquad +\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\ 
+& \qquad\quad + 2\int_0^t X(s-)g(X(s-))dW(s)\\ 
+& \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\ 
+& \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s). 
+\end{aligned}
+$$ {#eq-6.168}
+
+Considerando la función $f_\lambda$ definida en @eq-6.02 y la cota dada por la @eq-6.19 podemos encontrar la cota para la integral determinista de la @eq-6.168
+
+$$
+\begin{aligned}
+\int_0^t (2X(s-) & f(X(s-))+g(X(s-))^2+\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\ 
+ & = \int_0^t (2X(s-)(f(X(s-))+\lambda h(X(s-)))+g(X(s-))^2+\lambda h(x)^2)ds\\ 
+& \leq \int_0^t (2X(s-)f_{\lambda}(X(s-))+L_{\lambda}(1+X(s-)^2)+L_{\lambda}(1+X(s-)^2))ds\\ 
+& \leq \int_0^t (2L_{\lambda}(1+X(s-)^2)+2L_{\lambda}(1+X(s-)^2))ds\\ 
+& = \int_0^t 4L_{\lambda}(1+X(s-)^2)ds. 
+\end{aligned}
+$$
+
+Entonces la @eq-6.168 se reduce a 
+
+$$
+\begin{aligned}
+X(t)^2 & \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\ 
+& \qquad\quad + 2\int_0^t X(s-)g(X(s-))dW(s)\\ 
+& \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\ 
+& \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s). 
+\end{aligned}
+$$ {#eq-6.169}
+
+Note que en la integral determinista, es decir, la integral respecto a $ds$, se cumple $X(s)=X(s-)$, pues por la hipótesis el proceso $X(t)$ es continuo, mientras que en las integrales estocásticas es necesario usar $X(s-)$ esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la @eq-6.169, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene 
+
+$$
+\begin{aligned}
+|X(t)|^2 & \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)ds\Bigg|\\ 
+& \qquad\quad + 2\Bigg|\int_0^t X(s-)g(X(s-))dW(s)\Bigg|\\ 
+& \qquad\quad + 2\Bigg|\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\ 
+& \qquad\quad + \Bigg|\int_0^t h(X(s-))^2d\widetilde{N}(s)\Bigg|. 
+\end{aligned}
+$$
+
+Aplicando supremos sobre el intervalo $[0,t]$, haciendo los respectivos cambios en los límites de integración además de considerar la propiedad de supremos para funciones no negativas, se obtiene 
+
+$$
+\begin{aligned}
+\sup_{0\leq\tau\leq t}|X(t)|^2 & \leq |X_0^2| +4L_{\lambda}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} (1+X(s)^2)ds\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|. 
+\end{aligned}
+$$
+
+Dado que el integrando $(1+X(s))^2$ es no negativo, esto implica que su integral correspondiente es creciente y por tanto alcanza su supremo en el extremo del intervalo, es decir, cuando $\tau=t$. Con esto 
+
+$$
+\begin{aligned}
+\sup_{0\leq\tau\leq t}|X(t)|^2 & \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|. 
+\end{aligned}
+$$
+
+Al elevar a la potencia $p/2$ y al aplicar la desigualdad de potencias para sumas (preliminares)
+
+$$
+\begin{aligned}
+\Bigg(\sup_{0\leq\tau\leq t}|X(t)|^2\Bigg)^{p/2} & \leq \Bigg(|X_0^2| +4L_{\lambda}\Bigg|\int_0^{t} (1+X(s)^2)ds\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|\\ 
+& \qquad\quad + 2\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|\Bigg)^{p/2}\\
+& \leq 5^{(p-2)/2}\Bigg(|X_0^2|^{p/2} +(4L_{\lambda})^{p/2}\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\ 
+& \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + 2^{p/2}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+\end{aligned}
+$$ {#eq-6.140}
+
+Para reducir la expresión anterior, definimos la siguiente constante
+
+$$
+\widehat{K}:=\max\{5^{(p-2)/2},5^{(p-2)/2}\cdot(4L_{\lambda})^{p/2}, 5^{(p-2)/2}\cdot 2^{p/2}\}.
+$$
+
+Es claro que $\widehat{K}>0$, con esto, la @eq-6.140 queda de la forma 
+
+$$
+\begin{aligned}
+\sup_{0\leq\tau\leq t}|X(t)|^p & \leq \widehat{K}\Bigg(|X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg).
+\end{aligned}
+$$ 
+
+Más aún, es posible despejar la constante $\widehat{K}$ de tal forma que 
+
+$$
+\begin{aligned}
+\widehat{K}^{-1}\sup_{0\leq\tau\leq t}|X(t)|^p & \leq |X_0^2|^{p/2} +\Bigg|\int_0^{t} (1+X(s)^2)\Bigg|^{p/2}ds\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)g(X(s-))dW(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} X(s-)h(X(s-))d\widetilde{N}(s)\Bigg|^{p/2}\\ 
+& \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}.
+\end{aligned}
+$$ 
+
+:::
+
+
 ::: {#lem-6.4 style="text-align: justify"}
-Usando las hipótesis dada por @eq-606 y @eq-610, sea $0\leq\theta\leq 1$ y supongamos que $\Delta t$ satisface
+Usando las hipótesis dada por @eq-6.09 y @eq-6.13, sea $0\leq\theta\leq 1$ y supongamos que $\Delta t$ satisface
 
 $$
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
@@ -1190,5 +3551,183 @@ $$
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
 $$
 
-donde $Y(t)$ es la función escalón definida por (checar) y $\overline{Y}(t)$ es la extensión continua definida en...
+donde $Y(t)$ es la función escalón definida por @eq-6.06 y $\overline{Y}(t)$ es la extensión continua definida en la @eq-6.07
+:::
+
+::: {.proof style="text-align: justify"}
+
+
+Tomemos a $t\in[n\Delta t,(n+1)\Delta t]$. Por la función escalonada está definida en @eq-6.06, se tiene que $Y(t)=Y_n^*$, usando la definidición de $Y_n^*$ dada en la @eq-6.04 tenemos entonces $Y(t)=Y_n+\theta f_{\lambda}(Y_n^*)\Delta t$. Con esto, la diferencia entre la  función escalonada $Y(t)$ y la extensión continua $\overline{Y}(t)$ obtenemos 
+
+$$
+\begin{aligned}
+Y(t)-\overline{Y}(t) & = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\lambda}(Y_n^*)(t-t_n)\\ 
+& \qquad\quad +g(Y_n^*)(W(t)-W(t_n))+ h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)))\\ 
+& = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)). 
+\end{aligned}
+$$ {#eq-6.141}
+
+Sea $s=t-t_n$, entonces, como $t\in[n\Delta t,(n+1)\Delta t]$, se tiene que $s\in[0,\Delta t]$. Por lo que 
+
+$$
+\theta\Delta t-(t-t_n)=\theta\Delta t-s.
+$$
+
+Cuando $\theta=0$ y $s=\Delta t$, entonces $\theta\Delta t-s=-\Delta t$. Mientras que si $\theta=1$ y $s=0$ se obtiene $\theta\Delta t-s=\Delta t$. Como tanto $\theta$ como $s$ varían continuamente en intervalos cerrados, la expresión toma todos los valores intermedios, es decir 
+
+$$
+-\Delta t\leq \theta\Delta t-(t-t_n)\leq \Delta t. 
+$$
+
+Con esto, la @eq-6.141 queda acotada mediante 
+
+$$
+\begin{aligned}
+Y(t)-\overline{Y}(t) & = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))\\ 
+& \leq f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)).
+\end{aligned}
+$$
+
+Tomando valor absoluto, aplicando desigualdad triangular y al elevar a la potencia $r\geq 2$ se tiene 
+
+$$
+\begin{aligned}
+|Y(t)-\overline{Y}(t)|^r & \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\\ 
+& \leq 3^{r-1}\Bigg(|f_{\lambda}(Y_n^*)|^r\Delta t^r\\ 
+& \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^r\\ 
+& \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg). 
+\end{aligned}
+$$ {#eq-6.142}
+
+Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función $f_{\lambda }$ dada en la @eq-6.13 de la siguiente forma 
+
+$$
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^2 & \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\ 
+&  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\ 
+& \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\ 
+& = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\ 
+& = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
+\end{aligned}
+$$ {#eq-6.143}
+
+Notemos que $|Y_n^*|^2>0$, por lo que $|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}$, sustituyendo esto en la @eq-6.143
+
+$$
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^2 & \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\ 
+& = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
+\end{aligned}
+$$
+
+Tomando a $D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}$, podemos obtener 
+
+$$
+|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}). 
+$$
+
+Al elevar por ambos lados a la potencia $r/2\geq 1$ se tiene
+
+$$
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^r & = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\ 
+& \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\ 
+& \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
+\end{aligned}
+$$ {#eq-6.144}
+
+Para los terminos de difusión y salto haremos uso de la cota dada en la @eq-6.19, con esto tenemos 
+
+$$
+|g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
+$$
+
+procediendo de manera similar, al elevar a la potencia $r/2$ es posible obtener
+
+$$
+\begin{aligned}
+|g(Y_n^*)|^r & = (|g(Y_n^*)|^2)^{r/2}\\ 
+& \leq (L_{\lambda}(1+|Y_n^*|^2))\\ 
+& \leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)
+\end{aligned}
+$$ {#eq-6.145}
+
+De forma similar se obtiene 
+
+$$
+|h(Y_n^*)|^r\leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r).
+$$ {#eq-6.146}
+
+Sustituyendo la @eq-6.144, @eq-6.145 y @eq-6.145 en la @eq-6.142 tenemos 
+
+$$
+\begin{aligned}
+|Y(t) & - \overline{Y}(t)|^r\\ 
+& \leq 3^{r-1}\Bigg(2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2})\Delta t^r\\ 
+& \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|W(t)-W(t_n)|^r\\ 
+& \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg). 
+\end{aligned} 
+$$ {#eq-6.147}
+
+Definimos a las siguientes constantes
+
+$$
+\begin{aligned}
+C_r & :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\ 
+u & := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\}.
+\end{aligned}
+$$
+
+Con estas manupilaciones es posible acotar de manera uniforme la @eq-6.147 de tal forma que tenemos 
+
+$$
+\begin{aligned}
+|Y(t) & - \overline{Y}(t)|^r\\ 
+& \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg). 
+\end{aligned} 
+$$
+
+Tomando supremo sobre $[t_n, t_{n+1}]$ y tomando valor esperado se tiene 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\sup_{t_n\leq t\leq t_{n+1}}|Y(t) - \overline{Y}(t)|^r\Bigg]\\ 
+& \leq C_r\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}\Bigg((1+|Y_n^*|^u)\Delta t^r\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg)\Bigg]
+\end{aligned} 
+$$
+
+Notemos que los términos $|Y_n^*|^u$ son independientes de $t$ por lo que al distribuir el valor esperado y aplicar la linealidad obtenemos 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\sup_{t_n\leq t\leq t_{n+1}}|Y(t) - \overline{Y}(t)|^r\Bigg]\\ 
+& \leq C_r\Bigg(\Delta t^r(1+\mathbb{E}[|Y_n^*|^u])\\ 
+& \qquad\qquad+(1+\mathbb{E}[|Y_n^*|^u])\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]\\ 
+& \qquad\qquad+(1+\mathbb{E}[|Y_n^*|^u])\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg]\Bigg)
+\end{aligned} 
+$$ {#eq-6.148}
+
+Comencemos acotar el siguiente término 
+
+$$
+\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]. 
+$$
+
+Es claro que para $t\geq t_n$, $W(t)-W(t_n)$ es una martingala continua con respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Por lo que es valido aplicar la desigualdad maximal de Doob, con esto 
+
+$$
+\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]\leq \left(\frac{r}{r-1}\right)^r\mathbb{E}[|W(T)-W(t_n)|]
+$$
+
+Hola, quiero probra si se esta actualizando con los cambios
+
+
 :::
