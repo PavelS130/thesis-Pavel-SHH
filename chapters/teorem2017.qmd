@@ -3697,7 +3697,7 @@ $$
 \end{aligned} 
 $$ {#eq-6.148}
 
-Recordemos que por construcción $N_T$ es el número de intervalos de la partición sobre $[0,T]$, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir
+Recordemos que por construcción $N_T$ es el mayor entero tal que $N_T\Delta t\leq T$, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir
 
 $$
 [0,T]=\bigcup_{n=0}^{N_T-1}[t_n,t_{n+1}], 
@@ -3707,7 +3707,7 @@ donde $t_n=n\Delta t$ y $N_T$ es finito para cualquier $\Delta t>0$ fijo. Aplica
 
 $$
 \sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right). 
-$$
+$$ {#eq-6.149}
 
 Si aplicamos dicha propiedad a la @eq-6.148, además de usar la independencia de los procesos $W(t)$, $\widetilde{N}(t)$ y la variable $Y_n^*$ tenemos 
 
@@ -3717,21 +3717,48 @@ $$
 & = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\ 
 & \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\ 
 & +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
-& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg)
+& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
-$$ {#eq-6.149}
+$$ {#eq-6.150}
 
+La variable $Y_n^*$ se define mediante la @eq-6.04 como una suceción discreta de variables aleatorias, indeada por $n\in\{0,1,\ldots,N_T\}$. Dado que el conjunto de índices $\{0,1,\ldots, N_T\}$ es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir
 
+$$
+\sup_{0\leq t_n\leq T}|Y_n^*|^u=\max_{0\leq n\leq N_T}|Y_n^*|^u. 
+$$
 
+Por la definición de la función escalonada $Y(t)$, dada por la @eq-6.06, para cualquier tiempo $t$ que pertenezca al subintervalo $[t_n,t_{n+1})$ la función es constante e igual a $Y_n^*$, por lo que 
 
+$$
+\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u= |Y_n^*|^u,\qquad \forall t\in [t_n,t_{n+1}). 
+$$
 
+Más aún, tenemos que 
 
+$$
+\max_{0\leq n\leq N_T-1}|Y_n^*|^u\leq \max_{0\leq n\leq N_T}|Y_n^*|^u.
+$$
 
+Por lo tanto
 
+$$
+\begin{aligned}
+  \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right) & = \max_{0\leq n\leq N_T-1}|Y_n^*|^u\\ 
+  & \leq \max_{0\leq n\leq N_T}|Y_n^*|^u\\ 
+  & = \sup_{0\leq t_n\leq T}|Y_n^*|^u.
+\end{aligned}
+$$
 
+Sustituyendo esto en la @eq-6.150 tenemos 
 
-
-
+$$
+\begin{aligned}
+\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\\ 
+& \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+\end{aligned}
+$$
 
 
 
