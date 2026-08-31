@@ -3562,9 +3562,11 @@ Tomemos a $t\in[n\Delta t,(n+1)\Delta t]$. Por la función escalonada está defi
 $$
 \begin{aligned}
 Y(t)-\overline{Y}(t) & = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\lambda}(Y_n^*)(t-t_n)\\ 
-& \qquad\quad +g(Y_n^*)(W(t)-W(t_n))+ h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)))\\ 
-& = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W(t)-W(t_n))\\ 
-& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)). 
+& \qquad\quad +g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\qquad +h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)))\\ 
+& = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n))\\ 
+& \qquad\quad - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\qquad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)). 
 \end{aligned}
 $$ {#eq-6.141}
 
@@ -3673,12 +3675,14 @@ $$
 \end{aligned} 
 $$ {#eq-6.147}
 
-Definimos a las siguientes constantes
+Definimos a las siguientes constantes y notación 
 
 $$
 \begin{aligned}
 C_r & :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\ 
-u & := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\}.
+u & := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\ 
+\Delta W_n(t) & :=W(t)-W(t_n),\\
+\Delta \widetilde{N}_n(t) & :=\widetilde{N}(t)-\widetilde{N}(t_n).
 \end{aligned}
 $$
 
@@ -3688,46 +3692,49 @@ $$
 \begin{aligned}
 |Y(t) & - \overline{Y}(t)|^r\\ 
 & \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg). 
-\end{aligned} 
-$$
-
-Tomando supremo sobre $[t_n, t_{n+1}]$ y tomando valor esperado se tiene 
-
-$$
-\begin{aligned}
-\mathbb{E} & \Bigg[\sup_{t_n\leq t\leq t_{n+1}}|Y(t) - \overline{Y}(t)|^r\Bigg]\\ 
-& \leq C_r\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}\Bigg((1+|Y_n^*|^u)\Delta t^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg)\Bigg]
-\end{aligned} 
-$$
-
-Notemos que los términos $|Y_n^*|^u$ son independientes de $t$ por lo que al distribuir el valor esperado y aplicar la linealidad obtenemos 
-
-$$
-\begin{aligned}
-\mathbb{E} & \Bigg[\sup_{t_n\leq t\leq t_{n+1}}|Y(t) - \overline{Y}(t)|^r\Bigg]\\ 
-& \leq C_r\Bigg(\Delta t^r(1+\mathbb{E}[|Y_n^*|^u])\\ 
-& \qquad\qquad+(1+\mathbb{E}[|Y_n^*|^u])\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]\\ 
-& \qquad\qquad+(1+\mathbb{E}[|Y_n^*|^u])\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg]\Bigg)
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^r\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg). 
 \end{aligned} 
 $$ {#eq-6.148}
 
-Comencemos acotar el siguiente término 
+Recordemos que por construcción $N_T$ es el número de intervalos de la partición sobre $[0,T]$, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir
 
 $$
-\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]. 
+[0,T]=\bigcup_{n=0}^{N_T-1}[t_n,t_{n+1}], 
 $$
 
-Es claro que para $t\geq t_n$, $W(t)-W(t_n)$ es una martingala continua con respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Por lo que es valido aplicar la desigualdad maximal de Doob, con esto 
+donde $t_n=n\Delta t$ y $N_T$ es finito para cualquier $\Delta t>0$ fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que 
 
 $$
-\mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|W(t)-W(t_n)|^r\Bigg]\leq \left(\frac{r}{r-1}\right)^r\mathbb{E}[|W(T)-W(t_n)|]
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right). 
 $$
 
-Hola, quiero probra si se esta actualizando con los cambios
+Si aplicamos dicha propiedad a la @eq-6.148, además de usar la independencia de los procesos $W(t)$, $\widetilde{N}(t)$ y la variable $Y_n^*$ tenemos 
+
+$$
+\begin{aligned}
+\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\\ 
+& = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\ 
+& \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\ 
+& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
+& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg)
+\end{aligned}
+$$ {#eq-6.149}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 :::
