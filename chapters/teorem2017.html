@@ -3159,14 +3159,23 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\}.
 \end{aligned}
 \]</span></p>
 <p>Con estas manupilaciones es posible acotar de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-6.148"><span class="math display">\[
 \begin{aligned}
 |Y(t) &amp; - \overline{Y}(t)|^r\\
 &amp; \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\
 &amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|W(t)-W(t_n)|^r\\
 &amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg).
 \end{aligned}
+\tag{6.148}\]</span></span></p>
+<p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el número de intervalos de la partición sobre <span class="math inline">\([0,T]\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
+<p><span class="math display">\[
+[0,T]=\bigcup_{n=0}^{N_T-1}[t_n,t_{n+1}],
 \]</span></p>
+<p>donde <span class="math inline">\(t_n=n\Delta t\)</span> y <span class="math inline">\(N_T\)</span> es finito para cualquier <span class="math inline">\(\Delta t&gt;0\)</span> fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que</p>
+<p><span class="math display">\[
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right).
+\]</span></p>
+<p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a></p>
 </div>
 
 
