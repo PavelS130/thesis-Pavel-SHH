@@ -3169,24 +3169,44 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 &amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg).
 \end{aligned}
 \tag{6.148}\]</span></span></p>
-<p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el número de intervalos de la partición sobre <span class="math inline">\([0,T]\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
+<p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
 <p><span class="math display">\[
 [0,T]=\bigcup_{n=0}^{N_T-1}[t_n,t_{n+1}],
 \]</span></p>
 <p>donde <span class="math inline">\(t_n=n\Delta t\)</span> y <span class="math inline">\(N_T\)</span> es finito para cualquier <span class="math inline">\(\Delta t&gt;0\)</span> fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que</p>
-<p><span class="math display">\[
-\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right).
-\]</span></p>
-<p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a>, además de usar la independencia de los procesos <span class="math inline">\(W(t)\)</span>, <span class="math inline">\(\widetilde{N}(t)\)</span> y la variable <span class="math inline">\(Y_n^*\)</span> tenemos</p>
 <p><span id="eq-6.149"><span class="math display">\[
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right).
+\tag{6.149}\]</span></span></p>
+<p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a>, además de usar la independencia de los procesos <span class="math inline">\(W(t)\)</span>, <span class="math inline">\(\widetilde{N}(t)\)</span> y la variable <span class="math inline">\(Y_n^*\)</span> tenemos</p>
+<p><span id="eq-6.150"><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
 &amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\
 &amp; \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\
 &amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
-&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg)
+&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
-\tag{6.149}\]</span></span></p>
+\tag{6.150}\]</span></span></p>
+<p>La variable <span class="math inline">\(Y_n^*\)</span> se define mediante la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> como una suceción discreta de variables aleatorias, indeada por <span class="math inline">\(n\in\{0,1,\ldots,N_T\}\)</span>. Dado que el conjunto de índices <span class="math inline">\(\{0,1,\ldots, N_T\}\)</span> es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir</p>
+<p><span class="math display">\[
+\sup_{0\leq t_n\leq T}|Y_n^*|^r=\max_{0\leq n\leq N_T}|Y_n^*|^r.
+\]</span></p>
+<p>Por la definición de la función escalonada <span class="math inline">\(Y(t)\)</span>, dada por la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, para cualquier tiempo <span class="math inline">\(t\)</span> que pertenezca al subintervalo <span class="math inline">\([t_n,t_{n+1})\)</span> la función es constante e igual a <span class="math inline">\(Y_n^*\)</span>, por lo que</p>
+<p><span class="math display">\[
+\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^r= |Y_n^*|^r,\qquad \forall t\in [t_n,t_{n+1}).
+\]</span></p>
+<p>Más aún, tenemos que</p>
+<p><span class="math display">\[
+\max_{0\leq n\leq N_T-1}|Y_n^*|^r\leq \max_{0\leq n\leq N_T}|Y_n^*|^r.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right) &amp; = \max_{0\leq n\leq N_T-1}|Y_n^*|^u\\
+  &amp; \leq \max_{0\leq n\leq N_T}|Y_n^*|^u\\
+  &amp; = \sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^r.
+\end{aligned}
+\]</span></p>
 </div>
 
 
