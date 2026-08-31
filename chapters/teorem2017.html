@@ -3189,22 +3189,32 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \tag{6.150}\]</span></span></p>
 <p>La variable <span class="math inline">\(Y_n^*\)</span> se define mediante la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> como una suceción discreta de variables aleatorias, indeada por <span class="math inline">\(n\in\{0,1,\ldots,N_T\}\)</span>. Dado que el conjunto de índices <span class="math inline">\(\{0,1,\ldots, N_T\}\)</span> es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir</p>
 <p><span class="math display">\[
-\sup_{0\leq t_n\leq T}|Y_n^*|^r=\max_{0\leq n\leq N_T}|Y_n^*|^r.
+\sup_{0\leq t_n\leq T}|Y_n^*|^u=\max_{0\leq n\leq N_T}|Y_n^*|^u.
 \]</span></p>
 <p>Por la definición de la función escalonada <span class="math inline">\(Y(t)\)</span>, dada por la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, para cualquier tiempo <span class="math inline">\(t\)</span> que pertenezca al subintervalo <span class="math inline">\([t_n,t_{n+1})\)</span> la función es constante e igual a <span class="math inline">\(Y_n^*\)</span>, por lo que</p>
 <p><span class="math display">\[
-\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^r= |Y_n^*|^r,\qquad \forall t\in [t_n,t_{n+1}).
+\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u= |Y_n^*|^u,\qquad \forall t\in [t_n,t_{n+1}).
 \]</span></p>
 <p>Más aún, tenemos que</p>
 <p><span class="math display">\[
-\max_{0\leq n\leq N_T-1}|Y_n^*|^r\leq \max_{0\leq n\leq N_T}|Y_n^*|^r.
+\max_{0\leq n\leq N_T-1}|Y_n^*|^u\leq \max_{0\leq n\leq N_T}|Y_n^*|^u.
 \]</span></p>
 <p>Por lo tanto</p>
 <p><span class="math display">\[
 \begin{aligned}
   \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right) &amp; = \max_{0\leq n\leq N_T-1}|Y_n^*|^u\\
   &amp; \leq \max_{0\leq n\leq N_T}|Y_n^*|^u\\
-  &amp; = \sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^r.
+  &amp; = \sup_{0\leq t_n\leq T}|Y_n^*|^u.
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en la <a href="#eq-6.150" class="quarto-xref">Ecuación&nbsp;<span>6.150</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
+&amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\
+&amp; \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
 \]</span></p>
 </div>
