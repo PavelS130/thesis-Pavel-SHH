@@ -3208,12 +3208,28 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-6.150" class="quarto-xref">Ecuación&nbsp;<span>6.150</span></a> tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-6.151"><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
 &amp; \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\
 &amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
 &amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+\end{aligned}
+\tag{6.151}\]</span></span></p>
+<p>Definimos a <span class="math inline">\(\eta(t):=\max\{n\in{0,1,\ldots N_T}:t\in[t_n,t_{n+1}]\}\)</span>. Con esto</p>
+<p><span class="math display">\[
+\begin{aligned}
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r,\\
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r,
+\end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(\Delta W_{\eta(t)}(t) = W(t)-W(t_n)\)</span> y de forma análoga <span class="math inline">\(\Delta\widetilde{N}_{\eta(t)}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)\)</span>. Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\Bigg]\\
+&amp; \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^r\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r\Bigg]\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r\Bigg]\Bigg).
 \end{aligned}
 \]</span></p>
 </div>
