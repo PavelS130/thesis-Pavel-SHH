@@ -511,8 +511,8 @@ window.Quarto = {
 <p>Alternativamente, la extensión continua <span class="math inline">\(\overline{Y}(t)\)</span> admite una representación integral que resulta de pparticular utilidad en las demostraciones de convergencia. En efecto, puede verificarse</p>
 <p><span id="eq-6.08"><span class="math display">\[
   \begin{aligned}
-    \overline{Y}(t) &amp; = Y_0 +\int_0^t f_{\lambda}(\overline{Y}(s-))ds+\int_0^tg(\overline{Y}(s-))dW(s)\\
-    &amp;  \qquad\quad +\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s),
+    \overline{Y}(t) &amp; = Y_0 +\int_0^t f_{\lambda}(Y(s-))ds+\int_0^tg(Y(s-))dW(s)\\
+    &amp;  \qquad\quad +\int_0^t h(Y(s-))d\widetilde{N}(s),
   \end{aligned}
 \tag{6.8}\]</span></span></p>
 <p>donde <span class="math inline">\(\overline{Y}(s-)\)</span> denota el límite por la izquierda, el cual en nuestro caso coincide con la función escalonada definida por <span class="math inline">\(\overline{Y}(s)=Y_n^{*}\)</span> para <span class="math inline">\(s\in[t_n,t_{n+1})\)</span>. Esta representación integral pone de manifiesto la estructura del método <span class="math inline">\(\text{CSS}\theta\)</span> como una discretización del sistema compensado original, donde los coeficientes se evalúan en el punto “congelado” <span class="math inline">\(Y_n^{*}\)</span> dentro de cada subintervalo de la malla.</p>
@@ -3248,18 +3248,19 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <p><span class="math display">\[
 e(t)=\overline{Y}(t)-X(t).
 \]</span></p>
-<p>Recordemos que la solución exacta <span class="math inline">\(X(t)\)</span> satisface la forma integral compensada dada por la ecuaación <span class="math display">\[
+<p>Recordemos que la solución exacta <span class="math inline">\(X(t)\)</span> satisface la forma integral compensada dada por la siguiente ecuación <span id="eq-agregar1"><span class="math display">\[
 \begin{aligned}
 X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 &amp; \qquad\quad  + \int_0^t h(X(s-))d\widetilde{N}(s).
 \end{aligned}
-\]</span></p>
-<p>Recordemos que por la construcción del método <span class="math inline">\(\text{CSS}\theta\)</span> se tiene que <span class="math inline">\(Y_0=X_0\)</span>, considerando la aproximación en tiempo continuo de <span class="math inline">\(\overline{Y}(t)\)</span> definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>, entonces tenemos que</p>
-<p><span class="math display">\[
+\tag{6.152}\]</span></span></p>
+<p>Mientras que la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> esta definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Restando ambas expresiones integrales, obtenemos la representación integral del error <span class="math display">\[
 \begin{aligned}
-  |e(t)|^2 = \Bigg|
+  e(t) &amp; = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\
+  &amp; \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widehat{N}(s),
 \end{aligned}
 \]</span></p>
+<p>donde <span class="math inline">\(Y(s-)\)</span> denota la aproximación escalonada definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\widehat{N}(s)\)</span> es el proceso de Poisson compensado ya definido anteriormente. En su forma diferencial</p>
 </div>
 
 
