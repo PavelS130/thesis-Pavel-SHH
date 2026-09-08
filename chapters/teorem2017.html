@@ -3257,10 +3257,23 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 <p>Mientras que la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> esta definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Restando ambas expresiones integrales, obtenemos la representación integral del error <span class="math display">\[
 \begin{aligned}
   e(t) &amp; = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\
-  &amp; \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widehat{N}(s),
+  &amp; \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widetilde{N}(s),
 \end{aligned}
 \]</span></p>
-<p>donde <span class="math inline">\(Y(s-)\)</span> denota la aproximación escalonada definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\widehat{N}(s)\)</span> es el proceso de Poisson compensado ya definido anteriormente. En su forma diferencial</p>
+<p>donde <span class="math inline">\(Y(s-)\)</span> denota la aproximación escalonada definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\widetilde{N}(s)\)</span> es el proceso de Poisson compensado ya definido anteriormente. En su forma diferencial</p>
+<p><span class="math display">\[
+\begin{aligned}
+  de(t) &amp; = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]ds + [g(Y(t-))-g(X(t-))]dW(s)\\
+  &amp; \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t).
+\end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(e(t)\)</span> es una semimartingala càdlal en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la formula de Itô generalizada para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(e(t))\)</span> en tres contribuciones: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
+<p><span class="math display">\[
+\begin{aligned}
+  dV(e(t)) &amp; = V'(e(t-))de(t)+\frac{1}{2}V''(e(t-))(de(t))^2 \\
+  &amp; \qquad + []
+\end{aligned}
+\]</span></p>
 </div>
 
 
