@@ -3271,10 +3271,10 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 <p><span id="eq-agregar3"><span class="math display">\[
 \begin{aligned}
   dV(e(t)) &amp; = \underbrace{V'(e(t-))de(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(e(t-))(de(t))^2}_{\text{difusión}} \\
-  &amp; \qquad + \underbrace{[V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t)]dN(t)}_{\text{salto}},
+  &amp; \qquad + \underbrace{[V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t)]dN(t)}_{\text{salto}}
 \end{aligned}
 \tag{6.154}\]</span></span></p>
-<p>donde <span class="math inline">\(\Delta e(t):=e(t)-e(t-)\)</span>. Tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
+<p>Tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t) &amp; = (e(t-)+\Delta e(t))^2-(e(t-))^2-2e(t-)\Delta e(t)\\
@@ -3311,6 +3311,7 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 <p><span class="math display">\[
 (de(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))dN(t).
 \]</span></p>
+<p>Falta interpretar el término <span class="math inline">\(\Delta e(t)\)</span> en la <a href="#eq-agregar4" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a>. Este se define mediante <span class="math inline">\(\Delta e(t):=e(t)-e(t-)\)</span>, donde sabemos que <span class="math inline">\(e(t-)\)</span> representa el límite por la esquierda del error.</p>
 </div>
 
 
