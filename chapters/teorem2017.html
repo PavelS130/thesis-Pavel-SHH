@@ -3261,18 +3261,55 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 \end{aligned}
 \]</span></p>
 <p>donde <span class="math inline">\(Y(s-)\)</span> denota la aproximación escalonada definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\widetilde{N}(s)\)</span> es el proceso de Poisson compensado ya definido anteriormente. Escribiendo en su forma diferencial</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar2"><span class="math display">\[
 \begin{aligned}
   de(t) &amp; = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt + [g(Y(t-))-g(X(t-))]dW(t)\\
   &amp; \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t).
 \end{aligned}
-\]</span></p>
+\tag{6.153}\]</span></span></p>
 <p>Dado que <span class="math inline">\(e(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô generalizada para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(e(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
+<p><span id="eq-agregar3"><span class="math display">\[
+\begin{aligned}
+  dV(e(t)) &amp; = \underbrace{V'(e(t-))de(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(e(t-))(de(t))^2}_{\text{difusión}} \\
+  &amp; \qquad + \underbrace{[V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t)]dN(t)}_{\text{salto}},
+\end{aligned}
+\tag{6.154}\]</span></span></p>
+<p>donde <span class="math inline">\(\Delta e(t):=e(t)-e(t-)\)</span>. Tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-  dV(e(t)) &amp; = V'(e(t-))de(t)+\frac{1}{2}V''(e(t-))(de(t))^2 \\
-  &amp; \qquad + []
+  V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t) &amp; = (e(t-)+\Delta e(t))^2-(e(t-))^2-2e(t-)\Delta e(t)\\
+  &amp; = (\Delta e(t))^2
 \end{aligned}
+\]</span></p>
+<p>La <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> se simplifica de la siguiente manera</p>
+<p><span id="eq-agregar4"><span class="math display">\[
+d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
+\tag{6.155}\]</span></span></p>
+<p>De la <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>6.153</span></a> definimos la siguiente notación</p>
+<ul>
+<li><p><span class="math inline">\(A(t)=f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))\)</span>,</p></li>
+<li><p><span class="math inline">\(B(t)= g(Y(t-))-g(X(t-))\)</span>,</p></li>
+<li><p><span class="math inline">\(C(t)=h(Y(t-))-h(X(t-))\)</span>.</p></li>
+</ul>
+<p>Expandieno el cuadrado, podemos obtener los siguientes 9 términos</p>
+<p><span id="eq-agregar5"><span class="math display">\[
+\begin{aligned}
+(de(t))^2 &amp; = A^2(t)(dt)^2+B^2(t)(dW(t))^2+C^2(d\widehat{N}(t))^2\\
+&amp; \qquad +2A(t)B(t)dt\cdot dW(t)+2A(t)C(t)dt\cdot d\widetilde{N}(t)\\
+&amp; \qquad\quad + 2B(t)C(t)dW(t)\cdot d\widetilde{N}(t).
+\end{aligned}
+\tag{6.156}\]</span></span></p>
+<p>Aplicando las reglas del cálculo de Itô podemos afirmar que <span class="math inline">\((dt)^2=0\)</span>, <span class="math inline">\(dt\cdot dW(t)=0\)</span>, <span class="math inline">\(dt\cdot d\widetilde{N}(t)=0\)</span>, <span class="math inline">\(dW(t)\cdot d\widetilde{N}(t)=0\)</span>, mientras que <span class="math inline">\((dW(t))^2=dt\)</span>, por la definición del proceso de Poisson compensado se tiene</p>
+<p><span class="math display">\[
+(d\widetilde{N}(t))^2=(dN(t))^2-2\lambda dN(t)dt+\lambda^2(dt)^2.
+\]</span></p>
+<p>Usando propiedades del proceso de Poisson tenemos que <span class="math inline">\((dN(t))^2=dN(t)\)</span>, mientras que por las reglas de cálculo de Itô <span class="math inline">\(dN(t)\cdot dt=0\)</span>, por tanto <span class="math inline">\((d\widetilde{N}(t))^2=dN(t)\)</span>, la <a href="#eq-agregar5" class="quarto-xref">Ecuación&nbsp;<span>6.156</span></a> queda de la forma</p>
+<p><span class="math display">\[
+(de(t))^2 = B^2(t)dt+C^2(t)dN(t),
+\]</span></p>
+<p>esto es equivalente a</p>
+<p><span class="math display">\[
+(de(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))dN(t).
 \]</span></p>
 </div>
 
