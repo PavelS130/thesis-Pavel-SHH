@@ -3320,13 +3320,21 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \Delta e(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
 <p>Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar6"><span class="math display">\[
 \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right)=0, \quad\text{y}\quad \Delta \left(\int_0^t f_{\lambda}(\overline{Y}(s-))ds\right)=0.
-\]</span></p>
-<p>De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades con esto</p>
-<p><span class="math display">\[
+\tag{6.157}\]</span></span></p>
+<p>De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades. Con esto</p>
+<p><span id="eq-agregar7"><span class="math display">\[
 \Delta\left(\int_0^t g(X(s-))dW(s)\right)=0,\quad\text{y}\quad \Delta\left(\int_0^t g(\overline{Y}(s-))dW(s)\right)=0
+\tag{6.158}\]</span></span></p>
+<p>La integral estocástica con respecto a un proceso de Poisson es un proceso que permanece constante entre los eventos de salto y solo cambia exactamente cuando <span class="math inline">\(N(t)\)</span> registra un salto. Con esto, el tamaño del salto de la integral en cualquier instante <span class="math inline">\(t\)</span> es el valor de la función, en nuestro caso, <span class="math inline">\(h(x)\)</span> justo antes de que ocurra el evento, multiplicado por la magnitud del salto del proceso de Poisson, es decir</p>
+<p><span class="math display">\[
+\Delta \left(\int_0^t h(X(s-))dN(s)\right)=h(X(t-))\Delta N(t),\quad\text{y}\quad \Delta \left(\int_0^t h(\overline{Y}(s-))dN(s)\right)=h(\overline{Y}(t-))\Delta N(t).  
 \]</span></p>
+<p>Por otro lado, si consideramos el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span>, obtenemos que este difiere del proceso original únicamente por el término determinista <span class="math inline">\(\lambda t\)</span>. Dado que <span class="math inline">\(\lambda t\)</span> es una función continua, esto implica que no presenta saltos, por lo que, los saltos de <span class="math inline">\(\widetilde{N}(t)\)</span> coincide con los saltos de <span class="math inline">\(N(t)\)</span>. Entonces, la regla para el salto de la integral se mantiene</p>
+<p><span id="eq-agregar8"><span class="math display">\[
+\Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)=h(X(t-))\Delta N(t),\quad\text{y}\quad \Delta \left(\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s)\right)=h(\overline{Y}(t-))\Delta N(t).  
+\tag{6.159}\]</span></span></p>
 </div>
 
 
