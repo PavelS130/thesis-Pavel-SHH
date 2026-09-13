@@ -3319,7 +3319,7 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 <p><span class="math display">\[
 \Delta e(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
-<p>Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
+<p>Recordemos que el momento incial <span class="math inline">\(X_0\)</span> y <span class="math inline">\(Y_0\)</span> es determinista y constante en el tiempo, por lo que <span class="math inline">\(\Delta(X_0)=0\)</span> y <span class="math inline">\(\Delta(Y_0)=0\)</span>. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
 <p><span id="eq-agregar6"><span class="math display">\[
 \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right)=0, \quad\text{y}\quad \Delta \left(\int_0^t f_{\lambda}(\overline{Y}(s-))ds\right)=0.
 \tag{6.157}\]</span></span></p>
@@ -3335,6 +3335,31 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 <p><span id="eq-agregar8"><span class="math display">\[
 \Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)=h(X(t-))\Delta N(t),\quad\text{y}\quad \Delta \left(\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s)\right)=h(\overline{Y}(t-))\Delta N(t).  
 \tag{6.159}\]</span></span></p>
+<p>Aplicando el operador de salto a la solución exacta en la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta X(t) &amp; = \Delta (X_0)+\Delta\left(\int_0^t f_{\lambda}(X(s-))ds\right)\\
+&amp; \qquad\quad + \Delta\left(\int_0^t g(X(s-))dW(s)\right)\\
+&amp; \qquad\quad + \Delta\left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)\\
+&amp; =  h(X(t-))\Delta N(t)
+\end{aligned}
+\]</span></p>
+<p>De forma analoga, se tiene que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta \overline{Y}(t) &amp; = \Delta (Y_0)+\Delta\left(\int_0^t f_{\lambda}(Y(s-))ds\right)\\
+&amp; \qquad\quad + \Delta\left(\int_0^t g(Y(s-))dW(s)\right)\\
+&amp; \qquad\quad + \Delta\left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right)\\
+&amp; =  h(Y(t-))\Delta N(t)
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en la expresión del error tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Delta e(t) &amp; =\Delta \overline{Y}(t)-\Delta X(t)\\
+&amp; =  [h(Y(t-))-h(X(t-))]\Delta N(t)
+\end{aligned}
+\]</span></p>
 </div>
 
 
