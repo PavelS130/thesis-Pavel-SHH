@@ -3367,17 +3367,28 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la expresión del error tenemos</p>
-<p><span id="eq-agregar10"><span class="math display">\[
+<p><span class="math display">\[
 \begin{aligned}
 \Delta e(t) &amp; =\Delta \overline{Y}(t)-\Delta X(t)\\
 &amp; =  [h(Y(t-))-h(X(t-))]\Delta N(t)
 \end{aligned}
-\tag{6.161}\]</span></span></p>
+\]</span></p>
 <p>Por lo tanto</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar10"><span class="math display">\[
 \begin{aligned}
   (\Delta e(t))^2 &amp; = [h(\overline{Y}(t-))-h(X(t-))]^2(\Delta N(t))^2\\
   &amp; = [h(\overline{Y}(t-))-h(X(t-))]^2\Delta N(t)
+\end{aligned}
+\tag{6.161}\]</span></span></p>
+<p>Sustituyendo <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>6.153</span></a>, <a href="#eq-agregar6" class="quarto-xref">Ecuación&nbsp;<span>6.157</span></a> y <a href="#eq-agregar10" class="quarto-xref">Ecuación&nbsp;<span>6.161</span></a> en la <a href="#eq-agregar4" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a> tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+d(e(t))^2 &amp; = 2e(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
+  &amp; \qquad + 2e(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
+  &amp; \qquad + 2e(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  &amp; \qquad + (g(Y(t-))-g(X(t-)))^2dt\\
+  &amp; \qquad + (h(Y(t-))-h(X(t-)))dN(t)\\
+  &amp; \qquad + [h(\overline{Y}(t-))-h(X(t-))]^2\Delta N(t)dN(t)
 \end{aligned}
 \]</span></p>
 </div>
