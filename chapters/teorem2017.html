@@ -3274,7 +3274,7 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
   &amp; \qquad + \underbrace{[V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t)]dN(t)}_{\text{salto}}
 \end{aligned}
 \tag{6.154}\]</span></span></p>
-<p>Tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
+<p>En nuestro caso, tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   V(e(t-)+\Delta e(t))-V(e(t-)) &amp; -V'(e(t-))\Delta e(t)\\
@@ -3282,7 +3282,7 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
   &amp; = (\Delta e(t))^2
 \end{aligned}
 \]</span></p>
-<p>La <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> se simplifica de la siguiente manera con <span class="math inline">\(V(e(t))=e(t)^2\)</span></p>
+<p>Sustituyendo las derivadas de la función <span class="math inline">\(V(e)\)</span>, la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> se simplifica de la siguiente manera con <span class="math inline">\(V(e(t))=e(t)^2\)</span></p>
 <p><span id="eq-agregar4"><span class="math display">\[
 d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \tag{6.155}\]</span></span></p>
@@ -3309,9 +3309,9 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 (de(t))^2 = B^2(t)dt+C^2(t)dN(t),
 \]</span></p>
 <p>esto es equivalente a</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar6"><span class="math display">\[
 (de(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))dN(t).
-\]</span></p>
+\tag{6.157}\]</span></span></p>
 <p>Falta interpretar el término <span class="math inline">\(\Delta e(t)\)</span> en la <a href="#eq-agregar4" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a>. Este operador se define mediante</p>
 <p><span class="math display">\[
 \Delta e(t):=e(t)-e(t-),
@@ -3321,19 +3321,19 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \Delta e(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
 <p>Recordemos que el momento incial <span class="math inline">\(X_0\)</span> y <span class="math inline">\(Y_0\)</span> es determinista y constante en el tiempo, por lo que <span class="math inline">\(\Delta(X_0)=0\)</span> y <span class="math inline">\(\Delta(Y_0)=0\)</span>. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
-<p><span id="eq-agregar6"><span class="math display">\[
+<p><span id="eq-agregar7"><span class="math display">\[
 \begin{aligned}
   \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right) &amp; =0,\\
   \Delta \left(\int_0^t f_{\lambda}(\overline{Y}(s-))ds\right) &amp; =0.
 \end{aligned}
-\tag{6.157}\]</span></span></p>
+\tag{6.158}\]</span></span></p>
 <p>De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades. Con esto</p>
-<p><span id="eq-agregar7"><span class="math display">\[
+<p><span id="eq-agregar8"><span class="math display">\[
 \begin{aligned}
   \Delta\left(\int_0^t g(X(s-))dW(s)\right)&amp;=0\\
   \Delta\left(\int_0^t g(\overline{Y}(s-))dW(s)\right)&amp;=0
 \end{aligned}
-\tag{6.158}\]</span></span></p>
+\tag{6.159}\]</span></span></p>
 <p>La integral estocástica con respecto a un proceso de Poisson es un proceso que permanece constante entre los eventos de salto y solo cambia exactamente cuando <span class="math inline">\(N(t)\)</span> registra un salto. Con esto, el tamaño del salto de la integral en cualquier instante <span class="math inline">\(t\)</span> es el valor de la función, en nuestro caso, <span class="math inline">\(h(x)\)</span> justo antes de que ocurra el evento, multiplicado por la magnitud del salto del proceso de Poisson, es decir</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3342,13 +3342,13 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \end{aligned}  
 \]</span></p>
 <p>Por otro lado, si consideramos el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span>, obtenemos que este difiere del proceso original únicamente por el término determinista <span class="math inline">\(\lambda t\)</span>. Dado que <span class="math inline">\(\lambda t\)</span> es una función continua, esto implica que no presenta saltos, por lo que, los saltos de <span class="math inline">\(\widetilde{N}(t)\)</span> coincide con los saltos de <span class="math inline">\(N(t)\)</span>. Entonces, la regla para el salto de la integral se mantiene</p>
-<p><span id="eq-agregar8"><span class="math display">\[
+<p><span id="eq-agregar9"><span class="math display">\[
 \begin{aligned}
   \Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right) &amp; = h(X(t-))\Delta N(t),\\
    \Delta \left(\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s)\right) &amp; = h(\overline{Y}(t-))\Delta N(t).
 \end{aligned}  
-\tag{6.159}\]</span></span></p>
-<p>Aplicando el operador de salto a la solución exacta en la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y considerar <a href="#eq-agregar6" class="quarto-xref">Ecuación&nbsp;<span>6.157</span></a>, <a href="#eq-agregar7" class="quarto-xref">Ecuación&nbsp;<span>6.158</span></a> y <a href="#eq-agregar8" class="quarto-xref">Ecuación&nbsp;<span>6.159</span></a></p>
+\tag{6.160}\]</span></span></p>
+<p>Aplicando el operador de salto a la solución exacta en la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y considerar <a href="#eq-agregar7" class="quarto-xref">Ecuación&nbsp;<span>6.158</span></a>, <a href="#eq-agregar8" class="quarto-xref">Ecuación&nbsp;<span>6.159</span></a> y <a href="#eq-agregar9" class="quarto-xref">Ecuación&nbsp;<span>6.160</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \Delta X(t) &amp; = \Delta (X_0)+\Delta\left(\int_0^t f_{\lambda}(X(s-))ds\right)\\
@@ -3367,12 +3367,19 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la expresión del error tenemos</p>
-<p><span id="eq-agregar9"><span class="math display">\[
+<p><span id="eq-agregar10"><span class="math display">\[
 \begin{aligned}
 \Delta e(t) &amp; =\Delta \overline{Y}(t)-\Delta X(t)\\
 &amp; =  [h(Y(t-))-h(X(t-))]\Delta N(t)
 \end{aligned}
-\tag{6.160}\]</span></span></p>
+\tag{6.161}\]</span></span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+\begin{aligned}
+  (\Delta e(t))^2 &amp; = [h(\overline{Y}(t-))-h(X(t-))]^2(\Delta N(t))^2\\
+  &amp; = [h(\overline{Y}(t-))-h(X(t-))]^2\Delta N(t)
+\end{aligned}
+\]</span></p>
 </div>
 
 
