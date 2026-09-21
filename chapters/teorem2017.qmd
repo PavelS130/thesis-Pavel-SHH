@@ -105,8 +105,8 @@ Alternativamente, la extensión continua $\overline{Y}(t)$ admite una representa
 
 $$
   \begin{aligned}
-    \overline{Y}(t) & = Y_0 +\int_0^t f_{\lambda}(\overline{Y}(s-))ds+\int_0^tg(\overline{Y}(s-))dW(s)\\ 
-    &  \qquad\quad +\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s),
+    \overline{Y}(t) & = Y_0 +\int_0^t f_{\lambda}(Y(s-))ds+\int_0^tg(Y(s-))dW(s)\\ 
+    &  \qquad\quad +\int_0^t h(Y(s-))d\widetilde{N}(s),
   \end{aligned}
 $$ {#eq-6.08}
 
@@ -3758,10 +3758,255 @@ $$
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
+$$ {#eq-6.151}
+
+
+Definimos a $\eta(t):=\max\{n\in{0,1,\ldots N_T}:t\in[t_n,t_{n+1}]\}$. Con esto 
+
+$$
+\begin{aligned}
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right) & = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r,\\ 
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right) & = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r, 
+\end{aligned}
+$$
+
+donde $\Delta W_{\eta(t)}(t) = W(t)-W(t_n)$ y de forma análoga $\Delta\widetilde{N}_{\eta(t)}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)$. Al tomar valor esperado a la @eq-6.151 y usar las propiedades correspondientes se tiene 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\Bigg]\\ 
+& \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^r\\ 
+& +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r\Bigg]\\ 
+& +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r\Bigg]\Bigg).
+\end{aligned}
 $$
 
 
 
+:::
 
+
+
+::: {#thm-6.5 style="text-align: justify"}
+  
+Bajo las hipótesis dadas por la @eq-6.09, @eq-6.010 y @eq-6.11, sea $X(t)$ la solución de la @eq-6.01 y $\overline{Y}(t)$ la extensión a tiempo continuo del método $\text{CSS}\theta$ con parámetro $\theta\in[0,1]$ y $\Delta t>0$ el paso de tiempo tal que 
+
+$$
+\Delta t\leq\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}, 
+$$
+
+entonces la aproximación $\overline{Y}(t)$ converge a la solución exacta $X(t)$ con un orden fuerte de convergencia de $1/2$. Es decir, existe una constante $C>0$ independiente de $\Delta t$ tal que
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq C\Delta t.
+$$
+
+:::
+
+
+
+::: {.proof style="text-align: justify"}
+
+Para análizar la convergencia del método $\text{CSS}\theta$, definimos el proceso de  error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, $Y(t)$, y la solución exacta de la ecuación diferencial estocástica, $X(t)$. Usaremos la siguiente notación para denotar dicho proceso
+
+$$
+E(t)=\overline{Y}(t)-X(t). 
+$$
+
+Recordemos que la solución exacta $X(t)$ satisface la forma integral compensada dada por la siguiente ecuación 
+$$
+\begin{aligned}
+X(t) & = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\ 
+& \qquad\quad  + \int_0^t h(X(s-))d\widetilde{N}(s). 
+\end{aligned}
+$$ {#eq-agregar1}
+
+Mientras que la aproximación continua $\overline{Y}(t)$ está definida en la @eq-6.08. Restando ambas expresiones integrales, obtenemos la representación integral del error 
+$$
+\begin{aligned}
+  E(t) & = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\ 
+  & \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widetilde{N}(s), 
+\end{aligned}
+$$
+
+donde $Y(s-)$ denota la aproximación escalonada definida en @eq-6.06 y $\widetilde{N}(s)$ es el proceso de Poisson compensado ya definido anteriormente. Escribiendo en su forma diferencial 
+
+$$
+\begin{aligned}
+  dE(t) & = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt + [g(Y(t-))-g(X(t-))]dW(t)\\ 
+  & \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t). 
+\end{aligned}
+$$ {#eq-agregar2}
+
+Dado que $E(t)$ es una semimartingala càdlag en $\mathbb{R}$, haremos uso de la fórmula de Itô generalizada para procesos con saltos. Para una función $V\in C^2(\mathbb{R})$, esta fórmula descompone el diferencial $dV(E(t))$ en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como 
+
+$$
+\begin{aligned}
+  dV(E(t)) & = \underbrace{V'(E(t-))dE(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(E(t-))(dE(t))^2}_{\text{difusión}} \\ 
+  & \qquad + \underbrace{[V(E(t-)+\Delta E(t))-V(E(t-))-V'(E(t-))\Delta E(t)]dN(t)}_{\text{salto}}
+\end{aligned}
+$$ {#eq-agregar3}
+
+En nuestro caso, tomaremos la función $V(E)=E^2$, la cuál pertenece a $C^2(\mathbb{R})$ con primera y segunda derivada dadas por $V'(E)=2E$ y $V''(E)=2$ respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la @eq-agregar3 la expresión se simplifica de la siguiente forma
+
+$$
+\begin{aligned}
+  V(E(t-)+\Delta E(t))-V(E(t-)) & -V'(E(t-))\Delta E(t)\\ 
+  &  = (E(t-)+\Delta E(t))^2-(E(t-))^2-2E(t-)\Delta E(t)\\ 
+  & = (\Delta E(t))^2
+\end{aligned}
+$$ 
+
+Sustituyendo las derivadas de la función $V(E)$, la @eq-agregar3 se simplifica de la siguiente manera con $V(E(t))=E(t)^2$
+
+$$
+d(E(t)^2)=2E(t-)dE(t)+(dE(t))^2+(\Delta E(t))^2dN(t). 
+$$ {#eq-agregar4}
+
+De la @eq-agregar2 definimos la siguiente notación 
+
+- $A(t)=f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))$, 
+
+- $B(t)= g(Y(t-))-g(X(t-))$, 
+
+- $C(t)=h(Y(t-))-h(X(t-))$. 
+
+Expandiendo el cuadrado, podemos obtener los siguientes 9 términos
+
+$$
+\begin{aligned}
+(dE(t))^2 & = A^2(t)(dt)^2+B^2(t)(dW(t))^2+C^2(d\widetilde{N}(t))^2\\ 
+& \qquad +2A(t)B(t)dt\cdot dW(t)+2A(t)C(t)dt\cdot d\widetilde{N}(t)\\ 
+& \qquad\quad + 2B(t)C(t)dW(t)\cdot d\widetilde{N}(t). 
+\end{aligned}
+$$ {#eq-agregar5}
+
+Aplicando las reglas del cálculo de Itô podemos afirmar que $(dt)^2=0$, $dt\cdot dW(t)=0$, $dt\cdot d\widetilde{N}(t)=0$, $dW(t)\cdot d\widetilde{N}(t)=0$, mientras que $(dW(t))^2=dt$, por la definición del proceso de Poisson compensado se tiene 
+
+$$
+(d\widetilde{N}(t))^2=(dN(t))^2-2\lambda dN(t)dt+\lambda^2(dt)^2. 
+$$
+
+Usando propiedades del proceso de Poisson tenemos que $(dN(t))^2=dN(t)$, mientras que por las reglas de cálculo de Itô $dN(t)\cdot dt=0$, por tanto $(d\widetilde{N}(t))^2=dN(t)$, la @eq-agregar5 queda de la forma 
+
+$$
+(dE(t))^2 = B^2(t)dt+C^2(t)dN(t), 
+$$
+
+esto es equivalente a 
+
+$$
+(dE(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))^2dN(t). 
+$$ {#eq-agregar6}
+
+Falta interpretar el término $\Delta e(t)$ en la @eq-agregar4. Este operador se define mediante 
+
+$$
+\Delta E(t):=E(t)-E(t-),
+$$ 
+
+donde sabemos que $E(t-)$ representa el límite por la esquierda del error. En la forma en que se define $E(t)$ es claro que se cumple 
+
+$$
+\Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
+$$
+
+Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-agregar1 y @eq-6.08 respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que 
+
+$$
+\begin{aligned}
+  \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right) & =0,\\
+  \Delta \left(\int_0^t f_{\lambda}(Y(s-))ds\right) & =0.
+\end{aligned} 
+$$ {#eq-agregar7}
+
+De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades. Con esto
+
+$$
+\begin{aligned}
+  \Delta\left(\int_0^t g(X(s-))dW(s)\right)&=0\\ 
+  \Delta\left(\int_0^t g(Y(s-))dW(s)\right)&=0
+\end{aligned}
+$$ {#eq-agregar8}
+
+La integral estocástica con respecto a un proceso de Poisson es un proceso que permanece constante entre los eventos de salto y solo cambia exactamente cuando $N(t)$ registra un salto. Con esto, el tamaño del salto de la integral en cualquier instante $t$ es el valor de la función, en nuestro caso, $h(x)$ justo antes de que ocurra el evento, multiplicado por la magnitud del salto del proceso de Poisson, es decir
+
+$$
+\begin{aligned}
+\Delta \left(\int_0^t h(X(s-))dN(s)\right) & = h(X(t-))\Delta N(t)\\
+\Delta \left(\int_0^t h(Y(s-))dN(s)\right) & = h(Y(t-))\Delta N(t).
+\end{aligned}  
+$$
+
+Por otro lado, si consideramos el proceso de Poisson compensado $\widetilde{N}(t)=N(t)-\lambda t$, obtenemos que este difiere del proceso original únicamente por el término determinista $\lambda t$. Dado que $\lambda t$ es una función continua, esto implica que no presenta saltos, por lo que, los saltos de $\widetilde{N}(t)$ coincide con los saltos de $N(t)$. Entonces, la regla para el salto de la integral se mantiene 
+
+$$
+\begin{aligned}
+  \Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right) & = h(X(t-))\Delta N(t),\\
+   \Delta \left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right) & = h(Y(t-))\Delta N(t).
+\end{aligned}  
+$$ {#eq-agregar9}
+
+Aplicando el operador de salto a la solución exacta en la @eq-agregar1 y considerar @eq-agregar7, @eq-agregar8 y @eq-agregar9
+
+$$
+\begin{aligned}
+\Delta X(t) & = \Delta (X_0)+\Delta\left(\int_0^t f_{\lambda}(X(s-))ds\right)\\ 
+& \qquad\qquad\quad + \Delta\left(\int_0^t g(X(s-))dW(s)\right)\\ 
+& \qquad\qquad\quad + \Delta\left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)\\ 
+& =  h(X(t-))\Delta N(t)
+\end{aligned}
+$$
+
+De forma analoga, se tiene que 
+
+$$
+\begin{aligned}
+\Delta \overline{Y}(t) & = \Delta (Y_0)+\Delta\left(\int_0^t f_{\lambda}(Y(s-))ds\right)\\ 
+& \qquad\qquad\quad + \Delta\left(\int_0^t g(Y(s-))dW(s)\right)\\ 
+& \qquad\qquad\quad + \Delta\left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right)\\ 
+& =  h(Y(t-))\Delta N(t)
+\end{aligned}
+$$
+
+Sustituyendo esto en la expresión del error tenemos 
+
+$$
+\begin{aligned}
+\Delta E(t) & =\Delta \overline{Y}(t)-\Delta X(t)\\ 
+& =  [h(Y(t-))-h(X(t-))]\Delta N(t)
+\end{aligned}
+$$ 
+
+Por lo tanto 
+
+$$
+\begin{aligned}
+  (\Delta E(t))^2 & = [h(Y(t-))-h(X(t-))]^2(\Delta N(t))^2\\ 
+  & = [h(Y(t-))-h(X(t-))]^2\Delta N(t)
+\end{aligned}
+$$ {#eq-agregar10}
+
+Sustituyendo @eq-agregar2, @eq-agregar6 y @eq-agregar10 en la @eq-agregar4 tenemos 
+
+$$
+\begin{aligned}
+d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\ 
+  & \qquad + 2E(t-)[g(Y(t-))-g(X(t-))]dW(t)\\ 
+  & \qquad + 2E(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  & \qquad + [g(Y(t-))-g(X(t-))]^2dt\\ 
+  & \qquad + [h(Y(t-))-h(X(t-))]^2dN(t)\\ 
+  & \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
+\end{aligned}
+$$ {#eq-agregar11}
+
+Trabajaremos con los dos últimos términos de @eq-agregar11, tenemos que 
+
+$$
+\begin{aligned}
+  \left[h(Y(-))-h(X(t-))\right]^2dN(t) & + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)\\ 
+  & = [h(Y(-))-h(X(t-))]^2 [dN(t)+\Delta N(t)dN(t)]
+\end{aligned}
+$$
 
 :::

@@ -49,15 +49,12 @@ $$ {#eq-3}
 Bajo las hipótesis anteriores, existe una única solución fuerte $Z = (Z(t))_{t \geq 0}$ de la ecuación (@eq-sde) tal que:
 
 -   $Z$ es un proceso adaptado y cádlág (continuo por la derecha con límites por la izquierda),
--   La solución es única casi seguramente, esto es, si $(Z')$ es otra solución, entonces 
-$$
+-   La solución es única casi seguramente, esto es, si $(Z')$ es otra solución, entonces $$
      \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-$$ {#eq-4}
-
+    $$ {#eq-4}
 :::
 
 ::: {.proof style="text-align: justify"}
-
 Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-sde) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis (@eq-lipschitz) y (@eq-3) para los coeficientes $b$, $\sigma$ y $F$. Analizaremos primero el caso cuando $\mathbb{E}[|Z_0|^2]<\infty$. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
 
 $$
@@ -798,7 +795,7 @@ $$
     \end{aligned}
 $$
 
-Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo $[0,1]$ tenemos la siguiente desigualdad
+Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo \$\[0,1\]\$\$ tenemos la siguiente desigualdad
 
 $$
     \begin{aligned}
