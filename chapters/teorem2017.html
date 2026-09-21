@@ -3391,11 +3391,17 @@ d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
 \end{aligned}
 \tag{6.162}\]</span></span></p>
-<p>Trabajaremos con los dos últimos términos de <a href="#eq-agregar11" class="quarto-xref">Ecuación&nbsp;<span>6.162</span></a>, tenemos que</p>
+<p>Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface <span class="math inline">\(\Delta N(t)=\{0,1\}\)</span>. Bajo nuestro contexto de integración estocástica, el faltor <span class="math inline">\(\Delta N(t)\)</span> actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración <span class="math inline">\(dN(t)\)</span> está concentrada exclusivamente en dichos instantes, es decir, donde <span class="math inline">\(\Delta N(t)=1\)</span>, se cumple <span class="math display">\[
+\Delta N(t)dN(t)=dN(t).
+\]</span></p>
+<p>Sustituyendo esta propiedad en la <a href="#eq-agregar11" class="quarto-xref">Ecuación&nbsp;<span>6.162</span></a> y factorizar los términos en común obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \left[h(Y(-))-h(X(t-))\right]^2dN(t) &amp; + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)\\
-  &amp; = [h(Y(-))-h(X(t-))]^2 [dN(t)+\Delta N(t)dN(t)]
+d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
+  &amp; \qquad + 2E(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
+  &amp; \qquad + 2E(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  &amp; \qquad + [g(Y(t-))-g(X(t-))]^2dt\\
+  &amp; \qquad + 2[h(Y(t-))-h(X(t-))]^2dN(t)\\
 \end{aligned}
 \]</span></p>
 </div>
