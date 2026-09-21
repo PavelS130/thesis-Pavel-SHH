@@ -3246,7 +3246,7 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
 <p><span class="math display">\[
-e(t)=\overline{Y}(t)-X(t).
+E(t)=\overline{Y}(t)-X(t).
 \]</span></p>
 <p>Recordemos que la solución exacta <span class="math inline">\(X(t)\)</span> satisface la forma integral compensada dada por la siguiente ecuación <span id="eq-agregar1"><span class="math display">\[
 \begin{aligned}
@@ -3256,35 +3256,35 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 \tag{6.152}\]</span></span></p>
 <p>Mientras que la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> está definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Restando ambas expresiones integrales, obtenemos la representación integral del error <span class="math display">\[
 \begin{aligned}
-  e(t) &amp; = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\
+  E(t) &amp; = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\
   &amp; \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widetilde{N}(s),
 \end{aligned}
 \]</span></p>
 <p>donde <span class="math inline">\(Y(s-)\)</span> denota la aproximación escalonada definida en <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\widetilde{N}(s)\)</span> es el proceso de Poisson compensado ya definido anteriormente. Escribiendo en su forma diferencial</p>
 <p><span id="eq-agregar2"><span class="math display">\[
 \begin{aligned}
-  de(t) &amp; = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt + [g(Y(t-))-g(X(t-))]dW(t)\\
+  dE(t) &amp; = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt + [g(Y(t-))-g(X(t-))]dW(t)\\
   &amp; \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t).
 \end{aligned}
 \tag{6.153}\]</span></span></p>
-<p>Dado que <span class="math inline">\(e(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô generalizada para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(e(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
+<p>Dado que <span class="math inline">\(E(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô generalizada para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(E(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
 <p><span id="eq-agregar3"><span class="math display">\[
 \begin{aligned}
-  dV(e(t)) &amp; = \underbrace{V'(e(t-))de(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(e(t-))(de(t))^2}_{\text{difusión}} \\
-  &amp; \qquad + \underbrace{[V(e(t-)+\Delta e(t))-V(e(t-))-V'(e(t-))\Delta e(t)]dN(t)}_{\text{salto}}
+  dV(E(t)) &amp; = \underbrace{V'(E(t-))dE(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(E(t-))(dE(t))^2}_{\text{difusión}} \\
+  &amp; \qquad + \underbrace{[V(E(t-)+\Delta E(t))-V(E(t-))-V'(E(t-))\Delta E(t)]dN(t)}_{\text{salto}}
 \end{aligned}
 \tag{6.154}\]</span></span></p>
-<p>En nuestro caso, tomaremos la función <span class="math inline">\(V(e)=e^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(e)=2e\)</span> y <span class="math inline">\(V''(e)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
+<p>En nuestro caso, tomaremos la función <span class="math inline">\(V(E)=E^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(E)=2E\)</span> y <span class="math inline">\(V''(E)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-  V(e(t-)+\Delta e(t))-V(e(t-)) &amp; -V'(e(t-))\Delta e(t)\\
-  &amp;  = (e(t-)+\Delta e(t))^2-(e(t-))^2-2e(t-)\Delta e(t)\\
-  &amp; = (\Delta e(t))^2
+  V(E(t-)+\Delta E(t))-V(E(t-)) &amp; -V'(E(t-))\Delta E(t)\\
+  &amp;  = (E(t-)+\Delta E(t))^2-(E(t-))^2-2E(t-)\Delta E(t)\\
+  &amp; = (\Delta E(t))^2
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo las derivadas de la función <span class="math inline">\(V(e)\)</span>, la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> se simplifica de la siguiente manera con <span class="math inline">\(V(e(t))=e(t)^2\)</span></p>
+<p>Sustituyendo las derivadas de la función <span class="math inline">\(V(E)\)</span>, la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> se simplifica de la siguiente manera con <span class="math inline">\(V(E(t))=E(t)^2\)</span></p>
 <p><span id="eq-agregar4"><span class="math display">\[
-d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
+d(E(t)^2)=2E(t-)dE(t)+(dE(t))^2+(\Delta E(t))^2dN(t).
 \tag{6.155}\]</span></span></p>
 <p>De la <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>6.153</span></a> definimos la siguiente notación</p>
 <ul>
@@ -3295,7 +3295,7 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 <p>Expandiendo el cuadrado, podemos obtener los siguientes 9 términos</p>
 <p><span id="eq-agregar5"><span class="math display">\[
 \begin{aligned}
-(de(t))^2 &amp; = A^2(t)(dt)^2+B^2(t)(dW(t))^2+C^2(d\widehat{N}(t))^2\\
+(dE(t))^2 &amp; = A^2(t)(dt)^2+B^2(t)(dW(t))^2+C^2(d\widetilde{N}(t))^2\\
 &amp; \qquad +2A(t)B(t)dt\cdot dW(t)+2A(t)C(t)dt\cdot d\widetilde{N}(t)\\
 &amp; \qquad\quad + 2B(t)C(t)dW(t)\cdot d\widetilde{N}(t).
 \end{aligned}
@@ -3306,54 +3306,54 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \]</span></p>
 <p>Usando propiedades del proceso de Poisson tenemos que <span class="math inline">\((dN(t))^2=dN(t)\)</span>, mientras que por las reglas de cálculo de Itô <span class="math inline">\(dN(t)\cdot dt=0\)</span>, por tanto <span class="math inline">\((d\widetilde{N}(t))^2=dN(t)\)</span>, la <a href="#eq-agregar5" class="quarto-xref">Ecuación&nbsp;<span>6.156</span></a> queda de la forma</p>
 <p><span class="math display">\[
-(de(t))^2 = B^2(t)dt+C^2(t)dN(t),
+(dE(t))^2 = B^2(t)dt+C^2(t)dN(t),
 \]</span></p>
 <p>esto es equivalente a</p>
 <p><span id="eq-agregar6"><span class="math display">\[
-(de(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))^2dN(t).
+(dE(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))^2dN(t).
 \tag{6.157}\]</span></span></p>
 <p>Falta interpretar el término <span class="math inline">\(\Delta e(t)\)</span> en la <a href="#eq-agregar4" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a>. Este operador se define mediante</p>
 <p><span class="math display">\[
-\Delta e(t):=e(t)-e(t-),
+\Delta E(t):=E(t)-E(t-),
 \]</span></p>
-<p>donde sabemos que <span class="math inline">\(e(t-)\)</span> representa el límite por la esquierda del error. En la forma en que se define <span class="math inline">\(e(t)\)</span> es claro que se cumple</p>
+<p>donde sabemos que <span class="math inline">\(E(t-)\)</span> representa el límite por la esquierda del error. En la forma en que se define <span class="math inline">\(E(t)\)</span> es claro que se cumple</p>
 <p><span class="math display">\[
-\Delta e(t)=\Delta \overline{Y}(t)-\Delta X(t).
+\Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
 <p>Recordemos que el momento incial <span class="math inline">\(X_0\)</span> y <span class="math inline">\(Y_0\)</span> es determinista y constante en el tiempo, por lo que <span class="math inline">\(\Delta(X_0)=0\)</span> y <span class="math inline">\(\Delta(Y_0)=0\)</span>. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
 <p><span id="eq-agregar7"><span class="math display">\[
 \begin{aligned}
   \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right) &amp; =0,\\
-  \Delta \left(\int_0^t f_{\lambda}(\overline{Y}(s-))ds\right) &amp; =0.
+  \Delta \left(\int_0^t f_{\lambda}(Y(s-))ds\right) &amp; =0.
 \end{aligned}
 \tag{6.158}\]</span></span></p>
 <p>De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades. Con esto</p>
 <p><span id="eq-agregar8"><span class="math display">\[
 \begin{aligned}
   \Delta\left(\int_0^t g(X(s-))dW(s)\right)&amp;=0\\
-  \Delta\left(\int_0^t g(\overline{Y}(s-))dW(s)\right)&amp;=0
+  \Delta\left(\int_0^t g(Y(s-))dW(s)\right)&amp;=0
 \end{aligned}
 \tag{6.159}\]</span></span></p>
 <p>La integral estocástica con respecto a un proceso de Poisson es un proceso que permanece constante entre los eventos de salto y solo cambia exactamente cuando <span class="math inline">\(N(t)\)</span> registra un salto. Con esto, el tamaño del salto de la integral en cualquier instante <span class="math inline">\(t\)</span> es el valor de la función, en nuestro caso, <span class="math inline">\(h(x)\)</span> justo antes de que ocurra el evento, multiplicado por la magnitud del salto del proceso de Poisson, es decir</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Delta \left(\int_0^t h(X(s-))dN(s)\right) &amp; = h(X(t-))\Delta N(t)\\
-\Delta \left(\int_0^t h(\overline{Y}(s-))dN(s)\right) &amp; = h(\overline{Y}(t-))\Delta N(t).
+\Delta \left(\int_0^t h(Y(s-))dN(s)\right) &amp; = h(Y(t-))\Delta N(t).
 \end{aligned}  
 \]</span></p>
 <p>Por otro lado, si consideramos el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span>, obtenemos que este difiere del proceso original únicamente por el término determinista <span class="math inline">\(\lambda t\)</span>. Dado que <span class="math inline">\(\lambda t\)</span> es una función continua, esto implica que no presenta saltos, por lo que, los saltos de <span class="math inline">\(\widetilde{N}(t)\)</span> coincide con los saltos de <span class="math inline">\(N(t)\)</span>. Entonces, la regla para el salto de la integral se mantiene</p>
 <p><span id="eq-agregar9"><span class="math display">\[
 \begin{aligned}
   \Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right) &amp; = h(X(t-))\Delta N(t),\\
-   \Delta \left(\int_0^t h(\overline{Y}(s-))d\widetilde{N}(s)\right) &amp; = h(\overline{Y}(t-))\Delta N(t).
+   \Delta \left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right) &amp; = h(Y(t-))\Delta N(t).
 \end{aligned}  
 \tag{6.160}\]</span></span></p>
 <p>Aplicando el operador de salto a la solución exacta en la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>6.152</span></a> y considerar <a href="#eq-agregar7" class="quarto-xref">Ecuación&nbsp;<span>6.158</span></a>, <a href="#eq-agregar8" class="quarto-xref">Ecuación&nbsp;<span>6.159</span></a> y <a href="#eq-agregar9" class="quarto-xref">Ecuación&nbsp;<span>6.160</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \Delta X(t) &amp; = \Delta (X_0)+\Delta\left(\int_0^t f_{\lambda}(X(s-))ds\right)\\
-&amp; \qquad\quad + \Delta\left(\int_0^t g(X(s-))dW(s)\right)\\
-&amp; \qquad\quad + \Delta\left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)\\
+&amp; \qquad\qquad\quad + \Delta\left(\int_0^t g(X(s-))dW(s)\right)\\
+&amp; \qquad\qquad\quad + \Delta\left(\int_0^t h(X(s-))d\widetilde{N}(s)\right)\\
 &amp; =  h(X(t-))\Delta N(t)
 \end{aligned}
 \]</span></p>
@@ -3361,15 +3361,15 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 <p><span class="math display">\[
 \begin{aligned}
 \Delta \overline{Y}(t) &amp; = \Delta (Y_0)+\Delta\left(\int_0^t f_{\lambda}(Y(s-))ds\right)\\
-&amp; \qquad\quad + \Delta\left(\int_0^t g(Y(s-))dW(s)\right)\\
-&amp; \qquad\quad + \Delta\left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right)\\
+&amp; \qquad\qquad\quad + \Delta\left(\int_0^t g(Y(s-))dW(s)\right)\\
+&amp; \qquad\qquad\quad + \Delta\left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right)\\
 &amp; =  h(Y(t-))\Delta N(t)
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la expresión del error tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-\Delta e(t) &amp; =\Delta \overline{Y}(t)-\Delta X(t)\\
+\Delta E(t) &amp; =\Delta \overline{Y}(t)-\Delta X(t)\\
 &amp; =  [h(Y(t-))-h(X(t-))]\Delta N(t)
 \end{aligned}
 \]</span></p>
@@ -3381,14 +3381,21 @@ d(e(t)^2)=2e(t-)de(t)+(de(t))^2+(\Delta e(t))^2dN(t).
 \end{aligned}
 \tag{6.161}\]</span></span></p>
 <p>Sustituyendo <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>6.153</span></a>, <a href="#eq-agregar6" class="quarto-xref">Ecuación&nbsp;<span>6.157</span></a> y <a href="#eq-agregar10" class="quarto-xref">Ecuación&nbsp;<span>6.161</span></a> en la <a href="#eq-agregar4" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a> tenemos</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar11"><span class="math display">\[
 \begin{aligned}
 d(e(t)^2) &amp; = 2e(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + 2e(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
   &amp; \qquad + 2e(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
-  &amp; \qquad + (g(Y(t-))-g(X(t-)))^2dt\\
-  &amp; \qquad + (h(Y(t-))-h(X(t-)))^2dN(t)\\
+  &amp; \qquad + [g(Y(t-))-g(X(t-))]^2dt\\
+  &amp; \qquad + [h(Y(t-))-h(X(t-))]^2dN(t)\\
   &amp; \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
+\end{aligned}
+\tag{6.162}\]</span></span></p>
+<p>Trabajaremos con los dos últimos términos de <a href="#eq-agregar11" class="quarto-xref">Ecuación&nbsp;<span>6.162</span></a>, tenemos que</p>
+<p><span class="math display">\[
+\begin{aligned}
+[h(Y(t-))-h(X(t-))]^2 dN(t) &amp; + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)\\
+&amp; = [h(Y(t-))-h(X(t-))]^2[dN(t)+\Delta N(t)dN(t)]
 \end{aligned}
 \]</span></p>
 </div>
