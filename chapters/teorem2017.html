@@ -3404,6 +3404,48 @@ d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + 2[h(Y(t-))-h(X(t-))]^2dN(t)\\
 \end{aligned}
 \]</span></p>
+<p>Usaremos la definición del proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)=N(t)\lambda t\)</span>, que en su forma diferencial es</p>
+<p><span class="math display">\[
+dN(t)=d\widetilde{N}(t)+\lambda dt.
+\]</span></p>
+<p>Sustituyendo esto en la expresión simplificada y distribuyendo los factores, tenemos que</p>
+<p><span class="math display">\[
+\begin{aligned}
+d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
+  &amp; \qquad + 2E(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
+  &amp; \qquad + 2E(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  &amp; \qquad + [g(Y(t-))-g(X(t-))]^2dt\\
+  &amp; \qquad + 2\lambda[h(Y(t-))-h(X(t-))]^2dt\\
+  &amp; \qquad + 2[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t).  
+\end{aligned}
+\]</span></p>
+<p>Integrando esta expresión desde <span class="math inline">\(0\)</span> hasta <span class="math inline">\(t\)</span>, ordenando y descomponiendo el término de deriva usando la identidad aditiva</p>
+<p><span class="math display">\[
+f_{\lambda}(Y(t))-f_{\lambda}(X(t)) = [f_{\lambda}(Y(t))-f_{\lambda}(\overline{Y}(t))]+[f_{\lambda}(\overline{Y}(t))-f_{\lambda}(X(t))],
+\]</span></p>
+<p>podemos llegar a la siguiente cota para el error</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(t)^2 &amp; = 2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
+  &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
+  &amp; \qquad + 2\int_0^tE(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
+  &amp; \qquad + 2\int_0^tE(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  &amp; \qquad + 2\int_0^t[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t)\\
+  &amp; =  2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(\overline{Y}(t-))]+E(t-)[f_{\lambda}(\overline{Y}(t-))-f_{\lambda}(X(t-))]dt\\
+  &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
+  &amp; \qquad +M_1(t)+M_2(t)+M_3(t),
+\end{aligned}
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+\begin{aligned}
+  M_1(t) &amp; = 2\int_0^tE(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
+  M_2(t) &amp; = 2\int_0^tE(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  M_3(t) &amp; = 2\int_0^t[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t).
+\end{aligned}
+\]</span></p>
 </div>
 
 
