@@ -3424,7 +3424,7 @@ d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
 f_{\lambda}(Y(t))-f_{\lambda}(X(t)) = [f_{\lambda}(Y(t))-f_{\lambda}(\overline{Y}(t))]+[f_{\lambda}(\overline{Y}(t))-f_{\lambda}(X(t))],
 \]</span></p>
 <p>podemos llegar a la siguiente cota para el error</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar12"><span class="math display">\[
 \begin{aligned}
 E(t)^2 &amp; = 2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
@@ -3442,7 +3442,7 @@ E(t)^2 &amp; = 2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t),
 \end{aligned}
-\]</span></p>
+\tag{6.163}\]</span></span></p>
 <p>donde</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3450,6 +3450,10 @@ E(t)^2 &amp; = 2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   M_2(t) &amp; = 2\int_0^tE(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
   M_3(t) &amp; = 2\int_0^t[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t).
 \end{aligned}
+\]</span></p>
+<p>Para el segundo término de la <a href="#eq-agregar12" class="quarto-xref">Ecuación&nbsp;<span>6.163</span></a>, podemos acortar usando la <a href="#eq-6.14" class="quarto-xref">Ecuación&nbsp;<span>6.14</span></a>, para nuesto caso, tomaremos a <span class="math inline">\(x=\overline{Y}(s-)\)</span>, <span class="math inline">\(y=X(s-)\)</span> y <span class="math inline">\(x-y=E(s-)=\overline{Y}(s-)-X(s-)\)</span>, con esto</p>
+<p><span class="math display">\[
+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
 \]</span></p>
 </div>
 
