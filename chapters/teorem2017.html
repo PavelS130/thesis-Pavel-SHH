@@ -3234,7 +3234,7 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <span class="quarto-unresolved-ref">?eq-6.10</span> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
+<p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
 <p><span class="math display">\[
 \Delta t\leq\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\},
 \]</span></p>
@@ -3244,7 +3244,7 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y lla solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
 <p><span class="math display">\[
 e(t)=\overline{Y}(t)-X(t).
 \]</span></p>
@@ -3388,7 +3388,7 @@ d(e(t)^2) &amp; = 2e(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + 2e(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
   &amp; \qquad + (g(Y(t-))-g(X(t-)))^2dt\\
   &amp; \qquad + (h(Y(t-))-h(X(t-)))^2dN(t)\\
-  &amp; \qquad + [h(\overline{Y}(t-))-h(X(t-))]^2\Delta N(t)dN(t)
+  &amp; \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
 \end{aligned}
 \]</span></p>
 </div>
