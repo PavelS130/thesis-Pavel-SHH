@@ -3463,7 +3463,7 @@ E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2
 \end{aligned}
 \tag{6.165}\]</span></span></p>
 <p>Sustituyendo <a href="#eq-agregar13" class="quarto-xref">Ecuación&nbsp;<span>6.164</span></a> y <a href="#eq-agregar14" class="quarto-xref">Ecuación&nbsp;<span>6.165</span></a> en la <a href="#eq-agregar12" class="quarto-xref">Ecuación&nbsp;<span>6.163</span></a> se tiene</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar15"><span class="math display">\[
 \begin{aligned}
 |E(t)|^2 &amp; \leq 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\
   &amp; \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\
@@ -3475,7 +3475,7 @@ E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2
   &amp; \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t).\\
 \end{aligned}
-\]</span></p>
+\tag{6.166}\]</span></span></p>
 <p>Es claro que <span class="math inline">\((L_g+2\lambda L_h)&gt;0\)</span>, por la forma en que están definidas las constantes <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(L_g\)</span> y <span class="math inline">\(L_h\)</span>. De la siguiente igualdad</p>
 <p><span class="math display">\[
 Y(s-)-X(s-)=(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-)),  
@@ -3489,6 +3489,19 @@ Y(s-)-X(s-)=(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-)),
   &amp; \qquad\qquad\qquad\qquad + 2|Y(s-)-\overline{Y}(s-)||\overline{Y}(s-)-X(s-)|].
 \end{aligned}
 \]</span></p>
+<p>Usando la desigualdad de Young para el doble podructo tenemos</p>
+<p><span class="math display">\[
+2|Y(s-)-\overline{Y}(s-)||\overline{Y}(s-)-X(s-)| = |Y(s-)-\overline{Y}(s-)|^2 + |\overline{Y}(s-)-X(s-)|^2,
+\]</span></p>
+<p>sustituyendo esto se tiene</p>
+<p><span id="eq-agregar16"><span class="math display">\[
+\begin{aligned}
+  (L_g+2\lambda L_h) |Y(s-) &amp; - X(s-)|^2\\
+  &amp; \leq (L_g+2\lambda L_h)[|Y(s-)-\overline{Y}(s-)|^2+|\overline{Y}(s-)-X(s-)|^2\\
+  &amp; \qquad\qquad\qquad\qquad + |Y(s-)-\overline{Y}(s-)|^2 + |\overline{Y}(s-)-X(s-)|^2]\\
+  &amp; = 2(L_g+2\lambda L_h)[|Y(s-)-\overline{Y}(s-)|^2+|\overline{Y}(s-)-X(s-)|^2]
+\end{aligned}
+\tag{6.167}\]</span></span></p>
 </div>
 
 
