@@ -3807,7 +3807,7 @@ $$
 
 ::: {.proof style="text-align: justify"}
 
-Para análizar la convergencia del método $\text{CSS}\theta$, definimos el proceso de  error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, $Y(t)$, y la solución exacta de la ecuación diferencial estocástica, $X(t)$. Usaremos la siguiente notación para denotar dicho proceso
+Para análizar la convergencia del método $\text{CSS}\theta$, definimos el proceso de  error continuo como la diferencia entre la extensión a tiempo continuo de la aproximación númerica, $Y(t)$, y la solución exacta de la ecuación diferencial estocástica, $X(t)$. Usaremos la siguiente notación para denotar dicho proceso
 
 $$
 E(t)=\overline{Y}(t)-X(t). 
@@ -3847,7 +3847,7 @@ $$
 \end{aligned}
 $$ {#eq-agregar3}
 
-En nuestro caso, tomaremos la función $V(E)=E^2$, la cuál pertenece a $C^2(\mathbb{R})$ con primera y segunda derivada dadas por $V'(E)=2E$ y $V''(E)=2$ respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la @eq-agregar3 la expresión se simplifica de la siguiente forma
+En nuestro caso, para aplicar la fórmula de Itô usaremos la función $V(E)=E^2$, la cuál pertenece a $C^2(\mathbb{R})$ con primera y segunda derivada dadas por $V'(E)=2E$ y $V''(E)=2$ respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la @eq-agregar3 la expresión se simplifica de la siguiente forma
 
 $$
 \begin{aligned}
@@ -3905,7 +3905,7 @@ $$
 \Delta E(t):=E(t)-E(t-),
 $$ 
 
-donde sabemos que $E(t-)$ representa el límite por la esquierda del error. En la forma en que se define $E(t)$ es claro que se cumple 
+donde sabemos que $E(t-)$ representa el límite por la izquierda del error. En la forma en que se define $E(t)$ es claro que se cumple 
 
 $$
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
@@ -4000,12 +4000,252 @@ d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
 \end{aligned}
 $$ {#eq-agregar11}
 
-Trabajaremos con los dos últimos términos de @eq-agregar11, tenemos que 
+Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple 
+$$
+\Delta N(t)dN(t)=dN(t). 
+$$
+
+Sustituyendo esta propiedad en la @eq-agregar11 y factorizar los términos en común obtenemos 
 
 $$
 \begin{aligned}
-  \left[h(Y(-))-h(X(t-))\right]^2dN(t) & + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)\\ 
-  & = [h(Y(-))-h(X(t-))]^2 [dN(t)+\Delta N(t)dN(t)]
+d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\ 
+  & \qquad + 2E(t-)[g(Y(t-))-g(X(t-))]dW(t)\\ 
+  & \qquad + 2E(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  & \qquad + [g(Y(t-))-g(X(t-))]^2dt\\ 
+  & \qquad + 2[h(Y(t-))-h(X(t-))]^2dN(t)\\ 
+\end{aligned}
+$$
+
+Usaremos la definición del proceso de Poisson compensado $\widetilde{N}(t)=N(t)\lambda t$, que en su forma diferencial es 
+
+$$
+dN(t)=d\widetilde{N}(t)+\lambda dt. 
+$$
+
+Sustituyendo esto en la expresión simplificada y distribuyendo los factores, tenemos que
+
+$$
+\begin{aligned}
+d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\ 
+  & \qquad + 2E(t-)[g(Y(t-))-g(X(t-))]dW(t)\\ 
+  & \qquad + 2E(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
+  & \qquad + [g(Y(t-))-g(X(t-))]^2dt\\ 
+  & \qquad + 2\lambda[h(Y(t-))-h(X(t-))]^2dt\\
+  & \qquad + 2[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t).  
+\end{aligned}
+$$
+
+Integrando esta expresión desde $0$ hasta $t$, ordenando y descomponiendo el término de deriva usando la identidad aditiva
+
+$$
+f_{\lambda}(Y(t))-f_{\lambda}(X(t)) = [f_{\lambda}(Y(t))-f_{\lambda}(\overline{Y}(t))]+[f_{\lambda}(\overline{Y}(t))-f_{\lambda}(X(t))],
+$$
+
+podemos llegar a la siguiente cota para el error 
+
+$$
+\begin{aligned}
+|E(t)|^2 & = 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds\\
+  & \qquad + \int_0^t[g(Y(s-))-g(X(s-))]^2ds\\ 
+  & \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
+  & \qquad + 2\int_0^tE(s-)[g(Y(s-))-g(X(s-))]dW(s)\\ 
+  & \qquad + 2\int_0^tE(s-)[h(Y(s-))-h(X(s-))]d\widetilde{N}(s)\\ 
+  & \qquad + 2\int_0^t[h(Y(s-))-h(X(s-))]^2d\widetilde{N}(s)\\
+  & =  2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\ 
+  & \qquad + 2\int_0^t[g(Y(s-))-g(X(s-))]^2ds\\ 
+  & \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
+  & =  2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\ 
+  & \qquad + 2 \int_0^t E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\ 
+  & \qquad + \int_0^t[g(Y(s-))-g(X(s-))]^2ds\\ 
+  & \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t),
+\end{aligned}
+$$ {#eq-agregar12}
+
+donde 
+
+$$
+\begin{aligned}
+  M_1(t) & = 2\int_0^tE(s-)[g(Y(s-))-g(X(s-))]dW(s),\\ 
+  M_2(t) & = 2\int_0^tE(t-)[h(Y(s-))-h(X(s-))]d\widetilde{N}(s),\\ 
+  M_3(t) & = 2\int_0^t[h(Y(s-))-h(X(s-))]^2d\widetilde{N}(s).
+\end{aligned}
+$$
+
+Para el término de deriva de la @eq-agregar12, podemos acortar usando la @eq-6.14, para nuesto caso, tomaremos a $x=\overline{Y}(s-)$, $y=X(s-)$ y $x-y=E(s-)=\overline{Y}(s-)-X(s-)$, con esto 
+
+$$
+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
+$$ {#eq-agregar13}
+
+De manera similar, para los términos de difusión y salto correspondientes a las funciones $g$ y $h$ respectivamente podemos acotarlas usando las hipótesis dadas en la @eq-6.010 y @eq-6.11 de tal forma que 
+
+$$
+\begin{aligned}
+  |g(Y(s-))-g(X(s-))|^2 & \leq L_g|Y(s-)-X(s-)|^2,\\ 
+  |h(Y(s-))-h(X(s-))|^2 & \leq L_h|Y(s-)-X(s-)|^2. 
+\end{aligned}
+$$ {#eq-agregar14}
+
+Sustituyendo @eq-agregar13 y @eq-agregar14 en la @eq-agregar12 se tiene 
+
+$$
+\begin{aligned}
+|E(t)|^2 & \leq 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\ 
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + \int_0^t L_g|Y(s-)-X(s-)|^2ds\\ 
+  & \qquad + 2\lambda\int_0^t L_h|Y(s-)-X(s-)|^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
+  & = 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\ 
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
+  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+\end{aligned}
+$$ {#eq-agregar15}
+
+Usando la desigualdad de Young para el primer término de la @eq-agregar15 tenemos 
+
+$$
+2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2
+$$
+
+Sustituyendo esto en la @eq-agregar15 tenemos 
+
+$$
+\begin{aligned}
+|E(t)|^2 & \leq \int_0^t |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2ds\\
+  & \qquad +\int_0^t |E(s-)|^2ds\\
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
+  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+\end{aligned}
+$$ {#eq-agregar16}
+
+Usando la hipótesis dada en la @eq-6.13 para el término de deriva, podemos afirmar que existe $D>0$ y $q\in\mathbb{Z}$, tal que es posible acotarlo de la siguiente forma 
+
+$$
+|f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2\leq D\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2. 
+$$
+
+Con esto, ordenando la @eq-agregar16 y sustituyendo esta cota se tiene 
+
+$$
+\begin{aligned}
+|E(t)|^2 & \leq \int_0^t |E(s-)|^2ds\\
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\
+  & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+\end{aligned}
+$$ {#eq-agregar17}
+
+Por otro lado, tenemos que $(L_g+2\lambda L_h)>0$, por la forma en que están definidas las constantes $\lambda$, $L_g$ y $L_h$. De la siguiente igualdad, donde recordemos que $E(s-)=\overline{Y}(s-)-X(s-)$, tenemos 
+
+$$
+\begin{aligned}
+Y(s-)-X(s-) & =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\ 
+& = (Y(s-)-\overline{Y}(s-))+ E(s-)
+\end{aligned}  
+$$
+
+Podemos aplicar valor absoluto, usar la desigualdad triangular, elevar al cuadrado y multiplicar por el factor $(L_g+2\lambda L_h)>0$ para obtener la siguiente desigualdad 
+
+$$
+\begin{aligned}
+  (L_g+2\lambda L_h) |Y(s-) & - X(s-)|^2\\ 
+  & \leq (L_g+2\lambda L_h)(|Y(s-)-\overline{Y}(s-)|+|E(s-)|)^2\\ 
+  & = (L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\\ 
+  & \qquad\qquad\qquad\qquad + 2|Y(s-)-\overline{Y}(s-)||E(s-)|\Big).
+\end{aligned}
+$$
+
+Usando la desigualdad de Young para el doble podructo tenemos 
+
+$$
+2|Y(s-)-\overline{Y}(s-)||E(s-)| = |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2, 
+$$
+
+sustituyendo esto se tiene 
+
+$$
+\begin{aligned}
+  (L_g+2\lambda L_h) |Y(s-) & - X(s-)|^2\\ 
+  & \leq (L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\\ 
+  & \qquad\qquad\qquad\qquad + |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2\Big)\\ 
+  & = 2(L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)
+\end{aligned}
+$$
+
+Basta notar que $1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)$ y con la desigualdad anterior, en la @eq-agregar17 podemos obtener
+
+$$
+\begin{aligned}
+|E(t)|^2 & \leq \int_0^t |E(s-)|^2ds\\
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + 2(L_g+2\lambda L_h)\int_0^t \left(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\right) ds\\
+  & \qquad + D \int_0^t \left(1+|Y(s-)|^2+|\overline{Y}(s-)|^2\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
+  & \leq \int_0^t |E(s-)|^2ds\\
+  & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
+  & \qquad + 2(L_g+2\lambda L_h)\int_0^t |E(s-)|^2\\ 
+  & \qquad + 2(L_g+2\lambda L_h)\int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2 ds\\
+  & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
+  & = (1+2K_{\lambda}+2(L_g+2\lambda L_h))\int_0^t |E(s-)|^2ds\\ 
+  & \qquad + (2(L_g+2\lambda L_h)+D)\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\ 
+  & \qquad + M_1(t)+M_2(t)+M_3(t)\\ 
+  & \leq D_1 \int_0^t |E(s-)|^2ds\\ 
+  & \qquad + D_1\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\ 
+  & \qquad + M_1(t)+M_2(t)+M_3(t), 
+\end{aligned}
+$$ {#eq-agregar18}
+
+donde 
+
+$$
+D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
+$$
+
+Por otro lado, para $s\in[0,t]$ se cumple 
+
+$$
+|Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2
+$$
+
+Sustituyendo esto en la @eq-agregar18 y notando que dicho supremo es independiente al integrando, obtenemos 
+
+$$
+\begin{aligned}
+  |E(t)|^2 & \leq D_1 \int_0^t |E(s-)|^2ds\\ 
+  & \qquad + D_1\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\\ 
+  & \qquad + M_1(t)+M_2(t)+M_3(t)
+\end{aligned}
+$$ {#eq-agregar18}
+
+Ahora bien, tomaremos supremo sobre $0$ a $t$, por linealidad del supremos 
+
+$$
+\begin{aligned}
+  \sup_{0\leq s\leq t}|E(s)|^2 & \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\ 
+  & \qquad + D_1\sup_{0\leq s\leq t}\left(\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\right)\\ 
+  & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t)
+\end{aligned}
+$$
+
+Notemos que la primer integral respecto al error, $E(r-)$ es creciente en $s$ por lo tanto podemos simplificarlo mediante 
+
+$$
+\sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)= \int_0^t |E(s-)|^2ds. 
+$$
+
+De igual forma se tiene que el factor $\displaystyle \left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)$ es creciente, por lo tanto por la propiedad del producto de supremos y la monotonía en funciones crecientes se tiene que 
+
+$$
+\begin{aligned}
+  \sup_{0\leq s\leq t} \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 & \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\ 
+  & \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds
 \end{aligned}
 $$
 
