@@ -3426,40 +3426,50 @@ f_{\lambda}(Y(t))-f_{\lambda}(X(t)) = [f_{\lambda}(Y(t))-f_{\lambda}(\overline{Y
 <p>podemos llegar a la siguiente cota para el error</p>
 <p><span id="eq-agregar12"><span class="math display">\[
 \begin{aligned}
-E(t)^2 &amp; = 2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
-  &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
-  &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
-  &amp; \qquad + 2\int_0^tE(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
-  &amp; \qquad + 2\int_0^tE(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
-  &amp; \qquad + 2\int_0^t[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t)\\
-  &amp; =  2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(\overline{Y}(t-))]+E(t-)[f_{\lambda}(\overline{Y}(t-))-f_{\lambda}(X(t-))]dt\\
-  &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
-  &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
+|E(t)|^2 &amp; = 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds\\
+  &amp; \qquad + \int_0^t[g(Y(s-))-g(X(s-))]^2ds\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
+  &amp; \qquad + 2\int_0^tE(s-)[g(Y(s-))-g(X(s-))]dW(s)\\
+  &amp; \qquad + 2\int_0^tE(s-)[h(Y(s-))-h(X(s-))]d\widetilde{N}(s)\\
+  &amp; \qquad + 2\int_0^t[h(Y(s-))-h(X(s-))]^2d\widetilde{N}(s)\\
+  &amp; =  2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\
+  &amp; \qquad + 2\int_0^t[g(Y(s-))-g(X(s-))]^2ds\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t)\\
-  &amp; =  2\int_0^t E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(\overline{Y}(t-))]dt\\
-  &amp; \qquad + \int_0^t E(t-)[f_{\lambda}(\overline{Y}(t-))-f_{\lambda}(X(t-))]dt\\
-  &amp; \qquad + \int_0^t[g(Y(t-))-g(X(t-))]^2dt\\
-  &amp; \qquad + 2\lambda\int_0^t[h(Y(t-))-h(X(t-))]^2dt\\
+  &amp; =  2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\
+  &amp; \qquad + 2 \int_0^t E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\
+  &amp; \qquad + \int_0^t[g(Y(s-))-g(X(s-))]^2ds\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t),
 \end{aligned}
 \tag{6.163}\]</span></span></p>
 <p>donde</p>
 <p><span class="math display">\[
 \begin{aligned}
-  M_1(t) &amp; = 2\int_0^tE(t-)[g(Y(t-))-g(X(t-))]dW(t)\\
-  M_2(t) &amp; = 2\int_0^tE(t-)[h(Y(t-))-h(X(t-))]d\widetilde{N}(t)\\
-  M_3(t) &amp; = 2\int_0^t[h(Y(t-))-h(X(t-))]^2d\widetilde{N}(t).
+  M_1(t) &amp; = 2\int_0^tE(s-)[g(Y(s-))-g(X(s-))]dW(s)\\
+  M_2(t) &amp; = 2\int_0^tE(t-)[h(Y(s-))-h(X(s-))]d\widetilde{N}(s)\\
+  M_3(t) &amp; = 2\int_0^t[h(Y(s-))-h(X(s-))]^2d\widetilde{N}(s).
 \end{aligned}
 \]</span></p>
-<p>Para el segundo término de la <a href="#eq-agregar12" class="quarto-xref">Ecuación&nbsp;<span>6.163</span></a>, podemos acortar usando la <a href="#eq-6.14" class="quarto-xref">Ecuación&nbsp;<span>6.14</span></a>, para nuesto caso, tomaremos a <span class="math inline">\(x=\overline{Y}(s-)\)</span>, <span class="math inline">\(y=X(s-)\)</span> y <span class="math inline">\(x-y=E(s-)=\overline{Y}(s-)-X(s-)\)</span>, con esto</p>
+<p>Para el término de deriva de la <a href="#eq-agregar12" class="quarto-xref">Ecuación&nbsp;<span>6.163</span></a>, podemos acortar usando la <a href="#eq-6.14" class="quarto-xref">Ecuación&nbsp;<span>6.14</span></a>, para nuesto caso, tomaremos a <span class="math inline">\(x=\overline{Y}(s-)\)</span>, <span class="math inline">\(y=X(s-)\)</span> y <span class="math inline">\(x-y=E(s-)=\overline{Y}(s-)-X(s-)\)</span>, con esto</p>
 <p><span id="eq-agregar13"><span class="math display">\[
 E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
 \tag{6.164}\]</span></span></p>
 <p>De manera similar, para los términos de difusión y salto correspondientes a las funciones <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> respectivamente podemos acotarlas usando las hipótesis dadas en la <span class="quarto-unresolved-ref">?eq-6.10</span> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> de tal forma que</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar14"><span class="math display">\[
 \begin{aligned}
   |g(Y(s-))-g(X(s-))|^2 &amp; \leq L_g|Y(s-)-X(s-)|^2,\\
   |h(Y(s-))-h(X(s-))|^2 &amp; \leq L_h|Y(s-)-X(s-)|.
+\end{aligned}
+\tag{6.165}\]</span></span></p>
+<p>Sustituyendo <a href="#eq-agregar13" class="quarto-xref">Ecuación&nbsp;<span>6.164</span></a> y <a href="#eq-agregar14" class="quarto-xref">Ecuación&nbsp;<span>6.165</span></a> en la <a href="#eq-agregar12" class="quarto-xref">Ecuación&nbsp;<span>6.163</span></a> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+|E(t)|^2 &amp; \leq 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\
+  &amp; \qquad + 2 \int_0^t E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\
+  &amp; \qquad + \int_0^t[g(Y(s-))-g(X(s-))]^2ds\\
+  &amp; \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
+  &amp; \qquad +M_1(t)+M_2(t)+M_3(t)
 \end{aligned}
 \]</span></p>
 </div>
