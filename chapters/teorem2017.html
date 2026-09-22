@@ -3244,7 +3244,7 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión atiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión a tiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
 <p><span class="math display">\[
 E(t)=\overline{Y}(t)-X(t).
 \]</span></p>
@@ -3274,7 +3274,7 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
   &amp; \qquad + \underbrace{[V(E(t-)+\Delta E(t))-V(E(t-))-V'(E(t-))\Delta E(t)]dN(t)}_{\text{salto}}
 \end{aligned}
 \tag{6.154}\]</span></span></p>
-<p>En nuestro caso, tomaremos la función <span class="math inline">\(V(E)=E^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(E)=2E\)</span> y <span class="math inline">\(V''(E)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
+<p>En nuestro caso, para aplicar la fórmula de Itô usaremos la función <span class="math inline">\(V(E)=E^2\)</span>, la cuál pertenece a <span class="math inline">\(C^2(\mathbb{R})\)</span> con primera y segunda derivada dadas por <span class="math inline">\(V'(E)=2E\)</span> y <span class="math inline">\(V''(E)=2\)</span> respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>6.154</span></a> la expresión se simplifica de la siguiente forma</p>
 <p><span class="math display">\[
 \begin{aligned}
   V(E(t-)+\Delta E(t))-V(E(t-)) &amp; -V'(E(t-))\Delta E(t)\\
@@ -3316,7 +3316,7 @@ d(E(t)^2)=2E(t-)dE(t)+(dE(t))^2+(\Delta E(t))^2dN(t).
 <p><span class="math display">\[
 \Delta E(t):=E(t)-E(t-),
 \]</span></p>
-<p>donde sabemos que <span class="math inline">\(E(t-)\)</span> representa el límite por la esquierda del error. En la forma en que se define <span class="math inline">\(E(t)\)</span> es claro que se cumple</p>
+<p>donde sabemos que <span class="math inline">\(E(t-)\)</span> representa el límite por la izquierda del error. En la forma en que se define <span class="math inline">\(E(t)\)</span> es claro que se cumple</p>
 <p><span class="math display">\[
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
@@ -3455,7 +3455,7 @@ f_{\lambda}(Y(t))-f_{\lambda}(X(t)) = [f_{\lambda}(Y(t))-f_{\lambda}(\overline{Y
 <p><span id="eq-agregar13"><span class="math display">\[
 E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
 \tag{6.164}\]</span></span></p>
-<p>De manera similar, para los términos de difusión y salto correspondientes a las funciones <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> respectivamente podemos acotarlas usando las hipótesis dadas en la <span class="quarto-unresolved-ref">?eq-6.10</span> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> de tal forma que</p>
+<p>De manera similar, para los términos de difusión y salto correspondientes a las funciones <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> respectivamente podemos acotarlas usando las hipótesis dadas en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> de tal forma que</p>
 <p><span id="eq-agregar14"><span class="math display">\[
 \begin{aligned}
   |g(Y(s-))-g(X(s-))|^2 &amp; \leq L_g|Y(s-)-X(s-)|^2,\\
