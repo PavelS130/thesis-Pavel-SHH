@@ -4101,14 +4101,14 @@ $$
   & = 2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]ds\\ 
   & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
-  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 $$ {#eq-agregar15}
 
 Usando la desigualdad de Young para el primer término de la @eq-agregar15 tenemos 
 
 $$
-2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2
+2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2.
 $$
 
 Sustituyendo esto en la @eq-agregar15 tenemos 
@@ -4119,7 +4119,7 @@ $$
   & \qquad +\int_0^t |E(s-)|^2ds\\
   & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
-  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 $$ {#eq-agregar16}
 
@@ -4137,7 +4137,7 @@ $$
   & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\
   & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
-  & \qquad +M_1(t)+M_2(t)+M_3(t).\\
+  & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 $$ {#eq-agregar17}
 
@@ -4146,7 +4146,7 @@ Por otro lado, tenemos que $(L_g+2\lambda L_h)>0$, por la forma en que están de
 $$
 \begin{aligned}
 Y(s-)-X(s-) & =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\ 
-& = (Y(s-)-\overline{Y}(s-))+ E(s-)
+& = (Y(s-)-\overline{Y}(s-))+ E(s-).
 \end{aligned}  
 $$
 
@@ -4174,7 +4174,7 @@ $$
   (L_g+2\lambda L_h) |Y(s-) & - X(s-)|^2\\ 
   & \leq (L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\\ 
   & \qquad\qquad\qquad\qquad + |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2\Big)\\ 
-  & = 2(L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)
+  & = 2(L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big).
 \end{aligned}
 $$
 
@@ -4211,7 +4211,7 @@ $$
 Por otro lado, para $s\in[0,t]$ se cumple 
 
 $$
-|Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2
+|Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2.
 $$
 
 Sustituyendo esto en la @eq-agregar18 y notando que dicho supremo es independiente al integrando, obtenemos 
@@ -4220,9 +4220,9 @@ $$
 \begin{aligned}
   |E(t)|^2 & \leq D_1 \int_0^t |E(s-)|^2ds\\ 
   & \qquad + D_1\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\\ 
-  & \qquad + M_1(t)+M_2(t)+M_3(t)
+  & \qquad + M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
-$$ {#eq-agregar18}
+$$
 
 Ahora bien, tomaremos supremo sobre $0$ a $t$, por linealidad del supremos 
 
@@ -4230,23 +4230,128 @@ $$
 \begin{aligned}
   \sup_{0\leq s\leq t}|E(s)|^2 & \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\ 
   & \qquad + D_1\sup_{0\leq s\leq t}\left(\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\right)\\ 
-  & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t)
+  & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t).
 \end{aligned}
-$$
+$$ {#eq-agregar19}
 
 Notemos que la primer integral respecto al error, $E(r-)$ es creciente en $s$ por lo tanto podemos simplificarlo mediante 
 
 $$
 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)= \int_0^t |E(s-)|^2ds. 
-$$
+$$ {#eq-agregar20}
 
 De igual forma se tiene que el factor $\displaystyle \left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)$ es creciente, por lo tanto por la propiedad del producto de supremos y la monotonía en funciones crecientes se tiene que 
 
 $$
 \begin{aligned}
   \sup_{0\leq s\leq t} \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 & \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\ 
-  & \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds
+  & \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds.
+\end{aligned}
+$$ {#eq-agregar21}
+
+Por tanto, sustituyendo @eq-agregar20 y @eq-agregar21 en la @eq-agregar19 tenemos 
+
+$$
+\begin{aligned}
+  \sup_{0\leq s\leq t}|E(s)|^2 & \leq D_1 \int_0^t |E(s-)|^2ds\\ 
+  & \qquad + D_1\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\\ 
+  & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t).
 \end{aligned}
 $$
+
+Tomando valor esperado 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] & \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\ 
+  & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
+  & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
+\end{aligned}
+$$ {#eq-agregar22}
+
+Dado que $|E(s-)|^2\geq 0$ y dicho proceso es medible, por el teorema de Tonelli se cumple 
+
+$$
+\mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg] = \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds. 
+$$
+
+Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de Tonelli, se puede afirmar  
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 & \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
+& \leq  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\mathbb{E}\Bigg[\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
+& = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg).
+\end{aligned}
+$$ 
+
+La @eq-agregar22 queda de acotada mediante 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[ & \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+  & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg)\\ 
+  & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
+\end{aligned}
+$$ {#eq-agregar23}
+
+Recordemos que la aproximación escalonada $Y(s)$ esta definida en la @eq-6.06, para $s\in [t_n,t_{n+1}]$ se tiene que $Y(s)=Y_n^*$ dentro del intérvalo $[0,T]$, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elemento de la secuencia, es decir 
+
+$$
+|Y(s-)|\leq \sup_{0\leq t_n\leq T}|Y_n^*|. 
+$$
+
+Notemos que esta desigualdad se cumple trayectoria por trayectoria y el válida para cualquier $s\in[0,T]$. Por otro lado, como la función $x\mapsto x^q$ es monótonamente creciente para $x\geq 0$ y $q\in \mathbb{Z}^+$, al elevar  y tomar valor esperado a ambos lados de la desigualdad a la potencia $q$ se tiene 
+
+$$
+\mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\Bigg(\sup_{0\leq t_n\leq T}|Y_n^*|\Bigg)^q\right]=\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right]. 
+$$
+
+Dado $q\in \mathbb{Z}^+$ es posible encontrar $p_1\geq 1$ tal que $q\leq 2p_1$, con esto
+
+$$
+\mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p_1}\right]. 
+$$ {#eq-agregar24}
+
+De forma similar, existe $p_2\geq 1$ tal que 
+
+$$
+\mathbb{E}\left[|\overline{Y}(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p_2}\right]. 
+$$ {#eq-agregar25}
+
+Tomando a $p=\max\{p_1,p_2\}$ y aplicando el @lem-6.2 y @lem-6.3 a la @eq-agregar24 y @eq-agregar25 respectivamente, obtenemos 
+
+$$
+\begin{aligned}
+  \mathbb{E}\left[|Y(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A\\ 
+  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1 
+\end{aligned}
+$$ {#eq-agregar26}
+
+Por el @lem-6.4 se cumple que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\widetilde{E}\Delta t. 
+$$ {#eq-agregar27}
+
+Sustituyendo la @eq-agregar26 y @eq-agregar27 en la @eq-agregar23 tenemos que se reduce 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[ & \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+  & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad + D_1\widetilde{E}\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\ 
+  & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]\\ 
+  & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad + D_1(T(1+A+A_1))\widetilde{E}\Delta t\\ 
+  & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]. 
+\end{aligned}
+$$
+
+
+
+
+
 
 :::
