@@ -3602,9 +3602,13 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] &amp; \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\
-  &amp; \qquad + D_1\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
+  &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(|E(s-)|^2\geq 0\)</span> y dicho proceso es medible, por el teorema de Tonelli se cumple</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg] = \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds.
 \]</span></p>
 </div>
 
