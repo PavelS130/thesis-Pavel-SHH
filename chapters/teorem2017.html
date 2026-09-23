@@ -3599,16 +3599,60 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \end{aligned}
 \]</span></p>
 <p>Tomando valor esperado</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar22"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] &amp; \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\
   &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
-\]</span></p>
+\tag{6.173}\]</span></span></p>
 <p>Dado que <span class="math inline">\(|E(s-)|^2\geq 0\)</span> y dicho proceso es medible, por el teorema de Tonelli se cumple</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg] = \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds.
+\]</span></p>
+<p>Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de Tonelli, se puede afirmar</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 &amp; \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
+&amp; \leq  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\mathbb{E}\Bigg[\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
+&amp; = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg).
+\end{aligned}
+\]</span></p>
+<p>La <a href="#eq-agregar22" class="quarto-xref">Ecuación&nbsp;<span>6.173</span></a> queda de acotada mediante</p>
+<p><span id="eq-agregar23"><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+  &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
+  &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg)\\
+  &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
+\end{aligned}
+\tag{6.174}\]</span></span></p>
+<p>Recordemos que la aproximación escalonada <span class="math inline">\(Y(s)\)</span> esta definida en la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, para <span class="math inline">\(s\in [t_n,t_{n+1}]\)</span> se tiene que <span class="math inline">\(Y(s)=Y_n^*\)</span> dentro del intérvalo <span class="math inline">\([0,T]\)</span>, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elemento de la secuencia, es decir</p>
+<p><span class="math display">\[
+|Y(s-)|\leq \sup_{0\leq t_n\leq T}|Y_n^*|.
+\]</span></p>
+<p>Notemos que esta desigualdad se cumple trayectoria por trayectoria y el válida para cualquier <span class="math inline">\(s\in[0,T]\)</span>. Por otro lado, como la función <span class="math inline">\(x\mapsto x^q\)</span> es monótonamente creciente para <span class="math inline">\(x\geq 0\)</span> y <span class="math inline">\(q\in \mathbb{Z}^+\)</span>, al elevar y tomar valor esperado a ambos lados de la desigualdad a la potencia <span class="math inline">\(q\)</span> se tiene</p>
+<p><span class="math display">\[
+\mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\Bigg(\sup_{0\leq t_n\leq T}|Y_n^*|\Bigg)^q\right]=\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right].
+\]</span></p>
+<p>Dado <span class="math inline">\(q\in \mathbb{Z}^+\)</span> es posible encontrar <span class="math inline">\(p_1\geq 1\)</span> tal que <span class="math inline">\(q\leq 2p_1\)</span>, con esto</p>
+<p><span id="eq-agregar24"><span class="math display">\[
+\mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p_1}\right].
+\tag{6.175}\]</span></span></p>
+<p>De forma similar, existe <span class="math inline">\(p_2\geq 1\)</span> tal que</p>
+<p><span id="eq-agregar25"><span class="math display">\[
+\mathbb{E}\left[|\overline{Y}(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p_2}\right].
+\tag{6.176}\]</span></span></p>
+<p>Tomando a <span class="math inline">\(p=\max\{p_1,p_2\}\)</span> y aplicando el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> y <a href="#lem-6.3" class="quarto-xref">Lema&nbsp;<span>6.3</span></a> la <a href="#eq-agregar24" class="quarto-xref">Ecuación&nbsp;<span>6.175</span></a> y <a href="#eq-agregar25" class="quarto-xref">Ecuación&nbsp;<span>6.176</span></a> respectivamente, obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\left[|Y(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A\\
+  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1
+\end{aligned}
+\]</span></p>
+<p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> se cumple que</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\leq \widetilde{E}\Delta t.
 \]</span></p>
 </div>
 
