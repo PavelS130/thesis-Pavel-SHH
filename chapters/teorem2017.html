@@ -3703,7 +3703,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \begin{aligned}
 \left(\sup_{0\leq r\leq t}|E(r-)|^2\right)^{1/2}&amp;\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}\\
-&amp; \leq \frac{1}{2\varepsilon}\sup_{0\leq r\leq t}|E(r-)|^2 \\
+&amp; \leq \frac{1}{2\varepsilon}\sup_{0\leq r\leq t}|E(r)|^2 \\
 &amp; \qquad + \frac{\varepsilon}{2} \int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \end{aligned}
 \]</span></p>
@@ -3711,9 +3711,9 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-agregar31"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad\qquad\qquad\quad + \frac{\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg]\Bigg)\\
-&amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad\qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
 \tag{6.182}\]</span></span></p>
@@ -3725,7 +3725,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\  
+&amp; \leq \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
 \end{aligned}
@@ -3734,7 +3734,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-agregar32"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\  
+&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
 \end{aligned}
@@ -3754,11 +3754,11 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-agregar34"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\  
-&amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
+&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+&amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t E\Delta tds\\
-&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\  
-&amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
+&amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+&amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\
 &amp; \qquad\quad + 12C_1^2L_g T E\Delta t.
 \end{aligned}
 \tag{6.185}\]</span></span></p>
@@ -3768,39 +3768,39 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \tag{6.186}\]</span></span></p>
 <p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicandoel cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
 <p><span class="math display">\[
-\langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds.
+\langle M_2\rangle_t = 4\lambda\int_0^t |E(s)|^2|h(Y(s-))-h(X(s-))|^2ds.
 \]</span></p>
 <p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> tammbién cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizas el mismo calculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
 <p><span id="eq-agregar36"><span class="math display">\[
-\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s-)|^2\right)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
+\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\right)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s)|^2ds\right)^{1/2}.
 \tag{6.187}\]</span></span></p>
 <p>De manerá similar, usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span>, se cumple</p>
 <p><span class="math display">\[
 \begin{aligned}
-\left(\sup_{0\leq s\leq t}|E(s-)|^2\right)^{1/2} &amp; \left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\
-&amp; \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s-)|^2+\frac{\delta}{2}\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds.
+\left(\sup_{0\leq s\leq t}|E(s)|^2\right)^{1/2} &amp; \left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s)|^2ds\right)^{1/2}\\
+&amp; \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s)|^2+\frac{\delta}{2}\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s)|^2ds.
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto y la <a href="#eq-agregar36" class="quarto-xref">Ecuación&nbsp;<span>6.187</span></a> en la <a href="#eq-agregar35" class="quarto-xref">Ecuación&nbsp;<span>6.186</span></a> obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg]\\
-&amp; \leq 2C_2\sqrt{2\lambda L_h}\Bigg[\frac{1}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \leq 2C_2\sqrt{2\lambda L_h}\Bigg[\frac{1}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad + \frac{\delta}{2}\Bigg(\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\
-&amp; \qquad + \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\Bigg)\Bigg]\\
-&amp; = \frac{2C_2\sqrt{2\lambda L_h}}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \qquad + \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\Bigg)\Bigg]\\
+&amp; = \frac{2C_2\sqrt{2\lambda L_h}}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\
-&amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds.
+&amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds.
 \end{aligned}
 \]</span></p>
 <p>Definiendo a <span class="math inline">\(\delta=6C_2\sqrt{2\lambda L_h}\)</span>, usando la <a href="#eq-agregar33" class="quarto-xref">Ecuación&nbsp;<span>6.184</span></a>, la expresión anterior se reduce a</p>
 <p><span id="eq-agregar37"><span class="math display">\[
 \begin{aligned}
-\mathbb{E} \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
-&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\
+\mathbb{E} \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\
 &amp; \qquad + 12C_2^2\lambda L_h\int_0^t E\Delta t\\
-&amp; \leq  \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
-&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\
+&amp; \leq  \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\
 &amp; \qquad + 12C_2^2\lambda L_h T E\Delta t.
 \end{aligned}
 \tag{6.188}\]</span></span></p>
@@ -3816,22 +3816,22 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \begin{aligned}
 \langle M_3\rangle_t  &amp; \leq \lambda\int_0^t \Big(L_h|Y(s-)-X(s-)|^2\Big)^2ds\\
-&amp; \leq \lambda L_h^2\int_0^t \Bigg(2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)\Bigg)^2ds\\
-&amp; = \lambda L_h^2\int_0^t 4\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)^2ds\\
-&amp; \leq 8\lambda L_h^2\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s-)|^4ds.
+&amp; \leq \lambda L_h^2\int_0^t \Bigg(2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s)|^2\Big)\Bigg)^2ds\\
+&amp; = \lambda L_h^2\int_0^t 4\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s)|^2\Big)^2ds\\
+&amp; \leq 8\lambda L_h^2\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s)|^4ds.
 \end{aligned}
 \]</span></p>
 <p>Al tomar raíz cuadrada, usando la propiedad distributiva y por subaditividad se tiene</p>
 <p><span id="eq-agregar39"><span class="math display">\[
 \begin{aligned}
-\langle M_3\rangle_t^{1/2}  &amp; \leq  \sqrt{8\lambda L_h^2}\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s-)|^4ds\Bigg)^{1/2}\\
+\langle M_3\rangle_t^{1/2}  &amp; \leq  \sqrt{8\lambda L_h^2}\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s)|^4ds\Bigg)^{1/2}\\
 &amp; \leq 2\sqrt{2\lambda}L_h\Bigg[\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4ds\Bigg)^{1/2}\\
-&amp; \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
+&amp; \qquad\qquad\qquad + \Bigg(\int_0^t |E(s)|^4ds\Bigg)^{1/2}\Bigg].
 \end{aligned}
 \tag{6.190}\]</span></span></p>
-<p>El término <span class="math inline">\(|E(s-)|^4\)</span> lo podemos acotarlo de la siguiente forma</p>
+<p>El término <span class="math inline">\(|E(s)|^4\)</span> lo podemos acotarlo de la siguiente forma</p>
 <p><span class="math display">\[
-|E(s-)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s-)|^2.
+|E(s)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s)|^2.
 \]</span></p>
 <p>Por otro lado, para el término <span class="math inline">\(|Y(s-)-\overline{Y}(s-)|^4\)</span> queda acotado mediante</p>
 <p><span class="math display">\[
@@ -3840,24 +3840,24 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p>Sustituyendo ambas cotas en <a href="#eq-agregar39" class="quarto-xref">Ecuación&nbsp;<span>6.190</span></a> tenemos</p>
 <p><span id="eq-agregar40"><span class="math display">\[
 \begin{aligned}
-\langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
+\langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s)|^2ds\Bigg)^{1/2}\\
 &amp; \qquad\qquad\qquad + \Bigg(\int_0^t \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2 ds\Bigg)^{1/2}\Bigg]\\
-&amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
+&amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s)|^2ds\Bigg)^{1/2}\\
 &amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]
 \end{aligned}
 \tag{6.191}\]</span></span></p>
 <p>Usamos nuevamente la desigualdad generalizada de Young, para <span class="math inline">\(\alpha&gt;0\)</span> se cumple</p>
 <p><span class="math display">\[
-\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\leq \frac{1}{2\alpha}\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)^2+\frac{\alpha}{2}\Bigg(\int_0^t |E(s-)|^2ds\Bigg)^2
+\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s)|^2ds\leq \frac{1}{2\alpha}\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)^2+\frac{\alpha}{2}\Bigg(\int_0^t |E(s)|^2ds\Bigg)^2
 \]</span></p>
 <p>Al sustituir y reducir en la <a href="#eq-agregar40" class="quarto-xref">Ecuación&nbsp;<span>6.191</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\frac{1}{2\alpha}\sup_{0\leq r\leq t}|E(r)|^2\\
-&amp; \qquad\qquad\qquad + \frac{\alpha}{2}\int_0^t |E(s-)|^2ds\\  
+&amp; \qquad\qquad\qquad + \frac{\alpha}{2}\int_0^t |E(s)|^2ds\\  
 &amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]\\
 &amp; = \frac{2\sqrt{2\lambda}L_h}{2\alpha}\sup_{0\leq r\leq t}|E(r)|^2\\
-&amp; \qquad\quad+ \frac{2\sqrt{2\lambda}L_h\alpha}{2}\int_0^t |E(s-)|^2ds\\  
+&amp; \qquad\quad+ \frac{2\sqrt{2\lambda}L_h\alpha}{2}\int_0^t |E(s)|^2ds\\  
 &amp; \qquad\quad + 2\sqrt{2\lambda T}L_h\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2.
 \end{aligned}
 \]</span></p>
@@ -3865,16 +3865,45 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{2C_3\sqrt{2\lambda}L_h}{2\alpha}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
-&amp; \qquad\quad+ \frac{2C_3\sqrt{2\lambda}L_h\alpha}{2}\mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\  
+&amp; \qquad\quad+ \frac{2C_3\sqrt{2\lambda}L_h\alpha}{2}\mathbb{E}\Bigg[\int_0^t |E(s)|^2ds\Bigg]\\  
 &amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_h\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
 \]</span></p>
 <p>Tomamos a <span class="math inline">\(\alpha=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-agregar33" class="quarto-xref">Ecuación&nbsp;<span>6.184</span></a> y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar41"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
-&amp; \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\  
+&amp; \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\  
 &amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_hE\Delta t.
+\end{aligned}
+\tag{6.192}\]</span></span></p>
+<p>Sumando las cotas de la <a href="#eq-agregar34" class="quarto-xref">Ecuación&nbsp;<span>6.185</span></a>, <a href="#eq-agregar37" class="quarto-xref">Ecuación&nbsp;<span>6.188</span></a> y <a href="#eq-agregar41" class="quarto-xref">Ecuación&nbsp;<span>6.192</span></a> tenemos que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_1(s)|\Bigg] &amp; +\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\\
+&amp; \leq \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+&amp; \qquad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\
+&amp; \qquad + 12C_1^2L_g T E\Delta t\Bigg)\\
+&amp; \qquad + \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\
+&amp; \qquad + 12C_2^2\lambda L_h T E\Delta t\Bigg)\\
+&amp; \qquad + \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
+&amp; \qquad + 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\  
+&amp; \qquad + 2C_3\sqrt{2\lambda T}L_hE\Delta t\Bigg)\\
+&amp; = \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
+&amp; \qquad + \overline{A} \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\
+&amp; \qquad + \overline{B} \Delta t\\
+&amp; \leq \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
+&amp; \qquad + \overline{D} \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds\\
+&amp; \qquad + \overline{D} \Delta t,
+\end{aligned}
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \overline{A} &amp; = 12C_1^2L_g+12C_2^2\lambda L_h+12(C_3L_h)^2\lambda, \\
+  \overline{B} &amp; = 12C_1^2L_g E T +12C_2^2\lambda L_h E T +C_3\sqrt{8\lambda\lambda T}L_h E, \\
+  \overline{D} &amp; := \max\{\overline{A},\overline{B}\}.
 \end{aligned}
 \]</span></p>
 </div>
