@@ -3762,7 +3762,45 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 12C_1^2L_g T E\Delta tds.
 \end{aligned}
 \tag{6.184}\]</span></span></p>
-<p>De manera similar, usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>.</p>
+<p>De manera similar, usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por la desigualdad de Bulkholder-Davis_Gundy, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
+<p><span id="eq-agregar34"><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big].
+\tag{6.185}\]</span></span></p>
+<p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicandoel cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
+<p><span class="math display">\[
+\langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds.
+\]</span></p>
+<p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> tammbién cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizas el mismo calculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
+<p><span id="eq-agregar35"><span class="math display">\[
+\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s-)|^2\right)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
+\tag{6.186}\]</span></span></p>
+<p>De manerá similar, usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span>, se cumple</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(\sup_{0\leq s\leq t}|E(s-)|^2\right)^{1/2} &amp; \left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\
+&amp; \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s-)|^2+\frac{\delta}{2}\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds.
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo esto y la <a href="#eq-agregar35" class="quarto-xref">Ecuación&nbsp;<span>6.186</span></a> en la <a href="#eq-agregar34" class="quarto-xref">Ecuación&nbsp;<span>6.185</span></a> obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg]\\
+&amp; \leq 2C_2\sqrt{2\lambda L_h}\Bigg[\frac{1}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \qquad + \frac{\delta}{2}\Bigg(\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\
+&amp; \qquad + \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\Bigg)\Bigg]\\
+&amp; = \frac{2C_2\sqrt{2\lambda L_h}}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\
+&amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds.
+\end{aligned}
+\]</span></p>
+<p>Definiendo a <span class="math inline">\(\delta=6C_2\sqrt{2\lambda L_h}\)</span>, la expresión anterior se reduce a</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
+&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\
+&amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds.
+\end{aligned}
+\]</span></p>
 </div>
 
 
