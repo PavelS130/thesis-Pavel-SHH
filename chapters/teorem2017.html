@@ -3658,7 +3658,10 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \tag{6.177}\]</span></span></p>
 <p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> se cumple que</p>
 <p><span id="eq-agregar27"><span class="math display">\[
-\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\leq \widetilde{E}\Delta t.
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\\
+&amp; \leq E\Delta t.   
+\end{aligned}
 \tag{6.178}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-agregar26" class="quarto-xref">Ecuación&nbsp;<span>6.177</span></a> y <a href="#eq-agregar27" class="quarto-xref">Ecuación&nbsp;<span>6.178</span></a> en la <a href="#eq-agregar23" class="quarto-xref">Ecuación&nbsp;<span>6.174</span></a> tenemos que se reduce</p>
 <p><span id="eq-agregar28"><span class="math display">\[
@@ -3668,7 +3671,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + D_1\widetilde{E}\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
-  &amp; \qquad + D_1(T(1+A+A_1))\widetilde{E}\Delta t\\
+  &amp; \qquad + D_1(T(1+A+A_1))E\Delta t\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.179}\]</span></span></p>
@@ -3878,7 +3881,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \end{aligned}
 \tag{6.192}\]</span></span></p>
 <p>Sumando las cotas de la <a href="#eq-agregar34" class="quarto-xref">Ecuación&nbsp;<span>6.185</span></a>, <a href="#eq-agregar37" class="quarto-xref">Ecuación&nbsp;<span>6.188</span></a> y <a href="#eq-agregar41" class="quarto-xref">Ecuación&nbsp;<span>6.192</span></a> tenemos que</p>
-<p><span class="math display">\[
+<p><span id="eq-agregar42"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_1(s)|\Bigg] +\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\\
 &amp; \leq \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]+ 12C_1^2L_g T E\Delta t\Bigg)\\
@@ -3887,7 +3890,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; = \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{A} \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds + \overline{B} \Delta t\\
 &amp; \leq \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds+ \overline{D} \Delta t,
 \end{aligned}
-\]</span></p>
+\tag{6.193}\]</span></span></p>
 <p>donde</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3895,6 +3898,23 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   \overline{B} &amp; = 12C_1^2L_g E T +12C_2^2\lambda L_h E T +C_3\sqrt{8\lambda\lambda T}L_h E, \\
   \overline{D} &amp; := \max\{\overline{A},\overline{B}\}.
 \end{aligned}
+\]</span></p>
+<p>Por lo tanto, de la <a href="#eq-agregar28" class="quarto-xref">Ecuación&nbsp;<span>6.179</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+  &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
+  &amp; \qquad + D_1(T(1+A+A_1))E\Delta t\\
+  &amp; \qquad + \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s)|^2\Big]ds+ \overline{D} \Delta t\\
+  &amp; \leq 2(D_1+\overline{D})\int_0^t\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|E(r-)|^2\Bigg]ds\\
+  &amp; \qquad +2(D_1(T(1+A+A_1))+\overline{D})\Delta t\\
+  &amp; \leq \mathcal{D}\int_0^t\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|E(r-)|^2\Bigg]ds\\
+  &amp; \qquad +\mathcal{D}\Delta t,
+\end{aligned}
+\]</span></p>
+<p>donde <span class="math inline">\(\mathcal{D}\)</span> se define como</p>
+<p><span class="math display">\[
+\mathcal{D}:=\max\{2(D_1+\overline{D}),2(D_1(T(1+A+A_1))+\overline{D})\}.
 \]</span></p>
 </div>
 
