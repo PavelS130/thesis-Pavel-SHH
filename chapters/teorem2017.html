@@ -3804,6 +3804,79 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + 12C_2^2\lambda L_h T E\Delta t.
 \end{aligned}
 \tag{6.188}\]</span></span></p>
+<p>Por último, de manera similar, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por la desigualdad de BUlkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
+<p><span id="eq-agregar38"><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
+\tag{6.189}\]</span></span></p>
+<p>donde de igual manera que con el proceso <span class="math inline">\(M_2(t)\)</span>, la variación cuadrática de <span class="math inline">\(M_3(t)\)</span> está dada por la siguiente integral</p>
+<p><span class="math display">\[
+\langle M_3\rangle_t = \lambda\int_0^t |h(Y(s-))-h(X(s-))|^4ds.
+\]</span></p>
+<p>Usando las mismas herramientas anteriormente, tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\langle M_3\rangle_t  &amp; \leq \lambda\int_0^t \Big(L_h|Y(s-)-X(s-)|^2\Big)^2ds\\
+&amp; \leq \lambda L_h^2\int_0^t \Bigg(2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)\Bigg)^2ds\\
+&amp; = \lambda L_h^2\int_0^t 4\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)^2ds\\
+&amp; \leq 8\lambda L_h^2\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s-)|^4ds.
+\end{aligned}
+\]</span></p>
+<p>Al tomar raíz cuadrada, usando la propiedad distributiva y por subaditividad se tiene</p>
+<p><span id="eq-agregar39"><span class="math display">\[
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  &amp; \leq  \sqrt{8\lambda L_h^2}\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s-)|^4ds\Bigg)^{1/2}\\
+&amp; \leq 2\sqrt{2\lambda}L_h\Bigg[\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4ds\Bigg)^{1/2}\\
+&amp; \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
+\end{aligned}
+\tag{6.190}\]</span></span></p>
+<p>El término <span class="math inline">\(|E(s-)|^4\)</span> lo podemos acotarlo de la siguiente forma</p>
+<p><span class="math display">\[
+|E(s-)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s-)|^2.
+\]</span></p>
+<p>Por otro lado, para el término <span class="math inline">\(|Y(s-)-\overline{Y}(s-)|^4\)</span> queda acotado mediante</p>
+<p><span class="math display">\[
+|Y(s-)-\overline{Y}(s-)|^4 \leq \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2.
+\]</span></p>
+<p>Sustituyendo ambas cotas en <a href="#eq-agregar39" class="quarto-xref">Ecuación&nbsp;<span>6.190</span></a> tenemos</p>
+<p><span id="eq-agregar40"><span class="math display">\[
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
+&amp; \qquad\qquad\qquad + \Bigg(\int_0^t \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2 ds\Bigg)^{1/2}\Bigg]\\
+&amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
+&amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]
+\end{aligned}
+\tag{6.191}\]</span></span></p>
+<p>Usamos nuevamente la desigualdad generalizada de Young, para <span class="math inline">\(\alpha&gt;0\)</span> se cumple</p>
+<p><span class="math display">\[
+\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\leq \frac{1}{2\alpha}\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)^2+\frac{\alpha}{2}\Bigg(\int_0^t |E(s-)|^2ds\Bigg)^2
+\]</span></p>
+<p>Al sustituir y reducir en la <a href="#eq-agregar40" class="quarto-xref">Ecuación&nbsp;<span>6.191</span></a></p>
+<p><span class="math display">\[
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\frac{1}{2\alpha}\sup_{0\leq r\leq t}|E(r)|^2\\
+&amp; \qquad\qquad\qquad + \frac{\alpha}{2}\int_0^t |E(s-)|^2ds\\  
+&amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]\\
+&amp; = \frac{2\sqrt{2\lambda}L_h}{2\alpha}\sup_{0\leq r\leq t}|E(r)|^2\\
+&amp; \qquad\quad+ \frac{2\sqrt{2\lambda}L_h\alpha}{2}\int_0^t |E(s-)|^2ds\\  
+&amp; \qquad\quad + 2\sqrt{2\lambda T}L_h\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2.
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo en <a href="#eq-agregar38" class="quarto-xref">Ecuación&nbsp;<span>6.189</span></a> y usando la propiedad distributiva del valor esperado tenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{2C_3\sqrt{2\lambda}L_h}{2\alpha}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
+&amp; \qquad\quad+ \frac{2C_3\sqrt{2\lambda}L_h\alpha}{2}\mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\  
+&amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_h\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
+\end{aligned}
+\]</span></p>
+<p>Tomamos a <span class="math inline">\(\alpha=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-agregar33" class="quarto-xref">Ecuación&nbsp;<span>6.184</span></a> y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
+&amp; \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\  
+&amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_hE\Delta t.
+\end{aligned}
+\]</span></p>
 </div>
 
 
