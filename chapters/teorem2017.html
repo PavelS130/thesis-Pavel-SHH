@@ -3533,13 +3533,13 @@ Y(s-)-X(s-) &amp; =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\
 <p>sustituyendo esto se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-  (L_g+2\lambda L_h) |Y(s-) &amp; - X(s-)|^2\\
+  (L_g+2\lambda L_h) &amp; |Y(s-) - X(s-)|^2\\
   &amp; \leq (L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\\
   &amp; \qquad\qquad\qquad\qquad + |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2\Big)\\
   &amp; = 2(L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big).
 \end{aligned}
 \]</span></p>
-<p>Basta notar que <span class="math inline">\(1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)\)</span> y con la desigualdad anterior, en la <a href="#eq-agregar17" class="quarto-xref">Ecuación&nbsp;<span>6.168</span></a> podemos obtener</p>
+<p>Basta notar que <span class="math inline">\(1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)\)</span>, considerando tambien la desigualdad anterior, podemos obtener en la <a href="#eq-agregar17" class="quarto-xref">Ecuación&nbsp;<span>6.168</span></a> la siguiente cota</p>
 <p><span id="eq-agregar18"><span class="math display">\[
 \begin{aligned}
 |E(t)|^2 &amp; \leq \int_0^t |E(s-)|^2ds\\
@@ -3656,7 +3656,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   \mathbb{E}\left[|\overline{Y}(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1
 \end{aligned}
 \tag{6.177}\]</span></span></p>
-<p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> se cumple que</p>
+<p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a>, para <span class="math inline">\(t\in[0,T]\)</span> se cumple que</p>
 <p><span id="eq-agregar27"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\\
@@ -3683,7 +3683,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p><span class="math display">\[
 \langle M_1\rangle_t = \int_0^t 4|E(s-)|^2|g(Y(s-))-g(X(s-))|^2 ds.
 \]</span></p>
-<p>Para el coeficiente de difusión, <span class="math inline">\(g\)</span> podemos usar la condición global de Lipschitz dada en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, además usar la siguiente identidad</p>
+<p>Para el coeficiente de difusión, <span class="math inline">\(g\)</span> podemos usar la condición global de Lipschitz dada en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, además usaremos la siguiente identidad</p>
 <p><span class="math display">\[
 Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
@@ -3706,7 +3706,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \begin{aligned}
 \left(\sup_{0\leq r\leq t}|E(r-)|^2\right)^{1/2}&amp;\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}\\
-&amp; \leq \frac{1}{2\varepsilon}\sup_{0\leq r\leq t}|E(r)|^2 \\
+&amp; \leq \frac{1}{2\varepsilon}\sup_{0\leq r\leq t}|E(r-)|^2 \\
 &amp; \qquad + \frac{\varepsilon}{2} \int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \end{aligned}
 \]</span></p>
@@ -3714,17 +3714,13 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-agregar31"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+&amp; \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
 &amp; \qquad\qquad\qquad\quad + \frac{\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg]\Bigg)\\
-&amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+&amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\
 &amp; \qquad\qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
 \tag{6.182}\]</span></span></p>
-<p>Notemos que la siguiente expresión satisface</p>
-<p><span class="math display">\[
-|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2,
-\]</span></p>
-<p>aplicando el teorema de Fubini-Tonelli en el correspondiente término en la <a href="#eq-agregar31" class="quarto-xref">Ecuación&nbsp;<span>6.182</span></a></p>
+<p>Aplicando el teorema de Fubini-Tonelli al término <span class="math inline">\(\displaystyle Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-)\)</span> en la <a href="#eq-agregar31" class="quarto-xref">Ecuación&nbsp;<span>6.182</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
