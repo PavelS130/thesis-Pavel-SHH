@@ -3900,7 +3900,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \end{aligned}
 \]</span></p>
 <p>Por lo tanto, de la <a href="#eq-agregar28" class="quarto-xref">Ecuación&nbsp;<span>6.179</span></a></p>
-<p><span class="math display">\[
+<p><span id="eq-agregar43"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
@@ -3911,10 +3911,26 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   &amp; \leq \mathcal{D}\int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
-\]</span></p>
+\tag{6.194}\]</span></span></p>
 <p>donde <span class="math inline">\(\mathcal{D}\)</span> se define como</p>
 <p><span class="math display">\[
 \mathcal{D}:=\max\{2(D_1+\overline{D}),2(D_1(T(1+A+A_1))+\overline{D})\}.
+\]</span></p>
+<p>Notemos que para cualquier <span class="math inline">\(r\in [0,s]\)</span>, se cumple</p>
+<p><span class="math display">\[
+|E(r-)|^2\leq \sup_{0\leq u\leq r}|E(u)|^2\leq \sup_{0\leq u\leq s}|E(u)|^2.
+\]</span></p>
+<p>Por lo tanto</p>
+<p><span class="math display">\[
+\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\leq \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds
+\]</span></p>
+<p>La <a href="#eq-agregar43" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> queda de la siguiente forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+  &amp; \leq \mathcal{D} \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds\\
+  &amp; \qquad +\mathcal{D}\Delta t,
+\end{aligned}
 \]</span></p>
 </div>
 
