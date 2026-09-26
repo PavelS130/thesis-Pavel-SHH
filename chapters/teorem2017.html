@@ -3693,10 +3693,16 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \langle M_1\rangle_t &amp; \leq 4\int_0^t|E(s-)|^2 L_g|Y(s-)-X(s-)|^2ds\\
 &amp; \leq 4L_g\int_0^t |E(s-)|^2\Big(|Y(s-)-\overline{Y}(s-)|+|E(s-)|\Big)^2ds\\
 &amp; \leq 4L_g\int_0^t |E(s-)|^2 2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\\
-&amp; \leq 8L_g\int_0^t |E(s-)|^2 \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\\
-&amp; \leq 8L_g\int_0^t \sup_{0\leq r\leq t}|E(r-)|^2 \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\\
-&amp; = 8L_g\sup_{0\leq r\leq t}|E(r-)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
+&amp; \leq 8L_g\int_0^t |E(s-)|^2 \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds
 \end{aligned}
+\]</span></p>
+<p>Por otro lado notemos que para <span class="math inline">\(r\in[0,t]\)</span> se cumple</p>
+<p><span class="math display">\[
+|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^r,
+\]</span></p>
+<p>al ser independiente de la variable de integración <span class="math inline">\(ds\)</span> es posible</p>
+<p><span class="math display">\[
+\langle M_1\rangle_t \leq  8L_g\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \]</span></p>
 <p>Por lo tanto, tomando raíz cuadrada y usando su propiedad distributiva es posible tener</p>
 <p><span id="eq-agregar30"><span class="math display">\[
@@ -3720,11 +3726,11 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
 \tag{6.182}\]</span></span></p>
-<p>Aplicando el teorema de Fubini-Tonelli al término <span class="math inline">\(\displaystyle Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-)\)</span> en la <a href="#eq-agregar31" class="quarto-xref">Ecuación&nbsp;<span>6.182</span></a></p>
+<p>Aplicando el teorema de Fubini-Tonelli al correspondiente término <span class="math inline">\(\displaystyle Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-)\)</span> en la <a href="#eq-agregar31" class="quarto-xref">Ecuación&nbsp;<span>6.182</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
-&amp; \leq \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+&amp; \leq \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s-)|^2\Bigg]\\  
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
 \end{aligned}
