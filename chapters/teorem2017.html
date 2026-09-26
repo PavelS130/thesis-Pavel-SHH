@@ -3553,9 +3553,6 @@ Y(s-)-X(s-) &amp; =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\
   &amp; \qquad + 2(L_g+2\lambda L_h)\int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2 ds\\
   &amp; \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t)\\
-  &amp; = (1+2K_{\lambda}+2(L_g+2\lambda L_h))\int_0^t |E(s-)|^2ds\\
-  &amp; \qquad + (2(L_g+2\lambda L_h)+D)\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
-  &amp; \qquad + M_1(t)+M_2(t)+M_3(t)\\
   &amp; \leq D_1 \int_0^t |E(s-)|^2ds\\
   &amp; \qquad + D_1\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
   &amp; \qquad + M_1(t)+M_2(t)+M_3(t),
@@ -3569,7 +3566,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p><span class="math display">\[
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2.
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-agregar18" class="quarto-xref">Ecuación&nbsp;<span>6.169</span></a> y notando que dicho supremo es independiente al integrando, obtenemos</p>
+<p>Sustituyendo esto en la <a href="#eq-agregar18" class="quarto-xref">Ecuación&nbsp;<span>6.169</span></a> y notando que dicho supremo es independiente al integrando, es posible extraerlo fuera de la integral</p>
 <p><span class="math display">\[
 \begin{aligned}
   |E(t)|^2 &amp; \leq D_1 \int_0^t |E(s-)|^2ds\\
@@ -3580,7 +3577,8 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p>Ahora bien, tomaremos supremo sobre <span class="math inline">\(0\)</span> a <span class="math inline">\(t\)</span>, por linealidad del supremos</p>
 <p><span id="eq-agregar19"><span class="math display">\[
 \begin{aligned}
-  \sup_{0\leq s\leq t}|E(s)|^2 &amp; \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\
+  \sup_{0\leq s\leq t} &amp; |E(s)|^2\\
+  &amp; \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\
   &amp; \qquad + D_1\sup_{0\leq s\leq t}\left(\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\right)\\
   &amp; \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t).
 \end{aligned}
@@ -3592,7 +3590,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p>De igual forma se tiene que el factor <span class="math inline">\(\displaystyle \left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)\)</span> es creciente, por lo tanto por la propiedad del producto de supremos y la monotonía en funciones crecientes se tiene que</p>
 <p><span id="eq-agregar21"><span class="math display">\[
 \begin{aligned}
-  \sup_{0\leq s\leq t} \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 &amp; \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\
+  \sup_{0\leq s\leq t} &amp; \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\
   &amp; \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds.
 \end{aligned}
 \tag{6.172}\]</span></span></p>
@@ -3607,7 +3605,8 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p>Tomando valor esperado</p>
 <p><span id="eq-agregar22"><span class="math display">\[
 \begin{aligned}
-  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] &amp; \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\
+  \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
+  &amp; \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\
   &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
@@ -3619,7 +3618,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p>Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de Tonelli, se puede afirmar</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 &amp; \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
+\mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
 &amp; \leq  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\mathbb{E}\Bigg[\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
 &amp; = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg).
 \end{aligned}
@@ -3629,15 +3628,16 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \begin{aligned}
   \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
-  &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg)\\
+  &amp; \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\Big(1+\mathbb{E}\Big[|Y(s-)|^q\Big]\\
+  &amp; \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\Big)ds\Bigg)\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.174}\]</span></span></p>
-<p>Recordemos que la aproximación escalonada <span class="math inline">\(Y(s)\)</span> esta definida en la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, para <span class="math inline">\(s\in [t_n,t_{n+1}]\)</span> se tiene que <span class="math inline">\(Y(s)=Y_n^*\)</span> dentro del intérvalo <span class="math inline">\([0,T]\)</span>, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elemento de la secuencia, es decir</p>
+<p>Recordemos que la aproximación escalonada <span class="math inline">\(Y(s)\)</span> está definida en la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, para <span class="math inline">\(s\in [t_n,t_{n+1}]\)</span> se tiene que <span class="math inline">\(Y(s)=Y_n^*\)</span> dentro del intérvalo <span class="math inline">\([0,T]\)</span>, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elementos de la secuencia, es decir</p>
 <p><span class="math display">\[
 |Y(s-)|\leq \sup_{0\leq t_n\leq T}|Y_n^*|.
 \]</span></p>
-<p>Notemos que esta desigualdad se cumple trayectoria por trayectoria y el válida para cualquier <span class="math inline">\(s\in[0,T]\)</span>. Por otro lado, como la función <span class="math inline">\(x\mapsto x^q\)</span> es monótonamente creciente para <span class="math inline">\(x\geq 0\)</span> y <span class="math inline">\(q\in \mathbb{Z}^+\)</span>, al elevar y tomar valor esperado a ambos lados de la desigualdad a la potencia <span class="math inline">\(q\)</span> se tiene</p>
+<p>Notemos que esta desigualdad se cumple trayectoria por trayectoria y es válida para cualquier <span class="math inline">\(s\in[0,T]\)</span>. Por otro lado, como la función <span class="math inline">\(x\mapsto x^q\)</span> es monótonamente creciente para <span class="math inline">\(x\geq 0\)</span> y <span class="math inline">\(q\in \mathbb{Z}^+\)</span>, al elevar a la potencia <span class="math inline">\(q\)</span> y tomar valor esperado a ambos lados la desigualdad se mantiene</p>
 <p><span class="math display">\[
 \mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\Bigg(\sup_{0\leq t_n\leq T}|Y_n^*|\Bigg)^q\right]=\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right].
 \]</span></p>
@@ -3652,8 +3652,8 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p>Tomando a <span class="math inline">\(p=\max\{p_1,p_2\}\)</span> y aplicando el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> y <a href="#lem-6.3" class="quarto-xref">Lema&nbsp;<span>6.3</span></a> a la <a href="#eq-agregar24" class="quarto-xref">Ecuación&nbsp;<span>6.175</span></a> y <a href="#eq-agregar25" class="quarto-xref">Ecuación&nbsp;<span>6.176</span></a> respectivamente, obtenemos</p>
 <p><span id="eq-agregar26"><span class="math display">\[
 \begin{aligned}
-  \mathbb{E}\left[|Y(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A\\
-  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1
+  \mathbb{E}\left[|Y(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A,\\
+  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1,
 \end{aligned}
 \tag{6.177}\]</span></span></p>
 <p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a>, para <span class="math inline">\(t\in[0,T]\)</span> se cumple que</p>
@@ -3683,7 +3683,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p><span class="math display">\[
 \langle M_1\rangle_t = \int_0^t 4|E(s-)|^2|g(Y(s-))-g(X(s-))|^2 ds.
 \]</span></p>
-<p>Para el coeficiente de difusión, <span class="math inline">\(g\)</span> podemos usar la condición global de Lipschitz dada en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, además usaremos la siguiente identidad</p>
+<p>Para el coeficiente de difusión <span class="math inline">\(g\)</span>, podemos usar la condición global de Lipschitz dada en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a>, además usaremos la siguiente identidad</p>
 <p><span class="math display">\[
 Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
@@ -3706,9 +3706,9 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
 <p>Por lo tanto, tomando raíz cuadrada y usando su propiedad distributiva es posible tener</p>
 <p><span id="eq-agregar30"><span class="math display">\[
-\langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\right)^{1/2}\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
+\langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
 \tag{6.181}\]</span></span></p>
-<p>Aplicaremos la desigualdad de Young generalizada para <span class="math inline">\(\varepsilon&gt;0\)</span>, el cuál definiremos más adelante, tenemos</p>
+<p>Aplicaremos la desigualdad de Young generalizada, dado <span class="math inline">\(\varepsilon&gt;0\)</span>, el cuál definiremos más adelante, se satisface lo siguiente</p>
 <p><span class="math display">\[
 \begin{aligned}
 \left(\sup_{0\leq r\leq t}|E(r)|^2\right)^{1/2}&amp;\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}\\
@@ -3723,7 +3723,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad\qquad\qquad\quad + \frac{\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg]\Bigg)\\
 &amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
-&amp; \qquad\qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
+&amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
 \tag{6.182}\]</span></span></p>
 <p>Aplicando el teorema de Fubini-Tonelli al segundo término de la <a href="#eq-agregar31" class="quarto-xref">Ecuación&nbsp;<span>6.182</span></a> se tiene</p>
@@ -3735,7 +3735,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
 \end{aligned}
 \]</span></p>
-<p>Basta tomar <span class="math inline">\(\varepsilon=6C_1\sqrt{2L_g}&gt;0\)</span> para poder reducir la expresión anterior tal que</p>
+<p>Basta tomar <span class="math inline">\(\varepsilon=6C_1\sqrt{2L_g}&gt;0\)</span> para poder reducir la expresión anterior de tal forma</p>
 <p><span id="eq-agregar32"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
@@ -3777,16 +3777,16 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
 <p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> también cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizar el mismo cálculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
 <p><span id="eq-agregar36"><span class="math display">\[
-\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\right)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
+\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
 \tag{6.187}\]</span></span></p>
-<p>Usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span>, se cumple</p>
+<p>Usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span> se satisface</p>
 <p><span class="math display">\[
 \begin{aligned}
-\left(\sup_{0\leq s\leq t}|E(s)|^2\right)^{1/2} &amp; \left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\
+\Bigg(\sup_{0\leq s\leq t} &amp; |E(s)|^2\Bigg)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\
 &amp; \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s)|^2+\frac{\delta}{2}\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto y la <a href="#eq-agregar36" class="quarto-xref">Ecuación&nbsp;<span>6.187</span></a> en la <a href="#eq-agregar35" class="quarto-xref">Ecuación&nbsp;<span>6.186</span></a> obtenemos</p>
+<p>Sustituyendo lo anterior y la <a href="#eq-agregar36" class="quarto-xref">Ecuación&nbsp;<span>6.187</span></a> en la <a href="#eq-agregar35" class="quarto-xref">Ecuación&nbsp;<span>6.186</span></a> obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg]\\
@@ -3834,7 +3834,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
 \end{aligned}
 \tag{6.190}\]</span></span></p>
-<p>El término <span class="math inline">\(|E(s)|^4\)</span> lo podemos acotarlo de la siguiente forma</p>
+<p>El término <span class="math inline">\(|E(s-)|^4\)</span> podemos acotarlo de la siguiente forma</p>
 <p><span class="math display">\[
 |E(s-)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s-)|^2.
 \]</span></p>
