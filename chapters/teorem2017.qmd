@@ -3843,7 +3843,8 @@ Dado que $E(t)$ es una semimartingala càdlag en $\mathbb{R}$, haremos uso de la
 $$
 \begin{aligned}
   dV(E(t)) & = \underbrace{V'(E(t-))dE(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(E(t-))(dE(t))^2}_{\text{difusión}} \\ 
-  & \qquad + \underbrace{[V(E(t-)+\Delta E(t))-V(E(t-))-V'(E(t-))\Delta E(t)]dN(t)}_{\text{salto}}
+  & \quad + \underbrace{\Big[V(E(t-)+\Delta E(t))-V(E(t-))}_{\text{salto}}\\ 
+  & \qquad\qquad\qquad\quad\underbrace{-V'(E(t-))\Delta E(t)\Big]dN(t)}_{\text{salto}}
 \end{aligned}
 $$ {#eq-agregar3}
 
@@ -3851,7 +3852,7 @@ En nuestro caso, para aplicar la fórmula de Itô usaremos la función $V(E)=E^2
 
 $$
 \begin{aligned}
-  V(E(t-)+\Delta E(t))-V(E(t-)) & -V'(E(t-))\Delta E(t)\\ 
+  V(E(t-)+\Delta E(t)) & - V(E(t-))-V'(E(t-))\Delta E(t)\\ 
   &  = (E(t-)+\Delta E(t))^2-(E(t-))^2-2E(t-)\Delta E(t)\\ 
   & = (\Delta E(t))^2
 \end{aligned}
@@ -3896,7 +3897,10 @@ $$
 esto es equivalente a 
 
 $$
-(dE(t))^2=(g(Y(t-))-g(X(t-)))^2dt+(h(Y(t-))-h(X(t-)))^2dN(t). 
+\begin{aligned}
+(dE(t))^2 & =(g(Y(t-))-g(X(t-)))^2dt\\ 
+& \qquad\qquad\qquad+(h(Y(t-))-h(X(t-)))^2dN(t). 
+\end{aligned} 
 $$ {#eq-agregar6}
 
 Falta interpretar el término $\Delta e(t)$ en la @eq-agregar4. Este operador se define mediante 
@@ -4052,7 +4056,8 @@ $$
   & \qquad + 2\int_0^tE(s-)[g(Y(s-))-g(X(s-))]dW(s)\\ 
   & \qquad + 2\int_0^tE(s-)[h(Y(s-))-h(X(s-))]d\widetilde{N}(s)\\ 
   & \qquad + 2\int_0^t[h(Y(s-))-h(X(s-))]^2d\widetilde{N}(s)\\
-  & =  2\int_0^t E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]ds\\ 
+  & =  2\int_0^t \Big(E(s-)[f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))]\\ 
+  & \qquad\qquad\qquad\qquad+E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\Big)ds\\ 
   & \qquad + 2\int_0^t[g(Y(s-))-g(X(s-))]^2ds\\ 
   & \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
   & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
@@ -4133,7 +4138,8 @@ Con esto, ordenando la @eq-agregar16 y sustituyendo esta cota se tiene
 
 $$
 \begin{aligned}
-|E(t)|^2 & \leq \int_0^t |E(s-)|^2ds\\
+|&E(t)|^2\\ 
+  & \leq \int_0^t |E(s-)|^2ds\\
   & \qquad + 2 \int_0^t K_{\lambda}|E(s-)|^2 ds\\ 
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\
   & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
@@ -4171,14 +4177,14 @@ sustituyendo esto se tiene
 
 $$
 \begin{aligned}
-  (L_g+2\lambda L_h) |Y(s-) & - X(s-)|^2\\ 
+  (L_g+2\lambda L_h) & |Y(s-) - X(s-)|^2\\ 
   & \leq (L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\\ 
   & \qquad\qquad\qquad\qquad + |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2\Big)\\ 
   & = 2(L_g+2\lambda L_h)\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big).
 \end{aligned}
 $$
 
-Basta notar que $1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)$ y con la desigualdad anterior, en la @eq-agregar17 podemos obtener
+Basta notar que $1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)$, considerando tambien la desigualdad anterior, podemos obtener en la @eq-agregar17 la siguiente cota
 
 $$
 \begin{aligned}
@@ -4193,9 +4199,6 @@ $$
   & \qquad + 2(L_g+2\lambda L_h)\int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2 ds\\
   & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
   & \qquad +M_1(t)+M_2(t)+M_3(t)\\ 
-  & = (1+2K_{\lambda}+2(L_g+2\lambda L_h))\int_0^t |E(s-)|^2ds\\ 
-  & \qquad + (2(L_g+2\lambda L_h)+D)\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\ 
-  & \qquad + M_1(t)+M_2(t)+M_3(t)\\ 
   & \leq D_1 \int_0^t |E(s-)|^2ds\\ 
   & \qquad + D_1\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\ 
   & \qquad + M_1(t)+M_2(t)+M_3(t), 
@@ -4214,7 +4217,7 @@ $$
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2.
 $$
 
-Sustituyendo esto en la @eq-agregar18 y notando que dicho supremo es independiente al integrando, obtenemos 
+Sustituyendo esto en la @eq-agregar18 y notando que dicho supremo es independiente al integrando, es posible extraerlo fuera de la integral 
 
 $$
 \begin{aligned}
@@ -4228,7 +4231,8 @@ Ahora bien, tomaremos supremo sobre $0$ a $t$, por linealidad del supremos
 
 $$
 \begin{aligned}
-  \sup_{0\leq s\leq t}|E(s)|^2 & \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\ 
+  \sup_{0\leq s\leq t} & |E(s)|^2\\ 
+  & \leq D_1 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)\\ 
   & \qquad + D_1\sup_{0\leq s\leq t}\left(\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\right)\\ 
   & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t).
 \end{aligned}
@@ -4244,7 +4248,7 @@ De igual forma se tiene que el factor $\displaystyle \left(1+|Y(r-)|^q+|\overlin
 
 $$
 \begin{aligned}
-  \sup_{0\leq s\leq t} \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 & \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\ 
+  \sup_{0\leq s\leq t} & \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\ 
   & \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds.
 \end{aligned}
 $$ {#eq-agregar21}
@@ -4263,7 +4267,8 @@ Tomando valor esperado
 
 $$
 \begin{aligned}
-  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] & \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\ 
+  \mathbb{E} & \Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+  & \leq D_1 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\ 
   & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
@@ -4279,7 +4284,7 @@ Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de To
 
 $$
 \begin{aligned}
-\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 & \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
+\mathbb{E} & \Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
 & \leq  \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\mathbb{E}\Bigg[\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
 & = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg).
 \end{aligned}
@@ -4291,18 +4296,19 @@ $$
 \begin{aligned}
   \mathbb{E}\Bigg[ & \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
   & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
-  & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\left(1+\mathbb{E}\Big[|Y(s-)|^q\Big]+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\right)ds\Bigg)\\ 
+  & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\Bigg(\int_0^t\Big(1+\mathbb{E}\Big[|Y(s-)|^q\Big]\\ 
+  & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\Big)ds\Bigg)\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 $$ {#eq-agregar23}
 
-Recordemos que la aproximación escalonada $Y(s)$ esta definida en la @eq-6.06, para $s\in [t_n,t_{n+1}]$ se tiene que $Y(s)=Y_n^*$ dentro del intérvalo $[0,T]$, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elemento de la secuencia, es decir 
+Recordemos que la aproximación escalonada $Y(s)$ está definida en la @eq-6.06, para $s\in [t_n,t_{n+1}]$ se tiene que $Y(s)=Y_n^*$ dentro del intérvalo $[0,T]$, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elementos de la secuencia, es decir 
 
 $$
 |Y(s-)|\leq \sup_{0\leq t_n\leq T}|Y_n^*|. 
 $$
 
-Notemos que esta desigualdad se cumple trayectoria por trayectoria y el válida para cualquier $s\in[0,T]$. Por otro lado, como la función $x\mapsto x^q$ es monótonamente creciente para $x\geq 0$ y $q\in \mathbb{Z}^+$, al elevar  y tomar valor esperado a ambos lados de la desigualdad a la potencia $q$ se tiene 
+Notemos que esta desigualdad se cumple trayectoria por trayectoria y es válida para cualquier $s\in[0,T]$. Por otro lado, como la función $x\mapsto x^q$ es monótonamente creciente para $x\geq 0$ y $q\in \mathbb{Z}^+$, al elevar a la potencia $q$ y tomar valor esperado a ambos lados la desigualdad se mantiene 
 
 $$
 \mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\Bigg(\sup_{0\leq t_n\leq T}|Y_n^*|\Bigg)^q\right]=\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right]. 
@@ -4324,15 +4330,18 @@ Tomando a $p=\max\{p_1,p_2\}$ y aplicando el @lem-6.2 y @lem-6.3 a la @eq-agrega
 
 $$
 \begin{aligned}
-  \mathbb{E}\left[|Y(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A\\ 
-  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1 
+  \mathbb{E}\left[|Y(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A,\\ 
+  \mathbb{E}\left[|\overline{Y}(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1,
 \end{aligned}
 $$ {#eq-agregar26}
 
-Por el @lem-6.4 se cumple que 
+Por el @lem-6.4, para $t\in[0,T]$ se cumple que 
 
 $$
-\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg]\leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\widetilde{E}\Delta t. 
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg] & \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\\
+& \leq E\Delta t.   
+\end{aligned}
 $$ {#eq-agregar27}
 
 Sustituyendo la @eq-agregar26 y @eq-agregar27 en la @eq-agregar23 tenemos que se reduce 
@@ -4344,9 +4353,362 @@ $$
   & \qquad + D_1\widetilde{E}\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]\\ 
   & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
-  & \qquad + D_1(T(1+A+A_1))\widetilde{E}\Delta t\\ 
+  & \qquad + D_1(T(1+A+A_1))E\Delta t\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]. 
 \end{aligned}
+$$ {#eq-agregar28}
+
+Para calcular la cota al proceso $M_1(t)$, usaremos la desigualdad de Bulkholder-Davis-Gundy, con ello se afirma que existe una constante $C_1>0$ independiente de $\Delta t$ tal que 
+
+$$
+\mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right]\leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right], 
+$$ {#eq-agregar29}
+
+donde $\langle M_1\rangle_t$ está denotando a la variación de dicho proceso, la cuál está dada por la integral de Lebesgue del cuadrado del integrando estocástico, es decir
+
+$$
+\langle M_1\rangle_t = \int_0^t 4|E(s-)|^2|g(Y(s-))-g(X(s-))|^2 ds. 
+$$
+
+Para el coeficiente de difusión $g$, podemos usar la condición global de Lipschitz dada en la @eq-6.010, además usaremos la siguiente identidad
+
+$$
+Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-), 
+$$
+
+considerando esto y desigualdad de Cauchy, se obtiene la siguiente cadena de desigualdades 
+
+$$
+\begin{aligned}
+\langle M_1\rangle_t & \leq 4\int_0^t|E(s-)|^2 L_g|Y(s-)-X(s-)|^2ds\\ 
+& \leq 4L_g\int_0^t |E(s-)|^2\Big(|Y(s-)-\overline{Y}(s-)|+|E(s-)|\Big)^2ds\\ 
+& \leq 4L_g\int_0^t |E(s-)|^2 2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\\ 
+& \leq 8L_g\int_0^t |E(s-)|^2 \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds
+\end{aligned}
+$$
+
+Por otro lado notemos que para $s\in[0,t]$ se cumple
+
+$$
+|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^r, 
+$$
+
+dado que este término no depende de $s$, podemos factorizarlo fuera de la integral 
+
+$$
+\langle M_1\rangle_t \leq  8L_g\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
+$$
+
+Por lo tanto, tomando raíz cuadrada y usando su propiedad distributiva es posible tener 
+
+$$
+\langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
+$$ {#eq-agregar30}
+
+Aplicaremos la desigualdad de Young generalizada, dado $\varepsilon>0$, el cuál definiremos más adelante, se satisface lo siguiente 
+
+$$
+\begin{aligned}
+\left(\sup_{0\leq r\leq t}|E(r)|^2\right)^{1/2}&\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}\\ 
+& \leq \frac{1}{2\varepsilon}\sup_{0\leq r\leq t}|E(r)|^2 \\ 
+& \qquad + \frac{\varepsilon}{2} \int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
+\end{aligned}
+$$
+
+Sustituyendo esto y la @eq-agregar30 en la @eq-agregar29 tenemos 
+
+$$
+\begin{aligned}
+\mathbb{E} & \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
+& \leq C_1 2\sqrt{2L_g}\Bigg(\frac{1}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad\qquad\qquad\quad + \frac{\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg]\Bigg)\\ 
+& = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
+\end{aligned}
+$$ {#eq-agregar31}
+
+Aplicando el teorema de Fubini-Tonelli al segundo término de la @eq-agregar31 se tiene  
+
+$$
+\begin{aligned}
+\mathbb{E} & \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
+& \leq \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+& \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\ 
+& \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
+\end{aligned}
+$$
+
+Basta tomar $\varepsilon=6C_1\sqrt{2L_g}>0$ para poder reducir la expresión anterior de tal forma  
+
+$$
+\begin{aligned}
+\mathbb{E} & \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
+& \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+& \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\ 
+& \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds. 
+\end{aligned}
+$$ {#eq-agregar32}
+
+Notemos que para $s\in [0,t]\subset [0,T]$ se satisface 
+
+$$
+|Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2.
+$$
+
+Al tomar valor esperado, por la monotonía de dicha función, la expresión anterior se conserva y es posible aplicar el @lem-6.4 de tal forma que
+
+$$
+\begin{aligned}
+\mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big] & \leq \mathbb{E}\Big[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Big]\\ 
+& \leq E\Delta t. 
+\end{aligned}
+$$ {#eq-agregar33}
+
+Por lo tanto, de la @eq-agregar32 se tiene
+
+$$
+\begin{aligned}
+\mathbb{E} & \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
+& \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+& \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\ 
+& \qquad\quad + 12C_1^2L_g\int_0^t E\Delta tds\\
+& \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\  
+& \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\ 
+& \qquad\quad + 12C_1^2L_g T E\Delta t.
+\end{aligned}
+$$ {#eq-agregar34}
+
+Usaremos un procedimiento similar para acotar el proceso $M_2(t)$. Por la desigualdad de Bulkholder-Davis-Gundy, existe una constante $C_2>0$ independiente de $\Delta t$ tal que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big]. 
+$$ {#eq-agregar35}
+
+Para una integral estocástica con respecto al proceso de Poisson compensado $\widetilde{N}(s)$; la variación cuadratica $\langle M_2\rangle_t$ se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, $\lambda>0$, esto pues el compensador de $dN(s)$ es $\lambda ds$, es decir
+
+$$
+\langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds. 
+$$
+
+Dado que el coeficiente de salto $h$ también cumple con la condición de Lipschitz dada en la @eq-6.11, es posible realizar el mismo cálculo que se usó con el coeficiente de difusión $g$ de tal forma que 
+
+$$
+\langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
+$$ {#eq-agregar36}
+
+Usando la desigualdad de Young generalizada, para $\delta>0$ se satisface 
+
+$$
+\begin{aligned}
+\Bigg(\sup_{0\leq s\leq t} & |E(s)|^2\Bigg)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\ 
+& \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s)|^2+\frac{\delta}{2}\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
+\end{aligned}
+$$
+
+Sustituyendo lo anterior y la @eq-agregar36 en la @eq-agregar35 obtenemos 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg]\\ 
+& \leq 2C_2\sqrt{2\lambda L_h}\Bigg[\frac{1}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad\qquad\qquad\quad + \frac{\delta}{2}\Bigg(\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\ 
+& \qquad\qquad\qquad\qquad + \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\Bigg)\Bigg]\\ 
+& = \frac{2C_2\sqrt{2\lambda L_h}}{2\delta}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds\\ 
+& \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds. 
+\end{aligned}
+$$
+
+Definiendo a $\delta=6C_2\sqrt{2\lambda L_h}$, usando la @eq-agregar33, la expresión anterior se reduce a 
+
+$$
+\begin{aligned}
+\mathbb{E} \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg] & \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+& \qquad + 12C_2^2\lambda L_h\int_0^t E\Delta t\\ 
+& \leq  \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+& \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+& \qquad + 12C_2^2\lambda L_h T E\Delta t. 
+\end{aligned}
+$$ {#eq-agregar37}
+
+Por último, acotaremos el proceso $M_3(t)$, por la desigualdad de Bulkholder-Davis-Gundy, existe una constante $C_3>0$ tal que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
+$$ {#eq-agregar38}
+
+donde de igual manera que con el proceso $M_2(t)$, la variación cuadrática de $M_3(t)$ está dada por la siguiente integral 
+
+$$
+\langle M_3\rangle_t = \lambda\int_0^t |h(Y(s-))-h(X(s-))|^4ds.
+$$
+
+Usando las mismas herramientas anteriormente, tenemos 
+
+$$
+\begin{aligned}
+\langle M_3\rangle_t  & \leq \lambda\int_0^t \Big(L_h|Y(s-)-X(s-)|^2\Big)^2ds\\ 
+& \leq \lambda L_h^2\int_0^t \Bigg(2\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)\Bigg)^2ds\\ 
+& = \lambda L_h^2\int_0^t 4\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)^2ds\\ 
+& \leq 8\lambda L_h^2\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s-)|^4ds.
+\end{aligned}
+$$
+
+Al tomar raíz cuadrada, usando la propiedad distributiva y por subaditividad se tiene 
+
+$$
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  & \leq  \sqrt{8\lambda L_h^2}\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4+|E(s)|^4ds\Bigg)^{1/2}\\ 
+& \leq 2\sqrt{2\lambda}L_h\Bigg[\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4ds\Bigg)^{1/2}\\ 
+& \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
+\end{aligned}
+$$ {#eq-agregar39}
+
+El término $|E(s-)|^4$ podemos acotarlo de la siguiente forma 
+
+$$
+|E(s-)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s-)|^2.
+$$
+
+Por otro lado, para el término $|Y(s-)-\overline{Y}(s-)|^4$ queda acotado mediante 
+
+$$
+|Y(s-)-\overline{Y}(s-)|^4 \leq \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2. 
+$$
+
+Sustituyendo ambas cotas en @eq-agregar39 tenemos 
+
+$$
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  & \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\ 
+& \qquad\qquad\qquad + \Bigg(\int_0^t \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2 ds\Bigg)^{1/2}\Bigg]\\ 
+& \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\ 
+& \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
+\end{aligned}
+$$ {#eq-agregar40}
+
+ Usamos nuevamente la desigualdad generalizada de Young, para $\mu>0$ se cumple 
+
+$$
+\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s-)|^2ds.
+$$
+
+Al sustituir y reducir en la @eq-agregar40 
+
+$$
+\begin{aligned}
+\langle M_3\rangle_t^{1/2}  & \leq  2\sqrt{2\lambda}L_h\Bigg[\frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2\\ 
+& \qquad\qquad\qquad + \frac{\mu}{2}\int_0^t |E(s-)|^2ds\\  
+& \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]\\ 
+& = \frac{2\sqrt{2\lambda}L_h}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2\\ 
+& \qquad\quad+ \frac{2\sqrt{2\lambda}L_h\mu}{2}\int_0^t |E(s-)|^2ds\\  
+& \qquad\quad + 2\sqrt{2\lambda T}L_h\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2. 
+\end{aligned}
+$$
+
+Sustituyendo en @eq-agregar38 y usando la propiedad distributiva del valor esperado tenemos 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] & \leq \frac{2C_3\sqrt{2\lambda}L_h}{2\mu}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\ 
+& \qquad\quad+ \frac{2C_3\sqrt{2\lambda}L_h\mu}{2}\mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg]\\  
+& \qquad\quad + 2C_3\sqrt{2\lambda T}L_h\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg]. 
+\end{aligned}
+$$
+
+Tomamos a $\mu=6C_3\sqrt{2\lambda}L_h$, al usar la @eq-agregar33 y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue 
+
+$$
+\begin{aligned}
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] & \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\ 
+& \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\  
+& \qquad\quad + 2C_3\sqrt{2\lambda T}L_hE\Delta t.
+\end{aligned}
+$$ {#eq-agregar41}
+
+Sumando las cotas de la @eq-agregar34, @eq-agregar37 y @eq-agregar41 tenemos que 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\sup_{0\leq s\leq t}|M_1(s)|\Bigg] +\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\\ 
+& \leq \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]+ 12C_1^2L_g T E\Delta t\Bigg)\\ 
+& \quad + \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]+ 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds + 12C_2^2\lambda L_h T E\Delta t\Bigg)\\ 
+& \quad + \Bigg(\frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds+ 2C_3\sqrt{2\lambda T}L_hE\Delta t\Bigg)\\ 
+& = \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{A} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds + \overline{B} \Delta t\\ 
+& \leq \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds+ \overline{D} \Delta t, 
+\end{aligned}
+$$ {#eq-agregar42}
+
+donde 
+
+$$
+\begin{aligned}
+  \overline{A} & = 12C_1^2L_g+12C_2^2\lambda L_h+12(C_3L_h)^2\lambda, \\ 
+  \overline{B} & = 12C_1^2L_g E T +12C_2^2\lambda L_h E T +C_3\sqrt{8\lambda\lambda T}L_h E, \\ 
+  \overline{D} & := \max\{\overline{A},\overline{B}\}. 
+\end{aligned}
+$$
+
+Por lo tanto, de la @eq-agregar28 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[ & \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+  & \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad + D_1(T(1+A+A_1))E\Delta t\\ 
+  & \qquad + \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds+ \overline{D} \Delta t\\ 
+  & \leq 2(D_1+\overline{D})\int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad +2(D_1(T(1+A+A_1))+\overline{D})\Delta t\\ 
+  & \leq \mathcal{D}\int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
+  & \qquad +\mathcal{D}\Delta t,
+\end{aligned}
+$$ {#eq-agregar43}
+
+donde $\mathcal{D}$ se define como 
+
+$$
+\mathcal{D}:=\max\{2(D_1+\overline{D}),2(D_1(T(1+A+A_1))+\overline{D})\}. 
+$$
+
+Dado que el límite por la izquierda de un proceso estocástico está acotado por el supremo del proceso en el mismo intenvalo, notemos que para cualquier $r\in [0,s]$, se cumple 
+
+$$
+|E(r-)|^2\leq \sup_{0\leq u\leq r}|E(u)|^2\leq \sup_{0\leq u\leq s}|E(u)|^2.
+$$
+
+Por lo tanto 
+
+$$
+\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\leq \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds
+$$
+
+La @eq-agregar43 queda de la siguiente forma 
+
+$$
+\begin{aligned}
+  \mathbb{E}\Bigg[ & \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
+  & \leq \mathcal{D} \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds\\ 
+  & \qquad +\mathcal{D}\Delta t,
+\end{aligned}
+$$ {#eq-agregar44}
+
+esto para toda $t\in[0,T]$. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, $u(t)$, en el intervalo $[0,T]$, y existen constantes no negativas $\alpha$ y $\beta$ tales que 
+
+$$
+u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
+$$
+
+entonces se garantiza que $u(t)\leq \alpha e^{\beta t}$. Con esto, basta tomar a $\displaystyle u(t) = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]$, $\alpha = \mathcal{D}\Delta t$ y $\beta= \mathcal{D}$, aplicando directamente esta desigualdad a la @eq-agregar44, se deduce 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}t}\Delta t. 
+$$
+
+Ahora bien, evaluando en $t=T$ se tiene 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
 
 
