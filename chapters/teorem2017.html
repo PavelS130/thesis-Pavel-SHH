@@ -3696,7 +3696,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \leq 8L_g\int_0^t |E(s-)|^2 \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds
 \end{aligned}
 \]</span></p>
-<p>Por otro lado notemos que para <span class="math inline">\(r\in[0,t]\)</span> se cumple</p>
+<p>Por otro lado notemos que para <span class="math inline">\(s\in[0,t]\)</span> se cumple</p>
 <p><span class="math display">\[
 |E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^r,
 \]</span></p>
@@ -3767,15 +3767,15 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 12C_1^2L_g T E\Delta t.
 \end{aligned}
 \tag{6.185}\]</span></span></p>
-<p>De manera similar, usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por la desigualdad de Bulkholder-Davis_Gundy, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
+<p>Usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por la desigualdad de Bulkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
 <p><span id="eq-agregar35"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big].
 \tag{6.186}\]</span></span></p>
-<p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicandoel cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
+<p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
 <p><span class="math display">\[
 \langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds.
 \]</span></p>
-<p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> tammbién cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizas el mismo calculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
+<p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> también cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizar el mismo cálculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
 <p><span id="eq-agregar36"><span class="math display">\[
 \langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\right)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
 \tag{6.187}\]</span></span></p>
@@ -3809,7 +3809,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + 12C_2^2\lambda L_h T E\Delta t.
 \end{aligned}
 \tag{6.188}\]</span></span></p>
-<p>Por último, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por la desigualdad de BUlkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
+<p>Por último, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por la desigualdad de Bulkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
 <p><span id="eq-agregar38"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
 \tag{6.189}\]</span></span></p>
@@ -3853,7 +3853,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \tag{6.191}\]</span></span></p>
 <p>Usamos nuevamente la desigualdad generalizada de Young, para <span class="math inline">\(\mu&gt;0\)</span> se cumple</p>
 <p><span class="math display">\[
-\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s)|^2ds\leq \frac{1}{2\mu}\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)^2+\frac{\mu}{2}\Bigg(\int_0^t |E(s)|^2ds\Bigg)^2
+\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s)|^2ds.
 \]</span></p>
 <p>Al sustituir y reducir en la <a href="#eq-agregar40" class="quarto-xref">Ecuación&nbsp;<span>6.191</span></a></p>
 <p><span class="math display">\[
