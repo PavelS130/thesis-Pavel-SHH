@@ -3054,7 +3054,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 \]</span></p>
 <p>independiente de <span class="math inline">\(\Delta t\)</span>, tal que</p>
 <p><span class="math display">\[
-  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\leq E\Delta t,
 \]</span></p>
 <p>donde <span class="math inline">\(Y(t)\)</span> es la función escalón definida por <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> es la extensión continua definida en la <a href="#eq-6.07" class="quarto-xref">Ecuación&nbsp;<span>6.7</span></a></p>
 </div>
@@ -3090,11 +3090,11 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 <p>Tomando valor absoluto, aplicando desigualdad triangular y al elevar a la potencia <span class="math inline">\(r\geq 2\)</span> se tiene</p>
 <p><span id="eq-6.142"><span class="math display">\[
 \begin{aligned}
-|Y(t)-\overline{Y}(t)|^r &amp; \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
-&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\\
-&amp; \leq 3^{r-1}\Bigg(|f_{\lambda}(Y_n^*)|^r\Delta t^r\\
-&amp; \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^r\\
-&amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg).
+|Y(t)-\overline{Y}(t)|^2 &amp; \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\\
+&amp; \leq 3\Bigg(|f_{\lambda}(Y_n^*)|^2\Delta t^2\\
+&amp; \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^2\\
+&amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\Bigg).
 \end{aligned}
 \tag{6.142}\]</span></span></p>
 <p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
