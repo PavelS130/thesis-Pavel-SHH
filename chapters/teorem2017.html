@@ -3048,7 +3048,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
-<p>Entonces, para todo <span class="math inline">\(r\geq 2\)</span>, existe una constante positiva</p>
+<p>Entonces, para todo <span class="math inline">\(r= 2\)</span>, existe una constante positiva</p>
 <p><span class="math display">\[  
   E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
@@ -3510,7 +3510,7 @@ E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 \tag{6.168}\]</span></span></p>
-<p>Por otro lado, tenemos que <span class="math inline">\((L_g+2\lambda L_h)&gt;0\)</span>, por la forma en que están definidas las constantes <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(L_g\)</span> y <span class="math inline">\(L_h\)</span>. De la siguiente igualdad, donde recordemos que <span class="math inline">\(E(s-)=\overline{Y}(s-)-X(s-)\)</span>, tenemos</p>
+<p>Por la forma en que están definidas las constantes <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(L_g\)</span> y <span class="math inline">\(L_h\)</span>, podemos afirmar que <span class="math inline">\((L_g+2\lambda L_h)&gt;0\)</span>. Recordemos que <span class="math inline">\(E(s-)=\overline{Y}(s-)-X(s-)\)</span>, con esto obtenemos la siguiente igualdad</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y(s-)-X(s-) &amp; =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\
@@ -3574,7 +3574,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 \]</span></p>
-<p>Ahora bien, tomaremos supremo sobre <span class="math inline">\(0\)</span> a <span class="math inline">\(t\)</span>, por linealidad del supremos</p>
+<p>Ahora bien, tomaremos supremo sobre <span class="math inline">\(0\)</span> a <span class="math inline">\(t\)</span>, por linealidad del supremo</p>
 <p><span id="eq-agregar19"><span class="math display">\[
 \begin{aligned}
   \sup_{0\leq s\leq t} &amp; |E(s)|^2\\
@@ -3668,7 +3668,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \begin{aligned}
   \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
-  &amp; \qquad + D_1\widetilde{E}\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\
+  &amp; \qquad + D_1E\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
   &amp; \qquad + D_1(T(1+A+A_1))E\Delta t\\
@@ -3934,7 +3934,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
 \tag{6.195}\]</span></span></p>
-<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
+<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos uso de la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
 <p><span class="math display">\[
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 \]</span></p>
