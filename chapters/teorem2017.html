@@ -3114,40 +3114,24 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 \end{aligned}
 \]</span></p>
 <p>Tomando a <span class="math inline">\(D_1:=\{2D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
-<p><span class="math display">\[
-|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
-\]</span></p>
-<p>Al elevar por ambos lados a la potencia <span class="math inline">\(r/2\geq 1\)</span> se tiene</p>
 <p><span id="eq-6.144"><span class="math display">\[
-\begin{aligned}
-|f_{\lambda}(Y_n^*)|^r &amp; = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\
-&amp; \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\
-&amp; \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
-\end{aligned}
+|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
 \tag{6.144}\]</span></span></p>
 <p>Para los terminos de difusión y salto haremos uso de la cota dada en la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto tenemos</p>
-<p><span class="math display">\[
-|g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
-\]</span></p>
-<p>procediendo de manera similar, al elevar a la potencia <span class="math inline">\(r/2\)</span> es posible obtener</p>
 <p><span id="eq-6.145"><span class="math display">\[
-\begin{aligned}
-|g(Y_n^*)|^r &amp; = (|g(Y_n^*)|^2)^{r/2}\\
-&amp; \leq (L_{\lambda}(1+|Y_n^*|^2))\\
-&amp; \leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)
-\end{aligned}
+|g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
 \tag{6.145}\]</span></span></p>
 <p>De forma similar se obtiene</p>
 <p><span id="eq-6.146"><span class="math display">\[
-|h(Y_n^*)|^r\leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r).
+|h(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2).
 \tag{6.146}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-6.144" class="quarto-xref">Ecuación&nbsp;<span>6.144</span></a>, <a href="#eq-6.145" class="quarto-xref">Ecuación&nbsp;<span>6.145</span></a> y <a href="#eq-6.145" class="quarto-xref">Ecuación&nbsp;<span>6.145</span></a> en la <a href="#eq-6.142" class="quarto-xref">Ecuación&nbsp;<span>6.142</span></a> tenemos</p>
 <p><span id="eq-6.147"><span class="math display">\[
 \begin{aligned}
-|Y(t) &amp; - \overline{Y}(t)|^r\\
-&amp; \leq 3^{r-1}\Bigg(2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2})\Delta t^r\\
-&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|W(t)-W(t_n)|^r\\
-&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg).
+|Y(t) &amp; - \overline{Y}(t)|^2\\
+&amp; \leq 3^{r-1}\Bigg(D_1(1+|Y_n^*|^{(q+2)})\Delta t^2\\
+&amp; \qquad\qquad\quad +L_{\lambda}(1+|Y_n^*|^2)|W(t)-W(t_n)|^2\\
+&amp; \qquad\qquad\quad +L_{\lambda}(1+|Y_n^*|^2)|\widetilde{N}(t)-\widetilde{N}(t_n)|^2\Bigg).
 \end{aligned}
 \tag{6.147}\]</span></span></p>
 <p>Definimos a las siguientes constantes y notación</p>
