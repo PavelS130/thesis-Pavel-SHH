@@ -2035,7 +2035,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
-<p>Entonces para todo <span class="math inline">\(p\geq 1\)</span>, existe una constante positiva</p>
+<p>Entonces para todo <span class="math inline">\(p\geq 2\)</span>, existe una constante positiva</p>
 <p><span class="math display">\[
   A_1 = A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
@@ -3048,7 +3048,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
-<p>Entonces, para todo <span class="math inline">\(r= 2\)</span>, existe una constante positiva</p>
+<p>Entonces, existe una constante positiva</p>
 <p><span class="math display">\[  
   E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
@@ -3097,24 +3097,23 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 &amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\Bigg).
 \end{aligned}
 \tag{6.142}\]</span></span></p>
-<p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
+<p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición de crecimiento polinomial para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
 <p><span id="eq-6.143"><span class="math display">\[
 \begin{aligned}
 |f_{\lambda}(Y_n^*)|^2 &amp; \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\
 &amp;  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\
-&amp; \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\
-&amp; = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\
-&amp; = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
+&amp; \leq 2D(1+|Y_n^*|^q)|Y_n^*|^2+2|f_{\lambda}(0)|^2\\
+&amp; = 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2
 \end{aligned}
 \tag{6.143}\]</span></span></p>
 <p>Notemos que <span class="math inline">\(|Y_n^*|^2&gt;0\)</span>, por lo que <span class="math inline">\(|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}\)</span>, sustituyendo esto en la <a href="#eq-6.143" class="quarto-xref">Ecuación&nbsp;<span>6.143</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\
-&amp; = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
+|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\
+&amp; \leq 2D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
 \end{aligned}
 \]</span></p>
-<p>Tomando a <span class="math inline">\(D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
+<p>Tomando a <span class="math inline">\(D_1:=\{2D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
 <p><span class="math display">\[
 |f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
 \]</span></p>
