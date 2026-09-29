@@ -3158,16 +3158,16 @@ u &amp; := q+2,\\
 \]</span></p>
 <p>donde <span class="math inline">\(t_n=n\Delta t\)</span> y <span class="math inline">\(N_T\)</span> es finito para cualquier <span class="math inline">\(\Delta t&gt;0\)</span> fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que</p>
 <p><span id="eq-6.149"><span class="math display">\[
-\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right).
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right).
 \tag{6.149}\]</span></span></p>
 <p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a>, además de usar la independencia de los procesos <span class="math inline">\(W(t)\)</span>, <span class="math inline">\(\widetilde{N}(t)\)</span> y la variable <span class="math inline">\(Y_n^*\)</span> tenemos</p>
 <p><span id="eq-6.150"><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
 &amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right)\\
-&amp; \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\
-&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
-&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+&amp; \leq C_0\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^2\\
+&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\
+&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
 \tag{6.150}\]</span></span></p>
 <p>La variable <span class="math inline">\(Y_n^*\)</span> se define mediante la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> como una suceción discreta de variables aleatorias, indeada por <span class="math inline">\(n\in\{0,1,\ldots,N_T\}\)</span>. Dado que el conjunto de índices <span class="math inline">\(\{0,1,\ldots, N_T\}\)</span> es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir</p>
@@ -3193,26 +3193,26 @@ u &amp; := q+2,\\
 <p>Sustituyendo esto en la <a href="#eq-6.150" class="quarto-xref">Ecuación&nbsp;<span>6.150</span></a> tenemos</p>
 <p><span id="eq-6.151"><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
-&amp; \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\
-&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
-&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
+&amp; \leq C_0\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
 \tag{6.151}\]</span></span></p>
 <p>Definimos a <span class="math inline">\(\eta(t):=\max\{n\in{0,1,\ldots N_T}:t\in[t_n,t_{n+1}]\}\)</span>. Con esto</p>
 <p><span class="math display">\[
 \begin{aligned}
-\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r,\\
-\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r,
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right) &amp; = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^2,\\
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right) &amp; = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^2,
 \end{aligned}
 \]</span></p>
 <p>donde <span class="math inline">\(\Delta W_{\eta(t)}(t) = W(t)-W(t_n)\)</span> y de forma análoga <span class="math inline">\(\Delta\widetilde{N}_{\eta(t)}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)\)</span>. Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\Bigg]\\
-&amp; \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^r\\
-&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r\Bigg]\\
-&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r\Bigg]\Bigg).
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\Bigg]\\
+&amp; \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^2\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^2\Bigg]\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^2\Bigg]\Bigg).
 \end{aligned}
 \]</span></p>
 </div>
