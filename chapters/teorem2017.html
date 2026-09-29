@@ -3137,8 +3137,8 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 <p>Definimos a las siguientes constantes y notación</p>
 <p><span class="math display">\[
 \begin{aligned}
-C_r &amp; :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\
-u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
+C_0 &amp; :=\max\{3D_1,3L_{\lambda}\},\\
+u &amp; := q+2,\\
 \Delta W_n(t) &amp; :=W(t)-W(t_n),\\
 \Delta \widetilde{N}_n(t) &amp; :=\widetilde{N}(t)-\widetilde{N}(t_n).
 \end{aligned}
@@ -3146,10 +3146,10 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <p>Con estas manupilaciones es posible acotar de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
 <p><span id="eq-6.148"><span class="math display">\[
 \begin{aligned}
-|Y(t) &amp; - \overline{Y}(t)|^r\\
-&amp; \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg).
+|Y(t) &amp; - \overline{Y}(t)|^2\\
+&amp; \leq C_0\Bigg((1+|Y_n^*|^u)\Delta t^2\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^2\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^2\Bigg).
 \end{aligned}
 \tag{6.148}\]</span></span></p>
 <p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
@@ -3163,8 +3163,8 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a>, además de usar la independencia de los procesos <span class="math inline">\(W(t)\)</span>, <span class="math inline">\(\widetilde{N}(t)\)</span> y la variable <span class="math inline">\(Y_n^*\)</span> tenemos</p>
 <p><span id="eq-6.150"><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
-&amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
+&amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right)\\
 &amp; \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\
 &amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
 &amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
