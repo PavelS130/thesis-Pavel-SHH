@@ -3208,6 +3208,39 @@ u &amp; := q+2,\\
 &amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg]\Bigg).
 \end{aligned}
 \]</span></p>
+<p>Dado que <span class="math inline">\(u=q+2\geq 2\)</span>, entonces por el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, es posible encontrar <span class="math inline">\(p\geq 1\)</span> tal que <span class="math inline">\(u\leq 2p\)</span>, de aquí se satisface</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\leq \mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\Bigg]\leq A.
+\]</span></p>
+<p>Notemos que el máximo de los supremos locales está acotado por la suma de todos los supremos locales, es decir</p>
+<p><span class="math display">\[
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\leq \sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2.
+\]</span></p>
+<p>De manera análoga se tiene la misma cota para el proceso de Poisson. Usando la linealidad del valor esperado se tiene entonces</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
+&amp; \leq \mathbb{E}\Bigg[\sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg]\\
+&amp; = \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg].
+\end{aligned}
+\]</span></p>
+<p>De igual forma obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\right)\Bigg]\\
+&amp; \leq \mathbb{E}\Bigg[\sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg]\\
+&amp; = \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg].
+\end{aligned}
+\]</span></p>
+<p>Por propiedades de martingalas e incrementos independientes, notemos que <span class="math inline">\(W(t)-W(t_n)\)</span> es una martingala continua respecto a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq t_n}\)</span>, además recordemos que los incrementos del movimiento browniano tienen varianza igual a la longitud del intervalo. Con esto, es valido hacer uso de la desigualdad Maximal de Doob, para la potencia <span class="math inline">\(2\)</span>, de aquí</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
+&amp; \leq \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg]\\
+&amp; \leq \sum_{0}^{N_T-1} 4 \mathbb{E}\Big[|W_{t_{n+1}}-W_t|^2\Big]\\
+&amp; = 4N_T \Delta t
+\end{aligned}
+\]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
