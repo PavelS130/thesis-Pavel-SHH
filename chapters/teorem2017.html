@@ -3193,13 +3193,13 @@ u &amp; := q+2,\\
 <p>Sustituyendo esto en la <a href="#eq-6.150" class="quarto-xref">Ecuación&nbsp;<span>6.150</span></a> tenemos</p>
 <p><span id="eq-6.151"><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq t\leq T} &amp; |Y(t) - \overline{Y}(t)|^2\\
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
 &amp; \leq C_0\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\\
 &amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\
 &amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
 \tag{6.151}\]</span></span></p>
-<p>Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
+<p>donde <span class="math inline">\(\Delta W_{n}(t) = W(t)-W(t_n)\)</span> y de forma análoga <span class="math inline">\(\Delta\widetilde{N}_{n}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)\)</span>. Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq t\leq T}|Y(t) - \overline{Y}(t)|^2\Bigg]\\
