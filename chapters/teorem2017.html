@@ -3203,7 +3203,7 @@ u &amp; := q+2,\\
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq t\leq T}|Y(t) - \overline{Y}(t)|^2\Bigg]\\
-&amp; \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^2\\
+&amp; \leq C_0\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^2\\
 &amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
 &amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg]\Bigg).
 \end{aligned}
@@ -3237,9 +3237,21 @@ u &amp; := q+2,\\
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
 &amp; \leq \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg]\\
-&amp; \leq \sum_{0}^{N_T-1} 4 \mathbb{E}\Big[|W_{t_{n+1}}-W_t|^2\Big]\\
-&amp; = 4N_T \Delta t
+&amp; \leq \sum_{0}^{N_T-1} 4 \mathbb{E}\Big[|W(t_{n+1})-W(t)|^2\Big]\\
+&amp; = 4N_T \Delta t.
 \end{aligned}
+\]</span></p>
+<p>De manera similar, se realiza el mismo procedimiento para el proceso de Poisson. Usando la desigualdad Maximal de Doob se tiene que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\right)\Bigg]\\
+&amp; \leq \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg]\\
+&amp; \leq \sum_0^{N_T-1} 4\mathbb{E}\Big[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\Big].
+\end{aligned}
+\]</span></p>
+<p>Por la definición del proceso de Poisson compensado tenemos que</p>
+<p><span class="math display">\[
+\widetilde{N}(t_{n+1})-\widetilde{N}(t_n) = N(t_{n+1})-N(t_n)-\lambda\Delta t.
 \]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
