@@ -2035,7 +2035,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
-<p>Entonces para todo <span class="math inline">\(p\geq 2\)</span>, existe una constante positiva</p>
+<p>Entonces para todo <span class="math inline">\(p\geq 1\)</span>, existe una constante positiva</p>
 <p><span class="math display">\[
   A_1 = A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
@@ -3048,13 +3048,13 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
-<p>Entonces, existe una constante positiva</p>
+<p>Entonces, para todo <span class="math inline">\(r\geq 2\)</span>, existe una constante positiva</p>
 <p><span class="math display">\[  
   E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
 \]</span></p>
 <p>independiente de <span class="math inline">\(\Delta t\)</span>, tal que</p>
 <p><span class="math display">\[
-  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\leq E\Delta t,
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
 \]</span></p>
 <p>donde <span class="math inline">\(Y(t)\)</span> es la función escalón definida por <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> es la extensión continua definida en la <a href="#eq-6.07" class="quarto-xref">Ecuación&nbsp;<span>6.7</span></a></p>
 </div>
@@ -3090,55 +3090,72 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 <p>Tomando valor absoluto, aplicando desigualdad triangular y al elevar a la potencia <span class="math inline">\(r\geq 2\)</span> se tiene</p>
 <p><span id="eq-6.142"><span class="math display">\[
 \begin{aligned}
-|Y(t)-\overline{Y}(t)|^2 &amp; \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
-&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\\
-&amp; \leq 3\Bigg(|f_{\lambda}(Y_n^*)|^2\Delta t^2\\
-&amp; \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^2\\
-&amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\Bigg).
+|Y(t)-\overline{Y}(t)|^r &amp; \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\
+&amp; \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\\
+&amp; \leq 3^{r-1}\Bigg(|f_{\lambda}(Y_n^*)|^r\Delta t^r\\
+&amp; \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^r\\
+&amp; \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg).
 \end{aligned}
 \tag{6.142}\]</span></span></p>
-<p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición de crecimiento polinomial para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
+<p>Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función <span class="math inline">\(f_{\lambda }\)</span> dada en la <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a> de la siguiente forma</p>
 <p><span id="eq-6.143"><span class="math display">\[
 \begin{aligned}
 |f_{\lambda}(Y_n^*)|^2 &amp; \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\
 &amp;  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\
-&amp; \leq 2D(1+|Y_n^*|^q)|Y_n^*|^2+2|f_{\lambda}(0)|^2\\
-&amp; = 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2
+&amp; \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\
+&amp; = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\
+&amp; = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
 \end{aligned}
 \tag{6.143}\]</span></span></p>
 <p>Notemos que <span class="math inline">\(|Y_n^*|^2&gt;0\)</span>, por lo que <span class="math inline">\(|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}\)</span>, sustituyendo esto en la <a href="#eq-6.143" class="quarto-xref">Ecuación&nbsp;<span>6.143</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
-|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\
-&amp; \leq 2D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
+|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\
+&amp; = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
 \end{aligned}
 \]</span></p>
-<p>Tomando a <span class="math inline">\(D_1:=\{2D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
-<p><span id="eq-6.144"><span class="math display">\[
+<p>Tomando a <span class="math inline">\(D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
+<p><span class="math display">\[
 |f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
+\]</span></p>
+<p>Al elevar por ambos lados a la potencia <span class="math inline">\(r/2\geq 1\)</span> se tiene</p>
+<p><span id="eq-6.144"><span class="math display">\[
+\begin{aligned}
+|f_{\lambda}(Y_n^*)|^r &amp; = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\
+&amp; \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\
+&amp; \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
+\end{aligned}
 \tag{6.144}\]</span></span></p>
 <p>Para los terminos de difusión y salto haremos uso de la cota dada en la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto tenemos</p>
-<p><span id="eq-6.145"><span class="math display">\[
+<p><span class="math display">\[
 |g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
+\]</span></p>
+<p>procediendo de manera similar, al elevar a la potencia <span class="math inline">\(r/2\)</span> es posible obtener</p>
+<p><span id="eq-6.145"><span class="math display">\[
+\begin{aligned}
+|g(Y_n^*)|^r &amp; = (|g(Y_n^*)|^2)^{r/2}\\
+&amp; \leq (L_{\lambda}(1+|Y_n^*|^2))\\
+&amp; \leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)
+\end{aligned}
 \tag{6.145}\]</span></span></p>
 <p>De forma similar se obtiene</p>
 <p><span id="eq-6.146"><span class="math display">\[
-|h(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2).
+|h(Y_n^*)|^r\leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r).
 \tag{6.146}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-6.144" class="quarto-xref">Ecuación&nbsp;<span>6.144</span></a>, <a href="#eq-6.145" class="quarto-xref">Ecuación&nbsp;<span>6.145</span></a> y <a href="#eq-6.145" class="quarto-xref">Ecuación&nbsp;<span>6.145</span></a> en la <a href="#eq-6.142" class="quarto-xref">Ecuación&nbsp;<span>6.142</span></a> tenemos</p>
 <p><span id="eq-6.147"><span class="math display">\[
 \begin{aligned}
-|Y(t) &amp; - \overline{Y}(t)|^2\\
-&amp; \leq 3\Bigg(D_1(1+|Y_n^*|^{(q+2)})\Delta t^2\\
-&amp; \qquad\qquad\quad +L_{\lambda}(1+|Y_n^*|^2)|W(t)-W(t_n)|^2\\
-&amp; \qquad\qquad\quad +L_{\lambda}(1+|Y_n^*|^2)|\widetilde{N}(t)-\widetilde{N}(t_n)|^2\Bigg).
+|Y(t) &amp; - \overline{Y}(t)|^r\\
+&amp; \leq 3^{r-1}\Bigg(2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2})\Delta t^r\\
+&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|W(t)-W(t_n)|^r\\
+&amp; \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg).
 \end{aligned}
 \tag{6.147}\]</span></span></p>
 <p>Definimos a las siguientes constantes y notación</p>
 <p><span class="math display">\[
 \begin{aligned}
-C_0 &amp; :=\max\{3D_1,3L_{\lambda}\},\\
-u &amp; := q+2,\\
+C_r &amp; :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\
+u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 \Delta W_n(t) &amp; :=W(t)-W(t_n),\\
 \Delta \widetilde{N}_n(t) &amp; :=\widetilde{N}(t)-\widetilde{N}(t_n).
 \end{aligned}
@@ -3146,10 +3163,10 @@ u &amp; := q+2,\\
 <p>Con estas manupilaciones es posible acotar de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
 <p><span id="eq-6.148"><span class="math display">\[
 \begin{aligned}
-|Y(t) &amp; - \overline{Y}(t)|^2\\
-&amp; \leq C_0\Bigg((1+|Y_n^*|^u)\Delta t^2\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^2\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^2\Bigg).
+|Y(t) &amp; - \overline{Y}(t)|^r\\
+&amp; \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^r\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg).
 \end{aligned}
 \tag{6.148}\]</span></span></p>
 <p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
@@ -3158,16 +3175,16 @@ u &amp; := q+2,\\
 \]</span></p>
 <p>donde <span class="math inline">\(t_n=n\Delta t\)</span> y <span class="math inline">\(N_T\)</span> es finito para cualquier <span class="math inline">\(\Delta t&gt;0\)</span> fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que</p>
 <p><span id="eq-6.149"><span class="math display">\[
-\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right).
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right).
 \tag{6.149}\]</span></span></p>
 <p>Si aplicamos dicha propiedad a la <a href="#eq-6.148" class="quarto-xref">Ecuación&nbsp;<span>6.148</span></a>, además de usar la independencia de los procesos <span class="math inline">\(W(t)\)</span>, <span class="math inline">\(\widetilde{N}(t)\)</span> y la variable <span class="math inline">\(Y_n^*\)</span> tenemos</p>
 <p><span id="eq-6.150"><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
-&amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right)\\
-&amp; \leq C_0\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^2\\
-&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\
-&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
+&amp; = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\
+&amp; \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\
+&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
+&amp; +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
 \tag{6.150}\]</span></span></p>
 <p>La variable <span class="math inline">\(Y_n^*\)</span> se define mediante la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> como una suceción discreta de variables aleatorias, indeada por <span class="math inline">\(n\in\{0,1,\ldots,N_T\}\)</span>. Dado que el conjunto de índices <span class="math inline">\(\{0,1,\ldots, N_T\}\)</span> es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir</p>
@@ -3193,65 +3210,27 @@ u &amp; := q+2,\\
 <p>Sustituyendo esto en la <a href="#eq-6.150" class="quarto-xref">Ecuación&nbsp;<span>6.150</span></a> tenemos</p>
 <p><span id="eq-6.151"><span class="math display">\[
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^2\\
-&amp; \leq C_0\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\\
-&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\
-&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
+\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\\
+&amp; \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\
+&amp; +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
 \end{aligned}
 \tag{6.151}\]</span></span></p>
-<p>donde <span class="math inline">\(\Delta W_{n}(t) = W(t)-W(t_n)\)</span> y de forma análoga <span class="math inline">\(\Delta\widetilde{N}_{n}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)\)</span>. Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
+<p>Definimos a <span class="math inline">\(\eta(t):=\max\{n\in{0,1,\ldots N_T}:t\in[t_n,t_{n+1}]\}\)</span>. Con esto</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; \Bigg[\sup_{0\leq t\leq T}|Y(t) - \overline{Y}(t)|^2\Bigg]\\
-&amp; \leq C_0\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^2\\
-&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
-&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg]\Bigg).
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r,\\
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right) &amp; = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r,
 \end{aligned}
 \]</span></p>
-<p>Dado que <span class="math inline">\(u=q+2\geq 2\)</span>, entonces por el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, es posible encontrar <span class="math inline">\(p\geq 1\)</span> tal que <span class="math inline">\(u\leq 2p\)</span>, de aquí se satisface</p>
-<p><span class="math display">\[
-\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\leq \mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\Bigg]\leq A.
-\]</span></p>
-<p>Notemos que el máximo de los supremos locales está acotado por la suma de todos los supremos locales, es decir</p>
-<p><span class="math display">\[
-\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\leq \sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2.
-\]</span></p>
-<p>De manera análoga se tiene la misma cota para el proceso de Poisson. Usando la linealidad del valor esperado se tiene entonces</p>
+<p>donde <span class="math inline">\(\Delta W_{\eta(t)}(t) = W(t)-W(t_n)\)</span> y de forma análoga <span class="math inline">\(\Delta\widetilde{N}_{\eta(t)}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)\)</span>. Al tomar valor esperado a la <a href="#eq-6.151" class="quarto-xref">Ecuación&nbsp;<span>6.151</span></a> y usar las propiedades correspondientes se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
-&amp; \leq \mathbb{E}\Bigg[\sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg]\\
-&amp; = \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg].
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) &amp; - \overline{Y}(t)|^r\Bigg]\\
+&amp; \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^r\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r\Bigg]\\
+&amp; +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r\Bigg]\Bigg).
 \end{aligned}
-\]</span></p>
-<p>De igual forma obtenemos</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\right)\Bigg]\\
-&amp; \leq \mathbb{E}\Bigg[\sum_{0}^{N_T-1} \sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg]\\
-&amp; = \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg].
-\end{aligned}
-\]</span></p>
-<p>Por propiedades de martingalas e incrementos independientes, notemos que <span class="math inline">\(W(t)-W(t_n)\)</span> es una martingala continua respecto a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq t_n}\)</span>, además recordemos que los incrementos del movimiento browniano tienen varianza igual a la longitud del intervalo. Con esto, es valido hacer uso de la desigualdad Maximal de Doob, para la potencia <span class="math inline">\(2\)</span>, de aquí</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\Bigg]\\
-&amp; \leq \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\Bigg]\\
-&amp; \leq \sum_{0}^{N_T-1} 4 \mathbb{E}\Big[|W(t_{n+1})-W(t)|^2\Big]\\
-&amp; = 4N_T \Delta t.
-\end{aligned}
-\]</span></p>
-<p>De manera similar, se realiza el mismo procedimiento para el proceso de Poisson. Usando la desigualdad Maximal de Doob se tiene que</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E} &amp; \Bigg[\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\right)\Bigg]\\
-&amp; \leq \sum_{0}^{N_T-1} \mathbb{E}\Bigg[\sup_{t_n\leq t\leq t_{n+1}}|\Delta\widetilde{N}_n(t)|^2\Bigg]\\
-&amp; \leq \sum_0^{N_T-1} 4\mathbb{E}\Big[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\Big].
-\end{aligned}
-\]</span></p>
-<p>Por la definición del proceso de Poisson compensado tenemos que</p>
-<p><span class="math display">\[
-\widetilde{N}(t_{n+1})-\widetilde{N}(t_n) = N(t_{n+1})-N(t_n)-\lambda\Delta t.
 \]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
@@ -3265,7 +3244,7 @@ u &amp; := q+2,\\
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión a tiempo continuo de la aproximación númerica, <span class="math inline">\(\overline{Y}(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Para análizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span>, definimos el proceso de error continuo como la diferencia entre la extensión a tiempo continuo de la aproximación númerica, <span class="math inline">\(Y(t)\)</span>, y la solución exacta de la ecuación diferencial estocástica, <span class="math inline">\(X(t)\)</span>. Usaremos la siguiente notación para denotar dicho proceso</p>
 <p><span class="math display">\[
 E(t)=\overline{Y}(t)-X(t).
 \]</span></p>
@@ -3531,7 +3510,7 @@ E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 \tag{6.168}\]</span></span></p>
-<p>Por la forma en que están definidas las constantes <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(L_g\)</span> y <span class="math inline">\(L_h\)</span>, podemos afirmar que <span class="math inline">\((L_g+2\lambda L_h)&gt;0\)</span>. Recordemos que <span class="math inline">\(E(s-)=\overline{Y}(s-)-X(s-)\)</span>, con esto obtenemos la siguiente igualdad</p>
+<p>Por otro lado, tenemos que <span class="math inline">\((L_g+2\lambda L_h)&gt;0\)</span>, por la forma en que están definidas las constantes <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(L_g\)</span> y <span class="math inline">\(L_h\)</span>. De la siguiente igualdad, donde recordemos que <span class="math inline">\(E(s-)=\overline{Y}(s-)-X(s-)\)</span>, tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 Y(s-)-X(s-) &amp; =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\
@@ -3595,7 +3574,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 \]</span></p>
-<p>Ahora bien, tomaremos supremo sobre <span class="math inline">\(0\)</span> a <span class="math inline">\(t\)</span>, por linealidad del supremo</p>
+<p>Ahora bien, tomaremos supremo sobre <span class="math inline">\(0\)</span> a <span class="math inline">\(t\)</span>, por linealidad del supremos</p>
 <p><span id="eq-agregar19"><span class="math display">\[
 \begin{aligned}
   \sup_{0\leq s\leq t} &amp; |E(s)|^2\\
@@ -3689,7 +3668,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \begin{aligned}
   \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
-  &amp; \qquad + D_1E\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\
+  &amp; \qquad + D_1\widetilde{E}\Delta t\Bigg(\int_0^t\left(1+A+A_1\right)ds\Bigg)\\
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]\\
   &amp; \leq D_1 \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
   &amp; \qquad + D_1(T(1+A+A_1))E\Delta t\\
@@ -3719,7 +3698,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
 <p>Por otro lado notemos que para <span class="math inline">\(s\in[0,t]\)</span> se cumple</p>
 <p><span class="math display">\[
-|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^2,
+|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^r,
 \]</span></p>
 <p>dado que este término no depende de <span class="math inline">\(s\)</span>, podemos factorizarlo fuera de la integral</p>
 <p><span class="math display">\[
@@ -3955,7 +3934,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
 \tag{6.195}\]</span></span></p>
-<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos uso de la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
+<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
 <p><span class="math display">\[
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 \]</span></p>
