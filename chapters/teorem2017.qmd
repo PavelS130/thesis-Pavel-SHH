@@ -3539,7 +3539,7 @@ $$
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 $$
 
-Entonces, para todo $r\geq 2$, existe una constante positiva
+Entonces, existe una constante positiva
 
 $$  
   E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
@@ -3548,7 +3548,7 @@ $$
 independiente de $\Delta t$, tal que
 
 $$
-  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r\right]\leq E\Delta t^{r/2},
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\leq E\Delta t,
 $$
 
 donde $Y(t)$ es la función escalón definida por @eq-6.06 y $\overline{Y}(t)$ es la extensión continua definida en la @eq-6.07
@@ -3593,19 +3593,19 @@ Y(t)-\overline{Y}(t) & = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^*)(W
 \end{aligned}
 $$
 
-Tomando valor absoluto, aplicando desigualdad triangular y al elevar a la potencia $r\geq 2$ se tiene 
+Tomando valor absoluto, aplicando desigualdad triangular y al elevar al cuadrado se tiene 
 
 $$
 \begin{aligned}
-|Y(t)-\overline{Y}(t)|^r & \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\ 
-& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\\ 
-& \leq 3^{r-1}\Bigg(|f_{\lambda}(Y_n^*)|^r\Delta t^r\\ 
-& \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^r\\ 
-& \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^r\Bigg). 
+|Y(t)-\overline{Y}(t)|^2 & \leq |f_{\lambda}(Y_n^*)\Delta t - g(Y_n^*)(W(t)-W(t_n))\\ 
+& \qquad\quad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\\ 
+& \leq 3\Bigg(|f_{\lambda}(Y_n^*)|^2\Delta t^2\\ 
+& \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^2\\ 
+& \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\Bigg). 
 \end{aligned}
 $$ {#eq-6.142}
 
-Acotemos los términos de deriva, diusión y salto. Usaremos la condición para la función $f_{\lambda }$ dada en la @eq-6.13 de la siguiente forma 
+Acotemos los términos de deriva, diusión y salto. Para el coeficiente de deriva, $f_{\lambda }$, usaremos la condición de crecimiento polinomial dada en la @eq-6.13 de la siguiente forma 
 
 $$
 \begin{aligned}
@@ -4021,7 +4021,7 @@ d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
 \end{aligned}
 $$
 
-Usaremos la definición del proceso de Poisson compensado $\widetilde{N}(t)=N(t)\lambda t$, que en su forma diferencial es 
+Usaremos la definición del proceso de Poisson compensado $\widetilde{N}(t)=N(t)-\lambda t$, que en su forma diferencial es 
 
 $$
 dN(t)=d\widetilde{N}(t)+\lambda dt. 
