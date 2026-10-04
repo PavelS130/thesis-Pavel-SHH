@@ -4660,4 +4660,6 @@ Ahora bien, evaluando en $t=T$ se tiene
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
+
+
 :::
