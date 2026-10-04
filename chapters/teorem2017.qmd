@@ -2181,6 +2181,7 @@ $$
 donde $X(t)$ es la solución exacta de la @eq-6.01 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
 :::
 
+
 ::: {.proof style="text-align: justify"}
 Comenzaremos acotando la extensión continua denotada por $\overline{Y}(t)$ y definida en la @eq-6.07, recordemos que dicha extensión se deriva de forma directa de la @eq-6.04 y @eq-6.05. Definimos $s\in [0,\Delta t)$ como el tiempo local dentro del intervalo $[t_n,t_{n+1}]$. Sustituyendo $t=t_n+s$ en @eq-6.07 tenemos
 
@@ -4660,6 +4661,9 @@ Ahora bien, evaluando en $t=T$ se tiene
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
+
+
+
 
 
 :::
