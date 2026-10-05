@@ -13,7 +13,7 @@ format:
 ::: {style="text-align: justify"}
 # Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos
 
-## Método $\text{CSS}\theta$
+## Método $\text{CSS}\theta$ 
 
 En este capítulo abordamos el estudio de la convergencia del método numérico conocido como *compensated split-step* $\theta$ ($\text{CSS}\theta$) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos
 
@@ -4677,9 +4677,6 @@ Ahora bien, evaluando en $t=T$ se tiene
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
-
-
-
 
 
 
