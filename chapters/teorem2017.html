@@ -49,8 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f70978e73d647731a6c900b57b585744.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-a98e84c65f9932868ec26d58dd3031cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-12d221a27fe83ed3c252b0dbfc8fb7bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-f4b045a5185a1615dcab2ae1e2dff1e2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1258,7 +1258,8 @@ window.Quarto = {
 <p><span class="math display">\[
   \lim\limits_{z\rightarrow\pm\infty} \frac{2^{p+1}(p+1)!}{z} = 0.
 \]</span></p>
-<p>Por la ley del Sandwich, se afirma que <span class="math display">\[
+<p>Por la ley del Sandwich, se afirma que</p>
+<p><span class="math display">\[
   \lim\limits_{z\rightarrow\pm\infty}\left(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\right)\leq \lim\limits_{z\rightarrow\pm\infty}\frac{z^{2p+1}}{e^{z^2/2}}=0.
 \]</span></p>
 <p>Por lo tanto</p>
@@ -1291,7 +1292,8 @@ window.Quarto = {
 <p><span class="math display">\[
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 \]</span></p>
-<p>Por lo tanto <span id="eq-6.49"><span class="math display">\[
+<p>Por lo tanto</p>
+<p><span id="eq-6.49"><span class="math display">\[
 \mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p.
 \tag{6.49}\]</span></span></p>
 <p>Ahora es posible acotar <a href="#eq-6.45" class="quarto-xref">Ecuación&nbsp;<span>6.45</span></a> de la forma</p>
@@ -1599,7 +1601,8 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
   \end{aligned}
 \]</span></p>
 <p>Por lo tanto, <span class="math inline">\(M_n\)</span> es una martingala.</p>
-<p>Notemos que <span class="math display">\[
+<p>Notemos que</p>
+<p><span class="math display">\[
   \Delta M_j = M_{j+1}-M_j=Y_jg(Y_j^*)\Delta W_j.
 \]</span></p>
 <p>Con esto, tenemos</p>
@@ -1860,7 +1863,8 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
   &amp; \leq \frac{1}{2^p}\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg(\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2)\Bigg)^p\Bigg].
 \end{aligned}
 \tag{6.85}\]</span></span></p>
-<p>Consideramos la siguiente notación <span class="math display">\[
+<p>Consideramos la siguiente notación</p>
+<p><span class="math display">\[
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
 <p>Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
@@ -2898,7 +2902,8 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p><span class="math display">\[
 \widehat{C}:=2^{(p-2)/2}e^{KT},
 \]</span></p>
-<p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 1\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene <span id="eq-6.166"><span class="math display">\[
+<p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 1\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene</p>
+<p><span id="eq-6.166"><span class="math display">\[
 \mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.136}\]</span></span></p>
 <p>Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
@@ -3253,13 +3258,15 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <p><span class="math display">\[
 E(t)=\overline{Y}(t)-X(t).
 \]</span></p>
-<p>Recordemos que la solución exacta <span class="math inline">\(X(t)\)</span> satisface la forma integral compensada dada por la siguiente ecuación <span id="eq-agregar1"><span class="math display">\[
+<p>Recordemos que la solución exacta <span class="math inline">\(X(t)\)</span> satisface la forma integral compensada dada por la siguiente ecuación</p>
+<p><span id="eq-agregar1"><span class="math display">\[
 \begin{aligned}
 X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
 &amp; \qquad\quad  + \int_0^t h(X(s-))d\widetilde{N}(s).
 \end{aligned}
 \tag{6.152}\]</span></span></p>
-<p>Mientras que la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> está definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Restando ambas expresiones integrales, obtenemos la representación integral del error <span class="math display">\[
+<p>Mientras que la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> está definida en la <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>. Restando ambas expresiones integrales, obtenemos la representación integral del error</p>
+<p><span class="math display">\[
 \begin{aligned}
   E(t) &amp; = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\
   &amp; \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widetilde{N}(s),
@@ -3400,7 +3407,8 @@ d(E(t)^2) &amp; = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   &amp; \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
 \end{aligned}
 \tag{6.162}\]</span></span></p>
-<p>Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface <span class="math inline">\(\Delta N(t)=\{0,1\}\)</span>. Bajo nuestro contexto de integración estocástica, el faltor <span class="math inline">\(\Delta N(t)\)</span> actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración <span class="math inline">\(dN(t)\)</span> está concentrada exclusivamente en dichos instantes, es decir, donde <span class="math inline">\(\Delta N(t)=1\)</span>, se cumple <span class="math display">\[
+<p>Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface <span class="math inline">\(\Delta N(t)=\{0,1\}\)</span>. Bajo nuestro contexto de integración estocástica, el faltor <span class="math inline">\(\Delta N(t)\)</span> actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración <span class="math inline">\(dN(t)\)</span> está concentrada exclusivamente en dichos instantes, es decir, donde <span class="math inline">\(\Delta N(t)=1\)</span>, se cumple</p>
+<p><span class="math display">\[
 \Delta N(t)dN(t)=dN(t).
 \]</span></p>
 <p>Sustituyendo esta propiedad en la <a href="#eq-agregar11" class="quarto-xref">Ecuación&nbsp;<span>6.162</span></a> y factorizar los términos en común obtenemos</p>
