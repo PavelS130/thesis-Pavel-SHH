@@ -1132,7 +1132,9 @@ $$
   \lim\limits_{z\rightarrow\pm\infty} \frac{2^{p+1}(p+1)!}{z} = 0.
 $$
 
-Por la ley del Sandwich, se afirma que $$
+Por la ley del Sandwich, se afirma que 
+
+$$
   \lim\limits_{z\rightarrow\pm\infty}\left(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\right)\leq \lim\limits_{z\rightarrow\pm\infty}\frac{z^{2p+1}}{e^{z^2/2}}=0.
 $$
 
@@ -1176,7 +1178,9 @@ $$
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 $$
 
-Por lo tanto $$
+Por lo tanto 
+
+$$
 \mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p. 
 $$ {#eq-6.49}
 
@@ -1590,7 +1594,9 @@ $$
 
 Por lo tanto, $M_n$ es una martingala.
 
-Notemos que $$
+Notemos que 
+
+$$
   \Delta M_j = M_{j+1}-M_j=Y_jg(Y_j^*)\Delta W_j. 
 $$
 
@@ -1926,7 +1932,9 @@ $$
 \end{aligned}
 $$ {#eq-6.85}
 
-Consideramos la siguiente notación $$
+Consideramos la siguiente notación 
+
+$$
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 $$
 
@@ -3312,7 +3320,9 @@ $$
 \widehat{C}:=2^{(p-2)/2}e^{KT}, 
 $$
 
-Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene $$
+Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene 
+
+$$
 \mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 $$ {#eq-6.166}
 
@@ -3767,14 +3777,18 @@ $$
 E(t)=\overline{Y}(t)-X(t). 
 $$
 
-Recordemos que la solución exacta $X(t)$ satisface la forma integral compensada dada por la siguiente ecuación $$
+Recordemos que la solución exacta $X(t)$ satisface la forma integral compensada dada por la siguiente ecuación 
+
+$$
 \begin{aligned}
 X(t) & = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\ 
 & \qquad\quad  + \int_0^t h(X(s-))d\widetilde{N}(s). 
 \end{aligned}
 $$ {#eq-agregar1}
 
-Mientras que la aproximación continua $\overline{Y}(t)$ está definida en la @eq-6.08. Restando ambas expresiones integrales, obtenemos la representación integral del error $$
+Mientras que la aproximación continua $\overline{Y}(t)$ está definida en la @eq-6.08. Restando ambas expresiones integrales, obtenemos la representación integral del error
+
+$$
 \begin{aligned}
   E(t) & = \int_0^t [f_{\lambda}(Y(s-))-f_{\lambda}(X(s-))]ds +\int_0^t[g(Y(s-))-g(X(s-))]dW(s)\\ 
   & \qquad\qquad + \int_0^t [h(Y(s-))-h(X(s-))]d\widetilde{N}(s), 
@@ -3956,7 +3970,9 @@ d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
 \end{aligned}
 $$ {#eq-agregar11}
 
-Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple $$
+Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple 
+
+$$
 \Delta N(t)dN(t)=dN(t). 
 $$
 
@@ -4661,6 +4677,7 @@ Ahora bien, evaluando en $t=T$ se tiene
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
+
 
 
 

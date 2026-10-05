@@ -13,6 +13,9 @@
 \contentsline {subsubsection}{\numberline {4.0.0.1}(C1) Condición de Lipschitz:}{10}{subsubsection.4.0.0.1}%
 \contentsline {subsubsection}{\numberline {4.0.0.2}(C2) Condición de crecimiento lineal:}{10}{subsubsection.4.0.0.2}%
 \contentsline {chapter}{\numberline {5}Estabilidad media cuadrática}{37}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Convergencia del método CSS para ecuaciones diferenciales estocásticas con saltos}{47}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Referencias}{50}{chapter.7}%
+\contentsline {chapter}{\numberline {6}Convergencia del método \(\text {CSS}\theta \) para ecuaciones diferenciales estocásticas con saltos}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Método \(\text {CSS}\theta \)}{47}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Hipótesis}{50}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Resultados Previos}{51}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Referencias}{163}{chapter.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

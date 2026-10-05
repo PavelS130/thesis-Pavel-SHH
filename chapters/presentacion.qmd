@@ -83,6 +83,7 @@ P(X_{n+1}=x_{n+1}|& X_n=x_n,\ X_{n-1}=x_{n-1},\ldots,X_0=x_0)\\
 & =P(X_{n+1}=x_{n+1}|X_n=x_n)
 \end{aligned}
 $$
+
 :::
 
 ::: {#def-varmues style="text-align: justify"}

@@ -54,4 +54,5 @@ Su aplicación en geofísica permite modelar:
 -   La irrupción de terremotos mayores como saltos discontinuos.
 
 Este enfoque ofrece una base matemática para la simulación y el análisis estadístico de secuencias sísmicas, incluyendo la estimación de probabilidades de ocurrencia, clasificación de eventos y simulación de trayectorias dinámicas realistas.
+
 :::
