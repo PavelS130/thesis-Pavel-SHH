@@ -3145,8 +3145,8 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 <p>Definimos a las siguientes constantes y notación</p>
 <p><span class="math display">\[
 \begin{aligned}
-C_r &amp; :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\
-u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
+C_0 &amp; :=\max\{3D_1, 3L_{\lambda}\},\\
+u &amp; := q+2,\\
 \Delta W_n(t) &amp; :=W(t)-W(t_n),\\
 \Delta \widetilde{N}_n(t) &amp; :=\widetilde{N}(t)-\widetilde{N}(t_n).
 \end{aligned}
@@ -3154,10 +3154,10 @@ u &amp; := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\
 <p>Con estas manupilaciones es posible acotar de manera uniforme la <a href="#eq-6.147" class="quarto-xref">Ecuación&nbsp;<span>6.147</span></a> de tal forma que tenemos</p>
 <p><span id="eq-6.148"><span class="math display">\[
 \begin{aligned}
-|Y(t) &amp; - \overline{Y}(t)|^r\\
-&amp; \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^r\\
-&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg).
+|Y(t) &amp; - \overline{Y}(t)|^2\\
+&amp; \leq C_0\Bigg((1+|Y_n^*|^u)\Delta t^2\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^2\\
+&amp; \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^2\Bigg).
 \end{aligned}
 \tag{6.148}\]</span></span></p>
 <p>Recordemos que por construcción <span class="math inline">\(N_T\)</span> es el mayor entero tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir</p>
