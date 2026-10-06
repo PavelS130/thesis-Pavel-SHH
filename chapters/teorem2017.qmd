@@ -3813,6 +3813,25 @@ $$
 \mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] & \leq 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]\\ 
 & = 4\lambda\Delta t.
 \end{aligned}
+$$ {#eq-6.156}
+
+Dado que $\Delta t<1$ esto implica que $\Delta t^2\leq \Delta t$, además condierando las cotas en la @eq-6.154, @eq-6.155 y @eq-6.156, podemos sustituirlas en la @eq-6.153, obteniendo
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\\
+& \leq C_0\Bigg(\left(1+A\right)\Delta t^2 +\left(1+A\right)\sum_{n=0}^{N_T-1}4\Delta t\\
+& \qquad\qquad+\left(1+A\right)\sum_{n=0}^{N_T-1}4\lambda\Delta t\Bigg)\\ 
+& = C_0\Big(\left(1+A\right)\Delta t+\left(1+A\right)4N_T\Delta t\\
+& \qquad\qquad+\left(1+A\right)4N_T\lambda\Delta t\Big)\\ 
+& = C_0\left(1+A\right)\Big(1+4N_T+4N_T\lambda\Big)\Delta t. 
+\end{aligned}
+$$ 
+
+Basta tomar a $E = C_0\left(1+A\right)\Big(1+4N_T+4N_T\lambda\Big)$, de aquí se sigue que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq E\Delta t.
 $$
 
 
