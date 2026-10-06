@@ -13,7 +13,7 @@ format:
 ::: {style="text-align: justify"}
 # Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos
 
-## Método $\text{CSS}\theta$ 
+## Método $\text{CSS}\theta$
 
 En este capítulo abordamos el estudio de la convergencia del método numérico conocido como *compensated split-step* $\theta$ ($\text{CSS}\theta$) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos
 
@@ -1132,7 +1132,7 @@ $$
   \lim\limits_{z\rightarrow\pm\infty} \frac{2^{p+1}(p+1)!}{z} = 0.
 $$
 
-Por la ley del Sandwich, se afirma que 
+Por la ley del Sandwich, se afirma que
 
 $$
   \lim\limits_{z\rightarrow\pm\infty}\left(-z^{2p+1}\cdot \frac{1}{\sqrt{2\pi}}e^{-z^2/2}\right)\leq \lim\limits_{z\rightarrow\pm\infty}\frac{z^{2p+1}}{e^{z^2/2}}=0.
@@ -1178,7 +1178,7 @@ $$
   c_p : =  \mathbb{E}[Z^{2p}]=(2p-1)!!
 $$
 
-Por lo tanto 
+Por lo tanto
 
 $$
 \mathbb{E}[|\Delta W_j|^{2p}]=c_p\Delta t^p. 
@@ -1594,7 +1594,7 @@ $$
 
 Por lo tanto, $M_n$ es una martingala.
 
-Notemos que 
+Notemos que
 
 $$
   \Delta M_j = M_{j+1}-M_j=Y_jg(Y_j^*)\Delta W_j. 
@@ -1932,7 +1932,7 @@ $$
 \end{aligned}
 $$ {#eq-6.85}
 
-Consideramos la siguiente notación 
+Consideramos la siguiente notación
 
 $$
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
@@ -2188,7 +2188,6 @@ $$
 
 donde $X(t)$ es la solución exacta de la @eq-6.01 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
 :::
-
 
 ::: {.proof style="text-align: justify"}
 Comenzaremos acotando la extensión continua denotada por $\overline{Y}(t)$ y definida en la @eq-6.07, recordemos que dicha extensión se deriva de forma directa de la @eq-6.04 y @eq-6.05. Definimos $s\in [0,\Delta t)$ como el tiempo local dentro del intervalo $[t_n,t_{n+1}]$. Sustituyendo $t=t_n+s$ en @eq-6.07 tenemos
@@ -3320,7 +3319,7 @@ $$
 \widehat{C}:=2^{(p-2)/2}e^{KT}, 
 $$
 
-Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene 
+Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene
 
 $$
 \mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
@@ -3586,9 +3585,8 @@ $$
 \begin{aligned}
 |f_{\lambda}(Y_n^*)|^2 & \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\ 
 &  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\ 
-& \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\ 
-& = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\ 
-& = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
+& \leq 2D(1+|Y_n^*|^q)|Y_n^*|^2+2|f_{\lambda}(0)|^2\\
+& = 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2.
 \end{aligned}
 $$ {#eq-6.143}
 
@@ -3596,57 +3594,33 @@ Notemos que $|Y_n^*|^2>0$, por lo que $|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}$, sustituye
 
 $$
 \begin{aligned}
-|f_{\lambda}(Y_n^*)|^2 & \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\ 
-& = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
-\end{aligned}
-$$
-
-Tomando a $D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}$, podemos obtener
-
-$$
-|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}). 
-$$
-
-Al elevar por ambos lados a la potencia $r/2\geq 1$ se tiene
-
-$$
-\begin{aligned}
-|f_{\lambda}(Y_n^*)|^r & = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\ 
-& \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\ 
-& \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
+|f_{\lambda}(Y_n^*)|^2 & \leq 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\ 
+& \leq 2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\ 
+& = 2D + 4D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\ 
+& = D_1(1+|Y_n^*|^{q+2}),
 \end{aligned}
 $$ {#eq-6.144}
 
-Para los terminos de difusión y salto haremos uso de la cota dada en la @eq-6.19, con esto tenemos
+donde $D_1:=\max\{2D+2|f_{\lambda}(0)|^2, 4D\}$. Para los terminos de difusión y salto haremos uso de la cota dada en la @eq-6.19, con esto tenemos
 
 $$
 |g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
-$$
-
-procediendo de manera similar, al elevar a la potencia $r/2$ es posible obtener
-
-$$
-\begin{aligned}
-|g(Y_n^*)|^r & = (|g(Y_n^*)|^2)^{r/2}\\ 
-& \leq (L_{\lambda}(1+|Y_n^*|^2))\\ 
-& \leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)
-\end{aligned}
 $$ {#eq-6.145}
 
 De forma similar se obtiene
 
 $$
-|h(Y_n^*)|^r\leq 2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r).
+|h(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2).
 $$ {#eq-6.146}
 
 Sustituyendo la @eq-6.144, @eq-6.145 y @eq-6.145 en la @eq-6.142 tenemos
 
 $$
 \begin{aligned}
-|Y(t) & - \overline{Y}(t)|^r\\ 
-& \leq 3^{r-1}\Bigg(2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2})\Delta t^r\\ 
-& \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|W(t)-W(t_n)|^r\\ 
-& \qquad\qquad\quad +2^{r/2}L_{\lambda}^{r/2}(1+|Y_n^*|^r)|\widetilde{N}(t)-\widetilde{N}(t_n)|^r\Bigg). 
+|Y(t) & - \overline{Y}(t)|^2\\ 
+& \leq 3\Bigg(D_1(1+|Y_n^*|^{q+2})\Delta t^2\\ 
+& \qquad\quad + L_{\lambda}(1+|Y_n^*|^2)|W(t)-W(t_n)|^2\\ 
+& \qquad\quad + L_{\lambda}(1+|Y_n^*|^2)|\widetilde{N}(t)-\widetilde{N}(t_n)|^2\Bigg). 
 \end{aligned} 
 $$ {#eq-6.147}
 
@@ -3654,8 +3628,8 @@ Definimos a las siguientes constantes y notación
 
 $$
 \begin{aligned}
-C_r & :=\max\{3^{r-1}2^{r/2-1}D_1^{r/2},3^{r-1}2^{r/2}L_{\lambda}^{r/2}\},\\ 
-u & := \max\Bigg\{r,\frac{(q+2)r}{2}\Bigg\},\\ 
+C_0 & :=\max\{3D_1, 3L_{\lambda}\},\\ 
+u & := q+2,\\ 
 \Delta W_n(t) & :=W(t)-W(t_n),\\
 \Delta \widetilde{N}_n(t) & :=\widetilde{N}(t)-\widetilde{N}(t_n).
 \end{aligned}
@@ -3665,10 +3639,10 @@ Con estas manupilaciones es posible acotar de manera uniforme la @eq-6.147 de ta
 
 $$
 \begin{aligned}
-|Y(t) & - \overline{Y}(t)|^r\\ 
-& \leq C_r\Bigg((1+|Y_n^*|^u)\Delta t^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^r\\ 
-& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^r\Bigg). 
+|Y(t) & - \overline{Y}(t)|^2\\ 
+& \leq C_0\Bigg((1+|Y_n^*|^u)\Delta t^2\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^2\\ 
+& \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^2\Bigg). 
 \end{aligned} 
 $$ {#eq-6.148}
 
@@ -3681,18 +3655,18 @@ $$
 donde $t_n=n\Delta t$ y $N_T$ es finito para cualquier $\Delta t>0$ fijo. Aplicando propiedades del supremo sobre uniones finitas es posible afirmar que
 
 $$
-\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^r=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right). 
+\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right). 
 $$ {#eq-6.149}
 
 Si aplicamos dicha propiedad a la @eq-6.148, además de usar la independencia de los procesos $W(t)$, $\widetilde{N}(t)$ y la variable $Y_n^*$ tenemos
 
 $$
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\\ 
-& = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^r\right)\\ 
-& \leq C_r\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^r\\ 
-& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
-& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+\sup_{0\leq t\leq T} & |Y(t) - \overline{Y}(t)|^2\\ 
+& = \max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right)\\ 
+& \leq C_0\Bigg(\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\Delta t^2\\ 
+& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
+& +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
 $$ {#eq-6.150}
 
@@ -3728,32 +3702,120 @@ Sustituyendo esto en la @eq-6.150 tenemos
 
 $$
 \begin{aligned}
-\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\\ 
-& \leq C_r\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^r\\ 
-& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right)\\ 
-& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right)\Bigg).
+\sup_{0\leq t\leq T} & |Y(t) - \overline{Y}(t)|^2\\ 
+& \leq C_0\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
 $$ {#eq-6.151}
 
-Definimos a $\eta(t):=\max\{n\in{0,1,\ldots N_T}:t\in[t_n,t_{n+1}]\}$. Con esto
+Notemos que el máximo de los supremos locales está acotado por la suma de todos los supremos locales, es decir
 
 $$
 \begin{aligned}
-\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^r\right) & = \sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r,\\ 
-\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^r\right) & = \sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r, 
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right) & \leq \sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right),\\ 
+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right) & \leq \sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right).
 \end{aligned}
 $$
 
-donde $\Delta W_{\eta(t)}(t) = W(t)-W(t_n)$ y de forma análoga $\Delta\widetilde{N}_{\eta(t)}(t)=\widetilde{N}(t)-\widetilde{N}(t_n)$. Al tomar valor esperado a la @eq-6.151 y usar las propiedades correspondientes se tiene
+Sustituyendo estas desigualdades en la @eq-6.151 tenemos
 
 $$
 \begin{aligned}
-\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^r\Bigg]\\ 
-& \leq C_r\Bigg(\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\Delta t^r\\ 
-& +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta W_{\eta(t)}(t)|^r\Bigg]\\ 
-& +\left(1+\mathbb{E}\Bigg[\sup_{0\leq t_n\leq T}|Y_n^*|^u\Bigg]\right)\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\Delta\widetilde{N}_{\eta(t)}(t)|^r\Bigg]\Bigg).
+\sup_{0\leq t\leq T}|Y(t) & - \overline{Y}(t)|^2\\ 
+& \leq C_0\Bigg(\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
+& +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
+\end{aligned}
+$$ {#eq-6.152}
+
+
+Al tomar valor esperado a la @eq-6.152 y usar las propiedades del valor esperado se tiene
+
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\\
+& \leq C_0\Bigg(\mathbb{E}\left[\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\Delta t^2\right]\\
+& +\mathbb{E}\left[\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\right]\\
+& +\mathbb{E}\left[\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\right]\Bigg)\\
+& = C_0\Bigg(\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\Delta t^2\\
+& +\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\sum_{n=0}^{N_T-1}\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right]\\
+& +\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\sum_{n=0}^{N_T-1}\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right]\Bigg).
+\end{aligned}
+$$ {#eq-6.153}
+
+Recordemos que $u=q+2$, donde $q\in\mathbb{Z}^+$, por lo tanto, es posible encontrar $p\geq 2$ tal que $u\leq 2p$, con esto, por el @lem-6.2, existe una constante positiva $A$, independiente de $\Delta t$ tal que
+
+$$
+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
+$$ {#eq-6.154}
+
+Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Con esto, podemos hacer uso de la desigualdad de Maximal de Doob, de tal forma que 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right] & \leq 4\mathbb{E}\left[|\Delta W_n(t_{n+1})|^2\right]\\
+& = 4\mathbb{E}\left[|W(t_{n+1})-W(t_n)|^2\right]\\
+& = 4\Delta t,
+\end{aligned}
+$$ {#eq-6.154}
+
+De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] & \leq 4\mathbb{E}\left[|\Delta \widetilde{N}_n(t_{n+1})|^2\right]\\
+& = 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]. 
 \end{aligned}
 $$
+
+Para calcular el valor esperado del incremento del proceso de Poisson compensado, recordemos que $\widetilde{N}(t)=N(t)-\lambda t$, donde $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. Por lo tanto, tenemos
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]\\ 
+ & = \mathbb{E}\left[|(N(t_{n+1})-N(t_n))-\lambda(t_{n+1}-t_n)|^2\right]\\ 
+ & = \mathbb{E}\left[|(N(t_{n+1})-N(t_n))-\lambda\Delta t|^2\right]\\ 
+ & = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - 2\lambda\Delta t\mathbb{E}\left[N(t_{n+1})-N(t_n)\right] + (\lambda\Delta t)^2\\
+ & = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - 2\lambda\Delta t(\lambda\Delta t) + (\lambda\Delta t)^2\\
+ & = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - (\lambda\Delta t)^2.
+\end{aligned} 
+$$
+
+Sabemos que para una variable Poisson con parametro $\lambda\Delta t$, se tiene que 
+
+
+$$
+\mathbb{E}[N(t_{n+1})-N(t_n)]=\lambda\Delta t,
+$$
+
+
+además $\text{Var}(N(t_{n+1})-N(t_n))=\lambda\Delta t$. Por lo tanto, podemos escribir
+
+$$
+\begin{aligned}
+\mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] & = \text{Var}(N(t_{n+1})-N(t_n)) + (\mathbb{E}[N(t_{n+1})-N(t_n)])^2 \\ 
+& = \lambda\Delta t + (\lambda\Delta t)^2.
+\end{aligned}
+$$
+
+Sustituyendo esto en la expresión anterior, obtenemos
+
+$$
+\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right] = \lambda\Delta t + (\lambda\Delta t)^2 - (\lambda\Delta t)^2 = \lambda\Delta t.
+$$
+
+Por lo tanto 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] & \leq 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]\\ 
+& = 4\lambda\Delta t.
+\end{aligned}
+$$
+
+
 :::
 
 ::: {#thm-6.5 style="text-align: justify"}
@@ -3777,7 +3839,7 @@ $$
 E(t)=\overline{Y}(t)-X(t). 
 $$
 
-Recordemos que la solución exacta $X(t)$ satisface la forma integral compensada dada por la siguiente ecuación 
+Recordemos que la solución exacta $X(t)$ satisface la forma integral compensada dada por la siguiente ecuación
 
 $$
 \begin{aligned}
@@ -3970,7 +4032,7 @@ d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
 \end{aligned}
 $$ {#eq-agregar11}
 
-Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple 
+Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple
 
 $$
 \Delta N(t)dN(t)=dN(t). 
@@ -4672,12 +4734,11 @@ $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}t}\Delta t. 
 $$
 
-Ahora bien, evaluando en $t=T$ se tiene
+Ahora bien, evaluando en $t=T$ se tiene $\alpha$
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t. 
 $$
-
 
 
 
