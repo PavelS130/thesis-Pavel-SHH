@@ -3112,31 +3112,20 @@ Y(t)-\overline{Y}(t) &amp; = f_{\lambda}(Y_n^*)(\theta\Delta t-(t-t_n)) - g(Y_n^
 \begin{aligned}
 |f_{\lambda}(Y_n^*)|^2 &amp; \leq (|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|+|f_{\lambda}(0)|)^2\\
 &amp;  \leq 2|f_{\lambda}(Y_n^*)-f_{\lambda}(0)|^2+2|f_{\lambda}(0)|^2\\
-&amp; \leq 2(D(1+|Y_n^*|^2+0^2)|Y_n^*-0|^2)+2|f_{\lambda}(0)|^2\\
-&amp; = 2(D+D|Y_n^*|^2+|Y_n^*|^{q+2})+2|f_{\lambda}(0)|^2\\
-&amp; = 2D+2|f_{\lambda}(0)|^2+2D|Y_n^*|^2+2D|Y_n^*|^{q+2}.
+&amp; \leq 2D(1+|Y_n^*|^q)|Y_n^*|^2+2|f_{\lambda}(0)|^2\\
+&amp; = 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2.
 \end{aligned}
 \tag{6.143}\]</span></span></p>
 <p>Notemos que <span class="math inline">\(|Y_n^*|^2&gt;0\)</span>, por lo que <span class="math inline">\(|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}\)</span>, sustituyendo esto en la <a href="#eq-6.143" class="quarto-xref">Ecuación&nbsp;<span>6.143</span></a></p>
-<p><span class="math display">\[
-\begin{aligned}
-|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D+2|f_{\lambda}(0)|^2+2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}\\
-&amp; = 4D+2|f_{\lambda}(0)|^2+4D|Y_n^*|^{q+2}.
-\end{aligned}
-\]</span></p>
-<p>Tomando a <span class="math inline">\(D_1:=\{4D+2|f_{\lambda}(0)|^2,4D\}\)</span>, podemos obtener</p>
-<p><span class="math display">\[
-|f_{\lambda}(Y_n^*)|^2\leq D_1(1+|Y_n^*|^{q+2}).
-\]</span></p>
-<p>Al elevar por ambos lados a la potencia <span class="math inline">\(r/2\geq 1\)</span> se tiene</p>
 <p><span id="eq-6.144"><span class="math display">\[
 \begin{aligned}
-|f_{\lambda}(Y_n^*)|^r &amp; = (|f_{\lambda}(Y_n^*)|^2)^{r/2}\\
-&amp; \leq D_1^{r/2}(1+|Y_n^*|^{q+2})^{r/2}\\
-&amp; \leq 2^{r/2-1}D_1^{r/2}(1+|Y_n^*|^{(q+2)r/2}).
+|f_{\lambda}(Y_n^*)|^2 &amp; \leq 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\
+&amp; \leq 2D(1+|Y_n^*|^{q+2})+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\
+&amp; = 2D + 4D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\
+&amp; = D_1(1+|Y_n^*|^{q+2}),
 \end{aligned}
 \tag{6.144}\]</span></span></p>
-<p>Para los terminos de difusión y salto haremos uso de la cota dada en la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto tenemos</p>
+<p>donde <span class="math inline">\(D_1:=\max\{2D+2|f_{\lambda}(0)|^2, 4D\}\)</span>. Para los terminos de difusión y salto haremos uso de la cota dada en la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto tenemos</p>
 <p><span class="math display">\[
 |g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
 \]</span></p>
