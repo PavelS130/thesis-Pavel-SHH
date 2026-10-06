@@ -3248,37 +3248,6 @@ u &amp; := q+2,\\
 \end{aligned}
 \tag{6.155}\]</span></span></p>
 <p>De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] &amp; \leq 4\mathbb{E}\left[|\Delta \widetilde{N}_n(t_{n+1})|^2\right]\\
-&amp; = 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right].
-\end{aligned}
-\]</span></p>
-<p>Para calcular el valor esperado del incremento del proceso de Poisson compensado, recordemos que <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span>, donde <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. Por lo tanto, tenemos</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right] &amp; = \mathbb{E}\left[|(N(t_{n+1})-N(t_n))-\lambda(t_{n+1}-t_n)|^2\right]\\
-&amp; = \mathbb{E}\left[|(N(t_{n+1})-N(t_n))-\lambda\Delta t|^2\right]\\
-&amp; = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - 2\lambda\Delta t\mathbb{E}\left[N(t_{n+1})-N(t_n)\right] + (\lambda\Delta t)^2\\
-&amp; = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - 2\lambda\Delta t(\lambda\Delta t) + (\lambda\Delta t)^2\\
-&amp; = \mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] - (\lambda\Delta t)^2.
-\end{aligned}
-\]</span></p>
-<p>Sabemos que para una avriable Poisson con parametro <span class="math inline">\(\lambda\Delta t\)</span>, se tiene que <span class="math inline">\(\mathbb{E}[N(t_{n+1})-N(t_n)]=\lambda\Delta t\)</span> y <span class="math inline">\(\text{Var}(N(t_{n+1})-N(t_n))=\lambda\Delta t\)</span>. Por lo tanto, podemos escribir</p>
-<p><span class="math display">\[
-\mathbb{E}\left[|N(t_{n+1})-N(t_n)|^2\right] = \text{Var}(N(t_{n+1})-N(t_n)) + (\mathbb{E}[N(t_{n+1})-N(t_n)])^2 = \lambda\Delta t + (\lambda\Delta t)^2.
-\]</span></p>
-<p>Sustituyendo esto en la expresión anterior, obtenemos</p>
-<p><span class="math display">\[
-\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right] = \lambda\Delta t + (\lambda\Delta t)^2 - (\lambda\Delta t)^2 = \lambda\Delta t.
-\]</span></p>
-<p>Por lo tanto</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] &amp; \leq 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]\\
-&amp; = 4\lambda\Delta t.
-\end{aligned}
-\]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
