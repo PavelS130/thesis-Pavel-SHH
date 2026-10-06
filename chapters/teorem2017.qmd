@@ -3515,13 +3515,7 @@ $$
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 $$
 
-Entonces, existe una constante positiva
-
-$$  
-  E:=E(r,T,\lambda,\theta,L_{\lambda},K_{\lambda},D,q,f_{\lambda}(0),g(0),h(0)),
-$$
-
-independiente de $\Delta t$, tal que
+Entonces, existe una constante positiva $E$ independiente de $\Delta t$, tal que
 
 $$
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\leq E\Delta t,
@@ -3759,7 +3753,7 @@ $$
 & = 4\mathbb{E}\left[|W(t_{n+1})-W(t_n)|^2\right]\\
 & = 4\Delta t,
 \end{aligned}
-$$ {#eq-6.154}
+$$ {#eq-6.155}
 
 De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo
 
