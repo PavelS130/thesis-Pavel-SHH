@@ -3287,6 +3287,21 @@ u &amp; := q+2,\\
 &amp; = 4\lambda\Delta t.
 \end{aligned}
 \tag{6.156}\]</span></span></p>
+<p>Dado que <span class="math inline">\(\Delta t&lt;1\)</span> esto implica que <span class="math inline">\(\Delta t^2\leq \Delta t\)</span>, además condierando las cotas en la <a href="#eq-6.154" class="quarto-xref">Ecuación&nbsp;<span>6.155</span></a>, <span class="quarto-unresolved-ref">?eq-6.155</span> y <a href="#eq-6.156" class="quarto-xref">Ecuación&nbsp;<span>6.156</span></a>, podemos sustituirlas en la <a href="#eq-6.153" class="quarto-xref">Ecuación&nbsp;<span>6.153</span></a>, obteniendo</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \left[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\right]\\
+&amp; \leq C_0\Bigg(\left(1+A\right)\Delta t^2 +\left(1+A\right)\sum_{n=0}^{N_T-1}4\Delta t\\
+&amp; \qquad\qquad+\left(1+A\right)\sum_{n=0}^{N_T-1}4\lambda\Delta t\Bigg)\\
+&amp; = C_0\Big(\left(1+A\right)\Delta t+\left(1+A\right)4N_T\Delta t\\
+&amp; \qquad\qquad+\left(1+A\right)4N_T\lambda\Delta t\Big)\\
+&amp; = C_0\left(1+A\right)\Big(1+4N_T+4N_T\lambda\Big)\Delta t.
+\end{aligned}
+\]</span></p>
+<p>Basta tomar a <span class="math inline">\(E = C_0\left(1+A\right)\Big(1+4N_T+4N_T\lambda\Big)\)</span>, de aquí se sigue que</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq E\Delta t.
+\]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
