@@ -2183,7 +2183,7 @@ $$
 independiente de $\Delta t$ y $N_T$, tal que
 
 $$
-  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 $$
 
 donde $X(t)$ es la solución exacta de la @eq-6.01 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
@@ -2619,12 +2619,16 @@ $$
 \end{aligned}
 $$
 
-Dado que $N_T$ es tal que $N_T\Delta t\leq T$ entonces
+Dado que $N_T$ es tal que $N_T\Delta t\leq T$, basta tomar a $A_1= C_1(1+A+C_1T +  C_1T)$ de esta forma se tiene 
 
 $$
-\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq C_1(1+A+C_1T +  C_1T). 
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1.. 
 $$ {#eq-6.103}
 
+:::
+
+
+::: {.proof style="text-align: justify"}
 Para términar, debemos acotar la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 1$. Consideremos la siguiente función
 
 $$
