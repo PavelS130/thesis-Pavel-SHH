@@ -3235,10 +3235,18 @@ u &amp; := q+2,\\
 &amp; +\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\sum_{n=0}^{N_T-1}\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right]\Bigg).
 \end{aligned}
 \tag{6.153}\]</span></span></p>
-<p>Recordemos que <span class="math inline">\(u=q+2\)</span>, donde <span class="math inline">\(q\in\mathbb{Z}^+\)</span>, por lo tanto, es posible encontrar <span class="math inline">\(p\geq 2\)</span> tal que <span class="math inline">\(u\leq 2p\)</span>, con esto, por el teorema <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, existe una constante positiva <span class="math inline">\(A\)</span>, independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
+<p>Recordemos que <span class="math inline">\(u=q+2\)</span>, donde <span class="math inline">\(q\in\mathbb{Z}^+\)</span>, por lo tanto, es posible encontrar <span class="math inline">\(p\geq 2\)</span> tal que <span class="math inline">\(u\leq 2p\)</span>, con esto, por el <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a>, existe una constante positiva <span class="math inline">\(A\)</span>, independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
 <p><span id="eq-6.154"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
 \tag{6.154}\]</span></span></p>
+<p>Por otro lado, notemos que los términos <span class="math inline">\(\Delta W_n(t)\)</span> y <span class="math inline">\(\Delta \widetilde{N}_n(t)\)</span> son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq t_n}\)</span>. Con esto, podemos hacer uso de la desigualdad de Maximal de Doob, de tal forma que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right] &amp; \leq 4\mathbb{E}\left[|\Delta W_n(t_{n+1})|^2\right]\\
+&amp; = 4\mathbb{E}\left[|W(t_{n+1})-W(t_n)|^2\right]\\
+&amp; = 4\Delta t,
+\end{aligned}
+\]</span></p>
 </div>
 <div id="thm-6.5" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
