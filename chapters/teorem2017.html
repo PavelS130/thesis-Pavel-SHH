@@ -2378,6 +2378,17 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 \mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1..
 \tag{6.103}\]</span></span></p>
 </div>
+<div id="lem-6.4" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 6.4</strong></span> Considerando la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="math display">\[
+  0\leq \Delta t\leq \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
+\]</span></p>
+<p>Entonces para todo <span class="math inline">\(p\geq 2\)</span>, existe una constante positiva <span class="math inline">\(A_2\)</span> independiente de <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(N_T\)</span>, tal que</p>
+<p><span class="math display">\[
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\leq A_2,
+\]</span></p>
+<p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>.</p>
+</div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Para términar, debemos acotar la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 1\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
@@ -3051,8 +3062,8 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 \end{aligned}
 \]</span></p>
 </div>
-<div id="lem-6.4" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.4</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
+<div id="lem-6.5" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
@@ -3297,7 +3308,7 @@ u &amp; := q+2,\\
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq E\Delta t.
 \]</span></p>
 </div>
-<div id="thm-6.5" class="theorem" style="text-align: justify">
+<div id="thm-6.6" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 6.1</strong></span> Bajo las hipótesis dadas por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, sea <span class="math inline">\(X(t)\)</span> la solución de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a> y <span class="math inline">\(\overline{Y}(t)\)</span> la extensión a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span> con parámetro <span class="math inline">\(\theta\in[0,1]\)</span> y <span class="math inline">\(\Delta t&gt;0\)</span> el paso de tiempo tal que</p>
 <p><span class="math display">\[
 \Delta t\leq\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\},
@@ -3723,7 +3734,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   \mathbb{E}\left[|\overline{Y}(s-)|^q\right] &amp; \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1,
 \end{aligned}
 \tag{6.182}\]</span></span></p>
-<p>Por el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a>, para <span class="math inline">\(t\in[0,T]\)</span> se cumple que</p>
+<p>Por el <a href="#lem-6.5" class="quarto-xref">Lema&nbsp;<span>6.5</span></a>, para <span class="math inline">\(t\in[0,T]\)</span> se cumple que</p>
 <p><span id="eq-agregar27"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\\
@@ -3815,7 +3826,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2.
 \]</span></p>
-<p>Al tomar valor esperado, por la monotonía de dicha función, la expresión anterior se conserva y es posible aplicar el <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> de tal forma que</p>
+<p>Al tomar valor esperado, por la monotonía de dicha función, la expresión anterior se conserva y es posible aplicar el <a href="#lem-6.5" class="quarto-xref">Lema&nbsp;<span>6.5</span></a> de tal forma que</p>
 <p><span id="eq-agregar33"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big] &amp; \leq \mathbb{E}\Big[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Big]\\
