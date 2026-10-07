@@ -2523,28 +2523,29 @@ f(t^{*-}) := \lim_{s \uparrow t^*} f(s)
 <p>existe y es finito. Por lo tanto, <span class="math inline">\(f(t_{n_k}) \rightarrow f(t^{*-})\)</span> cuando <span class="math inline">\(k \rightarrow \infty\)</span>. Nuevamente, esto contradice que <span class="math inline">\(|f(t_{n_k})| \rightarrow \infty\)</span>. En ambos casos llegamos a una contradicción, por lo tanto, <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
+<p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por las propiedades de las soluciones de EDEs con saltos de tipo Poisson, el proceso <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg casi seguramente. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
 <p><span class="math display">\[
 f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 \]</span></p>
-<p>es càdlàg. Por el lema previo, podemos afirmar que cada <span class="math inline">\(f_{\omega}\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. Por lo tanto, para casi todo <span class="math inline">\(\omega\)</span>, existe una constante <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que <span class="math display">\[
+<p>es càdlàg. Por el H1, podemos afirmar que cada <span class="math inline">\(f_{\omega}\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. Por lo tanto, para casi todo <span class="math inline">\(\omega\)</span>, existe una constante <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
+<p><span class="math display">\[
 \sup\limits_{t\in[0,T]}|X(t,\omega)|\leq M_\omega&lt;\infty.
 \]</span></p>
-<p>Basta definir a la variable <span class="math inline">\(\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|\)</span>, entonces <span class="math inline">\(M&lt;\infty\)</span> casi seguramente.</p>
+<p>Basta definir a la variable <span class="math inline">\(\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|\)</span>, entonces <span class="math inline">\(M&lt;\infty\)</span> casi seguramente. <span class="math inline">\(\blacksquare\)</span></p>
 </blockquote>
 <p>Definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante</p>
 <p><span class="math display">\[
   \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|&lt;\infty\right\}.
 \]</span></p>
-<p>Por el lema anterior, tenemos que <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>. Fijando <span class="math inline">\(\omega\in\Omega_0\)</span>, tenemos por definición que existe <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
+<p>Por el Lema H2, tenemos que <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>. Fijando <span class="math inline">\(\omega\in\Omega_0\)</span>, por definición existe <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
 <p><span class="math display">\[
 |X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T].
 \]</span></p>
-<p>Sea <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(N&gt;M_{\omega}\)</span>, la definición de tiempos de paro dada en la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a> indica que</p>
+<p>Sea <span class="math inline">\(N\in\mathbb{N}\)</span> tal que <span class="math inline">\(N&gt;M_{\omega}\)</span>. La definición de tiempos de paro dada en la <a href="#eq-6.111" class="quarto-xref">Ecuación&nbsp;<span>6.111</span></a> indica que</p>
 <p><span class="math display">\[
   \tau_N(\omega)=\min\{T,\inf\{t\in[0,T]:|X(t,\omega)|\geq N\}\}.
 \]</span></p>
-<p>Luego, como <span class="math inline">\(|X(t,\omega)|\leq M_{\omega}&lt;N\)</span> para todo <span class="math inline">\(t\in[0,T]\)</span>, entonces</p>
+<p>Como <span class="math inline">\(|X(t,\omega)|\leq M_{\omega}&lt;N\)</span> para todo <span class="math inline">\(t\in[0,T]\)</span>, entonces el conjunto de tiempos donde el proceso excede a <span class="math inline">\(N\)</span> es vacío, es decir</p>
 <p><span class="math display">\[
   \{t\in[0,T]:|X(t,\omega)|\geq N\}=\emptyset.
 \]</span></p>
@@ -2552,11 +2553,11 @@ f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 <p><span class="math display">\[
 \tau_N(\omega)=\min\{T,+\infty\}=T.
 \]</span></p>
-<p>Con esto, para cada <span class="math inline">\(\omega\in\Omega_0\)</span> se tiene que existe <span class="math inline">\(N_{\omega}\)</span> tal que <span class="math inline">\(\tau_N=T\)</span> para todo <span class="math inline">\(N\geq N_{\omega}\)</span>, en particular podemos afirmar</p>
+<p>Con esto, para cada <span class="math inline">\(\omega\in\Omega_0\)</span> existe <span class="math inline">\(N_{\omega}\)</span> tal que <span class="math inline">\(\tau_N=T\)</span> para todo <span class="math inline">\(N\geq N_{\omega}\)</span>, en particular podemos afirmar</p>
 <p><span class="math display">\[
   \lim\limits_{N\rightarrow\infty}\tau_N(\omega)=T, \qquad\forall \omega\in\Omega_0
 \]</span></p>
-<p>Cómo <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>, entonces <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, afirmamos que la secuencia <span class="math inline">\(\{\tau_N\}_{N\in \mathbb{N}}\)</span> es creciente. Pues si <span class="math inline">\(N_1,N_2\in\mathbb{N}\)</span> son tales que <span class="math inline">\(N_1&lt;N_2\)</span>, esto implica que</p>
+<p>Cómo <span class="math inline">\(\mathbb{P}(\Omega_0)=1\)</span>, entonces <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, afirmamos que la secuencia <span class="math inline">\(\{\tau_N\}_{N\in \mathbb{N}}\)</span> es creciente. Si <span class="math inline">\(N_1,N_2\in\mathbb{N}\)</span> son tales que <span class="math inline">\(N_1&lt;N_2\)</span>, esto implica que</p>
 <p><span class="math display">\[
 \{t:|X(T)|\geq N_2\}\subset\{t:|X(T)|\geq N_1\}.
 \]</span></p>
@@ -2580,20 +2581,23 @@ X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
 <p><span class="math display">\[
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
 \]</span></p>
-<p>Dado que <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg, entonces para casi todo <span class="math inline">\(\omega\in \Omega\)</span> y todo <span class="math inline">\(t&lt;\tau_N(\Omega)\)</span> se tiene <span class="math inline">\(|X(t,\omega)|&lt;N\)</span> por la definición de ínfimo.</p>
-<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. Cómo <span class="math inline">\(|X(\tau_N-,\omega)|\leq N\)</span> y el tamaño del salto está dado por <span class="math inline">\(h(X(\tau_N-,\omega))\)</span>, donde <span class="math inline">\(h\)</span> es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto de valores posible para el límite por la izquierda <span class="math inline">\(X(\tau_N-,\omega)\)</span> está contenido en el siguiente intervalo</p>
+<p>Dado que <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg, para casi todo <span class="math inline">\(\omega\in \Omega\)</span> y todo <span class="math inline">\(t&lt;\tau_N(\Omega)\)</span>, se tiene <span class="math inline">\(|X(t,\omega)|&lt;N\)</span> por la definición del ínfimo.</p>
+<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por <span class="math inline">\(X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)\)</span>. Dado que <span class="math inline">\(\Delta N(\tau_N) \in \{0, 1\}\)</span>, aplicando la desigualdad del triángulo obtenemos: <span class="math display">\[
+|X(\tau_N, \omega)| \leq |X(\tau_N^-, \omega)| + |h(X(\tau_N^-, \omega))|.
+\]</span></p>
+<p>Por la definición de <span class="math inline">\(\tau_N\)</span>, el límite por la izquierda satisface <span class="math inline">\(|X(\tau_N^-, \omega)| \leq N\)</span>. El conjunto de valores posibles para <span class="math inline">\(X(\tau_N^-, \omega)\)</span> está contenido en el intervalo cerrado y acotado:</p>
 <p><span class="math display">\[
 D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \]</span></p>
-<p>Por el Teorema de Heine-Borel(va preliminares), dicho intervalo es un conjunto compacto, pues es cerrado y acotado. Luego el Teorema de Weiertrass(va preliminares) indica que toda función continua definida sobre un intervalo compacto alcanza su máximo y mínimo absolutos en dicho conjunto. Al ser <span class="math inline">\(h\)</span> continua en el compacto <span class="math inline">\(D_N\)</span>, entonces existe un punto <span class="math inline">\(x^*\in D_N\)</span> tal que</p>
+<p>Por el Teorema de Heine-Borel(va preliminares), <span class="math inline">\(D_N\)</span> es un conjunto compacto. Dado que por hipótesis <span class="math inline">\(h\)</span> es continua, el Teorema del Valor Extremo, consecuencia del Teorema de Weierstrass, garantiza que <span class="math inline">\(h\)</span> alcanza su máximo absoluto en <span class="math inline">\(D_N\)</span>. Por tanto, podemos definir la constante</p>
 <p><span class="math display">\[
-|h(x^*)|=\sup\limits_{x\in[-N,N]}|h(x)|=\max\limits_{|x|\leq N}|h(x)|.
+C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 \]</span></p>
-<p>Por tanto, podemos definir la constante <span class="math inline">\(\displaystyle C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty\)</span>.</p>
+<p>Sustituyendo esto en nuestra cota, obtenemos</p>
 <p><span class="math display">\[
 |X(\tau_N,\omega)|\leq |X(\tau_N-,\omega)|+|h(X(\tau_N-,\omega))|\leq N+C_N.
 \]</span></p>
-<p>Con esto, para <span class="math inline">\(t&gt;\tau_N(\omega)\)</span>, el proceso se mantiene constante en <span class="math inline">\(X(\tau_N,\omega)\)</span>. Por lo tanto basta tomar a <span class="math inline">\(K_N=N+C_N\)</span> lo que cumple</p>
+<p>Finalmente, para <span class="math inline">\(t&gt;\tau_N(\omega)\)</span>, el proceso truncado se mantiene constante en <span class="math inline">\(X(\tau_N,\omega)\)</span>. Por lo tanto basta tomar a <span class="math inline">\(K_N=N+C_N\)</span> lo que cumple</p>
 <p><span class="math display">\[
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,
 \]</span></p>
