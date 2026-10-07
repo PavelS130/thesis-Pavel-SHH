@@ -755,6 +755,10 @@ window.Quarto = {
 <p><span class="math display">\[
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 \]</span></p>
+<p>equivalentemente, dado que <span class="math inline">\(N_T\)</span> es el mayor entero con <span class="math inline">\(N_T\Delta t\leq T\)</span>,</p>
+<p><span class="math display">\[
+  \mathbb{E}\left[\sup\limits_{0\leq n\leq N_T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\leq N_T}|Y_n^{*}|^{2p}\right]\leq A,
+\]</span></p>
 <p>donde <span class="math inline">\(Y_n\)</span> y <span class="math inline">\(Y_n^*\)</span> son las sucesiones generadas por el método <span class="math inline">\(\text{CSS}\theta\)</span> mediante la <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> y <a href="#eq-6.05" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>.</p>
 </div>
 <div class="proof" style="text-align: justify">
@@ -2375,7 +2379,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 \]</span></p>
 <p>Dado que <span class="math inline">\(N_T\)</span> es tal que <span class="math inline">\(N_T\Delta t\leq T\)</span>, basta tomar a <span class="math inline">\(A_1= C_1(1+A+C_1T +  C_1T)\)</span> de esta forma se tiene</p>
 <p><span id="eq-6.103"><span class="math display">\[
-\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1..
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1.
 \tag{6.103}\]</span></span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
@@ -2384,13 +2388,13 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
   0\leq \Delta t\leq \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
 <p>Entonces para todo <span class="math inline">\(p\geq 2\)</span>, existe una constante positiva <span class="math inline">\(A_2\)</span> independiente de <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(N_T\)</span>, tal que</p>
-<p><span class="math display">\[exit
+<p><span class="math display">\[
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\leq A_2,
 \]</span></p>
 <p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Para términar, debemos acotar la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 1\)</span>. Consideremos la siguiente función</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>COmenzaremos acotanto la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 1\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
 \]</span></p>
