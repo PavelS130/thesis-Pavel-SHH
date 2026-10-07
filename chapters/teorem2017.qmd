@@ -2646,10 +2646,10 @@ donde $X(t)$ es la solución exacta de la @eq-6.01.
 
 
 ::: {.proof style="text-align: justify"}
-COmenzaremos acotanto la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 1$. Consideremos la siguiente función
+Comenzaremos acotanto la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 2$. Consideremos la siguiente función
 
 $$
-  U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
+  U(x)=(1+x^2)^{p/2}, \qquad p\geq 4,
 $$
 
 tomando a $x=X(t)$, aplicaremos la fórmula de Itô generalizada para $U\in C^2(\mathbb{R})$, la cuál está dada por (citar en preliminares)
@@ -2672,10 +2672,9 @@ Calculando la primera y segunda derivada de la función $U$
 
 $$
 \begin{aligned}
-U'(x) & = \frac{p}{2}(1+x^2)^{p/2-1}\cdot 2x\\ 
-& = p(1+x^2)^{(p-2)/2}x, \\ 
-U''(x) & = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-2)/2}\cdot 1\Bigg]\\ 
-& = p(p-2)(1+x^2)^{(p-4)/2}x^2+p(1+x^2)^{(p-2)/2}.
+U'(x) & = \frac{p}{2}(1+x^2)^{p/2-1} \cdot 2x = p(1+x^2)^{(p-2)/2}x, \\ 
+U''(x) & = p\left[\frac{p-2}{2}(1+x^2)^{(p-4)/2} \cdot 2x \cdot x + (1+x^2)^{(p-2)/2} \cdot 1\right] \\ 
+& = p(p-2)(1+x^2)^{(p-4)/2}x^2 + p(1+x^2)^{(p-2)/2}.
 \end{aligned}
 $$ {#eq-6.105}
 
@@ -2710,9 +2709,8 @@ Finalmente para el cuarto y último término tenemos
 
 $$
 \begin{aligned}
-\int_0^t & [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\ 
-& = \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}\\ 
-& \qquad\qquad\qquad\qquad\quad-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
+\int_0^t & \Big[U(X(s-)+h(X(s-))) - U(X(s-))\Big]\,dN(s) \\ 
+& = \int_0^t \Bigg[ \Big(1+(X(s-)+h(X(s-)))^2\Big)^{p/2} - (1+(X(s-))^2)^{p/2} \Bigg]\,dN(s).
 \end{aligned}
 $$ {#eq-6.108}
 
@@ -2728,15 +2726,15 @@ $$
   & \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\\ 
   & \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\ 
   & \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\\ 
-  & \qquad + \int_0^t\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s).
+  & \qquad + \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 $$ {#eq-6.109}
 
-Haremos uso de la desigualdad dada por la @eq-6.19, sabemos que para números no negativos se cumple la desigualdad $(a+b)^2\leq 2a^2+2b^2$, esto implica que
+Haremos uso de la desigualdad dada por la @eq-6.19, sabemos que para números no negativos se cumple la desigualdad $(a+b)^2\leq 2a^2+2b^2$. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo $|x+h(x)|\leq |x|+|h(x)|$ lo que implica que
 
 $$
 \begin{aligned}
-1+(|x|-|h(x)|)^2 & \leq 1 + 2|x|^2-2|h(x)|^2\\ 
+1+(|x|+|h(x)|)^2 & \leq 1 + 2|x|^2+2|h(x)|^2\\ 
 & \leq 1+2|x^2|+2(2L_h|x|^2+2|h(0)|^2)\\ 
 & = 1+4|h(0)|^2+(2+4L_h)|x|^2.
 \end{aligned}
@@ -2745,16 +2743,22 @@ $$
 Tomando a $K_1:=\max\{1+4|h(0)|^2,2+4L_h\}$ se tiene
 
 $$
-1+(|x|-|h(x)|)^2\leq K_1(1+|x|^2),
+1+(|x|+|h(x)|)^2\leq K_1(1+|x|^2),
 $$
 
-elevando a la potencia $p/2$
+elevando a la potencia $p/2$, lo que preserva la desigualdad ya que $p/2>2>0$, obtenemos
 
 $$
-(1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
+(1+(|x|+|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
 $$
 
-Al restar de ambos lados el término $(1+|x|^2)^{p/2}$ y definiendo a $K:=2^{(p-2)/2}(K_1^{p/2}-1)$ es posible obtener
+Al restar de ambos lados el término $(1+|x|^2)^{p/2}$ y definiendo
+
+$$
+K:=2^{(p-2)/2}(K_1^{p/2}-1)
+$$ 
+
+es posible obtener
 
 $$
 \begin{aligned}
@@ -2762,7 +2766,8 @@ $$
 & \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\ 
 & = (K_1^{p/2}-1)(1+|x|^2)^{p/2} \\ 
 & \leq (K_1^{p/2}-1)2^{p/2-1}(1+(|x|^2)^{p/2})\\ 
-& = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p).
+& = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p)\\ 
+& = K(1+|x|^p).
 \end{aligned} 
 $$ {#eq-6.110}
 
@@ -2774,41 +2779,55 @@ $$ {#eq-6.111}
 
 Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando $N\rightarrow\infty$, sin embargo, es necesario contar previamente con la validez de los siguientes resultados
 
-> **Lema.** Una función càdlàg definida en un intervalo compacto $[0,T]$ es acotada. *Demostración.* Procediendo por contradicción, supongamos que $f:[0,T]\rightarrow\mathbb{R}$ es una función càdlàg, tal que no es acotada en $[0,T]$, es decir, existe una sucesión $\{t_n\}_{n\in\mathbb{N}}\subset[0,T]$ tal que
+> **Lema H1.** Una función càdlàg definida en un intervalo compacto $[0,T]$ es acotada. *Demostración.* Procediendo por contradicción, supongamos que $f:[0,T]\rightarrow\mathbb{R}$ es una función càdlàg que no es acotada en $[0,T]$. Es decir, existe una sucesión $\{t_n\}_{n\in\mathbb{N}}\subset[0,T]$ tal que
 >
 > $$
 > |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty. 
 > $$
 >
-> Por el Teorema de Bolzado-Weierstrass(citar en preliminares), como $[0,T]$ es compacto, existe una subsucesión $\{t_{n_k}\}$ que converge a algún punto $t^*\in[0,T]$, vale decir
+> Por el Teorema de Bolzano-Weierstrass(citar en preliminares), como $[0,T]$ es compacto, existe una subsucesión $\{t_{n_k}\}$ que converge a algún punto $t^*\in[0,T]$, vale decir
 >
 > $$
-> t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
+> t_{n_k}\rightarrow t^*\quad\text{cuando}\quad k\rightarrow\infty.
 > $$
 >
-> **Caso 1.** $t_{n_k}\rightarrow t^*$ por la derecha o eventualmente es constante. Como $f$ es continua por la derecha en $t^*$, tenemos que $$
+> **Caso 1.** $t_{n_k}\rightarrow t^*$ por la derecha o eventualmente es constante. Como $f$ es continua por la derecha en $t^*$, tenemos que 
+>
+> $$
 > \lim\limits_{s\downarrow t} f(s)=f(t^*). 
 > $$
 >
-> Esto implica que para cualquier $\varepsilon>0$, existe $\delta> 0$ tal que $$
+> Esto implica que para cualquier $\varepsilon>0$, existe $\delta> 0$ tal que 
+>
+> $$
 > |f(s)-f(t^*)|<\varepsilon,\qquad\forall s\in [t^*,t^*+\delta).
 > $$
 >
 > En particular, $f$ está acotada en $[t^*,t^*+\delta)$, lo que contardice que $|f(t_n)|\rightarrow\infty$ para $t_{n_k}\geq t^*$.
 >
-> Para el caso cuando $t_{n_k}\rightarrow t^*$ por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto $f$ debe ser acotada en $[0,T]$.
+> **Caso 2.** $t_{n_k}\rightarrow t^*$ por la izquiera, es decir, $t_{n_k} \uparrow t^*$. Por la propiedad càdlàg de $f$, el límite por la izquierda 
+>
+> $$
+> f(t^{*-}) := \lim_{s \uparrow t^*} f(s)
+> $$
+>
+> existe y es finito. Por lo tanto, $f(t_{n_k}) \rightarrow f(t^{*-})$ cuando $k \rightarrow \infty$. Nuevamente, esto contradice que $|f(t_{n_k})| \rightarrow \infty$.
+> En ambos casos llegamos a una contradicción, por lo tanto, $f$ debe ser acotada en $[0,T]$. $\blacksquare$
 
-> **Lema.** Para casi todo $\omega\in\Omega$, la trayectoria $t\mapsto X(t,\omega)$ es acotada en $[0,T]$. *Demostración.* Por hipótesis, $X(t)$ es càdlàg. Esto implica que para cada $\omega\in\Omega$, la función
+> **Lema. H2** Para casi todo $\omega\in\Omega$, la trayectoria $t\mapsto X(t,\omega)$ es acotada en $[0,T]$. 
+> *Demostración.* Por las propiedades de las soluciones de EDEs con saltos de tipo Poisson, el proceso $X(t)$ tiene trayectorias càdlàg casi seguramente. Esto implica que para cada $\omega\in\Omega$, la función
 >
 > $$
 > f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 > $$
 >
-> es càdlàg. Por el lema previo, podemos afirmar que cada $f_{\omega}$ es acotada en $[0,T]$. Por lo tanto, para casi todo $\omega$, existe una constante $M_{\omega}<\infty$ tal que $$
+> es càdlàg. Por el H1, podemos afirmar que cada $f_{\omega}$ es acotada en $[0,T]$. Por lo tanto, para casi todo $\omega$, existe una constante $M_{\omega}<\infty$ tal que 
+>
+>$$
 > \sup\limits_{t\in[0,T]}|X(t,\omega)|\leq M_\omega<\infty. 
 > $$
 >
-> Basta definir a la variable $\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|$, entonces $M<\infty$ casi seguramente.
+> Basta definir a la variable $\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|$, entonces $M<\infty$ casi seguramente. $\blacksquare$
 
 Definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante
 
@@ -2816,19 +2835,19 @@ $$
   \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|<\infty\right\}. 
 $$
 
-Por el lema anterior, tenemos que $\mathbb{P}(\Omega_0)=1$. Fijando $\omega\in\Omega_0$, tenemos por definición que existe $M_{\omega}<\infty$ tal que
+Por el Lema H2, tenemos que $\mathbb{P}(\Omega_0)=1$. Fijando $\omega\in\Omega_0$, por definición existe $M_{\omega}<\infty$ tal que
 
 $$
 |X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T]. 
 $$
 
-Sea $N\in\mathbb{N}$ tal que $N>M_{\omega}$, la definición de tiempos de paro dada en la @eq-6.111 indica que
+Sea $N\in\mathbb{N}$ tal que $N>M_{\omega}$. La definición de tiempos de paro dada en la @eq-6.111 indica que
 
 $$
   \tau_N(\omega)=\min\{T,\inf\{t\in[0,T]:|X(t,\omega)|\geq N\}\}. 
 $$
 
-Luego, como $|X(t,\omega)|\leq M_{\omega}<N$ para todo $t\in[0,T]$, entonces
+Como $|X(t,\omega)|\leq M_{\omega}<N$ para todo $t\in[0,T]$, entonces el conjunto de tiempos donde el proceso excede a $N$ es vacío, es decir
 
 $$
   \{t\in[0,T]:|X(t,\omega)|\geq N\}=\emptyset. 
@@ -2840,13 +2859,13 @@ $$
 \tau_N(\omega)=\min\{T,+\infty\}=T. 
 $$
 
-Con esto, para cada $\omega\in\Omega_0$ se tiene que existe $N_{\omega}$ tal que $\tau_N=T$ para todo $N\geq N_{\omega}$, en particular podemos afirmar
+Con esto, para cada $\omega\in\Omega_0$ existe $N_{\omega}$ tal que $\tau_N=T$ para todo $N\geq N_{\omega}$, en particular podemos afirmar
 
 $$
   \lim\limits_{N\rightarrow\infty}\tau_N(\omega)=T, \qquad\forall \omega\in\Omega_0
 $$
 
-Cómo $\mathbb{P}(\Omega_0)=1$, entonces $\tau_N$ converge a $T$ casi seguramente cuando $N\rightarrow\infty$. Por otro lado, afirmamos que la secuencia $\{\tau_N\}_{N\in \mathbb{N}}$ es creciente. Pues si $N_1,N_2\in\mathbb{N}$ son tales que $N_1<N_2$, esto implica que
+Cómo $\mathbb{P}(\Omega_0)=1$, entonces $\tau_N$ converge a $T$ casi seguramente cuando $N\rightarrow\infty$. Por otro lado, afirmamos que la secuencia $\{\tau_N\}_{N\in \mathbb{N}}$ es creciente. Si $N_1,N_2\in\mathbb{N}$ son tales que $N_1<N_2$, esto implica que
 
 $$
 \{t:|X(T)|\geq N_2\}\subset\{t:|X(T)|\geq N_1\}.
@@ -2880,27 +2899,32 @@ $$
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
 $$
 
-Dado que $X(t)$ tiene trayectorias càdlàg, entonces para casi todo $\omega\in \Omega$ y todo $t<\tau_N(\Omega)$ se tiene $|X(t,\omega)|<N$ por la definición de ínfimo.
+Dado que $X(t)$ tiene trayectorias càdlàg, para casi todo $\omega\in \Omega$ y todo $t<\tau_N(\Omega)$, se tiene $|X(t,\omega)|<N$ por la definición del ínfimo.
 
-Notemos que cuando $t=\tau_N(\omega)$ el proceso $X(t)$ puede experimentar un salto de Poisson. Cómo $|X(\tau_N-,\omega)|\leq N$ y el tamaño del salto está dado por $h(X(\tau_N-,\omega))$, donde $h$ es el coeficiente de los saltos y se tiene por hipótesis que es continua. El conjunto de valores posible para el límite por la izquierda $X(\tau_N-,\omega)$ está contenido en el siguiente intervalo
+Notemos que cuando $t=\tau_N(\omega)$ el proceso $X(t)$ puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por $X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)$. Dado que $\Delta N(\tau_N) \in \{0, 1\}$, aplicando la desigualdad del triángulo obtenemos:
+$$
+|X(\tau_N, \omega)| \leq |X(\tau_N^-, \omega)| + |h(X(\tau_N^-, \omega))|.
+$$
+
+Por la definición de $\tau_N$, el límite por la izquierda satisface $|X(\tau_N^-, \omega)| \leq N$. El conjunto de valores posibles para $X(\tau_N^-, \omega)$ está contenido en el intervalo cerrado y acotado:
 
 $$
 D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N]. 
 $$
 
-Por el Teorema de Heine-Borel(va preliminares), dicho intervalo es un conjunto compacto, pues es cerrado y acotado. Luego el Teorema de Weiertrass(va preliminares) indica que toda función continua definida sobre un intervalo compacto alcanza su máximo y mínimo absolutos en dicho conjunto. Al ser $h$ continua en el compacto $D_N$, entonces existe un punto $x^*\in D_N$ tal que
+Por el Teorema de Heine-Borel(va preliminares), $D_N$ es un conjunto compacto. Dado que por hipótesis $h$ es continua, el Teorema del Valor Extremo, consecuencia del Teorema de Weierstrass, garantiza que $h$ alcanza su máximo absoluto en $D_N$. Por tanto, podemos definir la constante
 
 $$
-|h(x^*)|=\sup\limits_{x\in[-N,N]}|h(x)|=\max\limits_{|x|\leq N}|h(x)|.
+C_N:=\max\limits_{|x|\leq N}|h(x)|<\infty.
 $$
 
-Por tanto, podemos definir la constante $\displaystyle C_N:=\max\limits_{|x|\leq N}|h(x)|<\infty$.
+Sustituyendo esto en nuestra cota, obtenemos
 
 $$
 |X(\tau_N,\omega)|\leq |X(\tau_N-,\omega)|+|h(X(\tau_N-,\omega))|\leq N+C_N. 
 $$
 
-Con esto, para $t>\tau_N(\omega)$, el proceso se mantiene constante en $X(\tau_N,\omega)$. Por lo tanto basta tomar a $K_N=N+C_N$ lo que cumple
+Finalmente, para $t>\tau_N(\omega)$, el proceso truncado se mantiene constante en $X(\tau_N,\omega)$. Por lo tanto basta tomar a $K_N=N+C_N$ lo que cumple
 
 $$
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N, 
