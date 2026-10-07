@@ -2462,21 +2462,21 @@ U''(x) &amp; = p\left[\frac{p-2}{2}(1+x^2)^{(p-4)/2} \cdot 2x \cdot x + (1+x^2)^
   &amp; \qquad + \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \tag{6.109}\]</span></span></p>
-<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo |x+h(x)||x|+|h(x)| lo que implica que</p>
+<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo <span class="math inline">\(|x+h(x)|\leq |x|+|h(x)|\)</span> lo que implica que</p>
 <p><span class="math display">\[
 \begin{aligned}
-1+(|x|-|h(x)|)^2 &amp; \leq 1 + 2|x|^2-2|h(x)|^2\\
+1+(|x|+|h(x)|)^2 &amp; \leq 1 + 2|x|^2+2|h(x)|^2\\
 &amp; \leq 1+2|x^2|+2(2L_h|x|^2+2|h(0)|^2)\\
 &amp; = 1+4|h(0)|^2+(2+4L_h)|x|^2.
 \end{aligned}
 \]</span></p>
 <p>Tomando a <span class="math inline">\(K_1:=\max\{1+4|h(0)|^2,2+4L_h\}\)</span> se tiene</p>
 <p><span class="math display">\[
-1+(|x|-|h(x)|)^2\leq K_1(1+|x|^2),
+1+(|x|+|h(x)|)^2\leq K_1(1+|x|^2),
 \]</span></p>
 <p>elevando a la potencia <span class="math inline">\(p/2\)</span>, lo que preserva la desigualdad ya que <span class="math inline">\(p/2&gt;2&gt;0\)</span>, obtenemos</p>
 <p><span class="math display">\[
-(1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
+(1+(|x|+|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
 \]</span></p>
 <p>Al restar de ambos lados el término <span class="math inline">\((1+|x|^2)^{p/2}\)</span> y definiendo</p>
 <p><span class="math display">\[
@@ -2499,22 +2499,28 @@ K:=2^{(p-2)/2}(K_1^{p/2}-1)
 \tag{6.111}\]</span></span></p>
 <p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar previamente con la validez de los siguientes resultados</p>
 <blockquote class="blockquote">
-<p><strong>Lema H1.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
+<p><strong>Lema H1.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg que no es acotada en <span class="math inline">\([0,T]\)</span>. Es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
 <p><span class="math display">\[
 |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty.
 \]</span></p>
-<p>Por el Teorema de Bolzado-Weierstrass(citar en preliminares), como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t^*\in[0,T]\)</span>, vale decir</p>
+<p>Por el Teorema de Bolzano-Weierstrass(citar en preliminares), como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t^*\in[0,T]\)</span>, vale decir</p>
 <p><span class="math display">\[
-t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
+t_{n_k}\rightarrow t^*\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
-<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constante. Como <span class="math inline">\(f\)</span> es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que <span class="math display">\[
+<p><strong>Caso 1.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la derecha o eventualmente es constante. Como <span class="math inline">\(f\)</span> es continua por la derecha en <span class="math inline">\(t^*\)</span>, tenemos que</p>
+<p><span class="math display">\[
 \lim\limits_{s\downarrow t} f(s)=f(t^*).
 \]</span></p>
-<p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que <span class="math display">\[
+<p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(\delta&gt; 0\)</span> tal que</p>
+<p><span class="math display">\[
 |f(s)-f(t^*)|&lt;\varepsilon,\qquad\forall s\in [t^*,t^*+\delta).
 \]</span></p>
 <p>En particular, <span class="math inline">\(f\)</span> está acotada en <span class="math inline">\([t^*,t^*+\delta)\)</span>, lo que contardice que <span class="math inline">\(|f(t_n)|\rightarrow\infty\)</span> para <span class="math inline">\(t_{n_k}\geq t^*\)</span>.</p>
-<p>Para el caso cuando <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>.</p>
+<p><strong>Caso 2.</strong> <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera, es decir, <span class="math inline">\(t_{n_k} \uparrow t^*\)</span>. Por la propiedad càdlàg de <span class="math inline">\(f\)</span>, el límite por la izquierda</p>
+<p><span class="math display">\[
+f(t^{*-}) := \lim_{s \uparrow t^*} f(s)
+\]</span></p>
+<p>existe y es finito. Por lo tanto, <span class="math inline">\(f(t_{n_k}) \rightarrow f(t^{*-})\)</span> cuando <span class="math inline">\(k \rightarrow \infty\)</span>. Nuevamente, esto contradice que <span class="math inline">\(|f(t_{n_k})| \rightarrow \infty\)</span>. En ambos casos llegamos a una contradicción, por lo tanto, <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
 </blockquote>
 <blockquote class="blockquote">
 <p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
