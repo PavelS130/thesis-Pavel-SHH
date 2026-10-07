@@ -2936,8 +2936,8 @@ Ya definidos estos resultados, evaluamos la @eq-6.109 en el tiempo de paro y tom
 
 $$
 \begin{aligned}
- \mathbb{E}[1+ X( & t\wedge\tau_N)^{2}]^{p/2}\\ 
- & = \mathbb{E}[1+X_0^2]^{p/2}\\ 
+ \mathbb{E} & [1+ X(t\wedge\tau_N)^{2}]^{p/2}\\ 
+ & = \mathbb{E}[(1+X_0^2)^{p/2}]\\ 
  & \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
  & \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\ 
  & \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\ 
@@ -2949,27 +2949,21 @@ $$ {#eq-6.113}
 Comenzaremos estudiando el término correspondiente al movimiento browniano dado por
 
 $$
-  \int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s). 
+  M_W(t):=\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s). 
 $$ {#eq-6.114}
 
-Demostraremos que esta integral es una martingala, con esto garantizamos que su esperanza sea cero. Usando la Isometría de Itô, basta demostrar
+Demostraremos que esta integral estocástica es una martingala, lo cual grantiza que su esperanza sea cero. Para ello, es suficiente probar que el integrando pertenece al espacio $\mathcal{L}^2$, es decir, que su norma cuadrada tiene esperanza finita:
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg]<\infty,\quad s\in[0,t\wedge\tau_N]. 
 $$ {#eq-6.115}
 
-Si esto se cumple, entonces la propiedad de martingala nos asegura
-
-$$
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]=0. 
-$$
-
-Notemos
+Si esto se cumple, entonces la propiedad de martingala nos asegura que $\mathbb{E}[M_W(t)]=0$. Desarrollando el integrando, notemos que
 
 $$
 \begin{aligned}
-|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 & = |(1+X(s-))^{(p-2)/2}|^2|X(s-)|^2|g(X(s-))|^2\\ 
-& = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2.   
+\left|(1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-))\right|^2 
+& = (1+(X(s-))^2)^{p-2}(X(s-))^2|g(X(s-))|^2.   
 \end{aligned}
 $$
 
@@ -2978,21 +2972,20 @@ Usando la cota dada por la @eq-6.19, tomando a $x=X(s-)$ se tiene
 $$
 \begin{aligned}
 |(1+X(s-))^{(p-2)/2}&X(s-)g(X(s-))|^2\\ 
-& = (1+X(s-))^{p-2}X(s-)^2|g(X(s-))|^2\\ 
-& \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2).
+& \leq L_{\lambda}(1+X(s-))^{p-1}X(s-)^2.
 \end{aligned}
 $$ {#eq-6.116}
 
-Por la definición del tiempo de paro dado en la @eq-6.111, sabemos que para cualquier $s\leq\tau_N$ el proceso satisface $|X(s-)|\leq N$ casi seguramente. Esto implica que $X(s-)^2\leq N^2$. Recordemos que para $p\geq 1$, la función $u\mapsto u^{p-2}$ es creciente para $u\geq 1$. Por tanto de la @eq-6.116
+Por la definición del tiempo de paro dado en la @eq-6.111, sabemos que para cualquier $s\leq\tau_N$ el proceso satisface $|X(s-)|\leq N$ casi seguramente. Esto implica que $X(s-)^2\leq N^2$ y $(1+(X(s-))^2)\leq (1+N^2)$. Recordemos que para $p\geq 4$, la función $u\mapsto u^{p-1}$ es creciente para $u\geq 1$. Por tanto de la @eq-6.116 obtenemos 
 
 $$
 \begin{aligned}
-|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 & \leq (1+X(s-))^{p-2}X(s-)^2L_{\lambda}(1+X(s-)^2)\\ 
-& \leq L_{\lambda}N^2(1+N)^{p-2}(1+N^2)<\infty,
+|(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2 & \leq (1+X(s-))^{p-1}X(s-)^2L_{\lambda}(1+X(s-)^2)\\ 
+& \leq L_{\lambda}(1+N^2)^{p-1}N^2<\infty,
 \end{aligned}
 $$
 
-al definir $I:=L_{\lambda}N^2(1+N)^{p-2}(1+N^2)$, dicha variable depende de $N$, $p$ y $L_{\lambda}$, además considerando que el tiempo de paro satisface $t\wedge\tau_N\leq T$ se tiene
+al definir $I:=L_{\lambda}(1+N^2)^{p-1}N^2$, la cual depende de $N$, $p$ y $L_{\lambda}$, y considerando que el tiempo de paro satisface $t\wedge\tau_N\leq T$ se tiene
 
 $$
 \begin{aligned}
@@ -3002,13 +2995,7 @@ $$
 \end{aligned}
 $$
 
-Con esto, por la Isometría de Itô queda demostrado que la integral correspondiente a la @eq-6.115 dada por
-
-$$
-\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2, 
-$$
-
-es una martingala cuadrado integrable, por la propiedad de martingalas se afirma que
+Con esto, queda demostrado que le integrando pertenece al espacio $\mathcal{L}^2$, por lo que la integral estocástica $M_W(t)$ es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que 
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
@@ -3017,13 +3004,13 @@ $$ {#eq-6.117}
 Analizaremos el último término de la @eq-6.113 dado por
 
 $$
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg].
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Big((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Big)dN(s)\Bigg].
 $$ {#eq-6.118}
 
 Recordemos que el proceso de Poisson compensado está definido mediante
 
 $$
-N(t)=\widetilde{N}(t)-\lambda t. 
+\widetilde{N}(t)=N(t)-\lambda t. 
 $$
 
 Esto implica $dN(s)=d\widetilde{N}(s)+\lambda ds$, sustituyendo en la integral de la @eq-6.118 se tiene
@@ -3036,28 +3023,19 @@ $$
 \end{aligned}
 $$ {#eq-6.119}
 
-Bajo el mismo razonamiento, haciendo uso de la Ismoetría de Itô, demostraremos que dicha integral es una martingala cuadrado integrable y por ende su esperanza es cero. Comenzando con la integral respecto a $d\widetilde{N}(s)$ debemos probar que
+Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integranndo pertenece al espacio $\mathcal{L}^2$, es decir, que cumple
 
 $$
-\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Big|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Big|^2ds\Bigg]<\infty.
 $$
 
-es una martingala cuadrado integrable, es decir que cumple
+Para acotar el integrando, utilizamos la desigualdad $(a+b)^2\leq 2a^2+2b^2$ y la monotonía de la función $u\mapsto u^{p/2}$ para $p\geq 4$. Primero, acotamos el argumento de la primera potencia: 
 
 $$
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg|^2ds\Bigg]<\infty.
+(X(s-)+h(X(s-)))^2 \leq 2(X(s-))^2 + 2|h(X(s-))|^2.
 $$
 
-Al usar la desigualdad $(a+b)^2\leq 2a^2+2b^2$ y la monotonía de la función $u\mapsto u^{p/2}$ para $p\geq 1$, tenemos que
-
-$$
-\begin{aligned}
-|(1+(X(s-) & + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|\\ 
-& \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|.  
-\end{aligned}
-$$
-
-Dado que $X(s-)\leq|X(s-)|\leq N$ para $s\leq\tau_N$, además considerando la @eq-6.19 tenemos que
+Usando la cota de crecimiento lineal de $h$ dada por la @eq-6.19 y dado que $|X(s-)|\leq N$ para $s\leq\tau_N$, obtenemos
 
 $$
 \begin{aligned}
@@ -3089,13 +3067,7 @@ $$
 \end{aligned}
 $$
 
-Entonces la integral estocástica dada por
-
-$$
-\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
-$$
-
-está bien definida, con esto, se garantiza que su esperanza sea cero, es decir
+Con esto, queda demostrado que el integrando pertenece al espacio $\mathcal{L}^2$. Entonces, la integral estocástica respecto a $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
@@ -3105,7 +3077,7 @@ Tomando valor esperado a la @eq-6.119 y considerando lo anterior, tenemos
 
 $$
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} & \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\ 
+\mathbb{E} & \Bigg[\int_0^{t\wedge\tau_N} \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\ 
 & = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\ 
 & \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg]\\ 
 & = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
@@ -3116,8 +3088,8 @@ Sustituyendo la @eq-6.117 y la @eq-6.120 en la @eq-6.113 se obtiene
 
 $$
 \begin{aligned}
- \mathbb{E} [1+X( & t\wedge\tau_N)^{2}]^{p/2}\\ 
- & = \mathbb{E}[1+X_0^2]^{p/2}\\ 
+ \mathbb{E} & \Bigg[\Big(1+X(t\wedge\tau_N)^{2}\Big)^{p/2}\Bigg]\\ 
+ & = \mathbb{E}\Bigg[\Big(1+X_0^2\Big)^{p/2}\Bigg]\\ 
  & \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
  & \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\ 
  & \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\ 
@@ -3125,7 +3097,7 @@ $$
 \end{aligned}
 $$ {#eq-6.121}
 
-Para facilitar la notación en lo que resta, usaremos $x=X(s-)$, de esta forma, acotaremos término a término de la @eq-6.121. Para las siguientes manipulaciones, haremos uso de la @eq-6.19. Comenzando con el segundo término de la @eq-6.121 tenemos
+Para facilitar la notación en lo que resta, usaremos $x=X(s-)$. Acotaremos término a término de la @eq-6.121 haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la @eq-6.19. Comenzando con el segundo término de la @eq-6.121 tenemos ¡¡TE QUEDASTE AQUÍ!!
 
 $$
 \begin{aligned}
