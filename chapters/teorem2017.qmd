@@ -2835,7 +2835,7 @@ $$
   \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|<\infty\right\}. 
 $$
 
-Por el Lema H2, tenemos que $\mathbb{P}(\Omega_0)=1$. Fijando $\omega\in\Omega_0$, por definición existe $M_{\omega}<\infty$ tal que
+Por el Lema H2, tenemos que $\mathbb{P}(\Omega_0)=1$. Fijando $\omega\in\Omega_0$, por definición existe una constante $M_{\omega}<\infty$ tal que
 
 $$
 |X(t,\omega)|\leq M_{\omega}, \qquad\forall t\in[0,T]. 
@@ -2989,7 +2989,7 @@ al definir $I:=L_{\lambda}(1+N^2)^{p-1}N^2$, la cual depende de $N$, $p$ y $L_{\
 
 $$
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg] & \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\ 
+\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg] &\leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}Ids\Bigg]\\ 
 & = I\cdot\mathbb{E}[t\wedge\tau_N]\\ 
 & \leq I\cdot T\leq \infty.
 \end{aligned}
@@ -3023,7 +3023,7 @@ $$
 \end{aligned}
 $$ {#eq-6.119}
 
-Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integranndo pertenece al espacio $\mathcal{L}^2$, es decir, que cumple
+Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integrando pertenece al espacio $\mathcal{L}^2$, es decir, que cumple
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Big|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Big|^2ds\Bigg]<\infty.
@@ -3059,7 +3059,7 @@ Con esto, al integrar sobre el el intervalo $[0,t\wedge\tau_N]$ y tomar esperanz
 
 $$
 \begin{aligned}
-\mathbb{E} \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s-) & + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|^2ds\Bigg]\\ 
+\mathbb{E} & \Bigg[\int_0^{t\wedge\tau_N}|(1+(X(s-) + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|^2ds\Bigg]\\ 
 & \leq \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}|(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2 ds\Bigg]\\ 
 & = |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}ds\Bigg]\\ 
 & \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2\mathbb{E}[t\wedge\tau_N]\\ 
