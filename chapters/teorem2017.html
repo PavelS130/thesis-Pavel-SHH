@@ -2394,9 +2394,9 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p>donde <span class="math inline">\(X(t)\)</span> es la solución exacta de la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>COmenzaremos acotanto la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 1\)</span>. Consideremos la siguiente función</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Comenzaremos acotanto la solución exacta denotada por <span class="math inline">\(X(t)\)</span> y definida en la <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Vamos a establecer una cota para el momento de orden <span class="math inline">\(p\geq 2\)</span>. Consideremos la siguiente función</p>
 <p><span class="math display">\[
-  U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
+  U(x)=(1+x^2)^{p/2}, \qquad p\geq 4,
 \]</span></p>
 <p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
 <p><span id="eq-6.104"><span class="math display">\[
@@ -2413,10 +2413,9 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p>Calculando la primera y segunda derivada de la función <span class="math inline">\(U\)</span></p>
 <p><span id="eq-6.105"><span class="math display">\[
 \begin{aligned}
-U'(x) &amp; = \frac{p}{2}(1+x^2)^{p/2-1}\cdot 2x\\
-&amp; = p(1+x^2)^{(p-2)/2}x, \\
-U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-2)/2}\cdot 1\Bigg]\\
-&amp; = p(p-2)(1+x^2)^{(p-4)/2}x^2+p(1+x^2)^{(p-2)/2}.
+U'(x) &amp; = \frac{p}{2}(1+x^2)^{p/2-1} \cdot 2x = p(1+x^2)^{(p-2)/2}x, \\
+U''(x) &amp; = p\left[\frac{p-2}{2}(1+x^2)^{(p-4)/2} \cdot 2x \cdot x + (1+x^2)^{(p-2)/2} \cdot 1\right] \\
+&amp; = p(p-2)(1+x^2)^{(p-4)/2}x^2 + p(1+x^2)^{(p-2)/2}.
 \end{aligned}
 \tag{6.105}\]</span></span></p>
 <p>Con esto, el segundo término de la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a> queda</p>
@@ -2445,9 +2444,8 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p>Finalmente para el cuarto y último término tenemos</p>
 <p><span id="eq-6.108"><span class="math display">\[
 \begin{aligned}
-\int_0^t &amp; [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s)\\
-&amp; = \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}\\
-&amp; \qquad\qquad\qquad\qquad\quad-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
+\int_0^t &amp; \Big[U(X(s-)+h(X(s-))) - U(X(s-))\Big]\,dN(s) \\
+&amp; = \int_0^t \Bigg[ \Big(1+(X(s-)+h(X(s-)))^2\Big)^{p/2} - (1+(X(s-))^2)^{p/2} \Bigg]\,dN(s).
 \end{aligned}
 \tag{6.108}\]</span></span></p>
 <p>Juntando la <a href="#eq-6.106" class="quarto-xref">Ecuación&nbsp;<span>6.106</span></a>, <a href="#eq-6.107" class="quarto-xref">Ecuación&nbsp;<span>6.107</span></a> y <a href="#eq-6.108" class="quarto-xref">Ecuación&nbsp;<span>6.108</span></a> en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a> tenemos</p>
@@ -2461,10 +2459,10 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
   &amp; \qquad + \frac{p}{2}\int_0^t(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\\
   &amp; \qquad + \frac{p(p-2)}{2}\int_0^t(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\\
   &amp; \qquad + p\int_0^t (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\\
-  &amp; \qquad + \int_0^t\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s).
+  &amp; \qquad + \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \tag{6.109}\]</span></span></p>
-<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>, esto implica que</p>
+<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo |x+h(x)||x|+|h(x)| lo que implica que</p>
 <p><span class="math display">\[
 \begin{aligned}
 1+(|x|-|h(x)|)^2 &amp; \leq 1 + 2|x|^2-2|h(x)|^2\\
@@ -2476,18 +2474,23 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 <p><span class="math display">\[
 1+(|x|-|h(x)|)^2\leq K_1(1+|x|^2),
 \]</span></p>
-<p>elevando a la potencia <span class="math inline">\(p/2\)</span></p>
+<p>elevando a la potencia <span class="math inline">\(p/2\)</span>, lo que preserva la desigualdad ya que <span class="math inline">\(p/2&gt;2&gt;0\)</span>, obtenemos</p>
 <p><span class="math display">\[
 (1+(|x|-|h(x)|)^2)^{p/2}\leq K_1^{p/2}(1+|x|^2)^{p/2}.
 \]</span></p>
-<p>Al restar de ambos lados el término <span class="math inline">\((1+|x|^2)^{p/2}\)</span> y definiendo a <span class="math inline">\(K:=2^{(p-2)/2}(K_1^{p/2}-1)\)</span> es posible obtener</p>
+<p>Al restar de ambos lados el término <span class="math inline">\((1+|x|^2)^{p/2}\)</span> y definiendo</p>
+<p><span class="math display">\[
+K:=2^{(p-2)/2}(K_1^{p/2}-1)
+\]</span></p>
+<p>es posible obtener</p>
 <p><span id="eq-6.110"><span class="math display">\[
 \begin{aligned}
 (1+(|x|-|h(x)|)^2)^{p/2} &amp; - (1+|x|^2)^{p/2}\\
 &amp; \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\
 &amp; = (K_1^{p/2}-1)(1+|x|^2)^{p/2} \\
 &amp; \leq (K_1^{p/2}-1)2^{p/2-1}(1+(|x|^2)^{p/2})\\
-&amp; = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p).
+&amp; = (2^{(p-2)/2}(K_1^{p/2}-1))(1+|x|^p)\\
+&amp; = K(1+|x|^p).
 \end{aligned}
 \tag{6.110}\]</span></span></p>
 <p>Necesitamos definir los siguientes tiempos de paro meniante</p>
@@ -2496,7 +2499,7 @@ U''(x) &amp; = p\Bigg[\frac{p-2}{2}(1+x^2)^{(p-4)/2}\cdot 2x\cdot x+(1+x^2)^{(p-
 \tag{6.111}\]</span></span></p>
 <p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar previamente con la validez de los siguientes resultados</p>
 <blockquote class="blockquote">
-<p><strong>Lema.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
+<p><strong>Lema H1.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg, tal que no es acotada en <span class="math inline">\([0,T]\)</span>, es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
 <p><span class="math display">\[
 |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty.
 \]</span></p>
@@ -2514,7 +2517,7 @@ t_{n_k}\rightarrow\quad\text{cuando}\quad k\rightarrow\infty.
 <p>Para el caso cuando <span class="math inline">\(t_{n_k}\rightarrow t^*\)</span> por la izquiera es completamente análogo y se llega a la misma contradicción, por lo tanto <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Lema.</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
+<p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por hipótesis, <span class="math inline">\(X(t)\)</span> es càdlàg. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
 <p><span class="math display">\[
 f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 \]</span></p>
