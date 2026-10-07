@@ -451,6 +451,12 @@ $$
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
 $$
 
+equivalentemente, dado que $N_T$ es el mayor entero con $N_T\Delta t\leq T$, 
+
+$$
+  \mathbb{E}\left[\sup\limits_{0\leq n\leq N_T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\leq N_T}|Y_n^{*}|^{2p}\right]\leq A,
+$$
+
 donde $Y_n$ y $Y_n^*$ son las sucesiones generadas por el método $\text{CSS}\theta$ mediante la @eq-6.04 y @eq-6.05.
 :::
 
@@ -2174,19 +2180,13 @@ $$
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 $$
 
-Entonces para todo $p\geq 1$, existe una constante positiva
-
-$$
-  A_1 = A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
-$$
-
-independiente de $\Delta t$ y $N_T$, tal que
+Entonces para todo $p\geq 1$, existe una constante positiva $A_1$ independiente de $\Delta t$ y $N_T$, tal que
 
 $$
   \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\right]\leq A_1,
 $$
 
-donde $X(t)$ es la solución exacta de la @eq-6.01 y $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
+donde $\overline{Y}$ es la extensión en tiempo continuo dada por la @eq-6.07.
 :::
 
 ::: {.proof style="text-align: justify"}
@@ -2622,14 +2622,31 @@ $$
 Dado que $N_T$ es tal que $N_T\Delta t\leq T$, basta tomar a $A_1= C_1(1+A+C_1T +  C_1T)$ de esta forma se tiene 
 
 $$
-\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1.. 
+\mathbb{E}\Bigg[\sup\limits_{0\leq t\leq T}|\overline{Y}(t)|^{2p}\Bigg]\leq A_1. 
 $$ {#eq-6.103}
 
 :::
 
 
+::: {#lem-6.4 style="text-align: justify"}
+Considerando la @eq-6.09, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
+
+$$
+  0\leq \Delta t\leq \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
+$$
+
+Entonces para todo $p\geq 2$, existe una constante positiva $A_2$ independiente de $\Delta t$ y $N_T$, tal que
+
+$$
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\leq A_2,
+$$
+
+donde $X(t)$ es la solución exacta de la @eq-6.01.
+:::
+
+
 ::: {.proof style="text-align: justify"}
-Para términar, debemos acotar la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 1$. Consideremos la siguiente función
+COmenzaremos acotanto la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 1$. Consideremos la siguiente función
 
 $$
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 1,
@@ -3512,7 +3529,7 @@ $$
 $$
 :::
 
-::: {#lem-6.4 style="text-align: justify"}
+::: {#lem-6.5 style="text-align: justify"}
 Usando las hipótesis dada por @eq-6.09 y @eq-6.13, sea $0\leq\theta\leq 1$ y supongamos que $\Delta t$ satisface
 
 $$
@@ -3835,7 +3852,7 @@ $$
 
 :::
 
-::: {#thm-6.5 style="text-align: justify"}
+::: {#thm-6.6 style="text-align: justify"}
 Bajo las hipótesis dadas por la @eq-6.09, @eq-6.010 y @eq-6.11, sea $X(t)$ la solución de la @eq-6.01 y $\overline{Y}(t)$ la extensión a tiempo continuo del método $\text{CSS}\theta$ con parámetro $\theta\in[0,1]$ y $\Delta t>0$ el paso de tiempo tal que
 
 $$
@@ -4381,7 +4398,7 @@ $$
 \end{aligned}
 $$ {#eq-agregar26}
 
-Por el @lem-6.4, para $t\in[0,T]$ se cumple que
+Por el @lem-6.5, para $t\in[0,T]$ se cumple que
 
 $$
 \begin{aligned}
@@ -4501,7 +4518,7 @@ $$
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2.
 $$
 
-Al tomar valor esperado, por la monotonía de dicha función, la expresión anterior se conserva y es posible aplicar el @lem-6.4 de tal forma que
+Al tomar valor esperado, por la monotonía de dicha función, la expresión anterior se conserva y es posible aplicar el @lem-6.5 de tal forma que
 
 $$
 \begin{aligned}
