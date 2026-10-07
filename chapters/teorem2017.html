@@ -2677,12 +2677,9 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 \]</span></p>
 <p>Para acotar el integrando, utilizamos la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span> y la monotonía de la función <span class="math inline">\(u\mapsto u^{p/2}\)</span> para <span class="math inline">\(p\geq 4\)</span>. Primero, acotamos el argumento de la primera potencia:</p>
 <p><span class="math display">\[
-\begin{aligned}
-|(1+(X(s-) &amp; + h(X(s-)))^2)^{p/2} - (1+X(s-)^2)^{p/2}|\\
-&amp; \leq |(1+2X(s-)^2+2h(X(s-))^2)^{p/2}-(1+X(s-)^2)^{p/2}|.  
-\end{aligned}
+(X(s-)+h(X(s-)))^2 \leq 2(X(s-))^2 + 2|h(X(s-))|^2.
 \]</span></p>
-<p>Dado que <span class="math inline">\(X(s-)\leq|X(s-)|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, además considerando la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> tenemos que</p>
+<p>Usando la cota de crecimiento lineal de <span class="math inline">\(h\)</span> dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> y dado que <span class="math inline">\(|X(s-)|\leq N\)</span> para <span class="math inline">\(s\leq\tau_N\)</span>, obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 |(1+(X(s-) &amp; +h(X(s-)))^2)^{p/2} -(1+X(s-)^2)^{p/2}|\\
@@ -2708,18 +2705,14 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2T&lt;\infty.
 \end{aligned}
 \]</span></p>
-<p>Entonces la integral estocástica dada por</p>
-<p><span class="math display">\[
-\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s), \quad t\in[0,T],
-\]</span></p>
-<p>está bien definida, con esto, se garantiza que su esperanza sea cero, es decir</p>
+<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>. Entonces, la integral estocástica respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
 \]</span></p>
 <p>Tomando valor esperado a la <a href="#eq-6.119" class="quarto-xref">Ecuación&nbsp;<span>6.119</span></a> y considerando lo anterior, tenemos</p>
 <p><span id="eq-6.120"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} &amp; \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
+\mathbb{E} &amp; \Bigg[\int_0^{t\wedge\tau_N} \Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)dN(s)\Bigg]\\
 &amp; = \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]\\
 &amp; \qquad\quad + \mathbb{E}\Bigg[\lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg]\\
 &amp; = \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
@@ -2728,15 +2721,15 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 <p>Sustituyendo la <a href="#eq-6.117" class="quarto-xref">Ecuación&nbsp;<span>6.117</span></a> y la <a href="#eq-6.120" class="quarto-xref">Ecuación&nbsp;<span>6.120</span></a> en la <a href="#eq-6.113" class="quarto-xref">Ecuación&nbsp;<span>6.113</span></a> se obtiene</p>
 <p><span id="eq-6.121"><span class="math display">\[
 \begin{aligned}
-\mathbb{E} [1+X( &amp; t\wedge\tau_N)^{2}]^{p/2}\\
-&amp; = \mathbb{E}[1+X_0^2]^{p/2}\\
+\mathbb{E} &amp; \Bigg[\Big(1+X(t\wedge\tau_N)^{2}\Big)^{p/2}\Bigg]\\
+&amp; = \mathbb{E}\Bigg[\Big(1+X_0^2\Big)^{p/2}\Bigg]\\
 &amp; \quad + p\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)f(X(s-))ds\Bigg]\\
 &amp; \quad + \frac{p}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-2)/2}g(X(s-))^2ds\Bigg]\\
 &amp; \quad + \frac{p(p-2)}{2}\mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(1+(X(s-))^2)^{(p-4)/2}(X(s-))^2g(X(s-))^2ds\Bigg]\\
 &amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.121}\]</span></span></p>
-<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s-)\)</span>, de esta forma, acotaremos término a término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a>. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>. Comenzando con el segundo término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> tenemos</p>
+<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s-)\)</span>. Acotaremos término a término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>. Comenzando con el segundo término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> tenemos ¡¡TE QUEDASTE AQUÍ!!</p>
 <p><span id="eq-6.122"><span class="math display">\[
 \begin{aligned}
 p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
