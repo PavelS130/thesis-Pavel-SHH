@@ -3220,7 +3220,7 @@ $$
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} & \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\\ 
 & \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\int_0^t \mathbb{E}\Big[\Big(1+X(s\wedge\tau_N)^2\Big)^{p/2}\Big]ds.
 \end{aligned}
-$$ {#eq-6.160}
+$$ {#eq-6.130}
 
 Para acotar el término inical, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con $r=p/2>2$
 
@@ -3234,7 +3234,7 @@ $$
   \mathbb{E}[(1+X_0^2)^{p/2}]\leq \mathbb{E}[2^{(p-2)/2}(1+X_0^p)]=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])
 $$
 
-Usando la hipótesis de momentos fiinitos de la condición inicial $\mathbb{E}[X_0^p]<\infty$, definimos la constante $a:=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0$. Sustituyendo esto en la @eq-6.160 se obtiene
+Usando la hipótesis de momentos fiinitos de la condición inicial $\mathbb{E}[X_0^p]<\infty$, definimos la constante $a:=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0$. Sustituyendo esto en la @eq-6.130 se obtiene
 
 $$
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
@@ -3250,27 +3250,27 @@ Al escribir explícitamente $u(t)$
 
 $$
 \mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}. 
-$$ {#eq-6.161}
+$$ {#eq-6.131}
 
 Recordemos que $\tau_N \rightarrow T$ casi seguramente cuando $N\rightarrow\infty$. Al ser $X(t)$ un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple $X(t\wedge\tau_N)\rightarrow X(t)$ casi seguramente cuando $N\rightarrow\infty$. Por la continuidad de la función $x\mapsto(1+x^2)^{p/2}$ podemos afirmar que
 
 $$
 \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
-$$ {#eq-6.162}
+$$ {#eq-6.132}
 
 Como dicho límite existe, entonces el límite inferior coincide, es decir
 
 $$
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
-$$ {#eq-6.163}
+$$ {#eq-6.133}
 
 Consideremos la sucesión de variables aleatorias $Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple
 
 $$
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
-$$ {#eq-6.164}
+$$ {#eq-6.134}
 
-Por tanto, de la @eq-6.161, @eq-6.162, @eq-6.163 y @eq-6.164 se tiene
+Por tanto, de la @eq-6.131, @eq-6.132, @eq-6.133 y @eq-6.134 se tiene
 
 $$
 \begin{aligned}
@@ -3280,13 +3280,13 @@ $$
 & \leq \liminf_{N\rightarrow\infty}2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}\\ 
 & = 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \end{aligned}
-$$ {#eq-6.165}
+$$ {#eq-6.135}
 
-Definimos la siguiente constante $\widehat{C}:=2^{(p-2)/2}e^{KT}$, la cuál es independiente de $N$ y $t$. Notemos que para $x\in\mathbb{R}$ y $p\geq 4$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene la cota final para el momento $p$-ésimo de la solución $X(t)$
+Definimos la siguiente constante $\widehat{C}:=2^{(p-2)/2}e^{KT}$, la cuál es independiente de $N$ y $t$. Notemos que para $x\in\mathbb{R}$ y $p\geq 4$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.135 se obtiene la cota final para el momento $p$-ésimo de la solución $X(t)$
 
 $$
 \mathbb{E}[|X(t)|^p]\leq \mathbb{E}[(1+X(t)^2)^{p/2}]\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
-$$ {#eq-6.166}
+$$ {#eq-6.136}
 
 ¡¡LLEGASTE HASTA AQUÍ!! Haremos uso de las mismas técnicas para encontrar una cota para el término
 
@@ -3335,7 +3335,7 @@ u(X(t)) & = X(t)^2 \\
 & \qquad\quad + \int_0^t  2X(s-)g(X(s-))dW(s)\\ 
 & \qquad\quad + \int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)dN(s). 
 \end{aligned}
-$$ {#eq-6.167}
+$$ {#eq-6.137}
 
 Recordemos que el término de Poisson compensado está definido por $N(t)=\widetilde{N}(t)+\lambda t$, entonces la integral con respecto a dicho proceso queda de la forma
 
@@ -3348,7 +3348,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo esto en la @eq-6.167 tenemos
+Sustituyendo esto en la @eq-6.137 tenemos
 
 $$
 \begin{aligned}
@@ -3369,9 +3369,9 @@ X(t)^2 & = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\
 & \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\ 
 & \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s). 
 \end{aligned}
-$$ {#eq-6.168}
+$$ {#eq-6.138}
 
-Considerando la función $f_\lambda$ definida en @eq-6.02 y la cota dada por la @eq-6.19 podemos encontrar la cota para la integral determinista de la @eq-6.168
+Considerando la función $f_\lambda$ definida en @eq-6.02 y la cota dada por la @eq-6.19 podemos encontrar la cota para la integral determinista de la @eq-6.138
 
 $$
 \begin{aligned}
@@ -3383,7 +3383,7 @@ $$
 \end{aligned}
 $$
 
-Entonces la @eq-6.168 se reduce a
+Entonces la @eq-6.138 se reduce a
 
 $$
 \begin{aligned}
@@ -3392,9 +3392,9 @@ X(t)^2 & \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 & \qquad\quad + 2\int_0^t X(s-)h(X(s-))d\widetilde{N}(s)\\ 
 & \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s). 
 \end{aligned}
-$$ {#eq-6.169}
+$$ {#eq-6.139}
 
-Note que en la integral determinista, es decir, la integral respecto a $ds$, se cumple $X(s)=X(s-)$, pues por la hipótesis el proceso $X(t)$ es continuo, mientras que en las integrales estocásticas es necesario usar $X(s-)$ esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la @eq-6.169, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene
+Note que en la integral determinista, es decir, la integral respecto a $ds$, se cumple $X(s)=X(s-)$, pues por la hipótesis el proceso $X(t)$ es continuo, mientras que en las integrales estocásticas es necesario usar $X(s-)$ esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la @eq-6.139, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene
 
 $$
 \begin{aligned}
