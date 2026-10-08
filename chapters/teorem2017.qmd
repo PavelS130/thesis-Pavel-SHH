@@ -2635,10 +2635,10 @@ $$
   0\leq \Delta t\leq \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 $$
 
-Entonces para todo $p\geq 2$, existe una constante positiva $A_2$ independiente de $\Delta t$ y $N_T$, tal que
+Entonces para todo $p\geq 4$, existe una constante positiva $A_2$ independiente de $\Delta t$ y $N_T$, tal que
 
 $$
-  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^{2p}\right]\leq A_2,
+  \mathbb{E}\left[\sup\limits_{0\leq t\leq T}|X(t)|^p\right]\leq A_2,
 $$
 
 donde $X(t)$ es la solución exacta de la @eq-6.01.
@@ -2646,7 +2646,7 @@ donde $X(t)$ es la solución exacta de la @eq-6.01.
 
 
 ::: {.proof style="text-align: justify"}
-Comenzaremos acotanto la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 2$. Consideremos la siguiente función
+Comenzaremos acotanto la solución exacta denotada por $X(t)$ y definida en la @eq-6.01. Vamos a establecer una cota para el momento de orden $p\geq 4$. Consideremos la siguiente función
 
 $$
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 4,
@@ -3472,6 +3472,39 @@ $$
 & \qquad\quad + \sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} h(X(s-))^2d\widetilde{N}(s)\Bigg|^{p/2}\Bigg].
 \end{aligned}
 $$
+
+Tomamos esperanza en ambos lados de la desigualdad obtenida previamente. Por la linealidad de la esperanza y la monotonía de la integral, obtenemos
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right] 
+& \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\ 
+& \quad + \widehat{K}\,\mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] \\ 
+& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \\ 
+& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \\ 
+& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right].
+\end{aligned}
+$$ {#eq-falta01}
+
+Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a $ds$. Para ello, aplicamos la Desigualdad de Hölder para integrales o equivalentemente, la Desigualdad de Jensen para la medida de Lebesgue normalizada. Dado que $p\geq 4$, el exponente $q=p/2$ satisface $q\geq 2>1$. Por lo tanto, para cualquier función medible y no negativa $F(s)$, se cumple la desiguldad
+
+$$
+\left(\int_0^t F(s)\,ds\right)^q \leq t^{q-1}\int_0^t F(s)^q\,ds.
+$$
+
+Tomando $F(s)=1+X(s)^2$, $q=p/2$ y recordando que $t\in[0,T]$, obtennemos la siguiente cota determinista 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] & \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\ 
+& = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds.
+\end{aligned}
+$$ {#eq-falta02}
+
+
+
+
+
 
 
 :::
