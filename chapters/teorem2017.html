@@ -2739,16 +2739,14 @@ p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
 <p>Para el tercer término, contemplamos que <span class="math inline">\(g(x)^2\leq |g(x)|^2\)</span> para poder hacer uso de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, con esto</p>
 <p><span id="eq-6.123"><span class="math display">\[
 \begin{aligned}
-\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 &amp; \leq \frac{p}{2}(1+x^2)^{(p-2)/2}|g(x)|^2\\
-&amp; \leq  \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
+\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 &amp; \leq \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
 &amp; = \frac{pL_{\lambda}}{2}(1+x^2)^{p/2}.
 \end{aligned}
 \tag{6.123}\]</span></span></p>
-<p>Dado que <span class="math inline">\(L_{\lambda}&gt;0\)</span> en la manera que se define, entonces <span class="math inline">\(L_{\lambda}\leq 1+L_{\lambda}\)</span>. El producto <span class="math inline">\(xg(x)\)</span> se puede acotar de la siguiente forma</p>
+<p>El producto <span class="math inline">\(xg(x)\)</span> se puede acotar mediante la desigualdad de Young, de esta forma</p>
 <p><span class="math display">\[
 \begin{aligned}
-xg(x) &amp; \leq |xg(x)|\\
-&amp; \leq \frac{1}{2}(x^2+g(x)^2)\\
+xg(x) &amp; \leq \frac{1}{2}(x^2+g(x)^2)\\
 &amp; \leq \frac{1}{2}(x^2+L_{\lambda}(1+x^2))\\
 &amp; = \frac{1}{2}(L_{\lambda}+(1+L_{\lambda})x^2)\\
 &amp; \leq \frac{1}{2}((1+L_{\lambda})+(1+L_{\lambda})x^2) \\
@@ -2767,10 +2765,10 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 &amp; = \frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+x^2)^{p/2}.
 \end{aligned}
 \tag{6.124}\]</span></span></p>
-<p>Finalmente, para el quinto término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a>, haremos uso de la misma herramienta, considerando que <span class="math inline">\(1+L_{\lambda}\leq 2+L_{\lambda}\)</span>, de esta forma</p>
+<p>Finalmente, para el quinto término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a>, recordemos la cota derivada en la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a>, donde demostramos que la diferencia de saltos está cotada por <span class="math inline">\(K(1+|x|^p)\)</span>. Dado que <span class="math inline">\((1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}\)</span>, podemos acotar este término directamente como</p>
 <p><span id="eq-6.125"><span class="math display">\[
 \begin{aligned}
-\lambda((1+(x+h(x))^2)^{p/2} &amp; -(1+x^2)^{p/2})\\
+\lambda((1 &amp; +(x+h(x))^2)^{p/2}-(1+x^2)^{p/2})\\
 &amp; \leq \lambda((1+2x^2+2h(x)^2)^{p/2}-(1+x^2)^{p/2})\\
 &amp; \leq \lambda((1+2x^2+2(L_{\lambda}(1+x^2)))^{p/2}-(1+x^2)^{p/2})\\
 &amp; = \lambda((1+2x^2+2L_{\lambda}+2L_{\lambda}x^2)^{p/2}-(1+x^2)^{p/2})\\
