@@ -2786,7 +2786,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 \tag{6.126}\]</span></span></p>
 <p>Definimos la constante</p>
 <p><span class="math display">\[
-\overline{K}:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (\lambda K 2^{(p-2)/2}),  
+\overline{K}:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (2^{(p-2)/2}\lambda K),  
 \]</span></p>
 <p>la cual es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. De esta forma, la <a href="#eq-6.126" class="quarto-xref">Ecuación&nbsp;<span>6.126</span></a> queda</p>
 <p><span class="math display">\[
@@ -2819,7 +2819,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 \end{aligned}
 \tag{6.129}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-6.129" class="quarto-xref">Ecuación&nbsp;<span>6.129</span></a> en la <a href="#eq-6.127" class="quarto-xref">Ecuación&nbsp;<span>6.127</span></a> obtenemos</p>
-<p><span id="eq-6.160"><span class="math display">\[
+<p><span id="eq-6.130"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} &amp; \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\\
 &amp; \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\int_0^t \mathbb{E}\Big[\Big(1+X(s\wedge\tau_N)^2\Big)^{p/2}\Big]ds.
@@ -2833,7 +2833,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 <p><span class="math display">\[
   \mathbb{E}[(1+X_0^2)^{p/2}]\leq \mathbb{E}[2^{(p-2)/2}(1+X_0^p)]=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])
 \]</span></p>
-<p>Usando la hipótesis de momentos fiinitos de la condición inicial <span class="math inline">\(\mathbb{E}[X_0^p]&lt;\infty\)</span>, definimos la constante <span class="math inline">\(a:=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0\)</span>. Sustituyendo esto en la <a href="#eq-6.160" class="quarto-xref">Ecuación&nbsp;<span>6.130</span></a> se obtiene</p>
+<p>Usando la hipótesis de momentos fiinitos de la condición inicial <span class="math inline">\(\mathbb{E}[X_0^p]&lt;\infty\)</span>, definimos la constante <span class="math inline">\(a:=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0\)</span>. Sustituyendo esto en la <a href="#eq-6.130" class="quarto-xref">Ecuación&nbsp;<span>6.130</span></a> se obtiene</p>
 <p><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 \]</span></p>
@@ -2842,23 +2842,23 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T].
 \]</span></p>
 <p>Al escribir explícitamente <span class="math inline">\(u(t)\)</span></p>
-<p><span id="eq-6.161"><span class="math display">\[
+<p><span id="eq-6.131"><span class="math display">\[
 \mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \tag{6.131}\]</span></span></p>
 <p>Recordemos que <span class="math inline">\(\tau_N \rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por la continuidad de la función <span class="math inline">\(x\mapsto(1+x^2)^{p/2}\)</span> podemos afirmar que</p>
-<p><span id="eq-6.162"><span class="math display">\[
+<p><span id="eq-6.132"><span class="math display">\[
 \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
 \tag{6.132}\]</span></span></p>
 <p>Como dicho límite existe, entonces el límite inferior coincide, es decir</p>
-<p><span id="eq-6.163"><span class="math display">\[
+<p><span id="eq-6.133"><span class="math display">\[
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 \tag{6.133}\]</span></span></p>
 <p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple</p>
-<p><span id="eq-6.164"><span class="math display">\[
+<p><span id="eq-6.134"><span class="math display">\[
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \tag{6.134}\]</span></span></p>
-<p>Por tanto, de la <a href="#eq-6.161" class="quarto-xref">Ecuación&nbsp;<span>6.131</span></a>, <a href="#eq-6.162" class="quarto-xref">Ecuación&nbsp;<span>6.132</span></a>, <a href="#eq-6.163" class="quarto-xref">Ecuación&nbsp;<span>6.133</span></a> y <a href="#eq-6.164" class="quarto-xref">Ecuación&nbsp;<span>6.134</span></a> se tiene</p>
-<p><span id="eq-6.165"><span class="math display">\[
+<p>Por tanto, de la <a href="#eq-6.131" class="quarto-xref">Ecuación&nbsp;<span>6.131</span></a>, <a href="#eq-6.132" class="quarto-xref">Ecuación&nbsp;<span>6.132</span></a>, <a href="#eq-6.133" class="quarto-xref">Ecuación&nbsp;<span>6.133</span></a> y <a href="#eq-6.134" class="quarto-xref">Ecuación&nbsp;<span>6.134</span></a> se tiene</p>
+<p><span id="eq-6.135"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}[1+X(t)^2]^{p/2} &amp; = \mathbb{E}\Bigg[\lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\Bigg]\\
 &amp; = \mathbb{E}\Bigg[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\Bigg]\\
@@ -2867,8 +2867,8 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 &amp; = 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \end{aligned}
 \tag{6.135}\]</span></span></p>
-<p>Definimos la siguiente constante <span class="math inline">\(\widehat{C}:=2^{(p-2)/2}e^{KT}\)</span>, la cuál es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. Notemos que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 4\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene la cota final para el momento <span class="math inline">\(p\)</span>-ésimo de la solución <span class="math inline">\(X(t)\)</span></p>
-<p><span id="eq-6.166"><span class="math display">\[
+<p>Definimos la siguiente constante <span class="math inline">\(\widehat{C}:=2^{(p-2)/2}e^{KT}\)</span>, la cuál es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. Notemos que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 4\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene la cota final para el momento <span class="math inline">\(p\)</span>-ésimo de la solución <span class="math inline">\(X(t)\)</span></p>
+<p><span id="eq-6.136"><span class="math display">\[
 \mathbb{E}[|X(t)|^p]\leq \mathbb{E}[(1+X(t)^2)^{p/2}]\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.136}\]</span></span></p>
 <p>¡¡LLEGASTE HASTA AQUÍ!! Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
@@ -2900,7 +2900,7 @@ u(x+h(x))-u(x) &amp; = (x+h(x))^2-x^2\\
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo todo lo anterior en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a> se tiene</p>
-<p><span id="eq-6.167"><span class="math display">\[
+<p><span id="eq-6.137"><span class="math display">\[
 \begin{aligned}
 u(X(t)) &amp; = X(t)^2 \\
 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
@@ -2917,7 +2917,7 @@ u(X(t)) &amp; = X(t)^2 \\
   &amp; \qquad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-6.167" class="quarto-xref">Ecuación&nbsp;<span>6.137</span></a> tenemos</p>
+<p>Sustituyendo esto en la <a href="#eq-6.137" class="quarto-xref">Ecuación&nbsp;<span>6.137</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
@@ -2927,7 +2927,7 @@ X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
 \end{aligned}
 \]</span></p>
 <p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distrubuyendo la terminal correspondiente al procceso de Poisson compensado tenemos</p>
-<p><span id="eq-6.168"><span class="math display">\[
+<p><span id="eq-6.138"><span class="math display">\[
 \begin{aligned}
 X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\
 &amp; \qquad\qquad\qquad\qquad +\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\
@@ -2936,7 +2936,7 @@ X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\
 &amp; \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s).
 \end{aligned}
 \tag{6.138}\]</span></span></p>
-<p>Considerando la función <span class="math inline">\(f_\lambda\)</span> definida en <a href="#eq-6.02" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y la cota dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> podemos encontrar la cota para la integral determinista de la <a href="#eq-6.168" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a></p>
+<p>Considerando la función <span class="math inline">\(f_\lambda\)</span> definida en <a href="#eq-6.02" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y la cota dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> podemos encontrar la cota para la integral determinista de la <a href="#eq-6.138" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \int_0^t (2X(s-) &amp; f(X(s-))+g(X(s-))^2+\lambda(2X(s-)h(X(s-))+h(X(s-))^2))ds\\
@@ -2946,8 +2946,8 @@ X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2\\
 &amp; = \int_0^t 4L_{\lambda}(1+X(s-)^2)ds.
 \end{aligned}
 \]</span></p>
-<p>Entonces la <a href="#eq-6.168" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a> se reduce a</p>
-<p><span id="eq-6.169"><span class="math display">\[
+<p>Entonces la <a href="#eq-6.138" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a> se reduce a</p>
+<p><span id="eq-6.139"><span class="math display">\[
 \begin{aligned}
 X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 &amp; \qquad\quad + 2\int_0^t X(s-)g(X(s-))dW(s)\\
@@ -2955,7 +2955,7 @@ X(t)^2 &amp; \leq X_0^2 +\int_0^t 4L_{\lambda}(1+X(s-)^2)ds\\
 &amp; \qquad\quad + \int_0^t h(X(s-))^2d\widetilde{N}(s).
 \end{aligned}
 \tag{6.139}\]</span></span></p>
-<p>Note que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s-)\)</span>, pues por la hipótesis el proceso <span class="math inline">\(X(t)\)</span> es continuo, mientras que en las integrales estocásticas es necesario usar <span class="math inline">\(X(s-)\)</span> esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la <a href="#eq-6.169" class="quarto-xref">Ecuación&nbsp;<span>6.139</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
+<p>Note que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s-)\)</span>, pues por la hipótesis el proceso <span class="math inline">\(X(t)\)</span> es continuo, mientras que en las integrales estocásticas es necesario usar <span class="math inline">\(X(s-)\)</span> esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingalas. Partiendo de la <a href="#eq-6.139" class="quarto-xref">Ecuación&nbsp;<span>6.139</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 |X(t)|^2 &amp; \leq |X_0^2| +4L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)ds\Bigg|\\
