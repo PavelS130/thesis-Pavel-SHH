@@ -2729,7 +2729,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \quad +  \lambda \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds\Bigg].
 \end{aligned}
 \tag{6.121}\]</span></span></p>
-<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s-)\)</span>. Acotaremos término a término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>. Comenzando con el segundo término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> tenemos ¡¡TE QUEDASTE AQUÍ!!</p>
+<p>Para facilitar la notación en lo que resta, usaremos <span class="math inline">\(x=X(s-)\)</span>. Acotaremos término a término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>. Comenzando con el segundo término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a> tenemos</p>
 <p><span id="eq-6.122"><span class="math display">\[
 \begin{aligned}
 p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
@@ -2837,33 +2837,15 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 <p><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 \]</span></p>
-<p>Ahora bien, Teorema de la Desigualdad de Gronwall en su forma continua (va a preliminares), indica que si <span class="math inline">\(u:[0,T]\rightarrow[0,\infty)\)</span> es una función medible y no negativa, <span class="math inline">\(a\geq 0\)</span> una constante, y <span class="math inline">\(b:[0,T]\rightarrow[0,\infty)\)</span> una función integrable. Entonces si <span class="math inline">\(u\)</span> satisface</p>
+<p>Definimos la función <span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\)</span>, la cuál es medible y no negativa. La desigualdad anterior toma la forma <span class="math inline">\(u(t)\leq a + \int_0^t  \overline{K}u(s)ds\)</span>, con <span class="math inline">\(b(s)=K\)</span>. Por el Teoreema de la Desigualdad de Gronwall en su forma continua, concluimos que</p>
 <p><span class="math display">\[
-u(t)\leq a+\int_0^t b(s)u(s)ds,\quad \forall t\in[0,T],
-\]</span></p>
-<p>entonces</p>
-<p><span class="math display">\[
-u(t)\leq a\exp\Bigg(\int_0^t b(s)ds\Bigg),\quad \forall t\in[0,T].
-\]</span></p>
-<p>Para nuestro caso, basta tomar a:</p>
-<ul>
-<li><p><span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\geq 0\)</span> por propiedad de esperanza,</p></li>
-<li><p><span class="math inline">\(a=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0\)</span>, por la <a href="#eq-6.12" class="quarto-xref">Ecuación&nbsp;<span>6.12</span></a>,</p></li>
-<li><p><span class="math inline">\(b(s)=K\)</span>,</p></li>
-</ul>
-<p>Con esto, todas las hipótesis del TDG se satisfacen y es posible aplicarlo, por ende, calculamos</p>
-<p><span class="math display">\[
-\int_0^t b(s)ds=\int_0^t Kds=Kt.
-\]</span></p>
-<p>Por lo tanto</p>
-<p><span class="math display">\[
-u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
+u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T].
 \]</span></p>
 <p>Al escribir explícitamente <span class="math inline">\(u(t)\)</span></p>
 <p><span id="eq-6.161"><span class="math display">\[
 \mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \tag{6.131}\]</span></span></p>
-<p>Recordemos que <span class="math inline">\(\tau_N\)</span> converge a <span class="math inline">\(T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por otro lado, por la continuidad de la función <span class="math inline">\(x\mapsto(1+x^2)^{p/2}\)</span> podemos afirmar que</p>
+<p>Recordemos que <span class="math inline">\(\tau_N \rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Al ser <span class="math inline">\(X(t)\)</span> un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple <span class="math inline">\(X(t\wedge\tau_N)\rightarrow X(t)\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>. Por la continuidad de la función <span class="math inline">\(x\mapsto(1+x^2)^{p/2}\)</span> podemos afirmar que</p>
 <p><span id="eq-6.162"><span class="math display">\[
 \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
 \tag{6.132}\]</span></span></p>
@@ -2871,7 +2853,7 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 <p><span id="eq-6.163"><span class="math display">\[
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 \tag{6.133}\]</span></span></p>
-<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares) de tal forma que se cumple</p>
+<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple</p>
 <p><span id="eq-6.164"><span class="math display">\[
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \tag{6.134}\]</span></span></p>
@@ -2885,15 +2867,11 @@ u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 &amp; = 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \end{aligned}
 \tag{6.135}\]</span></span></p>
-<p>Definimos la siguiente constante, la cuál es independiente de <span class="math inline">\(N\)</span></p>
-<p><span class="math display">\[
-\widehat{C}:=2^{(p-2)/2}e^{KT},
-\]</span></p>
-<p>Con esto, basta notar que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 1\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene</p>
+<p>Definimos la siguiente constante <span class="math inline">\(\widehat{C}:=2^{(p-2)/2}e^{KT}\)</span>, la cuál es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. Notemos que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 4\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene la cota final para el momento <span class="math inline">\(p\)</span>-ésimo de la solución <span class="math inline">\(X(t)\)</span></p>
 <p><span id="eq-6.166"><span class="math display">\[
-\mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
+\mathbb{E}[|X(t)|^p]\leq \mathbb{E}[(1+X(t)^2)^{p/2}]\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.136}\]</span></span></p>
-<p>Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
+<p>¡¡LLEGASTE HASTA AQUÍ!! Haremos uso de las mismas técnicas para encontrar una cota para el término</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^{2p}\Bigg].
 \]</span></p>
