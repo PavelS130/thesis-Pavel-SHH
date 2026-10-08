@@ -2762,7 +2762,7 @@ es posible obtener
 
 $$
 \begin{aligned}
-(1+(|x|-|h(x)|)^2)^{p/2} & - (1+|x|^2)^{p/2}\\ 
+(1+(|x|+|h(x)|)^2)^{p/2} & - (1+|x|^2)^{p/2}\\ 
 & \leq K_1^{p/2}(1+|x|^2)^{p/2} - (1+|x|^2)^{p/2}\\ 
 & = (K_1^{p/2}-1)(1+|x|^2)^{p/2} \\ 
 & \leq (K_1^{p/2}-1)2^{p/2-1}(1+(|x|^2)^{p/2})\\ 
@@ -3097,7 +3097,7 @@ $$
 \end{aligned}
 $$ {#eq-6.121}
 
-Para facilitar la notación en lo que resta, usaremos $x=X(s-)$. Acotaremos término a término de la @eq-6.121 haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la @eq-6.19. Comenzando con el segundo término de la @eq-6.121 tenemos ¡¡TE QUEDASTE AQUÍ!!
+Para facilitar la notación en lo que resta, usaremos $x=X(s-)$. Acotaremos término a término de la @eq-6.121 haciendo uso de las cotas de crecimiento lineal. Para las siguientes manipulaciones, haremos uso de la @eq-6.19. Comenzando con el segundo término de la @eq-6.121 tenemos 
 
 $$
 \begin{aligned}
@@ -3110,18 +3110,16 @@ Para el tercer término, contemplamos que $g(x)^2\leq |g(x)|^2$ para poder hacer
 
 $$
 \begin{aligned}
-\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 & \leq \frac{p}{2}(1+x^2)^{(p-2)/2}|g(x)|^2\\ 
-& \leq  \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\ 
+\frac{p}{2}(1+x^2)^{(p-2)/2}g(x)^2 & \leq \frac{p}{2}(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\ 
 & = \frac{pL_{\lambda}}{2}(1+x^2)^{p/2}.
 \end{aligned}
 $$ {#eq-6.123}
 
-Dado que $L_{\lambda}>0$ en la manera que se define, entonces $L_{\lambda}\leq 1+L_{\lambda}$. El producto $xg(x)$ se puede acotar de la siguiente forma
+El producto $xg(x)$ se puede acotar mediante la desigualdad de Young, de esta forma
 
 $$
 \begin{aligned}
-xg(x) & \leq |xg(x)|\\ 
-& \leq \frac{1}{2}(x^2+g(x)^2)\\ 
+xg(x) & \leq \frac{1}{2}(x^2+g(x)^2)\\ 
 & \leq \frac{1}{2}(x^2+L_{\lambda}(1+x^2))\\ 
 & = \frac{1}{2}(L_{\lambda}+(1+L_{\lambda})x^2)\\
 & \leq \frac{1}{2}((1+L_{\lambda})+(1+L_{\lambda})x^2) \\ 
@@ -3145,19 +3143,14 @@ $$
 \end{aligned}
 $$ {#eq-6.124}
 
-Finalmente, para el quinto término de la @eq-6.121, haremos uso de la misma herramienta, considerando que $1+L_{\lambda}\leq 2+L_{\lambda}$, de esta forma
+Finalmente, para el quinto término de la @eq-6.121, recordemos la cota derivada en la @eq-6.110, donde demostramos que la diferencia de saltos está cotada por $K(1+|x|^p)$. Dado que $(1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}$, podemos acotar este término directamente como 
+
 
 $$
 \begin{aligned}
-\lambda((1+(x+h(x))^2)^{p/2} & -(1+x^2)^{p/2})\\ 
-& \leq \lambda((1+2x^2+2h(x)^2)^{p/2}-(1+x^2)^{p/2})\\ 
-& \leq \lambda((1+2x^2+2(L_{\lambda}(1+x^2)))^{p/2}-(1+x^2)^{p/2})\\ 
-& = \lambda((1+2x^2+2L_{\lambda}+2L_{\lambda}x^2)^{p/2}-(1+x^2)^{p/2})\\ 
-& = \lambda((1+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\ 
-& \leq \lambda((2+2L_{\lambda}+(2+2L_{\lambda})x^2)^{p/2}-(1+x^2)^{p/2})\\ 
-& = \lambda((2+2L_{\lambda})(1+x^2))^{p/2}-(1+x^2)^{p/2}\\ 
-& =  \lambda(2+2L_{\lambda})^{p/2}(1+x^2)^{p/2}-(1+x^2)^{p/2}\\ 
-& = (\lambda(2+2L_{\lambda})^{p/2}-1)(1+x^2)^{p/2}.
+\lambda((1 & +(x+h(x))^2)^{p/2}-(1+x^2)^{p/2})\\ 
+& \leq \lambda K(1+|x|^p)\\
+& \leq \lambda K 2^{(p-2)/2}(1+x^2)^{p/2}.
 \end{aligned}
 $$ {#eq-6.125}
 
@@ -3170,29 +3163,29 @@ $$
  & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\
  & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}L_{\lambda}p(1+X(s-)^2)^{p/2}ds\Bigg]\\ 
  & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+X(s-)^2)^{p/2}ds\Bigg]\\ 
- & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda(2+2L_{\lambda})^{p/2}-1)(1+X(s-)^2)^{p/2}ds\Bigg].
+ & \quad + \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}(\lambda K 2^{(p-2)/2}(1+x^2)^{p/2}ds\Bigg].
 \end{aligned}
 $$ {#eq-6.126}
 
 Definimos la constante
 
 $$
-K:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (\lambda(2+2L_{\lambda})^{p/2}-1),  
+\overline{K}:= L_{\lambda}p + \frac{L_{\lambda}p}{2} + \frac{p(p-2)(1+L_{\lambda}^2)}{8} + (2^{(p-2)/2}\lambda K),  
 $$
 
 la cual es independiente de $N$ y $t$. De esta forma, la @eq-6.126 queda
 
 $$
-\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s-)^2)^{p/2}ds\Bigg]. 
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s-)^2)^{p/2}ds\Bigg]. 
 $$
 
-Dado que la solución $X(t)$ es un proceso càdlàg, es decir, continua por la derecha y con límites por la izquierda y además el conjunto de puntos de discontinuidad de un proceso càdlàg tiene medida de Lebesgue cero, por tanto $X(s-)=X(s)$ para casi todo $s\in[0,t]$ , casi seguramente. En términos de la medida de Lebesgue $ds$ tenemos
+Dado que la solución $X(t)$ es un proceso càdlàg, su conjunto de puntos de discontinuidad es a lo más numerable y, por tanto,  tiene medida de Lebesgue cero. Esto implica que $X(s-)=X(s)$ para casi todo $s\in[0,t]$ , casi seguramente. En términos de la medida de Lebesgue $ds$ podemos reescribir la @eq-6.126 como
 
 $$
-\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]. 
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E} \Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]. 
 $$ {#eq-6.127}
 
-Para poder aplicar la desigualdad de Gronwall es necesario cambiar el límite superior de integración de $t\wedge\tau_N$ a $t$. Haremos uso de la función indicadora definida por
+Para poder aplicar la desigualdad de Gronwall, necesitamos cambiar el límite superior de integración de $t\wedge\tau_N$ a $t$. Haremos uso de la función indicadora definida por
 
 $$
 1_{s\leq\tau_N} = 
@@ -3202,36 +3195,21 @@ $$
 \end{cases}
 $$
 
-Con esto, podemos reescribir la integral de la @eq-6.127 de la forma
-
-$$
-\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds = \int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds.
-$$
-
-Al tomar esperanza a esta integral. Además como el integrando es no negativo, es posible aplicar el Teorema de Fubini-Tonelli (preliminares)para intercambiar el orden de la integral y la esperanza, con esto
+Con esto, podemos reescribir la integral de la @eq-6.127 y aplicamos el Teorema de Fubini-Tonelli, dado que el integrando es no negativo, para intercambiar el orden de la integral y la esperanza, obteniendo
 
 $$
 \begin{aligned}
 \mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & = \mathbb{E}\Bigg[\int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds\Bigg]\\ 
-& = \int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds. 
+& = \int_0^t \mathbb{E}\Big[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}\Big]ds. 
 \end{aligned}
 $$ {#eq-6.128}
 
-Notemos que dentro de la esperanza, estamos evaluando la función en el evento $\{s\leq\tau_N\}$, entonces por definición dada el la @eq-6.112 tenemos $X(s)=X(s\wedge\tau_N)$. Por lo tanto, podemos en la @eq-6.128 sin cambiar el valor de la expresión en dicho evento, es decir
-
-$$
-\begin{aligned}
-\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & =  \int_0^t \mathbb{E}[(1+X(s)^2)^{p/2}1_{s\leq\tau_N}]ds\\ 
-& =  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}1_{s\leq\tau_N}]ds.
-\end{aligned}
-$$
-
-Ahora bien, la función indicadora satisface $\displaystyle 1_{s\leq\tau_N}\leq 1$, por lo que podemos eliminar dicha función de la expresión anterior y obtener una cota superior mediante
+Dentro de la esperanza, estamos evaluando la función en el evento $\{s\leq\tau_N\}$. Por la definición del tiempo de paro, en este evento se cumple que $s\wedge \tau_N = s$, por lo que $X(s)=X(s\wedge\tau_N)$. Además, como la función indicadora satisface $1_{s\leq\tau_N}\leq 1$, podemos eliminarla para obtener una cota superior
 
 $$
 \begin{aligned}
 \mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] & =  \int_0^t \mathbb{E}[(1+X(s\wedge\tau_N)^2)^{p/2}1_{s\leq\tau_N}]ds\\ 
-& \leq  \int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+& \leq  \int_0^t \mathbb{E}\Big[\Big(1+X(s\wedge\tau_N)^2\Big)^{p/2}\Big]ds.
 \end{aligned}
 $$ {#eq-6.129}
 
@@ -3239,12 +3217,12 @@ Sustituyendo la @eq-6.129 en la @eq-6.127 obtenemos
 
 $$
 \begin{aligned}
-\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} & \leq \mathbb{E}[1+X_0^2]^{p/2} + K\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\\ 
-& \leq \mathbb{E}[1+X_0^2]^{p/2} + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} & \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]\\ 
+& \leq \mathbb{E}\Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\int_0^t \mathbb{E}\Big[\Big(1+X(s\wedge\tau_N)^2\Big)^{p/2}\Big]ds.
 \end{aligned}
 $$ {#eq-6.160}
 
-Partiendo de la expresión $(1+X_0^2)^{p/2}$, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con esto tenemos que
+Para acotar el término inical, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con $r=p/2>2$
 
 $$
   (1+X_0^2)^{p/2}\leq 2^{(p/2)-1}(1^{p/2}+(X_0^2)^{p/2})=2^{(p-2)/2}(1+X_0^p). 
@@ -3256,42 +3234,16 @@ $$
   \mathbb{E}[(1+X_0^2)^{p/2}]\leq \mathbb{E}[2^{(p-2)/2}(1+X_0^p)]=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])
 $$
 
-Notemos que por hipótesis se tiene $\mathbb{E}[X_0^p]<\infty$, por tanto $2^{(p-2)/2}(1+\mathbb{E}[X_0^p])$ una constante. Sustituyendo esto en la @eq-6.160 se obtiene
+Usando la hipótesis de momentos fiinitos de la condición inicial $\mathbb{E}[X_0^p]<\infty$, definimos la constante $a:=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0$. Sustituyendo esto en la @eq-6.160 se obtiene
 
 $$
-\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p]) + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
+\mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 $$
 
-Ahora bien, Teorema de la Desigualdad de Gronwall en su forma continua (va a preliminares), indica que si $u:[0,T]\rightarrow[0,\infty)$ es una función medible y no negativa, $a\geq 0$ una constante, y $b:[0,T]\rightarrow[0,\infty)$ una función integrable. Entonces si $u$ satisface
+Definimos la función $u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}$, la cuál es medible y no negativa. La desigualdad anterior toma la forma $u(t)\leq a + \int_0^t  \overline{K}u(s)ds$, con $b(s)=K$. Por el Teoreema de la Desigualdad de Gronwall en su forma continua, concluimos que
 
 $$
-u(t)\leq a+\int_0^t b(s)u(s)ds,\quad \forall t\in[0,T], 
-$$
-
-entonces
-
-$$
-u(t)\leq a\exp\Bigg(\int_0^t b(s)ds\Bigg),\quad \forall t\in[0,T]. 
-$$
-
-Para nuestro caso, basta tomar a:
-
-- $u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\geq 0$ por propiedad de esperanza,
-
-- $a=2^{(p-2)/2}(1+\mathbb{E}[X_0^p])\geq 0$, por la @eq-6.12,
-
-- $b(s)=K$,
-
-Con esto, todas las hipótesis del TDG se satisfacen y es posible aplicarlo, por ende, calculamos
-
-$$
-\int_0^t b(s)ds=\int_0^t Kds=Kt. 
-$$
-
-Por lo tanto
-
-$$
-u(t)\leq a\exp(Kt)= 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}. 
+u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T]. 
 $$
 
 Al escribir explícitamente $u(t)$
@@ -3300,7 +3252,7 @@ $$
 \mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\leq 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}. 
 $$ {#eq-6.161}
 
-Recordemos que $\tau_N$ converge a $T$ casi seguramente cuando $N\rightarrow\infty$, al ser $X(t)$ un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple $X(t\wedge\tau_N)\rightarrow X(t)$ casi seguramente cuando $N\rightarrow\infty$. Por otro lado, por la continuidad de la función $x\mapsto(1+x^2)^{p/2}$ podemos afirmar que
+Recordemos que $\tau_N \rightarrow T$ casi seguramente cuando $N\rightarrow\infty$. Al ser $X(t)$ un proceso càdlàg, entonces por la continuidad por la derecha de sus trayectorias, se cumple $X(t\wedge\tau_N)\rightarrow X(t)$ casi seguramente cuando $N\rightarrow\infty$. Por la continuidad de la función $x\mapsto(1+x^2)^{p/2}$ podemos afirmar que
 
 $$
 \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}=(1+X(t)^2)^{p/2},\quad \text{c.s.}
@@ -3312,7 +3264,7 @@ $$
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 $$ {#eq-6.163}
 
-Consideremos la sucesión de variables aleatorias $\{(1+X(t\wedge\tau_N)^2)^{p/2}\}_{N\in\mathbb{N}}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares) de tal forma que se cumple
+Consideremos la sucesión de variables aleatorias $Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple
 
 $$
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
@@ -3330,19 +3282,13 @@ $$
 \end{aligned}
 $$ {#eq-6.165}
 
-Definimos la siguiente constante, la cuál es independiente de $N$
+Definimos la siguiente constante $\widehat{C}:=2^{(p-2)/2}e^{KT}$, la cuál es independiente de $N$ y $t$. Notemos que para $x\in\mathbb{R}$ y $p\geq 4$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene la cota final para el momento $p$-ésimo de la solución $X(t)$
 
 $$
-\widehat{C}:=2^{(p-2)/2}e^{KT}, 
-$$
-
-Con esto, basta notar que para $x\in\mathbb{R}$ y $p\geq 1$ se cumple $|x|^p\leq (1+x^2)^{p/2}$, por tanto de la @eq-6.165 se obtiene
-
-$$
-\mathbb{E}[|X(t)|]^p\leq \mathbb{E}[1+X(t)^2]^{p/2}\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
+\mathbb{E}[|X(t)|^p]\leq \mathbb{E}[(1+X(t)^2)^{p/2}]\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 $$ {#eq-6.166}
 
-Haremos uso de las mismas técnicas para encontrar una cota para el término
+¡¡LLEGASTE HASTA AQUÍ!! Haremos uso de las mismas técnicas para encontrar una cota para el término
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^{2p}\Bigg]. 
@@ -4449,7 +4395,7 @@ $$
 Por otro lado notemos que para $s\in[0,t]$ se cumple
 
 $$
-|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^r, 
+|E(s-)|^2\leq \sup_{0\leq r\leq t}|E(r)|^2, 
 $$
 
 dado que este término no depende de $s$, podemos factorizarlo fuera de la integral
