@@ -2493,13 +2493,14 @@ K:=2^{(p-2)/2}(K_1^{p/2}-1)
 &amp; = K(1+|x|^p).
 \end{aligned}
 \tag{6.110}\]</span></span></p>
-<p>Necesitamos definir los siguientes tiempos de paro meniante</p>
+<p>Necesitamos definir los siguientes tiempos de paro mediante</p>
 <p><span id="eq-6.111"><span class="math display">\[
 \tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}.
 \tag{6.111}\]</span></span></p>
 <p>Nuestro objetivo es demostrar que <span class="math inline">\(\tau_N\rightarrow T\)</span> casi seguramente cuando <span class="math inline">\(N\rightarrow\infty\)</span>, sin embargo, es necesario contar previamente con la validez de los siguientes resultados</p>
 <blockquote class="blockquote">
-<p><strong>Lema H1.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada. <em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg que no es acotada en <span class="math inline">\([0,T]\)</span>. Es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
+<p><strong>Lema H1.</strong> Una función càdlàg definida en un intervalo compacto <span class="math inline">\([0,T]\)</span> es acotada.</p>
+<p><em>Demostración.</em> Procediendo por contradicción, supongamos que <span class="math inline">\(f:[0,T]\rightarrow\mathbb{R}\)</span> es una función càdlàg que no es acotada en <span class="math inline">\([0,T]\)</span>. Es decir, existe una sucesión <span class="math inline">\(\{t_n\}_{n\in\mathbb{N}}\subset[0,T]\)</span> tal que</p>
 <p><span class="math display">\[
 |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty.
 \]</span></p>
@@ -2523,7 +2524,8 @@ f(t^{*-}) := \lim_{s \uparrow t^*} f(s)
 <p>existe y es finito. Por lo tanto, <span class="math inline">\(f(t_{n_k}) \rightarrow f(t^{*-})\)</span> cuando <span class="math inline">\(k \rightarrow \infty\)</span>. Nuevamente, esto contradice que <span class="math inline">\(|f(t_{n_k})| \rightarrow \infty\)</span>. En ambos casos llegamos a una contradicción, por lo tanto, <span class="math inline">\(f\)</span> debe ser acotada en <span class="math inline">\([0,T]\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. <em>Demostración.</em> Por las propiedades de las soluciones de EDEs con saltos de tipo Poisson, el proceso <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg casi seguramente. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
+<p><strong>Lema. H2</strong> Para casi todo <span class="math inline">\(\omega\in\Omega\)</span>, la trayectoria <span class="math inline">\(t\mapsto X(t,\omega)\)</span> es acotada en <span class="math inline">\([0,T]\)</span>.</p>
+<p><em>Demostración.</em> Por las propiedades de las soluciones de EDEs con saltos de tipo Poisson, el proceso <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg casi seguramente. Esto implica que para cada <span class="math inline">\(\omega\in\Omega\)</span>, la función</p>
 <p><span class="math display">\[
 f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 \]</span></p>
