@@ -2771,7 +2771,7 @@ $$
 \end{aligned} 
 $$ {#eq-6.110}
 
-Necesitamos definir los siguientes tiempos de paro meniante
+Necesitamos definir los siguientes tiempos de paro mediante
 
 $$
 \tau_N:= \min\{T,\inf\{t\in[0,T]:|X(t)|\geq N\}\}. 
@@ -2779,7 +2779,9 @@ $$ {#eq-6.111}
 
 Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando $N\rightarrow\infty$, sin embargo, es necesario contar previamente con la validez de los siguientes resultados
 
-> **Lema H1.** Una función càdlàg definida en un intervalo compacto $[0,T]$ es acotada. *Demostración.* Procediendo por contradicción, supongamos que $f:[0,T]\rightarrow\mathbb{R}$ es una función càdlàg que no es acotada en $[0,T]$. Es decir, existe una sucesión $\{t_n\}_{n\in\mathbb{N}}\subset[0,T]$ tal que
+> **Lema H1.** Una función càdlàg definida en un intervalo compacto $[0,T]$ es acotada. 
+>
+> *Demostración.* Procediendo por contradicción, supongamos que $f:[0,T]\rightarrow\mathbb{R}$ es una función càdlàg que no es acotada en $[0,T]$. Es decir, existe una sucesión $\{t_n\}_{n\in\mathbb{N}}\subset[0,T]$ tal que
 >
 > $$
 > |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty. 
@@ -2815,6 +2817,7 @@ Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando 
 > En ambos casos llegamos a una contradicción, por lo tanto, $f$ debe ser acotada en $[0,T]$. $\blacksquare$
 
 > **Lema. H2** Para casi todo $\omega\in\Omega$, la trayectoria $t\mapsto X(t,\omega)$ es acotada en $[0,T]$. 
+>
 > *Demostración.* Por las propiedades de las soluciones de EDEs con saltos de tipo Poisson, el proceso $X(t)$ tiene trayectorias càdlàg casi seguramente. Esto implica que para cada $\omega\in\Omega$, la función
 >
 > $$
@@ -2829,7 +2832,7 @@ Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando 
 >
 > Basta definir a la variable $\displaystyle M:=\sup\limits_{t\in[0,T]}|X(t)|$, entonces $M<\infty$ casi seguramente. $\blacksquare$
 
-Definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante
+Continuando con la prueba de $\tau_N\rightarrow T,$ definimos al conjunto de probabilidad total donde las trayectorias son acotadas mediante
 
 $$
   \Omega_0:=\left\{\omega\in\Omega:\sup\limits_{t\in[0,T]}|X(t,w)|<\infty\right\}. 
@@ -4122,7 +4125,7 @@ $$
 \end{aligned}
 $$
 
-Para el término de deriva de la @eq-agregar12, podemos acortar usando la @eq-6.14, para nuesto caso, tomaremos a $x=\overline{Y}(s-)$, $y=X(s-)$ y $x-y=E(s-)=\overline{Y}(s-)-X(s-)$, con esto
+Para el término de deriva de la @eq-agregar12, podemos acotar usando la @eq-6.14, para nuesto caso, tomaremos a $x=\overline{Y}(s-)$, $y=X(s-)$ y $x-y=E(s-)=\overline{Y}(s-)-X(s-)$, con esto
 
 $$
 E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
