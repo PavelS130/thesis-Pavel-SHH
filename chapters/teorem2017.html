@@ -2529,7 +2529,7 @@ f(t^{*-}) := \lim_{s \uparrow t^*} f(s)
 <p><span class="math display">\[
 f_{\omega}:[0,T]\rightarrow\mathbb{R},\quad f_{\omega}(t)=X(t,\omega)
 \]</span></p>
-<p>es càdlàg. Por el H1, podemos afirmar que cada <span class="math inline">\(f_{\omega}\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. Por lo tanto, para casi todo <span class="math inline">\(\omega\)</span>, existe una constante <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
+<p>es càdlàg. Por H1, podemos afirmar que cada <span class="math inline">\(f_{\omega}\)</span> es acotada en <span class="math inline">\([0,T]\)</span>. Por lo tanto, para casi todo <span class="math inline">\(\omega\)</span>, existe una constante <span class="math inline">\(M_{\omega}&lt;\infty\)</span> tal que</p>
 <p><span class="math display">\[
 \sup\limits_{t\in[0,T]}|X(t,\omega)|\leq M_\omega&lt;\infty.
 \]</span></p>
@@ -2653,7 +2653,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Con esto, queda demostrado que le integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, por lo que la integral estocástica <span class="math inline">\(M_W(t)\)</span> es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que</p>
+<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, por lo que la integral estocástica <span class="math inline">\(M_W(t)\)</span> es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que</p>
 <p><span id="eq-6.117"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
 \tag{6.117}\]</span></span></p>
@@ -2839,7 +2839,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 <p><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 \]</span></p>
-<p>Definimos la función <span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\)</span>, la cuál es medible y no negativa. La desigualdad anterior toma la forma <span class="math inline">\(u(t)\leq a + \int_0^t  \overline{K}u(s)ds\)</span>, con <span class="math inline">\(b(s)=K\)</span>. Por el Teoreema de la Desigualdad de Gronwall en su forma continua, concluimos que</p>
+<p>Definimos la función <span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\)</span>, la cuál es medible y no negativa. La desigualdad anterior toma la forma <span class="math inline">\(u(t)\leq a + \int_0^t  \overline{K}u(s)ds\)</span>, con <span class="math inline">\(b(s)=K\)</span>. Por el Teorema de la Desigualdad de Gronwall en su forma continua, concluimos que</p>
 <p><span class="math display">\[
 u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T].
 \]</span></p>
@@ -2869,7 +2869,7 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 &amp; = 2^{(p-2)/2}(1+\mathbb{E}[X_0^p])e^{KT}.
 \end{aligned}
 \tag{6.135}\]</span></span></p>
-<p>Definimos la siguiente constante <span class="math inline">\(\widehat{C}:=2^{(p-2)/2}e^{KT}\)</span>, la cuál es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. Notemos que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 4\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene la cota final para el momento <span class="math inline">\(p\)</span>-ésimo de la solución <span class="math inline">\(X(t)\)</span></p>
+<p>Definimos la siguiente constante <span class="math inline">\(\widehat{C}:=2^{(p-2)/2}e^{KT}\)</span>, la cual es independiente de <span class="math inline">\(N\)</span> y <span class="math inline">\(t\)</span>. Notemos que para <span class="math inline">\(x\in\mathbb{R}\)</span> y <span class="math inline">\(p\geq 4\)</span> se cumple <span class="math inline">\(|x|^p\leq (1+x^2)^{p/2}\)</span>, por tanto de la <a href="#eq-6.135" class="quarto-xref">Ecuación&nbsp;<span>6.135</span></a> se obtiene la cota final para el momento <span class="math inline">\(p\)</span>-ésimo de la solución <span class="math inline">\(X(t)\)</span></p>
 <p><span id="eq-6.136"><span class="math display">\[
 \mathbb{E}[|X(t)|^p]\leq \mathbb{E}[(1+X(t)^2)^{p/2}]\leq \widehat{C}(1+\mathbb{E}[X_0^p]).
 \tag{6.136}\]</span></span></p>
@@ -2877,7 +2877,7 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^p\Bigg].
 \]</span></p>
-<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Fórmula de Itô generalizada para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s-)\)</span>. Es claro que la primera y segunda derivada de la función <span class="math inline">\(u\)</span> están dadas por</p>
+<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Fórmula de Itô para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s-)\)</span>. Es claro que la primera y segunda derivada de la función <span class="math inline">\(u\)</span> están dadas por</p>
 <p><span class="math display">\[
 u'(x)=2x,\quad  u''(x)=2,
 \]</span></p>
@@ -2927,7 +2927,7 @@ X(t)^2 &amp; = X_0^2 + \int_0^t (2X(s-)f(X(s-))+g(X(s-))^2)ds\\
 &amp; \qquad\quad + \lambda\int_0^t (2X(s-)h(X(s-))+h(X(s-))^2)ds.
 \end{aligned}
 \]</span></p>
-<p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distrubuyendo el término correspondiente al procceso de Poisson compensado, obtenemos la siguiente expresión</p>
+<p>Agrupando las integrales respecto a <span class="math inline">\(ds\)</span> y distribuyendo el término correspondiente al procceso de Poisson compensado, obtenemos la siguiente expresión</p>
 <p><span id="eq-6.138"><span class="math display">\[
 \begin{aligned}
 X(t)^2 &amp; = X_0^2 + \int_0^t \Big(2X(s-)f(X(s-))+g(X(s-))^2\\
@@ -2949,7 +2949,7 @@ X(t)^2 &amp; = X_0^2 + \int_0^t \Big(2X(s-)f(X(s-))+g(X(s-))^2\\
 <p><span class="math display">\[
 \begin{aligned}
 2xf_{\lambda}(x)+|g(x)|^2+\lambda |h(x)|^2 &amp; \leq 2L_{\lambda}(1+x^2)+L_{\lambda}(1+x^2)+\lambda L_{\lambda}(1+x^2)\\
-=(3+\lambda)L_{\lambda}(1+x^2).
+&amp; = (3+\lambda)L_{\lambda}(1+x^2).
 \end{aligned}
 \]</span></p>
 <p>Entonces la <a href="#eq-6.138" class="quarto-xref">Ecuación&nbsp;<span>6.138</span></a> se reduce a</p>
@@ -2962,7 +2962,7 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 \end{aligned}
 \tag{6.139}\]</span></span></p>
 <p>Notemos que en la integral determinista, es decir, la integral respecto a <span class="math inline">\(ds\)</span>, se cumple <span class="math inline">\(X(s)=X(s-)\)</span>, para casi todo <span class="math inline">\(s\)</span>. Esto se debe a que el conjunto de tiempos de salto del proceso de Poisson tiene medida de Lebesgue cero. Por otro lado, en las integrales estocásticas es necesario usar <span class="math inline">\(X(s-)\)</span>, esto para garantizar que el integrando sea predecible y que la integral preserve las propiedades de martingala.</p>
-<p>Partiendo de la <a href="#eq-6.139" class="quarto-xref">Ecuación&nbsp;<span>6.139</span></a>, tomaremos valor absoluto y aplicando la desigualdad del triangulo se tiene</p>
+<p>Partiendo de la <a href="#eq-6.139" class="quarto-xref">Ecuación&nbsp;<span>6.139</span></a>, tomaremos valor absoluto y aplicando la desigualdad triangular se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 |X(t)|^2 &amp; \leq |X_0^2| +(3+\lambda)L_{\lambda}\Bigg|\int_0^t (1+X(s)^2)ds\Bigg|\\
@@ -2971,7 +2971,7 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 &amp; \qquad\quad + \Bigg|\int_0^t h(X(s-))^2d\widetilde{N}(s)\Bigg|.
 \end{aligned}
 \]</span></p>
-<p>Aplicando el supremo sobre el intervalo <span class="math inline">\([0,t]\)</span> en ambos lados, y considerando la propiedad de supremos para funciones no negativas, obtenemos</p>
+<p>Aplicando el supremo sobre el intervalo <span class="math inline">\([0,t]\)</span> en ambos lados, y considerando la propiedad del supremo para funciones no negativas, obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sup_{0\leq\tau\leq t}|X(\tau)|^2 &amp; \leq |X_0^2| +(3+\lambda)L_{\lambda}\sup_{0\leq\tau\leq t}\Bigg|\int_0^{\tau} (1+X(s)^2)ds\Bigg|\\
@@ -3034,7 +3034,7 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 <p><span class="math display">\[
 \left(\int_0^t F(s)\,ds\right)^q \leq t^{q-1}\int_0^t F(s)^q\,ds.
 \]</span></p>
-<p>Tomando <span class="math inline">\(F(s)=1+X(s)^2\)</span>, <span class="math inline">\(q=p/2\)</span> y recordando que <span class="math inline">\(t\in[0,T]\)</span>, obtennemos la siguiente cota determinista</p>
+<p>Tomando <span class="math inline">\(F(s)=1+X(s)^2\)</span>, <span class="math inline">\(q=p/2\)</span> y recordando que <span class="math inline">\(t\in[0,T]\)</span>, obtenemos la siguiente cota determinista</p>
 <p><span id="eq-falta02"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] &amp; \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\
@@ -3324,7 +3324,7 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
   &amp; \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t).
 \end{aligned}
 \tag{6.160}\]</span></span></p>
-<p>Dado que <span class="math inline">\(E(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô generalizada para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(E(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
+<p>Dado que <span class="math inline">\(E(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(E(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
 <p><span id="eq-agregar3"><span class="math display">\[
 \begin{aligned}
   dV(E(t)) &amp; = \underbrace{V'(E(t-))dE(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(E(t-))(dE(t))^2}_{\text{difusión}} \\
@@ -4002,8 +4002,9 @@ u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 \]</span></p>
 <p>Ahora bien, evaluando en <span class="math inline">\(t=T\)</span> se tiene <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math display">\[
-\mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(T)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t.
+\mathbb{E}\Bigg[\sup_{0\leq s\leq T}|E(s)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}T}\Delta t,
 \]</span></p>
+<p>lo que completa la demostración del teorema.</p>
 </div>
 
 
