@@ -3038,9 +3038,18 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 <p><span id="eq-falta02"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] &amp; \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\
-&amp; = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds.
+&amp; = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds\\
+&amp; \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\left(1+\mathbb{E}[|X(s)|^p]\right)ds\\
+&amp; \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\Big(\mathbb{E}\Big[1+X(s)^p\Big]\Big) ds\\
+&amp; = T^{(p/2)-1}2^{p/2-1}\int_0^{t} \Big(1+\mathbb{E}\Big[X(s)^p\Big]\Big) ds\\
+&amp; = T^{(p/2)-1}2^{p/2-1}\Bigg( t +\int_0^t\mathbb{E}\Big[X(s)^p\Big] ds\Bigg)\\
+&amp; \leq a_1+a_1\mathbb{E}\Big[X(s)^p\Big] ds,
 \end{aligned}
 \tag{6.142}\]</span></span></p>
+<p>donde</p>
+<p><span class="math display">\[
+a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.
+\]</span></p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
