@@ -3509,7 +3509,7 @@ $$
 \end{aligned}
 $$ {#eq-falta02}
 
-donde $a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.$ Sustituyendo esto en la @eq-falta01, obtenemos
+esta última constante $a_1$ se define mediante $a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.$ Sustituyendo esto en la @eq-falta01, obtenemos
 
 $$
 \begin{aligned}
@@ -3533,7 +3533,7 @@ M_{\widetilde{N},2}(\tau) & : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 $$
 
 
-Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrando pertenecen al espacio $\mathcal{L}^2$. Haciendo uso de la cota de crecimiento lineal dada por la @eq-6.19, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera
+Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrandos pertenecen al espacio $\mathcal{L}^2$. Haciendo uso de la cota de crecimiento lineal dada por la @eq-6.19, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera
 
 $$
 \begin{aligned}
@@ -3543,10 +3543,95 @@ $$
 \end{aligned}
 $$
 
+Notemos que para cualquier $x\in\mathbb{R}$, se cumple la desigualdad 
 
+$$
+(1+|x|^2)^2\leq 4(1+|x|^4). 
+$$
 
+Dado que se establece por hipótesis que $p\geq 4$, en la @eq-6.136 garantizamos que para momentos de orden $q\leq p$ de la sokución exacta están uniformemente acotados. En particular para $q=4$, se cumple 
 
+$$
+\mathbb{E}\Big[|X(t)|^4\Big]\leq \sup_{0\leq \tau\leq T}\mathbb{E}\Big[|X(\tau)|^4\Big]\leq \widehat{C}(1+\mathbb{E}[X_0^4])\leq \infty. 
+$$
 
+Además, recordemos que $X(s-)=X(s)$ para casi todo $s$ respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano $M_W(t)$, el integrando es $X(s-)g(X(s-))$. Evaluamos su norma en $\mathcal{L}^2$
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |X(s)g(X(s))|^2 \, ds\right] 
+& = \mathbb{E}\left[\int_0^t|X(s)|^2|g(X(s))|^2\, ds\right]\\
+& \leq \mathbb{E}\left[\int_0^t|X(s)|^2L_{\lambda}(1+|X(s)|^2)\, ds\right]\\
+& \leq \mathbb{E}\left[\int_0^t L_\lambda(1+|X(s)|^2)^2 \, ds\right] \\
+& \leq 4 L_\lambda \int_0^t \mathbb{E}\left[1 + |X(s)|^4\right] \, ds \\
+& \leq 4 L_\lambda\left[\int_0^t ds +\sup_{0\leq \tau\leq t}\mathbb{E}\Big[|X(\tau)|^4\Big]\int_0^t\, ds\right]\\
+& \leq \Big(4 L_\lambda+4 L_\lambda\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+$$
+
+Por lo tanto, $M_W(t)$ es una martingala cuadrado-integrable. Recordemos que el término de difusión $h$ posee la misma cota de crecimiento polinomial, por lo que se obtiene la misma cota, es decir, 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |X(s)h(X(s))|^2 \, ds\right] 
+& \leq \Big(4 L_\lambda+4 L_\lambda\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+$$
+
+De esta forma, queda demostrado que $M_{\widetilde{N},1}(t)$ también es una martingala-cuadrado integrable. Para el proceso $M_{\widetilde{N},2}(t)$ se tiene 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |h(X(s))^2|^2 \, ds\right] 
+& = \mathbb{E}\left[\int_0^t |h(X(s))|^4 \, ds\right] \\
+& \leq \mathbb{E}\left[\int_0^t L_\lambda^2(1+|X(s)|^2)^2 \, ds\right] \\
+& \leq 4 L_\lambda^2 \int_0^t \mathbb{E}\left[1 + |X(s)|^4\right] \, ds \\
+& \leq \Big(4 L_\lambda^2+4 L_\lambda^2\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+$$
+
+Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $\mathcal{L}^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Bulkholder-Davis-Gundy. 
+
+Para la martingala $M_W(\tau)$, su variación cuadrática está dada por 
+
+$$
+\langle M_W \rangle_{\tau} = \int_0^\tau |X(s)g(X(s)|^2ds.
+$$
+
+Aplicando la Desigualdad de Bulkholder-Davis-Gundy con $q=p/2$, nos indica que existe una constante $C_{p/2,W}$ tal que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}\mathbb{E}\Bigg[\Bigg(\int_0^t |X(s)g(X(s))|^2\, ds\Bigg)^{p/4}\Bigg]. 
+$$ {#eq-falta04}
+
+Para acotar el lado derecho, haremos uso de la desigualdad de Hölder para integrales con el exponente $r=p/4\leq 1$
+
+$$
+\begin{aligned}
+\left(\int_0^t |X(s-)g(X(s-))|^2\,ds\right)^{p/4} & \leq t^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds\\
+& \leq T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds.
+\end{aligned}
+$$
+
+Tomando esperanza y usando el Teorema de Fubini-Tonnelli, ya que el integrando es no negativo, podemos obtener de la @eq-falta04
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds..
+$$
+
+Usamos la cota de crecimiento lineal dada por la @eq-6.19, de la cual obtenemos 
+
+$$
+|xg(x)|^2\leq L_{\lambda}(1+|x|^2)^2,
+$$
+
+al elevar a la potencia $p/4$, se tiene $|xg(x)|^{p/2}\leq L_{\lambda}^{p/4}(1+|x|^2)^{p/2}$. Con esto, se tiene 
+
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \leq K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+$$
+
+donde $K_1 = C_{p/2,W}\, T^{p/4 - 1} \, L_\lambda^{p/4}$ es una constante positiva.
 
 
 :::
