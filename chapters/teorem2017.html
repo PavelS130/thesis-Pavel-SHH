@@ -3046,7 +3046,7 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 &amp; \leq a_1+a_1\mathbb{E}\Big[X(s)^p\Big] ds,
 \end{aligned}
 \tag{6.142}\]</span></span></p>
-<p>donde <span class="math inline">\(a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.\)</span> Sustituyendo esto en la <a href="#eq-falta01" class="quarto-xref">Ecuación&nbsp;<span>6.141</span></a>, obtenemos</p>
+<p>esta última constante <span class="math inline">\(a_1\)</span> se define mediante <span class="math inline">\(a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.\)</span> Sustituyendo esto en la <a href="#eq-falta01" class="quarto-xref">Ecuación&nbsp;<span>6.141</span></a>, obtenemos</p>
 <p><span id="eq-falta03"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]
@@ -3073,6 +3073,44 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 |h(x)^2|^2 &amp; =|h(x)|^4\leq L_{\lambda}^2(1+|x|^2)^2.
 \end{aligned}
 \]</span></p>
+<p>Notemos que para cualquier <span class="math inline">\(x\in\mathbb{R}\)</span>, se cumple la desigualdad</p>
+<p><span class="math display">\[
+(1+|x|^2)^2\leq 4(1+|x|^4).
+\]</span></p>
+<p>Dado que se establece por hipótesis que <span class="math inline">\(p\geq 4\)</span>, en la <a href="#eq-6.136" class="quarto-xref">Ecuación&nbsp;<span>6.136</span></a> garantizamos que para momentos de orden <span class="math inline">\(q\leq p\)</span> de la sokución exacta están uniformemente acotados. En particular para <span class="math inline">\(q=4\)</span>, se cumple</p>
+<p><span class="math display">\[
+\mathbb{E}\Big[|X(t)|^4\Big]\leq \sup_{0\leq \tau\leq T}\mathbb{E}\Big[|X(\tau)|^4\Big]\leq \widehat{C}(1+\mathbb{E}[X_0^4])\leq \infty.
+\]</span></p>
+<p>Además, recordemos que <span class="math inline">\(X(s-)=X(s)\)</span> para casi todo <span class="math inline">\(s\)</span> respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano <span class="math inline">\(M_W(t)\)</span>, el integrando es <span class="math inline">\(X(s-)g(X(s-))\)</span>. Evaluamos su norma en <span class="math inline">\(\mathcal{L}^2\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |X(s)g(X(s))|^2 \, ds\right]
+&amp; = \mathbb{E}\left[\int_0^t|X(s)|^2|g(X(s))|^2\, ds\right]\\
+&amp; \leq \mathbb{E}\left[\int_0^t|X(s)|^2L_{\lambda}(1+|X(s)|^2)\, ds\right]\\
+&amp; \leq \mathbb{E}\left[\int_0^t L_\lambda(1+|X(s)|^2)^2 \, ds\right] \\
+&amp; \leq 4 L_\lambda \int_0^t \mathbb{E}\left[1 + |X(s)|^4\right] \, ds \\
+&amp; \leq 4 L_\lambda\left[\int_0^t ds +\sup_{0\leq \tau\leq t}\mathbb{E}\Big[|X(\tau)|^4\Big]\int_0^t\, ds\right]\\
+&amp; \leq \Big(4 L_\lambda+4 L_\lambda\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+\]</span></p>
+<p>Por lo tanto, <span class="math inline">\(M_W(t)\)</span> es una martingala cuadrado-integrable. Recordemos que el término de difusión <span class="math inline">\(h\)</span> posee la misma cota de crecimiento polinomial, por lo que se obtiene la misma cota, es decir,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |X(s)h(X(s))|^2 \, ds\right]
+&amp; \leq \Big(4 L_\lambda+4 L_\lambda\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+\]</span></p>
+<p>De esta forma, queda demostrado que <span class="math inline">\(M_{\widetilde{N},1}\)</span> tammbién es una martingala-cuadrado integrable. Para el proceso <span class="math inline">\(M_{\widetilde{N},2}\)</span> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[\int_0^t |h(X(s))^2|^2 \, ds\right]
+&amp; = \mathbb{E}\left[\int_0^t |h(X(s))|^4 \, ds\right] \\
+&amp; \leq \mathbb{E}\left[\int_0^t L_\lambda^2(1+|X(s)|^2)^2 \, ds\right] \\
+&amp; \leq 4 L_\lambda^2 \int_0^t \mathbb{E}\left[1 + |X(s)|^4\right] \, ds \\
+&amp; \leq \Big(4 L_\lambda^2+4 L_\lambda^2\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
+\end{aligned}
+\]</span></p>
+<p>Por lo tanto <span class="math inline">\(M_{\widetilde{N},2}\)</span> es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos <span class="math inline">\(M_W(t)\)</span>, <span class="math inline">\(M_{\widetilde{N},1}\)</span> y <span class="math inline">\(M_{\widetilde{N},2}\)</span> perteneces al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de BUlkholder-Davis-Gundy</p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
