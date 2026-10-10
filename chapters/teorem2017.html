@@ -3139,6 +3139,32 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \leq K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
 \]</span></p>
 <p>donde <span class="math inline">\(K_1 = C_{p/2,W}\, T^{p/4 - 1} \, L_\lambda^{p/4}\)</span> es una constante positiva.</p>
+<p>Considerando ahora la martingala de salto <span class="math inline">\(M_{\widetilde{N},1}(\tau)\)</span>, su variación cuadrática viene dada por</p>
+<p><span class="math display">\[
+\langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|X(s)h(X(s))|^2 ds.
+\]</span></p>
+<p>Notemos que dicho término difiere de la constante <span class="math inline">\(\lambda&gt;0\)</span> a la variación cuadrática del proceso <span class="math inline">\(M_W(\tau)\)</span>, como <span class="math inline">\(h\)</span> también satisface la cota de crecimiento lineal de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Bulkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+\]</span></p>
+<p>donde <span class="math inline">\(K_2 = C_{p/2,\widetilde{N},1} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/4}\)</span> es una constante positiva.</p>
+<p>Por último consideremos la martingala <span class="math inline">\(M_{\widetilde{N},2}\)</span>, su variación cuadrática está dada por</p>
+<p><span class="math display">\[
+\langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|h(X(s))|^4 ds.
+\]</span></p>
+<p>Aplicando la desigualdad de Bulkholder-Davis-Gundy, podemos afirmar que existe una constante positiva <span class="math inline">\(C_{p/2,\widetilde{N},2}&gt;0\)</span> tal que</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \mathbb{E}\left[\left(\lambda \int_0^t |h(X(s))|^4 \, ds\right)^{p/4}\right].
+\]</span></p>
+<p>Aplicando Hölder y Fubini-Tonelli:</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \lambda^{p/4} \, T^{p/4 - 1} \int_0^t \mathbb{E}\left[|h(X(s))|^{p}\right]\,ds.
+\]</span></p>
+<p>Usando la cota de la <span class="quarto-unresolved-ref">?eq-6.019</span> se tiene que <span class="math inline">\(|h(x)|^p\leq L_{\lambda}^{p/2}(1+|x|^2)^{p/2}\)</span>. Sustituyendo esto, llegamos a</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+\]</span></p>
+<p>donde <span class="math inline">\(K_3 = C_{p/2,\widetilde{N},2} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/2}\)</span> es una constante positiva.</p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
