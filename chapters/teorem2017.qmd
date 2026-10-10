@@ -3629,9 +3629,73 @@ al elevar a la potencia $p/4$, se tiene $|xg(x)|^{p/2}\leq L_{\lambda}^{p/4}(1+|
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \leq K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+$$ {#eq-falta05}
+
+donde $K_1 = C_{p/2,W}\, T^{p/4 - 1} \, L_\lambda^{p/4}$.
+
+Considerando ahora la martingala de salto $M_{\widetilde{N},1}(\tau)$, su variación cuadrática viene dada por 
+
+$$
+\langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|X(s)h(X(s))|^2 ds. 
 $$
 
-donde $K_1 = C_{p/2,W}\, T^{p/4 - 1} \, L_\lambda^{p/4}$ es una constante positiva.
+Notemos que dicho término difiere de la constante $\lambda>0$ a la variación cuadrática del proceso $M_W(\tau)$, como $h$ también satisface la cota de crecimiento lineal de la @eq-6.19, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Bulkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a 
+
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+$$ {#eq-falta06}
+
+donde $K_2 = C_{p/2,\widetilde{N},1} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/4}$.
+
+Por último consideremos la martingala $M_{\widetilde{N},2}$, su variación cuadrática está dada por
+
+$$
+\langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|h(X(s))|^4 ds. 
+$$
+
+Aplicando la desigualdad de Bulkholder-Davis-Gundy, podemos afirmar que existe una constante positiva $C_{p/2,\widetilde{N},2}>0$ tal que 
+
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \mathbb{E}\left[\left(\lambda \int_0^t |h(X(s))|^4 \, ds\right)^{p/4}\right].
+$$
+
+
+Aplicando Hölder y Fubini-Tonelli:
+
+
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \lambda^{p/4} \, T^{p/4 - 1} \int_0^t \mathbb{E}\left[|h(X(s))|^{p}\right]\,ds.
+$$
+
+Usando la cota de la @eq-6.019 se tiene que $|h(x)|^p\leq L_{\lambda}^{p/2}(1+|x|^2)^{p/2}$. Sustituyendo esto, llegamos a 
+
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+$$ {#eq-falta07}
+
+
+donde $K_3 = C_{p/2,\widetilde{N},2} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/2}$ es una constante positiva. Sustituyendo la @eq-falta05, @eq-falta06 y @eq-falta07 en la @eq-falta03 tenemos 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right] 
+& \leq \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\ 
+& \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\ 
+& \quad + \widehat{K}\, K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\ 
+& \quad + \widehat{K}\, K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\ 
+& \quad + \widehat{K}\,K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds\\ 
+& \leq  \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\ 
+& \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\ 
+& \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+\end{aligned}
+$$
+
+donde $K_M:=3\widehat{K}\max\{K_1,K_2,K_3\}$.
+
+
+
+
+
 
 
 :::
