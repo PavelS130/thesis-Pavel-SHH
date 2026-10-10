@@ -3038,23 +3038,18 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 <p><span id="eq-falta02"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] &amp; \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\
-&amp; = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds\\
-&amp; \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\left(1+\mathbb{E}[|X(s)|^p]\right)ds\\
-&amp; \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\Big(\mathbb{E}\Big[1+X(s)^p\Big]\Big) ds\\
-&amp; = T^{(p/2)-1}2^{p/2-1}\int_0^{t} \Big(1+\mathbb{E}\Big[X(s)^p\Big]\Big) ds\\
-&amp; = T^{(p/2)-1}2^{p/2-1}\Bigg( t +\int_0^t\mathbb{E}\Big[X(s)^p\Big] ds\Bigg)\\
-&amp; \leq a_1+a_1\mathbb{E}\Big[X(s)^p\Big] ds,
+&amp; = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds,
 \end{aligned}
 \tag{6.142}\]</span></span></p>
-<p>esta última constante <span class="math inline">\(a_1\)</span> se define mediante <span class="math inline">\(a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.\)</span> Sustituyendo esto en la <a href="#eq-falta01" class="quarto-xref">Ecuación&nbsp;<span>6.141</span></a>, obtenemos</p>
+<p>Sustituyendo esto en la <a href="#eq-falta01" class="quarto-xref">Ecuación&nbsp;<span>6.141</span></a>, obtenemos</p>
 <p><span id="eq-falta03"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]
-&amp; \leq \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\
-&amp; \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\
-&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_W(\tau)\right|^{p/2}\right] \\
-&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},1}\right|^{p/2}\right] \\
-&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},2}\right|^{p/2}\right],
+&amp; \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\
+&amp; \quad + \widehat{K}\,T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds \\
+&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \\
+&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \\
+&amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right],
 \end{aligned}
 \tag{6.143}\]</span></span></p>
 <p>donde</p>
