@@ -3891,10 +3891,48 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.192}\]</span></span></p>
+<p>Usaremos la desigualdad de Bulkholder-Davis-Gundy para acotar a los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span>, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio <span class="math inline">\(\mathcal{L}^2\)</span>.</p>
+<p>Debemos contemplar los métodos en los que aplicaremos el <a href="#lem-6.3" class="quarto-xref">Lema&nbsp;<span>6.3</span></a>, <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> y <a href="#lem-6.5" class="quarto-xref">Lema&nbsp;<span>6.5</span></a> de la siguiente forma: Para <span class="math inline">\(s\in[0,t]\subset [0,T]\)</span> y <span class="math inline">\(p_1\geq 1\)</span> y <span class="math inline">\(p_2\geq 4\)</span> tal que <span class="math inline">\(4\leq p\)</span> y <span class="math inline">\(4\leq 2p\)</span>, donde <span class="math inline">\(p:=\max\{p_1,p_2\}\)</span>, se satisface</p>
+<p><span id="eq-agregar01"><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Big[|\overline{Y}(s)|^4\Big] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)|^2p\Bigg]\leq A_1,\\
+\mathbb{E}\Big[|X(s)|^4\Big] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^p\Bigg]\leq A_2,\\
+\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\Bigg]\leq E\Delta t.
+\end{aligned}
+\tag{6.193}\]</span></span></p>
+<p>Para que <span class="math inline">\(M_1(t)\)</span> pertenezca al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir</p>
+<p><span id="eq-agregar02"><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]&lt;\infty.
+\tag{6.194}\]</span></span></p>
+<p>Haciendo uso de la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> obtener la siguiente cota al integrando</p>
+<p><span class="math display">\[
+\begin{aligned}
+|2E(s)(g(Y(s))-g(X(s)))|^2 &amp; = 4|E(s)|^2\, |g(Y(s))-g(X(s))|^2\\
+&amp; \leq 4L_g|E(s)|^2\cdot |Y(s)-X(s)|^2\\
+&amp; \leq 4L_g|E(s)|^2\, 2\Big(|Y(s)-\overline{Y}(s)|^2+|E(s)|^2\Big)\\
+&amp; = 8L_g \Big(|E(s)|^4+|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\Big)
+\end{aligned}
+\]</span></p>
+<p>Sustituyendo esto en la <a href="#eq-agregar02" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> y aplicar el Teorema de Fubini-Tonelli, se obtiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
+&amp; \leq 8L_g\mathbb{E}\Bigg[\int_0^t|E(s)|^4+|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\, ds\Bigg]\\
+&amp; = 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)
+\end{aligned}
+\]</span></p>
+<p>Usando la independencia entre los procesos <span class="math inline">\(|E(s)|^2\)</span> y <span class="math inline">\(|Y(s)-\overline{Y}(s)|^2\)</span> y las cotas definidas en la <a href="#eq-agregar01" class="quarto-xref">Ecuación&nbsp;<span>6.193</span></a> se afirma que</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
+&amp; \leq 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^2\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\
+&amp; \leq 8L_g\Bigg(\int_0^t\Bigg)
+\end{aligned}
+\]</span></p>
 <p>Para calcular la cota al proceso <span class="math inline">\(M_1(t)\)</span>, usaremos la desigualdad de Bulkholder-Davis-Gundy, con ello se afirma que existe una constante <span class="math inline">\(C_1&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
 <p><span id="eq-6.193"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right]\leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right],
-\tag{6.193}\]</span></span></p>
+\tag{6.195}\]</span></span></p>
 <p>donde <span class="math inline">\(\langle M_1\rangle_t\)</span> está denotando a la variación de dicho proceso, la cuál está dada por la integral de Lebesgue del cuadrado del integrando estocástico, es decir</p>
 <p><span class="math display">\[
 \langle M_1\rangle_t = \int_0^t 4|E(s-)|^2|g(Y(s-))-g(X(s-))|^2 ds.
@@ -3923,7 +3961,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p>Por lo tanto, tomando raíz cuadrada y usando su propiedad distributiva es posible tener</p>
 <p><span id="eq-6.194"><span class="math display">\[
 \langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
-\tag{6.194}\]</span></span></p>
+\tag{6.196}\]</span></span></p>
 <p>Aplicaremos la desigualdad de Young generalizada, dado <span class="math inline">\(\varepsilon&gt;0\)</span>, el cuál definiremos más adelante, se satisface lo siguiente</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3932,7 +3970,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + \frac{\varepsilon}{2} \int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto y la <a href="#eq-6.194" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> en la <a href="#eq-6.193" class="quarto-xref">Ecuación&nbsp;<span>6.193</span></a> tenemos</p>
+<p>Sustituyendo esto y la <a href="#eq-6.194" class="quarto-xref">Ecuación&nbsp;<span>6.196</span></a> en la <a href="#eq-6.193" class="quarto-xref">Ecuación&nbsp;<span>6.195</span></a> tenemos</p>
 <p><span id="eq-6.195"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
@@ -3941,8 +3979,8 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
-\tag{6.195}\]</span></span></p>
-<p>Aplicando el teorema de Fubini-Tonelli al segundo término de la <a href="#eq-6.195" class="quarto-xref">Ecuación&nbsp;<span>6.195</span></a> se tiene</p>
+\tag{6.197}\]</span></span></p>
+<p>Aplicando el teorema de Fubini-Tonelli al segundo término de la <a href="#eq-6.195" class="quarto-xref">Ecuación&nbsp;<span>6.197</span></a> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
@@ -3959,7 +3997,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds.
 \end{aligned}
-\tag{6.196}\]</span></span></p>
+\tag{6.198}\]</span></span></p>
 <p>Notemos que para <span class="math inline">\(s\in [0,t]\subset [0,T]\)</span> se satisface</p>
 <p><span class="math display">\[
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2.
@@ -3970,8 +4008,8 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big] &amp; \leq \mathbb{E}\Big[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Big]\\
 &amp; \leq E\Delta t.
 \end{aligned}
-\tag{6.197}\]</span></span></p>
-<p>Por lo tanto, de la <a href="#eq-6.196" class="quarto-xref">Ecuación&nbsp;<span>6.196</span></a> se tiene</p>
+\tag{6.199}\]</span></span></p>
+<p>Por lo tanto, de la <a href="#eq-6.196" class="quarto-xref">Ecuación&nbsp;<span>6.198</span></a> se tiene</p>
 <p><span id="eq-6.198"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
@@ -3982,11 +4020,11 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\
 &amp; \qquad\quad + 12C_1^2L_g T E\Delta t.
 \end{aligned}
-\tag{6.198}\]</span></span></p>
+\tag{6.200}\]</span></span></p>
 <p>Usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por la desigualdad de Bulkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
 <p><span id="eq-6.199"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big].
-\tag{6.199}\]</span></span></p>
+\tag{6.201}\]</span></span></p>
 <p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
 <p><span class="math display">\[
 \langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds.
@@ -3994,7 +4032,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p>Dado que el coeficiente de salto <span class="math inline">\(h\)</span> también cumple con la condición de Lipschitz dada en la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a>, es posible realizar el mismo cálculo que se usó con el coeficiente de difusión <span class="math inline">\(g\)</span> de tal forma que</p>
 <p><span id="eq-6.200"><span class="math display">\[
 \langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
-\tag{6.200}\]</span></span></p>
+\tag{6.202}\]</span></span></p>
 <p>Usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span> se satisface</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -4002,7 +4040,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \leq \frac{1}{2\delta}\sup_{0\leq s\leq t}|E(s)|^2+\frac{\delta}{2}\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds.
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo lo anterior y la <a href="#eq-6.200" class="quarto-xref">Ecuación&nbsp;<span>6.200</span></a> en la <a href="#eq-6.199" class="quarto-xref">Ecuación&nbsp;<span>6.199</span></a> obtenemos</p>
+<p>Sustituyendo lo anterior y la <a href="#eq-6.200" class="quarto-xref">Ecuación&nbsp;<span>6.202</span></a> en la <a href="#eq-6.199" class="quarto-xref">Ecuación&nbsp;<span>6.201</span></a> obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg]\\
@@ -4014,7 +4052,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + \frac{2C_2\sqrt{2\lambda L_h}\delta}{2}\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds.
 \end{aligned}
 \]</span></p>
-<p>Definiendo a <span class="math inline">\(\delta=6C_2\sqrt{2\lambda L_h}\)</span>, usando la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.197</span></a>, la expresión anterior se reduce a</p>
+<p>Definiendo a <span class="math inline">\(\delta=6C_2\sqrt{2\lambda L_h}\)</span>, usando la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.199</span></a>, la expresión anterior se reduce a</p>
 <p><span id="eq-6.201"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} \Bigg[\sup_{0\leq s\leq t}|M_2(t)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
@@ -4024,11 +4062,11 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\
 &amp; \qquad + 12C_2^2\lambda L_h T E\Delta t.
 \end{aligned}
-\tag{6.201}\]</span></span></p>
+\tag{6.203}\]</span></span></p>
 <p>Por último, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por la desigualdad de Bulkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
 <p><span id="eq-6.202"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
-\tag{6.202}\]</span></span></p>
+\tag{6.204}\]</span></span></p>
 <p>donde de igual manera que con el proceso <span class="math inline">\(M_2(t)\)</span>, la variación cuadrática de <span class="math inline">\(M_3(t)\)</span> está dada por la siguiente integral</p>
 <p><span class="math display">\[
 \langle M_3\rangle_t = \lambda\int_0^t |h(Y(s-))-h(X(s-))|^4ds.
@@ -4049,7 +4087,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \leq 2\sqrt{2\lambda}L_h\Bigg[\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4ds\Bigg)^{1/2}\\
 &amp; \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
 \end{aligned}
-\tag{6.203}\]</span></span></p>
+\tag{6.205}\]</span></span></p>
 <p>El término <span class="math inline">\(|E(s-)|^4\)</span> podemos acotarlo de la siguiente forma</p>
 <p><span class="math display">\[
 |E(s-)|^4\leq \Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)|E(s-)|^2.
@@ -4058,7 +4096,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 |Y(s-)-\overline{Y}(s-)|^4 \leq \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2.
 \]</span></p>
-<p>Sustituyendo ambas cotas en <a href="#eq-6.203" class="quarto-xref">Ecuación&nbsp;<span>6.203</span></a> tenemos</p>
+<p>Sustituyendo ambas cotas en <a href="#eq-6.203" class="quarto-xref">Ecuación&nbsp;<span>6.205</span></a> tenemos</p>
 <p><span id="eq-6.204"><span class="math display">\[
 \begin{aligned}
 \langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
@@ -4066,12 +4104,12 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\
 &amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
-\tag{6.204}\]</span></span></p>
+\tag{6.206}\]</span></span></p>
 <p>Usamos nuevamente la desigualdad generalizada de Young, para <span class="math inline">\(\mu&gt;0\)</span> se cumple</p>
 <p><span class="math display">\[
 \Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s-)|^2ds.
 \]</span></p>
-<p>Al sustituir y reducir en la <a href="#eq-6.204" class="quarto-xref">Ecuación&nbsp;<span>6.204</span></a></p>
+<p>Al sustituir y reducir en la <a href="#eq-6.204" class="quarto-xref">Ecuación&nbsp;<span>6.206</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \langle M_3\rangle_t^{1/2}  &amp; \leq  2\sqrt{2\lambda}L_h\Bigg[\frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2\\
@@ -4082,7 +4120,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 2\sqrt{2\lambda T}L_h\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2.
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo en <a href="#eq-6.202" class="quarto-xref">Ecuación&nbsp;<span>6.202</span></a> y usando la propiedad distributiva del valor esperado tenemos</p>
+<p>Sustituyendo en <a href="#eq-6.202" class="quarto-xref">Ecuación&nbsp;<span>6.204</span></a> y usando la propiedad distributiva del valor esperado tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{2C_3\sqrt{2\lambda}L_h}{2\mu}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
@@ -4090,15 +4128,15 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_h\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
 \]</span></p>
-<p>Tomamos a <span class="math inline">\(\mu=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.197</span></a> y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue</p>
+<p>Tomamos a <span class="math inline">\(\mu=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.199</span></a> y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue</p>
 <p><span id="eq-6.205"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
 &amp; \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\  
 &amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_hE\Delta t.
 \end{aligned}
-\tag{6.205}\]</span></span></p>
-<p>Sumando las cotas de la <a href="#eq-6.198" class="quarto-xref">Ecuación&nbsp;<span>6.198</span></a>, <a href="#eq-6.201" class="quarto-xref">Ecuación&nbsp;<span>6.201</span></a> y <a href="#eq-6.205" class="quarto-xref">Ecuación&nbsp;<span>6.205</span></a> tenemos que</p>
+\tag{6.207}\]</span></span></p>
+<p>Sumando las cotas de la <a href="#eq-6.198" class="quarto-xref">Ecuación&nbsp;<span>6.200</span></a>, <a href="#eq-6.201" class="quarto-xref">Ecuación&nbsp;<span>6.203</span></a> y <a href="#eq-6.205" class="quarto-xref">Ecuación&nbsp;<span>6.207</span></a> tenemos que</p>
 <p><span id="eq-6.206"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|M_1(s)|\Bigg] +\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]+\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\\
@@ -4108,7 +4146,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; = \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{A} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds + \overline{B} \Delta t\\
 &amp; \leq \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds+ \overline{D} \Delta t,
 \end{aligned}
-\tag{6.206}\]</span></span></p>
+\tag{6.208}\]</span></span></p>
 <p>donde</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -4129,7 +4167,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   &amp; \leq \mathcal{D}\int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
-\tag{6.207}\]</span></span></p>
+\tag{6.209}\]</span></span></p>
 <p>donde <span class="math inline">\(\mathcal{D}\)</span> se define como</p>
 <p><span class="math display">\[
 \mathcal{D}:=\max\{2(D_1+\overline{D}),2(D_1(T(1+A+A_1))+\overline{D})\}.
@@ -4142,19 +4180,19 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span class="math display">\[
 \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\leq \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds
 \]</span></p>
-<p>La <a href="#eq-6.207" class="quarto-xref">Ecuación&nbsp;<span>6.207</span></a> queda de la siguiente forma</p>
+<p>La <a href="#eq-6.207" class="quarto-xref">Ecuación&nbsp;<span>6.209</span></a> queda de la siguiente forma</p>
 <p><span id="eq-6.208"><span class="math display">\[
 \begin{aligned}
   \mathbb{E}\Bigg[ &amp; \sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\
   &amp; \leq \mathcal{D} \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds\\
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
-\tag{6.208}\]</span></span></p>
+\tag{6.210}\]</span></span></p>
 <p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
 <p><span class="math display">\[
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 \]</span></p>
-<p>entonces se garantiza que <span class="math inline">\(u(t)\leq \alpha e^{\beta t}\)</span>. Con esto, basta tomar a <span class="math inline">\(\alpha = \mathcal{D}\Delta t\)</span>, <span class="math inline">\(\beta= \mathcal{D}\)</span> y <span class="math inline">\(\displaystyle u(t) = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\)</span>, aplicando directamente esta desigualdad a la <a href="#eq-6.208" class="quarto-xref">Ecuación&nbsp;<span>6.208</span></a>, se deduce</p>
+<p>entonces se garantiza que <span class="math inline">\(u(t)\leq \alpha e^{\beta t}\)</span>. Con esto, basta tomar a <span class="math inline">\(\alpha = \mathcal{D}\Delta t\)</span>, <span class="math inline">\(\beta= \mathcal{D}\)</span> y <span class="math inline">\(\displaystyle u(t) = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\)</span>, aplicando directamente esta desigualdad a la <a href="#eq-6.208" class="quarto-xref">Ecuación&nbsp;<span>6.210</span></a>, se deduce</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}t}\Delta t.
 \]</span></p>
