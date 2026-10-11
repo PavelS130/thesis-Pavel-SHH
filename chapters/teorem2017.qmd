@@ -3487,7 +3487,7 @@ $$
 & \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \\ 
 & \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right].
 \end{aligned}
-$$ {#eq-falta01}
+$$ {#eq-6.141}
 
 Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a $ds$. Para ello, aplicamos la Desigualdad de Hölder para integrales o equivalentemente, la Desigualdad de Jensen para la medida de Lebesgue normalizada. Dado que $p\geq 4$, el exponente $q=p/2$ satisface $q\geq 2>1$. Por lo tanto, para cualquier función medible y no negativa $F(s)$, se cumple la desiguldad
 
@@ -3502,9 +3502,9 @@ $$
 \mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] & \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\ 
 & = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds,
 \end{aligned}
-$$ {#eq-falta02}
+$$ {#eq-6.142}
 
-Sustituyendo esto en la @eq-falta01, obtenemos
+Sustituyendo esto en la @eq-6.141, obtenemos
 
 $$
 \begin{aligned}
@@ -3515,7 +3515,7 @@ $$
 & \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},1}(\tau)\right|^{p/2}\right] \\ 
 & \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},2}(\tau)\right|^{p/2}\right], 
 \end{aligned}
-$$ {#eq-falta03}
+$$ {#eq-6.143}
 
 donde
 
@@ -3585,7 +3585,7 @@ $$
 \end{aligned}
 $$
 
-Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $\mathcal{L}^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Bulkholder-Davis-Gundy. 
+Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $\mathcal{L}^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy. 
 
 Para la martingala $M_W(\tau)$, su variación cuadrática está dada por 
 
@@ -3593,11 +3593,11 @@ $$
 \langle M_W \rangle_{\tau} = \int_0^\tau |X(s)g(X(s)|^2ds.
 $$
 
-Aplicando la Desigualdad de Bulkholder-Davis-Gundy con $q=p/2$, nos indica que existe una constante $C_{p/2,W}$ tal que 
+Aplicando la Desigualdad de Burkholder-Davis-Gundy con $q=p/2$, nos indica que existe una constante $C_{p/2,W}$ tal que 
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}\mathbb{E}\Bigg[\Bigg(\int_0^t |X(s)g(X(s))|^2\, ds\Bigg)^{p/4}\Bigg]. 
-$$ {#eq-falta04}
+$$ {#eq-6.144}
 
 Para acotar el lado derecho, haremos uso de la desigualdad de Hölder para integrales con el exponente $r=p/4\leq 1$
 
@@ -3608,7 +3608,7 @@ $$
 \end{aligned}
 $$
 
-Tomando esperanza y usando el Teorema de Fubini-Tonnelli, ya que el integrando es no negativo, podemos obtener de la @eq-falta04
+Tomando esperanza y usando el Teorema de Fubini-Tonnelli, ya que el integrando es no negativo, podemos obtener de la @eq-6.144
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds..
@@ -3624,7 +3624,7 @@ al elevar a la potencia $p/4$, se tiene $|xg(x)|^{p/2}\leq L_{\lambda}^{p/4}(1+|
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)g(X(s-))\,dW(s)\right|^{p/2}\right] \leq K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
-$$ {#eq-falta05}
+$$ {#eq-6.145}
 
 donde $K_1 = C_{p/2,W}\, T^{p/4 - 1} \, L_\lambda^{p/4}$.
 
@@ -3634,11 +3634,11 @@ $$
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|X(s)h(X(s))|^2 ds. 
 $$
 
-Notemos que dicho término difiere de la constante $\lambda>0$ a la variación cuadrática del proceso $M_W(\tau)$, como $h$ también satisface la cota de crecimiento lineal de la @eq-6.19, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Bulkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a 
+Notemos que dicho término difiere de la constante $\lambda>0$ a la variación cuadrática del proceso $M_W(\tau)$, como $h$ también satisface la cota de crecimiento lineal de la @eq-6.19, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Burkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
-$$ {#eq-falta06}
+$$ {#eq-6.146}
 
 donde $K_2 = C_{p/2,\widetilde{N},1} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/4}$.
 
@@ -3648,7 +3648,7 @@ $$
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|h(X(s))|^4 ds. 
 $$
 
-Aplicando la desigualdad de Bulkholder-Davis-Gundy, podemos afirmar que existe una constante positiva $C_{p/2,\widetilde{N},2}>0$ tal que 
+Aplicando la desigualdad de Burkholder-Davis-Gundy, podemos afirmar que existe una constante positiva $C_{p/2,\widetilde{N},2}>0$ tal que 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \mathbb{E}\left[\left(\lambda \int_0^t |h(X(s))|^4 \, ds\right)^{p/4}\right].
@@ -3666,10 +3666,10 @@ Usando la cota de la @eq-6.19 se tiene que $|h(x)|^p\leq L_{\lambda}^{p/2}(1+|x|
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
-$$ {#eq-falta07}
+$$ {#eq-6.147}
 
 
-donde $K_3 = C_{p/2,\widetilde{N},2} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/2}$ es una constante positiva. Sustituyendo la @eq-falta05, @eq-falta06 y @eq-falta07 en la @eq-falta03 tenemos 
+donde $K_3 = C_{p/2,\widetilde{N},2} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambda^{p/2}$ es una constante positiva. Sustituyendo la @eq-6.145, @eq-6.146 y @eq-6.147 en la @eq-6.143 tenemos 
 
 $$
 \begin{aligned}
@@ -3682,7 +3682,7 @@ $$
 & \leq  \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\  
 & \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
 \end{aligned}
-$$ {#eq-falta08}
+$$ {#eq-6.148}
 
 donde $K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}$. Usando la desigualdad de Young podemos obtener la siguiente cota para el integrando 
 
@@ -3694,7 +3694,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo esta cota en la @eq-falta08, y definiendo la constante $\widetilde{K}:=2^{(p-2)/2}\, K_M$, la expresión se reorganiza de la siguiente manera  
+Sustituyendo esta cota en la @eq-6.148, y definiendo la constante $\widetilde{K}:=2^{(p-2)/2}\, K_M$, la expresión se reorganiza de la siguiente manera  
 
 $$
 \begin{aligned}
@@ -3749,7 +3749,7 @@ Y(t)-\overline{Y}(t) & = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t - (Y_n-f_{\lambda
 & \qquad\quad - g(Y_n^*)(W(t)-W(t_n))\\ 
 & \qquad\qquad - h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)). 
 \end{aligned}
-$$ {#eq-6.141}
+$$ {#eq-6.149}
 
 Sea $s=t-t_n$, entonces, como $t\in[n\Delta t,(n+1)\Delta t]$, se tiene que $s\in[0,\Delta t]$. Por lo que
 
@@ -3763,7 +3763,7 @@ $$
 -\Delta t\leq \theta\Delta t-(t-t_n)\leq \Delta t. 
 $$
 
-Con esto, la @eq-6.141 queda acotada mediante
+Con esto, la @eq-6.149 queda acotada mediante
 
 $$
 \begin{aligned}
@@ -3784,7 +3784,7 @@ $$
 & \qquad\qquad\quad +|g(Y_n^*)(W(t)-W(t_n))|^2\\ 
 & \qquad\qquad\quad +|h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n))|^2\Bigg). 
 \end{aligned}
-$$ {#eq-6.142}
+$$ {#eq-6.150}
 
 Acotemos los términos de deriva, diusión y salto. Para el coeficiente de deriva, $f_{\lambda }$, usaremos la condición de crecimiento polinomial dada en la @eq-6.13 de la siguiente forma
 
@@ -3795,9 +3795,9 @@ $$
 & \leq 2D(1+|Y_n^*|^q)|Y_n^*|^2+2|f_{\lambda}(0)|^2\\
 & = 2D|Y_n^*|^2+2D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2.
 \end{aligned}
-$$ {#eq-6.143}
+$$ {#eq-6.151}
 
-Notemos que $|Y_n^*|^2>0$, por lo que $|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}$, sustituyendo esto en la @eq-6.143
+Notemos que $|Y_n^*|^2>0$, por lo que $|Y_n^*|^2\leq 1+|Y_n^*|^{q+2}$, sustituyendo esto en la @eq-6.151
 
 $$
 \begin{aligned}
@@ -3806,21 +3806,21 @@ $$
 & = 2D + 4D|Y_n^*|^{q+2}+2|f_{\lambda}(0)|^2\\ 
 & = D_1(1+|Y_n^*|^{q+2}),
 \end{aligned}
-$$ {#eq-6.144}
+$$ {#eq-6.152}
 
 donde $D_1:=\max\{2D+2|f_{\lambda}(0)|^2, 4D\}$. Para los terminos de difusión y salto haremos uso de la cota dada en la @eq-6.19, con esto tenemos
 
 $$
 |g(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2),
-$$ {#eq-6.145}
+$$ {#eq-6.153}
 
 De forma similar se obtiene
 
 $$
 |h(Y_n^*)|^2\leq L_{\lambda}(1+|Y_n^*|^2).
-$$ {#eq-6.146}
+$$ {#eq-6.154}
 
-Sustituyendo la @eq-6.144, @eq-6.145 y @eq-6.145 en la @eq-6.142 tenemos
+Sustituyendo la @eq-6.152, @eq-6.153 y @eq-6.153 en la @eq-6.150 tenemos
 
 $$
 \begin{aligned}
@@ -3829,7 +3829,7 @@ $$
 & \qquad\quad + L_{\lambda}(1+|Y_n^*|^2)|W(t)-W(t_n)|^2\\ 
 & \qquad\quad + L_{\lambda}(1+|Y_n^*|^2)|\widetilde{N}(t)-\widetilde{N}(t_n)|^2\Bigg). 
 \end{aligned} 
-$$ {#eq-6.147}
+$$ {#eq-6.155}
 
 Definimos a las siguientes constantes y notación
 
@@ -3842,7 +3842,7 @@ u & := q+2,\\
 \end{aligned}
 $$
 
-Con estas manupilaciones es posible acotar de manera uniforme la @eq-6.147 de tal forma que tenemos
+Con estas manupilaciones es posible acotar de manera uniforme la @eq-6.155 de tal forma que tenemos
 
 $$
 \begin{aligned}
@@ -3851,7 +3851,7 @@ $$
 & \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta W_n(t)|^2\\ 
 & \qquad\qquad\quad +(1+|Y_n^*|^u)|\Delta \widetilde{N}_n(t)|^2\Bigg). 
 \end{aligned} 
-$$ {#eq-6.148}
+$$ {#eq-6.156}
 
 Recordemos que por construcción $N_T$ es el mayor entero tal que $N_T\Delta t\leq T$, por lo que dicho intervalo se descompone en la unión finita de subintervalos, vale decir
 
@@ -3863,9 +3863,9 @@ donde $t_n=n\Delta t$ y $N_T$ es finito para cualquier $\Delta t>0$ fijo. Aplica
 
 $$
 \sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2=\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y(t)-\overline{Y}(t)|^2\right). 
-$$ {#eq-6.149}
+$$ {#eq-6.157}
 
-Si aplicamos dicha propiedad a la @eq-6.148, además de usar la independencia de los procesos $W(t)$, $\widetilde{N}(t)$ y la variable $Y_n^*$ tenemos
+Si aplicamos dicha propiedad a la @eq-6.156, además de usar la independencia de los procesos $W(t)$, $\widetilde{N}(t)$ y la variable $Y_n^*$ tenemos
 
 $$
 \begin{aligned}
@@ -3875,7 +3875,7 @@ $$
 & +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
 & +\left(1+\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|Y_n^*|^u\right)\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
-$$ {#eq-6.150}
+$$ {#eq-6.158}
 
 La variable $Y_n^*$ se define mediante la @eq-6.04 como una suceción discreta de variables aleatorias, indeada por $n\in\{0,1,\ldots,N_T\}$. Dado que el conjunto de índices $\{0,1,\ldots, N_T\}$ es finito, entonces el supremo sobre este conjunto discreto es exactamente igual al máximo, es decir
 
@@ -3905,7 +3905,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo esto en la @eq-6.150 tenemos
+Sustituyendo esto en la @eq-6.158 tenemos
 
 $$
 \begin{aligned}
@@ -3914,7 +3914,7 @@ $$
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\max_{0\leq n\leq N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
-$$ {#eq-6.151}
+$$ {#eq-6.159}
 
 Notemos que el máximo de los supremos locales está acotado por la suma de todos los supremos locales, es decir
 
@@ -3925,7 +3925,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo estas desigualdades en la @eq-6.151 tenemos
+Sustituyendo estas desigualdades en la @eq-6.159 tenemos
 
 $$
 \begin{aligned}
@@ -3934,10 +3934,10 @@ $$
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right)\\ 
 & +\left(1+\sup_{0\leq t_n\leq T}|Y_n^*|^u\right)\sum_{n=0}^{N_T-1}\left(\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right)\Bigg).
 \end{aligned}
-$$ {#eq-6.152}
+$$ {#eq-6.160}
 
 
-Al tomar valor esperado a la @eq-6.152 y usar las propiedades del valor esperado se tiene
+Al tomar valor esperado a la @eq-6.160 y usar las propiedades del valor esperado se tiene
 
 
 $$
@@ -3950,13 +3950,13 @@ $$
 & +\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\sum_{n=0}^{N_T-1}\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right]\\
 & +\left(1+\mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\right)\sum_{n=0}^{N_T-1}\mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right]\Bigg).
 \end{aligned}
-$$ {#eq-6.153}
+$$ {#eq-6.161}
 
 Recordemos que $u=q+2$, donde $q\in\mathbb{Z}^+$, por lo tanto, es posible encontrar $p\geq 2$ tal que $u\leq 2p$, con esto, por el @lem-6.2, existe una constante positiva $A$, independiente de $\Delta t$ tal que
 
 $$
 \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
-$$ {#eq-6.154}
+$$ {#eq-6.162}
 
 Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Con esto, podemos hacer uso de la desigualdad de Maximal de Doob, de tal forma que 
 
@@ -3966,7 +3966,7 @@ $$
 & = 4\mathbb{E}\left[|W(t_{n+1})-W(t_n)|^2\right]\\
 & = 4\Delta t,
 \end{aligned}
-$$ {#eq-6.155}
+$$ {#eq-6.163}
 
 De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo
 
@@ -4020,9 +4020,9 @@ $$
 \mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] & \leq 4\mathbb{E}\left[|\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)|^2\right]\\ 
 & = 4\lambda\Delta t.
 \end{aligned}
-$$ {#eq-6.156}
+$$ {#eq-6.164}
 
-Dado que $\Delta t<1$ esto implica que $\Delta t^2\leq \Delta t$, además condierando las cotas en la @eq-6.154, @eq-6.155 y @eq-6.156, podemos sustituirlas en la @eq-6.153, obteniendo
+Dado que $\Delta t<1$ esto implica que $\Delta t^2\leq \Delta t$, además condierando las cotas en la @eq-6.162, @eq-6.163 y @eq-6.164, podemos sustituirlas en la @eq-6.161, obteniendo
 
 $$
 \begin{aligned}
@@ -4072,7 +4072,7 @@ $$
 X(t) & = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\ 
 & \qquad\quad  + \int_0^t h(X(s-))d\widetilde{N}(s). 
 \end{aligned}
-$$ {#eq-agregar1}
+$$ {#eq-6.165}
 
 Mientras que la aproximación continua $\overline{Y}(t)$ está definida en la @eq-6.08. Restando ambas expresiones integrales, obtenemos la representación integral del error
 
@@ -4090,7 +4090,7 @@ $$
   dE(t) & = [f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt + [g(Y(t-))-g(X(t-))]dW(t)\\ 
   & \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t). 
 \end{aligned}
-$$ {#eq-agregar2}
+$$ {#eq-6.166}
 
 Dado que $E(t)$ es una semimartingala càdlag en $\mathbb{R}$, haremos uso de la fórmula de Itô para procesos con saltos. Para una función $V\in C^2(\mathbb{R})$, esta fórmula descompone el diferencial $dV(E(t))$ en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como
 
@@ -4100,9 +4100,9 @@ $$
   & \quad + \underbrace{\Big[V(E(t-)+\Delta E(t))-V(E(t-))}_{\text{salto}}\\ 
   & \qquad\qquad\qquad\quad\underbrace{-V'(E(t-))\Delta E(t)\Big]dN(t)}_{\text{salto}}
 \end{aligned}
-$$ {#eq-agregar3}
+$$ {#eq-6.167}
 
-En nuestro caso, para aplicar la fórmula de Itô usaremos la función $V(E)=E^2$, la cuál pertenece a $C^2(\mathbb{R})$ con primera y segunda derivada dadas por $V'(E)=2E$ y $V''(E)=2$ respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la @eq-agregar3 la expresión se simplifica de la siguiente forma
+En nuestro caso, para aplicar la fórmula de Itô usaremos la función $V(E)=E^2$, la cuál pertenece a $C^2(\mathbb{R})$ con primera y segunda derivada dadas por $V'(E)=2E$ y $V''(E)=2$ respectivamente. Por lo que, al sustituir dichas derivadas en el término de salto en la @eq-6.167 la expresión se simplifica de la siguiente forma
 
 $$
 \begin{aligned}
@@ -4112,13 +4112,13 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo las derivadas de la función $V(E)$, la @eq-agregar3 se simplifica de la siguiente manera con $V(E(t))=E(t)^2$
+Sustituyendo las derivadas de la función $V(E)$, la @eq-6.167 se simplifica de la siguiente manera con $V(E(t))=E(t)^2$
 
 $$
 d(E(t)^2)=2E(t-)dE(t)+(dE(t))^2+(\Delta E(t))^2dN(t). 
-$$ {#eq-agregar4}
+$$ {#eq-6.168}
 
-De la @eq-agregar2 definimos la siguiente notación
+De la @eq-6.166 definimos la siguiente notación
 
 - $A(t)=f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))$,
 
@@ -4134,7 +4134,7 @@ $$
 & \qquad +2A(t)B(t)dt\cdot dW(t)+2A(t)C(t)dt\cdot d\widetilde{N}(t)\\ 
 & \qquad\quad + 2B(t)C(t)dW(t)\cdot d\widetilde{N}(t). 
 \end{aligned}
-$$ {#eq-agregar5}
+$$ {#eq-6.169}
 
 Aplicando las reglas del cálculo de Itô podemos afirmar que $(dt)^2=0$, $dt\cdot dW(t)=0$, $dt\cdot d\widetilde{N}(t)=0$, $dW(t)\cdot d\widetilde{N}(t)=0$, mientras que $(dW(t))^2=dt$, por la definición del proceso de Poisson compensado se tiene
 
@@ -4142,7 +4142,7 @@ $$
 (d\widetilde{N}(t))^2=(dN(t))^2-2\lambda dN(t)dt+\lambda^2(dt)^2. 
 $$
 
-Usando propiedades del proceso de Poisson tenemos que $(dN(t))^2=dN(t)$, mientras que por las reglas de cálculo de Itô $dN(t)\cdot dt=0$, por tanto $(d\widetilde{N}(t))^2=dN(t)$, la @eq-agregar5 queda de la forma
+Usando propiedades del proceso de Poisson tenemos que $(dN(t))^2=dN(t)$, mientras que por las reglas de cálculo de Itô $dN(t)\cdot dt=0$, por tanto $(d\widetilde{N}(t))^2=dN(t)$, la @eq-6.169 queda de la forma
 
 $$
 (dE(t))^2 = B^2(t)dt+C^2(t)dN(t), 
@@ -4155,9 +4155,9 @@ $$
 (dE(t))^2 & =(g(Y(t-))-g(X(t-)))^2dt\\ 
 & \qquad\qquad\qquad+(h(Y(t-))-h(X(t-)))^2dN(t). 
 \end{aligned} 
-$$ {#eq-agregar6}
+$$ {#eq-6.170}
 
-Falta interpretar el término $\Delta e(t)$ en la @eq-agregar4. Este operador se define mediante
+Falta interpretar el término $\Delta e(t)$ en la @eq-6.168. Este operador se define mediante
 
 $$
 \Delta E(t):=E(t)-E(t-),
@@ -4169,14 +4169,14 @@ $$
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 $$
 
-Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-agregar1 y @eq-6.08 respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
+Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-6.165 y @eq-6.08 respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
 
 $$
 \begin{aligned}
   \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right) & =0,\\
   \Delta \left(\int_0^t f_{\lambda}(Y(s-))ds\right) & =0.
 \end{aligned} 
-$$ {#eq-agregar7}
+$$ {#eq-6.171}
 
 De igual forma, bajo las hipótesis de los coeficientes de Lipschitz, los términos de integrales respecto al movimiento browniano admiten una versión con trayectorias continuas casi seguramente, por lo que no presentan discontinuidades. Con esto
 
@@ -4185,7 +4185,7 @@ $$
   \Delta\left(\int_0^t g(X(s-))dW(s)\right)&=0\\ 
   \Delta\left(\int_0^t g(Y(s-))dW(s)\right)&=0
 \end{aligned}
-$$ {#eq-agregar8}
+$$ {#eq-6.172}
 
 La integral estocástica con respecto a un proceso de Poisson es un proceso que permanece constante entre los eventos de salto y solo cambia exactamente cuando $N(t)$ registra un salto. Con esto, el tamaño del salto de la integral en cualquier instante $t$ es el valor de la función, en nuestro caso, $h(x)$ justo antes de que ocurra el evento, multiplicado por la magnitud del salto del proceso de Poisson, es decir
 
@@ -4203,9 +4203,9 @@ $$
   \Delta \left(\int_0^t h(X(s-))d\widetilde{N}(s)\right) & = h(X(t-))\Delta N(t),\\
    \Delta \left(\int_0^t h(Y(s-))d\widetilde{N}(s)\right) & = h(Y(t-))\Delta N(t).
 \end{aligned}  
-$$ {#eq-agregar9}
+$$ {#eq-6.173}
 
-Aplicando el operador de salto a la solución exacta en la @eq-agregar1 y considerar @eq-agregar7, @eq-agregar8 y @eq-agregar9
+Aplicando el operador de salto a la solución exacta en la @eq-6.165 y considerar @eq-6.171, @eq-6.172 y @eq-6.173
 
 $$
 \begin{aligned}
@@ -4243,9 +4243,9 @@ $$
   (\Delta E(t))^2 & = [h(Y(t-))-h(X(t-))]^2(\Delta N(t))^2\\ 
   & = [h(Y(t-))-h(X(t-))]^2\Delta N(t)
 \end{aligned}
-$$ {#eq-agregar10}
+$$ {#eq-6.174}
 
-Sustituyendo @eq-agregar2, @eq-agregar6 y @eq-agregar10 en la @eq-agregar4 tenemos
+Sustituyendo @eq-6.166, @eq-6.170 y @eq-6.174 en la @eq-6.168 tenemos
 
 $$
 \begin{aligned}
@@ -4256,7 +4256,7 @@ d(E(t)^2) & = 2E(t-)[f_{\lambda}(Y(t-))-f_{\lambda}(X(t-))]dt\\
   & \qquad + [h(Y(t-))-h(X(t-))]^2dN(t)\\ 
   & \qquad + [h(Y(t-))-h(X(t-))]^2\Delta N(t)dN(t)
 \end{aligned}
-$$ {#eq-agregar11}
+$$ {#eq-6.175}
 
 Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria, se satisface $\Delta N(t)=\{0,1\}$. Bajo nuestro contexto de integración estocástica, el faltor $\Delta N(t)$ actúa como la función indicadora de los tiempos de salto. Puesto que la medida de integración $dN(t)$ está concentrada exclusivamente en dichos instantes, es decir, donde $\Delta N(t)=1$, se cumple
 
@@ -4264,7 +4264,7 @@ $$
 \Delta N(t)dN(t)=dN(t). 
 $$
 
-Sustituyendo esta propiedad en la @eq-agregar11 y factorizar los términos en común obtenemos
+Sustituyendo esta propiedad en la @eq-6.175 y factorizar los términos en común obtenemos
 
 $$
 \begin{aligned}
@@ -4322,7 +4322,7 @@ $$
   & \qquad + 2\lambda\int_0^t[h(Y(s-))-h(X(s-))]^2ds\\
   & \qquad +M_1(t)+M_2(t)+M_3(t),
 \end{aligned}
-$$ {#eq-agregar12}
+$$ {#eq-6.176}
 
 donde
 
@@ -4334,11 +4334,11 @@ $$
 \end{aligned}
 $$
 
-Para el término de deriva de la @eq-agregar12, podemos acotar usando la @eq-6.14, para nuesto caso, tomaremos a $x=\overline{Y}(s-)$, $y=X(s-)$ y $x-y=E(s-)=\overline{Y}(s-)-X(s-)$, con esto
+Para el término de deriva de la @eq-6.176, podemos acotar usando la @eq-6.14, para nuesto caso, tomaremos a $x=\overline{Y}(s-)$, $y=X(s-)$ y $x-y=E(s-)=\overline{Y}(s-)-X(s-)$, con esto
 
 $$
 E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2.
-$$ {#eq-agregar13}
+$$ {#eq-6.177}
 
 De manera similar, para los términos de difusión y salto correspondientes a las funciones $g$ y $h$ respectivamente podemos acotarlas usando las hipótesis dadas en la @eq-6.010 y @eq-6.11 de tal forma que
 
@@ -4347,9 +4347,9 @@ $$
   |g(Y(s-))-g(X(s-))|^2 & \leq L_g|Y(s-)-X(s-)|^2,\\ 
   |h(Y(s-))-h(X(s-))|^2 & \leq L_h|Y(s-)-X(s-)|^2. 
 \end{aligned}
-$$ {#eq-agregar14}
+$$ {#eq-6.178}
 
-Sustituyendo @eq-agregar13 y @eq-agregar14 en la @eq-agregar12 se tiene
+Sustituyendo @eq-6.177 y @eq-6.178 en la @eq-6.176 se tiene
 
 $$
 \begin{aligned}
@@ -4363,15 +4363,15 @@ $$
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
   & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
-$$ {#eq-agregar15}
+$$ {#eq-6.179}
 
-Usando la desigualdad de Young para el primer término de la @eq-agregar15 tenemos
+Usando la desigualdad de Young para el primer término de la @eq-6.179 tenemos
 
 $$
 2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2.
 $$
 
-Sustituyendo esto en la @eq-agregar15 tenemos
+Sustituyendo esto en la @eq-6.179 tenemos
 
 $$
 \begin{aligned}
@@ -4381,7 +4381,7 @@ $$
   & \qquad + (L_g+2\lambda L_h)\int_0^t |Y(s-)-X(s-)|^2ds\\ 
   & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
-$$ {#eq-agregar16}
+$$ {#eq-6.180}
 
 Usando la hipótesis dada en la @eq-6.13 para el término de deriva, podemos afirmar que existe $D>0$ y $q\in\mathbb{Z}$, tal que es posible acotarlo de la siguiente forma
 
@@ -4389,7 +4389,7 @@ $$
 |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2\leq D\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2. 
 $$
 
-Con esto, ordenando la @eq-agregar16 y sustituyendo esta cota se tiene
+Con esto, ordenando la @eq-6.180 y sustituyendo esta cota se tiene
 
 $$
 \begin{aligned}
@@ -4400,7 +4400,7 @@ $$
   & \qquad + D \int_0^t \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\
   & \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
-$$ {#eq-agregar17}
+$$ {#eq-6.181}
 
 Por otro lado, tenemos que $(L_g+2\lambda L_h)>0$, por la forma en que están definidas las constantes $\lambda$, $L_g$ y $L_h$. De la siguiente igualdad, donde recordemos que $E(s-)=\overline{Y}(s-)-X(s-)$, tenemos
 
@@ -4439,7 +4439,7 @@ $$
 \end{aligned}
 $$
 
-Basta notar que $1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)$, considerando tambien la desigualdad anterior, podemos obtener en la @eq-agregar17 la siguiente cota
+Basta notar que $1\leq \left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)$, considerando tambien la desigualdad anterior, podemos obtener en la @eq-6.181 la siguiente cota
 
 $$
 \begin{aligned}
@@ -4458,7 +4458,7 @@ $$
   & \qquad + D_1\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)|Y(s-)-\overline{Y}(s-)|^2ds\\ 
   & \qquad + M_1(t)+M_2(t)+M_3(t), 
 \end{aligned}
-$$ {#eq-agregar18}
+$$ {#eq-6.182}
 
 donde
 
@@ -4472,7 +4472,7 @@ $$
 |Y(s-)-\overline{Y}(s-)|^2\leq \sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2.
 $$
 
-Sustituyendo esto en la @eq-agregar18 y notando que dicho supremo es independiente al integrando, es posible extraerlo fuera de la integral
+Sustituyendo esto en la @eq-6.182 y notando que dicho supremo es independiente al integrando, es posible extraerlo fuera de la integral
 
 $$
 \begin{aligned}
@@ -4491,13 +4491,13 @@ $$
   & \qquad + D_1\sup_{0\leq s\leq t}\left(\sup_{0\leq u\leq t}|Y(u-)-\overline{Y}(u-)|^2\int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\right)\\ 
   & \qquad + \sup_{0\leq s\leq t}M_1(s) + \sup_{0\leq s\leq t} M_2(s) + \sup_{0\leq s\leq t} M_3(t).
 \end{aligned}
-$$ {#eq-agregar19}
+$$ {#eq-6.183}
 
 Notemos que la primer integral respecto al error, $E(r-)$ es creciente en $s$ por lo tanto podemos simplificarlo mediante
 
 $$
 \sup_{0\leq s\leq t}\left(\int_0^s |E(r-)|^2dr\right)= \int_0^t |E(s-)|^2ds. 
-$$ {#eq-agregar20}
+$$ {#eq-6.184}
 
 De igual forma se tiene que el factor $\displaystyle \left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)$ es creciente, por lo tanto por la propiedad del producto de supremos y la monotonía en funciones crecientes se tiene que
 
@@ -4506,9 +4506,9 @@ $$
   \sup_{0\leq s\leq t} & \Bigg(\sup_{0\leq u\leq t} |Y(u-) - \overline{Y}(u-)|^2 \int_0^s\left(1+|Y(r-)|^q+|\overline{Y}(r-)|^q\right)dr\Bigg)\\ 
   & \leq \left(\sup_{0\leq  s\leq t} |Y(s-)-\overline{Y}(s-)|^2\right)\int_0^t (1+|Y(s-)|^q+|\overline{Y}(s-)|^q)ds.
 \end{aligned}
-$$ {#eq-agregar21}
+$$ {#eq-6.185}
 
-Por tanto, sustituyendo @eq-agregar20 y @eq-agregar21 en la @eq-agregar19 tenemos
+Por tanto, sustituyendo @eq-6.184 y @eq-6.185 en la @eq-6.183 tenemos
 
 $$
 \begin{aligned}
@@ -4527,7 +4527,7 @@ $$
   & \qquad + D_1\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
-$$ {#eq-agregar22}
+$$ {#eq-6.186}
 
 Dado que $|E(s-)|^2\geq 0$ y dicho proceso es medible, por el teorema de Tonelli se cumple
 
@@ -4545,7 +4545,7 @@ $$
 \end{aligned}
 $$
 
-La @eq-agregar22 queda de acotada mediante
+La @eq-6.186 queda de acotada mediante
 
 $$
 \begin{aligned}
@@ -4555,7 +4555,7 @@ $$
   & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad+\mathbb{E}\Big[|\overline{Y}(s-)|^q\Big]\Big)ds\Bigg)\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
-$$ {#eq-agregar23}
+$$ {#eq-6.187}
 
 Recordemos que la aproximación escalonada $Y(s)$ está definida en la @eq-6.06, para $s\in [t_n,t_{n+1}]$ se tiene que $Y(s)=Y_n^*$ dentro del intérvalo $[0,T]$, por lo tanto, su magnitud está estrictamente acotada por el supremo de las magnitudes de todos los elementos de la secuencia, es decir
 
@@ -4573,22 +4573,22 @@ Dado $q\in \mathbb{Z}^+$ es posible encontrar $p_1\geq 1$ tal que $q\leq 2p_1$, 
 
 $$
 \mathbb{E}\left[|Y(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p_1}\right]. 
-$$ {#eq-agregar24}
+$$ {#eq-6.188}
 
 De forma similar, existe $p_2\geq 1$ tal que
 
 $$
 \mathbb{E}\left[|\overline{Y}(s-)|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^q\right]\leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p_2}\right]. 
-$$ {#eq-agregar25}
+$$ {#eq-6.189}
 
-Tomando a $p=\max\{p_1,p_2\}$ y aplicando el @lem-6.2 y @lem-6.3 a la @eq-agregar24 y @eq-agregar25 respectivamente, obtenemos
+Tomando a $p=\max\{p_1,p_2\}$ y aplicando el @lem-6.2 y @lem-6.3 a la @eq-6.188 y @eq-6.189 respectivamente, obtenemos
 
 $$
 \begin{aligned}
   \mathbb{E}\left[|Y(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A,\\ 
   \mathbb{E}\left[|\overline{Y}(s-)|^q\right] & \leq \mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}|^{2p}\right]\leq A_1,
 \end{aligned}
-$$ {#eq-agregar26}
+$$ {#eq-6.190}
 
 Por el @lem-6.5, para $t\in[0,T]$ se cumple que
 
@@ -4597,9 +4597,9 @@ $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2\Bigg] & \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Bigg]\\
 & \leq E\Delta t.   
 \end{aligned}
-$$ {#eq-agregar27}
+$$ {#eq-6.191}
 
-Sustituyendo la @eq-agregar26 y @eq-agregar27 en la @eq-agregar23 tenemos que se reduce
+Sustituyendo la @eq-6.190 y @eq-6.191 en la @eq-6.187 tenemos que se reduce
 
 $$
 \begin{aligned}
@@ -4611,13 +4611,115 @@ $$
   & \qquad + D_1(T(1+A+A_1))E\Delta t\\ 
   & \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg]. 
 \end{aligned}
-$$ {#eq-agregar28}
+$$ {#eq-6.192}
 
-Para calcular la cota al proceso $M_1(t)$, usaremos la desigualdad de Bulkholder-Davis-Gundy, con ello se afirma que existe una constante $C_1>0$ independiente de $\Delta t$ tal que
+Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio $\mathcal{L}^2$. 
+
+Debemos contemplar los métodos en los que aplicaremos el @lem-6.3, @lem-6.4 y @lem-6.5 de la siguiente forma: Para $s\in[0,t]\subset [0,T]$ y $p_1\geq 1$ y $p_2\geq 4$ tal que $4\leq p$ y $4\leq 2p$, donde $p:=\max\{p_1,p_2\}$, se satisface 
 
 $$
-\mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right]\leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right], 
-$$ {#eq-agregar29}
+\begin{aligned}
+\mathbb{E}\Big[|\overline{Y}(s)|^4\Big] & \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)|^2p\Bigg]\leq A_1,\\
+\mathbb{E}\Big[|X(s)|^4\Big] & \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^p\Bigg]\leq A_2,\\
+\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big] & \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\Bigg]\leq E\Delta t.
+\end{aligned}
+$$ {#eq-agregar01}
+
+Para que $M_1(t)$ pertenezca al espacio $\mathcal{L}^2$, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir 
+
+$$
+\mathbb{E}\Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]<\infty.
+$$ {#eq-agregar02}
+
+Haciendo uso de la @eq-6.010 para obtener la siguiente cota al integrando 
+
+$$
+\begin{aligned}
+|2E(s)(g(Y(s))-g(X(s)))|^2 & = 4|E(s)|^2\, |g(Y(s))-g(X(s))|^2\\ 
+& \leq 4L_g|E(s)|^2\cdot |Y(s)-X(s)|^2\\
+& \leq 4L_g|E(s)|^2\, 2\Big(|Y(s)-\overline{Y}(s)|^2+|E(s)|^2\Big)\\ 
+& = 8L_g \Big(|E(s)|^4+|E(s)|^4\, |Y(s)-\overline{Y}(s)|^2\Big)
+\end{aligned}
+$$
+
+Sustituyendo esto en la @eq-agregar02 y aplicar el Teorema de Fubini-Tonelli, se obtiene 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
+& \leq 8L_g\mathbb{E}\Bigg[\int_0^t|E(s)|^4+|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\, ds\Bigg]\\ 
+& = 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^4\, |Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)
+\end{aligned}
+$$
+
+Notemos que para el valor esperado de los términos $|E(s)|^4$, es posible descomponerlos de la siguiente forma 
+
+$$
+\begin{aligned}
+\mathbb{E}\Big[|E(s)|^4\Big] & = \mathbb{E}\Big[|\overline{Y}(s)-X(s)|^4\Big]\\ 
+& \leq 8\mathbb{E}\Big[|\overline{Y}(s)|^4+|X(s)|^4\Big]\\ 
+& = 8\mathbb{E}\Big[|\overline{Y}(s)|^4\Big]+8\mathbb{E}\Big[|X(s)|^4\Big].
+\end{aligned}
+$$
+
+Al sustituir  esto y usar la independencia entre los procesos $|E(s)|^2$ y $|Y(s)-\overline{Y}(s)|^2$ además de usar también las cotas definidas en la @eq-agregar01 se afirma que 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
+& \leq 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\ 
+& \leq 8L_g\Bigg(8\int_0^t\mathbb{E}\Big[|\overline{Y}(s)|^4\Big]\, ds +8\int_0^t \mathbb{E}\Big[|X(s)|^4\Big]\, ds\\ 
+& \qquad\qquad\quad + 8\int_0^t \mathbb{E}\Big[|\overline{Y}(s)|^4\Big] \mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\\ 
+& \qquad\qquad\quad + 8\int_0^t \mathbb{E}\Big[|X(s)|^4\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\
+& \leq 64L_g\Bigg(\int_0^t (A_1 + A_2+ A_1\, E\Delta t+ A_2\,E\Delta t)\, ds\Bigg)\\ 
+& \leq 64L_gT(A_1 + A_2+ A_1\, E\Delta t+ A_2\,E\Delta t)<\infty
+\end{aligned}
+$$
+
+Por lo que queda demostrado que el integrando del proceso $M_1(t)$ pertenece al espacio $\mathcal{L}^2$. En consecuencia, $M_1(t)$ es una martingala cuadrado-integrable. 
+
+Para el proceso $M_2(t)$, basta notar la similitud entre las cotas dadas en la @eq-6.010 y la @eq-6.11 para la función $g$ y la función $h$ respectivamente. Por lo que el procedimiento para demostrar que la esperanza de la integral del cuadrado del integrando de $M_2(t)$ es finita, es decir
+
+$$
+\mathbb{E}\Bigg[\int_0^t |2E(s)(h(Y(s))-h(X(s)))|^2\, ds\Bigg]<\infty, 
+$$ 
+
+es completammente análoga a lo hecho previamente con $M_1(t)$. Por tanto, $M_2(t)$ es una martingala cuadrado-integrable. Ahora bien, para el proceso $M_3(t)$, demostraremos que se cumple 
+
+$$
+\mathbb{E}\Bigg[\int_0^t |2(h(Y(s))-h(X(s)))^2|^2\, ds\Bigg]<\infty.
+$$
+
+Nuevamente usaremos la @eq-6.11 para acotar el integrando de la siguiente forma 
+
+$$
+\begin{aligned}
+|2(h(Y(s))-h(X(s)))^2|^2 & \leq 4L_h^2|Y(s)-X(s)|^4\\ 
+& \leq 16L_h^2\Big(|Y(s)|^4+|X(s)|^4\Big). 
+\end{aligned}
+$$
+
+A partir de la definición la aproximación escalonada $Y(s)$ dada en la @eq-6.06, podemos afirmar que para algún $n\in [1,N_T]$ se tiene $Y(s)=Y_n^*(t)$ y con esto podemos hacer uso del @lem-6.2 para encontrar la siguiente cota 
+
+$$
+\begin{aligned}
+\mathbb{E} & \Bigg[\int_0^t |2(h(Y(s))-h(X(s)))^2|^2\, ds\Bigg] \\ 
+& \leq 16L_h^2\mathbb{E}\Bigg[\int_0^t \Big(|Y(s)|^4+|X(s)|^4\Big)\, ds\Bigg]\\ 
+& = 16L_h^2\int_0^t \mathbb{E}\Big[\Big(|Y(s)|^4+|X(s)|^4\Big)\, ds\Big]\\ 
+& = 16L_h^2\Bigg(\int_0^t \mathbb{E}\Big[|Y(s)|^4\Big]\, ds+ \int_0^t \mathbb{E}\Big[|X(s)|^4\Big]\, ds\Bigg)\\ 
+& \leq 16L_h^2T \Big(A+A_2)<\infty.
+\end{aligned}
+$$
+
+Por lo tanto $M_3(t)$ es una martingala cuadrado-integrable. 
+
+Dado que los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$ son martingalas verdaderas, podemos hacer uso de la desigualdad de Burkholder-Davis-Gundy (BDG) para cada una de ellas. 
+
+Comenzando con el proceso $M_1(t)$, aplicamos la desigualdad BDG con exponente $q=1$. De esta forma, podemos afirmar que existe una constante universal $C_1 > 0$ (la cual depende únicamente del exponente $q$ y, por tanto, es estrictamente independiente del paso de tiempo $\Delta t$) tal que
+
+$$
+\mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right] \leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right],
+$$ {#eq-6.193}
 
 donde $\langle M_1\rangle_t$ está denotando a la variación de dicho proceso, la cuál está dada por la integral de Lebesgue del cuadrado del integrando estocástico, es decir
 
@@ -4658,7 +4760,7 @@ Por lo tanto, tomando raíz cuadrada y usando su propiedad distributiva es posib
 
 $$
 \langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
-$$ {#eq-agregar30}
+$$ {#eq-6.194}
 
 Aplicaremos la desigualdad de Young generalizada, dado $\varepsilon>0$, el cuál definiremos más adelante, se satisface lo siguiente
 
@@ -4670,7 +4772,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo esto y la @eq-agregar30 en la @eq-agregar29 tenemos
+Sustituyendo esto y la @eq-6.194 en la @eq-6.193 tenemos
 
 $$
 \begin{aligned}
@@ -4680,9 +4782,9 @@ $$
 & = \frac{C_1 2\sqrt{2L_g}}{2\varepsilon}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\\ 
 & \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
-$$ {#eq-agregar31}
+$$ {#eq-6.195}
 
-Aplicando el teorema de Fubini-Tonelli al segundo término de la @eq-agregar31 se tiene
+Aplicando el teorema de Fubini-Tonelli al segundo término de la @eq-6.195 se tiene
 
 $$
 \begin{aligned}
@@ -4702,7 +4804,7 @@ $$
 & \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s-)|^2ds\Big]\\ 
 & \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big]ds. 
 \end{aligned}
-$$ {#eq-agregar32}
+$$ {#eq-6.196}
 
 Notemos que para $s\in [0,t]\subset [0,T]$ se satisface
 
@@ -4717,9 +4819,9 @@ $$
 \mathbb{E}\Big[|Y(s-)-\overline{Y}(s-)|^2\Big] & \leq \mathbb{E}\Big[\sup_{0\leq t\leq T}|Y(t-)-\overline{Y}(t-)|^2\Big]\\ 
 & \leq E\Delta t. 
 \end{aligned}
-$$ {#eq-agregar33}
+$$ {#eq-6.197}
 
-Por lo tanto, de la @eq-agregar32 se tiene
+Por lo tanto, de la @eq-6.196 se tiene
 
 $$
 \begin{aligned}
@@ -4731,13 +4833,13 @@ $$
 & \qquad\quad + 12C_1^2L_g\int_0^t \mathbb{E}\Big[|E(s)|^2ds\Big]\\ 
 & \qquad\quad + 12C_1^2L_g T E\Delta t.
 \end{aligned}
-$$ {#eq-agregar34}
+$$ {#eq-6.198}
 
-Usaremos un procedimiento similar para acotar el proceso $M_2(t)$. Por la desigualdad de Bulkholder-Davis-Gundy, existe una constante $C_2>0$ independiente de $\Delta t$ tal que
+Usaremos un procedimiento similar para acotar el proceso $M_2(t)$. Por la desigualdad de Burkholder-Davis-Gundy, existe una constante $C_2>0$ independiente de $\Delta t$ tal que
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big]. 
-$$ {#eq-agregar35}
+$$ {#eq-6.199}
 
 Para una integral estocástica con respecto al proceso de Poisson compensado $\widetilde{N}(s)$; la variación cuadratica $\langle M_2\rangle_t$ se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, $\lambda>0$, esto pues el compensador de $dN(s)$ es $\lambda ds$, es decir
 
@@ -4749,7 +4851,7 @@ Dado que el coeficiente de salto $h$ también cumple con la condición de Lipsch
 
 $$
 \langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
-$$ {#eq-agregar36}
+$$ {#eq-6.200}
 
 Usando la desigualdad de Young generalizada, para $\delta>0$ se satisface
 
@@ -4760,7 +4862,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo lo anterior y la @eq-agregar36 en la @eq-agregar35 obtenemos
+Sustituyendo lo anterior y la @eq-6.200 en la @eq-6.199 obtenemos
 
 $$
 \begin{aligned}
@@ -4774,7 +4876,7 @@ $$
 \end{aligned}
 $$
 
-Definiendo a $\delta=6C_2\sqrt{2\lambda L_h}$, usando la @eq-agregar33, la expresión anterior se reduce a
+Definiendo a $\delta=6C_2\sqrt{2\lambda L_h}$, usando la @eq-6.197, la expresión anterior se reduce a
 
 $$
 \begin{aligned}
@@ -4785,13 +4887,13 @@ $$
 & \qquad + 12C_2^2\lambda L_h\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
 & \qquad + 12C_2^2\lambda L_h T E\Delta t. 
 \end{aligned}
-$$ {#eq-agregar37}
+$$ {#eq-6.201}
 
-Por último, acotaremos el proceso $M_3(t)$, por la desigualdad de Bulkholder-Davis-Gundy, existe una constante $C_3>0$ tal que
+Por último, acotaremos el proceso $M_3(t)$, por la desigualdad de Burkholder-Davis-Gundy, existe una constante $C_3>0$ tal que
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
-$$ {#eq-agregar38}
+$$ {#eq-6.202}
 
 donde de igual manera que con el proceso $M_2(t)$, la variación cuadrática de $M_3(t)$ está dada por la siguiente integral
 
@@ -4818,7 +4920,7 @@ $$
 & \leq 2\sqrt{2\lambda}L_h\Bigg[\Bigg(\int_0^t |Y(s-)-\overline{Y}(s-)|^4ds\Bigg)^{1/2}\\ 
 & \qquad\qquad\qquad + \Bigg(\int_0^t |E(s-)|^4ds\Bigg)^{1/2}\Bigg].
 \end{aligned}
-$$ {#eq-agregar39}
+$$ {#eq-6.203}
 
 El término $|E(s-)|^4$ podemos acotarlo de la siguiente forma
 
@@ -4832,7 +4934,7 @@ $$
 |Y(s-)-\overline{Y}(s-)|^4 \leq \Bigg(\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg)^2. 
 $$
 
-Sustituyendo ambas cotas en @eq-agregar39 tenemos
+Sustituyendo ambas cotas en @eq-6.203 tenemos
 
 $$
 \begin{aligned}
@@ -4841,7 +4943,7 @@ $$
 & \leq  2\sqrt{2\lambda}L_h\Bigg[\Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\\ 
 & \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
-$$ {#eq-agregar40}
+$$ {#eq-6.204}
 
 Usamos nuevamente la desigualdad generalizada de Young, para $\mu>0$ se cumple
 
@@ -4849,7 +4951,7 @@ $$
 \Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s-)|^2ds.
 $$
 
-Al sustituir y reducir en la @eq-agregar40
+Al sustituir y reducir en la @eq-6.204
 
 $$
 \begin{aligned}
@@ -4862,7 +4964,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo en @eq-agregar38 y usando la propiedad distributiva del valor esperado tenemos
+Sustituyendo en @eq-6.202 y usando la propiedad distributiva del valor esperado tenemos
 
 $$
 \begin{aligned}
@@ -4872,7 +4974,7 @@ $$
 \end{aligned}
 $$
 
-Tomamos a $\mu=6C_3\sqrt{2\lambda}L_h$, al usar la @eq-agregar33 y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue
+Tomamos a $\mu=6C_3\sqrt{2\lambda}L_h$, al usar la @eq-6.197 y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue
 
 $$
 \begin{aligned}
@@ -4880,9 +4982,9 @@ $$
 & \qquad\quad+ 12(C_3L_h)^2\lambda\int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\\  
 & \qquad\quad + 2C_3\sqrt{2\lambda T}L_hE\Delta t.
 \end{aligned}
-$$ {#eq-agregar41}
+$$ {#eq-6.205}
 
-Sumando las cotas de la @eq-agregar34, @eq-agregar37 y @eq-agregar41 tenemos que
+Sumando las cotas de la @eq-6.198, @eq-6.201 y @eq-6.205 tenemos que
 
 $$
 \begin{aligned}
@@ -4893,7 +4995,7 @@ $$
 & = \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{A} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds + \overline{B} \Delta t\\ 
 & \leq \frac{1}{2}\mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg] + \overline{D} \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds+ \overline{D} \Delta t, 
 \end{aligned}
-$$ {#eq-agregar42}
+$$ {#eq-6.206}
 
 donde
 
@@ -4905,7 +5007,7 @@ $$
 \end{aligned}
 $$
 
-Por lo tanto, de la @eq-agregar28
+Por lo tanto, de la @eq-6.192
 
 $$
 \begin{aligned}
@@ -4918,7 +5020,7 @@ $$
   & \leq \mathcal{D}\int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds\\ 
   & \qquad +\mathcal{D}\Delta t,
 \end{aligned}
-$$ {#eq-agregar43}
+$$ {#eq-6.207}
 
 donde $\mathcal{D}$ se define como
 
@@ -4938,7 +5040,7 @@ $$
 \int_0^t \mathbb{E}\Big[|E(s-)|^2\Big]ds\leq \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds
 $$
 
-La @eq-agregar43 queda de la siguiente forma
+La @eq-6.207 queda de la siguiente forma
 
 $$
 \begin{aligned}
@@ -4946,7 +5048,7 @@ $$
   & \leq \mathcal{D} \int_0^t \mathbb{E}\Bigg[\sup_{0\leq u\leq s}|E(u)|^2\Bigg]ds\\ 
   & \qquad +\mathcal{D}\Delta t,
 \end{aligned}
-$$ {#eq-agregar44}
+$$ {#eq-6.208}
 
 esto para toda $t\in[0,T]$. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, $u(t)$, en el intervalo $[0,T]$, y existen constantes no negativas $\alpha$ y $\beta$ tales que
 
@@ -4954,7 +5056,7 @@ $$
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 $$
 
-entonces se garantiza que $u(t)\leq \alpha e^{\beta t}$. Con esto, basta tomar a $\displaystyle u(t) = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]$, $\alpha = \mathcal{D}\Delta t$ y $\beta= \mathcal{D}$, aplicando directamente esta desigualdad a la @eq-agregar44, se deduce
+entonces se garantiza que $u(t)\leq \alpha e^{\beta t}$. Con esto, basta tomar a $\alpha = \mathcal{D}\Delta t$, $\beta= \mathcal{D}$ y $\displaystyle u(t) = \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]$, aplicando directamente esta desigualdad a la @eq-6.208, se deduce
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|E(s)|^2\Bigg]\leq \mathcal{D}e^{\mathcal{D}t}\Delta t. 
