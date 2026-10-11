@@ -3163,17 +3163,16 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]
-&amp; \leq \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\
-&amp; \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\
+&amp; \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\
+&amp; \quad + \widehat{K}\,T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds \\
 &amp; \quad + \widehat{K}\, K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\
 &amp; \quad + \widehat{K}\, K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\
 &amp; \quad + \widehat{K}\,K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds\\
-&amp; \leq  \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\
-&amp; \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\
+&amp; \leq  \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\  
 &amp; \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
 \end{aligned}
 \]</span></p>
-<p>donde <span class="math inline">\(K_M:=3\widehat{K}\max\{K_1,K_2,K_3\}\)</span>.</p>
+<p>donde <span class="math inline">\(K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}\)</span>.</p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
