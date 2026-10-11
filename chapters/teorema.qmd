@@ -10,48 +10,66 @@ format:
     latex-engine: pdflatex
 ---
 
-::: {#thm-varmues style="text-align: justify"}
-Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad filtrado que satisface las hipótesis usuales. Consideremos la ecuación diferencial estocástica modificada (sin saltos grandes):
+
+::: {style="text-align: justify"}
+
+Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad completo con una filtración que satisface las \textit{condiciones usuales} (es decir, la filtración es continua por la derecha y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathbb{P}$-medida nula).
+
+Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico de la siguiente forma
+
+- $\{W(t)\}_{t\geq 0}$ es un movimiento browniano estándar adaptado a $\{\mathcal{F}_t\}$, 
+
+- $\{N(t)\}_{t\geq 0}$ es un proceso de Poisson estandar con intensidad constante $\lambda>0$, adaptado a $\{\mathcal{F}_t\}$. 
+
+Asumimos que $W(t)$ y $N(t)$ son independientes entre si. A partir del proceso de Poisson, podemos definir el $\textbf{proceso de Poisson compensado}$ $\{\widetilde{N}\}_{t\geq 0}$ mediante 
 
 $$
-\begin{aligned}
-dZ(t) ={}& b(Z(t-)) \, dt \\
-         &+ \sigma(Z(t-)) \, dB(t) \\
-         &+ \int_{|x| < c} F(Z(t-), x) \, \widetilde{N}(dt, dx), \qquad t \geq 0,
-\end{aligned}
-$$ {#eq-sde}
+\widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
+$$
 
-con condición inicial $Z(0) = Z_0$, donde $B(t)$ es un movimiento browniano estándar unidimensional ($r=1$); $N(dt, dx)$ es una medida aleatoria de Poisson definida en $\mathbb{R}_+ \times (\mathbb{R} \setminus \{0\})$ con medida de intensidad $\nu(dx)$; $\widetilde{N}(dt, dx) = N(dt, dx) - \nu(dx)\,dt$ denota la correspondiente medida compensada; $c \in (0, \infty]$ es un umbral fijo que separa los saltos pequeños de los grandes; y $Z_0$ es una variable aleatoria $\mathcal{F}_0$-medible, independiente del ruido estocástico.
+Notemos que por construcción, $\widetilde{N}(t)$ es una martingala cuadrado-integrable con respecto a la filtración $\mathcal{F_t}$. 
 
-Supongamos que los coeficientes $b: \mathbb{R} \to \mathbb{R}$, $\sigma: \mathbb{R} \to \mathbb{R}$ y $F: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$ son funciones medibles que satisfacen las siguientes condiciones:
-
-#### (C1) Condición de Lipschitz:
-
-Existe una constante $K_1 > 0$ tal que, para todo $y_1, y_2 \in \mathbb{R}$,
+Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles, las cuales van a representar los coeficiente de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible tal que $\mathbb{E}[|Z_0|]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiennte ecuación diferencial estocástica (EDE) con saltos en su forma compensada:
 
 $$
-\begin{aligned}
-|b(y_1) - b(y_2)|^2 & + |\sigma(y_1) - \sigma(y_2)|^2\\ 
-& + \int_{|x| < c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
-&\leq K_1 |y_1 - y_2|^2.
-\end{aligned}
-$$ {#eq-lipschitz}
+dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
+$$ {#eq-4.01}
 
-#### (C2) Condición de crecimiento lineal:
+con condición inicial $Z(0)=0$. Mientras que $Z(t-)$ denota el límite por la izquierda, lo cual garantiza que los procesos sean predecibles. 
 
-Existe una constante $K_2 > 0$ tal que, para todo $y \in \mathbb{R}$,
+
+
+:::
+
+
+
+::: {style="text-align: justify"}
+## Hipótesis
+Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la @eq-4.01 necesitaremos las siguientes condiciones estándar sobre los coeficientes
+
+**Condición de Lipschitz golbal**: Existe una constante $K_1>0$ tal que, para todo $y_1,y_2\in\mathbb{R},$
 
 $$
-|b(y)|^2 + |\sigma(y)|^2 + \int_{|x| < c} |F(y, x)|^2 \, \nu(dx)
-\leq K_2 \bigl(1 + |y|^2 \bigr).
-$$ {#eq-3}
+|f(y_1)-f(y_2)|^2+|g(y_1)-g(y_2)|^2+\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|.
+$$ {#eq-4.02}
 
-Bajo las hipótesis anteriores, existe una única solución fuerte $Z = (Z(t))_{t \geq 0}$ de la ecuación (@eq-sde) tal que:
+**Condición de crecimiento lineal**: Existe una constante $K_2>0$ tal que, para todo $y\in\mathbb{R}$
 
--   $Z$ es un proceso adaptado y cádlág (continuo por la derecha con límites por la izquierda),
--   La solución es única casi seguramente, esto es, si $(Z')$ es otra solución, entonces $$
-     \mathbb{P}\bigl(Z(t) = Z'(t) \text{ para todo } t \geq 0\bigr) = 1.
-    $$ {#eq-4}
+$$
+|f(y)|^2+|g(y)|^2+\lambda |h(y)|^2\leq K_2(1+|y|^2). 
+$$ {#eq-4.03}
+
+
+:::
+
+
+
+
+::: {#thm-EUF style="text-align: justify"}
+
+Supongamos que los coeficientes $f,g,h:\mathbb{R}\rightarrow\mathbb{R}$ satisfacen con las condiciones dadas en la @eq-4.02
+y la @eq-4.03
+
 :::
 
 ::: {.proof style="text-align: justify"}
