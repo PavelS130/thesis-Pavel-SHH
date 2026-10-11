@@ -3500,25 +3500,20 @@ Tomando $F(s)=1+X(s)^2$, $q=p/2$ y recordando que $t\in[0,T]$, obtenemos la sigu
 $$
 \begin{aligned}
 \mathbb{E}\left[\left(\int_0^{t} (1+X(s)^2)\,ds\right)^{p/2}\right] & \leq T^{(p/2)-1}\mathbb{E}\left[\int_0^{t} (1+X(s)^2)^{p/2}\,ds\right]\\ 
-& = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds\\ 
-& \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\left(1+\mathbb{E}[|X(s)|^p]\right)ds\\ 
-& \leq  T^{(p/2)-1}\int_0^{t} 2^{p/2-1}\Big(\mathbb{E}\Big[1+X(s)^p\Big]\Big) ds\\ 
-& = T^{(p/2)-1}2^{p/2-1}\int_0^{t} \Big(1+\mathbb{E}\Big[X(s)^p\Big]\Big) ds\\ 
-& = T^{(p/2)-1}2^{p/2-1}\Bigg( t +\int_0^t\mathbb{E}\Big[X(s)^p\Big] ds\Bigg)\\
-& \leq a_1+a_1\mathbb{E}\Big[X(s)^p\Big] ds, 
+& = T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds,
 \end{aligned}
 $$ {#eq-falta02}
 
-esta última constante $a_1$ se define mediante $a_1:=T^{(p/2)-1}2^{p/2-1}\max\{1,T\}.$ Sustituyendo esto en la @eq-falta01, obtenemos
+Sustituyendo esto en la @eq-falta01, obtenemos
 
 $$
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right] 
-& \leq \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\ 
-& \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\ 
+& \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\ 
+& \quad + \widehat{K}\,T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds \\ 
 & \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_W(\tau)\right|^{p/2}\right] \\ 
-& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},1}\right|^{p/2}\right] \\ 
-& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},2}\right|^{p/2}\right], 
+& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},1}(\tau)\right|^{p/2}\right] \\ 
+& \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|M_{\widetilde{N},2}(\tau)\right|^{p/2}\right], 
 \end{aligned}
 $$ {#eq-falta03}
 
@@ -3667,7 +3662,7 @@ $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \lambda^{p/4} \, T^{p/4 - 1} \int_0^t \mathbb{E}\left[|h(X(s))|^{p}\right]\,ds.
 $$
 
-Usando la cota de la @eq-6.019 se tiene que $|h(x)|^p\leq L_{\lambda}^{p/2}(1+|x|^2)^{p/2}$. Sustituyendo esto, llegamos a 
+Usando la cota de la @eq-6.19 se tiene que $|h(x)|^p\leq L_{\lambda}^{p/2}(1+|x|^2)^{p/2}$. Sustituyendo esto, llegamos a 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
@@ -3679,24 +3674,50 @@ donde $K_3 = C_{p/2,\widetilde{N},2} \, \lambda^{p/4} \, T^{p/4 - 1} \, L_\lambd
 $$
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right] 
-& \leq \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\ 
-& \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\ 
+& \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\ 
+& \quad + \widehat{K}\,T^{(p/2)-1}\int_0^{t} \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]ds \\
 & \quad + \widehat{K}\, K_1 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\ 
 & \quad + \widehat{K}\, K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds \\ 
 & \quad + \widehat{K}\,K_3 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds\\ 
-& \leq  \widehat{K}\,\Big(\mathbb{E}\left[|X_0|^p\right]+a_1\Bigg)\\ 
-& \quad + \widehat{K}\,a_1\mathbb{E}\Big[X(s)^p\Big] ds\\ 
+& \leq  \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\  
 & \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
+\end{aligned}
+$$ {#eq-falta08}
+
+donde $K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}$. Usando la desigualdad de Young podemos obtener la siguiente cota para el integrando 
+
+$$
+\begin{aligned}
+\mathbb{E}\left[(1+X(s)^2)^{p/2}\right] & \leq 2^{(p-2)/2}\mathbb{E}\Big[1+|X(s)|^p\Big]\\ 
+& \leq 2^{(p-2)/2}\Big(1+\mathbb{E}\Big[|X(s)|^p\Big]\Big)\\ 
+& \leq 2^{(p-2)/2}\Bigg(1+\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]\Bigg).
 \end{aligned}
 $$
 
-donde $K_M:=3\widehat{K}\max\{K_1,K_2,K_3\}$.
+Sustituyendo esta cota en la @eq-falta08, y definiendo la constante $\widetilde{K}:=2^{(p-2)/2}\, K_M$, la expresión se reorganiza de la siguiente manera  
 
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right] 
+& \leq \widehat{K}\,\mathbb{E}\left[|X_0|^p\right] \\  
+& \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds\\
+& \leq \widehat{K}\mathbb{E}\left[|X_0|^p\right]\\ 
+& \quad + \widetilde{K}\int_0^t\Bigg(1+\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]\Bigg)ds\\ 
+& = \Big(\widehat{K}\mathbb{E}\left[|X_0|^p\right]+\widetilde{K}T\Big)+\widetilde{K}\int_0^t\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]ds. 
+\end{aligned}
+$$
 
+Aplicando la Desigualdad de Gronwall en su forma continua, podemos concluir que 
 
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]\leq \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}t}. 
+$$
 
+Dado que estamos trabajando en un intervalo de tiempo finito $t\in[0,T]$, basta evaluar la desigualdad anterior en $t=T$ y definir a $\displaystyle A_2:= \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}T}$ para obtener la cota deseada 
 
-
+$$
+\mathbb{E}\left[\sup_{0\leq\tau\leq T}|X(\tau)|^p\right]\leq A_2. 
+$$
 
 :::
 
