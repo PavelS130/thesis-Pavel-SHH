@@ -3910,7 +3910,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 |2E(s)(g(Y(s))-g(X(s)))|^2 &amp; = 4|E(s)|^2\, |g(Y(s))-g(X(s))|^2\\
 &amp; \leq 4L_g|E(s)|^2\cdot |Y(s)-X(s)|^2\\
 &amp; \leq 4L_g|E(s)|^2\, 2\Big(|Y(s)-\overline{Y}(s)|^2+|E(s)|^2\Big)\\
-&amp; = 8L_g \Big(|E(s)|^4+|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\Big)
+&amp; = 8L_g \Big(|E(s)|^4+|E(s)|^4\, |Y(s)-\overline{Y}(s)|^2\Big)
 \end{aligned}
 \]</span></p>
 <p>Sustituyendo esto en la <a href="#eq-agregar02" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> y aplicar el Teorema de Fubini-Tonelli, se obtiene</p>
@@ -3918,15 +3918,52 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
 &amp; \leq 8L_g\mathbb{E}\Bigg[\int_0^t|E(s)|^4+|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\, ds\Bigg]\\
-&amp; = 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^2\, |Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)
+&amp; = 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^4\, |Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)
 \end{aligned}
 \]</span></p>
-<p>Usando la independencia entre los procesos <span class="math inline">\(|E(s)|^2\)</span> y <span class="math inline">\(|Y(s)-\overline{Y}(s)|^2\)</span> y las cotas definidas en la <a href="#eq-agregar01" class="quarto-xref">Ecuación&nbsp;<span>6.193</span></a> se afirma que</p>
+<p>Notemos que para el valor esperado de los términos <span class="math inline">\(|E(s)|^4\)</span>, es posible descomponerlos de la siguiente forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\Big[|E(s)|^4\Big] &amp; = \mathbb{E}\Big[|\overline{Y}(s)-X(s)|^4\Big]\\
+&amp; \leq 8\mathbb{E}\Big[|\overline{Y}(s)|^4+|X(s)|^4\Big]\\
+&amp; = 8\mathbb{E}\Big[|\overline{Y}(s)|^4\Big]+8\mathbb{E}\Big[|X(s)|^4\Big].
+\end{aligned}
+\]</span></p>
+<p>Al sustituir esto y usar la independencia entre los procesos <span class="math inline">\(|E(s)|^2\)</span> y <span class="math inline">\(|Y(s)-\overline{Y}(s)|^2\)</span> además de usar también las cotas definidas en la <a href="#eq-agregar01" class="quarto-xref">Ecuación&nbsp;<span>6.193</span></a> se afirma que</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
-&amp; \leq 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^2\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\
-&amp; \leq 8L_g\Bigg(\int_0^t\Bigg)
+&amp; \leq 8L_g\Bigg(\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]ds+\int_0^t\mathbb{E}\Big[|E(s)|^4\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\
+&amp; \leq 8L_g\Bigg(8\int_0^t\mathbb{E}\Big[|\overline{Y}(s)|^4\Big]\, ds +8\int_0^t \mathbb{E}\Big[|X(s)|^4\Big]\, ds\\
+&amp; \qquad\qquad\quad + 8\int_0^t \mathbb{E}\Big[|\overline{Y}(s)|^4\Big] \mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\\
+&amp; \qquad\qquad\quad + 8\int_0^t \mathbb{E}\Big[|X(s)|^4\Big]\mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big]\, ds\Bigg)\\
+&amp; \leq 64L_g\Bigg(\int_0^t (A_1 + A_2+ A_1\, E\Delta t+ A_2\,E\Delta t)\, ds\Bigg)\\
+&amp; \leq 64L_gT(A_1 + A_2+ A_1\, E\Delta t+ A_2\,E\Delta t)&lt;\infty
+\end{aligned}
+\]</span></p>
+<p>Por lo que queda demostrado que el integrando del proceso <span class="math inline">\(M_1(t)\)</span> pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>. En consecuencia, <span class="math inline">\(M_1(t)\)</span> es una martingala cuadrado-integrable.</p>
+<p>Para el proceso <span class="math inline">\(M_2(t)\)</span>, basta notar la similitud entre las cotas dadas en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> para la función <span class="math inline">\(g\)</span> y la función <span class="math inline">\(h\)</span> respectivamente. Por lo que el procedimiento para demostrar que la esperanza de la integral del cuadrado del integrando de <span class="math inline">\(M_2(t)\)</span> es finita, es decir</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^t |2E(s)(h(Y(s))-h(X(s)))|^2\, ds\Bigg]&lt;\infty,
+\]</span></p>
+<p>es completammente análogo a lo hecho previamente con <span class="math inline">\(M_1(t)\)</span>. Por tanto, <span class="math inline">\(M_2(t)\)</span> es una martingala cuadrado-integrable. Ahora bien, para el proceso <span class="math inline">\(M_3(t)\)</span>, demostraremos que se cumple</p>
+<p><span class="math display">\[
+\mathbb{E}\Bigg[\int_0^t |2(h(Y(s))-h(X(s)))^2|^2\, ds\Bigg]&lt;\infty.
+\]</span></p>
+<p>Nuevamente usaremos la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> para acotar el integrando de la siguiente forma</p>
+<p><span class="math display">\[
+\begin{aligned}
+|2(h(Y(s))-h(X(s)))^2|^2 &amp; \leq 4L_h^2|Y(s)-X(s)|^4\\
+&amp; \leq 16L_h\Big(|Y(s)|^4+|X(s)|^4\Big).
+\end{aligned}
+\]</span></p>
+<p>A partir de la definición la aproximación escalonada <span class="math inline">\(Y(s)\)</span> dada en la <a href="#eq-6.06" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>, podemos afirmar que para algún <span class="math inline">\(n\in [1,N_T]\)</span> se tiene <span class="math inline">\(Y(s)=Y_n^*\)</span> y con esto podemos hacer uso del <a href="#lem-6.2" class="quarto-xref">Lema&nbsp;<span>6.2</span></a> para encontrar la siguiente cota</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E} &amp; \Bigg[\int_0^t |2(h(Y(s))-h(X(s)))^2|^2\, ds\Bigg] \\
+&amp; \leq 16L_h\mathbb{E}\Bigg[\int_0^t \Big(|Y(s)|^4+|X(s)|^4\Big)\, ds\Bigg]\\
+&amp; = 16L_h\int_0^t \mathbb{E}\Big[\Big(|Y(s)|^4+|X(s)|^4\Big)\, ds\Big]\\
+&amp; =
 \end{aligned}
 \]</span></p>
 <p>Para calcular la cota al proceso <span class="math inline">\(M_1(t)\)</span>, usaremos la desigualdad de Bulkholder-Davis-Gundy, con ello se afirma que existe una constante <span class="math inline">\(C_1&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
