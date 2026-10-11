@@ -460,30 +460,30 @@ window.Quarto = {
 \]</span></p>
 <p>Notemos que por construcción, <span class="math inline">\(\widetilde{N}(t)\)</span> es una martingala cuadrado-integrable con respecto a la filtración <span class="math inline">\(\mathcal{F_t}\)</span>.</p>
 <p>Sean <span class="math inline">\(f, g, h:\mathbb{R}\rightarrow\mathbb{R}\)</span> funciones medibles, las cuales van a representar los coeficiente de deriva, difusión y salto, respectivamente. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|]&lt;\infty\)</span>, e independiente de los incrementos de <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(\widetilde{N}(t)\)</span>. Consideramos la siguiennte ecuación diferencial estocástica (EDE) con saltos en su forma compensada:</p>
-<p><span id="eq-4.01"><span class="math display">\[
+<p><span id="eq-sde"><span class="math display">\[
 dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
 \tag{4.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(Z(0)=0\)</span>. Mientras que <span class="math inline">\(Z(t-)\)</span> denota el límite por la izquierda, lo cual garantiza que los procesos sean predecibles.</p>
 </div>
 <section id="hipótesis" class="level2" style="text-align: justify" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">4.1</span> Hipótesis</h2>
-<p>Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> necesitaremos las siguientes condiciones estándar sobre los coeficientes</p>
+<p>Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> necesitaremos las siguientes condiciones estándar sobre los coeficientes</p>
 <p><strong>Condición de Lipschitz golbal</strong>: Existe una constante <span class="math inline">\(K_1&gt;0\)</span> tal que, para todo <span class="math inline">\(y_1,y_2\in\mathbb{R},\)</span></p>
-<p><span id="eq-4.02"><span class="math display">\[
+<p><span id="eq-lipschitz"><span class="math display">\[
 |f(y_1)-f(y_2)|^2+|g(y_1)-g(y_2)|^2+\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|.
 \tag{4.2}\]</span></span></p>
 <p><strong>Condición de crecimiento lineal</strong>: Existe una constante <span class="math inline">\(K_2&gt;0\)</span> tal que, para todo <span class="math inline">\(y\in\mathbb{R}\)</span></p>
-<p><span id="eq-4.03"><span class="math display">\[
+<p><span id="eq-3"><span class="math display">\[
 |f(y)|^2+|g(y)|^2+\lambda |h(y)|^2\leq K_2(1+|y|^2).
 \tag{4.3}\]</span></span></p>
 </section>
 <section id="existencia-y-unicidad-fuerte" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="existencia-y-unicidad-fuerte"><span class="header-section-number">4.2</span> Existencia y unicidad fuerte</h2>
 <div id="thm-EUF" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 4.1</strong></span> Supongamos que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> satisfacen con las condiciones dadas en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a></p>
+<p><span class="theorem-title"><strong>Teorema 4.1</strong></span> Supongamos que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> satisfacen con las condiciones dadas en la <a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y la <a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<span class="quarto-unresolved-ref">?eq-sde</span>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<span class="quarto-unresolved-ref">?eq-lipschitz</span>) y (<span class="quarto-unresolved-ref">?eq-3</span>) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Analizaremos primero el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Queremos ver la existencia de una solución <span class="math inline">\(Z=(Z(t))_{t\geq 0}\)</span> para la ecuación (<a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>. Bajo las hipótesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) y (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) para los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span>. Analizaremos primero el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano <span class="math inline">\(B\)</span>, es decir, ruido estocástico y una medida de Poisson compensada, dada por <span class="math inline">\(\widetilde{N}\)</span>, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:</p>
 <p><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \]</span></p>
@@ -577,7 +577,7 @@ dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
 <p><span class="math display">\[
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 \]</span></p>
-<p>Esto pues obteniendo el valor esperado de (<span class="quarto-unresolved-ref">?eq-3</span>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
+<p>Esto pues obteniendo el valor esperado de (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
 <p><span id="eq-6"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|\sigma(Z_0)|^2] &amp; \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\
@@ -644,7 +644,7 @@ dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
         &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
 \tag{4.9}\]</span></span></p>
-<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<span class="quarto-unresolved-ref">?eq-3</span>), vale decir</p>
+<p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-3" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
 <p><span class="math display">\[
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
 \]</span></p>
@@ -814,7 +814,7 @@ dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
 <p><span id="eq-12"><span class="math display">\[
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
 \tag{4.13}\]</span></span></p>
-<p>Por la hipótesis (<span class="quarto-unresolved-ref">?eq-lipschitz</span>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
+<p>Por la hipótesis (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
 <p><span class="math display">\[
     \begin{aligned}
     |b(y_1) - b(y_2)|^2 &amp; + |\sigma(y_1) - \sigma(y_2)|^2\\
@@ -1101,7 +1101,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \qquad\qquad +\int_{|x|&lt;c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)\Bigg)ds.
     \end{aligned}
 \]</span></p>
-<p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la condición (<span class="quarto-unresolved-ref">?eq-lipschitz</span>) podemos obtener</p>
+<p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la condición (<a href="#eq-lipschitz" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) podemos obtener</p>
 <p><span class="math display">\[
     \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
 \]</span></p>
@@ -1133,7 +1133,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 \]</span></p>
-<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la <span class="quarto-unresolved-ref">?eq-sde</span>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
+<p>Veamos el caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]=\infty\)</span>. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar <span class="math inline">\(Z_0\)</span> por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
 <p><span class="math display">\[
     Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
 \]</span></p>
@@ -1162,7 +1162,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [
 <p><span class="math display">\[
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 \]</span></p>
-<p>entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada. Lo que nos permite afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. En consecuencia, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte de la <span class="quarto-unresolved-ref">?eq-sde</span>, digamos <span class="math inline">\(Z^{(n)}\)</span>, con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
+<p>entonces para cada <span class="math inline">\(n\in \mathbb{N}\)</span> la variable <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada. Lo que nos permite afirmar que pertenece a <span class="math inline">\(L^2(\Omega,\mathcal{F}_0,\mathbb{P})\)</span>. En consecuencia, es posible aplicar los argumentos anteriores, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, para afirmar que existe una única solución fuerte de la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, digamos <span class="math inline">\(Z^{(n)}\)</span>, con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
 <p>Para cada <span class="math inline">\(N\in \mathbb{N}\)</span>, definimos el conjunto</p>
 <p><span class="math display">\[
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
@@ -1234,7 +1234,7 @@ Z_M(t)(\omega) &amp; \omega\notin A.
     Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
 \]</span></p>
 <p>en ambos casos se tiene que <span class="math inline">\(Z''_M(0)=Z^{(M)}(0)\)</span> con <span class="math inline">\(\omega\in A\)</span> casi seguramente.</p>
-<p>Entonces <span class="math inline">\(Z''_M\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos soluciones de la <span class="quarto-unresolved-ref">?eq-sde</span> con la misma condición inicial, por construcción, en el conjunto <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(Z''_M(t)\neq Z^{(M)}(t)\)</span> para algún <span class="math inline">\(t\)</span>. Lo cual es una contradicción al caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> donde se establece la unicidad casi segura de la solución fuerte.</p>
+<p>Entonces <span class="math inline">\(Z''_M\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos soluciones de la <a href="#eq-sde" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con la misma condición inicial, por construcción, en el conjunto <span class="math inline">\(A\)</span>, se tiene que <span class="math inline">\(Z''_M(t)\neq Z^{(M)}(t)\)</span> para algún <span class="math inline">\(t\)</span>. Lo cual es una contradicción al caso cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> donde se establece la unicidad casi segura de la solución fuerte.</p>
 <p>Dado que al suponer <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> nos lleva a una contradicción, podemos afirmar que <span class="math inline">\(\mathbb{P}(A)=0\)</span>, es decir, <span class="math inline">\(Z'(t)=Z^{(M)}(t)\)</span> para todo <span class="math inline">\(t\geq 0\)</span>, casi seguramente en <span class="math inline">\(\Omega_N\)</span>. Esto vale para todo <span class="math inline">\(N\in \mathbb{N}\)</span>, como</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
