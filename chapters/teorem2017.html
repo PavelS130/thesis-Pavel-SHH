@@ -3175,7 +3175,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 <p>donde <span class="math inline">\(K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}\)</span>. Usando la desigualdad de Young podemos obtener la siguiente cota para el integrando</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds &amp; \leq 2^{(p-2)/2}\mathbb{E}\Big[1+|X(s)|^p\Big]\\
+\mathbb{E}\left[(1+X(s)^2)^{p/2}\right] &amp; \leq 2^{(p-2)/2}\mathbb{E}\Big[1+|X(s)|^p\Big]\\
 &amp; \leq 2^{(p-2)/2}\Big(1+\mathbb{E}\Big[|X(s)|^p\Big]\Big)\\
 &amp; \leq 2^{(p-2)/2}\Bigg(1+\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]\Bigg).
 \end{aligned}
@@ -3190,6 +3190,14 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 &amp; \quad + \widetilde{K}\int_0^t\Bigg(1+\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]\Bigg)ds\\
 &amp; = \Big(\widehat{K}\mathbb{E}\left[|X_0|^p\right]+\widetilde{K}T\Big)+\widetilde{K}\int_0^t\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]ds.
 \end{aligned}
+\]</span></p>
+<p>Aplicando la Desigualdad de Gronwall en su forma continua, podemos concluir que</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]\leq \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}t}.
+\]</span></p>
+<p>Dado que estamos trabajando en un intervalo de tiempo finito <span class="math inline">\(t\in[0,T]\)</span>, basta evaluar la desigualdad anterior en <span class="math inline">\(t=T\)</span> y definir a <span class="math inline">\(\displaystyle A_2:= \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}T}\)</span> para obtener la cota deseada</p>
+<p><span class="math display">\[
+\mathbb{E}\left[\sup_{0\leq\tau\leq T}|X(\tau)|^p\right]\leq A_2.
 \]</span></p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
