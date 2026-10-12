@@ -63,17 +63,33 @@ $$ {#eq-4.03}
 :::
 
 
-
+## Existencia y unicidad fuerte
 
 ::: {#thm-EUF style="text-align: justify"}
 
 Supongamos que los coeficientes $f,g,h:\mathbb{R}\rightarrow\mathbb{R}$ satisfacen con las condiciones dadas en la @eq-4.02
-y la @eq-4.03
+y la @eq-4.03. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible tal que $\mathbb{E}[|Z_0|^2]<\infty$. 
+
+Entonces, existe una única solución fuerte $\{Z(t)\}_{t\geq 0}$ de la ecuación diferencial estocástica, definida en la @eq-4.01, que satisface las siguientes propiedades
+
+- **Adaptabilidad:** El proceso $Z(t)$ es adaptado a la filtración $\{\mathcal{F}\}_{t\geq 0}$ y sus trayectorias son càdlàg casi seguramente. 
+
+- **Unicidad:** Si $\{Z'(t)\}_{t\geq 0}=\{Z(t)\}_{t\geq 0}$ es otra solución de la @eq-4.01 con la misma condición inicial $Z'(0)=Z_0$, entonces 
+
+$$
+\mathbb{P}(Z(t)=Z(t)\  \text{para todo }\ t\geq 0)=1
+$$ {#eq-4.04}
+
+- **Acotamiento del segundo momento:** Para cualquier tiempo finito $T>0$, existe una constante $C_T>0$, tal que es independiente de la trayectoria tal que 
+
+$$
+\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Z(t)|^2\Bigg]\leq C_T(1+\mathbb{E}[|Z_0|^2]).
+$$ {#eq-4.05}
 
 :::
 
 ::: {.proof style="text-align: justify"}
-Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-sde) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis (@eq-lipschitz) y (@eq-3) para los coeficientes $b$, $\sigma$ y $F$. Analizaremos primero el caso cuando $\mathbb{E}[|Z_0|^2]<\infty$. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
+Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-4.01) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis (@eq-4.02) y (@eq-4.03) para los coeficientes $b$, $\sigma$ y $F$. Analizaremos primero el caso cuando $\mathbb{E}[|Z_0|^2]<\infty$. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
 
 $$
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
@@ -191,7 +207,7 @@ $$
         \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
 $$
 
-Esto pues obteniendo el valor esperado de (@eq-3) , tomando a $y=Z_0$ tenemos
+Esto pues obteniendo el valor esperado de (@eq-4.03) , tomando a $y=Z_0$ tenemos
 
 $$
     \begin{aligned}
@@ -274,7 +290,7 @@ $$
     \end{aligned}
 $$ {#eq-8}
 
-Por hipotésis, los coeficientes $b$, $\sigma$ y $F$ cumplen con la condición (@eq-3), vale decir
+Por hipotésis, los coeficientes $b$, $\sigma$ y $F$ cumplen con la condición (@eq-4.03), vale decir
 
 $$
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
@@ -496,7 +512,7 @@ $$
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
 $$ {#eq-12}
 
-Por la hipótesis (@eq-lipschitz) la cuál indica que los coeficientes $b$, $\sigma$ y $F$ satisfacen
+Por la hipótesis (@eq-4.02) la cuál indica que los coeficientes $b$, $\sigma$ y $F$ satisfacen
 
 $$
     \begin{aligned}
@@ -899,7 +915,7 @@ $$
     \end{aligned}
 $$
 
-De manera similar como ya se hizo en el análisis de la diferencia entre $Z_n$ y $Z_{n-1}$ en la iteración de Picard, haciendo uso de la condición (@eq-lipschitz) podemos obtener
+De manera similar como ya se hizo en el análisis de la diferencia entre $Z_n$ y $Z_{n-1}$ en la iteración de Picard, haciendo uso de la condición (@eq-4.02) podemos obtener
 
 $$
     \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
@@ -947,7 +963,7 @@ $$
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 $$
 
-Veamos el caso cuando $\mathbb{E}[|Z_0|^2]=\infty$. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar $Z_0$ por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la @eq-sde. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
+Veamos el caso cuando $\mathbb{E}[|Z_0|^2]=\infty$. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar $Z_0$ por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la @eq-4.01. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
 
 $$
     Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
@@ -987,7 +1003,7 @@ $$
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 $$
 
-entonces para cada $n\in \mathbb{N}$ la variable $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada. Lo que nos permite afirmar que pertenece a $L^2(\Omega,\mathcal{F}_0,\mathbb{P})$. En consecuencia, es posible aplicar los argumentos anteriores, cuando $\mathbb{E}[|Z_0|^2]<\infty$, para afirmar que existe una única solución fuerte de la @eq-sde, digamos $Z^{(n)}$, con condición inicial $Z_0^{(n)}$.
+entonces para cada $n\in \mathbb{N}$ la variable $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada. Lo que nos permite afirmar que pertenece a $L^2(\Omega,\mathcal{F}_0,\mathbb{P})$. En consecuencia, es posible aplicar los argumentos anteriores, cuando $\mathbb{E}[|Z_0|^2]<\infty$, para afirmar que existe una única solución fuerte de la @eq-4.01, digamos $Z^{(n)}$, con condición inicial $Z_0^{(n)}$.
 
 Para cada $N\in \mathbb{N}$, definimos el conjunto
 
@@ -1095,7 +1111,7 @@ $$
 
 en ambos casos se tiene que $Z''_M(0)=Z^{(M)}(0)$ con $\omega\in A$ casi seguramente.
 
-Entonces $Z''_M$ y $Z^{(M)}$ son dos soluciones de la @eq-sde con la misma condición inicial, por construcción, en el conjunto $A$, se tiene que $Z''_M(t)\neq Z^{(M)}(t)$ para algún $t$. Lo cual es una contradicción al caso cuando $\mathbb{E}[|Z_0|^2]<\infty$ donde se establece la unicidad casi segura de la solución fuerte.
+Entonces $Z''_M$ y $Z^{(M)}$ son dos soluciones de la @eq-4.01 con la misma condición inicial, por construcción, en el conjunto $A$, se tiene que $Z''_M(t)\neq Z^{(M)}(t)$ para algún $t$. Lo cual es una contradicción al caso cuando $\mathbb{E}[|Z_0|^2]<\infty$ donde se establece la unicidad casi segura de la solución fuerte.
 
 Dado que al suponer $\mathbb{P}(A)>0$ nos lleva a una contradicción, podemos afirmar que $\mathbb{P}(A)=0$, es decir, $Z'(t)=Z^{(M)}(t)$ para todo $t\geq 0$, casi seguramente en $\Omega_N$. Esto vale para todo $N\in \mathbb{N}$, como
 
