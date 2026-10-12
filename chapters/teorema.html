@@ -877,56 +877,52 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
     \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}&lt;\varepsilon.
 \tag{4.29}\]</span></span></p>
 <p>Por lo tanto, hemos demostrado que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span> para cada <span class="math inline">\(s\in[0,t]\)</span>.</p>
-<p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, entonces toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
-<p><span id="eq-17"><span class="math display">\[
+<p>Dado que <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, es decir, un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, toda sucesión de Cauchy converge en <span class="math inline">\(\mathcal{L}^2\)</span>. Por lo tanto, existe un proceso <span class="math inline">\(Z(s)\in \mathcal{L}^2\)</span> tal que</p>
+<p><span id="eq-4.030"><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
 \tag{4.30}\]</span></span></p>
-<p>Cómo <span class="math inline">\(m&lt;n\)</span>, por la desigualdad del triángulo, afirmamos que</p>
+<p>Cómo <span class="math inline">\(m&lt;n\)</span>, por la desigualdad triangular, afirmamos que</p>
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a> tenemos que</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados y utilizando lla convergencia en <span class="math inline">\(\mathcal{L}^2\)</span> dada por la por la <a href="#eq-4.030" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a>, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie:</p>
 <p><span class="math display">\[
-    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
+    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 \]</span></p>
-<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-4.028" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a> converge entonces</p>
+<p>Dado que el término <span class="math inline">\(\|Z(s)-Z_n(s)\|_2\)</span> no depende de <span class="math inline">\(m\)</span>, obtenemos la siguiente cota para el error en <span class="math inline">\(\mathcal{L}^2\)</span></p>
 <p><span class="math display">\[
-    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 \]</span></p>
-<p>Además el término <span class="math inline">\(\|Z(s)-Z_n(s)\|_2\)</span> no depende de <span class="math inline">\(m\)</span>, por lo tanto</p>
-<p><span class="math display">\[
-    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
-\]</span></p>
-<p>Consideremos ahora la siguiente notación</p>
+<p>A continuación, vamos a establecer la convergencia casi segura y uniforme de la sucesión. Consideremos variable aleatoria</p>
 <p><span class="math display">\[
     X_n:=\sup\limits_{0\leq s\leq t} |Z_n(s)-Z_{n-1}(s)|.
 \]</span></p>
-<p>Queremos encontrar una cota para</p>
+<p>Queremos encontrar una cota para la siguiente probabilidad</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg).
 \]</span></p>
-<p>Aplicando a <span class="math inline">\(X_n^2\)</span> Chebyshev-Markov tenemos que</p>
-<p><span id="eq-18"><span class="math display">\[
+<p>Aplicando la desigualdad de Chebyshev-Markov a <span class="math inline">\(X_n^2\)</span>, tenemos</p>
+<p><span id="eq-4.031"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
 \tag{4.31}\]</span></span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a>, así</p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la cota factorial dada en la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a></p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
-<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, esto implica que</p>
+<p>Sustituyendo esta cota en la <a href="#eq-4.031" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, obtenemos</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 \]</span></p>
-<p>Más aún, sabemos que la seríe <span class="math inline">\(\displaystyle \frac{C_2(t)^nK_3^n}{n!}\)</span> converge, esto implica que <span class="math inline">\(\displaystyle \frac{(4C_2(t)K_3)^n}{n!}\)</span> también converge, por lo tanto</p>
+<p>Dado que la serie exponencial <span class="math inline">\(\sum_{n=1}^{\infty}\frac{A^n}{n!}\)</span> converge para cualquier constante <span class="math inline">\(A&gt;0\)</span>, la serie de probabilidades tambien converge</p>
 <p><span class="math display">\[
     \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}&lt;\infty.
 \]</span></p>
-<p>De aquí es posible usar el Lema de Borell-Cantelli, es decir, podemos afirmar</p>
+<p>Al ser la suma de probabilidades finita, podemos aplicar el Lema de Borel-Cantelli, lo que nos permite afirmar que</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0.
 \]</span></p>
 <p>La estimación obtenida nos dice que la probabilidad de que las diferencias consecutivas <span class="math inline">\(|Z_n(s) - Z_{n-1}(s)|\)</span> sean “grandes” (mayores que <span class="math inline">\(1/2^n\)</span>) se vuelve extremadamente pequeña a medida que <span class="math inline">\(n\)</span> crece, tan pequeña que la suma de todas esas probabilidades es finita.</p>
-<p>En otras palabras, casi todas las trayectorias de la sucesión <span class="math inline">\((Z_n)\)</span> se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo <span class="math inline">\([0,t]\)</span>.</p>
+<p>En otras palabras, para casi todas las trayectorias de la sucesión <span class="math inline">\((Z_n)\)</span> se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo <span class="math inline">\([0,t]\)</span>.</p>
 <p>Esto garantiza que, con probabilidad 1, la sucesión <span class="math inline">\((Z_n(\cdot))\)</span> converge uniformemente en <span class="math inline">\([0,t]\)</span> a una función límite <span class="math inline">\(Z(\cdot)\)</span>. Es decir, no solo converge punto a punto, sino que lo hace de manera controlada en todo el intervalo al mismo tiempo.</p>
 <p>Veamos ahora que dicha solución es única, así supongamos que <span class="math inline">\(Z^{(1)}= (Z^{(1)}(t))_{t \geq 0}\)</span> y <span class="math inline">\(Z^{(2)} = (Z^{(2)}(t))_{t \geq 0}\)</span> son dos soluciones fuertes de la SDE modificada, es decir, procesos adaptados, càdlàg, cuadrado-integrables y que satisfacen, para todo <span class="math inline">\(t \geq 0\)</span>, las ecuaciones integrales:</p>
 <p><span class="math display">\[
