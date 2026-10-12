@@ -178,7 +178,7 @@ Finalmente, tomando el valor esperado de ambos lados y utilizando la linealidad 
 
 $$
 \begin{aligned}
-\mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
+\mathbb{E} & \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
 & \leq 3\Bigg( \mathbb{E}\left[\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2\right] \\ 
 &\qquad
     + \mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2\right] \\
@@ -241,28 +241,29 @@ $$ {#eq-4.014}
 Sustituyendo la @eq-4.011, @eq-4.013 y @eq-4.014 en la @eq-4.010, llegamos a 
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] 
-        & \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
-    \end{aligned}
+\begin{aligned}
+    \mathbb{E} & \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
+    & \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
+\end{aligned}
 $$ {#eq-4.015}
 
-Para acotar la @eq-4.015 utilizando la condición de crecimiento lineal dada en la @eq-4.03, dfinimos la constante $C_1(t):=\max{\{3t,12\}}$, notemos que 
+Para acotar la @eq-4.015 utilizando la condición de crecimiento lineal dada en la @eq-4.03, dfinimos la constante $C_1(t):=\max{\{3t,12,12\lambda\}}$, notemos que 
 
 $$
     \begin{aligned}
-        3t^2 & = 3t\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.\\ 
-        12t & = 12\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.
+        3t^2 & = 3t\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t,\\ 
+        12t & = 12\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t,\\
+        12\lambda t & = 12\lambda\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t
     \end{aligned}
 $$
 
 Por lo tanto, de la @eq-4.015 podemos factorizar 
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] 
-        & \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
-    \end{aligned}
+\begin{aligned}
+    \mathbb{E} & \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
+    & \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
+\end{aligned}
 $$ {#eq-4.016}
 
 Finalmente, aplicando la condición de crecimiento lineal, dada por la @eq-4.03, obtenemos la cota fundamental para el primer paso de la iteración
@@ -272,182 +273,118 @@ $$
 $$ {#eq-4.017}
 
 
-Veamos la diferencia para $Z_{n+1}$ y $Z_n$, por la iteración de Picard, tenemos que
+Veamos la diferencia entre los términos consecutivos de la sucesión de Picard, $Z_{n+1}$ y $Z_n$. Restando sus expresiones integrales, obtenemos que
 
 $$
-    \begin{aligned}
-        Z_n & = Z_0 + \int_0^t b(Z_{n-1}(s-))ds+\int_0^t \sigma(Z_{n-1}(s-))dB(s)\\ 
-        &\qquad\quad + \int_0^t \int_{|x|<c} F(Z_{n-1}(s-),x)\widetilde{N}(ds,dx)\\ 
-        Z_{n+1} & = Z_0 + \int_0^t b(Z_{n}(s-))ds+\int_0^t \sigma(Z_{n}(s-))dB(s)\\ 
-        &\qquad\quad + \int_0^t \int_{|x|<c} F(Z_{n}(s-),x)\widetilde{N}(ds,dx).
-    \end{aligned}
+\begin{aligned}
+Z_{n+1}(t) - Z_n(t) 
+& = \int_0^t \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big]\,du \\ 
+& \qquad + \int_0^t \big[g(Z_n(u-)) - g(Z_{n-1}(u-))\big]\,dW(u) \\ 
+& \qquad + \int_0^t \big[h(Z_n(u-)) - h(Z_{n-1}(u-))\big]\,d\widetilde{N}(u).
+\end{aligned}
 $$
 
-Consideremos la siguiente notación
 
+Para acotar el cuadrado de esta diferencia, aplicamos la @eq-4.09
 $$
-    \begin{aligned}
-        \Delta b(n,s) & = b(Z_n(s-))-b(Z_{n-1}(s-)).\\ 
-        \Delta \sigma(n,s) & = \sigma(Z_n(s-))-\sigma(Z_{n-1}(s-)).\\ 
-        \Delta F(n,s,x) & = F(Z_n(s-),x)-F(Z_{n-1}(s-),x).
-    \end{aligned}
-$$
-
-Por lo tanto la diferencia $Z_{n+1}-Z_n$ está dada por
-
-$$
-    \begin{aligned}
-        Z_{n+1}(t)-Z_n(t) & = \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\ 
-        & \qquad \quad +\int_0^t\int_{|x|<c}\Delta F(n,s,x)\widetilde{N}(ds,dx).
-    \end{aligned}
+\begin{aligned}
+|Z_{n+1}(t) - Z_n(t)|^2 
+& \leq 3 \Bigg( \left| \int_0^t \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big]\,du \right|^2 \\ 
+& \qquad\quad + \left| \int_0^t \big[g(Z_n(u-)) - g(Z_{n-1}(u-))\big]\,dW(u) \right|^2 \\ 
+& \qquad\quad + \left| \int_0^t \big[h(Z_n(u-)) - h(Z_{n-1}(u-))\big]\,d\widetilde{N}(u) \right|^2 \Bigg).
+\end{aligned}
 $$
 
-Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (@eq-4.09), tenemos que
+Tomando el supremo sobre $s\in[0,t]$ en ambos lados de la desigualdad y aplicando posteriormente el valor esperado $\mathbb{E}[\cdot]$, obtenemos la siguiente cota
 
 $$
-    \begin{aligned}
-        |Z_{n+1}(t)-Z_n(t)|^2 & = \Bigg( \int_0^t \Delta b(n,s)ds + \int_0^t \Delta \sigma(n,s)dB(s)\\ 
-        &\qquad\quad +\int_0^t\int_{|x|<c}\Delta F(n,s,x)\widetilde{N}(ds,dx)\Bigg)^2\\ 
-        & \leq 3\Bigg(\Bigg(\int_0^t \Delta b(n,s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(n,s)ds\Bigg)^2\\ 
-        &\qquad\quad +\Bigg(\int_0^t\int_{|x|<c}\Delta F(n,s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
-    \end{aligned}
-$$ {#eq-10}
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
+& \leq 3 \Bigg( \mathbb{E}\left[ \sup_{0 \leq s \leq t} \left| \int_0^s \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big]\,du \right|^2 \right] \\ 
+& \quad + \mathbb{E}\left[ \sup_{0 \leq s \leq t} \left| \int_0^s \big[g(Z_n(u-)) - g(Z_{n-1}(u-))\big]\,dW(u) \right|^2 \right] \\ 
+& \quad + \mathbb{E}\left[ \sup_{0 \leq s \leq t} \left| \int_0^s \big[h(Z_n(u-)) - h(Z_{n-1}(u-))\big]\,d\widetilde{N}(u) \right|^2 \right] \Bigg).
+\end{aligned}
+$$ {#eq-4.018}
 
-Nuevamente, definimos la siguiente notación
+Trabajaremos con cada término de la desigualdad para acotar $\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]$. 
 
-$$
-    \begin{aligned}
-        A & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\Bigg]\\ 
-        B & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta \sigma(n,u)dB(u)\Bigg)^2\Bigg]\\ 
-        C & := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(n,u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
-    \end{aligned}
-$$
-
-Por tanto de la (@eq-10), tomando supremo en el intervalo $[0,t]$ y aplicando valor esperado, la expresión se reduce a la forma
+Para el primer término, aplicamos la Desigualdad de Cauchy-Schwarz para integrales. Dado que $s\in[0,t]$, tenemos 
 
 $$
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
-$$ {#eq-11}
-
-Trabajaremos con cada término de la desigualdad para poder acotar $\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]$. Notemos que para $A$ el término del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que
-
-$$  
-    \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\leq s \int_0^s |\Delta b(n,u)|^2du,\ \ \forall s\in [0,t].
+\begin{aligned}
+\Bigg( \int_0^s \big[f(Z_n(u-)) & - f(Z_{n-1}(u-))\big] du \Bigg)^2\\
+& \leq s \int_0^s \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 du \\ 
+& \leq t \int_0^t \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 du.
+\end{aligned}
 $$
 
-Dado que $s\leq t$, esto implica que
+Dado que el lado derecho es independiente de $s$, al tomar  supremo sobre $s\in[0,t]$ y posteriormente el valor esperado, obtenemos 
 
 $$
-    s \int_0^s |\Delta b(n,u)|^2du\leq t\int_0^t |\Delta b(n,u)|^2du.
-$$
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} \left( \int_0^s \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big] du \right)^2 \right]\\ 
+& \leq t \int_0^t \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] du.
+\end{aligned}
+$$ {#eq-4.019}
 
-Dado que el supremo preserva desigualdades, tenemos
-
-$$
-    \begin{aligned}
-            \sup\limits_{0\leq s\leq t} \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2 & \leq \sup\limits_{0\leq s\leq t}\Bigg(s \int_0^s |\Delta b(n,u)|^2du\Bigg)\\ 
-            & \leq \sup\limits_{0\leq s\leq t}\Bigg(t\int_0^t |\Delta b(n,u)|^2du\Bigg)\\ 
-            & = t\int_0^t |\Delta b(n,u)|^2du.
-    \end{aligned}
-$$
-
-Tomando el valor esperado
+Definimos al proceso estocástico de la forma
 
 $$
-    \begin{aligned}
-        A & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\Bigg]\\ 
-        & \leq \mathbb{E}\Bigg[t\int_0^t |\Delta b(n,u)|^2du\Bigg]\\ 
-        & = t\int_0^t \mathbb{E}[|\Delta b(n,u)|^2]du.
-    \end{aligned}
+    M_g(s) := \int_0^s \Big[g(Z_n(u-))-g(Z_{n-1}(u-))\Big]\, dW(u).
 $$
 
-Definimos al proceso $H(s)$ de la forma
+Como establecimos previamente para el proceso $M(s)$ en la @eq-4.012. Dado que $Z_n$ y $Z_{n-1}$ son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto $M_g(s)$ es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos 
 
 $$
-    H(s) := \int_0^s \Delta \sigma(n,u)dB(u).
-$$
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} |M_g(s)|^2 \right]\\
+& \leq 4 \, \mathbb{E}\left[ |M_g(t)|^2 \right] \\ 
+& = 4 \, \mathbb{E}\left[ \int_0^t \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 du \right] \\ 
+& = 4 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du.
+\end{aligned}
+$$ {#eq-4.020}
 
-Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso $M(s)$ en (@eq-4.012). Haciendo uso de la desigualdad maximal de Doob
-
-$$
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
-$$
-
-Usando la isometría de Itô
-
-$$
-    \mathbb{E}[|H(s)|^2]=\mathbb{E}\Bigg[\int_0^t |\Delta \sigma(n,u)|^2 du\Bigg].
-$$
-
-Esto implica que
+De forma similar, definimos el proceso estocástico correspondiente a los saltos 
 
 $$
-    \begin{aligned}
-        B & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(|H(s)|^2\right)\Bigg]\\ 
-        & \leq 4\mathbb{E}[|H(t)|^2]\\ 
-        & = 4 \mathbb{E}\Bigg[\int_0^t |\Delta \sigma(n,u)|^2du\Bigg]\\ 
-        & = 4 \int_0^t \mathbb{E}[|\Delta \sigma(n,u)|^2]du.
-    \end{aligned}
+    M_h(s) := \int_0^s[h(Z_n(u-))-h(Z_{n-1}(u-))]\, d\widetilde{N}(u).
 $$
 
-Definimos el proceso
+De manera análoga, $M_h(s)$ es una martingala cuadrado-integrable. Aplicando la desigualdad de Doob y la Isometría de Itô para el proceso de Poisson commpensado, donde su variación cuadrática introduce el factor de intensidad $\lambda$, obtenemos 
 
 $$
-    L(s) := \int_0^s\int_{|x|<c} \Delta F(n,u,x)\widetilde{N}(du,dx).
-$$
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} |M_h(s)|^2 \right]\\
+& \leq 4 \, \mathbb{E}\left[ |M_h(t)|^2 \right] \\ 
+& = 4 \, \mathbb{E}\left[ \lambda \int_0^t \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 du \right] \\ 
+& = 4\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du.
+\end{aligned}
+$$ {#eq-4.021}
 
-Afirmamos que dicho proceso es una martingala. Aplicando la desigualdad de Doob, obtenemos
-
-$$
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |L(s)|^2\Bigg]\leq 4\mathbb{E}\left[|L(t)|^2\right].
-$$
-
-Por la isometría de Itô en la medida de Poisson, tenemos
-
-$$
-    \begin{aligned}
-        \mathbb{E}\left[|L(t)|^2\right] & = \mathbb{E}\Bigg[\int_0^t\Bigg(\int_{|x|<c}|\Delta F(n,u,x)|^2\nu(dx)\Bigg)du\Bigg]\\ 
-        & = \int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
-    \end{aligned}
-$$
-
-Por lo tanto
+Por lo tanto, sustituyendo la @eq-4.019, @eq-4.020 y @eq-4.021 en la @eq-4.018 tenemos
 
 $$
-    \begin{aligned}
-        C & = \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left|\int_0^s\int_{|x|<c}\Delta F(n,u,x)\widetilde{N}(du,dx)\right|^2\Bigg]\\ 
-        & \leq 4 \int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
-    \end{aligned}
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
+& \leq 3 \Bigg( t \int_0^t \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] du \\ 
+& \quad + 4 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du \\ 
+& \quad + 4\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du \Bigg) \\ 
+& = 3t \int_0^t \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] du \\ 
+& \quad + 12 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du \\ 
+& \quad + 12\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du.
+\end{aligned}
 $$
 
-Así de (@eq-11)
+Recordemos la constante $C_1(t)=\max\{3t,12\}$, definida en el paso base. Dado que, $3t\leq C_1(t)$ y $12\leq C_1(t)$, podemos factorizar $C_1(t)$ en la expresión anterior para obtener la siguiente cota
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] & \leq 3(A+B+C)\\ 
-        & \leq 3\Bigg(t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
-        & \qquad + 4\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\Bigg)\\ 
-        &  \qquad\quad + 4\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\ 
-        & = 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
-        & \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
-        &  \qquad\quad + 12\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
-    \end{aligned}
-$$
-
-Recordemos que $C_1(t)=\max\{3t,12\}$, por lo tanto, $3t\leq C_1(t)$ y $12\leq C_1(t)$, así
-
-$$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] & \leq 3t\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
-        & \qquad + 12\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
-        &  \qquad\quad + 12\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
-        & \leq C_1(t)\int_0^t \mathbb{E}\left[|\Delta b(n,u)|^2\right]du\\ 
-        & \qquad + C_1(t)\int_0^t \mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]du\\ 
-        &  \qquad\quad + C_1(t)\int_0^t\int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du\\
-        & = C_1(t)\int_0^t\Bigg(\mathbb{E}\left[|\Delta b(n,u)|^2\right]+\mathbb{E}\left[|\Delta \sigma(n,u)|^2\right]\\ 
-        & \qquad + \int_{|x|<c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)\Bigg)du.
-    \end{aligned}
-$$
+\begin{aligned}
+\mathbb{E} & \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\ 
+& \leq C_1(t) \int_0^t \Bigg( \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] \\ 
+& \quad + \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] \\ 
+& \quad + \lambda \, \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] \Bigg) du.
+\end{aligned}
+$$ {#eq-4.022}
 
 Recordemos que si $f:[0,t]$ es una función, entonces para todo $v\in [0,t]$ se cumple que
 
@@ -455,49 +392,46 @@ $$
     |f(v)|\leq \sup\limits_{0\leq u\leq t}|f(u)|.
 $$
 
-Así, tenemos que
+Aplicando esta propiedad a la diferencia de las iteraciones de Picard, tenemos que para cualquier $u\in[0,t]$
 
 $$
     |Z_n(u-)-Z_{n-1}(u-)|^2\leq \sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2.
 $$
 
-Tomando valor esperado, el cual, preserva la desigualdad, además, multiplicando por $K_1>0$, obtenemos
+Tomando valor esperado, el cual preserva la desigualdad, y multiplicando por la constante de Lipschitz $K_1>0$, obtenemos
 
 $$
-    K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
-$$ {#eq-12}
+    K_1\mathbb{E}\Big[|Z_n(u-)-Z_{n-1}(u-)|^2\Big] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+$$ {#eq-4.023}
 
-Por la hipótesis (@eq-4.02) la cuál indica que los coeficientes $b$, $\sigma$ y $F$ satisfacen
-
-$$
-    \begin{aligned}
-    |b(y_1) - b(y_2)|^2 & + |\sigma(y_1) - \sigma(y_2)|^2\\ 
-    & + \int_{|x| < c} |F(y_1, x) - F(y_2, x)|^2 \, \nu(dx) \\
-    &\qquad \quad \leq K_1 |y_1 - y_2|^2.
-    \end{aligned}
-$$
-
-Aplicando esto para $y_1=Z_n(u-)$ y $y_2=Z_{n-1}(u-)$, además tomando valor esperado, tenemos
+Por la hipótesis dada en la @eq-4.02, los coeficientes $f$, $g$ y $h$ satisfacen que para todo $y_1,y_2\in\mathbb{R}$
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[|b(Z_n(u-))-b(Z_{n-1}(u-))|^2\right] & + \mathbb{E}\left[|\sigma(Z_n(u-))-\sigma(Z_{n-1}(u-))|^2\right]\\ 
-        & \quad + \mathbb{E}\left[\int_{|x<c|}|F(Z_n(u-),x)-F(Z_{n-1}(u-),x)|^2\nu(dx)\right]\\ 
-        & \qquad\quad \leq K_1 \mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right]\\ 
-        & \qquad\quad \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
-    \end{aligned}
+|f(y_1) - f(y_2)|^2 + |g(y_1) - g(y_2)|^2 + \lambda |h(y_1) - h(y_2)|^2 \leq K_1 |y_1 - y_2|^2.
 $$
 
-Multiplicando por la variable $C_1(t)$ e intregrando en el intervalo $[0,t]$ con respecto a $u$ tenemos que
+Evaluando esta condición en $y_1=Z_n(u-)$ y $y_2=Z_{n-1}(u-)$, y tomando valor esperado, obtenemos
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right] & = C_1(t)\int_0^t \Bigg(\mathbb{E}\left[|b(Z_n(u-))-b(Z_{n-1}(u-))|^2\right]\\ 
-        & \qquad\qquad\quad + \mathbb{E}\left[|\sigma(Z_n(u-))-\sigma(Z_{n-1}(u-))|^2\right]\\ 
-        & \qquad\qquad\quad + \mathbb{E}\left[\int_{|x|<c}|F(Z_n(u-),x)-F(Z_{n-1}(u-),x)|^2\nu(dx)\right]\Bigg)du\\ 
-        & \leq C_1(t) K_1\int_0^t \mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(u)-Z_{n-1}(u)|^2\right]du.
-    \end{aligned}
+\begin{aligned}
+\mathbb{E}\left[|f(Z_n(u-)) - f(Z_{n-1}(u-))|^2\right] &+ \mathbb{E}\left[|g(Z_n(u-)) - g(Z_{n-1}(u-))|^2\right] \\
+&+ \lambda \mathbb{E}\left[|h(Z_n(u-)) - h(Z_{n-1}(u-))|^2\right] \\
+&\leq K_1 \mathbb{E}\left[|Z_n(u-) - Z_{n-1}(u-)|^2\right] \\
+&\leq K_1 \mathbb{E}\left[\sup_{0 \leq v \leq u} |Z_n(v) - Z_{n-1}(v)|^2\right].
+\end{aligned}
 $$
+
+Sustituyendo esta cota en la @eq-4.022, y multiplicando por la constante $C_1(t)$ e integrando en el intervalo $[0,t]$ con respecto a $u$, llegamos a la estimación para el paso inductivo
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2\right]\\
+&\leq C_1(t) \int_0^t \Bigg( \mathbb{E}\left[|f(Z_n(u-)) - f(Z_{n-1}(u-))|^2\right] \\
+&\quad + \mathbb{E}\left[|g(Z_n(u-)) - g(Z_{n-1}(u-))|^2\right] \\
+&\quad + \lambda \mathbb{E}\left[|h(Z_n(u-)) - h(Z_{n-1}(u-))|^2\right] \Bigg) du \\
+&\leq C_1(t) K_1 \int_0^t \mathbb{E}\left[\sup_{0 \leq v \leq u} |Z_n(v) - Z_{n-1}(v)|^2\right] du.
+\end{aligned}
+$$ {#eq-4.024}
 
 Ahora bien, para $n\geq 1$ y $t\geq 0$ definimos el siguiente proceso
 
@@ -505,140 +439,140 @@ $$
     d_n(t):= \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\right].
 $$
 
-Hemos demostrado hasta ahora las siguientes desigualdades
+Hemos demostrado hasta ahora las siguientes desigualdades para el paso base y el paso inductivo
 
 $$
-    d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
-$$ {#eq-13}
+    d_1(t) \leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2]),
+$$ {#eq-4.025}
 
 $$
-    d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
-$$ {#eq-14}
+    d_{n+1}(t)\leq C_1(t)K_1\int_0^t d_n(s)ds,
+$$ {#eq-4.026}
 
-Definimos las variables $C_2(t):=tC_1(t)$ y $K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}.$
+donde $C_1(t)=\max\{3t,12,12\lambda\}$.
 
-Afirmamos que para toda $n\in \mathbb{N}$, se cumple
+Definimos las variables auxiliares $C_2(t):=tC_1(t)$ y $K_3:=\max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}.$
+
+Afirmamos que para toda $n\in \mathbb{N}$, se cumple la siguiente cota
 
 $$
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
-$$ {#eq-15}
+$$ {#eq-4.027}
 
-Procediendo por inducción, veamos que se cumple para $n=1$. Esto es claro, dado que $K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}=K_3$, por lo tanto
+Procediendo por inducción matemática sobre $n$.
+
+**Caso n=1:** Notemos que  $K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3$. Por lo tanto, de la @eq-4.025 obtenemos directammente 
 
 $$
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
 $$
 
-Suponemos ahora la afirmación es cierta para $n=k$, es decir
+La afirmación se cumple para $n=1$.
+
+**Paso inductivo.** Supongamos que la afirmación es cierta para $n=k$, es decir 
+
 
 $$
     d_k(t)\leq \frac{C_2(t)^k K_3^k}{k!}.
 $$
 
-Veamos ahora que se cumple para $n=k+1$, vale decir, queremos probar que
+Queremos probar que se cumple para $n=k+1$, vale decir 
 
 $$
     d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
 $$
 
-Por la (@eq-14) tenemos
+Por la @eq-4.026 tenemos que
 
 $$
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 $$
 
-Usando la hipótesis de inducción, podemos afirmar que
+Aplicando la hipótesis de inducción al integrando, obtenemos 
 
 $$
-    d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
+d_k(s) \leq \frac{C_2(s)^k K_3^k}{k!} = \frac{s^k C_1(s)^k K_3^k}{k!}.
 $$
 
-Aquí debemos considerar los siguientes casos
-
-**Caso 1:** $t<1$
-
-Dado que $0\leq s\leq t<1$, entonces $3s\leq 3t<3<12$, por lo tanto
+Observemos que la función $C_1(t)$ es no decreciente en $t$, ya que es el máximo de funciones no decrecientes. Por lo tanto, para todo $0\leq s\leq t$, se cumple que $C_1(s)\leq C_1(t)$. Esto nos permite acotar el integranndo de la siguiente manera 
 
 $$
-    C_1(s)=\max\{3s,12\}=12=\max\{3t,12\}=C_1(t).
+d_k(s) \leq \frac{s^k C_1(t)^k K_3^k}{k!}.
 $$
 
-**Caso 2:** $t\geq 1$
-
-Es claro que si $s\leq t$, entonces $3s\leq 3t$, por tanto, podemos afimar
+Sustituyendo esta cota en la integral y evaluando, se obtiene 
 
 $$
-    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t).
+\begin{aligned}
+d_{k+1}(t) & \leq C_1(t) K_1 \int_0^t d_k(s) \, ds \\
+& \leq C_1(t) K_1 \int_0^t \frac{s^k C_1(t)^k K_3^k}{k!} \, ds \\
+& = \frac{C_1(t)^{k+1} K_1 K_3^k}{k!} \int_0^t s^k \, ds \\
+& = \frac{C_1(t)^{k+1} K_1 K_3^k}{k!} \frac{t^{k+1}}{k+1}.
+\end{aligned}
 $$
 
-En ambos casos note que se cumple $C_1(s)\leq C_1(t)$, más aún es claro que $K_1\leq K_3$, esto implica que $K_1K_3^k\leq K_3^{k+1}$ por lo tanto
+Dado que $K_1\leq K_3$, se cumple $K_1K_3\leq K_3^{k+1}$. Por lo tanto
 
 $$
-    \begin{aligned}
-        d_{k+1}(t) & \leq C_1(t)K_1\int_0^t d_k(s)ds\\ 
-        & \leq C_1(t)K_1\int_0^t \frac{C_2(t)^k K_3^k}{k!}ds.\\ 
-        & = \frac{C_1(t)K_1 K_3^k}{k!}\int_0^t s^kC_1(s)^k ds\\ 
-        & \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(s)^k ds\\
-        & \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(t)^k ds\\ 
-        & = \frac{C_1(t)C_1(t)^k K_3^{k+1}}{k!}\int_0^t s^k ds\\ 
-        & = \frac{C_1(t)^{k+1}K_3^{k+1}}{k!}\frac{t^{k+1}}{k+1}\\ 
-        & = \frac{t^{k+1}C_1(t)^{k+1}K_3^{k+1}}{(k+1)!}\\ 
-        & = \frac{C_2(t)^{k+1}K_3^{k+1}}{(k+1)!}.
-    \end{aligned}
+\begin{aligned}
+d_{k+1}(t) & \leq \frac{C_1(t)^{k+1} K_3^{k+1} t^{k+1}}{(k+1)!} \\
+& = \frac{\big(t C_1(t)\big)^{k+1} K_3^{k+1}}{(k+1)!} \\
+& = \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
+\end{aligned}
 $$
 
-Por lo tanto para toda $n\in \mathbb{N}$ se cumple
+Con esto completamos el paso inductivo. Por lo tanto, para toda $n\in\mathbb{N}$ y $t\geq 0$, se cumple 
 
 $$
-d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
+d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 $$
 
-Veamos que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en $L^2$ usando la norma $\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}$ el cuál hace de $L^2$ un espacio completo.
+A continuación, demostraremos que la sucesión que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en el espacio $L^2(\Omega,\mathcal{F},\mathbb{P})$, el cual es un espacio de Banach bajo la norma $\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}$.
 
-Sean $m,n \in \mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$, aplicando la desigualdad del triangulo, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
+Sean $m,n \in \mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$. Aplicando la desigualdad triangular para la norma $\|\cdot\|_2$, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
 
 $$
     \begin{aligned}
-        \|Z_n(s)-Z_m(s)\|_2 & = \Bigg\|\sum\limits_{r=m+1}^n (Z_r(s)-Z_{r-1}(s))\Bigg\|_2\\ 
+        \|Z_n(s)-Z_m(s)\|_2 & = \Bigg\|\sum\limits_{r=m+1}^n \Big(Z_r(s)-Z_{r-1}(s)\Big)\Bigg\|_2\\ 
         & \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 $$
 
-De la (@eq-15) sabemos que para cada $r=m+1,m+2,\ldots,n$ se cumple
+De la @eq-4.027 sabemos que para cada $r\in\mathbb{N}$ se cumple
 
 $$
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
+    \mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 $$
 
-Dado que son términos no negativos, tomando raíz se puede afirmar que
+Dado que $|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2$ al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma $\mathcal{L}$
 
 $$
     \begin{aligned}
         \|Z_r(s)-Z_{r-1}(s)\|_2 & \leq \sqrt{\mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]}\\ 
-        & \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+        & \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
     \end{aligned}
 $$
 
-Por tanto para cada $0\leq s\leq t$ tenemos
+Por tanto para cada $s\in [0,t]$, la distancia en $\mathcal{L}^2$ está acotada por  tenemos
 
 $$
     \begin{aligned}
         \|Z_n(s)-Z_m(s)\|_2 & \leq \sum\limits_{r=m+1}^n \|Z_r(s)-Z_{r-1}(s)\|_2\\ 
-        & \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+        & \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
     \end{aligned}
 $$
 
-Definimos la siguiente variable
+Para analizar la convergencia de esta suma, definimos la constante  
 
 $$
-    A':=C_2(t)K_3>0.
+    A':=C_2(t)K_3>0,
 $$
 
-Reescribiendo el término de la suma de la siguiente forma
+y reescribirmos el término general de la serie como
 
 $$
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
-$$ {#eq-16}
+$$ {#eq-4.028} 
 
 Veamos la convergencía de la serie
 
@@ -646,7 +580,7 @@ $$
 \sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
 $$
 
-Considerando el cociente del término $a_r$ tenemos
+Aplicando el criterio de la razón, evaluamos el límite del cociente entre  términos consecutivos
 
 $$
     \begin{aligned}
@@ -656,93 +590,87 @@ $$
     \end{aligned}
 $$
 
-Ahora tomando el límite cuando $r\rightarrow\infty$
+Tomando el límite cuando $r\rightarrow\infty$
 
 $$
 \lim\limits_{r\rightarrow\infty}\frac{a_{r+1}}{a_r}=\lim\limits_{r\rightarrow\infty}\sqrt{\frac{A}{r+1}}=0.
 $$
 
-Dado que este límite es estrictamente menor que 1, por el criterio de la razón, podemos afirmar que la serie converge absolutamente esto implica que la serie converge, más aún, su cola converge, es decir, para todo $\varepsilon>0$ existe $N\in \mathbb{N}$ tal que
+Dado que este límite es estrictamente menor que 1, por el criterio de la razón afirmamos que la serie converge. Como consecuencia directa de la convergencia de la serie, la cola de la serie tiende a cero. Es decir, para todo $\varepsilon>0$ existe un entero $N\in \mathbb{N}$ tal que
 
 $$
-    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^r/2}<\varepsilon.
+    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^1/2}<\varepsilon.
 $$
 
-Entonces, para todo $n,m\geq N$ tales que $m<n$ y todo $s\in [0,t]$
+Entonces, para todo $n,m\geq N$ tales que $m<n$ y todo $s\in [0,t]$ se cumple
 
 $$
     \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}<\varepsilon.
-$$
+$$ {#eq-4.029}
 
-Por lo tanto, podemos afirmar que $(Z_n(s))$ es una sucesión de Cauchy en $L^2$.
+Por lo tanto, hemos demostrado que $(Z_n(s))$ es una sucesión de Cauchy en $\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})$ para cada $s\in[0,t]$.
 
-Al ser $L^2(\Omega, \mathcal{F},\mathbb{P})$ un espacio de Banach, vale decir, es un espacio completo con la norma $\|\cdot\|_2$, entonces toda sucesión de Cauchy converge en $L^2$. Luego existe $Z(s)\in L^2$ tal que
+Dado que $\mathcal{L}^2(\Omega, \mathcal{F},\mathbb{P})$ un espacio de Banach, es decir, un espacio completo con la norma $\|\cdot\|_2$, toda sucesión de Cauchy converge en $\mathcal{L}^2$. Por lo tanto, existe un proceso $Z(s)\in \mathcal{L}^2$ tal que
 
 $$
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
-$$ {#eq-17}
+$$ {#eq-4.030}
 
-Cómo $m<n$, por la desigualdad del triángulo, afirmamos que
+Cómo $m<n$, por la desigualdad triangular, afirmamos que
 
 $$
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 $$
 
-Tomando límite cuando $m\rightarrow\infty$ en ambos lados; por la @eq-17 tenemos que
+Tomando límite cuando $m\rightarrow\infty$ en ambos lados y utilizando lla convergencia en $\mathcal{L}^2$ dada por la por la @eq-4.030, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie: 
 
 $$
-    \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
+    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 $$
 
-Luego, dado que ya se demostró que la seríe dada por @eq-16 converge entonces
+Dado que el término $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, obtenemos la siguiente cota para el error en $\mathcal{L}^2$
 
 $$
-    \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 $$
 
-Además el término $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, por lo tanto
-
-$$
-    \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
-$$
-
-Consideremos ahora la siguiente notación
+A continuación, vamos a establecer la convergencia casi segura y uniforme de la sucesión. Consideremos variable aleatoria
 
 $$
     X_n:=\sup\limits_{0\leq s\leq t} |Z_n(s)-Z_{n-1}(s)|. 
 $$
 
-Queremos encontrar una cota para
+Queremos encontrar una cota para la siguiente probabilidad
 
 $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg).
 $$
 
-Aplicando a $X_n^2$ Chebyshev-Markov tenemos que
+Aplicando la desigualdad de Chebyshev-Markov a $X_n^2$, tenemos
 
 $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
-$$ {#eq-18}
+$$ {#eq-4.031}
 
-Notemos que $\mathbb{E}[X_n^2]$ ya esta acotado dado por la @eq-15, así
+Notemos que $\mathbb{E}[X_n^2]$ ya esta acotado dado por la cota factorial dada en la @eq-4.027
 
 $$
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 $$
 
-De la @eq-18, esto implica que
+Sustituyendo esta cota en la @eq-4.031, obtenemos
 
 $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 $$
 
-Más aún, sabemos que la seríe $\displaystyle \frac{C_2(t)^nK_3^n}{n!}$ converge, esto implica que $\displaystyle \frac{(4C_2(t)K_3)^n}{n!}$ también converge, por lo tanto
+Dado que la serie exponencial $\sum_{n=1}^{\infty}\frac{A^n}{n!}$ converge para cualquier constante $A>0$, la serie de probabilidades tambien converge
 
 $$
     \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}<\infty.
 $$
 
-De aquí es posible usar el Lema de Borell-Cantelli, es decir, podemos afirmar
+Al ser la suma de probabilidades finita, podemos aplicar el Lema de Borel-Cantelli, lo que nos permite afirmar que 
 
 $$
     \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0.
@@ -750,181 +678,193 @@ $$
 
 La estimación obtenida nos dice que la probabilidad de que las diferencias consecutivas $|Z_n(s) - Z_{n-1}(s)|$ sean "grandes" (mayores que $1/2^n$) se vuelve extremadamente pequeña a medida que $n$ crece, tan pequeña que la suma de todas esas probabilidades es finita.
 
-En otras palabras, casi todas las trayectorias de la sucesión $(Z_n)$ se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo $[0,t]$.
+En otras palabras, para casi todas las trayectorias de la sucesión $(Z_n)$ se vuelven uniformemente estables, a partir de algún momento, los términos de la sucesión ya no cambian mucho entre sí, ni en ningún instante del intervalo $[0,t]$.
 
 Esto garantiza que, con probabilidad 1, la sucesión $(Z_n(\cdot))$ converge uniformemente en $[0,t]$ a una función límite $Z(\cdot)$. Es decir, no solo converge punto a punto, sino que lo hace de manera controlada en todo el intervalo al mismo tiempo.
 
-Veamos ahora que dicha solución es única, así supongamos que $Z^{(1)}= (Z^{(1)}(t))_{t \geq 0}$ y $Z^{(2)} = (Z^{(2)}(t))_{t \geq 0}$ son dos soluciones fuertes de la SDE modificada, es decir, procesos adaptados, càdlàg, cuadrado-integrables y que satisfacen, para todo $t \geq 0$, las ecuaciones integrales:
+Veamos ahora que dicha solución es única. Supongamos que $Z^{(1)}= (Z^{(1)}(t))_{t \geq 0}$ y $Z^{(2)} = (Z^{(2)}(t))_{t \geq 0}$ son dos soluciones fuertes de la EDE modificada dada en la @eq-6.01. Es decir, son procesos adaptados, càdlàg, cuadrado-integrables y que satisfacen, para todo $t \geq 0$, las ecuaciones integrales:
 
 $$
-    \begin{aligned}
-        Z^{(i)}(t) & = Z_0 + \int_0^t b(Z^{(i)}(s-))\,ds\\ 
-        & \qquad \quad + \int_0^t \sigma(Z^{(i)}(s-))\,dB(s)\\ 
-        & \qquad\quad + \int_0^t \int_{|x|<c} F(Z^{(i)}(s-), x)\,\tilde{N}(ds,dx),
-    \end{aligned}
+\begin{aligned}
+Z^{(i)}(t) & = Z_0 + \int_0^t f(Z^{(i)}(s-))\,ds \\ 
+& \qquad + \int_0^t g(Z^{(i)}(s-))\,dW(s) \\ 
+& \qquad + \int_0^t h(Z^{(i)}(s-))\,d\widetilde{N}(s),
+\end{aligned}
 $$
 
-para $i=1,2$, casi seguramente. Queremos ver que $Z^{(1)}(t) = Z^{(2)}(t)$ para todo $t\geq 0$ con probabilidad $1$. Restando las dos ecuaciones de $Z^{(1)}$ y $Z^{(2)}$ tenemos que
+para $i=1,2$, casi seguramente. Queremos demostrar que $Z^{(1)}(t) = Z^{(2)}(t)$ para todo $t\geq 0$ con probabilidad $1$. Restando las dos ecuaciones de $Z^{(1)}$ y $Z^{(2)}$ tenemos que
 
 $$
-    \begin{aligned}
-        Z^{(1)}(t) - Z^{(2)}(t) & = \int_0^t [b(Z^{(1)}(s-)) - b(Z^{(2)}(s-))]\,ds\\ 
-        & \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\ 
-        & \qquad\quad + \int_0^t \int_{|x|<c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx). 
-    \end{aligned}
-$$ {#eq-19}
+\begin{aligned}
+Z^{(1)}(t) - Z^{(2)}(t) & = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\big]\,ds \\ 
+& \quad + \int_0^t \big[g(Z^{(1)}(s-)) - g(Z^{(2)}(s-))\big]\,dW(s) \\ 
+& \quad + \int_0^t \big[h(Z^{(1)}(s-)) - h(Z^{(2)}(s-))\big]\,d\widetilde{N}(s). 
+\end{aligned}
+$$ {#eq-4.032}
 
-Definimos la siguiente notación
-
-$$
-    \begin{aligned}
-        \Delta b(s) & :=b(Z^{(1)}(s-))-b(Z^{(2)}(s-))\\ 
-        \Delta \sigma(s) & := \sigma(Z^{(1)}(s-))-\sigma(Z^{(2)}(s-))\\ 
-        \Delta F(s,x) & := F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)
-    \end{aligned}
-$$
-
-Nuestro objetivo ahora es estimar $\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]$. Para ello, similar al procedimiento anterior, elevando al cuadrado la @eq-19, tomando supremo y despues esperanza en el intervalo \$\[0,1\]\$\$ tenemos la siguiente desigualdad
+Nuestro objetivo es estimar $\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]$. Elevando al cuadrado la @eq-4.032, tomando el supremos sobre $s\in[0\leq t]$ y posteriormente el valor esperado, aplicamos la desigualdad dada en la @eq-4.09 para obtener
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq & 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\Delta b(s)]du\Bigg|^2\right]\\ 
-        &\quad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\sigma(s)]dB(u)\Bigg|^2\right]\\ 
-        & \qquad + \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s\int_{|x|<c} [\Delta F(u,x)]\widetilde{N}(du,dx)\Bigg|^2\right]\Bigg).
-    \end{aligned}
-$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] 
+& \leq 3\Bigg(\mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right] \\ 
+& \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right] \\ 
+& \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right]\Bigg).
+\end{aligned}
+$$ {#eq-4.033}
 
-Aplicando la desigualdad de Cauchy–Schwarz para integrales, para el primer término de la desigualdad tenemos
+Procedemos a acotar cada término de manera análoga al paso inductivo de la iteración de Picard.
 
-$$
-    \begin{aligned}
-        \Bigg|\int_0^s \Delta b(u)du\Bigg|^2 & \leq s\int_0^s |\Delta b(u)|^2du\\ 
-        & \leq t\int_0^t |\Delta b(u)|^2du.
-    \end{aligned}
-$$
-
-Dado que $s\leq t$ al tomar supremo y valor esperado obtenemos la cota
+Aplicando la desigualdad de Cauchy–Schwarz para integrales, y notando que $s\leq t$, tenemos
 
 $$
-\mathbb{E}\left[\sup\limits_{o\leq s\leq t}\Bigg|\int_0^s \Delta b(u)du\Bigg|^2\right]\leq t\int_0^t \mathbb{E}[|\Delta b(u)|^2]du.
-$$
+\mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right] \leq t\int_0^t \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right]du.
+$$ {#eq-4.034}
 
-Bajo argumentos similares utilizados anteriormente, afirmamos que el proceso
-
-$$
-    \int_0^s \Delta \sigma (u)\ dB(u), 
-$$
-
-es una martingala local continua, por tanto, usando la desigualdad maximal de Doob tenemos
+Definimos el proceso estocástico 
 
 $$
-    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s \Delta \sigma (u)dB(u)\right|^2\right]\leq 4\mathbb{E}\left[\Bigg|\int_0^t \Delta \sigma (s)\ dB(s)\Bigg|^2\right].
+M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 $$
 
-De aquí, usando la isometría de Itô
+Dado que $Z^{(1)}$ y $Z^{(2)}$ son soluciones cuadrado-integrables y el coeficiente $g$ satisface la condición de crecimiento lineal, el integrando pertenece al espacio $\mathcal{L}^2$, lo que garantiza que $M_g(s)$ es una martingala cuadrado-integrable. 
+
+Para acotar el supremo de esta martingala, aplicamos la Desigualdad Maximal de Doob para $p=2$, la cual establece que
 
 $$
-\mathbb{E}\left[\Bigg|\int_0^t \Delta \sigma (s) dB(s)\Bigg|^2\right] \leq \mathbb{E}\Bigg[\int_0^t |\Delta \sigma (s)|^2ds\Bigg].
+\mathbb{E}[\sup_{0\leq s\leq t}|M_g(s)|^2] \leq 4\,\mathbb{E}[|M_g(t)|^2]. 
 $$
 
-Esto implica que
+Aplicando la Isometría de Itô para la integral estocástica respecto al movimiento browniano
 
 $$
-    \mathbb{E}\Bigg[\int_0^t |\Delta \sigma (s)|^2ds\Bigg] = \int_0^t \mathbb{E}[|\Delta \sigma (s)|^2ds].
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right]\\
+& \leq 4\,\mathbb{E}\left[\left|\int_0^t \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right] \\ 
+& = 4\,\mathbb{E}\left[\int_0^t \big|g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big|^2\,du\right].
+\end{aligned}
 $$
 
-Por lo tanto
+Finalmente por el Teorema de Fubini, podemos intercambiar el orden de la esperanza y la integral de Lebesgue, obteniendo la siguiente cota 
 
 $$
-    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s \Delta \sigma (u)\ dB(u)\right|^2\right]\leq 4\int_0^t \mathbb{E}[|\Delta \sigma (s)|^2ds].
-$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right]\\
+& \leq 4\int_0^t \mathbb{E}\left[\big|g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big|^2\right]du.
+\end{aligned}
+$$ {#eq-4.035}
 
-Podemos afirmar ahora que el siguiente proceso es una martingala local càdlàg
-
-$$
-    \int_0^s\int_{|x|<c} \Delta F(u,x)\widetilde{N}(du,dx).
-$$
-
-Nuevamente aplicando la desigualdad maximal de Doob la isometría de Itô para integrales respecto a $\widetilde{N}$ tenemos que
+De manera análoga, definimos el proceso 
 
 $$
-    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|\int_0^s\int_{|x|<c} \Delta F(u,x)\widetilde{N}(du,dx)\right|^2\right]\leq 4\int_0^t\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)ds.
+M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u). 
 $$
 
-Por lo tanto
+Bajo las mismas hipótesis de integrabilidad, $M_h(s)$ es una martingala respecto a la filtración $\mathbb{F}_t$. Al aplicar nuevamente la desigualdad maximal de  Doob se tiene 
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq & 3t\int_0^t \mathbb{E}[|\Delta b(s)|^2]ds\\ 
-        & \quad + 12 \int_0^t \mathbb{E}[|\Delta \sigma(s,x)|^2ds]\\ 
-        & \qquad +12 \int_0^t\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)ds.
-    \end{aligned}
-$$
+\mathbb{E}\left[\sup_{0\leq s\leq t}|M_h(s)|^2\right] \leq 4\,\mathbb{E}\left[|M_h(t)|^2\right].
+$$ {#eq-4.036}
 
-Usando y factorizando la variable ya definida $C_1(t)$ tenemos que
+Aplicando nuevamente la isometría de Itô para integrales respecto al proceso de Poisson compensado $\widetilde{N}(t)$. A diferencia del caso browniano, la variación cuadratica de $\widetilde{N}(t)$ introduce la intensidad, dada por $\lambda>0$, por lo que 
 
 $$
-    \begin{aligned}
-        \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq & C_1(t)\int_0^t\Bigg(\mathbb{E}[|\Delta b(s)|^2]+\mathbb{E}[|\Delta \sigma(s)|^2]\\
-        & \qquad\qquad +\int_{|x|<c}\mathbb{E}[|\Delta F(s,x)|^2]\nu(dx)\Bigg)ds.
-    \end{aligned}
+\mathbb{E}[|M_h(t)|^2] = \lambda\,\mathbb{E}\left[\int_0^t |h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))|^2\,du\right]. 
 $$
 
-De manera similar como ya se hizo en el análisis de la diferencia entre $Z_n$ y $Z_{n-1}$ en la iteración de Picard, haciendo uso de la condición (@eq-4.02) podemos obtener
+Sustituyendo esto en la @eq-4.036 y aplicando Fubini, obtenemos 
 
 $$
-    \mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]\leq C_1(t)K_1\int_0^t\mathbb{E}\left[\sup\limits_{0\leq u\leq s}|Z^{(1)}(u) - Z^{(2)}(u)|^2\right]ds.
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right]\\
+& \leq 4\,\mathbb{E}\left[\left|\int_0^t \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right] \\ 
+& = 4\lambda\,\mathbb{E}\left[\int_0^t \big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\,du\right] \\ 
+& = 4\lambda\int_0^t \mathbb{E}\left[\big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\right]du.
+\end{aligned}
+$$ {#eq-4.037}
+
+Sustituyendo la @eq-4.034, @eq-4.035 y @eq-4.037 en la @eq-4.033
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\\
+& \leq 3t\int_0^t \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right]du \\ 
+& \quad + 12\int_0^t \mathbb{E}\left[\big|g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big|^2\right]du \\ 
+& \quad + 12\lambda\int_0^t \mathbb{E}\left[\big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\right]du.
+\end{aligned}
 $$
 
-De esta forma definimos ahora la función
+Recordando la constante $C_1(t) = \max\{3t, 12, 12\lambda\}$ definida previamente, podemos factorizarla para unificar la expresión
+
+$$
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\\
+& \leq C_1(t)\int_0^t \Bigg( \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right] \\
+& \quad + \mathbb{E}\left[\big|g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big|^2\right] \\
+& \quad + \lambda\mathbb{E}\left[\big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\right] \Bigg)du.
+\end{aligned}
+$$
+
+De manera similar como ya se hizo en el análisis de la diferencia entre $Z_n$ y $Z_{n-1}$ en la iteración de Picard, haciendo uso de la @eq-4.02 podemos obtener
+
+$$
+\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq C_1(t)K_1\int_0^t \mathbb{E}\left[\sup_{0\leq r\leq u}|Z^{(1)}(r) - Z^{(2)}(r)|^2\right]du.
+$$ {#eq-4.038}
+
+De esta forma, definimos la función
 
 $$
     D(t):=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right].
 $$
 
-Es claro que $D(t)\geq 0$ para toda $t\geq 0$. Fijando a $T\geq 0$, podemos afirmar que para todo $t\in [0,T]$ la variable $C_1(t)\leq C_1(T)<\infty$. Por el Teorema de Gronwall tenemos que
+Es claro que $D(t)\geq 0$ para toda $t\geq 0$. Fijando $T\geq 0$, notemos que para todo $t\in [0,T]$ la constante $C_1(t)\leq C_1(T)<\infty$. 
+
+De la @eq-4.038 obtenemos que $D(t)$ satisface
 
 $$
-    D(t) \leq 0\cdot e^{C_1(T)K_1}=0, \qquad t\in [0,T].
+D(t) \leq C_1(T) K_1 \int_0^t D(s)\,ds, \quad \forall t \in [0,T].
 $$
 
-Por la arbitrariedad de $T$, tenemos que para todo $t\geq 0$ se cumple
+Aplicando la Desigualdad de Gronwall, con $C=0$, podemos concluir que 
 
 $$
-    D(t)=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]=0.
+D(t) \leq 0 \cdot \exp\left(C_1(T) K_1 t\right) = 0, \quad \forall t \in [0,T].
 $$
 
-Por lo tanto, por propiedad de la esperanza podemos afirmar que
+Dado que $D(t)\geq 0$, se sigue que $D(t)=0$ para todo $t\geq 0$. Por la arbitrariedad de $T\geq 0$, tenemos que para todo $t\geq 0$ se cumple
 
 $$
-\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2=0\ \ \text{c.s.}
+    D(t)=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right]=0, \qquad \text{c.s.}
 $$
 
-Es decir, $Z^{(1)}(s)=Z^{(2)}(s)$ para toda $s\in [0,t]$, $c.s$. Definimos
+Es decir, $Z^{(1)}(s) = Z^{(2)}(s)$ para toda $s \in [0,t]$, casi seguramente. Para extender esto a $t\geq 0$, definimos 
 
 $$
-A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo} s\in [0,n]\right\}.
+A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo}\ s\in [0,n]\right\}.
 $$
 
-Sabemos que $\mathbb{P}(A_n)=1$ para toda $n\in \mathbb{N}$ y también
+Sabemos que $\mathbb{P}(A_n)=1$ para toda $n\in \mathbb{N}$. Definimos el evento 
 
 $$
-    A = \bigcap_{n=1}^\infty A_n = \left\{ \omega : Z^{(1)}(t,\omega) = Z^{(2)}(t,\omega) \text{ para todo } t \geq 0 \right\}.
+    A := \bigcap_{n=1}^\infty A_n = \left\{ \omega : Z^{(1)}(t,\omega) = Z^{(2)}(t,\omega) \text{ para todo } t \geq 0 \right\}.
 $$
 
-Por la continuidad de la probabilidad (propiedad de medidas):
+Por la continuidad de la medida de probabilidad:
 
 $$
 \mathbb{P}(A) = \mathbb{P}\left( \bigcap_{n=1}^\infty A_n \right) = 1.
 $$
 
-Veamos el caso cuando $\mathbb{E}[|Z_0|^2]=\infty$. En teoria de probabilidad, al truncar una variable aleatoria podemos cortarla cuando esta está fuera de un rango finito, reemplazando sus valores extremos por cero o por el valor de dicho borde. Vamos aproximar $Z_0$ por una sucesión de variables acotadas, para más adelante garantizar la existencia y unicidad de una solución a la @eq-4.01. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
+Con esto, hemos demostrado la unicidad cuando $\mathbb{E}\Big[|Z_0|^2\Big]<\infty.$
+
+
+Ahora consideremos el caso general donde la condición inicial puede no tener segundo momento  finito, es decir, cuando $\mathbb{E}\Big[|Z_0|^2\Big]$. Aproximaremos $Z_0$ mediante una sucesión de  variables aleatorias acotadas. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
 
 $$
-    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}},
+    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}}, \qquad, n\in\mathbb{N},
 $$
 
-Donde
+donde $1_{|Z_0|\leq n}$ es la función indicadora del evento $\{|Z_0|\leq n\}$, es decir
 
 $$
 1_{\{ |Z_0| \leq n \}}(\omega) =
@@ -934,7 +874,7 @@ $$
 \end{cases}
 $$
 
-Esto implica que
+Por construcción, $Z_0^{(n)}$ satisface
 
 $$
     Z_0^{(n)}(\omega) = 
@@ -944,9 +884,9 @@ $$
     \end{cases}
 $$
 
-Esto garantiza que $\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2<\infty$, por otro lado, cómo $Z_0$ es $\mathbfcal{F}$- medible y $1_{\{|Z_0|\leq n\}}$ también lo es, entonces $Z_0^{(n)}$ es $\mathcal{F}$-medible.
+Esto garantiza que $\mathbb{E}[|Z_0^{(n)}|^2]\leq n^2<\infty$, por otro lado, cómo $Z_0$ es $\mathbfcal{F}$- medible y $1_{\{|Z_0|\leq n\}}$ también lo es, se sigue que $Z_0^{(n)}$ es $\mathcal{F}$-medible.
 
-Fijemos $\omega\in \Omega$ tal que $|Z_0(\omega)|<\infty$, por tanto, existe $N\in \mathbb{N}$ tal que $|Z_0(\omega)|\leq N$, de aquí, para todo $n\geq N$, se tiene $|Z_0(\omega)|\leq n$, más aún, $\displaystyle Z_0^{(n)}(\omega)=Z_0(\omega)$. Esto implica que, para casi todo $\omega\in\Omega$, la sucesión $(Z_0^{(n)}(\omega))$ es constante e igual a $Z_0(\omega)$. Así, por definición de convergencia puntual, tenemos
+Fijemos $\omega\in \Omega$ tal que $|Z_0(\omega)|<\infty$, lo cual ocurre con probabilidad $1$, pues $Z_0$ es una variable aleatoria real. Entonces existe $N\in \mathbb{N}$ tal que $|Z_0(\omega)|\leq N$. Para todo $n\geq N$, se tiene $|Z_0(\omega)|\leq n$, y por lo tanto $Z_0^{(n)}(\omega)=Z_0(\omega)$. Esto implica que, para casi todo $\omega\in\Omega$, la sucesión $(Z_0^{(n)}(\omega))$ es constante e igual a $Z_0(\omega)$. Así, por definición de convergencia puntual, tenemos
 
 $$
 \lim\limits_{n\rightarrow\infty}Z_0^{(n)}(\omega)=Z_0(\omega), \text{ para casi todo $\omega$}.
@@ -955,10 +895,10 @@ $$
 Por lo tanto
 
 $$
-Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
+Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 $$
 
-entonces para cada $n\in \mathbb{N}$ la variable $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada. Lo que nos permite afirmar que pertenece a $L^2(\Omega,\mathcal{F}_0,\mathbb{P})$. En consecuencia, es posible aplicar los argumentos anteriores, cuando $\mathbb{E}[|Z_0|^2]<\infty$, para afirmar que existe una única solución fuerte de la @eq-4.01, digamos $Z^{(n)}$, con condición inicial $Z_0^{(n)}$.
+Dado que cada $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada, en particular, pertenece a $\mathcal{L}^2(\Omega, \mathcal{F}_0, \mathbb{P})$, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso $\mathbb{E}[|Z_0|^2] < \infty$. Así, para cada $n \in \mathbb{N}$, existe una única solución fuerte $Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}$ de la ecuación @eq-4.01 con condición inicial $Z_0^{(n)}$.
 
 Para cada $N\in \mathbb{N}$, definimos el conjunto
 
@@ -966,73 +906,83 @@ $$
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
 $$
 
-Esto implica, para cualquier $m>n\geq N$, se tiene
+Notemos que si $\omega\in\Omega_N$, entonces para todo $m>n\geq N$, se tiene $|Z_0(\omega)| \leq N \leq n < m$, y por lo tanto
 
 $$
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-$$ {#eq-20}
+$$ {#eq-4.039}
 
-Es deicr, en $\Omega_N$, las condiciones iniciales de $Z^{(m)}$ y $Z^{(n)}$ son iguales. Por lo tanto, para todo $t\geq 0$ se cumple que
+Es deicr, en $\Omega_N$, las condiciones iniciales de $Z^{(m)}$ y $Z^{(n)}$ coinciden. Por la unicidad demostrada anteriormente, se sigue que para todo $t\geq 0$
 
 $$
-    Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
+    Z^{(m)}(t)=Z^{(n)}(t),\quad \text{para casi todo}\ \omega\in\Omega_N
 $$
 
-Queremos ver ahora que la sucesión $\{Z^{n}\}_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad, es decir, dado $\varepsilon>0$ y $\delta>0$, existe $N\in \mathbb{N}$ tal que para todo $m,n\geq N$, se cumple
+Ahora demostraremos que la sucesión $\{Z^{n}\}_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad. Es decir, dado $\varepsilon>0$ y $\delta>0$, existe $N\in \mathbb{N}$ tal que para todo $m,n\geq N$:
 
 $$
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon.
 $$
 
-Notemos que de los conjuntos anteriormente definidos, cumplen que $\Omega_N\subset \Omega_{N+1}$. Por otro lado, al ser $Z_0$ una variable aleatoria real, entonces $\mathbb{P}(|Z_0|<\infty)=1$ . Así al ser $\Omega_N$ una sucesión de conjuntos crecientes, se tiene
+Notemos que de los conjuntos $\Omega_N$ satisfacen $\Omega_N\subset \Omega_{N+1}$ para todo $N\in\mathbb{N}$. Dado que $Z_0$ una variable aleatoria real, entonces $\mathbb{P}(|Z_0|<\infty)=1$ . Así, $(\Omega_N)_{N\in\mathbb{N}}$ es una sucesión de creciente de conjuntos cuya unión es
 
 $$
     \bigcup\limits_{n=1}^{\infty}\Omega_n=\{|Z_0|<\infty\}.
 $$
 
-Por la continuidad de la probabilidad, podemos afirmar $\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1$. Esto implica que para cualquier $\varepsilon>0$, existe $N\in \mathbb{N}$ tal que
+Por la continuidad de la probabilidad,
+
+$$
+\lim_{N \to \infty} \mathbb{P}(\Omega_N) = \mathbb{P}\left(\bigcup_{N=1}^\infty \Omega_N\right) = \mathbb{P}(|Z_0| < \infty) = 1.
+$$
+
+Esto implica que para cualquier $\varepsilon>0$, existe $N\in \mathbb{N}$ tal que
 
 $$
     \mathbb{P}(\Omega_N)>1-\varepsilon.
-$$ {#eq-21}
+$$ {#eq-4.040}
 
-De @eq-20 sabemos que
+De la @eq-4.039 sabemos que en $\Omega_N$ se cumple
 
 $$
-\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
+\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0,\qquad \forall m,\, n\geq N.
 $$
 
-Por lo tanto, si la diferencia es distinta de cero, es decir, para $\delta>0$, solo puede ocurrir fuera de $\Omega_N$, esto es, ocurre en el complemento de $\Omega_N$. Entonces
+Por lo tanto, si la diferencia es distinta de cero, es decir, mayor que $\delta>0$, esto solo puede ocurrir fuera de $\Omega_N$. En términos de conjuntos
 
 $$
 \Bigg\{\omega:\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg\}\subset \Omega_N^{c}.
 $$
 
-Por propiedad básica de la probabilidad, podemos afirmar
+Por la monotonía de la probabilidad
 
 $$
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 $$
 
-Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-21, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar
+Más aún, notemos que $\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)$, por la @eq-4.040, entonces $\mathbb{P}(\Omega_N^c)<\varepsilon$. De la ecuación anterior, podemos afirmar
 
 $$
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|>\delta\Bigg)<\varepsilon, \ \ \forall\ m,n\geq N
 $$
 
-Por lo tanto, la sucesión $(Z^{(n)})_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad. Al estar en $L^2$ podemos afirmar que existe un proceso $Z=\{Z(t)\}_{t\geq 0}$ de tal forma que
+Con esto, hemos demostrado que la sucesión $(Z^{(n)})_{n\in \mathbb{N}}$ es uniformemente de Cauchy en probabilidad. 
+
+Dado que el espacio de procesos estocásticos con la topología de convergencia uniforme en probabilidad es completo, existe un proceso $Z = (Z(t))_{t \geq 0}$ tal que:
 
 $$
     \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
 $$
 
-Por el teorema de convergencia de sucesiones de Cauchy en probabilidad, para la sucesión es posible extraer una subsucesión $\{Z_{n_k}\}$ tal que se cumple
+Por un resultado estándar de la teoría de la probabilidad, si una sucesión converge en probabilidad, entonces existe una subsucesión que converge casi seguramente. Es decir, podemos extraer una subsucesión $(Z^{(n_k)})_{k \in \mathbb{N}}$ tal que
 
 $$
     \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
 $$
 
-De aquí, notemos que por construcción, cada $Z^{(n_k)}$ posee trayectorias càdlàg, y la convergencia es uniforme casi segura, entonces el límite $Z$ admite una versión càdlàg. Por otro lado, dado que cada $Z^{(n_k)}$ es adaptado y su convergencia al proceso $Z$ es uniforme, basta notar que la adaptabilidad de un proceso se converva bajo convergencia puntual, en nuestro caso, convergencia uniforme casi seguramente, por tanto podemos afirmar que el límite $Z$ es adaptado.
+Dado que cada $Z^{(n_k)}$ posee trayectorias cádlàg y la convergencia es uniforme casi segura, el límite $Z$ admite una versión con trayectorias cádlàg (pues el límite uniforme de funciones cádlàg es cádlàg).
+
+Finalmente, dado que cada $Z^{(n_k)}$ es adaptado a la filtración $(\mathcal{F}_t)_{t \geq 0}$ y la convergencia al proceso $Z$ es uniforme casi seguramente, la adaptabilidad se preserva bajo convergencia puntual (y en particular, bajo convergencia uniforme). Por lo tanto, el proceso límite $Z$ es adaptado a $(\mathcal{F}_t)_{t \geq 0}$.
 
 Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte $Z'=(Z'(t))_{t\geq 0}$ con la misma condición inicial $Z_0$. Fijando a $N\in \mathbb{N}$, consideremos al conjunto $\Omega_N$, ya sabemos que en este conjunto la condición incial es acotada y además por el caso $\mathbb{E}[|Z_0|^2]<\infty$ la solución es única. Por lo tanto
 
