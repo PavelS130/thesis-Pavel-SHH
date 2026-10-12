@@ -611,11 +611,12 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
     &amp; \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
 \end{aligned}
 \tag{4.15}\]</span></span></p>
-<p>Para acotar la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> utilizando la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, dfinimos la constante <span class="math inline">\(C_1(t):=\max{\{3t,12\}}\)</span>, notemos que</p>
+<p>Para acotar la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> utilizando la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, dfinimos la constante <span class="math inline">\(C_1(t):=\max{\{3t,12,12\lambda\}}\)</span>, notemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
-        3t^2 &amp; = 3t\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.\\
-        12t &amp; = 12\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.
+        3t^2 &amp; = 3t\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t,\\
+        12t &amp; = 12\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t,\\
+        12\lambda t &amp; = 12\lambda\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t
     \end{aligned}
 \]</span></p>
 <p>Por lo tanto, de la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> podemos factorizar</p>
@@ -746,7 +747,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Sustituyendo esta cota en la <a href="#eq-4.022" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a>, y multiplicando por la constante <span class="math inline">\(C_1(t)\)</span> e integrando en el intervalo <span class="math inline">\([0,t]\)</span> con respecto a <span class="math inline">\(u\)</span>, llegamos a la estimación para el paso inductivo</p>
 <p><span id="eq-4.024"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[\sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2\right]
+\mathbb{E} &amp; \left[\sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2\right]\\
 &amp;\leq C_1(t) \int_0^t \Bigg( \mathbb{E}\left[|f(Z_n(u-)) - f(Z_{n-1}(u-))|^2\right] \\
 &amp;\quad + \mathbb{E}\left[|g(Z_n(u-)) - g(Z_{n-1}(u-))|^2\right] \\
 &amp;\quad + \lambda \mathbb{E}\left[|h(Z_n(u-)) - h(Z_{n-1}(u-))|^2\right] \Bigg) du \\
@@ -757,66 +758,65 @@ Z_{n+1}(t) - Z_n(t)
 <p><span class="math display">\[
     d_n(t):= \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\right].
 \]</span></p>
-<p>Hemos demostrado hasta ahora las siguientes desigualdades</p>
-<p><span id="eq-13"><span class="math display">\[
-    d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
+<p>Hemos demostrado hasta ahora las siguientes desigualdades para el paso base y el paso inductivo</p>
+<p><span id="eq-4.025"><span class="math display">\[
+    d_1(t) \leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]),
 \tag{4.25}\]</span></span></p>
-<p><span id="eq-14"><span class="math display">\[
-    d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
+<p><span id="eq-4.026"><span class="math display">\[
+    d_{n+1}(t)\leq C_1(t)K_1\int_0^t d_n(s)ds,
 \tag{4.26}\]</span></span></p>
-<p>Definimos las variables <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}.\)</span></p>
-<p>Afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple</p>
-<p><span id="eq-15"><span class="math display">\[
+<p>donde <span class="math inline">\(C_1(t)=\max\{3t,12,12\lambda\}\)</span>.</p>
+<p>Definimos las variables auxiliares <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}.\)</span></p>
+<p>Afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple la siguiente cota</p>
+<p><span id="eq-4.027"><span class="math display">\[
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
 \tag{4.27}\]</span></span></p>
-<p>Procediendo por inducción, veamos que se cumple para <span class="math inline">\(n=1\)</span>. Esto es claro, dado que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}=K_3\)</span>, por lo tanto</p>
+<p>Procediendo por inducción matemática sobre <span class="math inline">\(n\)</span>.</p>
+<p><strong>Caso n=1:</strong> Notemos que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3\)</span>. Por lo tanto, de la <a href="#eq-4.025" class="quarto-xref">Ecuación&nbsp;<span>4.25</span></a> obtenemos directammente</p>
 <p><span class="math display">\[
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
 \]</span></p>
-<p>Suponemos ahora la afirmación es cierta para <span class="math inline">\(n=k\)</span>, es decir</p>
+<p>La afirmación se cumple para <span class="math inline">\(n=1\)</span>.</p>
+<p><strong>Paso inductivo.</strong> Supongamos que la afirmación es cierta para <span class="math inline">\(n=k\)</span>, es decir</p>
 <p><span class="math display">\[
     d_k(t)\leq \frac{C_2(t)^k K_3^k}{k!}.
 \]</span></p>
-<p>Veamos ahora que se cumple para <span class="math inline">\(n=k+1\)</span>, vale decir, queremos probar que</p>
+<p>Queremos probar que se cumple para <span class="math inline">\(n=k+1\)</span>, vale decir</p>
 <p><span class="math display">\[
     d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
 \]</span></p>
-<p>Por la (<a href="#eq-14" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a>) tenemos</p>
+<p>Por la <span class="quarto-unresolved-ref">?eq-6.026</span> tenemos que</p>
 <p><span class="math display">\[
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 \]</span></p>
-<p>Usando la hipótesis de inducción, podemos afirmar que</p>
+<p>Aplicando la hipótesis de inducción al integrando, obtenemos</p>
 <p><span class="math display">\[
-    d_{k+1}(t) \leq C_1(t)K_1\int_0^t d_k(s)ds\leq C_1(t)K_1\int_0^t \frac{C_2(t)^kK_3^k}{k!}.
+d_k(s) \leq \frac{C_2(s)^k K_3^k}{k!} = \frac{s^k C_1(s)^k K_3^k}{k!}.
 \]</span></p>
-<p>Aquí debemos considerar los siguientes casos</p>
-<p><strong>Caso 1:</strong> <span class="math inline">\(t&lt;1\)</span></p>
-<p>Dado que <span class="math inline">\(0\leq s\leq t&lt;1\)</span>, entonces <span class="math inline">\(3s\leq 3t&lt;3&lt;12\)</span>, por lo tanto</p>
+<p>Observemos que la función <span class="math inline">\(C_1(t)\)</span> es no decreciente en <span class="math inline">\(t\)</span>, ya que es el máximo de funciones no decrecientes. Por lo tanto, para todo <span class="math inline">\(0\leq s\leq t\)</span>, se cumple que <span class="math inline">\(C_1(s)\leq C_1(t)\)</span>. Esto nos permite acotar el integranndo de la siguiente manera</p>
 <p><span class="math display">\[
-    C_1(s)=\max\{3s,12\}=12=\max\{3t,12\}=C_1(t).
+d_k(s) \leq \frac{s^k C_1(t)^k K_3^k}{k!}.
 \]</span></p>
-<p><strong>Caso 2:</strong> <span class="math inline">\(t\geq 1\)</span></p>
-<p>Es claro que si <span class="math inline">\(s\leq t\)</span>, entonces <span class="math inline">\(3s\leq 3t\)</span>, por tanto, podemos afimar</p>
+<p>Sustituyendo esta cota en la integral y evaluando, se obtiene</p>
 <p><span class="math display">\[
-    C_1(s)=\max\{3s,12\}\leq \max\{3t,12\}=C_1(t).
+\begin{aligned}
+d_{k+1}(t) &amp; \leq C_1(t) K_1 \int_0^t d_k(s) \, ds \\
+&amp; \leq C_1(t) K_1 \int_0^t \frac{s^k C_1(t)^k K_3^k}{k!} \, ds \\
+&amp; = \frac{C_1(t)^{k+1} K_1 K_3^k}{k!} \int_0^t s^k \, ds \\
+&amp; = \frac{C_1(t)^{k+1} K_1 K_3^k}{k!} \frac{t^{k+1}}{k+1}.
+\end{aligned}
 \]</span></p>
-<p>En ambos casos note que se cumple <span class="math inline">\(C_1(s)\leq C_1(t)\)</span>, más aún es claro que <span class="math inline">\(K_1\leq K_3\)</span>, esto implica que <span class="math inline">\(K_1K_3^k\leq K_3^{k+1}\)</span> por lo tanto</p>
+<p>Dado que <span class="math inline">\(K_1\leq K_3\)</span>, se cumple <span class="math inline">\(K_1K_3\leq K_3^{k+1}\)</span>. Por lo tanto</p>
 <p><span class="math display">\[
-    \begin{aligned}
-        d_{k+1}(t) &amp; \leq C_1(t)K_1\int_0^t d_k(s)ds\\
-        &amp; \leq C_1(t)K_1\int_0^t \frac{C_2(t)^k K_3^k}{k!}ds.\\
-        &amp; = \frac{C_1(t)K_1 K_3^k}{k!}\int_0^t s^kC_1(s)^k ds\\
-        &amp; \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(s)^k ds\\
-        &amp; \leq \frac{C_1(t)K_3^{k+1}}{k!}\int_0^t s^k C_1(t)^k ds\\
-        &amp; = \frac{C_1(t)C_1(t)^k K_3^{k+1}}{k!}\int_0^t s^k ds\\
-        &amp; = \frac{C_1(t)^{k+1}K_3^{k+1}}{k!}\frac{t^{k+1}}{k+1}\\
-        &amp; = \frac{t^{k+1}C_1(t)^{k+1}K_3^{k+1}}{(k+1)!}\\
-        &amp; = \frac{C_2(t)^{k+1}K_3^{k+1}}{(k+1)!}.
-    \end{aligned}
+\begin{aligned}
+d_{k+1}(t) &amp; \leq \frac{C_1(t)^{k+1} K_3^{k+1} t^{k+1}}{(k+1)!} \\
+&amp; = \frac{\big(t C_1(t)\big)^{k+1} K_3^{k+1}}{(k+1)!} \\
+&amp; = \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
+\end{aligned}
 \]</span></p>
-<p>Por lo tanto para toda <span class="math inline">\(n\in \mathbb{N}\)</span> se cumple</p>
+<p>Con esto completamos el paso inductivo. Por lo tanto, para toda <span class="math inline">\(n\in\mathbb{N}\)</span> y <span class="math inline">\(t\geq 0\)</span>, se cumple</p>
 <p><span class="math display">\[
-d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
+d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 \]</span></p>
 <p>Veamos que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span> usando la norma <span class="math inline">\(\|\cdot\|_2:=[\mathbb{E}(|\cdot|^2)]^{1/2}\)</span> el cuál hace de <span class="math inline">\(L^2\)</span> un espacio completo.</p>
 <p>Sean <span class="math inline">\(m,n \in \mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>, aplicando la desigualdad del triangulo, podemos afirmmar que para cada <span class="math inline">\(0\leq s\leq t\)</span> se cumple</p>
@@ -826,7 +826,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la (<a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
+<p>De la (<span class="quarto-unresolved-ref">?eq-15</span>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
@@ -909,7 +909,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p><span id="eq-18"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
 \tag{4.30}\]</span></span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a>, así</p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <span class="quarto-unresolved-ref">?eq-15</span>, así</p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
