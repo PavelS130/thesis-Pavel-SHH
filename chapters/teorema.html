@@ -533,7 +533,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span id="eq-4.09"><span class="math display">\[
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
 \tag{4.9}\]</span></span></p>
-<p>Tomando valor absoulto y elevando al cuadrado la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> para obtener</p>
+<p>Tomando valor absoulto y elevando al cuadrado a la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> para obtener</p>
 <p><span class="math display">\[
 \begin{aligned}
 |Z_1(t)-Z_0|^2
@@ -547,35 +547,24 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 &amp; \qquad\qquad\quad + \left(\int_0^t h(Z_0)\,d\widetilde{N}(s)\right)^2\Bigg).
 \end{aligned}
 \]</span></p>
-<p>Para controlar de manera uniforme en todo el intervalo <span class="math inline">\([0,t]\)</span> tomamos el supremo sobre todo el intervalo, además usando propiedades del supremos podemos obtener</p>
+<p>Para controlar el comportamiento de manera uniforme en todo el intervalo <span class="math inline">\([0,t]\)</span>, tomamos el supremo sobre <span class="math inline">\(s\in[0,t]\)</span>, en ambos lados. Utilizando la propiedad de que el supremo de una suma es menor igual a la suma de los supremos, podemos obtener</p>
 <p><span class="math display">\[
 \begin{aligned}
-\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2
-&amp;\leq \sup\limits_{0\leq s\leq t}\Bigg(3\Bigg(
-      \left(\int_0^s b(Z_0)\,ds\right)^2
-      + \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\
+\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2
+&amp;\leq 3\Bigg(\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2 + \sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2 \\
 &amp;\qquad\quad
-      + \left(\int_0^s\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
-   \Bigg)\Bigg)\\
-&amp; = 3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2 + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\
-&amp;\qquad\quad
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg).
+    + \sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\Bigg).
 \end{aligned}
 \]</span></p>
-<p>Tomando valor esperado de ambos lado y usando la linealidad, tenemos que</p>
-<p><span id="eq-5"><span class="math display">\[
+<p>Finalmente, tomando el valor esperado de ambos lados y utilizando la linealidad de la esperanza, llegamos a la siguiente cota</p>
+<p><span id="eq-4.010"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
-&amp; \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\\
-&amp;\qquad   
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\
-&amp;\qquad\quad
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg)\Bigg]\\
-&amp; = 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\
+\mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
+&amp; \leq 3\Bigg( \mathbb{E}\left[\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2\right] \\
 &amp;\qquad
-    + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+    + \mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2\right] \\
 &amp;\qquad\quad
-    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
+    +\mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\right]\Bigg).
 \end{aligned}
 \tag{4.10}\]</span></span></p>
 <p>Trabajaremos término por término; así notemos que la siguiente integral es de Lebesgue</p>
@@ -629,7 +618,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
     \end{aligned}
 \]</span></p>
-<p>Así, de la igualdad (<a href="#eq-5" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>) tenemos</p>
+<p>Así, de la igualdad (<span class="quarto-unresolved-ref">?eq-5</span>) tenemos</p>
 <p><span id="eq-7"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
