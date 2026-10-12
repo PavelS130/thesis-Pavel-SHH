@@ -567,72 +567,49 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
     +\mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\right]\Bigg).
 \end{aligned}
 \tag{4.10}\]</span></span></p>
-<p>Trabajaremos término por término; así notemos que la siguiente integral es de Lebesgue</p>
+<p>Trabajaremos término por término. Primero notemos que la siguiente integral es de Lebesgue:</p>
 <p><span class="math display">\[
-    \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
+    \int_0^s f(z_0)du = b(z_0) \int_0^s du = f(z_0)\cdot s
 \]</span></p>
-<p>Por lo tanto</p>
-<p><span class="math display">\[
-    \sup\limits_{0\leq s\leq t}\Bigg(\int_0^s b(Z_0)du\Bigg)^2=\sup\limits_{0\leq s\leq t}(b(Z_0)\cdot s)^2=\sup\limits_{0\leq s\leq t} b(Z_0)^2\cdot s^2= b(Z_0)^2\cdot t^2.
-\]</span></p>
-<p>Consideremos ahora el proceso</p>
-<p><span id="eq-mart"><span class="math display">\[
-    M(s):=\int_0^s \sigma(Z_0)dB(u).
+<p>Por lo tanto, tomando supremo sobre <span class="math inline">\(s\in[0,t]\)</span>, obtenemos</p>
+<p><span id="eq-4.011"><span class="math display">\[
+    \sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2 = \sup_{0\leq s\leq t} |f(Z_0)|^2 s^2 = |f(Z_0)|^2 t^2.
 \tag{4.11}\]</span></span></p>
-<p>Afirmamos que dicho proceso es una martingala, pues al ser <span class="math inline">\(Z_0\)</span> constante esto implica que <span class="math inline">\(\sigma(Z_0)\)</span> no dependa de <span class="math inline">\(u\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\text{-medible}\)</span>, entonces <span class="math inline">\(\sigma(Z_0)\)</span> también lo es, más aún, es <span class="math inline">\(\mathcal{F}_u\text{-medible}\)</span> para toda <span class="math inline">\(u\geq 0\)</span>. Por lo tanto el término a integrar del proceso <span class="math inline">\(M(s)\)</span>, el cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición (C2), podemos afirmar que</p>
-<p><span class="math display">\[
-        \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
-\]</span></p>
-<p>Esto pues obteniendo el valor esperado de (<a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) , tomando a <span class="math inline">\(y=Z_0\)</span> tenemos</p>
-<p><span id="eq-6"><span class="math display">\[
-    \begin{aligned}
-        \mathbb{E}[|\sigma(Z_0)|^2] &amp; \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\
-        &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\
-        &amp; = K_2\mathbb{E}[1+|Z_0|^2]\\
-        &amp; = K_2 (1+\mathbb{E}[|Z_0|^2]).
-    \end{aligned}
+<p>Consideremos ahora el proceso estocástico</p>
+<p><span id="eq-4.012"><span class="math display">\[
+    M(s):=\int_0^s g(Z_0)dW(u).
 \tag{4.12}\]</span></span></p>
-<p>Por lo tanto, el proceso <span class="math inline">\(M(s)\)</span> es una martingala. Así, usando la desigualdad maximal de Doob, tenemos que:</p>
+<p>Afirmamos que <span class="math inline">\(M(s)\)</span> proceso es una martingala cuadrado-integrable. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y constante en el tiempo, <span class="math inline">\(g(Z_0)\)</span> es determinista condicional a <span class="math inline">\(\mathcal{F}_0\)</span> y , por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> evaluada en <span class="math inline">\(y=0\)</span>, tenemos que</p>
 <p><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
+    \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) &lt; \infty.
 \]</span></p>
-<p>De la isometría de Itô y por el teorema de Fubini</p>
-<p><span class="math display">\[
+<p>Esto garantiza que <span class="math inline">\(M(s)\in\mathcal{L}^2\)</span>. Así, aplicando la desigualdad maximal de Doob para martingalas con <span class="math inline">\(p=2\)</span> y la isometría de Itô, obtenemos</p>
+<p><span id="eq-4.013"><span class="math display">\[
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|M(t)|^2]\\
-        &amp; = 4 \mathbb{E}\Bigg[\int_0^t |\sigma(Z_0)|^2ds\Bigg]\\
-        &amp; = 4 \int_0^t \mathbb{E}[|\sigma(Z_0)|^2]ds\\
-        &amp; = 4 \mathbb{E}[|\sigma(Z_0)|^2]\int_0^t ds\\
-        &amp; = 4t \mathbb{E}[|\sigma(Z_0)|^2].
-    \end{aligned}
-\]</span></p>
-<p>De manera análoga, para el término</p>
-<p><span class="math display">\[
-    W(s):= \int_0^s\int_{|x|&lt;c}F(Z_0,x)\widetilde{N}(du,dx).
-\]</span></p>
-<p>Podemos afirmar que es una martingala. Usando la isometría de Itô, desigualdad maximal de Doob y por el teorema de Fubini</p>
-<p><span class="math display">\[
-    \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] &amp; \leq 4\mathbb{E}[|W(t)|^2]\\
-        &amp; = 4\int_0^t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\
-        &amp; = 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
-    \end{aligned}
-\]</span></p>
-<p>Así, de la igualdad (<span class="quarto-unresolved-ref">?eq-5</span>) tenemos</p>
-<p><span id="eq-7"><span class="math display">\[
-    \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
-        &amp; \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\
-            &amp;\qquad
-               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
-        &amp;\qquad\quad
-            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|&lt;c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
-        &amp; \leq 3\Bigg(t^2\mathbb{E}[|b(Z_0)|^2]+4t\mathbb{E}[|\sigma(Z_0)|^2]\\
-        &amp; \qquad\quad + 4t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
-        &amp; = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\
-        &amp; \qquad\quad +12t\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|M(s)|^2\right] &amp; \leq 4\,\mathbb{E}[|M(t)|^2] \\
+        &amp; = 4\,\mathbb{E}\left[\int_0^t |g(Z_0)|^2\,du\right] \\
+        &amp; = 4t\,\mathbb{E}[|g(Z_0)|^2].
     \end{aligned}
 \tag{4.13}\]</span></span></p>
+<p>De manera análoga, para el término de salto definido por</p>
+<p><span class="math display">\[
+    L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
+\]</span></p>
+<p>podemos afirmar que es una martingala cuadrado-integrable. Utilizando la desigualdad maximal de Doob y la la isometría de Itô para el proceso de Poisson compensado, donde la variación cuadratica es <span class="math inline">\(\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du\)</span>, obtenemos</p>
+<p><span id="eq-4.014"><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|L(s)|^2\right] &amp; \leq 4\,\mathbb{E}[|L(t)|^2] \\
+        &amp; = 4\,\mathbb{E}\left[\lambda \int_0^t |h(Z_0)|^2\,du\right] \\
+        &amp; = 4\lambda t\,\mathbb{E}[|h(Z_0)|^2].
+    \end{aligned}
+\tag{4.14}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-4.011" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>, <a href="#eq-4.013" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a> y <a href="#eq-4.014" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a> en la <a href="#eq-4.010" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>, llegamos a</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
+        &amp; \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
+    \end{aligned}
+\]</span></p>
 <p>Notemos para los términos en común <span class="math inline">\(3t^2\)</span> y <span class="math inline">\(12t\)</span> podemos definir la variable <span class="math inline">\(C_1(t):=\max{\{3t,12\}}\)</span>, de aquí</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -640,7 +617,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         12t &amp; = 12\cdot t \leq \max{\{3t,12\}}\cdot t = C_1(t)\cdot t.
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, (<a href="#eq-7" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a>) queda de la forma</p>
+<p>Por lo tanto, (<span class="quarto-unresolved-ref">?eq-7</span>) queda de la forma</p>
 <p><span id="eq-8"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
@@ -649,20 +626,20 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\
         &amp; \qquad \qquad\quad+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
     \end{aligned}
-\tag{4.14}\]</span></span></p>
+\tag{4.15}\]</span></span></p>
 <p>Por hipotésis, los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> cumplen con la condición (<a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>), vale decir</p>
 <p><span class="math display">\[
     |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
 \]</span></p>
-<p>De (<a href="#eq-6" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
+<p>De (<span class="quarto-unresolved-ref">?eq-6</span>) podemos afirmar que <span class="math inline">\(\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])\)</span>, tomando valor esperado de la ecuación anterior, tenemos</p>
 <p><span id="eq-9"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|&lt;c}|F(Z_0,x)|\nu(dx)\Bigg] &amp; \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|&lt;c}|F(Z_0,x)|^2\nu(dx)\Bigg] &amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\
         \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|&lt;c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)&amp; \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
     \end{aligned}
-\tag{4.15}\]</span></span></p>
-<p>Así de (<a href="#eq-8" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a>) y (<a href="#eq-9" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a>) tenemos que</p>
+\tag{4.16}\]</span></span></p>
+<p>Así de (<a href="#eq-8" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a>) y (<a href="#eq-9" class="quarto-xref">Ecuación&nbsp;<span>4.16</span></a>) tenemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
@@ -703,7 +680,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; \leq 3\Bigg(\Bigg(\int_0^t \Delta b(n,s)ds\Bigg)^2+\Bigg(\int_0^t  \Delta \sigma(n,s)ds\Bigg)^2\\
         &amp;\qquad\quad +\Bigg(\int_0^t\int_{|x|&lt;c}\Delta F(n,s,c)\widetilde{N}(ds,dx)\Bigg)^2\Bigg).
     \end{aligned}
-\tag{4.16}\]</span></span></p>
+\tag{4.17}\]</span></span></p>
 <p>Nuevamente, definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -712,10 +689,10 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         C &amp; := \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\Bigg(\int_0^s \Delta F(n,u,x)\widetilde{N}(du,dx)\Bigg)^2\Bigg]
     \end{aligned}
 \]</span></p>
-<p>Por tanto de la (<a href="#eq-10" class="quarto-xref">Ecuación&nbsp;<span>4.16</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
+<p>Por tanto de la (<a href="#eq-10" class="quarto-xref">Ecuación&nbsp;<span>4.17</span></a>), tomando supremo en el intervalo <span class="math inline">\([0,t]\)</span> y aplicando valor esperado, la expresión se reduce a la forma</p>
 <p><span id="eq-11"><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(s)-Z_n(s)|^2\Bigg]\leq 3(A+B+C).
-\tag{4.17}\]</span></span></p>
+\tag{4.18}\]</span></span></p>
 <p>Trabajaremos con cada término de la desigualdad para poder acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>. Notemos que para <span class="math inline">\(A\)</span> el término del supremo es una integral de Lebesgue, por lo que usando la Desigualdad de Cauchy-Schwarz podemos afirmar que</p>
 <p><span class="math display">\[  
     \Bigg(\int_0^s \Delta b(n,u)du\Bigg)^2\leq s \int_0^s |\Delta b(n,u)|^2du,\ \ \forall s\in [0,t].
@@ -744,7 +721,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span class="math display">\[
     H(s) := \int_0^s \Delta \sigma(n,u)dB(u).
 \]</span></p>
-<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-mart" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>). Haciendo uso de la desigualdad maximal de Doob</p>
+<p>Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso <span class="math inline">\(M(s)\)</span> en (<a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a>). Haciendo uso de la desigualdad maximal de Doob</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
 \]</span></p>
@@ -783,7 +760,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; \leq 4 \int_0^t\int_{|x|&lt;c}\mathbb{E}\left[|\Delta F(n,u,x)|^2\right]\nu(dx)du.
     \end{aligned}
 \]</span></p>
-<p>Así de (<a href="#eq-11" class="quarto-xref">Ecuación&nbsp;<span>4.17</span></a>)</p>
+<p>Así de (<a href="#eq-11" class="quarto-xref">Ecuación&nbsp;<span>4.18</span></a>)</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup\limits_{0\leq s\leq t} \left|Z_{n+1}(s-)-Z_n(s-)\right|^2\right] &amp; \leq 3(A+B+C)\\
@@ -819,7 +796,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p>Tomando valor esperado, el cual, preserva la desigualdad, además, multiplicando por <span class="math inline">\(K_1&gt;0\)</span>, obtenemos</p>
 <p><span id="eq-12"><span class="math display">\[
     K_1\mathbb{E}\left[|Z_n(u-)-Z_{n-1}(u-)|^2\right] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
-\tag{4.18}\]</span></span></p>
+\tag{4.19}\]</span></span></p>
 <p>Por la hipótesis (<a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) la cuál indica que los coeficientes <span class="math inline">\(b\)</span>, <span class="math inline">\(\sigma\)</span> y <span class="math inline">\(F\)</span> satisfacen</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -853,15 +830,15 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p>Hemos demostrado hasta ahora las siguientes desigualdades</p>
 <p><span id="eq-13"><span class="math display">\[
     d_1(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\leq C_1(t)K_2(1+\mathbb{E}[|Z_0|^2]).
-\tag{4.19}\]</span></span></p>
+\tag{4.20}\]</span></span></p>
 <p><span id="eq-14"><span class="math display">\[
     d_{n+1}(t) = \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_{n+1}(s)-Z_n(s)|^2\right]\leq C_1(t)K_1\int_0^t d_n(s)ds.
-\tag{4.20}\]</span></span></p>
+\tag{4.21}\]</span></span></p>
 <p>Definimos las variables <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}.\)</span></p>
 <p>Afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple</p>
 <p><span id="eq-15"><span class="math display">\[
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
-\tag{4.21}\]</span></span></p>
+\tag{4.22}\]</span></span></p>
 <p>Procediendo por inducción, veamos que se cumple para <span class="math inline">\(n=1\)</span>. Esto es claro, dado que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\}=K_3\)</span>, por lo tanto</p>
 <p><span class="math display">\[
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
@@ -874,7 +851,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span class="math display">\[
     d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
 \]</span></p>
-<p>Por la (<a href="#eq-14" class="quarto-xref">Ecuación&nbsp;<span>4.20</span></a>) tenemos</p>
+<p>Por la (<a href="#eq-14" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a>) tenemos</p>
 <p><span class="math display">\[
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 \]</span></p>
@@ -919,7 +896,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la (<a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
+<p>De la (<a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a>) sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
@@ -944,7 +921,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p>Reescribiendo el término de la suma de la siguiente forma</p>
 <p><span id="eq-16"><span class="math display">\[
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
-\tag{4.22}\]</span></span></p>
+\tag{4.23}\]</span></span></p>
 <p>Veamos la convergencía de la serie</p>
 <p><span class="math display">\[
 \sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
@@ -973,16 +950,16 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, entonces toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
 <p><span id="eq-17"><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
-\tag{4.23}\]</span></span></p>
+\tag{4.24}\]</span></span></p>
 <p>Cómo <span class="math inline">\(m&lt;n\)</span>, por la desigualdad del triángulo, afirmamos que</p>
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.23</span></a> tenemos que</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.24</span></a> tenemos que</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
 \]</span></p>
-<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-16" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a> converge entonces</p>
+<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-16" class="quarto-xref">Ecuación&nbsp;<span>4.23</span></a> converge entonces</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
 \]</span></p>
@@ -1001,12 +978,12 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
 <p>Aplicando a <span class="math inline">\(X_n^2\)</span> Chebyshev-Markov tenemos que</p>
 <p><span id="eq-18"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
-\tag{4.24}\]</span></span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a>, así</p>
+\tag{4.25}\]</span></span></p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-15" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a>, así</p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
-<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.24</span></a>, esto implica que</p>
+<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.25</span></a>, esto implica que</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 \]</span></p>
@@ -1036,7 +1013,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         &amp; \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\
         &amp; \qquad\quad + \int_0^t \int_{|x|&lt;c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx).
     \end{aligned}
-\tag{4.25}\]</span></span></p>
+\tag{4.26}\]</span></span></p>
 <p>Definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -1045,7 +1022,7 @@ d_{n}(t)\leq \frac{C_2^k K_3^n}{n!}.
         \Delta F(s,x) &amp; := F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)
     \end{aligned}
 \]</span></p>
-<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19" class="quarto-xref">Ecuación&nbsp;<span>4.25</span></a>, tomando supremo y despues esperanza en el intervalo $[0,1]$$ tenemos la siguiente desigualdad</p>
+<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a>, tomando supremo y despues esperanza en el intervalo $[0,1]$$ tenemos la siguiente desigualdad</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq &amp; 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\Delta b(s)]du\Bigg|^2\right]\\
@@ -1176,7 +1153,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p>Esto implica, para cualquier <span class="math inline">\(m&gt;n\geq N\)</span>, se tiene</p>
 <p><span id="eq-20"><span class="math display">\[
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-\tag{4.26}\]</span></span></p>
+\tag{4.27}\]</span></span></p>
 <p>Es deicr, en <span class="math inline">\(\Omega_N\)</span>, las condiciones iniciales de <span class="math inline">\(Z^{(m)}\)</span> y <span class="math inline">\(Z^{(n)}\)</span> son iguales. Por lo tanto, para todo <span class="math inline">\(t\geq 0\)</span> se cumple que</p>
 <p><span class="math display">\[
     Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
@@ -1192,8 +1169,8 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p>Por la continuidad de la probabilidad, podemos afirmar <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1\)</span>. Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
 <p><span id="eq-21"><span class="math display">\[
     \mathbb{P}(\Omega_N)&gt;1-\varepsilon.
-\tag{4.27}\]</span></span></p>
-<p>De <a href="#eq-20" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a> sabemos que</p>
+\tag{4.28}\]</span></span></p>
+<p>De <a href="#eq-20" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a> sabemos que</p>
 <p><span class="math display">\[
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
 \]</span></p>
@@ -1205,7 +1182,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span class="math display">\[
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 \]</span></p>
-<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
