@@ -812,7 +812,7 @@ d_{k+1}(t) &amp; \leq \frac{C_1(t)^{k+1} K_3^{k+1} t^{k+1}}{(k+1)!} \\
 <p><span class="math display">\[
 d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 \]</span></p>
-<p>A continuación, demostraremos que la sucesión que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en el espacio <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span>, el cual es un espacio de Banach bajo la norma <span class="math inline">\(\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}\)</span>.</p>
+<p>A continuación, demostraremos que la sucesión que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en el espacio <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span>, el cual es un espacio de Banach bajo la norma <span class="math inline">\(\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}\)</span>.</p>
 <p>Sean <span class="math inline">\(m,n \in \mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>. Aplicando la desigualdad triangular para la norma <span class="math inline">\(\|\cdot\|_2\)</span>, podemos afirmmar que para cada <span class="math inline">\(0\leq s\leq t\)</span> se cumple</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -1150,7 +1150,7 @@ Z''_M(t) = Z^{(M)}(t) \quad \text{para todo } t \geq 0, \text{ casi seguramente.
 \mathbb{P}\big(Z'(t) = Z(t) \text{ para todo } t \geq 0\big) = 1.
 \]</span></p>
 <p>Por lo que queda demostrado la unicidad de la solución fuerte en el caso general.</p>
-<p>Hasta este punto, hemos demostrado que la sucesión de Picard <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> converge en <span class="math inline">\(L^2\)</span> y casi seguramente de manera uniforme a un proceso límite <span class="math inline">\(Z(t)\)</span>. Sin embargo, aún debemos verificar que este proceso límite <span class="math inline">\(Z(t)\)</span> es, en efecto, una solución de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
+<p>Hasta este punto, hemos demostrado que la sucesión de Picard <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> converge en <span class="math inline">\(\mathcal{L}^2\)</span> y casi seguramente de manera uniforme a un proceso límite <span class="math inline">\(Z(t)\)</span>. Sin embargo, aún debemos verificar que este proceso límite <span class="math inline">\(Z(t)\)</span> es, en efecto, una solución de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
 <p>Para ello, definimos un nuevo proceso estocástico <span class="math inline">\(\tilde{Z} = (\tilde{Z}(t))_{t \geq 0}\)</span> evaluando el lado derecho de la forma integral de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> en el proceso límite <span class="math inline">\(Z(t)\)</span></p>
 <p><span class="math display">\[
 \tilde{Z}(t) := Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
@@ -1215,8 +1215,8 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \i
 <p><span class="math display">\[
 \lim_{n \to \infty} \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] = 0.
 \]</span></p>
-<p>Esto demuestra que <span class="math inline">\(\tilde{Z}(t)\)</span> es el límite de la sucesión <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> en el espacio <span class="math inline">\(L^2(\Omega, \mathcal{F}, \mathbb{P})\)</span>. Sin embargo, por construcción de la iteración de Picard, también sabemos que <span class="math inline">\(Z_n(t) \to Z(t)\)</span> en <span class="math inline">\(L^2\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
-<p>Por la (en este caso, <span class="math inline">\(L^2\)</span>), concluimos que</p>
+<p>Esto demuestra que <span class="math inline">\(\tilde{Z}(t)\)</span> es el límite de la sucesión <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> en el espacio <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F}, \mathbb{P})\)</span>. Sin embargo, por construcción de la iteración de Picard, también sabemos que <span class="math inline">\(Z_n(t) \to Z(t)\)</span> en <span class="math inline">\(\mathcal{L}^2\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Por la unicidad de los límites en espacios de Banach, concluimos que</p>
 <p><span class="math display">\[
 \tilde{Z}(t) = Z(t) \quad \text{casi seguramente, para todo } t \geq 0.
 \]</span></p>
