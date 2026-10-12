@@ -1156,6 +1156,76 @@ Z''_M(t) = Z^{(M)}(t) \quad \text{para todo } t \geq 0, \text{ casi seguramente.
 \mathbb{P}\big(Z'(t) = Z(t) \text{ para todo } t \geq 0\big) = 1.
 \]</span></p>
 <p>Por lo que queda demostrado la unicidad de la solución fuerte en el caso general.</p>
+<p>Hasta este punto, hemos demostrado que la sucesión de Picard <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> converge en <span class="math inline">\(L^2\)</span> y casi seguramente de manera uniforme a un proceso límite <span class="math inline">\(Z(t)\)</span>. Sin embargo, aún debemos verificar que este proceso límite <span class="math inline">\(Z(t)\)</span> es, en efecto, una solución de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
+<p>Para ello, definimos un nuevo proceso estocástico <span class="math inline">\(\tilde{Z} = (\tilde{Z}(t))_{t \geq 0}\)</span> evaluando el lado derecho de la forma integral de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> en el proceso límite <span class="math inline">\(Z(t)\)</span></p>
+<p><span class="math display">\[
+\tilde{Z}(t) := Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
+\]</span></p>
+<p>Nuestro objetivo es demostrar que <span class="math inline">\(\tilde{Z}(t) = Z(t)\)</span> casi seguramente. Para lograrlo, analizaremos la diferencia entre <span class="math inline">\(\tilde{Z}(t)\)</span> y el término <span class="math inline">\(n\)</span>-ésimo de la iteración de Picard, <span class="math inline">\(Z_n(t)\)</span>. Recordemos que <span class="math inline">\(Z_n(t)\)</span> satisface la relación recursiva</p>
+<p><span class="math display">\[
+Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \int_0^t h(Z_{n-1}(s-))\,d\widetilde{N}(s).
+\]</span></p>
+<p>Restando ambas expresiones, obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\tilde{Z}(t) - Z_n(t)
+&amp; = \int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds \\
+&amp; \quad + \int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s) \\
+&amp; \quad + \int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s).
+\end{aligned}
+\]</span></p>
+<p>Aplicando la desigualdad dada en la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> y tomando el valor esperado, acotamos el error cuadrático medio de la siguiente manera:</p>
+<p><span id="eq-4.041"><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right]
+&amp; \leq 3\,\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \\
+&amp; \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] \\
+&amp; \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right].
+\end{aligned}
+\tag{4.41}\]</span></span></p>
+<p>Procedemos a acotar cada término utilizando las mismas herramientas que en el paso inductivo de la iteración de Picard.</p>
+<p>Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales</p>
+<p><span id="eq-4.042"><span class="math display">\[
+\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \leq t \int_0^t \mathbb{E}\left[\big|f(Z(s-)) - f(Z_{n-1}(s-))\big|^2\right]\,ds.
+\tag{4.42}\]</span></span></p>
+<p>Ahora bien, para el término de difusión, aplicando la isometría de Itô para el movimiento browniano</p>
+<p><span id="eq-4.043"><span class="math display">\[
+\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] = \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+\tag{4.43}\]</span></span></p>
+<p>Finalmente de manera análoga, para el término de saltos se aplica la isometría de Itô para el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, la cual introduce el factor de intensidad <span class="math inline">\(\lambda\)</span></p>
+<p><span id="eq-4.044"><span class="math display">\[
+\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right] = \lambda \int_0^t \mathbb{E}\left[\big|h(Z(s-)) - h(Z_{n-1}(s-))\big|^2\right]\,ds.
+\tag{4.44}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-4.042" class="quarto-xref">Ecuación&nbsp;<span>4.42</span></a>, <a href="#eq-4.043" class="quarto-xref">Ecuación&nbsp;<span>4.43</span></a> y <a href="#eq-4.044" class="quarto-xref">Ecuación&nbsp;<span>4.44</span></a> en la <a href="#eq-4.041" class="quarto-xref">Ecuación&nbsp;<span>4.41</span></a> y factorizando la constante <span class="math inline">\(C_1(t) = \max\{3t, 12, 12\lambda\}\)</span>, obtenemos</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{E}\left[\sup_{0 \leq s \leq t} |\tilde{Z}(s) - Z_{n+1}(s)|^2\right]
+&amp; \leq C_1(t) \int_0^t \Big( \mathbb{E}\left[\big|f(Z(u-)) - f(Z_n(u-))\big|^2\right] \\
+&amp; \quad + \mathbb{E}\left[\big|g(Z(u-)) - g(Z_n(u-))\big|^2\right] \\
+&amp; \quad + \lambda\,\mathbb{E}\left[\big|h(Z(u-)) - h(Z_n(u-))\big|^2\right] \Big)\,du.
+\end{aligned}
+\]</span></p>
+<p>Ahora, aplicamos la condición de Lipschitz global, dada en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> a los coeficientes. Dado que <span class="math inline">\(Z(s-) = Z(s)\)</span> para casi todo <span class="math inline">\(s\)</span> respecto a la medida de Lebesgue, tenemos</p>
+<p><span class="math display">\[
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 \int_0^t \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right]\,ds.
+\]</span></p>
+<p>Acotando la integral por el supremo sobre el intervalo <span class="math inline">\([0, t]\)</span>, llegamos a</p>
+<p><span class="math display">\[
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 t \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right].
+\]</span></p>
+<p>En la fase de convergencia en <span class="math inline">\(\mathcal{L}^2\)</span>, demostramos previamente que el error entre el límite <span class="math inline">\(Z(s)\)</span> y la iteración <span class="math inline">\(Z_{n-1}(s)\)</span> está acotado por la cola de una serie convergente</p>
+<p><span class="math display">\[
+\sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right] \leq \left( \sum_{r=n}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}} \right)^2.
+\]</span></p>
+<p>Dado que la serie <span class="math inline">\(\sum_{r=1}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}}\)</span> converge, su cola tiende a cero cuando <span class="math inline">\(n \to \infty\)</span>. Por lo tanto</p>
+<p><span class="math display">\[
+\lim_{n \to \infty} \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] = 0.
+\]</span></p>
+<p>Esto demuestra que <span class="math inline">\(\tilde{Z}(t)\)</span> es el límite de la sucesión <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> en el espacio <span class="math inline">\(L^2(\Omega, \mathcal{F}, \mathbb{P})\)</span>. Sin embargo, por construcción de la iteración de Picard, también sabemos que <span class="math inline">\(Z_n(t) \to Z(t)\)</span> en <span class="math inline">\(L^2\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Por la (en este caso, <span class="math inline">\(L^2\)</span>), concluimos que</p>
+<p><span class="math display">\[
+\tilde{Z}(t) = Z(t) \quad \text{casi seguramente, para todo } t \geq 0.
+\]</span></p>
 </div>
 
 
