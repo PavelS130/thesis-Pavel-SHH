@@ -77,19 +77,14 @@ Entonces, existe una única solución fuerte $\{Z(t)\}_{t\geq 0}$ de la ecuació
 - **Unicidad:** Si $\{Z'(t)\}_{t\geq 0}=\{Z(t)\}_{t\geq 0}$ es otra solución de la @eq-4.01 con la misma condición inicial $Z'(0)=Z_0$, entonces 
 
 $$
-\mathbb{P}(Z(t)=Z(t)\  \text{para todo }\ t\geq 0)=1
+\mathbb{P}(Z(t)=Z(t)\  \text{para todo }\ t\geq 0)=1.
 $$ {#eq-4.04}
 
-- **Acotamiento del segundo momento:** Para cualquier tiempo finito $T>0$, existe una constante $C_T>0$, tal que es independiente de la trayectoria tal que 
-
-$$
-\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Z(t)|^2\Bigg]\leq C_T(1+\mathbb{E}[|Z_0|^2]).
-$$ {#eq-4.05}
 
 :::
 
 ::: {.proof style="text-align: justify"}
-Queremos demostrar la existencia de una solución fuerte $Z=\{Z(t)\}_{t\geq 0}$ para la (@eq-4.01) con condición inicial $Z(0)=Z_0$, bajo las hipótesis dadas por la (@eq-4.02) y (@eq-4.03) para los coeficientes $f$, $g$ y $h$. 
+Queremos demostrar la existencia de una solución fuerte $Z=\{Z(t)\}_{t\geq 0}$ para la @eq-4.01 con condición inicial $Z(0)=Z_0$, bajo las hipótesis dadas por la @eq-4.02 y @eq-4.03 para los coeficientes $f$, $g$ y $h$. 
 
 Analizaremos primero el caso en el que la condición inicial tiene segundo momento finito, es decir, $\mathbb{E}[|Z_0|^2]<\infty$. 
 
@@ -527,7 +522,7 @@ $$
 d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 $$
 
-A continuación, demostraremos que la sucesión que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en el espacio $L^2(\Omega,\mathcal{F},\mathbb{P})$, el cual es un espacio de Banach bajo la norma $\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}$.
+A continuación, demostraremos que la sucesión que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en el espacio $\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})$, el cual es un espacio de Banach bajo la norma $\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}$.
 
 Sean $m,n \in \mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$. Aplicando la desigualdad triangular para la norma $\|\cdot\|_2$, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
 
@@ -858,10 +853,10 @@ $$
 Con esto, hemos demostrado la unicidad cuando $\mathbb{E}\Big[|Z_0|^2\Big]<\infty.$
 
 
-Ahora consideremos el caso general donde la condición inicial puede no tener segundo momento  finito, es decir, cuando $\mathbb{E}\Big[|Z_0|^2\Big]$. Aproximaremos $Z_0$ mediante una sucesión de  variables aleatorias acotadas. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
+Ahora consideremos el caso general donde la condición inicial puede no tener segundo momento  finito, es decir, cuando $\mathbb{E}\Big[|Z_0|^2\Big]=\infty$. Aproximaremos $Z_0$ mediante una sucesión de  variables aleatorias acotadas. Definimos el truncamiento de la variable aleatoria $Z_0$ de la forma
 
 $$
-    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}}, \qquad, n\in\mathbb{N},
+    Z_0^{(n)}:=Z_0\cdot 1_{\{|Z_0|\leq n\}}, \qquad n\in\mathbb{N},
 $$
 
 donde $1_{|Z_0|\leq n}$ es la función indicadora del evento $\{|Z_0|\leq n\}$, es decir
@@ -984,53 +979,137 @@ Dado que cada $Z^{(n_k)}$ posee trayectorias cádlàg y la convergencia es unifo
 
 Finalmente, dado que cada $Z^{(n_k)}$ es adaptado a la filtración $(\mathcal{F}_t)_{t \geq 0}$ y la convergencia al proceso $Z$ es uniforme casi seguramente, la adaptabilidad se preserva bajo convergencia puntual (y en particular, bajo convergencia uniforme). Por lo tanto, el proceso límite $Z$ es adaptado a $(\mathcal{F}_t)_{t \geq 0}$.
 
-Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte $Z'=(Z'(t))_{t\geq 0}$ con la misma condición inicial $Z_0$. Fijando a $N\in \mathbb{N}$, consideremos al conjunto $\Omega_N$, ya sabemos que en este conjunto la condición incial es acotada y además por el caso $\mathbb{E}[|Z_0|^2]<\infty$ la solución es única. Por lo tanto
+Analicemos ahora la unicidad de dicha solución en el caso general. Supongamos que $Z'=(Z'(t))_{t\geq 0}$ es otra solución fuerte de la @eq-4.01 con la misma condición inicial $Z_0$. 
 
-$$
-    Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ \forall\omega\in \Omega_N\ \text{c.s.}
-$$
+Para cada $M\in \mathbb{N}$, consideremos al conjunto $\Omega_M= \{\omega \in \Omega : |Z_0(\omega)| \leq M\}$ y la condición inicial truncada $Z_0^{(M)}=Z_0\cdot 1_{\Omega_M}$. Sabemos que la ecuación con condición inicial $Z_0^{(M)}$ posee una única solución fuerte, a la que denotamos por $Z^{M}$. 
 
-para cualquier $M\geq N$, donde $Z_M$ es la solución con condición inicial truncada $Z^{(M)}=Z_0$ en $\Omega_N$. Asumamos que esto falla para algún $M\geq N$, es decir, existe un conjunto $A\subset \Omega_N$ con $\mathbb{P}(A)>0$ tal que $Z'(t)(\omega)\neq Z_M(t)(\omega)$ con $\omega\in A.$ Podemos definir un nuevo proceso, llamemos a este $Z''_M$, mediante
+Definimos un nuevo proceso estocástico $Z_M''=(Z_M''(t))_{t\geq 0}$ de la siguiente forma
 
 $$
 Z''_M(t)(\omega) =
 \begin{cases}
 Z'(t)(\omega), & \omega\in A, \\
-Z_M(t)(\omega) & \omega\notin A.
+Z^{M}(t)(\omega) & \omega\notin A.
 \end{cases}    
 $$
 
-Dado que $A\subset \Omega_N$, entonces $A\in \mathcal{F}_0$, podemos afirmar que $Z''$ es adaptado, pues $Z'$ y $Z^{(M)}$ son dos procesos adaptados en un conjunto $\mathcal{F}_0$-medible. Luego, al ser $Z''$ la combinación de dos funciones càdlàg entonces $Z''$ es càdlàg.
+Dado que $\Omega_M \in \mathcal{F}_0$, el proceso $Z''_M$ es adaptado a la filtración $(\mathcal{F}_t)_{t \geq 0}$. Además, como es la combinación de dos procesos con trayectorias cádlàg sobre conjuntos disjuntos, $Z''_M$ también posee trayectorias cádlàg.
 
-Notemos que si $\omega\in A\subset \Omega_N\subset \Omega_M$, entonces
+Evaluando en $t=0$, notamos que para $\omega \in \Omega_M$, se cumple $Z''_M(0)(\omega) = Z'(0)(\omega) = Z_0(\omega) = Z_0^{(M)}(\omega)$. Por otro lado, para $\omega \notin \Omega_M$, tenemos $Z''_M(0)(\omega) = Z^{(M)}(0)(\omega) = Z_0^{(M)}(\omega)$. En ambos casos, $Z''_M(0) = Z_0^{(M)}$ casi seguramente.
 
+Por lo tanto, $Z''_M$ es una solución fuerte de la @eq-4.01 con condición inicial $Z_0^{(M)}$. Dado que $\mathbb{E}[|Z_0^{(M)}|^2] \leq M^2 < \infty$, podemos aplicar el resultado de unicidad trayectorial demostrado previamente para el caso de segundo momento finito. Esto implica que:
 $$
-    Z''_M(0)(\omega)=Z'(0)(\omega)=Z_0(\omega)=Z_0^{(M)}(\omega),
-$$
-
-por otro lado, si $\omega\notin A$, esto implica que
-
-$$
-    Z''_M(0)(\omega)=Z^{(M)}(0)(\omega)=Z_0(\omega),
+Z''_M(t) = Z^{(M)}(t) \quad \text{para todo } t \geq 0, \text{ casi seguramente.}
 $$
 
-en ambos casos se tiene que $Z''_M(0)=Z^{(M)}(0)$ con $\omega\in A$ casi seguramente.
+En particular, restringiendo al conjunto $\Omega_M$, obtenemos que $Z'(t) = Z^{(M)}(t)$ para todo $t \geq 0$, casi seguramente en $\Omega_M$.
 
-Entonces $Z''_M$ y $Z^{(M)}$ son dos soluciones de la @eq-4.01 con la misma condición inicial, por construcción, en el conjunto $A$, se tiene que $Z''_M(t)\neq Z^{(M)}(t)$ para algún $t$. Lo cual es una contradicción al caso cuando $\mathbb{E}[|Z_0|^2]<\infty$ donde se establece la unicidad casi segura de la solución fuerte.
-
-Dado que al suponer $\mathbb{P}(A)>0$ nos lleva a una contradicción, podemos afirmar que $\mathbb{P}(A)=0$, es decir, $Z'(t)=Z^{(M)}(t)$ para todo $t\geq 0$, casi seguramente en $\Omega_N$. Esto vale para todo $N\in \mathbb{N}$, como
-
+Dado que este resultado es válido para todo $M \in \mathbb{N}$, y sabemos que $\mathbb{P}\left(\bigcup_{M=1}^\infty \Omega_M\right) = \mathbb{P}(|Z_0| < \infty) = 1$, concluimos que:
 $$
-    \mathbb{P}\Bigg(\bigcup\limits_{N=1}^{\infty}\Omega_N\Bigg)=1,
+\mathbb{P}\big(Z'(t) = Z(t) \text{ para todo } t \geq 0\big) = 1.
 $$
 
-podemos concluir
+Por lo que queda demostrado la unicidad de la solución fuerte en el caso general.
+
+Hasta este punto, hemos demostrado que la sucesión de Picard $(Z_n(t))_{n \in \mathbb{N}}$ converge en $\mathcal{L}^2$ y casi seguramente de manera uniforme a un proceso límite $Z(t)$. Sin embargo, aún debemos verificar que este proceso límite $Z(t)$ es, en efecto, una solución de la ecuación diferencial estocástica @eq-4.01.
+
+Para ello, definimos un nuevo proceso estocástico $\tilde{Z} = (\tilde{Z}(t))_{t \geq 0}$ evaluando el lado derecho de la forma integral de la @eq-4.01 en el proceso límite $Z(t)$
 
 $$
-    \mathbb{P}(Z'(t)=Z(t)\ \text{para todo }\ t\geq 0)=1.
+\tilde{Z}(t) := Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
 $$
 
-Por lo tanto, la solución fuerte es única casi seguramente. 
+Nuestro objetivo es demostrar que $\tilde{Z}(t) = Z(t)$ casi seguramente. Para lograrlo, analizaremos la diferencia entre $\tilde{Z}(t)$ y el término $n$-ésimo de la iteración de Picard, $Z_n(t)$. Recordemos que $Z_n(t)$ satisface la relación recursiva
+
+$$
+Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \int_0^t h(Z_{n-1}(s-))\,d\widetilde{N}(s).
+$$
+
+Restando ambas expresiones, obtenemos
+
+$$
+\begin{aligned}
+\tilde{Z}(t) - Z_n(t) 
+& = \int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds \\ 
+& \quad + \int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s) \\ 
+& \quad + \int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s).
+\end{aligned}
+$$
+
+Aplicando la desigualdad dada en la @eq-4.09 y tomando el valor esperado, acotamos el error cuadrático medio de la siguiente manera:
+
+$$
+\begin{aligned}
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] 
+& \leq 3\,\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \\ 
+& \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] \\ 
+& \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right].
+\end{aligned}
+$$ {#eq-4.041}
+
+Procedemos a acotar cada término utilizando las mismas herramientas que en el paso inductivo de la iteración de Picard.
+
+Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales
+
+$$
+\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \leq t \int_0^t \mathbb{E}\left[\big|f(Z(s-)) - f(Z_{n-1}(s-))\big|^2\right]\,ds.
+$$ {#eq-4.042}
+
+Ahora bien, para el término de difusión, aplicando la isometría de Itô para el movimiento browniano
+
+$$
+\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] = \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+$$ {#eq-4.043}
+
+Finalmente de manera análoga, para el término de saltos se aplica la isometría de Itô para el proceso de Poisson compensado $\widetilde{N}(t)$, la cual introduce el factor de intensidad $\lambda$
+
+$$
+\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right] = \lambda \int_0^t \mathbb{E}\left[\big|h(Z(s-)) - h(Z_{n-1}(s-))\big|^2\right]\,ds.
+$$ {#eq-4.044}
+
+
+Sustituyendo la @eq-4.042, @eq-4.043 y @eq-4.044 en la @eq-4.041 y factorizando la constante $C_1(t) = \max\{3t, 12, 12\lambda\}$, obtenemos
+
+$$
+\begin{aligned}
+\mathbb{E}\left[\sup_{0 \leq s \leq t} |\tilde{Z}(s) - Z_{n+1}(s)|^2\right] 
+& \leq C_1(t) \int_0^t \Big( \mathbb{E}\left[\big|f(Z(u-)) - f(Z_n(u-))\big|^2\right] \\
+& \quad + \mathbb{E}\left[\big|g(Z(u-)) - g(Z_n(u-))\big|^2\right] \\
+& \quad + \lambda\,\mathbb{E}\left[\big|h(Z(u-)) - h(Z_n(u-))\big|^2\right] \Big)\,du.
+\end{aligned}
+$$
+
+Ahora, aplicamos la condición de Lipschitz global, dada en la @eq-4.02 a los coeficientes. Dado que $Z(s-) = Z(s)$ para casi todo $s$ respecto a la medida de Lebesgue, tenemos
+
+$$
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 \int_0^t \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right]\,ds.
+$$
+
+Acotando la integral por el supremo sobre el intervalo $[0, t]$, llegamos a
+
+$$
+\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 t \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right].
+$$
+
+En la fase de convergencia en $\mathcal{L}^2$, demostramos previamente que el error entre el límite $Z(s)$ y la iteración $Z_{n-1}(s)$ está acotado por la cola de una serie convergente
+
+$$
+\sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right] \leq \left( \sum_{r=n}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}} \right)^2.
+$$
+
+Dado que la serie $\sum_{r=1}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}}$ converge, su cola tiende a cero cuando $n \to \infty$. Por lo tanto
+
+$$
+\lim_{n \to \infty} \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] = 0.
+$$
+
+Esto demuestra que $\tilde{Z}(t)$ es el límite de la sucesión $(Z_n(t))_{n \in \mathbb{N}}$ en el espacio $\mathcal{L}^2(\Omega, \mathcal{F}, \mathbb{P})$. Sin embargo, por construcción de la iteración de Picard, también sabemos que $Z_n(t) \to Z(t)$ en $\mathcal{L}^2$ cuando $n \to \infty$. 
+
+Por la unicidad de los límites en espacios de Banach, concluimos que
+
+$$
+\tilde{Z}(t) = Z(t) \quad \text{casi seguramente, para todo } t \geq 0.
+$$
 
 
 
