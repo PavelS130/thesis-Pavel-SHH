@@ -32,7 +32,10 @@ Notemos que por construcción, $\widetilde{N}(t)$ es una martingala cuadrado-int
 Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles, las cuales van a representar los coeficiente de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible tal que $\mathbb{E}[|Z_0|]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiennte ecuación diferencial estocástica (EDE) con saltos en su forma compensada:
 
 $$
-dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
+\begin{aligned}
+dZ(t) & =f(Z(t-))dt+g(Z(t-))dW(t)\\ 
+& \qquad\quad+h(Z(t-))d\widetilde{N}(t),\quad t\geq 0,
+\end{aligned}
 $$ {#eq-4.01}
 
 con condición inicial $Z(0)=0$. Mientras que $Z(t-)$ denota el límite por la izquierda, lo cual garantiza que los procesos sean predecibles. 
@@ -50,7 +53,10 @@ Para asegurar la existencia y unicidad de una solución fuerte adaptada y con tr
 **Condición de Lipschitz golbal**: Existe una constante $K_1>0$ tal que, para todo $y_1,y_2\in\mathbb{R},$
 
 $$
-|f(y_1)-f(y_2)|^2+|g(y_1)-g(y_2)|^2+\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|.
+\begin{aligned}
+|f(y_1)-f(y_2)|^2 & +|g(y_1)-g(y_2)|^2\\
+& \quad +\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|.
+\end{aligned}
 $$ {#eq-4.02}
 
 **Condición de crecimiento lineal**: Existe una constante $K_2>0$ tal que, para todo $y\in\mathbb{R}$
@@ -396,7 +402,10 @@ $$
 Tomando valor esperado, el cual preserva la desigualdad, y multiplicando por la constante de Lipschitz $K_1>0$, obtenemos
 
 $$
-    K_1\mathbb{E}\Big[|Z_n(u-)-Z_{n-1}(u-)|^2\Big] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+\begin{aligned}
+  K_1\mathbb{E} & \Big[|Z_n(u-)-Z_{n-1}(u-)|^2\Big]\\ 
+  &  \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
+\end{aligned}
 $$ {#eq-4.023}
 
 Por la hipótesis dada en la @eq-4.02, los coeficientes $f$, $g$ y $h$ satisfacen que para todo $y_1,y_2\in\mathbb{R}$
@@ -600,7 +609,11 @@ $$
 Entonces, para todo $n,m\geq N$ tales que $m<n$ y todo $s\in [0,t]$ se cumple
 
 $$
-    \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}<\varepsilon.
+\begin{aligned}
+\|Z_n(s)-Z_m(s)\|_2 & \leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\\ 
+& \leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\\ 
+& <\varepsilon.
+\end{aligned}
 $$ {#eq-4.029}
 
 Por lo tanto, hemos demostrado que $(Z_n(s))$ es una sucesión de Cauchy en $\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})$ para cada $s\in[0,t]$.
@@ -701,7 +714,7 @@ Nuestro objetivo es estimar $\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z
 
 $$
 \begin{aligned}
-\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] 
+\mathbb{E} & \left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\\  
 & \leq 3\Bigg(\mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right] \\ 
 & \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right] \\ 
 & \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right]\Bigg).
@@ -713,7 +726,10 @@ Procedemos a acotar cada término de manera análoga al paso inductivo de la ite
 Aplicando la desigualdad de Cauchy–Schwarz para integrales, y notando que $s\leq t$, tenemos
 
 $$
-\mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right] \leq t\int_0^t \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right]du.
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right]\\
+& \leq t\int_0^t \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right]du.
+\end{aligned}
 $$ {#eq-4.034}
 
 Definimos el proceso estocástico 
@@ -803,7 +819,10 @@ $$
 De manera similar como ya se hizo en el análisis de la diferencia entre $Z_n$ y $Z_{n-1}$ en la iteración de Picard, haciendo uso de la @eq-4.02 podemos obtener
 
 $$
-\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq C_1(t)K_1\int_0^t \mathbb{E}\left[\sup_{0\leq r\leq u}|Z^{(1)}(r) - Z^{(2)}(r)|^2\right]du.
+\begin{aligned}
+\mathbb{E} & \left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\\
+& \leq C_1(t)K_1\int_0^t \mathbb{E}\left[\sup_{0\leq r\leq u}|Z^{(1)}(r) - Z^{(2)}(r)|^2\right]du.
+\end{aligned}
 $$ {#eq-4.038}
 
 De esta forma, definimos la función
@@ -1022,7 +1041,10 @@ $$
 Nuestro objetivo es demostrar que $\tilde{Z}(t) = Z(t)$ casi seguramente. Para lograrlo, analizaremos la diferencia entre $\tilde{Z}(t)$ y el término $n$-ésimo de la iteración de Picard, $Z_n(t)$. Recordemos que $Z_n(t)$ satisface la relación recursiva
 
 $$
-Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \int_0^t h(Z_{n-1}(s-))\,d\widetilde{N}(s).
+\begin{aligned}
+Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds & + \int_0^t g(Z_{n-1}(s-))\,dW(s)\\ 
+&\quad\quad + \int_0^t h(Z_{n-1}(s-))\,d\widetilde{N}(s).
+\end{aligned}
 $$
 
 Restando ambas expresiones, obtenemos
@@ -1040,7 +1062,7 @@ Aplicando la desigualdad dada en la @eq-4.09 y tomando el valor esperado, acotam
 
 $$
 \begin{aligned}
-\mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] 
+\mathbb{E} & \left[|\tilde{Z}(t) - Z_n(t)|^2\right]\\
 & \leq 3\,\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \\ 
 & \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] \\ 
 & \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right].
@@ -1052,19 +1074,28 @@ Procedemos a acotar cada término utilizando las mismas herramientas que en el p
 Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales
 
 $$
-\mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \leq t \int_0^t \mathbb{E}\left[\big|f(Z(s-)) - f(Z_{n-1}(s-))\big|^2\right]\,ds.
+\begin{aligned}
+\mathbb{E} & \left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right]\\
+& \leq t \int_0^t \mathbb{E}\left[\big|f(Z(s-)) - f(Z_{n-1}(s-))\big|^2\right]\,ds
+\end{aligned}
 $$ {#eq-4.042}
 
 Ahora bien, para el término de difusión, aplicando la isometría de Itô para el movimiento browniano
 
 $$
-\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] = \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+\begin{aligned}
+\mathbb{E} & \left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right]\\ 
+& \leq \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+\end{aligned}
 $$ {#eq-4.043}
 
 Finalmente de manera análoga, para el término de saltos se aplica la isometría de Itô para el proceso de Poisson compensado $\widetilde{N}(t)$, la cual introduce el factor de intensidad $\lambda$
 
 $$
-\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right] = \lambda \int_0^t \mathbb{E}\left[\big|h(Z(s-)) - h(Z_{n-1}(s-))\big|^2\right]\,ds.
+\begin{aligned}
+\mathbb{E} & \left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right]\\
+& \leq \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+\end{aligned}
 $$ {#eq-4.044}
 
 
@@ -1110,11 +1141,5 @@ Por la unicidad de los límites en espacios de Banach, concluimos que
 $$
 \tilde{Z}(t) = Z(t) \quad \text{casi seguramente, para todo } t \geq 0.
 $$
-
-
-
-
-
-
 
 :::
