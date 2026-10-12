@@ -560,7 +560,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p>Finalmente, tomando el valor esperado de ambos lados y utilizando la linealidad de la esperanza, llegamos a la siguiente cota</p>
 <p><span id="eq-4.010"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
+\mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
 &amp; \leq 3\Bigg( \mathbb{E}\left[\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2\right] \\
 &amp;\qquad
     + \mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2\right] \\
@@ -606,10 +606,10 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 \tag{4.14}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-4.011" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>, <a href="#eq-4.013" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a> y <a href="#eq-4.014" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a> en la <a href="#eq-4.010" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>, llegamos a</p>
 <p><span id="eq-4.015"><span class="math display">\[
-    \begin{aligned}
-        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
-        &amp; \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
-    \end{aligned}
+\begin{aligned}
+    \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
+    &amp; \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
+\end{aligned}
 \tag{4.15}\]</span></span></p>
 <p>Para acotar la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> utilizando la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, dfinimos la constante <span class="math inline">\(C_1(t):=\max{\{3t,12\}}\)</span>, notemos que</p>
 <p><span class="math display">\[
@@ -620,10 +620,10 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 \]</span></p>
 <p>Por lo tanto, de la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> podemos factorizar</p>
 <p><span id="eq-4.016"><span class="math display">\[
-    \begin{aligned}
-        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
-        &amp; \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
-    \end{aligned}
+\begin{aligned}
+    \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
+    &amp; \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
+\end{aligned}
 \tag{4.16}\]</span></span></p>
 <p>Finalmente, aplicando la condición de crecimiento lineal, dada por la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, obtenemos la cota fundamental para el primer paso de la iteración</p>
 <p><span id="eq-4.017"><span class="math display">\[
@@ -659,7 +659,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Para el primer término, aplicamos la Desigualdad de Cauchy-Schwarz para integrales. Dado que <span class="math inline">\(s\in[0,t]\)</span>, tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-\left( \int_0^s \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big] du \right)^2
+\Bigg( \int_0^s \big[f(Z_n(u-)) &amp; - f(Z_{n-1}(u-))\big] du \Bigg)^2\\
 &amp; \leq s \int_0^s \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 du \\
 &amp; \leq t \int_0^t \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 du.
 \end{aligned}
@@ -678,7 +678,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Como establecimos previamente para el proceso <span class="math inline">\(M(s)\)</span> en la <a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a>. Dado que <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos</p>
 <p><span id="eq-4.020"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_g(s)|^2 \right]
+\mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |M_g(s)|^2 \right]\\
 &amp; \leq 4 \, \mathbb{E}\left[ |M_g(t)|^2 \right] \\
 &amp; = 4 \, \mathbb{E}\left[ \int_0^t \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 du \right] \\
 &amp; = 4 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du.
@@ -691,7 +691,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>De manera análoga, <span class="math inline">\(M_h(s)\)</span> es una martingala cuadrado-integrable. Aplicando la desigualdad de Doob y la Isometría de Itô para el proceso de Poisson commpensado, donde su variación cuadrática introduce el factor de intensidad <span class="math inline">\(\lambda\)</span>, obtenemos</p>
 <p><span id="eq-4.021"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_h(s)|^2 \right]
+\mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |M_h(s)|^2 \right]\\
 &amp; \leq 4 \, \mathbb{E}\left[ |M_h(t)|^2 \right] \\
 &amp; = 4 \, \mathbb{E}\left[ \lambda \int_0^t \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 du \right] \\
 &amp; = 4\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du.
@@ -700,7 +700,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Por lo tanto, sustituyendo la <a href="#eq-4.019" class="quarto-xref">Ecuación&nbsp;<span>4.19</span></a>, <a href="#eq-4.020" class="quarto-xref">Ecuación&nbsp;<span>4.20</span></a> y <a href="#eq-4.021" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a> en la <a href="#eq-4.018" class="quarto-xref">Ecuación&nbsp;<span>4.18</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]
+\mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
 &amp; \leq 3 \Bigg( t \int_0^t \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] du \\
 &amp; \quad + 4 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du \\
 &amp; \quad + 4\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du \Bigg) \\
@@ -712,7 +712,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Recordemos la constante <span class="math inline">\(C_1(t)=\max\{3t,12\}\)</span>, definida en el paso base. Dado que, <span class="math inline">\(3t\leq C_1(t)\)</span> y <span class="math inline">\(12\leq C_1(t)\)</span>, podemos factorizar <span class="math inline">\(C_1(t)\)</span> en la expresión anterior para obtener la siguiente cota</p>
 <p><span id="eq-4.022"><span class="math display">\[
 \begin{aligned}
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]
+\mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
 &amp; \leq C_1(t) \int_0^t \Bigg( \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] \\
 &amp; \quad + \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] \\
 &amp; \quad + \lambda \, \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] \Bigg) du.
