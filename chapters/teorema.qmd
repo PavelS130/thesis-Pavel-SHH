@@ -89,187 +89,165 @@ $$ {#eq-4.05}
 :::
 
 ::: {.proof style="text-align: justify"}
-Queremos ver la existencia de una solución $Z=(Z(t))_{t\geq 0}$ para la ecuación (@eq-4.01) con condición inicial $Z(0)=Z_0$. Bajo las hipótesis (@eq-4.02) y (@eq-4.03) para los coeficientes $b$, $\sigma$ y $F$. Analizaremos primero el caso cuando $\mathbb{E}[|Z_0|^2]<\infty$. Dado que la ecuación estocástica de nuestro caso posee un movimiento browniano $B$, es decir, ruido estocástico y una medida de Poisson compensada, dada por $\widetilde{N}$, para esto utilizaremos la iteración de Picard construyendo una sucesión de procesos estocásticos a partir de la condición inicial. Definiendo la suceción de la siguiente forma:
+Queremos demostrar la existencia de una solución fuerte $Z=\{Z(t)\}_{t\geq 0}$ para la (@eq-4.01) con condición inicial $Z(0)=Z_0$, bajo las hipótesis dadas por la (@eq-4.02) y (@eq-4.03) para los coeficientes $f$, $g$ y $h$. 
+
+Analizaremos primero el caso en el que la condición inicial tiene segundo momento finito, es decir, $\mathbb{E}[|Z_0|^2]<\infty$. 
+
+Dado que nuestra ecuación estocástica posee un movimiento browniano $W$ (ruido estocástico) y una proceso de Poisson compensada, $\widetilde{N}$ (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:
 
 $$
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
-$$
+$$ {#eq-4.06}
 
-Para $n\geq 1$
-
-$$
-    \begin{aligned}
-        Z_{n+1}(t) := Z_0 & +\int _0^t b(Z_n(s-))ds+\int_0^t \sigma(Z(s-))dB(s)\\ 
-        & + \int_0^t \int _{|x|<c} F(Z_n(s-),x)\widetilde{N}(ds,dx).
-    \end{aligned}
-$$
-
-Demostraremos que el proceso $Z_n$ es un proceso adaptado y con trayectorias Cádlág. Consideremos la diferencia $Z_1(t)-Z_0(t)$. Por la iteración de Picard tenemos:
+Para $n\geq 0$, definimos recursivamente la sucesión de procesos estocásticos:
 
 $$
     \begin{aligned}
-        Z_1(t) = Z_0(t) & + \int_0^t b(Z_0(s-))ds +\int_0^t\sigma(Z_0(s-))\\ 
-        & +\int_0^t \int_{|x|<c} F(Z_0(s-),x)\widetilde{N}(ds,dx).
+        Z_{n+1}(t) & := Z_0 +\int _0^t f(Z_n(s-))\,ds+\int_0^t f(Z(s-))\,dW(s)\\ 
+        & \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
     \end{aligned}
+$$ {#eq-4.07}
+
+Afirmamos que cada $Z_n$ es un proceso adaptado a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y con trayectorias càdlàg mediante inducción matemática sobre $n$. 
+
+**Caso $n=0$** El proceso inicial es $Z_0(t)=Z_0$ para todo $t\geq 0$. Dado que $Z_0$ es $\mathcal{F}_0$-medible por hipótesis, el proceso es constante en el tiempo, y por lo tanto, adaptado. Además, sus trayectorias son constantes, lo que implica que son continuas y en consecuencia, càdlàg.
+
+Supongamos que para algún $n\geq 0$, el proceso $Z_n(t)$ es adaptado y tiene trayectorias càdlàg. Dado que $Z_n$ es adaptado y càdlàg, es progresivamente medible. Recordemos que una propiedad dentro del cálculo estocástico establece que el proceso de límites por la izquierda
+
+$$
+Z_n(t-):=\lim_{s\uparrow t}Z_n(s), 
 $$
 
-Dado que $Z_0(t)=Z_0$ para todo $t\geq 0$, entonces,
+es $\textbf{predecible}$, es decir, medible respecto a la $\sigma$-álgebra predecible generada por los procesos adaptados  y continuos por la izquierda. 
+
+Dado que los coeficientes $f,g,h$ son funciones continuas, gracias a la condición de Lipschitz dada en la @eq-4.02, la composición de una función continua con un proceso predecible resulta en un proceso predecible. Por lo tanto, los integrandos $f(Z_n(s-))$, $g(Z_n(s-))$ y $h(Z_n(s-))$ son procesos predecibles. 
+
+**Caso $n+1$:** Analizamos ahora la naturaleza de cada término en la definición de $Z_{n+1}$:
+
+- Integral de Lebesgue: $\int_0^t f(Z_n(s-))\, ds$. La integral de un proceso predecible respecto a la medida de Lebesgue produce un proceso con trayectorias continuas y adaptado. 
+
+- Integral de Itô: $\int_0^t g(Z_n(s-))\, dW(s)$. La integral estocástica de un proceso predecible cuadrado-integrable respecto al movimiento browniano $W(s)$ posee una modificación que es una martingala continua y, por consecuencia, adaptada. 
+
+- Integral de Itô: $\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)$. La integral estocástica de un proceso predecible cuadrado-integrable respecto al proceso de Poisson compensado $\widetilde{N}(s)$ posee una modificación que es una martingala con trayectorias càdlàg y adaptada. 
+
+Finalmente, $Z_{n+1}(t)$ se define como la suma de $Z_0$, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, $\int_0^t f(Z_n(s-))\, ds$ y $\int_0^t g(Z_n(s-))\, dW(s)$, y un proceso adaptado con trayectorias càdlàg, $\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)$. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resultad en un proceso càdlàg, podemos concluir que $Z_{n+1}(t)$ es adaptado y tiene trayectorias càdlàg. 
+
+Por el principio de inducción matemática, todos los procesos $Z_n(t)$ en la sucesión de Picard son adaptados y càdlàg. 
+
+Luego, para establecer la convergencia, consideremos el paso base de la iteración analizando la diferencia $Z_1(t)-Z_0(t).$ Sustituyendo $n=0$ en la @eq-4.07 y dado que $Z_0(s-)=Z_0$ para todo $s\geq 0$, obtenemos 
 
 $$
-    \begin{aligned}
-        Z_1(t)-Z_0 = \int_0^t b(Z_0) ds & + \int_0^t \sigma(Z_0)dB(s)\\ 
-        & + \int_0^t\int_{|x|<c} F(Z_0,x)\widetilde{N}(ds,dx). 
-    \end{aligned}
-$$
+Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\widetilde{N}(s). 
+$$ {#eq-4.08}
 
-Considerando la desigualdad
+Para acotar la expresión, haremos uso de la desigualdad elemental para sumas de tres términos
 
 $$
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
-$$ {#eq-des}
+$$ {#eq-4.09}
 
-Tomando valor absoulto y elevando al cuadrado la expreción anterior tenemos que
+Tomando valor absoulto y elevando al cuadrado a la @eq-4.08, aplicando la @eq-4.09 para obtener
 
 $$
-    \begin{aligned}
+\begin{aligned}
 |Z_1(t)-Z_0|^2
-&= \Bigg|
-      \int_0^t b(Z_0)\,ds
-      + \int_0^t \sigma(Z_0)\,dB(s) \\
-&\qquad\quad
-      + \int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)
-   \Bigg|^2 \\[0.3em]
+& = \Bigg|
+      \int_0^t f(Z_0)\,ds
+      + \int_0^t g(Z_0)\,dW(s) \\ 
+& \qquad\qquad\quad + \int_0^t h(Z_0)\,d\widetilde{N}(s)\Bigg|^2 \\
 &\le 3\Bigg(
-      \left(\int_0^t b(Z_0)\,ds\right)^2
-      + \left(\int_0^t \sigma(Z_0)\,dB(s)\right)^2 \\
-&\qquad\quad
-      + \left(\int_0^t\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
-   \Bigg).
+      \left(\int_0^t f(Z_0)\,ds\right)^2
+      + \left(\int_0^t g(Z_0)\,dW(s)\right)^2\\ 
+& \qquad\qquad\quad + \left(\int_0^t h(Z_0)\,d\widetilde{N}(s)\right)^2\Bigg).
 \end{aligned}
 $$
 
-Para controlar de manera uniforme en todo el intervalo $[0,t]$ tomamos el supremo sobre todo el intervalo, además usando propiedades del supremos podemos obtener
+Para controlar el comportamiento de manera uniforme en todo el intervalo $[0,t]$, tomamos el supremo sobre $s\in[0,t]$, en ambos lados. Utilizando la propiedad de que el supremo de una suma es menor igual a la suma de los supremos, podemos obtener
+
 
 $$
 \begin{aligned}
-\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2
-&\leq \sup\limits_{0\leq s\leq t}\Bigg(3\Bigg(
-      \left(\int_0^s b(Z_0)\,ds\right)^2
-      + \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\
-&\qquad\quad
-      + \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2
-   \Bigg)\Bigg)\\
-& = 3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2 + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\ 
+\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2
+&\leq 3\Bigg(\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2 + \sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2 \\ 
 &\qquad\quad 
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg).
+    + \sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\Bigg).
 \end{aligned}
 $$
 
-Tomando valor esperado de ambos lado y usando la linealidad, tenemos que
+Finalmente, tomando el valor esperado de ambos lados y utilizando la linealidad de la esperanza, llegamos a la siguiente cota
 
 $$
 \begin{aligned}
-\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
-& \leq \mathbb{E}\Bigg[3\Bigg(\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\\
-&\qquad   
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2 \\ 
-&\qquad\quad
-    + \sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg)\Bigg]\\
-& = 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\ 
+\mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]
+& \leq 3\Bigg( \mathbb{E}\left[\sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2\right] \\ 
 &\qquad
-    + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
+    + \mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s g(Z_0)\,dW(u)\right)^2\right] \\
 &\qquad\quad
-    +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg).
+    +\mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\right]\Bigg).
 \end{aligned}
-$$ {#eq-5}
+$$ {#eq-4.010}
 
-Trabajaremos término por término; así notemos que la siguiente integral es de Lebesgue
-
-$$
-    \int_0^s b(z_0)du = b(z_0) \int_0^s du = b(z_0)\cdot s
-$$
-
-Por lo tanto
+Trabajaremos término por término. Primero notemos que la siguiente integral es de Lebesgue:
 
 $$
-    \sup\limits_{0\leq s\leq t}\Bigg(\int_0^s b(Z_0)du\Bigg)^2=\sup\limits_{0\leq s\leq t}(b(Z_0)\cdot s)^2=\sup\limits_{0\leq s\leq t} b(Z_0)^2\cdot s^2= b(Z_0)^2\cdot t^2.
+    \int_0^s f(z_0)du = b(z_0) \int_0^s du = f(z_0)\cdot s
 $$
 
-Consideremos ahora el proceso
+Por lo tanto, tomando supremo sobre $s\in[0,t]$, obtenemos
 
 $$
-    M(s):=\int_0^s \sigma(Z_0)dB(u).
-$$ {#eq-mart}
+    \sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2 = \sup_{0\leq s\leq t} |f(Z_0)|^2 s^2 = |f(Z_0)|^2 t^2.
+$$ {#eq-4.011}
 
-Afirmamos que dicho proceso es una martingala, pues al ser $Z_0$ constante esto implica que $\sigma(Z_0)$ no dependa de $u$. Dado que $Z_0$ es $\mathcal{F}_0\text{-medible}$, entonces $\sigma(Z_0)$ también lo es, más aún, es $\mathcal{F}_u\text{-medible}$ para toda $u\geq 0$. Por lo tanto el término a integrar del proceso $M(s)$, el cuál es una integral de Itô, es adaptado. Por hipotésis, de la condición (C2), podemos afirmar que
-
-$$
-        \mathbb{E}[|\sigma(Z_0)|^2] \leq K_2(1+\mathbb{E}[|Z_0|^2])\leq \infty.
-$$
-
-Esto pues obteniendo el valor esperado de (@eq-4.03) , tomando a $y=Z_0$ tenemos
+Consideremos ahora el proceso estocástico
 
 $$
-    \begin{aligned}
-        \mathbb{E}[|\sigma(Z_0)|^2] & \leq \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c} |F(Z_0,x)|^2 \nu(dx)\Bigg]\\ 
-        & \leq \mathbb{E}[K_2(1+|Z_0|^2)]\\ 
-        & = K_2\mathbb{E}[1+|Z_0|^2]\\ 
-        & = K_2 (1+\mathbb{E}[|Z_0|^2]).
-    \end{aligned}
-$$ {#eq-6}
+    M(s):=\int_0^s g(Z_0)dW(u).
+$$ {#eq-4.012}
 
-Por lo tanto, el proceso $M(s)$ es una martingala. Así, usando la desigualdad maximal de Doob, tenemos que:
+Afirmamos que $M(s)$ proceso es una martingala cuadrado-integrable. Dado que $Z_0$ es $\mathcal{F}_0$-medible y constante en el tiempo, $g(Z_0)$ es determinista condicional a $\mathcal{F}_0$ y , por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la @eq-4.03 evaluada en $y=0$, tenemos que 
 
 $$
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg]\leq 4\mathbb{E}[|M(t)|^2].
+    \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) < \infty.
 $$
 
-De la isometría de Itô y por el teorema de Fubini
+Esto garantiza que $M(s)\in\mathcal{L}^2$. Así, aplicando la desigualdad maximal de Doob para martingalas con $p=2$ y la isometría de Itô, obtenemos
 
 $$
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|M(s)|^2\Bigg] & \leq 4\mathbb{E}[|M(t)|^2]\\ 
-        & = 4 \mathbb{E}\Bigg[\int_0^t |\sigma(Z_0)|^2ds\Bigg]\\ 
-        & = 4 \int_0^t \mathbb{E}[|\sigma(Z_0)|^2]ds\\ 
-        & = 4 \mathbb{E}[|\sigma(Z_0)|^2]\int_0^t ds\\ 
-        & = 4t \mathbb{E}[|\sigma(Z_0)|^2].
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|M(s)|^2\right] & \leq 4\,\mathbb{E}[|M(t)|^2] \\ 
+        & = 4\,\mathbb{E}\left[\int_0^t |g(Z_0)|^2\,du\right] \\ 
+        & = 4t\,\mathbb{E}[|g(Z_0)|^2].
     \end{aligned}
+$$ {#eq-4.013}
+
+
+De manera análoga, para el término de salto definido por
+
+$$
+    L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
 $$
 
-De manera análoga, para el término
-
-$$
-    W(s):= \int_0^s\int_{|x|<c}F(Z_0,x)\widetilde{N}(du,dx).
-$$
-
-Podemos afirmar que es una martingala. Usando la isometría de Itô, desigualdad maximal de Doob y por el teorema de Fubini
+podemos afirmar que es una martingala cuadrado-integrable. Utilizando la desigualdad maximal de Doob y la la isometría de Itô para el proceso de Poisson compensado, donde la variación cuadratica es $\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du$, obtenemos
 
 $$
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|W(s)|^2\Bigg] & \leq 4\mathbb{E}[|W(t)|^2]\\ 
-        & = 4\int_0^t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)ds\\ 
-        & = 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|L(s)|^2\right] & \leq 4\,\mathbb{E}[|L(t)|^2] \\ 
+        & = 4\,\mathbb{E}\left[\lambda \int_0^t |h(Z_0)|^2\,du\right] \\ 
+        & = 4\lambda t\,\mathbb{E}[|h(Z_0)|^2].
     \end{aligned}
-$$
+$$ {#eq-4.014}
 
-Así, de la igualdad (@eq-5) tenemos
+Sustituyendo la @eq-4.011, @eq-4.013 y @eq-4.014 en la @eq-4.010, llegamos a 
 
 $$
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
-        & \leq 3\Bigg( \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}\left(\int_0^s b(Z_0)\,ds\right)^2\Bigg]\\ 
-            &\qquad
-               + \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s \sigma(Z_0)\,dB(s)\right)^2\Bigg]\\
-        &\qquad\quad
-            +\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} \left(\int_0^s\!\!\int_{|x|<c} F(Z_0,x)\,\widetilde{N}(ds,dx)\right)^2\Bigg]\Bigg)\\
-        & \leq 3\Bigg(t^2\mathbb{E}[|b(Z_0)|^2]+4t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
-        & \qquad\quad + 4t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\ 
-        & = 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
-        & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx).
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] 
+        & \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
     \end{aligned}
-$$ {#eq-7}
+$$ {#eq-4.015}
 
-Notemos para los términos en común $3t^2$ y $12t$ podemos definir la variable $C_1(t):=\max{\{3t,12\}}$, de aquí
+Para acotar la @eq-4.015 utilizando la condición de crecimiento lineal dada en la @eq-4.03, dfinimos la constante $C_1(t):=\max{\{3t,12\}}$, notemos que 
 
 $$
     \begin{aligned}
@@ -278,44 +256,21 @@ $$
     \end{aligned}
 $$
 
-Por lo tanto, (@eq-7) queda de la forma
+Por lo tanto, de la @eq-4.015 podemos factorizar 
 
 $$
     \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg] 
-        & \leq 3t^2\mathbb{E}[|b(Z_0)|^2]+12t\mathbb{E}[|\sigma(Z_0)|^2]\\ 
-        & \qquad\quad +12t\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\\ 
-        & \leq C_1(t)\cdot t\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
-        & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg).
+        \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] 
+        & \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
     \end{aligned}
-$$ {#eq-8}
+$$ {#eq-4.016}
 
-Por hipotésis, los coeficientes $b$, $\sigma$ y $F$ cumplen con la condición (@eq-4.03), vale decir
-
-$$
-    |b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\leq K_2(1+|Z_0|^2).
-$$
-
-De (@eq-6) podemos afirmar que $\mathbb{E}[K_2(1+|Z_0|^2)]=K_2(1+\mathbb{E}[|Z_0|^2])$, tomando valor esperado de la ecuación anterior, tenemos
+Finalmente, aplicando la condición de crecimiento lineal, dada por la @eq-4.03, obtenemos la cota fundamental para el primer paso de la iteración
 
 $$
-    \begin{aligned}
-        \mathbb{E}\Bigg[|b(Z_0)|^2+|\sigma(Z_0)|^2+\int_{|x|<c}|F(Z_0,x)|\nu(dx)\Bigg] & \leq \mathbb{E}[K_2(1+|Z_0|^2)].\\
-        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\mathbb{E}\Bigg[\int_{|x|<c}|F(Z_0,x)|^2\nu(dx)\Bigg] & \leq K_2(1+\mathbb{E}[|Z_0|^2]).\\ 
-        \mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|Z_0|^2]+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)& \leq K_2(1+\mathbb{E}[|Z_0|^2]).    
-    \end{aligned}
-$$ {#eq-9}
+    \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] \leq C_1(t)\,t\,K_2\big(1 + \mathbb{E}[|Z_0|^2]\big).
+$$ {#eq-4.017}
 
-Así de (@eq-8) y (@eq-9) tenemos que
-
-$$
-    \begin{aligned}
-        \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_1(s)-Z_0|^2\Bigg]
-        & \leq C_1(t)\Bigg(\mathbb{E}[|b(Z_0)|^2]+\mathbb{E}[|\sigma(Z_0)|^2]\\ 
-        & \qquad \qquad\quad+\int_{|x|<c}\mathbb{E}[|F(Z_0,x)|^2]\nu(dx)\Bigg)\\
-        & \leq C_1(t)\cdot t\cdot K_2(1+\mathbb{E}[|Z_0|^2]).
-    \end{aligned}
-$$
 
 Veamos la diferencia para $Z_{n+1}$ y $Z_n$, por la iteración de Picard, tenemos que
 
@@ -347,7 +302,7 @@ $$
     \end{aligned}
 $$
 
-Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (@eq-des), tenemos que
+Elevando al cuadrado, considerando valor absoluto y usando la desigualdad (@eq-4.09), tenemos que
 
 $$
     \begin{aligned}
@@ -412,7 +367,7 @@ $$
     H(s) := \int_0^s \Delta \sigma(n,u)dB(u).
 $$
 
-Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso $M(s)$ en (@eq-mart). Haciendo uso de la desigualdad maximal de Doob
+Afirmamos que dicho proceso es una martingala bajo los argumentos para el proceso $M(s)$ en (@eq-4.012). Haciendo uso de la desigualdad maximal de Doob
 
 $$
     \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|H(s)|^2\Bigg]\leq 4\mathbb{E}[|H(t)|^2].
