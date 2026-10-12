@@ -826,37 +826,37 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a> sabemos que para cada <span class="math inline">\(r=m+1,m+2,\ldots,n\)</span> se cumple</p>
+<p>De la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a> sabemos que para cada <span class="math inline">\(r\in\mathbb{N}\)</span> se cumple</p>
 <p><span class="math display">\[
-    \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
+    \mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
-<p>Dado que son términos no negativos, tomando raíz se puede afirmar que</p>
+<p>Dado que <span class="math inline">\(|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2\)</span> al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma <span class="math inline">\(\mathcal{L}\)</span></p>
 <p><span class="math display">\[
     \begin{aligned}
         \|Z_r(s)-Z_{r-1}(s)\|_2 &amp; \leq \sqrt{\mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]}\\
-        &amp; \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+        &amp; \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
     \end{aligned}
 \]</span></p>
-<p>Por tanto para cada <span class="math inline">\(0\leq s\leq t\)</span> tenemos</p>
+<p>Por tanto para cada <span class="math inline">\(s\in [0,t]\)</span>, la distancia en <span class="math inline">\(\mathcal{L}^2\)</span> está acotada por tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \|Z_n(s)-Z_m(s)\|_2 &amp; \leq \sum\limits_{r=m+1}^n \|Z_r(s)-Z_{r-1}(s)\|_2\\
-        &amp; \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
+        &amp; \leq \sum\limits_{r=m+1}^n \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
     \end{aligned}
 \]</span></p>
-<p>Definimos la siguiente variable</p>
+<p>Para analizar la convergencia de esta suma, definimos la constante</p>
 <p><span class="math display">\[
-    A':=C_2(t)K_3&gt;0.
+    A':=C_2(t)K_3&gt;0,
 \]</span></p>
-<p>Reescribiendo el término de la suma de la siguiente forma</p>
-<p><span id="eq-16"><span class="math display">\[
+<p>y reescribirmos el término general de la serie como</p>
+<p><span id="eq-4.028"><span class="math display">\[
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
 \tag{4.28}\]</span></span></p>
 <p>Veamos la convergencía de la serie</p>
 <p><span class="math display">\[
 \sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
 \]</span></p>
-<p>Considerando el cociente del término <span class="math inline">\(a_r\)</span> tenemos</p>
+<p>Aplicando el criterio de la razón, evaluamos el límite del cociente entre términos consecutivos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \frac{a_{r+1}}{a_r} &amp; = \frac{\Bigg(\frac{A^{r+1}}{(r+1)!}\Bigg)^{1/2}}{\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}}\\
@@ -864,32 +864,32 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
         &amp; = \Bigg(\frac{A}{r+1}\Bigg)^{1/2}.
     \end{aligned}
 \]</span></p>
-<p>Ahora tomando el límite cuando <span class="math inline">\(r\rightarrow\infty\)</span></p>
+<p>Tomando el límite cuando <span class="math inline">\(r\rightarrow\infty\)</span></p>
 <p><span class="math display">\[
 \lim\limits_{r\rightarrow\infty}\frac{a_{r+1}}{a_r}=\lim\limits_{r\rightarrow\infty}\sqrt{\frac{A}{r+1}}=0.
 \]</span></p>
-<p>Dado que este límite es estrictamente menor que 1, por el criterio de la razón, podemos afirmar que la serie converge absolutamente esto implica que la serie converge, más aún, su cola converge, es decir, para todo <span class="math inline">\(\varepsilon&gt;0\)</span> existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
+<p>Dado que este límite es estrictamente menor que 1, por el criterio de la razón afirmamos que la serie converge. Como consecuencia directa de la convergencia de la serie, la cola de la serie tiende a cero. Es decir, para todo <span class="math inline">\(\varepsilon&gt;0\)</span> existe un entero <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
 <p><span class="math display">\[
-    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^r/2}&lt;\varepsilon.
+    \sum\limits_{r=N+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^1/2}&lt;\varepsilon.
 \]</span></p>
-<p>Entonces, para todo <span class="math inline">\(n,m\geq N\)</span> tales que <span class="math inline">\(m&lt;n\)</span> y todo <span class="math inline">\(s\in [0,t]\)</span></p>
-<p><span class="math display">\[
+<p>Entonces, para todo <span class="math inline">\(n,m\geq N\)</span> tales que <span class="math inline">\(m&lt;n\)</span> y todo <span class="math inline">\(s\in [0,t]\)</span> se cumple</p>
+<p><span id="eq-4.029"><span class="math display">\[
     \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}&lt;\varepsilon.
-\]</span></p>
-<p>Por lo tanto, podemos afirmar que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2\)</span>.</p>
+\tag{4.29}\]</span></span></p>
+<p>Por lo tanto, hemos demostrado que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span> para cada <span class="math inline">\(s\in[0,t]\)</span>.</p>
 <p>Al ser <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, vale decir, es un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, entonces toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Luego existe <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
 <p><span id="eq-17"><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
-\tag{4.29}\]</span></span></p>
+\tag{4.30}\]</span></span></p>
 <p>Cómo <span class="math inline">\(m&lt;n\)</span>, por la desigualdad del triángulo, afirmamos que</p>
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.29</span></a> tenemos que</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados; por la <a href="#eq-17" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a> tenemos que</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0.
 \]</span></p>
-<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-16" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a> converge entonces</p>
+<p>Luego, dado que ya se demostró que la seríe dada por <a href="#eq-4.028" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a> converge entonces</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}.
 \]</span></p>
@@ -908,12 +908,12 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p>Aplicando a <span class="math inline">\(X_n^2\)</span> Chebyshev-Markov tenemos que</p>
 <p><span id="eq-18"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
-\tag{4.30}\]</span></span></p>
+\tag{4.31}\]</span></span></p>
 <p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a>, así</p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
-<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a>, esto implica que</p>
+<p>De la <a href="#eq-18" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, esto implica que</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 \]</span></p>
@@ -943,7 +943,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
         &amp; \qquad + \int_0^t [\sigma(Z^{(1)}(s-)) - \sigma(Z^{(2)}(s-))]\,dB(s)\\
         &amp; \qquad\quad + \int_0^t \int_{|x|&lt;c} [F(Z^{(1)}(s-), x) - F(Z^{(2)}(s-), x)]\,\tilde{N}(ds,dx).
     \end{aligned}
-\tag{4.31}\]</span></span></p>
+\tag{4.32}\]</span></span></p>
 <p>Definimos la siguiente notación</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -952,7 +952,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
         \Delta F(s,x) &amp; := F(Z^{(1)}(s-),x)-F(Z^{(2)}(s-),x)
     \end{aligned}
 \]</span></p>
-<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, tomando supremo y despues esperanza en el intervalo $[0,1]$$ tenemos la siguiente desigualdad</p>
+<p>Nuestro objetivo ahora es estimar <span class="math inline">\(\displaystyle \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(t) - Z^{(2)}(t)|^2\right]\)</span>. Para ello, similar al procedimiento anterior, elevando al cuadrado la <a href="#eq-19" class="quarto-xref">Ecuación&nbsp;<span>4.32</span></a>, tomando supremo y despues esperanza en el intervalo $[0,1]$$ tenemos la siguiente desigualdad</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq &amp; 3\Bigg(\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\Bigg|\int_0^s [\Delta b(s)]du\Bigg|^2\right]\\
@@ -1083,7 +1083,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p>Esto implica, para cualquier <span class="math inline">\(m&gt;n\geq N\)</span>, se tiene</p>
 <p><span id="eq-20"><span class="math display">\[
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-\tag{4.32}\]</span></span></p>
+\tag{4.33}\]</span></span></p>
 <p>Es deicr, en <span class="math inline">\(\Omega_N\)</span>, las condiciones iniciales de <span class="math inline">\(Z^{(m)}\)</span> y <span class="math inline">\(Z^{(n)}\)</span> son iguales. Por lo tanto, para todo <span class="math inline">\(t\geq 0\)</span> se cumple que</p>
 <p><span class="math display">\[
     Z^{(m)}(t)=Z^{(n)}(t)\ \text{c.s.}
@@ -1099,8 +1099,8 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p>Por la continuidad de la probabilidad, podemos afirmar <span class="math inline">\(\displaystyle \lim\limits_{n\rightarrow \infty}\mathbb{P}(\Omega_n)=1\)</span>. Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
 <p><span id="eq-21"><span class="math display">\[
     \mathbb{P}(\Omega_N)&gt;1-\varepsilon.
-\tag{4.33}\]</span></span></p>
-<p>De <a href="#eq-20" class="quarto-xref">Ecuación&nbsp;<span>4.32</span></a> sabemos que</p>
+\tag{4.34}\]</span></span></p>
+<p>De <a href="#eq-20" class="quarto-xref">Ecuación&nbsp;<span>4.33</span></a> sabemos que</p>
 <p><span class="math display">\[
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0\ \ \text{en $\Omega_N$}
 \]</span></p>
@@ -1112,7 +1112,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0,
 <p><span class="math display">\[
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 \]</span></p>
-<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.33</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-21" class="quarto-xref">Ecuación&nbsp;<span>4.34</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
