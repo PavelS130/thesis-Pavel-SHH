@@ -1136,16 +1136,14 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 \]</span></p>
 <p>Dado que cada <span class="math inline">\(Z^{(n_k)}\)</span> posee trayectorias cádlàg y la convergencia es uniforme casi segura, el límite <span class="math inline">\(Z\)</span> admite una versión con trayectorias cádlàg (pues el límite uniforme de funciones cádlàg es cádlàg).</p>
 <p>Finalmente, dado que cada <span class="math inline">\(Z^{(n_k)}\)</span> es adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span> y la convergencia al proceso <span class="math inline">\(Z\)</span> es uniforme casi seguramente, la adaptabilidad se preserva bajo convergencia puntual (y en particular, bajo convergencia uniforme). Por lo tanto, el proceso límite <span class="math inline">\(Z\)</span> es adaptado a <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span>.</p>
-<p>Analicemos ahora la unicidad de dicha solución. Procediendo por contradicción, supongamos que existe otra solución fuerte <span class="math inline">\(Z'=(Z'(t))_{t\geq 0}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>. Fijando a <span class="math inline">\(N\in \mathbb{N}\)</span>, consideremos al conjunto <span class="math inline">\(\Omega_N\)</span>, ya sabemos que en este conjunto la condición incial es acotada y además por el caso <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span> la solución es única. Por lo tanto</p>
-<p><span class="math display">\[
-    Z'(t)(\omega) = Z_M(t)(\omega)\ \ \ \  \text{para todo }t\geq 0,\ \ \ \ \ \forall\omega\in \Omega_N\ \text{c.s.}
-\]</span></p>
-<p>para cualquier <span class="math inline">\(M\geq N\)</span>, donde <span class="math inline">\(Z_M\)</span> es la solución con condición inicial truncada <span class="math inline">\(Z^{(M)}=Z_0\)</span> en <span class="math inline">\(\Omega_N\)</span>. Asumamos que esto falla para algún <span class="math inline">\(M\geq N\)</span>, es decir, existe un conjunto <span class="math inline">\(A\subset \Omega_N\)</span> con <span class="math inline">\(\mathbb{P}(A)&gt;0\)</span> tal que <span class="math inline">\(Z'(t)(\omega)\neq Z_M(t)(\omega)\)</span> con <span class="math inline">\(\omega\in A.\)</span> Podemos definir un nuevo proceso, llamemos a este <span class="math inline">\(Z''_M\)</span>, mediante</p>
+<p>Analicemos ahora la unicidad de dicha solución en el caso general. Supongamos que <span class="math inline">\(Z'=(Z'(t))_{t\geq 0}\)</span> es otra solución fuerte de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con la misma condición inicial <span class="math inline">\(Z_0\)</span>.</p>
+<p>Para cada <span class="math inline">\(M\in \mathbb{N}\)</span>, consideremos al conjunto <span class="math inline">\(\Omega_M= \{\omega \in \Omega : |Z_0(\omega)| \leq M\}\)</span> y la condición inicial truncada <span class="math inline">\(Z_0^{(M)}=Z_0\cdot 1_{\Omega_M}\)</span>. Sabemos que la ecuación con condición inicial <span class="math inline">\(Z_0^{(M)}\)</span> posee una única solución fuerte, a la que denotamos por <span class="math inline">\(Z^{M}\)</span>.</p>
+<p>Definimos un nuevo proceso estocástico <span class="math inline">\(Z_M''=(Z_M''(t))_{t\geq 0}\)</span> de la siguiente forma</p>
 <p><span class="math display">\[
 Z''_M(t)(\omega) =
 \begin{cases}
 Z'(t)(\omega), &amp; \omega\in A, \\
-Z_M(t)(\omega) &amp; \omega\notin A.
+Z^{M}(t)(\omega) &amp; \omega\notin A.
 \end{cases}    
 \]</span></p>
 <p>Dado que <span class="math inline">\(A\subset \Omega_N\)</span>, entonces <span class="math inline">\(A\in \mathcal{F}_0\)</span>, podemos afirmar que <span class="math inline">\(Z''\)</span> es adaptado, pues <span class="math inline">\(Z'\)</span> y <span class="math inline">\(Z^{(M)}\)</span> son dos procesos adaptados en un conjunto <span class="math inline">\(\mathcal{F}_0\)</span>-medible. Luego, al ser <span class="math inline">\(Z''\)</span> la combinación de dos funciones càdlàg entonces <span class="math inline">\(Z''\)</span> es càdlàg.</p>
