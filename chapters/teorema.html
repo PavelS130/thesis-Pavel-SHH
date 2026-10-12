@@ -487,14 +487,8 @@ dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
 <li><p><strong>Unicidad:</strong> Si <span class="math inline">\(\{Z'(t)\}_{t\geq 0}=\{Z(t)\}_{t\geq 0}\)</span> es otra solución de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con la misma condición inicial <span class="math inline">\(Z'(0)=Z_0\)</span>, entonces</p></li>
 </ul>
 <p><span id="eq-4.04"><span class="math display">\[
-\mathbb{P}(Z(t)=Z(t)\  \text{para todo }\ t\geq 0)=1
+\mathbb{P}(Z(t)=Z(t)\  \text{para todo }\ t\geq 0)=1.
 \tag{4.4}\]</span></span></p>
-<ul>
-<li><strong>Acotamiento del segundo momento:</strong> Para cualquier tiempo finito <span class="math inline">\(T&gt;0\)</span>, existe una constante <span class="math inline">\(C_T&gt;0\)</span>, tal que es independiente de la trayectoria tal que</li>
-</ul>
-<p><span id="eq-4.05"><span class="math display">\[
-\mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Z(t)|^2\Bigg]\leq C_T(1+\mathbb{E}[|Z_0|^2]).
-\tag{4.5}\]</span></span></p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Queremos demostrar la existencia de una solución fuerte <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> para la (<a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>) con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>, bajo las hipótesis dadas por la (<a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>) y (<a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>) para los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>.</p>
@@ -502,14 +496,14 @@ dZ(t)=f(Z(t-))dt+g(Z(t-))dW(t)+h(Z(t-))d\widetilde{N}(t),\qquad t\geq 0,
 <p>Dado que nuestra ecuación estocástica posee un movimiento browniano <span class="math inline">\(W\)</span> (ruido estocástico) y una proceso de Poisson compensada, <span class="math inline">\(\widetilde{N}\)</span> (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:</p>
 <p><span id="eq-4.06"><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
-\tag{4.6}\]</span></span></p>
+\tag{4.5}\]</span></span></p>
 <p>Para <span class="math inline">\(n\geq 0\)</span>, definimos recursivamente la sucesión de procesos estocásticos:</p>
 <p><span id="eq-4.07"><span class="math display">\[
     \begin{aligned}
         Z_{n+1}(t) &amp; := Z_0 +\int _0^t f(Z_n(s-))\,ds+\int_0^t f(Z(s-))\,dW(s)\\
         &amp; \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
     \end{aligned}
-\tag{4.7}\]</span></span></p>
+\tag{4.6}\]</span></span></p>
 <p>Afirmamos que cada <span class="math inline">\(Z_n\)</span> es un proceso adaptado a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq 0}\)</span> y con trayectorias càdlàg mediante inducción matemática sobre <span class="math inline">\(n\)</span>.</p>
 <p><strong>Caso <span class="math inline">\(n=0\)</span></strong> El proceso inicial es <span class="math inline">\(Z_0(t)=Z_0\)</span> para todo <span class="math inline">\(t\geq 0\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible por hipótesis, el proceso es constante en el tiempo, y por lo tanto, adaptado. Además, sus trayectorias son constantes, lo que implica que son continuas y en consecuencia, càdlàg.</p>
 <p>Supongamos que para algún <span class="math inline">\(n\geq 0\)</span>, el proceso <span class="math inline">\(Z_n(t)\)</span> es adaptado y tiene trayectorias càdlàg. Dado que <span class="math inline">\(Z_n\)</span> es adaptado y càdlàg, es progresivamente medible. Recordemos que una propiedad dentro del cálculo estocástico establece que el proceso de límites por la izquierda</p>
@@ -526,15 +520,15 @@ Z_n(t-):=\lim_{s\uparrow t}Z_n(s),
 </ul>
 <p>Finalmente, <span class="math inline">\(Z_{n+1}(t)\)</span> se define como la suma de <span class="math inline">\(Z_0\)</span>, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, <span class="math inline">\(\int_0^t f(Z_n(s-))\, ds\)</span> y <span class="math inline">\(\int_0^t g(Z_n(s-))\, dW(s)\)</span>, y un proceso adaptado con trayectorias càdlàg, <span class="math inline">\(\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)\)</span>. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resultad en un proceso càdlàg, podemos concluir que <span class="math inline">\(Z_{n+1}(t)\)</span> es adaptado y tiene trayectorias càdlàg.</p>
 <p>Por el principio de inducción matemática, todos los procesos <span class="math inline">\(Z_n(t)\)</span> en la sucesión de Picard son adaptados y càdlàg.</p>
-<p>Luego, para establecer la convergencia, consideremos el paso base de la iteración analizando la diferencia <span class="math inline">\(Z_1(t)-Z_0(t).\)</span> Sustituyendo <span class="math inline">\(n=0\)</span> en la <a href="#eq-4.07" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a> y dado que <span class="math inline">\(Z_0(s-)=Z_0\)</span> para todo <span class="math inline">\(s\geq 0\)</span>, obtenemos</p>
+<p>Luego, para establecer la convergencia, consideremos el paso base de la iteración analizando la diferencia <span class="math inline">\(Z_1(t)-Z_0(t).\)</span> Sustituyendo <span class="math inline">\(n=0\)</span> en la <a href="#eq-4.07" class="quarto-xref">Ecuación&nbsp;<span>4.6</span></a> y dado que <span class="math inline">\(Z_0(s-)=Z_0\)</span> para todo <span class="math inline">\(s\geq 0\)</span>, obtenemos</p>
 <p><span id="eq-4.08"><span class="math display">\[
 Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\widetilde{N}(s).
-\tag{4.8}\]</span></span></p>
+\tag{4.7}\]</span></span></p>
 <p>Para acotar la expresión, haremos uso de la desigualdad elemental para sumas de tres términos</p>
 <p><span id="eq-4.09"><span class="math display">\[
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
-\tag{4.9}\]</span></span></p>
-<p>Tomando valor absoulto y elevando al cuadrado a la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> para obtener</p>
+\tag{4.8}\]</span></span></p>
+<p>Tomando valor absoulto y elevando al cuadrado a la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> para obtener</p>
 <p><span class="math display">\[
 \begin{aligned}
 |Z_1(t)-Z_0|^2
@@ -567,7 +561,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 &amp;\qquad\quad
     +\mathbb{E}\left[\sup_{0\leq s\leq t} \left(\int_0^s h(Z_0)\,d\widetilde{N}(u)\right)^2\right]\Bigg).
 \end{aligned}
-\tag{4.10}\]</span></span></p>
+\tag{4.9}\]</span></span></p>
 <p>Trabajaremos término por término. Primero notemos que la siguiente integral es de Lebesgue:</p>
 <p><span class="math display">\[
     \int_0^s f(z_0)du = b(z_0) \int_0^s du = f(z_0)\cdot s
@@ -575,11 +569,11 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p>Por lo tanto, tomando supremo sobre <span class="math inline">\(s\in[0,t]\)</span>, obtenemos</p>
 <p><span id="eq-4.011"><span class="math display">\[
     \sup_{0\leq s\leq t}\left(\int_0^s f(Z_0)\,du\right)^2 = \sup_{0\leq s\leq t} |f(Z_0)|^2 s^2 = |f(Z_0)|^2 t^2.
-\tag{4.11}\]</span></span></p>
+\tag{4.10}\]</span></span></p>
 <p>Consideremos ahora el proceso estocástico</p>
 <p><span id="eq-4.012"><span class="math display">\[
     M(s):=\int_0^s g(Z_0)dW(u).
-\tag{4.12}\]</span></span></p>
+\tag{4.11}\]</span></span></p>
 <p>Afirmamos que <span class="math inline">\(M(s)\)</span> proceso es una martingala cuadrado-integrable. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y constante en el tiempo, <span class="math inline">\(g(Z_0)\)</span> es determinista condicional a <span class="math inline">\(\mathcal{F}_0\)</span> y , por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> evaluada en <span class="math inline">\(y=0\)</span>, tenemos que</p>
 <p><span class="math display">\[
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) &lt; \infty.
@@ -591,7 +585,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; = 4\,\mathbb{E}\left[\int_0^t |g(Z_0)|^2\,du\right] \\
         &amp; = 4t\,\mathbb{E}[|g(Z_0)|^2].
     \end{aligned}
-\tag{4.13}\]</span></span></p>
+\tag{4.12}\]</span></span></p>
 <p>De manera análoga, para el término de salto definido por</p>
 <p><span class="math display">\[
     L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
@@ -603,15 +597,15 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         &amp; = 4\,\mathbb{E}\left[\lambda \int_0^t |h(Z_0)|^2\,du\right] \\
         &amp; = 4\lambda t\,\mathbb{E}[|h(Z_0)|^2].
     \end{aligned}
-\tag{4.14}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-4.011" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>, <a href="#eq-4.013" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a> y <a href="#eq-4.014" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a> en la <a href="#eq-4.010" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>, llegamos a</p>
+\tag{4.13}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-4.011" class="quarto-xref">Ecuación&nbsp;<span>4.10</span></a>, <a href="#eq-4.013" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a> y <a href="#eq-4.014" class="quarto-xref">Ecuación&nbsp;<span>4.13</span></a> en la <a href="#eq-4.010" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a>, llegamos a</p>
 <p><span id="eq-4.015"><span class="math display">\[
 \begin{aligned}
     \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
     &amp; \leq 3\Bigg( t^2\,\mathbb{E}[|f(Z_0)|^2] + 4t\,\mathbb{E}[|g(Z_0)|^2] + 4\lambda t\,\mathbb{E}[|h(Z_0)|^2] \Bigg).
 \end{aligned}
-\tag{4.15}\]</span></span></p>
-<p>Para acotar la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> utilizando la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, dfinimos la constante <span class="math inline">\(C_1(t):=\max{\{3t,12,12\lambda\}}\)</span>, notemos que</p>
+\tag{4.14}\]</span></span></p>
+<p>Para acotar la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a> utilizando la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, dfinimos la constante <span class="math inline">\(C_1(t):=\max{\{3t,12,12\lambda\}}\)</span>, notemos que</p>
 <p><span class="math display">\[
     \begin{aligned}
         3t^2 &amp; = 3t\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t,\\
@@ -619,17 +613,17 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
         12\lambda t &amp; = 12\lambda\cdot t \leq \max{\{3t,12,12\lambda\}}\cdot t = C_1(t)\cdot t
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, de la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.15</span></a> podemos factorizar</p>
+<p>Por lo tanto, de la <a href="#eq-4.015" class="quarto-xref">Ecuación&nbsp;<span>4.14</span></a> podemos factorizar</p>
 <p><span id="eq-4.016"><span class="math display">\[
 \begin{aligned}
     \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right]\\
     &amp; \leq C_1(t)\,t\,\mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big].
 \end{aligned}
-\tag{4.16}\]</span></span></p>
+\tag{4.15}\]</span></span></p>
 <p>Finalmente, aplicando la condición de crecimiento lineal, dada por la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>, obtenemos la cota fundamental para el primer paso de la iteración</p>
 <p><span id="eq-4.017"><span class="math display">\[
     \mathbb{E}\left[\sup_{0\leq s\leq t}|Z_1(s)-Z_0|^2\right] \leq C_1(t)\,t\,K_2\big(1 + \mathbb{E}[|Z_0|^2]\big).
-\tag{4.17}\]</span></span></p>
+\tag{4.16}\]</span></span></p>
 <p>Veamos la diferencia entre los términos consecutivos de la sucesión de Picard, <span class="math inline">\(Z_{n+1}\)</span> y <span class="math inline">\(Z_n\)</span>. Restando sus expresiones integrales, obtenemos que</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -639,7 +633,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp; \qquad + \int_0^t \big[h(Z_n(u-)) - h(Z_{n-1}(u-))\big]\,d\widetilde{N}(u).
 \end{aligned}
 \]</span></p>
-<p>Para acotar el cuadrado de esta diferencia, aplicamos la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> <span class="math display">\[
+<p>Para acotar el cuadrado de esta diferencia, aplicamos la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> <span class="math display">\[
 \begin{aligned}
 |Z_{n+1}(t) - Z_n(t)|^2
 &amp; \leq 3 \Bigg( \left| \int_0^t \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big]\,du \right|^2 \\
@@ -655,7 +649,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp; \quad + \mathbb{E}\left[ \sup_{0 \leq s \leq t} \left| \int_0^s \big[g(Z_n(u-)) - g(Z_{n-1}(u-))\big]\,dW(u) \right|^2 \right] \\
 &amp; \quad + \mathbb{E}\left[ \sup_{0 \leq s \leq t} \left| \int_0^s \big[h(Z_n(u-)) - h(Z_{n-1}(u-))\big]\,d\widetilde{N}(u) \right|^2 \right] \Bigg).
 \end{aligned}
-\tag{4.18}\]</span></span></p>
+\tag{4.17}\]</span></span></p>
 <p>Trabajaremos con cada término de la desigualdad para acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>.</p>
 <p>Para el primer término, aplicamos la Desigualdad de Cauchy-Schwarz para integrales. Dado que <span class="math inline">\(s\in[0,t]\)</span>, tenemos</p>
 <p><span class="math display">\[
@@ -671,12 +665,12 @@ Z_{n+1}(t) - Z_n(t)
 \mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} \left( \int_0^s \big[f(Z_n(u-)) - f(Z_{n-1}(u-))\big] du \right)^2 \right]\\
 &amp; \leq t \int_0^t \mathbb{E}\left[ \big|f(Z_n(u-)) - f(Z_{n-1}(u-))\big|^2 \right] du.
 \end{aligned}
-\tag{4.19}\]</span></span></p>
+\tag{4.18}\]</span></span></p>
 <p>Definimos al proceso estocástico de la forma</p>
 <p><span class="math display">\[
     M_g(s) := \int_0^s \Big[g(Z_n(u-))-g(Z_{n-1}(u-))\Big]\, dW(u).
 \]</span></p>
-<p>Como establecimos previamente para el proceso <span class="math inline">\(M(s)\)</span> en la <a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.12</span></a>. Dado que <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos</p>
+<p>Como establecimos previamente para el proceso <span class="math inline">\(M(s)\)</span> en la <a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>. Dado que <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos</p>
 <p><span id="eq-4.020"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |M_g(s)|^2 \right]\\
@@ -684,7 +678,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp; = 4 \, \mathbb{E}\left[ \int_0^t \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 du \right] \\
 &amp; = 4 \int_0^t \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] du.
 \end{aligned}
-\tag{4.20}\]</span></span></p>
+\tag{4.19}\]</span></span></p>
 <p>De forma similar, definimos el proceso estocástico correspondiente a los saltos</p>
 <p><span class="math display">\[
     M_h(s) := \int_0^s[h(Z_n(u-))-h(Z_{n-1}(u-))]\, d\widetilde{N}(u).
@@ -697,8 +691,8 @@ Z_{n+1}(t) - Z_n(t)
 &amp; = 4 \, \mathbb{E}\left[ \lambda \int_0^t \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 du \right] \\
 &amp; = 4\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du.
 \end{aligned}
-\tag{4.21}\]</span></span></p>
-<p>Por lo tanto, sustituyendo la <a href="#eq-4.019" class="quarto-xref">Ecuación&nbsp;<span>4.19</span></a>, <a href="#eq-4.020" class="quarto-xref">Ecuación&nbsp;<span>4.20</span></a> y <a href="#eq-4.021" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a> en la <a href="#eq-4.018" class="quarto-xref">Ecuación&nbsp;<span>4.18</span></a> tenemos</p>
+\tag{4.20}\]</span></span></p>
+<p>Por lo tanto, sustituyendo la <a href="#eq-4.019" class="quarto-xref">Ecuación&nbsp;<span>4.18</span></a>, <a href="#eq-4.020" class="quarto-xref">Ecuación&nbsp;<span>4.19</span></a> y <a href="#eq-4.021" class="quarto-xref">Ecuación&nbsp;<span>4.20</span></a> en la <a href="#eq-4.018" class="quarto-xref">Ecuación&nbsp;<span>4.17</span></a> tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
@@ -718,7 +712,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp; \quad + \mathbb{E}\left[ \big|g(Z_n(u-)) - g(Z_{n-1}(u-))\big|^2 \right] \\
 &amp; \quad + \lambda \, \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] \Bigg) du.
 \end{aligned}
-\tag{4.22}\]</span></span></p>
+\tag{4.21}\]</span></span></p>
 <p>Recordemos que si <span class="math inline">\(f:[0,t]\)</span> es una función, entonces para todo <span class="math inline">\(v\in [0,t]\)</span> se cumple que</p>
 <p><span class="math display">\[
     |f(v)|\leq \sup\limits_{0\leq u\leq t}|f(u)|.
@@ -730,7 +724,7 @@ Z_{n+1}(t) - Z_n(t)
 <p>Tomando valor esperado, el cual preserva la desigualdad, y multiplicando por la constante de Lipschitz <span class="math inline">\(K_1&gt;0\)</span>, obtenemos</p>
 <p><span id="eq-4.023"><span class="math display">\[
     K_1\mathbb{E}\Big[|Z_n(u-)-Z_{n-1}(u-)|^2\Big] \leq K_1\mathbb{E}\left[\sup\limits_{0\leq v\leq u}|Z_n(v)-Z_{n-1}(v)|^2\right].
-\tag{4.23}\]</span></span></p>
+\tag{4.22}\]</span></span></p>
 <p>Por la hipótesis dada en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a>, los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> satisfacen que para todo <span class="math inline">\(y_1,y_2\in\mathbb{R}\)</span></p>
 <p><span class="math display">\[
 |f(y_1) - f(y_2)|^2 + |g(y_1) - g(y_2)|^2 + \lambda |h(y_1) - h(y_2)|^2 \leq K_1 |y_1 - y_2|^2.
@@ -744,7 +738,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp;\leq K_1 \mathbb{E}\left[\sup_{0 \leq v \leq u} |Z_n(v) - Z_{n-1}(v)|^2\right].
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo esta cota en la <a href="#eq-4.022" class="quarto-xref">Ecuación&nbsp;<span>4.22</span></a>, y multiplicando por la constante <span class="math inline">\(C_1(t)\)</span> e integrando en el intervalo <span class="math inline">\([0,t]\)</span> con respecto a <span class="math inline">\(u\)</span>, llegamos a la estimación para el paso inductivo</p>
+<p>Sustituyendo esta cota en la <a href="#eq-4.022" class="quarto-xref">Ecuación&nbsp;<span>4.21</span></a>, y multiplicando por la constante <span class="math inline">\(C_1(t)\)</span> e integrando en el intervalo <span class="math inline">\([0,t]\)</span> con respecto a <span class="math inline">\(u\)</span>, llegamos a la estimación para el paso inductivo</p>
 <p><span id="eq-4.024"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[\sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2\right]\\
@@ -753,7 +747,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp;\quad + \lambda \mathbb{E}\left[|h(Z_n(u-)) - h(Z_{n-1}(u-))|^2\right] \Bigg) du \\
 &amp;\leq C_1(t) K_1 \int_0^t \mathbb{E}\left[\sup_{0 \leq v \leq u} |Z_n(v) - Z_{n-1}(v)|^2\right] du.
 \end{aligned}
-\tag{4.24}\]</span></span></p>
+\tag{4.23}\]</span></span></p>
 <p>Ahora bien, para <span class="math inline">\(n\geq 1\)</span> y <span class="math inline">\(t\geq 0\)</span> definimos el siguiente proceso</p>
 <p><span class="math display">\[
     d_n(t):= \mathbb{E}\left[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\right].
@@ -761,18 +755,18 @@ Z_{n+1}(t) - Z_n(t)
 <p>Hemos demostrado hasta ahora las siguientes desigualdades para el paso base y el paso inductivo</p>
 <p><span id="eq-4.025"><span class="math display">\[
     d_1(t) \leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2]),
-\tag{4.25}\]</span></span></p>
+\tag{4.24}\]</span></span></p>
 <p><span id="eq-4.026"><span class="math display">\[
     d_{n+1}(t)\leq C_1(t)K_1\int_0^t d_n(s)ds,
-\tag{4.26}\]</span></span></p>
+\tag{4.25}\]</span></span></p>
 <p>donde <span class="math inline">\(C_1(t)=\max\{3t,12,12\lambda\}\)</span>.</p>
 <p>Definimos las variables auxiliares <span class="math inline">\(C_2(t):=tC_1(t)\)</span> y <span class="math inline">\(K_3:=\max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}.\)</span></p>
 <p>Afirmamos que para toda <span class="math inline">\(n\in \mathbb{N}\)</span>, se cumple la siguiente cota</p>
 <p><span id="eq-4.027"><span class="math display">\[
     d_n(t)\leq \frac{C_2(t)^n K_3^n}{n!}.
-\tag{4.27}\]</span></span></p>
+\tag{4.26}\]</span></span></p>
 <p>Procediendo por inducción matemática sobre <span class="math inline">\(n\)</span>.</p>
-<p><strong>Caso n=1:</strong> Notemos que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3\)</span>. Por lo tanto, de la <a href="#eq-4.025" class="quarto-xref">Ecuación&nbsp;<span>4.25</span></a> obtenemos directammente</p>
+<p><strong>Caso n=1:</strong> Notemos que <span class="math inline">\(K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3\)</span>. Por lo tanto, de la <a href="#eq-4.025" class="quarto-xref">Ecuación&nbsp;<span>4.24</span></a> obtenemos directammente</p>
 <p><span class="math display">\[
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
 \]</span></p>
@@ -785,7 +779,7 @@ Z_{n+1}(t) - Z_n(t)
 <p><span class="math display">\[
     d_{k+1}(t)\leq \frac{C_2(t)^{k+1} K_3^{k+1}}{(k+1)!}.
 \]</span></p>
-<p>Por la <a href="#eq-4.026" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a> tenemos que</p>
+<p>Por la <a href="#eq-4.026" class="quarto-xref">Ecuación&nbsp;<span>4.25</span></a> tenemos que</p>
 <p><span class="math display">\[
         d_{k+1} \leq C_1(t)K_1\int_0^t d_k(s)ds.
 \]</span></p>
@@ -826,7 +820,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
         &amp; \leq \sum\limits_{r=m+1}^n\|Z_r(s)-Z_{r-1}(s)\|_2.
     \end{aligned}
 \]</span></p>
-<p>De la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a> sabemos que para cada <span class="math inline">\(r\in\mathbb{N}\)</span> se cumple</p>
+<p>De la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a> sabemos que para cada <span class="math inline">\(r\in\mathbb{N}\)</span> se cumple</p>
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
@@ -851,7 +845,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p>y reescribirmos el término general de la serie como</p>
 <p><span id="eq-4.028"><span class="math display">\[
     a_r=\frac{A^{r/2}}{(r!)^{1/2}}=\Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
-\tag{4.28}\]</span></span></p>
+\tag{4.27}\]</span></span></p>
 <p>Veamos la convergencía de la serie</p>
 <p><span class="math display">\[
 \sum\limits_{r=1}^{\infty} a_r=\sum\limits_{r=1}^{\infty} \Bigg(\frac{A^r}{r!}\Bigg)^{1/2}.
@@ -875,17 +869,17 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p>Entonces, para todo <span class="math inline">\(n,m\geq N\)</span> tales que <span class="math inline">\(m&lt;n\)</span> y todo <span class="math inline">\(s\in [0,t]\)</span> se cumple</p>
 <p><span id="eq-4.029"><span class="math display">\[
     \|Z_n(s)-Z_m(s)\|_2\leq \sum\limits_{r=m+1}^n\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}\leq \sum\limits_{r=N+1}^{\infty} \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{r/2}}&lt;\varepsilon.
-\tag{4.29}\]</span></span></p>
+\tag{4.28}\]</span></span></p>
 <p>Por lo tanto, hemos demostrado que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span> para cada <span class="math inline">\(s\in[0,t]\)</span>.</p>
 <p>Dado que <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, es decir, un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, toda sucesión de Cauchy converge en <span class="math inline">\(\mathcal{L}^2\)</span>. Por lo tanto, existe un proceso <span class="math inline">\(Z(s)\in \mathcal{L}^2\)</span> tal que</p>
 <p><span id="eq-4.030"><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
-\tag{4.30}\]</span></span></p>
+\tag{4.29}\]</span></span></p>
 <p>Cómo <span class="math inline">\(m&lt;n\)</span>, por la desigualdad triangular, afirmamos que</p>
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados y utilizando lla convergencia en <span class="math inline">\(\mathcal{L}^2\)</span> dada por la por la <a href="#eq-4.030" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a>, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie:</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados y utilizando lla convergencia en <span class="math inline">\(\mathcal{L}^2\)</span> dada por la por la <a href="#eq-4.030" class="quarto-xref">Ecuación&nbsp;<span>4.29</span></a>, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie:</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 \]</span></p>
@@ -904,12 +898,12 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p>Aplicando la desigualdad de Chebyshev-Markov a <span class="math inline">\(X_n^2\)</span>, tenemos</p>
 <p><span id="eq-4.031"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
-\tag{4.31}\]</span></span></p>
-<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la cota factorial dada en la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.27</span></a></p>
+\tag{4.30}\]</span></span></p>
+<p>Notemos que <span class="math inline">\(\mathbb{E}[X_n^2]\)</span> ya esta acotado dado por la cota factorial dada en la <a href="#eq-4.027" class="quarto-xref">Ecuación&nbsp;<span>4.26</span></a></p>
 <p><span class="math display">\[
     \mathbb{E}[X_n^2]=\mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|^2\Bigg]\leq \frac{C_2(t)^nK_3^n}{n!}.
 \]</span></p>
-<p>Sustituyendo esta cota en la <a href="#eq-4.031" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, obtenemos</p>
+<p>Sustituyendo esta cota en la <a href="#eq-4.031" class="quarto-xref">Ecuación&nbsp;<span>4.30</span></a>, obtenemos</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)\leq 4^n\frac{C_2(t)^2K_3^n}{n!}=\frac{(4C_2(t)K_3)^n}{n!}.
 \]</span></p>
@@ -939,8 +933,8 @@ Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\bi
 &amp; \quad + \int_0^t \big[g(Z^{(1)}(s-)) - g(Z^{(2)}(s-))\big]\,dW(s) \\
 &amp; \quad + \int_0^t \big[h(Z^{(1)}(s-)) - h(Z^{(2)}(s-))\big]\,d\widetilde{N}(s).
 \end{aligned}
-\tag{4.32}\]</span></span></p>
-<p>Nuestro objetivo es estimar <span class="math inline">\(\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\)</span>. Elevando al cuadrado la <a href="#eq-4.032" class="quarto-xref">Ecuación&nbsp;<span>4.32</span></a>, tomando el supremos sobre <span class="math inline">\(s\in[0\leq t]\)</span> y posteriormente el valor esperado, aplicamos la desigualdad dada en la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> para obtener</p>
+\tag{4.31}\]</span></span></p>
+<p>Nuestro objetivo es estimar <span class="math inline">\(\mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\)</span>. Elevando al cuadrado la <a href="#eq-4.032" class="quarto-xref">Ecuación&nbsp;<span>4.31</span></a>, tomando el supremos sobre <span class="math inline">\(s\in[0\leq t]\)</span> y posteriormente el valor esperado, aplicamos la desigualdad dada en la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> para obtener</p>
 <p><span id="eq-4.033"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]
@@ -948,12 +942,12 @@ Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\bi
 &amp; \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right] \\
 &amp; \quad + \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right]\Bigg).
 \end{aligned}
-\tag{4.33}\]</span></span></p>
+\tag{4.32}\]</span></span></p>
 <p>Procedemos a acotar cada término de manera análoga al paso inductivo de la iteración de Picard.</p>
 <p>Aplicando la desigualdad de Cauchy–Schwarz para integrales, y notando que <span class="math inline">\(s\leq t\)</span>, tenemos</p>
 <p><span id="eq-4.034"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right] \leq t\int_0^t \mathbb{E}\left[\big|f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big|^2\right]du.
-\tag{4.34}\]</span></span></p>
+\tag{4.33}\]</span></span></p>
 <p>Definimos el proceso estocástico</p>
 <p><span class="math display">\[
 M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
@@ -977,7 +971,7 @@ M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u)\right|^2\right]\\
 &amp; \leq 4\int_0^t \mathbb{E}\left[\big|g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big|^2\right]du.
 \end{aligned}
-\tag{4.35}\]</span></span></p>
+\tag{4.34}\]</span></span></p>
 <p>De manera análoga, definimos el proceso</p>
 <p><span class="math display">\[
 M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u).
@@ -985,12 +979,12 @@ M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u).
 <p>Bajo las mismas hipótesis de integrabilidad, <span class="math inline">\(M_h(s)\)</span> es una martingala respecto a la filtración <span class="math inline">\(\mathbb{F}_t\)</span>. Al aplicar nuevamente la desigualdad maximal de Doob se tiene</p>
 <p><span id="eq-4.036"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_h(s)|^2\right] \leq 4\,\mathbb{E}\left[|M_h(t)|^2\right].
-\tag{4.36}\]</span></span></p>
+\tag{4.35}\]</span></span></p>
 <p>Aplicando nuevamente la isometría de Itô para integrales respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>. A diferencia del caso browniano, la variación cuadratica de <span class="math inline">\(\widetilde{N}(t)\)</span> introduce la intensidad, dada por <span class="math inline">\(\lambda&gt;0\)</span>, por lo que</p>
 <p><span class="math display">\[
 \mathbb{E}[|M_h(t)|^2] = \lambda\,\mathbb{E}\left[\int_0^t |h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))|^2\,du\right].
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-4.036" class="quarto-xref">Ecuación&nbsp;<span>4.36</span></a> y aplicando Fubini, obtenemos</p>
+<p>Sustituyendo esto en la <a href="#eq-4.036" class="quarto-xref">Ecuación&nbsp;<span>4.35</span></a> y aplicando Fubini, obtenemos</p>
 <p><span id="eq-4.037"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u)\right|^2\right]\\
@@ -998,8 +992,8 @@ M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u).
 &amp; = 4\lambda\,\mathbb{E}\left[\int_0^t \big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\,du\right] \\
 &amp; = 4\lambda\int_0^t \mathbb{E}\left[\big|h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big|^2\right]du.
 \end{aligned}
-\tag{4.37}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-4.034" class="quarto-xref">Ecuación&nbsp;<span>4.34</span></a>, <a href="#eq-4.035" class="quarto-xref">Ecuación&nbsp;<span>4.35</span></a> y <a href="#eq-4.037" class="quarto-xref">Ecuación&nbsp;<span>4.37</span></a> en la <a href="#eq-4.033" class="quarto-xref">Ecuación&nbsp;<span>4.33</span></a></p>
+\tag{4.36}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-4.034" class="quarto-xref">Ecuación&nbsp;<span>4.33</span></a>, <a href="#eq-4.035" class="quarto-xref">Ecuación&nbsp;<span>4.34</span></a> y <a href="#eq-4.037" class="quarto-xref">Ecuación&nbsp;<span>4.36</span></a> en la <a href="#eq-4.033" class="quarto-xref">Ecuación&nbsp;<span>4.32</span></a></p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right]\\
@@ -1020,13 +1014,13 @@ M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u).
 <p>De manera similar como ya se hizo en el análisis de la diferencia entre <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> en la iteración de Picard, haciendo uso de la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> podemos obtener</p>
 <p><span id="eq-4.038"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|Z^{(1)}(s) - Z^{(2)}(s)|^2\right] \leq C_1(t)K_1\int_0^t \mathbb{E}\left[\sup_{0\leq r\leq u}|Z^{(1)}(r) - Z^{(2)}(r)|^2\right]du.
-\tag{4.38}\]</span></span></p>
+\tag{4.37}\]</span></span></p>
 <p>De esta forma, definimos la función</p>
 <p><span class="math display">\[
     D(t):=\mathbb{E}\left[\sup\limits_{0\leq s\leq t}\left|Z^{(1)}(s) - Z^{(2)}(s)\right|^2\right].
 \]</span></p>
 <p>Es claro que <span class="math inline">\(D(t)\geq 0\)</span> para toda <span class="math inline">\(t\geq 0\)</span>. Fijando <span class="math inline">\(T\geq 0\)</span>, notemos que para todo <span class="math inline">\(t\in [0,T]\)</span> la constante <span class="math inline">\(C_1(t)\leq C_1(T)&lt;\infty\)</span>.</p>
-<p>De la <a href="#eq-4.038" class="quarto-xref">Ecuación&nbsp;<span>4.38</span></a> obtenemos que <span class="math inline">\(D(t)\)</span> satisface</p>
+<p>De la <a href="#eq-4.038" class="quarto-xref">Ecuación&nbsp;<span>4.37</span></a> obtenemos que <span class="math inline">\(D(t)\)</span> satisface</p>
 <p><span class="math display">\[
 D(t) \leq C_1(T) K_1 \int_0^t D(s)\,ds, \quad \forall t \in [0,T].
 \]</span></p>
@@ -1088,7 +1082,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p>Notemos que si <span class="math inline">\(\omega\in\Omega_N\)</span>, entonces para todo <span class="math inline">\(m&gt;n\geq N\)</span>, se tiene <span class="math inline">\(|Z_0(\omega)| \leq N \leq n &lt; m\)</span>, y por lo tanto</p>
 <p><span id="eq-4.039"><span class="math display">\[
     Z_0^{(m)}(\omega)=Z_0(\omega)=Z_0^{(n)} \text{   para todo $\omega\in \Omega_N$}.
-\tag{4.39}\]</span></span></p>
+\tag{4.38}\]</span></span></p>
 <p>Es deicr, en <span class="math inline">\(\Omega_N\)</span>, las condiciones iniciales de <span class="math inline">\(Z^{(m)}\)</span> y <span class="math inline">\(Z^{(n)}\)</span> coinciden. Por la unicidad demostrada anteriormente, se sigue que para todo <span class="math inline">\(t\geq 0\)</span></p>
 <p><span class="math display">\[
     Z^{(m)}(t)=Z^{(n)}(t),\quad \text{para casi todo}\ \omega\in\Omega_N
@@ -1108,8 +1102,8 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p>Esto implica que para cualquier <span class="math inline">\(\varepsilon&gt;0\)</span>, existe <span class="math inline">\(N\in \mathbb{N}\)</span> tal que</p>
 <p><span id="eq-4.040"><span class="math display">\[
     \mathbb{P}(\Omega_N)&gt;1-\varepsilon.
-\tag{4.40}\]</span></span></p>
-<p>De la <a href="#eq-4.039" class="quarto-xref">Ecuación&nbsp;<span>4.39</span></a> sabemos que en <span class="math inline">\(\Omega_N\)</span> se cumple</p>
+\tag{4.39}\]</span></span></p>
+<p>De la <a href="#eq-4.039" class="quarto-xref">Ecuación&nbsp;<span>4.38</span></a> sabemos que en <span class="math inline">\(\Omega_N\)</span> se cumple</p>
 <p><span class="math display">\[
 \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|=0,\qquad \forall m,\, n\geq N.
 \]</span></p>
@@ -1121,7 +1115,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p><span class="math display">\[
 \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)\leq\mathbb{P}(\Omega_N^c).
 \]</span></p>
-<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-4.040" class="quarto-xref">Ecuación&nbsp;<span>4.40</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
+<p>Más aún, notemos que <span class="math inline">\(\mathbb{P}(\Omega_N^c)=1-\mathbb{P}(\Omega_N)\)</span>, por la <a href="#eq-4.040" class="quarto-xref">Ecuación&nbsp;<span>4.39</span></a>, entonces <span class="math inline">\(\mathbb{P}(\Omega_N^c)&lt;\varepsilon\)</span>. De la ecuación anterior, podemos afirmar</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\sup\limits_{t\geq 0}|Z^{(n)}(t)-Z^{(m)}(t)|&gt;\delta\Bigg)&lt;\varepsilon, \ \ \forall\ m,n\geq N
 \]</span></p>
@@ -1174,7 +1168,7 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \i
 &amp; \quad + \int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s).
 \end{aligned}
 \]</span></p>
-<p>Aplicando la desigualdad dada en la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.9</span></a> y tomando el valor esperado, acotamos el error cuadrático medio de la siguiente manera:</p>
+<p>Aplicando la desigualdad dada en la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> y tomando el valor esperado, acotamos el error cuadrático medio de la siguiente manera:</p>
 <p><span id="eq-4.041"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right]
@@ -1182,21 +1176,21 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds + \int_0^t g(Z_{n-1}(s-))\,dW(s) + \i
 &amp; \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] \\
 &amp; \quad + 3\,\mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right].
 \end{aligned}
-\tag{4.41}\]</span></span></p>
+\tag{4.40}\]</span></span></p>
 <p>Procedemos a acotar cada término utilizando las mismas herramientas que en el paso inductivo de la iteración de Picard.</p>
 <p>Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales</p>
 <p><span id="eq-4.042"><span class="math display">\[
 \mathbb{E}\left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right] \leq t \int_0^t \mathbb{E}\left[\big|f(Z(s-)) - f(Z_{n-1}(s-))\big|^2\right]\,ds.
-\tag{4.42}\]</span></span></p>
+\tag{4.41}\]</span></span></p>
 <p>Ahora bien, para el término de difusión, aplicando la isometría de Itô para el movimiento browniano</p>
 <p><span id="eq-4.043"><span class="math display">\[
 \mathbb{E}\left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right] = \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
-\tag{4.43}\]</span></span></p>
+\tag{4.42}\]</span></span></p>
 <p>Finalmente de manera análoga, para el término de saltos se aplica la isometría de Itô para el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, la cual introduce el factor de intensidad <span class="math inline">\(\lambda\)</span></p>
 <p><span id="eq-4.044"><span class="math display">\[
 \mathbb{E}\left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right] = \lambda \int_0^t \mathbb{E}\left[\big|h(Z(s-)) - h(Z_{n-1}(s-))\big|^2\right]\,ds.
-\tag{4.44}\]</span></span></p>
-<p>Sustituyendo la <a href="#eq-4.042" class="quarto-xref">Ecuación&nbsp;<span>4.42</span></a>, <a href="#eq-4.043" class="quarto-xref">Ecuación&nbsp;<span>4.43</span></a> y <a href="#eq-4.044" class="quarto-xref">Ecuación&nbsp;<span>4.44</span></a> en la <a href="#eq-4.041" class="quarto-xref">Ecuación&nbsp;<span>4.41</span></a> y factorizando la constante <span class="math inline">\(C_1(t) = \max\{3t, 12, 12\lambda\}\)</span>, obtenemos</p>
+\tag{4.43}\]</span></span></p>
+<p>Sustituyendo la <a href="#eq-4.042" class="quarto-xref">Ecuación&nbsp;<span>4.41</span></a>, <a href="#eq-4.043" class="quarto-xref">Ecuación&nbsp;<span>4.42</span></a> y <a href="#eq-4.044" class="quarto-xref">Ecuación&nbsp;<span>4.43</span></a> en la <a href="#eq-4.041" class="quarto-xref">Ecuación&nbsp;<span>4.40</span></a> y factorizando la constante <span class="math inline">\(C_1(t) = \max\{3t, 12, 12\lambda\}\)</span>, obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{0 \leq s \leq t} |\tilde{Z}(s) - Z_{n+1}(s)|^2\right]
