@@ -315,13 +315,21 @@ $$
 :::
 
 ::: {#lem-6.1 style="text-align: justify"}
-Por la condición de unilateral de Lipchitz dada por la @eq-6.18, sea $\theta\in [0,1]$ y $\Delta t>0$ tal que $\theta\Delta tK_{\lambda}<1$. Entonces, para cada $Y_n\in \mathbb{R}$ dado, la condición explicita
+Supóngamos que $f_{\lambda}:\mathbb{R}\to\mathbb{R}$ es continua y satisface la condición de Lipschitz unilateral dada por la @eq-6.18, es decir, existe una constante $K_{\lambda}$ tal que
 
 $$
-  Y_n^{*}=Y_n+\theta f_{\lambda}(Y_n^{*})\Delta t,
+  (x-y)\big(f_{\lambda}(x)-f_{\lambda}(y)\big)\leq K_{\lambda}\,|x-y|^{2},
+  \qquad \forall\, x,y\in\mathbb{R}.
 $$
 
-admite una única solución $Y_n^{*}\in \mathbb{R}$.
+Sea $\theta\in[0,1]$ y $\Delta t>0$ tales que $\theta\,\Delta t\,K_{\lambda}<1$. Entonces, para cada $Y_{n}\in\mathbb{R}$ dado, la ecuación implícita
+
+$$
+  Y_{n}^{*}=Y_{n}+\theta\,\Delta t\,f_{\lambda}\big(Y_{n}^{*}\big)
+$$
+
+admite una única solución $Y_{n}^{*}\in\mathbb{R}$.
+
 :::
 
 ::: {.proof style="text-align: justify"}
@@ -439,13 +447,7 @@ $$
   0<\Delta t<\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 $$
 
-Entonces, para todo $p\geq 1$, existe una constante positiva
-
-$$
-    A=A(p,T,\lambda, \theta, L_{\lambda},K_{\lambda}, f_{\lambda}(0),g(0),h(0)),
-$$
-
-independiente de $\Delta t$ y de $N_T$, tal que
+Entonces, para todo $p\geq 1$, existe una constante positiva $A$ independiente de $\Delta t$ y de $N_T$, tal que
 
 $$
   \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n|^{2p}\right]\vee \mathbb{E}\left[\sup\limits_{0\leq n\Delta t\leq T}|Y_n^{*}|^{2p}\right]\leq A,
@@ -913,7 +915,7 @@ $$
   r:=\frac{1}{\theta}-1.
 $$
 
-Entonces, para $0\leq M \leq N_t$, aplicando supremo y sacando valor esperado a @eq-6.40, tenemos
+Entonces, para $0\leq M \leq N_T$, aplicando supremo y sacando valor esperado a @eq-6.40, tenemos
 
 $$
   \begin{aligned}
@@ -994,7 +996,7 @@ $$
 \alpha\leq\widetilde{\alpha},\qquad \beta\leq\widetilde{\beta}, 
 $$ {#eq-6.43}
 
-donde $\widetilde{\alpha}$ y $\widetilde{\beta}$ dependen únicamente de $\theta,\ L_{\lambda}$ y $T$. Con esto se tiene
+donde $\widetilde{\alpha}$ y $\widetilde{\beta}$ dependen únicamente de $\theta$, $L_{\lambda}$ y $T$. Con esto se tiene
 
 $$
 \begin{aligned}
@@ -1706,7 +1708,7 @@ $$
   \end{aligned}
 $$ {#eq-6.69}
 
-Definimos de manera similar a $c_5=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})$, ademas, consderando las cotas dadas por la @eq-6.43 se tiene
+Definimos de manera similar a $c_5=C_p\frac{T^{p/2-1}}{2}L_{\lambda}^{p/2}(1+2^{2(p-1)})$, ademas, considerando las cotas dadas por la @eq-6.43 se tiene
 
 $$
 C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
