@@ -1,8 +1,8 @@
-PWD /home/pavel/Documentos/thesis-Pavel-SHH
+PWD /home/pavel/Documentos/tesis/thesis-Pavel-SHH
 INPUT /home/pavel/.TinyTeX/texmf.cnf
 INPUT /home/pavel/.TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT /home/pavel/.TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /home/pavel/Documentos/thesis-Pavel-SHH/Tesis_PSHH.tex
+INPUT /home/pavel/Documentos/tesis/thesis-Pavel-SHH/Tesis_PSHH.tex
 OUTPUT Tesis_PSHH.log
 INPUT /home/pavel/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /home/pavel/.TinyTeX/texmf-dist/tex/latex/url/url.sty
@@ -489,6 +489,9 @@ INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tf
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm7.tfm
+INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx8.tfm
+INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx6.tfm
+INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbxi10.tfm
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri8.tfm
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri7.tfm
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
@@ -520,6 +523,7 @@ INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT Tesis_PSHH.aux
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
+INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
@@ -535,4 +539,5 @@ INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
+INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /home/pavel/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

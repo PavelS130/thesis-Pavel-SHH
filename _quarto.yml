@@ -36,8 +36,8 @@ book:
   chapters:
   - index.qmd
   - chapters/intro.qmd
-  - chapters/preliminares.qmd
   - chapters/objetivos.qmd
+  - chapters/preliminares.qmd
   - chapters/teorema.qmd
   - chapters/teoremawang2010.qmd
   - chapters/teorem2017.qmd
