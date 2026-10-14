@@ -471,7 +471,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="hipótesis" class="level2" style="text-align: justify" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">4.1</span> Hipótesis</h2>
 <p>Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> necesitaremos las siguientes condiciones estándar sobre los coeficientes</p>
-<p><strong>Condición de Lipschitz golbal</strong>: Existe una constante <span class="math inline">\(K_1&gt;0\)</span> tal que, para todo <span class="math inline">\(y_1,y_2\in\mathbb{R},\)</span></p>
+<p><strong>Condición de Lipschitz global</strong>: Existe una constante <span class="math inline">\(K_1&gt;0\)</span> tal que, para todo <span class="math inline">\(y_1,y_2\in\mathbb{R},\)</span></p>
 <p><span id="eq-4.02"><span class="math display">\[
 \begin{aligned}
 |f(y_1)-f(y_2)|^2 &amp; +|g(y_1)-g(y_2)|^2\\
@@ -499,7 +499,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Queremos demostrar la existencia de una solución fuerte <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>, bajo las hipótesis dadas por la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> para los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>.</p>
 <p>Analizaremos primero el caso en el que la condición inicial tiene segundo momento finito, es decir, <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>.</p>
-<p>Dado que nuestra ecuación estocástica posee un movimiento browniano <span class="math inline">\(W\)</span> (ruido estocástico) y una proceso de Poisson compensada, <span class="math inline">\(\widetilde{N}\)</span> (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:</p>
+<p>Dado que nuestra ecuación estocástica posee un movimiento browniano <span class="math inline">\(W\)</span> (ruido estocástico) y un proceso de Poisson compensada, <span class="math inline">\(\widetilde{N}\)</span> (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:</p>
 <p><span id="eq-4.06"><span class="math display">\[
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
 \tag{4.5}\]</span></span></p>
@@ -524,7 +524,7 @@ Z_n(t-):=\lim_{s\uparrow t}Z_n(s),
 <li><p>Integral de Itô: <span class="math inline">\(\int_0^t g(Z_n(s-))\, dW(s)\)</span>. La integral estocástica de un proceso predecible cuadrado-integrable respecto al movimiento browniano <span class="math inline">\(W(s)\)</span> posee una modificación que es una martingala continua y, por consecuencia, adaptada.</p></li>
 <li><p>Integral de Itô: <span class="math inline">\(\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)\)</span>. La integral estocástica de un proceso predecible cuadrado-integrable respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span> posee una modificación que es una martingala con trayectorias càdlàg y adaptada.</p></li>
 </ul>
-<p>Finalmente, <span class="math inline">\(Z_{n+1}(t)\)</span> se define como la suma de <span class="math inline">\(Z_0\)</span>, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, <span class="math inline">\(\int_0^t f(Z_n(s-))\, ds\)</span> y <span class="math inline">\(\int_0^t g(Z_n(s-))\, dW(s)\)</span>, y un proceso adaptado con trayectorias càdlàg, <span class="math inline">\(\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)\)</span>. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resultad en un proceso càdlàg, podemos concluir que <span class="math inline">\(Z_{n+1}(t)\)</span> es adaptado y tiene trayectorias càdlàg.</p>
+<p>Finalmente, <span class="math inline">\(Z_{n+1}(t)\)</span> se define como la suma de <span class="math inline">\(Z_0\)</span>, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, <span class="math inline">\(\int_0^t f(Z_n(s-))\, ds\)</span> y <span class="math inline">\(\int_0^t g(Z_n(s-))\, dW(s)\)</span>, y un proceso adaptado con trayectorias càdlàg, <span class="math inline">\(\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)\)</span>. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resulta en un proceso càdlàg, podemos concluir que <span class="math inline">\(Z_{n+1}(t)\)</span> es adaptado y tiene trayectorias càdlàg.</p>
 <p>Por el principio de inducción matemática, todos los procesos <span class="math inline">\(Z_n(t)\)</span> en la sucesión de Picard son adaptados y càdlàg.</p>
 <p>Luego, para establecer la convergencia, consideremos el paso base de la iteración analizando la diferencia <span class="math inline">\(Z_1(t)-Z_0(t).\)</span> Sustituyendo <span class="math inline">\(n=0\)</span> en la <a href="#eq-4.07" class="quarto-xref">Ecuación&nbsp;<span>4.6</span></a> y dado que <span class="math inline">\(Z_0(s-)=Z_0\)</span> para todo <span class="math inline">\(s\geq 0\)</span>, obtenemos</p>
 <p><span id="eq-4.08"><span class="math display">\[
@@ -534,7 +534,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span id="eq-4.09"><span class="math display">\[
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
 \tag{4.8}\]</span></span></p>
-<p>Tomando valor absoulto y elevando al cuadrado a la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> para obtener</p>
+<p>Tomando valor absoluto y elevando al cuadrado a la <a href="#eq-4.08" class="quarto-xref">Ecuación&nbsp;<span>4.7</span></a>, aplicando la <a href="#eq-4.09" class="quarto-xref">Ecuación&nbsp;<span>4.8</span></a> para obtener</p>
 <p><span class="math display">\[
 \begin{aligned}
 |Z_1(t)-Z_0|^2
@@ -580,7 +580,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span id="eq-4.012"><span class="math display">\[
     M(s):=\int_0^s g(Z_0)dW(u).
 \tag{4.11}\]</span></span></p>
-<p>Afirmamos que <span class="math inline">\(M(s)\)</span> proceso es una martingala cuadrado-integrable. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y constante en el tiempo, <span class="math inline">\(g(Z_0)\)</span> es determinista condicional a <span class="math inline">\(\mathcal{F}_0\)</span> y , por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> evaluada en <span class="math inline">\(y=0\)</span>, tenemos que</p>
+<p>Afirmamos que <span class="math inline">\(M(s)\)</span> proceso es una martingala cuadrado-integrable. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y constante en el tiempo, <span class="math inline">\(g(Z_0)\)</span> es determinista condicional a <span class="math inline">\(\mathcal{F}_0\)</span> y, por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> evaluada en <span class="math inline">\(y=0\)</span>, tenemos que</p>
 <p><span class="math display">\[
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) &lt; \infty.
 \]</span></p>
@@ -710,7 +710,7 @@ Z_{n+1}(t) - Z_n(t)
 &amp; \quad + 12\lambda \int_0^t \mathbb{E}\left[ \big|h(Z_n(u-)) - h(Z_{n-1}(u-))\big|^2 \right] du.
 \end{aligned}
 \]</span></p>
-<p>Recordemos la constante <span class="math inline">\(C_1(t)=\max\{3t,12\}\)</span>, definida en el paso base. Dado que, <span class="math inline">\(3t\leq C_1(t)\)</span> y <span class="math inline">\(12\leq C_1(t)\)</span>, podemos factorizar <span class="math inline">\(C_1(t)\)</span> en la expresión anterior para obtener la siguiente cota</p>
+<p>Recordemos la constante <span class="math inline">\(C_1(t)=\max{\{3t,12,12\lambda\}}\)</span>, definida en el paso base. Dado que, <span class="math inline">\(3t\leq C_1(t)\)</span> y <span class="math inline">\(12\leq C_1(t)\)</span>, podemos factorizar <span class="math inline">\(C_1(t)\)</span> en la expresión anterior para obtener la siguiente cota</p>
 <p><span id="eq-4.022"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |Z_{n+1}(s) - Z_n(s)|^2 \right]\\
@@ -1161,7 +1161,7 @@ Z^{M}(t)(\omega) &amp; \omega\notin A.
 \]</span></p>
 <p>Dado que <span class="math inline">\(\Omega_M \in \mathcal{F}_0\)</span>, el proceso <span class="math inline">\(Z''_M\)</span> es adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span>. Además, como es la combinación de dos procesos con trayectorias cádlàg sobre conjuntos disjuntos, <span class="math inline">\(Z''_M\)</span> también posee trayectorias cádlàg.</p>
 <p>Evaluando en <span class="math inline">\(t=0\)</span>, notamos que para <span class="math inline">\(\omega \in \Omega_M\)</span>, se cumple <span class="math inline">\(Z''_M(0)(\omega) = Z'(0)(\omega) = Z_0(\omega) = Z_0^{(M)}(\omega)\)</span>. Por otro lado, para <span class="math inline">\(\omega \notin \Omega_M\)</span>, tenemos <span class="math inline">\(Z''_M(0)(\omega) = Z^{(M)}(0)(\omega) = Z_0^{(M)}(\omega)\)</span>. En ambos casos, <span class="math inline">\(Z''_M(0) = Z_0^{(M)}\)</span> casi seguramente.</p>
-<p>Por lo tanto, <span class="math inline">\(Z''_M\)</span> es una solución fuerte de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(M)}\)</span>. Dado que <span class="math inline">\(\mathbb{E}[|Z_0^{(M)}|^2] \leq M^2 &lt; \infty\)</span>, podemos aplicar el resultado de unicidad trayectorial demostrado previamente para el caso de segundo momento finito. Esto implica que: <span class="math display">\[
+<p>Por lo tanto, <span class="math inline">\(Z''_M\)</span> es una solución fuerte de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(M)}\)</span>. Dado que <span class="math inline">\(\mathbb{E}[|Z_0^{(M)}|^2] \leq M^2 &lt; \infty\)</span>, podemos aplicar el resultado de unicidad por trayectorias demostrado previamente para el caso de segundo momento finito. Esto implica que: <span class="math display">\[
 Z''_M(t) = Z^{(M)}(t) \quad \text{para todo } t \geq 0, \text{ casi seguramente.}
 \]</span></p>
 <p>En particular, restringiendo al conjunto <span class="math inline">\(\Omega_M\)</span>, obtenemos que <span class="math inline">\(Z'(t) = Z^{(M)}(t)\)</span> para todo <span class="math inline">\(t \geq 0\)</span>, casi seguramente en <span class="math inline">\(\Omega_M\)</span>.</p>
