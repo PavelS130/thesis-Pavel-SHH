@@ -3,6 +3,27 @@ title: "Preliminares"
 lang: es
 ---
 
+::: {style="text-align: justify"}
+
+
+En este capítulo se establecen los resultados fundamentales de análisis real, teoría de la medida y probabilidad que servirán como columna vertebral para las demostraciones posteriores. Dado que el objetivo central de este trabajo es analizar la existencia, unicidad y convergencia de soluciones de ecuaciones diferenciales estocásticas (EDEs) con saltos, es indispensable contar con un marco teórico robusto. 
+
+A lo largo de los capítulos siguientes, haremos uso constante de herramientas para acotar integrales, intercambiar el orden de integración y esperanza, y controlar el comportamiento de los supremos de martingalas. Por ello, este capítulo no es una mera recopilación de definiciones, sino una selección estratégica de teoremas que serán citados explícitamente en las demostraciones de los Lemas y Teoremas principales.
+
+## 2.1 Análisis Real y Topología Básica
+
+Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de $\mathbb{R}$. 
+
+:::
+
+::: {#thm-line}
+
+**Teorema 2.1.1 (Teorema de Heine-Borel).** Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En el contexto unidimensional de esta tesis, cualquier intervalo cerrado $[a, b]$ es compacto, lo que garantiza que toda sucesión en él posee una subsucesión convergente [@rudin1976principles].
+
+:::
+
+
+
 ## Análisis Real y Funcional (Base Analítica).
 
 ::: {#def-espacio_metrico}
