@@ -168,5 +168,15 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Convergencia del método $\\text{CSS}\\theta$ para ecuaciones diferenciales estocásticas con saltos</span>"
     ]
+  },
+  {
+    "objectID": "chapters/referencias.html",
+    "href": "chapters/referencias.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "Rudin, Walter. 1976. Principles of Mathematical Analysis. 3rd\ned. McGraw-Hill. https://doi.org/10.1036/007054235X.",
+    "crumbs": [
+      "Referencias"
+    ]
   }
 ]
