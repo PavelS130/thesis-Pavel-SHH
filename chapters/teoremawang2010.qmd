@@ -225,7 +225,7 @@ $$
     dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ t\geq 0,
 $$ {#eq-501}
 
-donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browiniano y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. Definimos el siguiente parámetro de estabilidad
+donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano y $N(t)$ es un proceso de Poisson con intensidad $\lambda>0$. Definimos el siguiente parámetro de estabilidad
 
 $$
     l:= 2a+b^2+\lambda c(2+c),

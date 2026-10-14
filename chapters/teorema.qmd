@@ -50,7 +50,7 @@ con condición inicial $Z(0)=0$. Mientras que $Z(t-)$ denota el límite por la i
 ## Hipótesis
 Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la @eq-4.01 necesitaremos las siguientes condiciones estándar sobre los coeficientes
 
-**Condición de Lipschitz golbal**: Existe una constante $K_1>0$ tal que, para todo $y_1,y_2\in\mathbb{R},$
+**Condición de Lipschitz global**: Existe una constante $K_1>0$ tal que, para todo $y_1,y_2\in\mathbb{R},$
 
 $$
 \begin{aligned}
@@ -94,7 +94,7 @@ Queremos demostrar la existencia de una solución fuerte $Z=\{Z(t)\}_{t\geq 0}$ 
 
 Analizaremos primero el caso en el que la condición inicial tiene segundo momento finito, es decir, $\mathbb{E}[|Z_0|^2]<\infty$. 
 
-Dado que nuestra ecuación estocástica posee un movimiento browniano $W$ (ruido estocástico) y una proceso de Poisson compensada, $\widetilde{N}$ (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:
+Dado que nuestra ecuación estocástica posee un movimiento browniano $W$ (ruido estocástico) y un proceso de Poisson compensada, $\widetilde{N}$ (ruido de salto), utilizaremos la técnica de iteración de Picard para construir una sucesión de procesos estocásticos a partir de la condición inicial. Definimos la sucesión de la siguiente manera:
 
 $$
     Z_0(t) :=Z_0, \, \, \forall t\geq 0.
@@ -131,7 +131,7 @@ Dado que los coeficientes $f,g,h$ son funciones continuas, gracias a la condici�
 
 - Integral de Itô: $\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)$. La integral estocástica de un proceso predecible cuadrado-integrable respecto al proceso de Poisson compensado $\widetilde{N}(s)$ posee una modificación que es una martingala con trayectorias càdlàg y adaptada. 
 
-Finalmente, $Z_{n+1}(t)$ se define como la suma de $Z_0$, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, $\int_0^t f(Z_n(s-))\, ds$ y $\int_0^t g(Z_n(s-))\, dW(s)$, y un proceso adaptado con trayectorias càdlàg, $\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)$. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resultad en un proceso càdlàg, podemos concluir que $Z_{n+1}(t)$ es adaptado y tiene trayectorias càdlàg. 
+Finalmente, $Z_{n+1}(t)$ se define como la suma de $Z_0$, el cual es adaptado y continuo, dos procesos adaptados con trayectorias continuas, $\int_0^t f(Z_n(s-))\, ds$ y $\int_0^t g(Z_n(s-))\, dW(s)$, y un proceso adaptado con trayectorias càdlàg, $\int_0^t h(Z_n(s-))\, d\widetilde{N}(s)$. Dado que la suma de procesos adaptados es adaptada, y la suma de un proceso continuo y uno càdlàg resulta en un proceso càdlàg, podemos concluir que $Z_{n+1}(t)$ es adaptado y tiene trayectorias càdlàg. 
 
 Por el principio de inducción matemática, todos los procesos $Z_n(t)$ en la sucesión de Picard son adaptados y càdlàg. 
 
@@ -147,7 +147,7 @@ $$
 (a+b+c)^2\leq 3(a^2+b^2+c^2).
 $$ {#eq-4.09}
 
-Tomando valor absoulto y elevando al cuadrado a la @eq-4.08, aplicando la @eq-4.09 para obtener
+Tomando valor absoluto y elevando al cuadrado a la @eq-4.08, aplicando la @eq-4.09 para obtener
 
 $$
 \begin{aligned}
@@ -206,7 +206,7 @@ $$
     M(s):=\int_0^s g(Z_0)dW(u).
 $$ {#eq-4.012}
 
-Afirmamos que $M(s)$ proceso es una martingala cuadrado-integrable. Dado que $Z_0$ es $\mathcal{F}_0$-medible y constante en el tiempo, $g(Z_0)$ es determinista condicional a $\mathcal{F}_0$ y , por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la @eq-4.03 evaluada en $y=0$, tenemos que 
+Afirmamos que $M(s)$ proceso es una martingala cuadrado-integrable. Dado que $Z_0$ es $\mathcal{F}_0$-medible y constante en el tiempo, $g(Z_0)$ es determinista condicional a $\mathcal{F}_0$ y, por ende, el integrando es predecible. Además, por la condición de crecimiento lineal dada en la @eq-4.03 evaluada en $y=0$, tenemos que 
 
 $$
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) < \infty.
@@ -376,7 +376,7 @@ $$
 \end{aligned}
 $$
 
-Recordemos la constante $C_1(t)=\max\{3t,12\}$, definida en el paso base. Dado que, $3t\leq C_1(t)$ y $12\leq C_1(t)$, podemos factorizar $C_1(t)$ en la expresión anterior para obtener la siguiente cota
+Recordemos la constante $C_1(t)=\max{\{3t,12,12\lambda\}}$, definida en el paso base. Dado que, $3t\leq C_1(t)$ y $12\leq C_1(t)$, podemos factorizar $C_1(t)$ en la expresión anterior para obtener la siguiente cota
 
 $$
 \begin{aligned}
@@ -1016,7 +1016,7 @@ Dado que $\Omega_M \in \mathcal{F}_0$, el proceso $Z''_M$ es adaptado a la filtr
 
 Evaluando en $t=0$, notamos que para $\omega \in \Omega_M$, se cumple $Z''_M(0)(\omega) = Z'(0)(\omega) = Z_0(\omega) = Z_0^{(M)}(\omega)$. Por otro lado, para $\omega \notin \Omega_M$, tenemos $Z''_M(0)(\omega) = Z^{(M)}(0)(\omega) = Z_0^{(M)}(\omega)$. En ambos casos, $Z''_M(0) = Z_0^{(M)}$ casi seguramente.
 
-Por lo tanto, $Z''_M$ es una solución fuerte de la @eq-4.01 con condición inicial $Z_0^{(M)}$. Dado que $\mathbb{E}[|Z_0^{(M)}|^2] \leq M^2 < \infty$, podemos aplicar el resultado de unicidad trayectorial demostrado previamente para el caso de segundo momento finito. Esto implica que:
+Por lo tanto, $Z''_M$ es una solución fuerte de la @eq-4.01 con condición inicial $Z_0^{(M)}$. Dado que $\mathbb{E}[|Z_0^{(M)}|^2] \leq M^2 < \infty$, podemos aplicar el resultado de unicidad por trayectorias demostrado previamente para el caso de segundo momento finito. Esto implica que:
 $$
 Z''_M(t) = Z^{(M)}(t) \quad \text{para todo } t \geq 0, \text{ casi seguramente.}
 $$
