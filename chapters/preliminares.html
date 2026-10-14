@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -417,10 +436,10 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#análisis-real-y-funcional-base-analítica." id="toc-análisis-real-y-funcional-base-analítica." class="nav-link active" data-scroll-target="#análisis-real-y-funcional-base-analítica."><span class="header-section-number">3.1</span> Análisis Real y Funcional (Base Analítica).</a></li>
-  <li><a href="#espacios-l2-y-convergencia." id="toc-espacios-l2-y-convergencia." class="nav-link" data-scroll-target="#espacios-l2-y-convergencia."><span class="header-section-number">3.2</span> Espacios <span class="math inline">\(L^2\)</span> y convergencia.</a></li>
-  <li><a href="#espacios-de-banach" id="toc-espacios-de-banach" class="nav-link" data-scroll-target="#espacios-de-banach"><span class="header-section-number">3.3</span> Espacios de Banach</a></li>
-  <li><a href="#desigualdades" id="toc-desigualdades" class="nav-link" data-scroll-target="#desigualdades"><span class="header-section-number">3.4</span> Desigualdades</a></li>
+  <li><a href="#análisis-real-y-funcional-base-analítica." id="toc-análisis-real-y-funcional-base-analítica." class="nav-link active" data-scroll-target="#análisis-real-y-funcional-base-analítica."><span class="header-section-number">3.2</span> Análisis Real y Funcional (Base Analítica).</a></li>
+  <li><a href="#espacios-l2-y-convergencia." id="toc-espacios-l2-y-convergencia." class="nav-link" data-scroll-target="#espacios-l2-y-convergencia."><span class="header-section-number">3.3</span> Espacios <span class="math inline">\(L^2\)</span> y convergencia.</a></li>
+  <li><a href="#espacios-de-banach" id="toc-espacios-de-banach" class="nav-link" data-scroll-target="#espacios-de-banach"><span class="header-section-number">3.4</span> Espacios de Banach</a></li>
+  <li><a href="#desigualdades" id="toc-desigualdades" class="nav-link" data-scroll-target="#desigualdades"><span class="header-section-number">3.5</span> Desigualdades</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -450,9 +469,16 @@ window.Quarto = {
 <div style="text-align: justify">
 <p>En este capítulo se establecen los resultados fundamentales de análisis real, teoría de la medida y probabilidad que servirán como columna vertebral para las demostraciones posteriores. Dado que el objetivo central de este trabajo es analizar la existencia, unicidad y convergencia de soluciones de ecuaciones diferenciales estocásticas (EDEs) con saltos, es indispensable contar con un marco teórico robusto.</p>
 <p>A lo largo de los capítulos siguientes, haremos uso constante de herramientas para acotar integrales, intercambiar el orden de integración y esperanza, y controlar el comportamiento de los supremos de martingalas. Por ello, este capítulo no es una mera recopilación de definiciones, sino una selección estratégica de teoremas que serán citados explícitamente en las demostraciones de los Lemas y Teoremas principales.</p>
+<section id="análisis-real-y-topología-básica" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="análisis-real-y-topología-básica"><span class="header-section-number">3.1</span> 2.1 Análisis Real y Topología Básica</h2>
+<p>Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</section>
 </div>
-<section id="análisis-real-y-funcional-base-analítica." class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="análisis-real-y-funcional-base-analítica."><span class="header-section-number">3.1</span> Análisis Real y Funcional (Base Analítica).</h2>
+<div id="thm-line" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 3.1</strong></span> <strong>Teorema 2.1.1 (Teorema de Heine-Borel).</strong> Un subconjunto <span class="math inline">\(K \subset \mathbb{R}\)</span> es compacto si y solo si es cerrado y acotado. En el contexto unidimensional de esta tesis, cualquier intervalo cerrado <span class="math inline">\([a, b]\)</span> es compacto, lo que garantiza que toda sucesión en él posee una subsucesión convergente <span class="citation" data-cites="rudin1976principles">(<a href="#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+</div>
+<section id="análisis-real-y-funcional-base-analítica." class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="análisis-real-y-funcional-base-analítica."><span class="header-section-number">3.2</span> Análisis Real y Funcional (Base Analítica).</h2>
 <div id="def-espacio_metrico" class="theorem definition">
 <p><span class="theorem-title"><strong>Definición 3.1</strong></span> <strong>Espacio métrico</strong><br>
 Llamamos espacio métrico al par <span class="math inline">\((X, d)\)</span>, donde <span class="math inline">\(X\)</span> es un conjunto no vacío y <span class="math inline">\(d: X \times X \to [0, \infty)\)</span> es una función (llamada métrica) que satisface, para todo <span class="math inline">\(x, y, z \in X\)</span>:</p>
@@ -485,14 +511,14 @@ La <span class="math inline">\(\sigma\)</span>-álgebra de Borel en <span class=
 Una función <span class="math inline">\(f: \mathbb{R} \to \mathbb{R}\)</span> es Borel-medible si para todo <span class="math inline">\(B \in \mathcal{B}(\mathbb{R})\)</span>, se tiene que <span class="math inline">\(f^{-1}(B) \in \mathcal{B}(\mathbb{R})\)</span>.</p>
 </div>
 <div id="thm-" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 3.1</strong></span> Toda función continua <span class="math inline">\(f: \mathbb{R}\to \mathbb{R}\)</span> es Borel-medible.</p>
+<p><span class="theorem-title"><strong>Teorema 3.2</strong></span> Toda función continua <span class="math inline">\(f: \mathbb{R}\to \mathbb{R}\)</span> es Borel-medible.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Demostración</em>. </span>Si <span class="math inline">\(f\)</span> es continua, la preimagen de cualquier conjunto abierto es abierta. Como los abiertos generan <span class="math inline">\(\mathcal{B}(\mathbb{R})\)</span> y la preimagen conmuta con uniones, intersecciones numerables y complementos, se sigue que <span class="math inline">\(f^{-1}(B) \in \mathcal{B}(\mathbb{R})\)</span> para todo <span class="math inline">\(B \in \mathcal{B}(\mathbb{R})\)</span>.</p>
 </div>
 </section>
-<section id="espacios-l2-y-convergencia." class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="espacios-l2-y-convergencia."><span class="header-section-number">3.2</span> Espacios <span class="math inline">\(L^2\)</span> y convergencia.</h2>
+<section id="espacios-l2-y-convergencia." class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="espacios-l2-y-convergencia."><span class="header-section-number">3.3</span> Espacios <span class="math inline">\(L^2\)</span> y convergencia.</h2>
 <div id="def-espacio_l2" class="theorem definition">
 <p><span class="theorem-title"><strong>Definición 3.6</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. EL espacio <span class="math inline">\(L^2(\Omega, \mathcal{F}, \mathbb{P})\)</span> se define como</p>
 <p><span class="math display">\[
@@ -513,8 +539,8 @@ L^2 = \left\{ X: \Omega \to \mathbb{R} \mid X \text{ es } \mathcal{F}\text{-medi
 <p>es decir, <span class="math inline">\(\lim\limits_{n \to \infty} \mathbb{E}[|X_n - X|^2] = 0\)</span>.</p>
 </div>
 </section>
-<section id="espacios-de-banach" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="espacios-de-banach"><span class="header-section-number">3.3</span> Espacios de Banach</h2>
+<section id="espacios-de-banach" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="espacios-de-banach"><span class="header-section-number">3.4</span> Espacios de Banach</h2>
 <div id="def-esp_banach" class="theorem definition">
 <p><span class="theorem-title"><strong>Definición 3.9</strong></span> Un espacio de Banach es un espacio vectorial normado <span class="math inline">\((X, \|\cdot\|)\)</span> que es completo con respecto a la métrica inducida por la norma, es decir, toda sucesión de Cauchy en <span class="math inline">\(X\)</span> converge en <span class="math inline">\(X\)</span>.</p>
 </div>
@@ -531,8 +557,8 @@ m, n \geq N \implies \|x_m - x_n\| &lt; \varepsilon.
 <p>En <span class="math inline">\(\mathbb{R}\)</span>, esto se reduce a: <span class="math inline">\((x_n)\)</span> es de Cauchy si <span class="math inline">\(|x_m - x_n| &lt; \varepsilon\)</span> para <span class="math inline">\(m, n\)</span> suficientemente grandes.</p>
 </div>
 </section>
-<section id="desigualdades" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="desigualdades"><span class="header-section-number">3.4</span> Desigualdades</h2>
+<section id="desigualdades" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="desigualdades"><span class="header-section-number">3.5</span> Desigualdades</h2>
 <div id="prp-des_triangulo" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposición 3.1</strong></span> Para cualesquiera <span class="math inline">\(a_1, \dots, a_n \in \mathbb{R}\)</span>,</p>
 <p><span class="math display">\[
@@ -557,6 +583,11 @@ m, n \geq N \implies \|x_m - x_n\| &lt; \varepsilon.
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-rudin1976principles" class="csl-entry" role="listitem">
+Rudin, Walter. 1976. <em>Principles of Mathematical Analysis</em>. 3rd ed. McGraw-Hill. <a href="https://doi.org/10.1036/007054235X">https://doi.org/10.1036/007054235X</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

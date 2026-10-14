@@ -44,7 +44,17 @@
     "href": "chapters/preliminares.html",
     "title": "3  Preliminares",
     "section": "",
-    "text": "3.1 Análisis Real y Funcional (Base Analítica).",
+    "text": "3.2 Análisis Real y Funcional (Base Analítica).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/preliminares.html#análisis-real-y-topología-básica",
+    "href": "chapters/preliminares.html#análisis-real-y-topología-básica",
+    "title": "3  Preliminares",
+    "section": "3.1 2.1 Análisis Real y Topología Básica",
+    "text": "3.1 2.1 Análisis Real y Topología Básica\nPara garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de \\(\\mathbb{R}\\).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -54,7 +64,7 @@
     "href": "chapters/preliminares.html#análisis-real-y-funcional-base-analítica.",
     "title": "3  Preliminares",
     "section": "",
-    "text": "Definición 3.1 Espacio métrico\nLlamamos espacio métrico al par \\((X, d)\\), donde \\(X\\) es un conjunto no vacío y \\(d: X \\times X \\to [0, \\infty)\\) es una función (llamada métrica) que satisface, para todo \\(x, y, z \\in X\\):\n\n\\(d(x, y) = 0 \\iff x = y\\),\n\\(d(x, y) = d(y, x)\\),\n\\(d(x, z) \\leq d(x, y) + d(y, z)\\).\n\n\n\nDefinición 3.2 Sucesión de Cauchy.\nUna sucesión \\((x_n)_{n \\in \\mathbb{N}}\\) en un espacio métrico \\((X, d)\\) es una sucesión de Cauchy si para todo \\(\\varepsilon &gt; 0\\), existe \\(N \\in \\mathbb{N}\\) tal que\n\\[\nm, n \\geq N \\implies d(x_m, x_n) &lt; \\varepsilon.\n\\]\n\n\nDefinición 3.3 Espacio métrico completo\nUn espacio métrico \\((X, d)\\) se dice completo si toda sucesión de Cauchy en \\(X\\) converge a un límite en \\(X\\).\n\n\nEl espacio \\(\\mathbb{R}\\) con la métrica \\(d(x, y) = |x - y|\\) es completo.\n\n\nDefinición 3.4 \\(\\sigma\\)-álgebra de Borel.\nLa \\(\\sigma\\)-álgebra de Borel en \\(\\mathbb{R}\\), denotada \\(\\mathcal{B}(\\mathbb{R})\\), es la \\(\\sigma\\)-álgebra generada por los intervalos abiertos de \\(\\mathbb{R}\\).\n\n\nDefinición 3.5 Función Borel Medible\nUna función \\(f: \\mathbb{R} \\to \\mathbb{R}\\) es Borel-medible si para todo \\(B \\in \\mathcal{B}(\\mathbb{R})\\), se tiene que \\(f^{-1}(B) \\in \\mathcal{B}(\\mathbb{R})\\).\n\n\nTeorema 3.1 Toda función continua \\(f: \\mathbb{R}\\to \\mathbb{R}\\) es Borel-medible.\n\n\nDemostración. Si \\(f\\) es continua, la preimagen de cualquier conjunto abierto es abierta. Como los abiertos generan \\(\\mathcal{B}(\\mathbb{R})\\) y la preimagen conmuta con uniones, intersecciones numerables y complementos, se sigue que \\(f^{-1}(B) \\in \\mathcal{B}(\\mathbb{R})\\) para todo \\(B \\in \\mathcal{B}(\\mathbb{R})\\).",
+    "text": "Definición 3.1 Espacio métrico\nLlamamos espacio métrico al par \\((X, d)\\), donde \\(X\\) es un conjunto no vacío y \\(d: X \\times X \\to [0, \\infty)\\) es una función (llamada métrica) que satisface, para todo \\(x, y, z \\in X\\):\n\n\\(d(x, y) = 0 \\iff x = y\\),\n\\(d(x, y) = d(y, x)\\),\n\\(d(x, z) \\leq d(x, y) + d(y, z)\\).\n\n\n\nDefinición 3.2 Sucesión de Cauchy.\nUna sucesión \\((x_n)_{n \\in \\mathbb{N}}\\) en un espacio métrico \\((X, d)\\) es una sucesión de Cauchy si para todo \\(\\varepsilon &gt; 0\\), existe \\(N \\in \\mathbb{N}\\) tal que\n\\[\nm, n \\geq N \\implies d(x_m, x_n) &lt; \\varepsilon.\n\\]\n\n\nDefinición 3.3 Espacio métrico completo\nUn espacio métrico \\((X, d)\\) se dice completo si toda sucesión de Cauchy en \\(X\\) converge a un límite en \\(X\\).\n\n\nEl espacio \\(\\mathbb{R}\\) con la métrica \\(d(x, y) = |x - y|\\) es completo.\n\n\nDefinición 3.4 \\(\\sigma\\)-álgebra de Borel.\nLa \\(\\sigma\\)-álgebra de Borel en \\(\\mathbb{R}\\), denotada \\(\\mathcal{B}(\\mathbb{R})\\), es la \\(\\sigma\\)-álgebra generada por los intervalos abiertos de \\(\\mathbb{R}\\).\n\n\nDefinición 3.5 Función Borel Medible\nUna función \\(f: \\mathbb{R} \\to \\mathbb{R}\\) es Borel-medible si para todo \\(B \\in \\mathcal{B}(\\mathbb{R})\\), se tiene que \\(f^{-1}(B) \\in \\mathcal{B}(\\mathbb{R})\\).\n\n\nTeorema 3.2 Toda función continua \\(f: \\mathbb{R}\\to \\mathbb{R}\\) es Borel-medible.\n\n\nDemostración. Si \\(f\\) es continua, la preimagen de cualquier conjunto abierto es abierta. Como los abiertos generan \\(\\mathcal{B}(\\mathbb{R})\\) y la preimagen conmuta con uniones, intersecciones numerables y complementos, se sigue que \\(f^{-1}(B) \\in \\mathcal{B}(\\mathbb{R})\\) para todo \\(B \\in \\mathcal{B}(\\mathbb{R})\\).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -63,8 +73,8 @@
     "objectID": "chapters/preliminares.html#espacios-l2-y-convergencia.",
     "href": "chapters/preliminares.html#espacios-l2-y-convergencia.",
     "title": "3  Preliminares",
-    "section": "3.2 Espacios \\(L^2\\) y convergencia.",
-    "text": "3.2 Espacios \\(L^2\\) y convergencia.\n\nDefinición 3.6 Sea \\((\\Omega,\\mathcal{F},\\mathbb{P})\\) un espacio de probabilidad. EL espacio \\(L^2(\\Omega, \\mathcal{F}, \\mathbb{P})\\) se define como\n\\[\nL^2 = \\left\\{ X: \\Omega \\to \\mathbb{R} \\mid X \\text{ es } \\mathcal{F}\\text{-medible y } \\mathbb{E}[|X|^2] &lt; \\infty \\right\\}.\n\\]\n\n\nDefinición 3.7 Para \\(X \\in L^2\\), su norma se define como\n\\[\n\\|X\\|_{L^2} = \\left( \\mathbb{E}[|X|^2] \\right)^{1/2}.\n\\]\n\n\nDefinición 3.8 Una sucesión \\((X_n)_{n \\in \\mathbb{N}} \\subset L^2\\) converge en \\(L^2\\) a \\(X \\in L^2\\) si\n\\[\n\\lim_{n \\to \\infty} \\|X_n - X\\|_{L^2} = 0,\n\\]\nes decir, \\(\\lim\\limits_{n \\to \\infty} \\mathbb{E}[|X_n - X|^2] = 0\\).",
+    "section": "3.3 Espacios \\(L^2\\) y convergencia.",
+    "text": "3.3 Espacios \\(L^2\\) y convergencia.\n\nDefinición 3.6 Sea \\((\\Omega,\\mathcal{F},\\mathbb{P})\\) un espacio de probabilidad. EL espacio \\(L^2(\\Omega, \\mathcal{F}, \\mathbb{P})\\) se define como\n\\[\nL^2 = \\left\\{ X: \\Omega \\to \\mathbb{R} \\mid X \\text{ es } \\mathcal{F}\\text{-medible y } \\mathbb{E}[|X|^2] &lt; \\infty \\right\\}.\n\\]\n\n\nDefinición 3.7 Para \\(X \\in L^2\\), su norma se define como\n\\[\n\\|X\\|_{L^2} = \\left( \\mathbb{E}[|X|^2] \\right)^{1/2}.\n\\]\n\n\nDefinición 3.8 Una sucesión \\((X_n)_{n \\in \\mathbb{N}} \\subset L^2\\) converge en \\(L^2\\) a \\(X \\in L^2\\) si\n\\[\n\\lim_{n \\to \\infty} \\|X_n - X\\|_{L^2} = 0,\n\\]\nes decir, \\(\\lim\\limits_{n \\to \\infty} \\mathbb{E}[|X_n - X|^2] = 0\\).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -73,8 +83,8 @@
     "objectID": "chapters/preliminares.html#espacios-de-banach",
     "href": "chapters/preliminares.html#espacios-de-banach",
     "title": "3  Preliminares",
-    "section": "3.3 Espacios de Banach",
-    "text": "3.3 Espacios de Banach\n\nDefinición 3.9 Un espacio de Banach es un espacio vectorial normado \\((X, \\|\\cdot\\|)\\) que es completo con respecto a la métrica inducida por la norma, es decir, toda sucesión de Cauchy en \\(X\\) converge en \\(X\\).\n\n\nEl espacio \\(L^2(\\Omega, \\mathcal{F}, \\mathbb{P})\\) es un espacio de Banach (de hecho, un espacio de Hilbert).\n\n\nDefinición 3.10 Una sucesión \\((x_n)_{n \\in \\mathbb{N}}\\) en un espacio normado \\((X, \\|\\cdot\\|)\\) es de Cauchy si para todo \\(\\varepsilon &gt; 0\\), existe \\(N \\in \\mathbb{N}\\) tal que\n\\[\nm, n \\geq N \\implies \\|x_m - x_n\\| &lt; \\varepsilon.\n\\]\n\n\nEn \\(\\mathbb{R}\\), esto se reduce a: \\((x_n)\\) es de Cauchy si \\(|x_m - x_n| &lt; \\varepsilon\\) para \\(m, n\\) suficientemente grandes.",
+    "section": "3.4 Espacios de Banach",
+    "text": "3.4 Espacios de Banach\n\nDefinición 3.9 Un espacio de Banach es un espacio vectorial normado \\((X, \\|\\cdot\\|)\\) que es completo con respecto a la métrica inducida por la norma, es decir, toda sucesión de Cauchy en \\(X\\) converge en \\(X\\).\n\n\nEl espacio \\(L^2(\\Omega, \\mathcal{F}, \\mathbb{P})\\) es un espacio de Banach (de hecho, un espacio de Hilbert).\n\n\nDefinición 3.10 Una sucesión \\((x_n)_{n \\in \\mathbb{N}}\\) en un espacio normado \\((X, \\|\\cdot\\|)\\) es de Cauchy si para todo \\(\\varepsilon &gt; 0\\), existe \\(N \\in \\mathbb{N}\\) tal que\n\\[\nm, n \\geq N \\implies \\|x_m - x_n\\| &lt; \\varepsilon.\n\\]\n\n\nEn \\(\\mathbb{R}\\), esto se reduce a: \\((x_n)\\) es de Cauchy si \\(|x_m - x_n| &lt; \\varepsilon\\) para \\(m, n\\) suficientemente grandes.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -83,8 +93,8 @@
     "objectID": "chapters/preliminares.html#desigualdades",
     "href": "chapters/preliminares.html#desigualdades",
     "title": "3  Preliminares",
-    "section": "3.4 Desigualdades",
-    "text": "3.4 Desigualdades\n\nProposición 3.1 Para cualesquiera \\(a_1, \\dots, a_n \\in \\mathbb{R}\\),\n\\[\n\\left( \\sum_{i=1}^n a_i \\right)^2 \\leq n \\sum_{i=1}^n a_i^2.\n\\]\nEn particular, para \\(n = 3\\),\n\\[\n(a + b + c)^2 \\leq 3(a^2 + b^2 + c^2).\n\\]\n\n\nProposición 3.2 Sean \\(f, g: [0, T] \\to \\mathbb{R}\\) funciones medibles tales que \\(f, g \\in L^2([0, T])\\). Entonces\n\\[\n\\left| \\int_0^T f(s) g(s) \\, ds \\right| \\leq \\left( \\int_0^T |f(s)|^2 \\, ds \\right)^{1/2} \\left( \\int_0^T |g(s)|^2 \\, ds \\right)^{1/2}.\n\\]\n\n\nCorolario 3.1 Si \\(g \\equiv 1\\), entonces para todo \\(t \\in [0, T]\\),\n\\[\n\\left( \\int_0^t f(s) \\, ds \\right)^2 \\leq t \\int_0^t |f(s)|^2 \\, ds.\n\\]",
+    "section": "3.5 Desigualdades",
+    "text": "3.5 Desigualdades\n\nProposición 3.1 Para cualesquiera \\(a_1, \\dots, a_n \\in \\mathbb{R}\\),\n\\[\n\\left( \\sum_{i=1}^n a_i \\right)^2 \\leq n \\sum_{i=1}^n a_i^2.\n\\]\nEn particular, para \\(n = 3\\),\n\\[\n(a + b + c)^2 \\leq 3(a^2 + b^2 + c^2).\n\\]\n\n\nProposición 3.2 Sean \\(f, g: [0, T] \\to \\mathbb{R}\\) funciones medibles tales que \\(f, g \\in L^2([0, T])\\). Entonces\n\\[\n\\left| \\int_0^T f(s) g(s) \\, ds \\right| \\leq \\left( \\int_0^T |f(s)|^2 \\, ds \\right)^{1/2} \\left( \\int_0^T |g(s)|^2 \\, ds \\right)^{1/2}.\n\\]\n\n\nCorolario 3.1 Si \\(g \\equiv 1\\), entonces para todo \\(t \\in [0, T]\\),\n\\[\n\\left( \\int_0^t f(s) \\, ds \\right)^2 \\leq t \\int_0^t |f(s)|^2 \\, ds.\n\\]\n\n\n\n\n\nRudin, Walter. 1976. Principles of Mathematical Analysis. 3rd ed. McGraw-Hill. https://doi.org/10.1036/007054235X.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
