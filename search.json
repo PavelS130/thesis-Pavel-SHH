@@ -60,6 +60,26 @@
     ]
   },
   {
+    "objectID": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
+    "href": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
+    "title": "3  Preliminares",
+    "section": "3.3 2.4 Teoría de la Probabilidad y Convergencia",
+    "text": "3.3 2.4 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
+    "href": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
+    "title": "3  Preliminares",
+    "section": "3.4 Procesos Estocásticos y Martingalas",
+    "text": "3.4 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
     "objectID": "chapters/teorema.html",
     "href": "chapters/teorema.html",
     "title": "4  Existencia y unicidad fuerte",

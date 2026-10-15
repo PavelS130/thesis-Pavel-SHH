@@ -421,6 +421,8 @@ window.Quarto = {
   <ul>
   <li><a href="#análisis-real-y-topología-básica" id="toc-análisis-real-y-topología-básica" class="nav-link active" data-scroll-target="#análisis-real-y-topología-básica"><span class="header-section-number">3.1</span> Análisis Real y Topología Básica</a></li>
   <li><a href="#teoría-de-la-medida-e-integración" id="toc-teoría-de-la-medida-e-integración" class="nav-link" data-scroll-target="#teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</a></li>
+  <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.3</span> 2.4 Teoría de la Probabilidad y Convergencia</a></li>
+  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.4</span> Procesos Estocásticos y Martingalas</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -482,6 +484,34 @@ window.Quarto = {
 \mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n].
 \]</span></p>
 <p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
+</div>
+<section id="teoría-de-la-probabilidad-y-convergencia" class="level2" style="text-align: justify" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.3</span> 2.4 Teoría de la Probabilidad y Convergencia</h2>
+<p>Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en <span class="math inline">\(L^2\)</span> con la convergencia casi segura uniforme.</p>
+</section>
+<div id="thm-convprobsub" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.4 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias que converge en probabilidad a una variable aleatoria <span class="math inline">\(X\)</span>. Entonces, existe una subsucesión <span class="math inline">\(\{X_{n_k}\}_{k \in \mathbb{N}}\)</span> que converge a <span class="math inline">\(X\)</span> casi seguramente (c.s.), es decir, <span class="math inline">\(\mathbb{P}(\lim_{k \to \infty} X_{n_k} = X) = 1\)</span>. Esta propiedad garantiza que siempre es posible extraer un comportamiento casi seguro para analizar la regularidad de las trayectorias límite.</p>
+</div>
+<div id="lem-corelcantelli" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.2 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> un espacio de probabilidad y <span class="math inline">\(\{A_n\}_{n \in \mathbb{N}}\)</span> una sucesión de eventos en <span class="math inline">\(\mathcal{F}\)</span>. Si la suma de sus probabilidades es finita, es decir, <span class="math inline">\(\sum_{n=1}^\infty \mathbb{P}(A_n) &lt; \infty\)</span>, entonces la probabilidad de que ocurran infinitos eventos de la sucesión es cero:</p>
+<p><span class="math display">\[
+\mathbb{P}\left( \limsup_{n \to \infty} A_n \right) = 0.
+\]</span></p>
+<p>Este resultado es el mecanismo que nos permite afirmar que, si las diferencias consecutivas de una sucesión de procesos decaen lo suficientemente rápido, la sucesión converge uniformemente con probabilidad 1.</p>
+</div>
+<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.4</span> Procesos Estocásticos y Martingalas</h2>
+<p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
+</section>
+<div id="thm-doobmeyer" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.5 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
+</div>
+<div id="thm-maximaldoob" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 3.6 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
+<p><span class="math display">\[
+\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
+\]</span></p>
+<p>En particular, para <span class="math inline">\(p = 2\)</span>, la constante es <span class="math inline">\(\left(\frac{2}{2-1}\right)^2 = 4\)</span>. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.</p>
 </div>
 
 
