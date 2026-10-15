@@ -63,8 +63,8 @@
     "objectID": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
     "href": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
     "title": "3  Preliminares",
-    "section": "3.3 2.4 Teoría de la Probabilidad y Convergencia",
-    "text": "3.3 2.4 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
+    "section": "3.3 Teoría de la Probabilidad y Convergencia",
+    "text": "3.3 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
