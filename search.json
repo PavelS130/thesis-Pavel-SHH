@@ -80,6 +80,16 @@
     ]
   },
   {
+    "objectID": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
+    "href": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
+    "title": "3  Preliminares",
+    "section": "3.5 Estimaciones y Ecuaciones Diferenciales",
+    "text": "3.5 Estimaciones y Ecuaciones Diferenciales\nFinalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
     "objectID": "chapters/teorema.html",
     "href": "chapters/teorema.html",
     "title": "4  Existencia y unicidad fuerte",

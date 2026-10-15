@@ -423,6 +423,7 @@ window.Quarto = {
   <li><a href="#teoría-de-la-medida-e-integración" id="toc-teoría-de-la-medida-e-integración" class="nav-link" data-scroll-target="#teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</a></li>
   <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.3</span> Teoría de la Probabilidad y Convergencia</a></li>
   <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.4</span> Procesos Estocásticos y Martingalas</a></li>
+  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.5</span> Estimaciones y Ecuaciones Diferenciales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -506,12 +507,23 @@ window.Quarto = {
 <div id="thm-doobmeyer" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.5 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
 </div>
-<div id="thm-maximaldoob" class="theorem">
+<div id="thm-maximaldoob" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.6 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
 \]</span></p>
 <p>En particular, para <span class="math inline">\(p = 2\)</span>, la constante es <span class="math inline">\(\left(\frac{2}{2-1}\right)^2 = 4\)</span>. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.</p>
+</div>
+<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.5</span> Estimaciones y Ecuaciones Diferenciales</h2>
+<p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
+</section>
+<div id="thm-maximaldoob" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.7 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<p><span class="math display">\[
+u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
+\]</span></p>
+<p>entonces se garantiza que <span class="math inline">\(u(t) \leq a \exp\left( \int_0^t b(s)\,ds \right)\)</span> para todo <span class="math inline">\(t \in [0, T]\)</span>. En el caso particular en que <span class="math inline">\(b(s) = K\)</span> es constante, la cota se simplifica a <span class="math inline">\(u(t) \leq a e^{Kt}\)</span>.</p>
 </div>
 
 
