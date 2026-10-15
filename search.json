@@ -44,17 +44,17 @@
     "href": "chapters/preliminares.html",
     "title": "3  Preliminares",
     "section": "",
-    "text": "3.2 Teoría de la Medida e Integración\nEn el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza \\(\\mathbb{E}\\) con la integral de Lebesgue \\(ds\\). Los siguientes teoremas justifican rigurosamente estas manipulaciones.",
+    "text": "3.1 Análisis Real y Topología Básica\nPara garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de \\(\\mathbb{R}\\).",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
   },
   {
-    "objectID": "chapters/preliminares.html#análisis-real-y-topología-básica",
-    "href": "chapters/preliminares.html#análisis-real-y-topología-básica",
+    "objectID": "chapters/preliminares.html#teoría-de-la-medida-e-integración",
+    "href": "chapters/preliminares.html#teoría-de-la-medida-e-integración",
     "title": "3  Preliminares",
-    "section": "3.1 Análisis Real y Topología Básica",
-    "text": "3.1 Análisis Real y Topología Básica\nPara garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de \\(\\mathbb{R}\\).",
+    "section": "3.2 Teoría de la Medida e Integración",
+    "text": "3.2 Teoría de la Medida e Integración\nEn el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza \\(\\mathbb{E}\\) con la integral de Lebesgue \\(ds\\). Los siguientes teoremas justifican rigurosamente estas manipulaciones.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
