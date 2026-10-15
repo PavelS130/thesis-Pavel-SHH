@@ -116,9 +116,11 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="3&nbsp; Preliminares – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:description" content="">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:title" content="3&nbsp; Preliminares – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -412,8 +414,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#teoría-de-la-medida-e-integración" id="toc-teoría-de-la-medida-e-integración" class="nav-link active" data-scroll-target="#teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -453,7 +461,26 @@ window.Quarto = {
 <p>Como consecuencia directa de la compacidad y la continuidad, obtenemos el siguiente resultado, el cual utilizaremos para acotar coeficientes continuos evaluados en trayectorias acotadas por tiempos de paro.</p>
 </div>
 <div id="thm-weierstrass" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.2</strong></span> Si una función <span class="math inline">\(f: K \to \mathbb{R}\)</span> es continua y <span class="math inline">\(K \subset \mathbb{R}\)</span> es un conjunto compacto, entonces <span class="math inline">\(f\)</span> alcanza su máximo y mínimo absolutos en <span class="math inline">\(K\)</span>. Es decir, existen <span class="math inline">\(x_{\max}, x_{\min} \in K\)</span> tales que <span class="math inline">\(f(x_{\min}) \leq f(x) \leq f(x_{\max})\)</span> para todo <span class="math inline">\(x \in K\)</span>.</p>
+<p><span class="theorem-title"><strong>Teorema 3.2 (Valor Extremo de Weierstrass)</strong></span> Si una función <span class="math inline">\(f: K \to \mathbb{R}\)</span> es continua y <span class="math inline">\(K \subset \mathbb{R}\)</span> es un conjunto compacto, entonces <span class="math inline">\(f\)</span> alcanza su máximo y mínimo absolutos en <span class="math inline">\(K\)</span>. Es decir, existen <span class="math inline">\(x_{\max}, x_{\min} \in K\)</span> tales que <span class="math inline">\(f(x_{\min}) \leq f(x) \leq f(x_{\max})\)</span> para todo <span class="math inline">\(x \in K\)</span>.</p>
+</div>
+<section id="teoría-de-la-medida-e-integración" class="level2" style="text-align: justify" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</h2>
+<p>En el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza <span class="math inline">\(\mathbb{E}\)</span> con la integral de Lebesgue <span class="math inline">\(ds\)</span>. Los siguientes teoremas justifican rigurosamente estas manipulaciones.</p>
+</section>
+<div id="thm-fubinotonelli" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.3 (Fubini-Tonelli)</strong></span> Sea <span class="math inline">\((X, \mathcal{A}, \mu)\)</span> y <span class="math inline">\((Y, \mathcal{B}, \nu)\)</span> espacios de medida <span class="math inline">\(\sigma\)</span>-finitos.</p>
+<ol type="1">
+<li><p><em>(Tonelli)</em> Si <span class="math inline">\(f: X \times Y \to [0, \infty]\)</span> es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.</p></li>
+<li><p><em>(Fubini)</em> Si <span class="math inline">\(f\)</span> es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble.</p></li>
+</ol>
+<p>En probabilidad, esto justifica escribir <span class="math inline">\(\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds\)</span> cuando <span class="math inline">\(Y_s \geq 0\)</span>.</p>
+</div>
+<div id="lem-fatou" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.1 (Fatou)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias no negativas definidas en <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span>. Entonces se cumple:</p>
+<p><span class="math display">\[
+\mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n].
+\]</span></p>
+<p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
 </div>
 
 
@@ -889,4 +916,4 @@ window.Quarto = {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

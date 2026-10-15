@@ -40,6 +40,16 @@
     ]
   },
   {
+    "objectID": "chapters/preliminares.html",
+    "href": "chapters/preliminares.html",
+    "title": "3  Preliminares",
+    "section": "",
+    "text": "3.2 Teoría de la Medida e Integración\nEn el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza \\(\\mathbb{E}\\) con la integral de Lebesgue \\(ds\\). Los siguientes teoremas justifican rigurosamente estas manipulaciones.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
     "objectID": "chapters/preliminares.html#análisis-real-y-topología-básica",
     "href": "chapters/preliminares.html#análisis-real-y-topología-básica",
     "title": "3  Preliminares",
