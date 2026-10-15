@@ -26,26 +26,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -135,11 +116,9 @@ window.Quarto = {
 </script>
 
 <meta property="og:title" content="3&nbsp; Preliminares – Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta property="og:description" content="">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:title" content="3&nbsp; Preliminares – Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -433,17 +412,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#preliminares" id="toc-preliminares" class="nav-link active" data-scroll-target="#preliminares"><span class="header-section-number">4</span> Preliminares</a>
-  <ul class="collapse">
-  <li><a href="#análisis-real-y-topología-básica" id="toc-análisis-real-y-topología-básica" class="nav-link" data-scroll-target="#análisis-real-y-topología-básica"><span class="header-section-number">4.1</span> 2.1 Análisis Real y Topología Básica</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -468,23 +438,25 @@ window.Quarto = {
 </header>
 
 
-<section id="preliminares" class="level1" style="text-align: justify" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Preliminares</h1>
+<div style="text-align: justify">
 <p>En este capítulo se establecen los resultados fundamentales de análisis real, teoría de la medida y probabilidad que servirán como columna vertebral para las demostraciones posteriores. Dado que el objetivo central de este trabajo es analizar la existencia, unicidad y convergencia de soluciones de ecuaciones diferenciales estocásticas (EDEs) con saltos, es indispensable contar con un marco teórico robusto.</p>
 <p>A lo largo de los capítulos siguientes, haremos uso constante de herramientas para acotar integrales, intercambiar el orden de integración y esperanza, y controlar el comportamiento de los supremos de martingalas. Por ello, este capítulo no es una mera recopilación de definiciones, sino una selección estratégica de teoremas que serán citados explícitamente en las demostraciones de los Lemas y Teoremas principales.</p>
-<section id="análisis-real-y-topología-básica" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="análisis-real-y-topología-básica"><span class="header-section-number">4.1</span> 2.1 Análisis Real y Topología Básica</h2>
+<section id="análisis-real-y-topología-básica" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="análisis-real-y-topología-básica"><span class="header-section-number">3.1</span> Análisis Real y Topología Básica</h2>
 <p>Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de <span class="math inline">\(\mathbb{R}\)</span>.</p>
-<p><strong>Teorema 2.1.1 (Teorema de Heine-Borel).</strong> Un subconjunto <span class="math inline">\(K \subset \mathbb{R}\)</span> es compacto si y solo si es cerrado y acotado. En el contexto unidimensional de esta tesis, cualquier intervalo cerrado <span class="math inline">\([a, b]\)</span> es compacto, lo que garantiza que toda sucesión en él posee una subsucesión convergente <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </section>
-</section>
+</div>
+<div id="thm-heineborel" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.1</strong></span> Un subconjunto <span class="math inline">\(K \subset \mathbb{R}\)</span> es compacto si y solo si es cerrado y acotado. En el contexto unidimensional de esta tesis, cualquier intervalo cerrado <span class="math inline">\([a, b]\)</span> es compacto, lo que garantiza que toda sucesión en él posee una subsucesión convergente.</p>
+</div>
+<div style="text-align: justify">
+<p>Como consecuencia directa de la compacidad y la continuidad, obtenemos el siguiente resultado, el cual utilizaremos para acotar coeficientes continuos evaluados en trayectorias acotadas por tiempos de paro.</p>
+</div>
+<div id="thm-weierstrass" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.2</strong></span> Si una función <span class="math inline">\(f: K \to \mathbb{R}\)</span> es continua y <span class="math inline">\(K \subset \mathbb{R}\)</span> es un conjunto compacto, entonces <span class="math inline">\(f\)</span> alcanza su máximo y mínimo absolutos en <span class="math inline">\(K\)</span>. Es decir, existen <span class="math inline">\(x_{\max}, x_{\min} \in K\)</span> tales que <span class="math inline">\(f(x_{\min}) \leq f(x) \leq f(x_{\max})\)</span> para todo <span class="math inline">\(x \in K\)</span>.</p>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-rudin1976principles" class="csl-entry" role="listitem">
-Rudin, Walter. 1976. <em>Principles of Mathematical Analysis</em>. 3rd ed. McGraw-Hill. <a href="https://doi.org/10.1036/007054235X">https://doi.org/10.1036/007054235X</a>.
-</div>
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -917,4 +889,4 @@ Rudin, Walter. 1976. <em>Principles of Mathematical Analysis</em>. 3rd ed. McGra
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
