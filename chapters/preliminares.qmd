@@ -5,18 +5,178 @@ lang: es
 
 ::: {style="text-align: justify"}
 
-# Preliminares
-
 En este capítulo se establecen los resultados fundamentales de análisis real, teoría de la medida y probabilidad que servirán como columna vertebral para las demostraciones posteriores. Dado que el objetivo central de este trabajo es analizar la existencia, unicidad y convergencia de soluciones de ecuaciones diferenciales estocásticas (EDEs) con saltos, es indispensable contar con un marco teórico robusto. 
 
 A lo largo de los capítulos siguientes, haremos uso constante de herramientas para acotar integrales, intercambiar el orden de integración y esperanza, y controlar el comportamiento de los supremos de martingalas. Por ello, este capítulo no es una mera recopilación de definiciones, sino una selección estratégica de teoremas que serán citados explícitamente en las demostraciones de los Lemas y Teoremas principales.
+::: 
 
-## 2.1 Análisis Real y Topología Básica
+::: {style="text-align: justify"}
+
+## Análisis Real y Topología Básica
 
 Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de $\mathbb{R}$. 
 
-**Teorema 2.1.1 (Teorema de Heine-Borel).** Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En el contexto unidimensional de esta tesis, cualquier intervalo cerrado $[a, b]$ es compacto, lo que garantiza que toda sucesión en él posee una subsucesión convergente [@rudin1976principles].
+:::
 
+::: {#thm-heineborel style="text-align: justify"}
+
+## Heine-Borel
+
+Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a, b]\subset\mathbb{R}$ es compacto.
 
 :::
+
+::: {style="text-align: justify"}
+
+La compacidad de los intervalos cerrados proporciona un marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotado permite extraer una subsucesión convergente. Esta propiedad, conocida como el teorema de Bolzano--Weierstrass, será útil en los argumentos donde se requiera obtener límites de sucesiones de aproximaciones o de cantidades reales acotadas. 
+
+:::
+
+::: {#thm-bolzanoweierstrass style="text-align: justify"}
+
+## Bolzano–Weierstrass
+
+Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de $\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto.
+
+:::
+
+
+:::{style="text-align: justify"}
+
+Además de garantizar la existencia de subsucesiones convergentes, la compacidad tiene una consecuencia importante para las  funciones continuas: estas alcanzan sus valores máximo y mínimo sobre conjuntos compactos no vacíos. Este resultado permite establecer cotas uniformes para funciones que intervienen en las ecuaciones diferenciales estocásticas, siempre que se verifiquen
+las hipótesis de continuidad y compacidad correspondientes.
+
+:::
+
+
+::: {#thm-weierstrass style="text-align: justify"}
+
+## Valor Extremo de Weierstrass
+
+Si una función $f: K \to \mathbb{R}$ es continua y $K \subset \mathbb{R}$ es un conjunto compacto, entonces $f$ alcanza su máximo y mínimo absolutos en $K$. Es decir, existen $x_{\max}, x_{\min} \in K$ tales que $f(x_{\min}) \leq f(x) \leq f(x_{\max})$ para todo $x \in K$.
+
+:::
+
+::: {style="text-align: justify"}
+
+## Teoría de la Medida e Integración
+
+En el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza $\mathbb{E}$ con la integral de Lebesgue $ds$. Los siguientes teoremas justifican rigurosamente estas manipulaciones.
+
+:::
+
+::: {#thm-fubinotonelli style="text-align: justify"}
+
+## Fubini-Tonelli
+
+Sea $(X, \mathcal{A}, \mu)$ y $(Y, \mathcal{B}, \nu)$ espacios de medida $\sigma$-finitos. 
+
+1. *(Tonelli)* Si $f: X \times Y \to [0, \infty]$ es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.
+
+2. *(Fubini)* Si $f$ es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble. 
+
+En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$.
+
+:::
+
+::: {#lem-fatou style="text-align: justify"}
+
+## Fatou
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias no negativas definidas en $(\Omega, \mathcal{F}, \mathbb{P})$. Entonces se cumple:
+
+$$ 
+\mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n]. 
+$$
+
+Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite.
+
+:::
+
+
+::: {style="text-align: justify"}
+
+## Teoría de la Probabilidad y Convergencia
+
+Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en $L^2$ con la convergencia casi segura uniforme.
+
+:::
+
+
+::: {#thm-convprobsub style="text-align: justify"}
+
+## Convergencia en probabilidad y subsucesión $c.s.$
+
+Sea $\{X_n\}_{n \in \mathbb{N}}$ una sucesión de variables aleatorias que converge en probabilidad a una variable aleatoria $X$. Entonces, existe una subsucesión $\{X_{n_k}\}_{k \in \mathbb{N}}$ que converge a $X$ casi seguramente (c.s.), es decir, $\mathbb{P}(\lim_{k \to \infty} X_{n_k} = X) = 1$. Esta propiedad garantiza que siempre es posible extraer un comportamiento casi seguro para analizar la regularidad de las trayectorias límite.
+
+:::
+
+::: {#lem-corelcantelli style="text-align: justify"}
+
+## Borel-Cantelli
+
+Sea $(\Omega, \mathcal{F}, \mathbb{P})$ un espacio de probabilidad y $\{A_n\}_{n \in \mathbb{N}}$ una sucesión de eventos en $\mathcal{F}$. Si la suma de sus probabilidades es finita, es decir, $\sum_{n=1}^\infty \mathbb{P}(A_n) < \infty$, entonces la probabilidad de que ocurran infinitos eventos de la sucesión es cero:
+
+$$ 
+\mathbb{P}\left( \limsup_{n \to \infty} A_n \right) = 0. 
+$$
+
+Este resultado es el mecanismo que nos permite afirmar que, si las diferencias consecutivas de una sucesión de procesos decaen lo suficientemente rápido, la sucesión converge uniformemente con probabilidad 1.
+
+:::
+
+
+::: {style="text-align: justify"}
+
+## Procesos Estocásticos y Martingalas
+
+El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.
+
+:::
+
+:::{#thm-doobmeyer style="text-align: justify"}
+
+## Descomposición de Doob-Meyer para el proceso de Poisson
+
+Sea $N = (N(t))_{t \geq 0}$ un proceso de Poisson con intensidad $\lambda > 0$ adaptado a $(\mathcal{F}_t)$. Entonces $N(t)$ admite una descomposición única de la forma $N(t) = \widetilde{N}(t) + A(t)$, donde $A(t) = \lambda t$ es un proceso predecible, continuo y creciente (el compensador), y $\widetilde{N}(t) = N(t) - \lambda t$ es una martingala cuadrado-integrable respecto a $(\mathcal{F}_t)$. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.
+
+:::
+
+:::{#thm-maximaldoob style="text-align: justify"}
+
+## Desigualdad Maximal de Doob
+
+Sea $M = (M_t)_{t \geq 0}$ una martingala continua o cádlàg respecto a una filtración $(\mathcal{F}_t)$. Para cualquier $p > 1$ y $t > 0$, se cumple:
+
+$$ 
+\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p]. 
+$$
+
+En particular, para $p = 2$, la constante es $\left(\frac{2}{2-1}\right)^2 = 4$. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.
+
+:::
+
+:::{style="text-align: justify"}
+
+## Estimaciones y Ecuaciones Diferenciales
+
+Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para "cerrar" la desigualdad integral y obtener una cota explícita en función del tiempo.
+
+:::
+
+:::{#thm-maximaldoob style="text-align: justify"}
+
+
+## Desigualdad de Gronwall
+
+ Sea $u: [0, T] \to [0, \infty)$ una función medible y no negativa, $a \geq 0$ una constante, y $b: [0, T] \to [0, \infty)$ una función integrable. Si $u$ satisface:
+
+$$ 
+u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T], 
+$$
+
+entonces se garantiza que $u(t) \leq a \exp\left( \int_0^t b(s)\,ds \right)$ para todo $t \in [0, T]$. En el caso particular en que $b(s) = K$ es constante, la cota se simplifica a $u(t) \leq a e^{Kt}$.
+:::
+
+
 
