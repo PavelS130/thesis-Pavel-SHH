@@ -53,15 +53,195 @@ las hipótesis de continuidad y compacidad correspondientes.
 
 ## Valor Extremo de Weierstrass
 
-Si una función $f: K \to \mathbb{R}$ es continua y $K \subset \mathbb{R}$ es un conjunto compacto, entonces $f$ alcanza su máximo y mínimo absolutos en $K$. Es decir, existen $x_{\max}, x_{\min} \in K$ tales que $f(x_{\min}) \leq f(x) \leq f(x_{\max})$ para todo $x \in K$.
+Sea $K\subset\mathbb{R}$ un conjunto compacto y no vacío. Si $f:K\to\mathbb{R}$ es continua, entonces $f$ alcanza su máximo y su mínimo absolutos en $K$. Es decir, existen $x_{\max},x_{\min}\in K$ tales que
+
+$$
+    f(x_{\min})\leq f(x)\leq f(x_{\max}),
+    \qquad \text{para todo }x\in K.
+$$
+
+:::
+
+::: {#thm-valorintermedio style="text-align: justify"}
+
+## Valor Intermedio 
+
+Sea $f:[a,b]\to\mathbb{R}$ una función continua. Si $y$ está estrictamente entre $f(a)$ y $f(b)$, entonces existe al menos un $c\in(a,b)$ tal que
+
+$$
+    f(c)=y.
+$$
+
+Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$.
+
+:::
+
+
+
+::: {style="text-align: justify"}
+
+## Fundamentos de Probabilidad y Procesos Estocásticos
+
+El estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.
+
+
+El entorno natural para las EDEs es un espacio de probabilidad filtrado. La filtración representa la acumulación de información a lo largo del tiempo y permite distinguir entre los procesos que utilizan únicamente la información disponible en el instante considerado y aquellos que dependen de información futura. Esta distinción resulta fundamental para definir las integrales estocásticas y estudiar las propiedades de las soluciones.
+
+
+:::
+
+:::{#def-espfiltrado style = "text-align: justify"}
+
+## Espacio de probabilidad filtrado y sus condiciones usuales
+
+Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. Una filtración es una familia creciente de
+sub-$\sigma$-álgebras $(\mathcal{F}_t)_{t\geq 0}$ de $\mathcal{F}$ tal que
+
+$$
+    \mathcal{F}_s\subseteq\mathcal{F}_t,
+    \qquad 0\leq s\leq t.
+$$
+
+Se dice que el espacio de probabilidad filtrado satisface las condiciones usuales si la filtración es continua por
+la derecha, es decir,
+
+$$
+    \mathcal{F}_t=\bigcap_{s>t}\mathcal{F}_s,
+$$
+
+y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad nula.
 
 :::
 
 ::: {style="text-align: justify"}
 
-## Teoría de la Medida e Integración
+Una vez establecido el espacio probabilístico filtrado, es necesario precisar cómo se relacionan los procesos estocásticos con la información representada por la  filtración. En particular, la adaptabilidad garantiza que el valor de un proceso en el instante $t$ pueda describirse mediante la información disponible hasta ese momento. Por su parte, la predictibilidad es una condición importante para definir los integrandos de las integrales estocásticas, mientras que la regularidad de las trayectorias permite estudiar sus límites y discontinuidades.
 
-En el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza $\mathbb{E}$ con la integral de Lebesgue $ds$. Los siguientes teoremas justifican rigurosamente estas manipulaciones.
+:::
+
+:::{#def-procesosadaptados style = "text-align: justify"}
+
+## Procesos  adaptados, predecibles y càdlàg
+
+Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de probabilidad filtrado.
+
+-   El proceso $X$ es $\textbf{adaptado}$ a la filtración $(\mathcal{F}_t)_{t\geq 0}$ si $X_t$ es $\mathcal{F}_t$-medible para 
+    todo $t\geq 0$.
+
+-   El proceso $X$ es $\textbf{predecible}$ si es medible respecto de la $\sigma$-álgebra predecible, generada por los procesos
+    adaptados y continuos por la izquierda.
+
+-   El proceso $X$ tiene trayectorias $\textbf{càdlàg}$ si, casi seguramente, sus trayectorias son continuas por la derecha y 
+    poseen límites por la izquierda en cada instante $t>0$.
+
+:::
+
+:::{#def-tiemposdeparo style = "text-align: justify"}
+
+## Tiempo de paro y proceso truncado 
+
+Una variable aleatoria $\tau:\Omega\to[0,\infty]$ es un $\textbf{tiempo de paro}$ respecto de la filtración $(\mathcal{F}_t)_{t\geq 0}$ si
+
+$$
+    \{\tau\leq t\}\in\mathcal{F}_t,
+    \qquad \text{para todo }t\geq 0.
+$$
+
+El proceso detenido asociado a $X$ y $\tau$ se define mediante
+
+$$
+    X^\tau_t:=X_{t\wedge\tau},
+    \qquad t\geq 0,
+$$
+
+donde $t\wedge\tau=\min\{t,\tau\}$. Equivalentemente, el proceso evoluciona como $X_t$ antes de $\tau$ y permanece constante en el valor $X_\tau$ después de dicho instante, cuando $\tau$ es finito.
+
+Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si $X$ es una martingala càdlàg, el teorema de muestreo opcional permite establecer que $(X_{t\wedge\tau})_{t\geq 0}$ es una martingala bajo las hipótesis correspondientes.
+
+:::
+
+:::{style = "text-align: justify"}
+
+Los tiempos de paro permiten construir sucesiones de procesos detenidos cuya evolución se controla en conjuntos acotados. Para 
+estudiar los límites de estas sucesiones y justificar el paso a límites en estimaciones probabilísticas, también es necesario
+recordar algunas propiedades básicas de la medida de probabilidad. Entre ellas destaca la continuidad de la probabilidad respecto 
+de sucesiones monótonas de eventos, que permite relacionar la probabilidad de un límite de eventos con las probabilidades de los
+eventos que lo componen.
+
+:::
+
+::: {#thm-conyinuidadmediaproba style="text-align: justify"}
+
+## Continuidad de la medida de probabilidad
+
+Sea $(A_n)_{n\in\mathbb{N}}$ una sucesión de eventos en un espacio de probabilidad $(\Omega,\mathcal{F},\mathbb{P})$.
+
+Si $A_n\subseteq A_{n+1}$ para todo $n\in\mathbb{N}$, entonces
+
+$$
+    \mathbb{P}\left(
+        \bigcup_{n=1}^{\infty}A_n
+    \right)
+    =
+    \lim_{n\to\infty}\mathbb{P}(A_n).
+$$
+
+Por otro lado, si $A_{n+1}\subseteq A_n$ para todo $n\in\mathbb{N}$, entonces
+
+$$
+    \mathbb{P}\left(
+        \bigcap_{n=1}^{\infty}A_n
+    \right)
+    =
+    \lim_{n\to\infty}\mathbb{P}(A_n).
+$$
+
+La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$.
+:::
+
+
+::: {#thm-completitudl2 style="text-align: justify"}
+
+## Completitud  de L^2
+
+Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. El espacio
+
+$$
+    L^2(\Omega,\mathcal{F},\mathbb{P})
+    :=
+    \left\{
+       X:\Omega\to\mathbb{R}:
+       X\text{ es medible y }
+       \mathbb{E}[|X|^2]<\infty
+    \right\},
+$$
+
+considerado módulo igualdad casi seguramente y equipado con la norma
+
+$$
+    \|X\|_2
+    :=
+    \left(\mathbb{E}[|X|^2]\right)^{1/2},
+$$
+
+es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio.
+
+:::
+
+
+:::{style = "text-align: justify"}
+
+La completitud de $L^2$ constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En 
+particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, 
+este teorema garantiza la existencia de un límite en $L^2$. Posteriormente, las propiedades de adaptabilidad, regularidad de las 
+trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.
+
+En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las 
+ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados 
+y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización y los 
+resultados de continuidad y completitud proporcionan herramientas para estudiar sucesiones de aproximaciones. Sobre esta base se 
+introducirán las desigualdades de probabilidad, las propiedades de las martingalas y los resultados de integración estocástica 
+necesarios para las demostraciones posteriores.
 
 :::
 
@@ -92,6 +272,30 @@ $$
 Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite.
 
 :::
+
+
+
+:::{style = "text-align: justify"}
+
+## Desigualdades Fundamentales y Álgebra
+
+En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse 
+con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En 
+particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales 
+de Lebesgue, productos de procesos y momentos de distintos órdenes.
+
+Las desigualdades de esta sección permiten transformar expresiones complejas en cotas más manejables, evitando que los términos 
+individuales dificulten el análisis. Asimismo, proporcionan herramientas para relacionar la convergencia en media cuadrática con 
+estimaciones de probabilidad, y para controlar los productos que surgen al comparar dos soluciones o una solución exacta con su 
+aproximación numérica.
+
+Comenzaremos con una desigualdad elemental para potencias de sumas, que permite separar varios términos y estimarlos 
+individualmente. Esta propiedad se utilizará de forma recurrente al elevar al cuadrado o a una potencia superior las diferencias 
+entre procesos estocásticos.
+
+
+:::
+
 
 
 ::: {style="text-align: justify"}
