@@ -64,7 +64,7 @@
     "href": "chapters/preliminares.html#desigualdades-fundamentales-y-álgebra",
     "title": "3  Preliminares",
     "section": "3.3 Desigualdades Fundamentales y Álgebra",
-    "text": "3.3 Desigualdades Fundamentales y Álgebra",
+    "text": "3.3 Desigualdades Fundamentales y Álgebra\nEn el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales de Lebesgue, productos de procesos y momentos de distintos órdenes.\nLas desigualdades de esta sección permiten transformar expresiones complejas en cotas más manejables, evitando que los términos individuales dificulten el análisis. Asimismo, proporcionan herramientas para relacionar la convergencia en media cuadrática con estimaciones de probabilidad, y para controlar los productos que surgen al comparar dos soluciones o una solución exacta con su aproximación numérica.\nComenzaremos con una desigualdad elemental para potencias de sumas, que permite separar varios términos y estimarlos individualmente. Esta propiedad se utilizará de forma recurrente al elevar al cuadrado o a una potencia superior las diferencias entre procesos estocásticos.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]

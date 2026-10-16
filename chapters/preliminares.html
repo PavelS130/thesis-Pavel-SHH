@@ -573,9 +573,6 @@ window.Quarto = {
 <p>La completitud de <span class="math inline">\(L^2\)</span> constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en <span class="math inline">\(L^2\)</span>. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.</p>
 <p>En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización y los resultados de continuidad y completitud proporcionan herramientas para estudiar sucesiones de aproximaciones. Sobre esta base se introducirán las desigualdades de probabilidad, las propiedades de las martingalas y los resultados de integración estocástica necesarios para las demostraciones posteriores.</p>
 </div>
-<section id="desigualdades-fundamentales-y-álgebra" class="level2" style="text-align: justify" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</h2>
-</section>
 <div id="thm-fubinotonelli" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.7 (Fubini-Tonelli)</strong></span> Sea <span class="math inline">\((X, \mathcal{A}, \mu)\)</span> y <span class="math inline">\((Y, \mathcal{B}, \nu)\)</span> espacios de medida <span class="math inline">\(\sigma\)</span>-finitos.</p>
 <ol type="1">
@@ -591,6 +588,12 @@ window.Quarto = {
 \]</span></p>
 <p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
 </div>
+<section id="desigualdades-fundamentales-y-álgebra" class="level2" style="text-align: justify" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</h2>
+<p>En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales de Lebesgue, productos de procesos y momentos de distintos órdenes.</p>
+<p>Las desigualdades de esta sección permiten transformar expresiones complejas en cotas más manejables, evitando que los términos individuales dificulten el análisis. Asimismo, proporcionan herramientas para relacionar la convergencia en media cuadrática con estimaciones de probabilidad, y para controlar los productos que surgen al comparar dos soluciones o una solución exacta con su aproximación numérica.</p>
+<p>Comenzaremos con una desigualdad elemental para potencias de sumas, que permite separar varios términos y estimarlos individualmente. Esta propiedad se utilizará de forma recurrente al elevar al cuadrado o a una potencia superior las diferencias entre procesos estocásticos.</p>
+</section>
 <section id="teoría-de-la-probabilidad-y-convergencia" class="level2" style="text-align: justify" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</h2>
 <p>Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en <span class="math inline">\(L^2\)</span> con la convergencia casi segura uniforme.</p>
