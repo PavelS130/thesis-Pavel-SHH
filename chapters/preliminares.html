@@ -727,6 +727,32 @@ window.Quarto = {
 \]</span></p></li>
 </ul>
 </div>
+<div id="lem-young" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.4 (Desigualdad de Young)</strong></span> Sean <span class="math inline">\(a,b\geq 0\)</span> y <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, de manera que</p>
+<p><span class="math display">\[
+    \frac{1}{p}+\frac{1}{q}=1.
+\]</span></p>
+<p>Entonces se cumple la desigualdad de Young:</p>
+<p><span class="math display">\[
+    ab\leq \frac{a^p}{p}+\frac{b^q}{q}.
+\]</span></p>
+<p>Más generalmente, para todo <span class="math inline">\(\delta&gt;0\)</span>,</p>
+<p><span class="math display">\[
+    ab
+    \leq
+    \delta a^p+C_{p,\delta}b^q,
+\]</span></p>
+<p>donde puede tomarse</p>
+<p><span class="math display">\[
+    C_{p,\delta}
+    =
+    \frac{1}{q}(p\delta)^{-q/p}.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>La elección del parámetro <span class="math inline">\(\delta\)</span> permite ajustar la contribución de cada término de acuerdo con las necesidades de la demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para las soluciones exactas y numéricas.</p>
+<p>En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las desigualdades algebraicas controlan las sumas y los supremos; Cauchy–Schwarz, Hölder y Jensen permiten estimar integrales, productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones diferenciales estocásticas con saltos.</p>
+</div>
 <section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</h2>
 <p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
