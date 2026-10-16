@@ -608,15 +608,134 @@ window.Quarto = {
 \]</span></p>
 <p>Este resultado es el mecanismo que nos permite afirmar que, si las diferencias consecutivas de una sucesión de procesos decaen lo suficientemente rápido, la sucesión converge uniformemente con probabilidad 1.</p>
 </div>
+<div id="lem-desgsumas" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.3 (Desigualdad para potencias de sumas)</strong></span> Sean <span class="math inline">\(n\geq 1\)</span> un entero, <span class="math inline">\(a_1,\ldots,a_n\geq 0\)</span> y <span class="math inline">\(p\geq 1\)</span>. Entonces,</p>
+<p><span class="math display">\[
+    \left(\sum_{i=1}^{n}a_i\right)^p
+    \leq
+    n^{p-1}\sum_{i=1}^{n}a_i^p.
+\]</span></p>
+<p>En particular, para <span class="math inline">\(a,b,c\geq 0\)</span>,</p>
+<p><span class="math display">\[
+    (a+b+c)^2
+    \leq 3(a^2+b^2+c^2).
+\]</span></p>
+</div>
+<div id="prp-propsupremos" class="theorem proposition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Proposición 3.1 (Propiedades del supremo)</strong></span> Sea <span class="math inline">\(I\)</span> un conjunto no vacío y sean <span class="math inline">\(f,g:I\to\mathbb{R}\)</span> funciones acotadas superiormente. Entonces,</p>
+<p><span class="math display">\[
+    \sup_{s\in I}\bigl(f(s)+g(s)\bigr)
+    \leq
+    \sup_{s\in I}f(s)+\sup_{s\in I}g(s).
+\]</span></p>
+<p>Además, si <span class="math inline">\(f(s)\leq M\)</span> para todo <span class="math inline">\(s\in I\)</span>, entonces</p>
+<p><span class="math display">\[
+    \sup_{s\in I}f(s)\leq M.
+\]</span></p>
+<p>Finalmente, si <span class="math inline">\(f:[0,t]\to\mathbb{R}\)</span> es creciente, entonces</p>
+<p><span class="math display">\[
+    \sup_{0\leq s\leq t}f(s)=f(t).
+\]</span></p>
+</div>
+<div id="thm-cauchyschwarz" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.9 (Desigualdad de Cauchy-Schwarz)</strong></span> Sean <span class="math inline">\(f,g\in L^2([0,T])\)</span> funciones medibles. Entonces,</p>
+<p><span class="math display">\[
+    \left|
+        \int_0^T f(s)g(s)\,ds
+    \right|
+    \leq
+    \left(\int_0^T|f(s)|^2\,ds\right)^{1/2}
+    \left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>Esta última expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de las cuaciones diferenciales estocásticas.</p>
+<p>La desigualdad de Cauchy–Schwarz corresponde al caso particular en que ambos factores pertenecen a <span class="math inline">\(L^2\)</span>. Cuando se estudian momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables aleatorias.</p>
+</div>
+<div id="thm-holder" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad de Hölder)</strong></span> Sean <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, es decir,</p>
+<p><span class="math display">\[
+    \frac{1}{p}+\frac{1}{q}=1.
+\]</span></p>
+<p>Si <span class="math inline">\(X\in L^p(\Omega,\mathcal{F},\mathbb{P})\)</span> y <span class="math inline">\(Y\in L^q(\Omega,\mathcal{F},\mathbb{P})\)</span>, entonces</p>
+<p><span class="math display">\[
+    \mathbb{E}[|XY|]
+    \leq
+    \left(\mathbb{E}[|X|^p]\right)^{1/p}
+    \left(\mathbb{E}[|Y|^q]\right)^{1/q}.
+\]</span></p>
+<p>Análogamente, para funciones <span class="math inline">\(f\in L^p([0,T])\)</span> y <span class="math inline">\(g\in L^q([0,T])\)</span>,</p>
+<p><span class="math display">\[
+    \int_0^T|f(s)g(s)|\,ds
+    \leq
+    \left(\int_0^T|f(s)|^p\,ds\right)^{1/p}
+    \left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
+\]</span></p>
+</div>
+<div id="thm-jensen" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.11 (Desigualdad de Jensen)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria integrable y sea <span class="math inline">\(\phi\)</span> una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,</p>
+<p><span class="math display">\[
+    \phi\bigl(\mathbb{E}[X]\bigr)
+    \leq
+    \mathbb{E}[\phi(X)].
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>Una aplicación importante se obtiene considerando la función convexa <span class="math inline">\(\phi(x)=|x|^p\)</span>, con <span class="math inline">\(p\geq 1\)</span>. Si <span class="math inline">\(f\in L^p([0,t])\)</span> y <span class="math inline">\(t&gt;0\)</span>, la aplicación de Jensen a la medida de Lebesgue normalizada <span class="math inline">\(\frac{1}{t}\,ds\)</span> implica que</p>
+<p><span class="math display">\[
+    \left|
+        \frac{1}{t}\int_0^t f(s)\,ds
+    \right|^p
+    \leq
+    \frac{1}{t}\int_0^t|f(s)|^p\,ds.
+\]</span></p>
+<p>Equivalentemente,</p>
+<p><span class="math display">\[
+    \left|\int_0^t f(s)\,ds\right|^p
+    \leq
+    t^{p-1}\int_0^t|f(s)|^p\,ds.
+\]</span></p>
+<p>Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos.</p>
+</div>
+<div id="thm-markovchebyshev" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.12 (Desigualdad de Markov y Chebyshev)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria.</p>
+<ul>
+<li><p><strong>Desigualdad de Markov</strong> Si <span class="math inline">\(p&gt;0\)</span>, <span class="math inline">\(\mathbb{E}[|X|^p]&lt;\infty\)</span> y <span class="math inline">\(a&gt;0\)</span>, entonces</p>
+<p><span class="math display">\[
+      \mathbb{P}(|X|\geq a)
+      \leq
+      \frac{\mathbb{E}[|X|^p]}{a^p}.
+  \]</span></p></li>
+<li><p><strong>Desigualdad de Chebyshev</strong> Si <span class="math inline">\(X\)</span> tiene segundo momento finito, entonces</p>
+<p><span class="math display">\[
+    \mathbb{P}
+    \left(
+        |X-\mathbb{E}[X]|\geq a
+    \right)
+    \leq
+    \frac{\operatorname{Var}(X)}{a^2},
+    \qquad a&gt;0,
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+    \operatorname{Var}(X)
+    =
+    \mathbb{E}
+    \left[
+        |X-\mathbb{E}[X]|^2
+    \right].
+\]</span></p></li>
+</ul>
+</div>
 <section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</h2>
 <p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
 </section>
 <div id="thm-doobmeyer" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.9 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
+<p><span class="theorem-title"><strong>Teorema 3.13 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
 </div>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
+<p><span class="theorem-title"><strong>Teorema 3.14 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
 \]</span></p>
@@ -627,7 +746,7 @@ window.Quarto = {
 <p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.11 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
 <p><span class="math display">\[
 u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
 \]</span></p>
