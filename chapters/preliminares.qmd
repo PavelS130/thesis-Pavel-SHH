@@ -202,7 +202,7 @@ La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado q
 
 ::: {#thm-completitudl2 style="text-align: justify"}
 
-## Completitud  de L^2
+## Completitud  de $L^2$
 
 Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. El espacio
 
@@ -251,9 +251,9 @@ necesarios para las demostraciones posteriores.
 
 Sea $(X, \mathcal{A}, \mu)$ y $(Y, \mathcal{B}, \nu)$ espacios de medida $\sigma$-finitos. 
 
-1. *(Tonelli)* Si $f: X \times Y \to [0, \infty]$ es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.
+- **Tonelli** Si $f: X \times Y \to [0, \infty]$ es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.
 
-2. *(Fubini)* Si $f$ es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble. 
+- **Fubini** Si $f$ es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble. 
 
 En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$.
 
@@ -329,6 +329,239 @@ Este resultado es el mecanismo que nos permite afirmar que, si las diferencias c
 
 :::
 
+
+::: {#lem-desgsumas style="text-align: justify"}
+
+## Desigualdad para potencias de sumas
+
+Sean $n\geq 1$ un entero, $a_1,\ldots,a_n\geq 0$ y $p\geq 1$. Entonces,
+
+$$
+    \left(\sum_{i=1}^{n}a_i\right)^p
+    \leq
+    n^{p-1}\sum_{i=1}^{n}a_i^p.
+$$
+
+En particular, para $a,b,c\geq 0$,
+
+$$
+    (a+b+c)^2
+    \leq 3(a^2+b^2+c^2).
+$$
+
+:::
+
+::: {#prp-propsupremos style="text-align: justify"}
+
+# Propiedades del supremo
+
+Sea $I$ un conjunto no vacío y sean $f,g:I\to\mathbb{R}$ funciones acotadas superiormente. Entonces,
+
+$$
+    \sup_{s\in I}\bigl(f(s)+g(s)\bigr)
+    \leq
+    \sup_{s\in I}f(s)+\sup_{s\in I}g(s).
+$$
+
+Además, si $f(s)\leq M$ para todo $s\in I$, entonces
+
+$$
+    \sup_{s\in I}f(s)\leq M.
+$$
+
+Finalmente, si $f:[0,t]\to\mathbb{R}$ es creciente, entonces
+
+$$
+    \sup_{0\leq s\leq t}f(s)=f(t).
+$$
+:::
+
+::: {#thm-cauchyschwarz style="text-align: justify"}
+
+## Desigualdad de Cauchy-Schwarz
+
+Sean $f,g\in L^2([0,T])$ funciones medibles. Entonces,
+
+$$
+    \left|
+        \int_0^T f(s)g(s)\,ds
+    \right|
+    \leq
+    \left(\int_0^T|f(s)|^2\,ds\right)^{1/2}
+    \left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
+$$
+
+:::
+
+::: {style="text-align: justify"}
+
+Esta última expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. 
+En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de 
+las cuaciones diferenciales estocásticas.
+
+La desigualdad de Cauchy--Schwarz corresponde al caso particular en que ambos factores pertenecen a $L^2$. Cuando se estudian 
+momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes 
+para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables
+aleatorias.
+
+:::
+
+::: {#thm-holder style="text-align: justify"}
+
+## Desigualdad de Hölder 
+
+Sean $p,q>1$ exponentes conjugados, es decir,
+
+$$
+    \frac{1}{p}+\frac{1}{q}=1.
+$$
+
+Si $X\in L^p(\Omega,\mathcal{F},\mathbb{P})$ y $Y\in L^q(\Omega,\mathcal{F},\mathbb{P})$, entonces
+
+$$
+    \mathbb{E}[|XY|]
+    \leq
+    \left(\mathbb{E}[|X|^p]\right)^{1/p}
+    \left(\mathbb{E}[|Y|^q]\right)^{1/q}.
+$$
+
+Análogamente, para funciones $f\in L^p([0,T])$ y $g\in L^q([0,T])$,
+
+$$
+    \int_0^T|f(s)g(s)|\,ds
+    \leq
+    \left(\int_0^T|f(s)|^p\,ds\right)^{1/p}
+    \left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
+$$
+
+:::
+
+::: {#thm-jensen style="text-align: justify"}
+
+## Desigualdad de Jensen 
+
+Sea $X$ una variable aleatoria integrable y sea $\phi$ una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,
+
+$$
+    \phi\bigl(\mathbb{E}[X]\bigr)
+    \leq
+    \mathbb{E}[\phi(X)].
+$$
+:::
+
+::: {style="text-align: justify"}
+
+Una aplicación importante se obtiene considerando la función convexa $\phi(x)=|x|^p$, con $p\geq 1$. Si $f\in L^p([0,t])$ y 
+$t>0$, la aplicación de Jensen a la medida de Lebesgue normalizada $\frac{1}{t}\,ds$ implica que
+
+$$
+    \left|
+        \frac{1}{t}\int_0^t f(s)\,ds
+    \right|^p
+    \leq
+    \frac{1}{t}\int_0^t|f(s)|^p\,ds.
+$$
+
+Equivalentemente,
+
+$$
+    \left|\int_0^t f(s)\,ds\right|^p
+    \leq
+    t^{p-1}\int_0^t|f(s)|^p\,ds.
+$$
+
+Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos. 
+
+:::
+
+
+::: {#thm-markovchebyshev style="text-align: justify"}
+
+## Desigualdad de Markov y Chebyshev
+
+Sea $X$ una variable aleatoria.
+
+- **Desigualdad de Markov** Si $p>0$, $\mathbb{E}[|X|^p]<\infty$ y $a>0$,
+    entonces
+
+    $$
+        \mathbb{P}(|X|\geq a)
+        \leq
+        \frac{\mathbb{E}[|X|^p]}{a^p}.
+    $$
+
+-   **Desigualdad de Chebyshev** Si $X$ tiene segundo momento finito, entonces
+
+    $$
+        \mathbb{P}
+        \left(
+            |X-\mathbb{E}[X]|\geq a
+        \right)
+        \leq
+        \frac{\operatorname{Var}(X)}{a^2},
+        \qquad a>0,
+    $$
+
+    donde
+    
+    $$
+        \operatorname{Var}(X)
+        =
+        \mathbb{E}
+        \left[
+            |X-\mathbb{E}[X]|^2
+        \right].
+    $$
+
+:::
+
+::: {#lem-young style="text-align: justify"}
+
+## Desigualdad de Young 
+
+Sean $a,b\geq 0$ y $p,q>1$ exponentes conjugados, de manera que
+
+$$
+    \frac{1}{p}+\frac{1}{q}=1.
+$$
+
+Entonces se cumple la desigualdad de Young:
+
+$$
+    ab\leq \frac{a^p}{p}+\frac{b^q}{q}.
+$$
+
+Más generalmente, para todo $\delta>0$,
+
+$$
+    ab
+    \leq
+    \delta a^p+C_{p,\delta}b^q,
+$$
+
+donde puede tomarse
+
+$$
+    C_{p,\delta}
+    =
+    \frac{1}{q}(p\delta)^{-q/p}.
+$$
+:::
+
+::: {style="text-align: justify"}
+
+La elección del parámetro $\delta$ permite ajustar la contribución de cada término de acuerdo con las necesidades de la 
+demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para 
+las soluciones exactas y numéricas.
+
+En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las
+desigualdades algebraicas controlan las sumas y los supremos; Cauchy--Schwarz, Hölder y Jensen permiten estimar integrales, 
+productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir 
+las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las 
+isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones 
+diferenciales estocásticas con saltos.
+
+:::
 
 ::: {style="text-align: justify"}
 
