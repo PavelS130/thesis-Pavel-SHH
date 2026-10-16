@@ -420,10 +420,11 @@ window.Quarto = {
    
   <ul>
   <li><a href="#análisis-real-y-topología-básica" id="toc-análisis-real-y-topología-básica" class="nav-link active" data-scroll-target="#análisis-real-y-topología-básica"><span class="header-section-number">3.1</span> Análisis Real y Topología Básica</a></li>
-  <li><a href="#teoría-de-la-medida-e-integración" id="toc-teoría-de-la-medida-e-integración" class="nav-link" data-scroll-target="#teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</a></li>
-  <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.3</span> Teoría de la Probabilidad y Convergencia</a></li>
-  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.4</span> Procesos Estocásticos y Martingalas</a></li>
-  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.5</span> Estimaciones y Ecuaciones Diferenciales</a></li>
+  <li><a href="#fundamentos-de-probabilidad-y-procesos-estocásticos" id="toc-fundamentos-de-probabilidad-y-procesos-estocásticos" class="nav-link" data-scroll-target="#fundamentos-de-probabilidad-y-procesos-estocásticos"><span class="header-section-number">3.2</span> Fundamentos de Probabilidad y Procesos Estocásticos</a></li>
+  <li><a href="#desigualdades-fundamentales-y-álgebra" id="toc-desigualdades-fundamentales-y-álgebra" class="nav-link" data-scroll-target="#desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</a></li>
+  <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</a></li>
+  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</a></li>
+  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.6</span> Estimaciones y Ecuaciones Diferenciales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -478,14 +479,14 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div id="thm-valorintermedio" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.4</strong></span> Sea <span class="math inline">\(f:[a,b]\to\mathbb{R}\)</span> una función continua. Si <span class="math inline">\(y\)</span> está estrictamente entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, entonces existe al menos un <span class="math inline">\(c\in(a,b)\)</span> tal que</p>
+<p><span class="theorem-title"><strong>Teorema 3.4 (Valor Intermedio)</strong></span> Sea <span class="math inline">\(f:[a,b]\to\mathbb{R}\)</span> una función continua. Si <span class="math inline">\(y\)</span> está estrictamente entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, entonces existe al menos un <span class="math inline">\(c\in(a,b)\)</span> tal que</p>
 <p><span class="math display">\[
     f(c)=y.
 \]</span></p>
 <p>Más generalmente, para cualquier <span class="math inline">\(y\)</span> comprendido entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, existe <span class="math inline">\(c\in[a,b]\)</span> tal que <span class="math inline">\(f(c)=y\)</span>.</p>
 </div>
-<section id="teoría-de-la-medida-e-integración" class="level2" style="text-align: justify" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="teoría-de-la-medida-e-integración"><span class="header-section-number">3.2</span> Teoría de la Medida e Integración</h2>
+<section id="fundamentos-de-probabilidad-y-procesos-estocásticos" class="level2" style="text-align: justify" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="fundamentos-de-probabilidad-y-procesos-estocásticos"><span class="header-section-number">3.2</span> Fundamentos de Probabilidad y Procesos Estocásticos</h2>
 <p>El estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.</p>
 <p>El entorno natural para las EDEs es un espacio de probabilidad filtrado. La filtración representa la acumulación de información a lo largo del tiempo y permite distinguir entre los procesos que utilizan únicamente la información disponible en el instante considerado y aquellos que dependen de información futura. Esta distinción resulta fundamental para definir las integrales estocásticas y estudiar las propiedades de las soluciones.</p>
 </section>
@@ -549,8 +550,34 @@ window.Quarto = {
 \]</span></p>
 <p>La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que <span class="math inline">\(\mathbb{P}(A_1)\leq 1&lt;\infty\)</span>.</p>
 </div>
+<div id="thm-completitudl2" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.6 (Completitud de L^2)</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. El espacio</p>
+<p><span class="math display">\[
+    L^2(\Omega,\mathcal{F},\mathbb{P})
+    :=
+    \left\{
+       X:\Omega\to\mathbb{R}:
+       X\text{ es medible y }
+       \mathbb{E}[|X|^2]&lt;\infty
+    \right\},
+\]</span></p>
+<p>considerado módulo igualdad casi seguramente y equipado con la norma</p>
+<p><span class="math display">\[
+    \|X\|_2
+    :=
+    \left(\mathbb{E}[|X|^2]\right)^{1/2},
+\]</span></p>
+<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio.</p>
+</div>
+<div style="text-align: justify">
+<p>La completitud de <span class="math inline">\(L^2\)</span> constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en <span class="math inline">\(L^2\)</span>. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.</p>
+<p>En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización y los resultados de continuidad y completitud proporcionan herramientas para estudiar sucesiones de aproximaciones. Sobre esta base se introducirán las desigualdades de probabilidad, las propiedades de las martingalas y los resultados de integración estocástica necesarios para las demostraciones posteriores.</p>
+</div>
+<section id="desigualdades-fundamentales-y-álgebra" class="level2" style="text-align: justify" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</h2>
+</section>
 <div id="thm-fubinotonelli" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.6 (Fubini-Tonelli)</strong></span> Sea <span class="math inline">\((X, \mathcal{A}, \mu)\)</span> y <span class="math inline">\((Y, \mathcal{B}, \nu)\)</span> espacios de medida <span class="math inline">\(\sigma\)</span>-finitos.</p>
+<p><span class="theorem-title"><strong>Teorema 3.7 (Fubini-Tonelli)</strong></span> Sea <span class="math inline">\((X, \mathcal{A}, \mu)\)</span> y <span class="math inline">\((Y, \mathcal{B}, \nu)\)</span> espacios de medida <span class="math inline">\(\sigma\)</span>-finitos.</p>
 <ol type="1">
 <li><p><em>(Tonelli)</em> Si <span class="math inline">\(f: X \times Y \to [0, \infty]\)</span> es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.</p></li>
 <li><p><em>(Fubini)</em> Si <span class="math inline">\(f\)</span> es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble.</p></li>
@@ -564,12 +591,12 @@ window.Quarto = {
 \]</span></p>
 <p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
 </div>
-<section id="teoría-de-la-probabilidad-y-convergencia" class="level2" style="text-align: justify" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.3</span> Teoría de la Probabilidad y Convergencia</h2>
+<section id="teoría-de-la-probabilidad-y-convergencia" class="level2" style="text-align: justify" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</h2>
 <p>Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en <span class="math inline">\(L^2\)</span> con la convergencia casi segura uniforme.</p>
 </section>
 <div id="thm-convprobsub" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.7 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias que converge en probabilidad a una variable aleatoria <span class="math inline">\(X\)</span>. Entonces, existe una subsucesión <span class="math inline">\(\{X_{n_k}\}_{k \in \mathbb{N}}\)</span> que converge a <span class="math inline">\(X\)</span> casi seguramente (c.s.), es decir, <span class="math inline">\(\mathbb{P}(\lim_{k \to \infty} X_{n_k} = X) = 1\)</span>. Esta propiedad garantiza que siempre es posible extraer un comportamiento casi seguro para analizar la regularidad de las trayectorias límite.</p>
+<p><span class="theorem-title"><strong>Teorema 3.8 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias que converge en probabilidad a una variable aleatoria <span class="math inline">\(X\)</span>. Entonces, existe una subsucesión <span class="math inline">\(\{X_{n_k}\}_{k \in \mathbb{N}}\)</span> que converge a <span class="math inline">\(X\)</span> casi seguramente (c.s.), es decir, <span class="math inline">\(\mathbb{P}(\lim_{k \to \infty} X_{n_k} = X) = 1\)</span>. Esta propiedad garantiza que siempre es posible extraer un comportamiento casi seguro para analizar la regularidad de las trayectorias límite.</p>
 </div>
 <div id="lem-corelcantelli" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 3.2 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> un espacio de probabilidad y <span class="math inline">\(\{A_n\}_{n \in \mathbb{N}}\)</span> una sucesión de eventos en <span class="math inline">\(\mathcal{F}\)</span>. Si la suma de sus probabilidades es finita, es decir, <span class="math inline">\(\sum_{n=1}^\infty \mathbb{P}(A_n) &lt; \infty\)</span>, entonces la probabilidad de que ocurran infinitos eventos de la sucesión es cero:</p>
@@ -578,26 +605,26 @@ window.Quarto = {
 \]</span></p>
 <p>Este resultado es el mecanismo que nos permite afirmar que, si las diferencias consecutivas de una sucesión de procesos decaen lo suficientemente rápido, la sucesión converge uniformemente con probabilidad 1.</p>
 </div>
-<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.4</span> Procesos Estocásticos y Martingalas</h2>
+<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</h2>
 <p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
 </section>
 <div id="thm-doobmeyer" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.8 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
+<p><span class="theorem-title"><strong>Teorema 3.9 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
 </div>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.9 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
+<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
 \]</span></p>
 <p>En particular, para <span class="math inline">\(p = 2\)</span>, la constante es <span class="math inline">\(\left(\frac{2}{2-1}\right)^2 = 4\)</span>. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.</p>
 </div>
-<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.5</span> Estimaciones y Ecuaciones Diferenciales</h2>
+<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.6</span> Estimaciones y Ecuaciones Diferenciales</h2>
 <p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<p><span class="theorem-title"><strong>Teorema 3.11 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
 <p><span class="math display">\[
 u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
 \]</span></p>

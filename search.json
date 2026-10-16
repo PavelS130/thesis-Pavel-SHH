@@ -50,11 +50,21 @@
     ]
   },
   {
-    "objectID": "chapters/preliminares.html#teoría-de-la-medida-e-integración",
-    "href": "chapters/preliminares.html#teoría-de-la-medida-e-integración",
+    "objectID": "chapters/preliminares.html#fundamentos-de-probabilidad-y-procesos-estocásticos",
+    "href": "chapters/preliminares.html#fundamentos-de-probabilidad-y-procesos-estocásticos",
     "title": "3  Preliminares",
-    "section": "3.2 Teoría de la Medida e Integración",
-    "text": "3.2 Teoría de la Medida e Integración\nEl estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.\nEl entorno natural para las EDEs es un espacio de probabilidad filtrado. La filtración representa la acumulación de información a lo largo del tiempo y permite distinguir entre los procesos que utilizan únicamente la información disponible en el instante considerado y aquellos que dependen de información futura. Esta distinción resulta fundamental para definir las integrales estocásticas y estudiar las propiedades de las soluciones.",
+    "section": "3.2 Fundamentos de Probabilidad y Procesos Estocásticos",
+    "text": "3.2 Fundamentos de Probabilidad y Procesos Estocásticos\nEl estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.\nEl entorno natural para las EDEs es un espacio de probabilidad filtrado. La filtración representa la acumulación de información a lo largo del tiempo y permite distinguir entre los procesos que utilizan únicamente la información disponible en el instante considerado y aquellos que dependen de información futura. Esta distinción resulta fundamental para definir las integrales estocásticas y estudiar las propiedades de las soluciones.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/preliminares.html#desigualdades-fundamentales-y-álgebra",
+    "href": "chapters/preliminares.html#desigualdades-fundamentales-y-álgebra",
+    "title": "3  Preliminares",
+    "section": "3.3 Desigualdades Fundamentales y Álgebra",
+    "text": "3.3 Desigualdades Fundamentales y Álgebra",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -63,8 +73,8 @@
     "objectID": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
     "href": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
     "title": "3  Preliminares",
-    "section": "3.3 Teoría de la Probabilidad y Convergencia",
-    "text": "3.3 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
+    "section": "3.4 Teoría de la Probabilidad y Convergencia",
+    "text": "3.4 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -73,8 +83,8 @@
     "objectID": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
     "href": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
     "title": "3  Preliminares",
-    "section": "3.4 Procesos Estocásticos y Martingalas",
-    "text": "3.4 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
+    "section": "3.5 Procesos Estocásticos y Martingalas",
+    "text": "3.5 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -83,8 +93,8 @@
     "objectID": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
     "href": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
     "title": "3  Preliminares",
-    "section": "3.5 Estimaciones y Ecuaciones Diferenciales",
-    "text": "3.5 Estimaciones y Ecuaciones Diferenciales\nFinalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.",
+    "section": "3.6 Estimaciones y Ecuaciones Diferenciales",
+    "text": "3.6 Estimaciones y Ecuaciones Diferenciales\nFinalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
