@@ -423,8 +423,9 @@ window.Quarto = {
   <li><a href="#fundamentos-de-probabilidad-y-procesos-estocásticos" id="toc-fundamentos-de-probabilidad-y-procesos-estocásticos" class="nav-link" data-scroll-target="#fundamentos-de-probabilidad-y-procesos-estocásticos"><span class="header-section-number">3.2</span> Fundamentos de Probabilidad y Procesos Estocásticos</a></li>
   <li><a href="#desigualdades-fundamentales-y-álgebra" id="toc-desigualdades-fundamentales-y-álgebra" class="nav-link" data-scroll-target="#desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</a></li>
   <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</a></li>
-  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</a></li>
-  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.6</span> Estimaciones y Ecuaciones Diferenciales</a></li>
+  <li><a href="#integración-estocástica-y-fórmula-de-itô" id="toc-integración-estocástica-y-fórmula-de-itô" class="nav-link" data-scroll-target="#integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.5</span> Integración Estocástica y Fórmula de Itô</a></li>
+  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.6</span> Procesos Estocásticos y Martingalas</a></li>
+  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -753,26 +754,90 @@ window.Quarto = {
 <p>La elección del parámetro <span class="math inline">\(\delta\)</span> permite ajustar la contribución de cada término de acuerdo con las necesidades de la demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para las soluciones exactas y numéricas.</p>
 <p>En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las desigualdades algebraicas controlan las sumas y los supremos; Cauchy–Schwarz, Hölder y Jensen permiten estimar integrales, productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones diferenciales estocásticas con saltos.</p>
 </div>
-<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.5</span> Procesos Estocásticos y Martingalas</h2>
-<p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
+<section id="integración-estocástica-y-fórmula-de-itô" class="level2" style="text-align: justify" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.5</span> Integración Estocástica y Fórmula de Itô</h2>
+<p>El análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando existen saltos, las discontinuidades de las trayectorias.</p>
+<p>En esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS<span class="math inline">\(\theta\)</span>. En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las<br>
+isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.</p>
+<p>Para comenzar, recordemos que un proceso de Poisson con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span> satisface <span class="math inline">\(\mathbb{E}[N(t)]=\lambda t\)</span>. Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable. Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.</p>
 </section>
 <div id="thm-doobmeyer" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.13 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N = (N(t))_{t \geq 0}\)</span> un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span> adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>. Entonces <span class="math inline">\(N(t)\)</span> admite una descomposición única de la forma <span class="math inline">\(N(t) = \widetilde{N}(t) + A(t)\)</span>, donde <span class="math inline">\(A(t) = \lambda t\)</span> es un proceso predecible, continuo y creciente (el compensador), y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> es una martingala cuadrado-integrable respecto a <span class="math inline">\((\mathcal{F}_t)\)</span>. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.</p>
+<p><span class="theorem-title"><strong>Teorema 3.13 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> un proceso de Poisson de intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> respecto de la cual conserva sus incrementos independientes. Entonces,</p>
+<p><span class="math display">\[
+    N(t)=\widetilde{N}(t)+\lambda t,
+    \qquad t\geq 0,
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+    \widetilde{N}(t):=N(t)-\lambda t
+\]</span></p>
+<p>es una martingala cuadrado-integrable y <span class="math inline">\(A(t)=\lambda t\)</span> es un proceso predecible, continuo, creciente y con <span class="math inline">\(A(0)=0\)</span>.</p>
+<p>Esta es la descomposición de Doob–Meyer del proceso de Poisson: <span class="math inline">\(\widetilde{N}\)</span> es la componente martingala y <span class="math inline">\(A\)</span> es su compensador predecible</p>
 </div>
+<div style="text-align: justify">
+<p>La compensación anterior resulta especialmente útil al trabajar con EDEs cuyo término de salto está expresado mediante <span class="math inline">\(d\widetilde{N}(t)\)</span>. En este caso, la integral estocástica respecto del proceso compensado tiene esperanza cero cuando se cumplen las condiciones habituales de integrabilidad. Además, su segundo momento puede calcularse mediante una identidad análoga a la isometría de Itô para integrales respecto del movimiento browniano.</p>
+<p>Para formular estas identidades, consideremos un horizonte temporal fijo <span class="math inline">\(T&gt;0\)</span> y un proceso predecible <span class="math inline">\(H=(H(t))_{0\leq t\leq T}\)</span>. Supondremos que el integrando satisface</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \int_0^T |H(s)|^2\,ds
+    \right]&lt;\infty.
+\]</span></p>
+<p>Esta condición garantiza la existencia de las integrales estocásticas correspondientes en media cuadrática, tanto respecto de <span class="math inline">\(W\)</span> como respecto de <span class="math inline">\(\widetilde{N}\)</span>.</p>
+</div>
+<div id="thm-isometriaito" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.14 (Isometría de Itô)</strong></span> Sea <span class="math inline">\(H\)</span> un proceso predecible tal que</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \int_0^T |H(s)|^2\,ds
+    \right]&lt;\infty.
+\]</span></p>
+<p>Entonces, para todo <span class="math inline">\(t\in[0,T]\)</span>, se satisfacen las siguientes identidades.</p>
+<ul>
+<li><p><strong>Integral respecto al movimiento browniano.</strong> Si <span class="math inline">\(W\)</span> es un movimiento browniano estándar, entonces</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \left(
+            \int_0^t H(s)\,dW(s)
+        \right)^2
+    \right]
+    =
+    \mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right].
+\]</span></p></li>
+<li><p><strong>Integral respecto al proceso de Poisson compensado.</strong> Si <span class="math inline">\(\widetilde{N}(t)=N(t)-\lambda t\)</span> es un proceso de Poisson compensado de intensidad <span class="math inline">\(\lambda&gt;0\)</span>, entonces</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \left(
+            \int_0^t H(s)\,d\widetilde{N}(s)
+        \right)^2
+    \right]
+    =
+    \lambda\,
+    \mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right].
+\]</span></p></li>
+</ul>
+<p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.</p>
+</div>
+<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.6</span> Procesos Estocásticos y Martingalas</h2>
+<p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
+</section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.14 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
+<p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
 \]</span></p>
 <p>En particular, para <span class="math inline">\(p = 2\)</span>, la constante es <span class="math inline">\(\left(\frac{2}{2-1}\right)^2 = 4\)</span>. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.</p>
 </div>
-<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.6</span> Estimaciones y Ecuaciones Diferenciales</h2>
+<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</h2>
 <p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
 <p><span class="math display">\[
 u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
 \]</span></p>

@@ -80,11 +80,21 @@
     ]
   },
   {
+    "objectID": "chapters/preliminares.html#integración-estocástica-y-fórmula-de-itô",
+    "href": "chapters/preliminares.html#integración-estocástica-y-fórmula-de-itô",
+    "title": "3  Preliminares",
+    "section": "3.5 Integración Estocástica y Fórmula de Itô",
+    "text": "3.5 Integración Estocástica y Fórmula de Itô\nEl análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando existen saltos, las discontinuidades de las trayectorias.\nEn esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS\\(\\theta\\). En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las\nisometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.\nPara comenzar, recordemos que un proceso de Poisson con intensidad constante \\(\\lambda&gt;0\\) satisface \\(\\mathbb{E}[N(t)]=\\lambda t\\). Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable. Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
     "objectID": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
     "href": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
     "title": "3  Preliminares",
-    "section": "3.5 Procesos Estocásticos y Martingalas",
-    "text": "3.5 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
+    "section": "3.6 Procesos Estocásticos y Martingalas",
+    "text": "3.6 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -93,8 +103,8 @@
     "objectID": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
     "href": "chapters/preliminares.html#estimaciones-y-ecuaciones-diferenciales",
     "title": "3  Preliminares",
-    "section": "3.6 Estimaciones y Ecuaciones Diferenciales",
-    "text": "3.6 Estimaciones y Ecuaciones Diferenciales\nFinalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.",
+    "section": "3.7 Estimaciones y Ecuaciones Diferenciales",
+    "text": "3.7 Estimaciones y Ecuaciones Diferenciales\nFinalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
