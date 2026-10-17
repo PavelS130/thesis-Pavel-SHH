@@ -425,7 +425,7 @@ window.Quarto = {
   <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</a></li>
   <li><a href="#integración-estocástica-y-fórmula-de-itô" id="toc-integración-estocástica-y-fórmula-de-itô" class="nav-link" data-scroll-target="#integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.5</span> Integración Estocástica y Fórmula de Itô</a></li>
   <li><a href="#martingalas-y-desigualdades-maximal" id="toc-martingalas-y-desigualdades-maximal" class="nav-link" data-scroll-target="#martingalas-y-desigualdades-maximal"><span class="header-section-number">3.6</span> Martingalas y Desigualdades Maximal</a></li>
-  <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</a></li>
+  <li><a href="#convergencia-y-estimaciones-temporales" id="toc-convergencia-y-estimaciones-temporales" class="nav-link" data-scroll-target="#convergencia-y-estimaciones-temporales"><span class="header-section-number">3.7</span> Convergencia y Estimaciones Temporales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -599,18 +599,8 @@ window.Quarto = {
 <h2 data-number="3.4" class="anchored" data-anchor-id="teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</h2>
 <p>Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en <span class="math inline">\(L^2\)</span> con la convergencia casi segura uniforme.</p>
 </section>
-<div id="thm-convprobsub" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.8 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias que converge en probabilidad a una variable aleatoria <span class="math inline">\(X\)</span>. Entonces, existe una subsucesión <span class="math inline">\(\{X_{n_k}\}_{k \in \mathbb{N}}\)</span> que converge a <span class="math inline">\(X\)</span> casi seguramente (c.s.), es decir, <span class="math inline">\(\mathbb{P}(\lim_{k \to \infty} X_{n_k} = X) = 1\)</span>. Esta propiedad garantiza que siempre es posible extraer un comportamiento casi seguro para analizar la regularidad de las trayectorias límite.</p>
-</div>
-<div id="lem-corelcantelli" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 3.2 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span> un espacio de probabilidad y <span class="math inline">\(\{A_n\}_{n \in \mathbb{N}}\)</span> una sucesión de eventos en <span class="math inline">\(\mathcal{F}\)</span>. Si la suma de sus probabilidades es finita, es decir, <span class="math inline">\(\sum_{n=1}^\infty \mathbb{P}(A_n) &lt; \infty\)</span>, entonces la probabilidad de que ocurran infinitos eventos de la sucesión es cero:</p>
-<p><span class="math display">\[
-\mathbb{P}\left( \limsup_{n \to \infty} A_n \right) = 0.
-\]</span></p>
-<p>Este resultado es el mecanismo que nos permite afirmar que, si las diferencias consecutivas de una sucesión de procesos decaen lo suficientemente rápido, la sucesión converge uniformemente con probabilidad 1.</p>
-</div>
 <div id="lem-desgsumas" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 3.3 (Desigualdad para potencias de sumas)</strong></span> Sean <span class="math inline">\(n\geq 1\)</span> un entero, <span class="math inline">\(a_1,\ldots,a_n\geq 0\)</span> y <span class="math inline">\(p\geq 1\)</span>. Entonces,</p>
+<p><span class="theorem-title"><strong>Lema 3.2 (Desigualdad para potencias de sumas)</strong></span> Sean <span class="math inline">\(n\geq 1\)</span> un entero, <span class="math inline">\(a_1,\ldots,a_n\geq 0\)</span> y <span class="math inline">\(p\geq 1\)</span>. Entonces,</p>
 <p><span class="math display">\[
     \left(\sum_{i=1}^{n}a_i\right)^p
     \leq
@@ -639,7 +629,7 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div id="thm-cauchyschwarz" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.9 (Desigualdad de Cauchy-Schwarz)</strong></span> Sean <span class="math inline">\(f,g\in L^2([0,T])\)</span> funciones medibles. Entonces,</p>
+<p><span class="theorem-title"><strong>Teorema 3.8 (Desigualdad de Cauchy-Schwarz)</strong></span> Sean <span class="math inline">\(f,g\in L^2([0,T])\)</span> funciones medibles. Entonces,</p>
 <p><span class="math display">\[
     \left|
         \int_0^T f(s)g(s)\,ds
@@ -654,7 +644,7 @@ window.Quarto = {
 <p>La desigualdad de Cauchy–Schwarz corresponde al caso particular en que ambos factores pertenecen a <span class="math inline">\(L^2\)</span>. Cuando se estudian momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables aleatorias.</p>
 </div>
 <div id="thm-holder" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad de Hölder)</strong></span> Sean <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, es decir,</p>
+<p><span class="theorem-title"><strong>Teorema 3.9 (Desigualdad de Hölder)</strong></span> Sean <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, es decir,</p>
 <p><span class="math display">\[
     \frac{1}{p}+\frac{1}{q}=1.
 \]</span></p>
@@ -674,7 +664,7 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div id="thm-jensen" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.11 (Desigualdad de Jensen)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria integrable y sea <span class="math inline">\(\phi\)</span> una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,</p>
+<p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad de Jensen)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria integrable y sea <span class="math inline">\(\phi\)</span> una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,</p>
 <p><span class="math display">\[
     \phi\bigl(\mathbb{E}[X]\bigr)
     \leq
@@ -699,7 +689,7 @@ window.Quarto = {
 <p>Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos.</p>
 </div>
 <div id="thm-markovchebyshev" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.12 (Desigualdad de Markov y Chebyshev)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria.</p>
+<p><span class="theorem-title"><strong>Teorema 3.11 (Desigualdad de Markov y Chebyshev)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria.</p>
 <ul>
 <li><p><strong>Desigualdad de Markov</strong> Si <span class="math inline">\(p&gt;0\)</span>, <span class="math inline">\(\mathbb{E}[|X|^p]&lt;\infty\)</span> y <span class="math inline">\(a&gt;0\)</span>, entonces</p>
 <p><span class="math display">\[
@@ -729,7 +719,7 @@ window.Quarto = {
 </ul>
 </div>
 <div id="lem-young" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 3.4 (Desigualdad de Young)</strong></span> Sean <span class="math inline">\(a,b\geq 0\)</span> y <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, de manera que</p>
+<p><span class="theorem-title"><strong>Lema 3.3 (Desigualdad de Young)</strong></span> Sean <span class="math inline">\(a,b\geq 0\)</span> y <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, de manera que</p>
 <p><span class="math display">\[
     \frac{1}{p}+\frac{1}{q}=1.
 \]</span></p>
@@ -757,12 +747,11 @@ window.Quarto = {
 <section id="integración-estocástica-y-fórmula-de-itô" class="level2" style="text-align: justify" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.5</span> Integración Estocástica y Fórmula de Itô</h2>
 <p>El análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando existen saltos, las discontinuidades de las trayectorias.</p>
-<p>En esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS<span class="math inline">\(\theta\)</span>. En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las<br>
-isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.</p>
+<p>En esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS<span class="math inline">\(\theta\)</span>. En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.</p>
 <p>Para comenzar, recordemos que un proceso de Poisson con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span> satisface <span class="math inline">\(\mathbb{E}[N(t)]=\lambda t\)</span>. Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable. Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.</p>
 </section>
 <div id="thm-doobmeyer" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.13 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> un proceso de Poisson de intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> respecto de la cual conserva sus incrementos independientes. Entonces,</p>
+<p><span class="theorem-title"><strong>Teorema 3.12 (Descomposición de Doob-Meyer para el proceso de Poisson)</strong></span> Sea <span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> un proceso de Poisson de intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> respecto de la cual conserva sus incrementos independientes. Entonces,</p>
 <p><span class="math display">\[
     N(t)=\widetilde{N}(t)+\lambda t,
     \qquad t\geq 0,
@@ -785,7 +774,7 @@ isometrías de Itô, la identidad para integrales detenidas y la fórmula de It�
 <p>Esta condición garantiza la existencia de las integrales estocásticas correspondientes en media cuadrática, tanto respecto de <span class="math inline">\(W\)</span> como respecto de <span class="math inline">\(\widetilde{N}\)</span>.</p>
 </div>
 <div id="thm-isometriaito" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.14 (Isometría de Itô)</strong></span> Sea <span class="math inline">\(H\)</span> un proceso predecible tal que</p>
+<p><span class="theorem-title"><strong>Teorema 3.13 (Isometría de Itô)</strong></span> Sea <span class="math inline">\(H\)</span> un proceso predecible tal que</p>
 <p><span class="math display">\[
     \mathbb{E}\left[
         \int_0^T |H(s)|^2\,ds
@@ -827,7 +816,7 @@ isometrías de Itô, la identidad para integrales detenidas y la fórmula de It�
 aleatorio como una integral sobre un intervalo determinista, mediante la incorporación de un indicador predecible.</p>
 </div>
 <div id="lem-identidadtruncada" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 3.5 (Identidad de integrales truncadas)</strong></span> Sea <span class="math inline">\(\tau\)</span> un tiempo de paro respecto de la filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> y sea <span class="math inline">\(H\)</span> un proceso predecible que satisfaga<br>
+<p><span class="theorem-title"><strong>Lema 3.4 (Identidad de integrales truncadas)</strong></span> Sea <span class="math inline">\(\tau\)</span> un tiempo de paro respecto de la filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> y sea <span class="math inline">\(H\)</span> un proceso predecible que satisfaga<br>
 las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X=W\)</span> o <span class="math inline">\(X=\widetilde{N}\)</span>, se cumple que</p>
 <p><span class="math display">\[
     \int_0^{t\wedge\tau} H(s)\,dX(s)
@@ -873,7 +862,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
 </div>
 <div id="thm-formulaito" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.15 (Fórmula de Itô para EDEs con saltos)</strong></span> Sea <span class="math inline">\(X\)</span> una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>. Entonces, bajo las condiciones de integrabilidad correspondientes, para todo <span class="math inline">\(t\geq 0\)</span> se tiene</p>
+<p><span class="theorem-title"><strong>Teorema 3.14 (Fórmula de Itô para EDEs con saltos)</strong></span> Sea <span class="math inline">\(X\)</span> una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>. Entonces, bajo las condiciones de integrabilidad correspondientes, para todo <span class="math inline">\(t\geq 0\)</span> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
     U(X(t))
@@ -912,7 +901,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala càdlàg respecto de una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> que satisface las condiciones usuales. Si <span class="math inline">\(p&gt;1\)</span> y <span class="math inline">\(\mathbb{E}[|M_t|^p]&lt;\infty\)</span>, entonces</p>
+<p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala càdlàg respecto de una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> que satisface las condiciones usuales. Si <span class="math inline">\(p&gt;1\)</span> y <span class="math inline">\(\mathbb{E}[|M_t|^p]&lt;\infty\)</span>, entonces</p>
 <p><span class="math display">\[
     \mathbb{E}\left[
         \sup_{0\leq s\leq t}|M_s|^p
@@ -962,7 +951,7 @@ respecto del movimiento browniano. Esta combinación constituye una de las herra
 \]</span></p>
 </div>
 <div id="thm-BDG" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.17 (Desigualdad de Burkholder-Davis-Gundy)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala local càdlàg con <span class="math inline">\(M_0=0\)</span>, y sea <span class="math inline">\([M]_t\)</span> su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de <span class="math inline">\(M\)</span>, que incluye las contribuciones de sus saltos.</p>
+<p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad de Burkholder-Davis-Gundy)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala local càdlàg con <span class="math inline">\(M_0=0\)</span>, y sea <span class="math inline">\([M]_t\)</span> su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de <span class="math inline">\(M\)</span>, que incluye las contribuciones de sus saltos.</p>
 <p>Para todo <span class="math inline">\(p&gt;0\)</span> existen constantes <span class="math inline">\(c_p,C_p&gt;0\)</span>, que dependen únicamente de <span class="math inline">\(p\)</span>, tales que, en el sentido de las esperanzas extendidas,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1008,16 +997,108 @@ estudiar las integrales respecto del proceso de Poisson compensado.</p>
 momentos del supremo de una martingala con los momentos de su variación cuadrática.</p>
 <p>En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia fuerte de las EDEs con saltos y del método numérico <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
-<section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</h2>
-<p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
+<section id="convergencia-y-estimaciones-temporales" class="level2" style="text-align: justify" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="convergencia-y-estimaciones-temporales"><span class="header-section-number">3.7</span> Convergencia y Estimaciones Temporales</h2>
+<p>En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.</p>
+<p>En esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.</p>
 </section>
-<div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.18 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<div id="lem-corelcantelli" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.5 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>. Si</p>
 <p><span class="math display">\[
-u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
+    \sum_{n=1}^{\infty}\mathbb{P}(A_n)&lt;\infty,
 \]</span></p>
-<p>entonces se garantiza que <span class="math inline">\(u(t) \leq a \exp\left( \int_0^t b(s)\,ds \right)\)</span> para todo <span class="math inline">\(t \in [0, T]\)</span>. En el caso particular en que <span class="math inline">\(b(s) = K\)</span> es constante, la cota se simplifica a <span class="math inline">\(u(t) \leq a e^{Kt}\)</span>.</p>
+<p>entonces</p>
+<p><span class="math display">\[
+    \mathbb{P}\left(
+        \limsup_{n\to\infty} A_n
+    \right)=0.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>Aquí, el evento</p>
+<p><span class="math display">\[
+    \limsup_{n\to\infty}A_n
+    =
+    \bigcap_{m=1}^{\infty}
+    \bigcup_{n=m}^{\infty}A_n
+\]</span></p>
+<p>representa la ocurrencia de infinitos eventos <span class="math inline">\(A_n\)</span>. Por tanto, el lema establece que, bajo la condición de sumabilidad anterior, casi seguramente solo un número finito de esos eventos puede ocurrir.</p>
+<p>En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos <span class="math inline">\(A_n\)</span> representan incumplimientos de ciertas cotas probabilísticas. Si se demuestra que las probabilidades de esos incumplimientos son sumables, puede concluirse que casi seguramente las cotas correspondientes se satisfacen a partir de cierto índice. Combinado con estimaciones adecuadas de los errores, esto permite establecer resultados de convergencia casi segura, incluso uniforme en el tiempo cuando se controlan los errores mediante la norma del supremo</p>
+<p>La convergencia en probabilidad es otra forma importante de convergencia en teoría de procesos estocásticos. Aunque no garantiza por sí sola que toda la sucesión converja casi seguramente, sí permite extraer una subsucesión que posee esta propiedad.</p>
+</div>
+<div id="thm-convprobsub" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.17 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n\in\mathbb{N}}\)</span> una sucesión de variables aleatorias y sea <span class="math inline">\(X\)</span> una variable aleatoria definidas en el mismo espacio de probabilidad. Si</p>
+<p><span class="math display">\[
+    X_n\xrightarrow{\mathbb{P}}X,
+\]</span></p>
+<p>entonces existe una subsucesión <span class="math inline">\(\{X_{n_k}\}_{k\in\mathbb{N}}\)</span> tal que</p>
+<p><span class="math display">\[
+    X_{n_k}\xrightarrow{\text{c.s.}}X.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura. En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.</p>
+<p>En las demostraciones de existencia, unicidad y estabilidad de ecuaciones diferenciales estocásticas aparecen frecuentemente desigualdades integrales en las que una función desconocida está acotada por una constante más una integral de ella misma. La desigualdad de Gronwall permite transformar este tipo de estimaciones en cotas explícitas.</p>
+</div>
+<div id="thm-gronwall" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.18 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u:[0,T]\to[0,\infty)\)</span> una función medible y no negativa. Supóngase que <span class="math inline">\(a\geq 0\)</span>, que <span class="math inline">\(b:[0,T]\to[0,\infty)\)</span> es integrable y que, para todo <span class="math inline">\(t\in[0,T]\)</span>,</p>
+<p><span class="math display">\[
+    u(t)\leq a+\int_0^t b(s)u(s)\,ds.
+\]</span></p>
+<p>Entonces</p>
+<p><span class="math display">\[
+    u(t)\leq
+    a\exp\left(\int_0^t b(s)\,ds\right),
+    \qquad t\in[0,T].
+\]</span></p>
+<p>En particular, si <span class="math inline">\(b(s)=K\)</span> para toda <span class="math inline">\(s\in[0,T]\)</span>, con <span class="math inline">\(K\geq0\)</span>, se obtiene</p>
+<p><span class="math display">\[
+    u(t)\leq ae^{Kt}.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy–Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}
+        |X(s)-Y(s)|^2
+    \right]
+    \leq
+    K\int_0^t
+    \mathbb{E}\left[
+        \sup_{0\leq r\leq s}
+        |X(r)-Y(r)|^2
+    \right]ds,
+\]</span></p>
+<p>entonces, bajo las condiciones necesarias de integrabilidad, la aplicación de Gronwall con término inicial nulo permite concluir que la diferencia es cero. Así se obtiene la unicidad trayectorial cuando la estimación anterior se ha establecido para las soluciones consideradas.</p>
+<p>De manera análoga, cuando el término inicial es positivo, el mismo resultado permite obtener cotas explícitas de los momentos de la solución y de las diferencias entre procesos. Su aplicación concreta depende de las hipótesis de la ecuación y de las estimaciones previas disponibles.</p>
+<p>Para estudiar métodos numéricos, las estimaciones suelen formularse sobre una malla temporal y, por tanto, conducen a desigualdades entre sucesiones. En este contexto se utiliza la versión discreta de Gronwall.</p>
+</div>
+<div id="lem-gronwalldiscreto" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.6</strong></span> Sean <span class="math inline">\(\{u_n\}_{n\geq0}\)</span> y <span class="math inline">\(\{a_n\}_{n\geq0}\)</span> sucesiones de números reales no negativos, y sea <span class="math inline">\(\beta\geq0\)</span>. Supóngase que, para todo <span class="math inline">\(n\geq0\)</span>,</p>
+<p><span class="math display">\[
+    u_n\leq a_n+\beta\sum_{i=0}^{n-1}u_i,
+\]</span></p>
+<p>donde la suma se considera igual a cero cuando <span class="math inline">\(n=0\)</span>. Entonces</p>
+<p><span class="math display">\[
+    u_n\leq
+    a_n+
+    \beta\sum_{i=0}^{n-1}
+    a_i(1+\beta)^{n-1-i}.
+\]</span></p>
+<p>En particular, si <span class="math inline">\(a_n=\alpha\)</span> para todo <span class="math inline">\(n\geq0\)</span>, con <span class="math inline">\(\alpha\geq0\)</span>, entonces</p>
+<p><span class="math display">\[
+    u_n\leq \alpha(1+\beta)^n
+    \leq \alpha e^{\beta n}.
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con<br>
+respecto al índice <span class="math inline">\(n\)</span>.</p>
+<p>En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación recursiva para los momentos de las soluciones aproximadas del método CSS<span class="math inline">\(\theta\)</span>, el lema de Gronwall discreto permite cerrar dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las<br>
+estimaciones previas lo permiten.</p>
+<p>En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel–Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.</p>
+<p>De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con saltos y al método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
 
 
