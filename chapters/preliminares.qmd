@@ -565,33 +565,433 @@ diferenciales estocásticas con saltos.
 
 ::: {style="text-align: justify"}
 
-## Procesos Estocásticos y Martingalas
+## Integración Estocástica y Fórmula de Itô 
 
-El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.
+El análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos 
+aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración 
+estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando 
+existen saltos, las discontinuidades de las trayectorias.
+
+
+En esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte 
+y convergencia del método numérico CSS$\theta$. En primer lugar, se introduce la compensación del proceso de Poisson, que permite 
+separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las  
+isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.
+
+Para comenzar, recordemos que un proceso de Poisson con intensidad constante $\lambda>0$ satisface $\mathbb{E}[N(t)]=\lambda t$. 
+Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable.
+Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus 
+propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.
 
 :::
+
 
 :::{#thm-doobmeyer style="text-align: justify"}
 
 ## Descomposición de Doob-Meyer para el proceso de Poisson
 
-Sea $N = (N(t))_{t \geq 0}$ un proceso de Poisson con intensidad $\lambda > 0$ adaptado a $(\mathcal{F}_t)$. Entonces $N(t)$ admite una descomposición única de la forma $N(t) = \widetilde{N}(t) + A(t)$, donde $A(t) = \lambda t$ es un proceso predecible, continuo y creciente (el compensador), y $\widetilde{N}(t) = N(t) - \lambda t$ es una martingala cuadrado-integrable respecto a $(\mathcal{F}_t)$. Esta descomposición es la base para definir la integral estocástica respecto a saltos de manera que preserve la propiedad de martingala.
+Sea $N=(N(t))_{t\geq 0}$ un proceso de Poisson de intensidad constante $\lambda>0$, adaptado a una filtración $(\mathcal{F}_t)_{t\geq 0}$ respecto de la cual conserva sus incrementos independientes. Entonces,
+
+$$
+    N(t)=\widetilde{N}(t)+\lambda t,
+    \qquad t\geq 0,
+$$
+
+donde
+
+$$
+    \widetilde{N}(t):=N(t)-\lambda t
+$$
+
+es una martingala cuadrado-integrable y $A(t)=\lambda t$ es un proceso predecible, continuo, creciente y con $A(0)=0$.
+
+Esta es la descomposición de Doob--Meyer del proceso de Poisson: $\widetilde{N}$ es la componente martingala y $A$ es su 
+compensador predecible
+
 
 :::
+
+::: {style="text-align: justify"}
+
+La compensación anterior resulta especialmente útil al trabajar con EDEs cuyo término de salto está expresado mediante 
+$d\widetilde{N}(t)$. En este caso, la integral estocástica respecto del proceso compensado tiene esperanza cero cuando se cumplen
+las condiciones habituales de integrabilidad. Además, su segundo momento puede calcularse mediante una identidad análoga a la 
+isometría de Itô para integrales respecto del movimiento browniano.
+
+Para formular estas identidades, consideremos un horizonte temporal fijo $T>0$ y un proceso predecible $H=(H(t))_{0\leq t\leq T}$. Supondremos que el integrando satisface
+
+$$
+    \mathbb{E}\left[
+        \int_0^T |H(s)|^2\,ds
+    \right]<\infty.
+$$
+
+Esta condición garantiza la existencia de las integrales estocásticas correspondientes en media cuadrática, tanto respecto de $W$ 
+como respecto de $\widetilde{N}$.
+
+:::
+
+:::{#thm-isometriaito style="text-align: justify"}
+
+## Isometría de Itô
+
+Sea $H$ un proceso predecible tal que
+
+$$
+    \mathbb{E}\left[
+        \int_0^T |H(s)|^2\,ds
+    \right]<\infty.
+$$
+
+Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
+
+-   **Integral respecto al movimiento browniano.** Si $W$ es un movimiento browniano estándar, entonces
+
+    $$
+        \mathbb{E}\left[
+            \left(
+                \int_0^t H(s)\,dW(s)
+            \right)^2
+        \right]
+        =
+        \mathbb{E}\left[
+            \int_0^t |H(s)|^2\,ds
+        \right].
+    $$
+
+-   **Integral respecto al proceso de Poisson compensado.**  Si $\widetilde{N}(t)=N(t)-\lambda t$ es un proceso de Poisson 
+    compensado de intensidad $\lambda>0$, entonces
+
+    $$
+        \mathbb{E}\left[
+            \left(
+                \int_0^t H(s)\,d\widetilde{N}(s)
+            \right)^2
+        \right]
+        =
+        \lambda\,
+        \mathbb{E}\left[
+            \int_0^t |H(s)|^2\,ds
+        \right].
+    $$
+
+En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.
+
+
+:::
+
+::: {style="text-align: justify"}
+
+Las isometrías de Itô permiten transformar el segundo momento de una integral estocástica en una integral ordinaria de los 
+cuadrados del integrando. Esta propiedad es fundamental para obtener estimaciones de las diferencias entre iteraciones de Picard 
+y para controlar el error cuadrático de las aproximaciones numéricas. Sin embargo, en las demostraciones de existencia y 
+convergencia también es necesario detener los procesos en tiempos de paro, especialmente cuando se requiere garantizar la 
+integrabilidad de las expresiones involucradas.
+
+La siguiente identidad formaliza esta operación. Su importancia radica en que permite expresar una integral hasta un tiempo  
+aleatorio como una integral sobre un intervalo determinista, mediante la incorporación de un indicador predecible.
+
+:::
+
+::: {#lem-identidadtruncada style="text-align: justify"}
+
+## Identidad de integrales truncadas
+
+Sea $\tau$ un tiempo de paro respecto de la filtración $(\mathcal{F}_t)_{t\geq 0}$ y sea $H$ un proceso predecible que satisfaga  
+las condiciones de integrabilidad necesarias. Para $X=W$ o $X=\widetilde{N}$, se cumple que
+
+$$
+    \int_0^{t\wedge\tau} H(s)\,dX(s)
+    =
+    \int_0^t
+        H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s),
+    \qquad t\geq 0,
+$$
+
+casi seguramente, para cada $t$.
+
+Equivalentemente, en términos del proceso integral,
+
+$$
+    \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
+$$
+
+:::
+
+::: {style="text-align: justify"}
+
+El indicador $\mathbf{1}_{\{s\leq\tau\}}$ permite anular la contribución del integrando después del tiempo de paro. La inclusión 
+del extremo $\tau$ es importante cuando el integrador tiene saltos, puesto que un proceso detenido en $\tau$ conserva el salto 
+que pueda producirse en ese instante.
+
+Esta identidad facilita el uso de técnicas de localización: se estudia primero un proceso detenido, para el cual pueden  
+establecerse cotas adecuadas, y después se consideran límites de la sucesión de procesos detenidos. No obstante, la identidad por 
+sí sola no garantiza integrabilidad; esta debe verificarse mediante las hipótesis correspondientes.
+
+Una vez establecidas las propiedades básicas de  las integrales estocásticas, podemos introducir la fórmula de Itô para  
+ecuaciones con saltos. En el caso continuo, esta fórmula incorpora una corrección determinada por la variación cuadrática del  
+movimiento browniano. Cuando existen saltos, además aparece un término que registra el cambio no lineal de la función en cada  
+discontinuidad. La forma de este término depende de si la ecuación se expresa mediante el proceso de Poisson original o mediante 
+su versión compensada.
+
+Consideremos la ecuación diferencial estocástica compensada
+
+$$
+    \begin{aligned}
+        dX(t)
+        &=
+        f(X(t-))\,dt
+        +g(X(t-))\,dW(t)\\
+        &\quad
+        +h(X(t-))\,d\widetilde{N}(t),
+        \qquad t\geq 0,
+    \end{aligned}
+$$
+
+con condición inicial $X(0)=X_0$, donde $W$ es un movimiento browniano estándar, $\widetilde{N}$ es un proceso de Poisson 
+compensado de intensidad $\lambda>0$ y $f,g,h:\mathbb{R}\to\mathbb{R}$ son funciones medibles. Denotamos por $X(t-)$ el límite 
+por la izquierda de la trayectoria en el instante $t$.
+
+Para una función $U\in C^2(\mathbb{R})$, definimos el operador diferencial asociado a la parte continua de la ecuación mediante
+
+$$
+    \mathcal{L}U(x)
+    :=
+    U'(x)f(x)
+    +\frac{1}{2}U''(x)g(x)^2.
+$$
+
+Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de $U(X(t))$ 
+a partir de la deriva, la difusión y la contribución de los saltos.
+
+:::
+
+
+:::{#thm-formulaito style="text-align: justify"}
+
+## Fórmula de Itô para EDEs con saltos 
+
+Sea $X$ una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea $U\in C^2(\mathbb{R})$. Entonces, 
+bajo las condiciones de integrabilidad correspondientes, para todo $t\geq 0$ se tiene
+
+$$
+\begin{aligned}
+    U(X(t))
+    &= U(X_0)
+    + \int_0^t \mathcal{L}U(X(s-))\,ds\\
+    &\quad
+    + \int_0^t
+        U'(X(s-))g(X(s-))\,dW(s)\\
+    &\quad
+    + \int_0^t
+        \Big[
+            U(X(s-)+h(X(s-)))
+            -U(X(s-))
+        \Big]\,d\widetilde{N}(s)\\
+    &\quad
+    +\lambda\int_0^t
+        \Big[
+            U(X(s-)+h(X(s-)))
+            -U(X(s-))\\
+    &\hspace{4.4cm}
+            -U'(X(s-))h(X(s-))
+        \Big]\,ds.
+\end{aligned}
+$$
+
+En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de 
+localización.
+
+:::
+
+::: {style="text-align: justify"}
+
+El término integral respecto de $\widetilde{N}$ describe la variación martingala de los saltos, mientras que la última integral 
+representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en 
+general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto.
+
+La fórmula de Itô es especialmente útil cuando se elige una función $U$ adecuada para estudiar los momentos de la solución. Por 
+ejemplo, las elecciones $U(x)=x^2$ o $U(x)=(1+x^2)^{p/2}$ permiten obtener estimaciones de segundo momento y de momentos de orden 
+superior. Asimismo, al aplicar la fórmula a la diferencia entre dos soluciones, se obtienen desigualdades que contribuyen a 
+demostrar unicidad y convergencia fuerte del método numérico $\text{CSS}\theta$.
+
+En conjunto, los resultados de esta sección constituyen la base del cálculo estocástico con saltos utilizado en los capítulos 
+posteriores. La compensación de Poisson permite separar la deriva de la componente martingala; las isometrías de Itô proporcionan 
+cotas para los momentos de las integrales; la identidad de integrales detenidas justifica las técnicas de localización; y la 
+fórmula de Itô permite analizar funciones de las soluciones y establecer estimaciones cuantitativas.
+
+:::
+
+
+
+
+::: {style="text-align: justify"}
+
+## Martingalas y Desigualdades Maximal
+
+En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no 
+siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que 
+sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el
+comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales 
+estocásticas.
+
+Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con 
+cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal 
+de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la  
+martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.
+
+:::
+
 
 :::{#thm-maximaldoob style="text-align: justify"}
 
 ## Desigualdad Maximal de Doob
 
-Sea $M = (M_t)_{t \geq 0}$ una martingala continua o cádlàg respecto a una filtración $(\mathcal{F}_t)$. Para cualquier $p > 1$ y $t > 0$, se cumple:
+Sea $M=(M_t)_{t\geq 0}$ una martingala càdlàg respecto de una filtración $(\mathcal{F}_t)_{t\geq 0}$ que satisface las 
+condiciones usuales. Si $p>1$ y $\mathbb{E}[|M_t|^p]<\infty$, entonces
 
-$$ 
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p]. 
+$$
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]
+    \leq
+    \left(\frac{p}{p-1}\right)^p
+    \mathbb{E}[|M_t|^p].
 $$
 
-En particular, para $p = 2$, la constante es $\left(\frac{2}{2-1}\right)^2 = 4$. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.
+En particular, para $p=2$ se obtiene
+
+$$
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^2
+    \right]
+    \leq
+    4\mathbb{E}[|M_t|^2].
+$$
 
 :::
+
+:::{style="text-align: justify"}
+
+La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el 
+instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías 
+de Itô permiten estimar el segundo momento de dicho valor final.
+
+Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral  
+respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones 
+de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.
+
+:::
+
+:::{#cor-controlmaximal style="text-align: justify"}
+
+## Control maximal de una integral respecto al movimiento browniano
+
+Sea $W$ un movimiento browniano respecto de la filtración considerada, y sea $H$ un proceso predecible tal que
+
+$$
+    \mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right]<\infty.
+$$
+
+Entonces,
+
+$$
+\begin{aligned}
+    \mathbb{E}\left[
+        \sup_{0\leq u\leq t}
+        \left|
+            \int_0^u H(s)\,dW(s)
+        \right|^2
+    \right]
+    &\leq
+    4\mathbb{E}\left[
+        \left|\int_0^t H(s)\,dW(s)\right|^2
+    \right]\\
+    &=4\mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right].
+\end{aligned}
+$$
+
+:::
+
+:::{#thm-BDG style="text-align: justify"}
+
+## Desigualdad de Burkholder-Davis-Gundy
+
+Sea $M=(M_t)_{t\geq 0}$ una martingala local càdlàg con $M_0=0$, y sea $[M]_t$ su variación cuadrática, es decir, el proceso 
+creciente asociado a las fluctuaciones cuadráticas de $M$, que incluye las contribuciones de sus saltos.
+
+Para todo $p>0$ existen constantes $c_p,C_p>0$, que dependen únicamente de $p$, tales que, en el sentido de las esperanzas extendidas,
+
+$$
+\begin{aligned}
+    c_p\,
+    \mathbb{E}\left[[M]_t^{p/2}\right]
+    &\leq
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]\\
+    &\leq
+    C_p\,
+    \mathbb{E}\left[[M]_t^{p/2}\right].
+\end{aligned}
+$$
+
+Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la  
+martingala y el momento de su variación cuadrática.
+
+:::
+
+
+:::{style="text-align: justify"}
+
+En el caso de una martingala continua, la variación cuadrática $[M]_t$ coincide con su variación cuadrática predecible 
+$\langle M\rangle_t$. Por tanto, en ese caso la desigualdad anterior puede escribirse como 
+
+$$
+\begin{aligned}
+    c_p\,
+    \mathbb{E}\left[
+        \langle M\rangle_t^{p/2}
+    \right]
+    &\leq
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]\\
+    &\leq
+    C_p\,
+    \mathbb{E}\left[
+        \langle M\rangle_t^{p/2}
+    \right].
+\end{aligned}
+$$
+
+Para martingalas con saltos, en cambio, no debe sustituirse automáticamente $[M]_t$ por $\langle M\rangle_t$: son procesos  
+distintos y la formulación general de BDG utiliza la variación cuadrática opcional $[M]$. Esta distinción es importante al  
+estudiar las integrales respecto del proceso de Poisson compensado.
+
+:::
+
+
+:::{style="text-align: justify"}
+
+Este corolario muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de 
+la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación 
+cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los  
+momentos del supremo de una martingala con los momentos de su variación cuadrática.
+
+En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las 
+secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras 
+que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales 
+estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia 
+fuerte de las EDEs con saltos y del método numérico $\text{CSS}\theta$.
+
+:::
+
+
 
 :::{style="text-align: justify"}
 
