@@ -70,21 +70,11 @@
     ]
   },
   {
-    "objectID": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
-    "href": "chapters/preliminares.html#teoría-de-la-probabilidad-y-convergencia",
-    "title": "3  Preliminares",
-    "section": "3.4 Teoría de la Probabilidad y Convergencia",
-    "text": "3.4 Teoría de la Probabilidad y Convergencia\nPara demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en \\(L^2\\) con la convergencia casi segura uniforme.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
-    ]
-  },
-  {
     "objectID": "chapters/preliminares.html#integración-estocástica-y-fórmula-de-itô",
     "href": "chapters/preliminares.html#integración-estocástica-y-fórmula-de-itô",
     "title": "3  Preliminares",
-    "section": "3.5 Integración Estocástica y Fórmula de Itô",
-    "text": "3.5 Integración Estocástica y Fórmula de Itô\nEl análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando existen saltos, las discontinuidades de las trayectorias.\nEn esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS\\(\\theta\\). En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.\nPara comenzar, recordemos que un proceso de Poisson con intensidad constante \\(\\lambda&gt;0\\) satisface \\(\\mathbb{E}[N(t)]=\\lambda t\\). Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable. Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.",
+    "section": "3.4 Integración Estocástica y Fórmula de Itô",
+    "text": "3.4 Integración Estocástica y Fórmula de Itô\nEl análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración estocástica debe considerar las propiedades probabilísticas de los integrandos, la estructura de las martingalas y, cuando existen saltos, las discontinuidades de las trayectorias.\nEn esta sección se presentan los resultados fundamentales que se utilizarán en las demostraciones de existencia, unicidad fuerte y convergencia del método numérico CSS\\(\\theta\\). En primer lugar, se introduce la compensación del proceso de Poisson, que permite separar la componente determinista asociada a su intensidad de la componente martingala. Posteriormente, se establecen las isometrías de Itô, la identidad para integrales detenidas y la fórmula de Itô para procesos con saltos.\nPara comenzar, recordemos que un proceso de Poisson con intensidad constante \\(\\lambda&gt;0\\) satisface \\(\\mathbb{E}[N(t)]=\\lambda t\\). Al restar su esperanza, se obtiene un proceso centrado que, bajo la filtración adecuada, es una martingala cuadrado-integrable. Esta descomposición permite construir integrales estocásticas respecto del proceso de Poisson compensado y estudiar sus propiedades mediante herramientas análogas a las utilizadas para el movimiento browniano.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -93,8 +83,8 @@
     "objectID": "chapters/preliminares.html#martingalas-y-desigualdades-maximal",
     "href": "chapters/preliminares.html#martingalas-y-desigualdades-maximal",
     "title": "3  Preliminares",
-    "section": "3.6 Martingalas y Desigualdades Maximal",
-    "text": "3.6 Martingalas y Desigualdades Maximal\nEn el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.\nLas desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la\nmartingala, mientras que la segunda permite relacionarlo con su variación cuadrática.",
+    "section": "3.5 Martingalas y Desigualdades Maximal",
+    "text": "3.5 Martingalas y Desigualdades Maximal\nEn el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.\nLas desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la\nmartingala, mientras que la segunda permite relacionarlo con su variación cuadrática.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -103,8 +93,8 @@
     "objectID": "chapters/preliminares.html#convergencia-y-estimaciones-temporales",
     "href": "chapters/preliminares.html#convergencia-y-estimaciones-temporales",
     "title": "3  Preliminares",
-    "section": "3.7 Convergencia y Estimaciones Temporales",
-    "text": "3.7 Convergencia y Estimaciones Temporales\nEn las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.\nEn esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.",
+    "section": "3.6 Convergencia y Estimaciones Temporales",
+    "text": "3.6 Convergencia y Estimaciones Temporales\nEn las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.\nEn esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
