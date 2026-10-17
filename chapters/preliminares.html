@@ -976,13 +976,21 @@ estimaciones previas lo permiten.</p>
 <li><p><span class="math inline">\(\textbf{Paso base:}\,\quad Z_0(t) := Z_0\)</span>, para todo <span class="math inline">\(t \geq 0\)</span>.</p></li>
 <li><p><span class="math inline">\(\textbf{Paso recursivo:}\)</span> Para <span class="math inline">\(n \geq 0\)</span>, definimos</p>
 <p><span class="math display">\[
-Z_{n+1}(t) := Z_0 + \int_0^t f(Z_n(s-))\,ds + \int_0^t g(Z_n(s-))\,dW(s) + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
+\begin{aligned}
+Z_{n+1}(t) &amp; := Z_0 + \int_0^t f(Z_n(s-))\,ds + \int_0^t g(Z_n(s-))\,dW(s)\\
+&amp; \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
+\end{aligned}
 \]</span></p></li>
 </ol>
+</div>
+<div style="text-align: justify">
 <p>El objetivo de la demostración de existencia consiste en probar que esta sucesión es de Cauchy en el espacio <span class="math inline">\(L^2\)</span>, que converge uniformemente casi seguramente a un proceso límite <span class="math inline">\(Z(t)\)</span>, y que dicho límite satisface la ecuación integral asociada a la EDE, la cuál puede tener la siguiente forma</p>
 <p><span class="math display">\[
 dZ(t) = f(Z(t-)) \, dt + g(Z(t-)) \, dW(t) + h(Z(t-)) \, d\widetilde{N}(t), \qquad t \geq 0,
 \]</span></p>
+</div>
+<div style="text-align: justify">
+<p>El objetivo de la demostración de existencia consistirá en probar que esta sucesión es de Cauchy en el espacio <span class="math inline">\(L^2\)</span>, que converge uniformemente casi seguramente a un proceso límite <span class="math inline">\(Z(t)\)</span>, y que dicho límite satisface la ecuación integral asociada. Para llevar a cabo estas estimaciones de convergencia, será indispensable imponer condiciones de regularidad sobre los coeficientes, lo cual formalizamos en el siguiente capítulo.</p>
 </div>
 
 
