@@ -596,7 +596,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span class="math display">\[
     L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
 \]</span></p>
-<p>podemos afirmar que es una martingala cuadrado-integrable. Utilizando la desigualdad maximal de Doob y la la isometría de Itô para el proceso de Poisson compensado, donde la variación cuadratica es <span class="math inline">\(\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du\)</span>, obtenemos</p>
+<p>podemos afirmar que es una martingala cuadrado-integrable. Utilizando <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> y <a href="preliminares.html#thm-isometriaito" class="quarto-xref">Teorema&nbsp;<span>3.13</span></a> para el proceso de Poisson compensado, donde la variación cuadratica es <span class="math inline">\(\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du\)</span>, obtenemos</p>
 <p><span id="eq-4.014"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup_{0\leq s\leq t}|L(s)|^2\right] &amp; \leq 4\,\mathbb{E}[|L(t)|^2] \\
@@ -657,7 +657,7 @@ Z_{n+1}(t) - Z_n(t)
 \end{aligned}
 \tag{4.17}\]</span></span></p>
 <p>Trabajaremos con cada término de la desigualdad para acotar <span class="math inline">\(\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]\)</span>.</p>
-<p>Para el primer término, aplicamos la Desigualdad de Cauchy-Schwarz para integrales. Dado que <span class="math inline">\(s\in[0,t]\)</span>, tenemos</p>
+<p>Para el primer término, aplicamos el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a> para integrales. Dado que <span class="math inline">\(s\in[0,t]\)</span>, tenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Bigg( \int_0^s \big[f(Z_n(u-)) &amp; - f(Z_{n-1}(u-))\big] du \Bigg)^2\\
@@ -676,7 +676,7 @@ Z_{n+1}(t) - Z_n(t)
 <p><span class="math display">\[
     M_g(s) := \int_0^s \Big[g(Z_n(u-))-g(Z_{n-1}(u-))\Big]\, dW(u).
 \]</span></p>
-<p>Como establecimos previamente para el proceso <span class="math inline">\(M(s)\)</span> en la <a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>. Dado que <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos</p>
+<p>Como establecimos previamente para el proceso <span class="math inline">\(M(s)\)</span> en la <a href="#eq-4.012" class="quarto-xref">Ecuación&nbsp;<span>4.11</span></a>. Dado que <span class="math inline">\(Z_n\)</span> y <span class="math inline">\(Z_{n-1}\)</span> son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable. Aplicando <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> y la <a href="preliminares.html#thm-isometriaito" class="quarto-xref">Teorema&nbsp;<span>3.13</span></a> para el movimiento browniano, obtenemos</p>
 <p><span id="eq-4.020"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[ \sup_{0 \leq s \leq t} |M_g(s)|^2 \right]\\
@@ -908,7 +908,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg).
 \]</span></p>
-<p>Aplicando la desigualdad de Chebyshev-Markov a <span class="math inline">\(X_n^2\)</span>, tenemos</p>
+<p>Aplicando el <a href="preliminares.html#thm-markovchebyshev" class="quarto-xref">Teorema&nbsp;<span>3.11</span></a> a <span class="math inline">\(X_n^2\)</span>, tenemos</p>
 <p><span id="eq-4.031"><span class="math display">\[
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
 \tag{4.30}\]</span></span></p>
@@ -924,7 +924,7 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p><span class="math display">\[
     \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}&lt;\infty.
 \]</span></p>
-<p>Al ser la suma de probabilidades finita, podemos aplicar el Lema de Borel-Cantelli, lo que nos permite afirmar que</p>
+<p>Al ser la suma de probabilidades finita, podemos aplicar el <a href="preliminares.html#lem-borelcantelli" class="quarto-xref">Lema&nbsp;<span>3.5</span></a>, lo que nos permite afirmar que</p>
 <p><span class="math display">\[
     \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0.
 \]</span></p>
@@ -957,7 +957,7 @@ Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\bi
 \end{aligned}
 \tag{4.32}\]</span></span></p>
 <p>Procedemos a acotar cada término de manera análoga al paso inductivo de la iteración de Picard.</p>
-<p>Aplicando la desigualdad de Cauchy–Schwarz para integrales, y notando que <span class="math inline">\(s\leq t\)</span>, tenemos</p>
+<p>Aplicando el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a> para integrales, y notando que <span class="math inline">\(s\leq t\)</span>, tenemos</p>
 <p><span id="eq-4.034"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[\sup_{0\leq s\leq t}\left|\int_0^s \big[f(Z^{(1)}(u-)) - f(Z^{(2)}(u-))\big]\,du\right|^2\right]\\
@@ -969,7 +969,7 @@ Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\bi
 M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 \]</span></p>
 <p>Dado que <span class="math inline">\(Z^{(1)}\)</span> y <span class="math inline">\(Z^{(2)}\)</span> son soluciones cuadrado-integrables y el coeficiente <span class="math inline">\(g\)</span> satisface la condición de crecimiento lineal, el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, lo que garantiza que <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable.</p>
-<p>Para acotar el supremo de esta martingala, aplicamos la Desigualdad Maximal de Doob para <span class="math inline">\(p=2\)</span>, la cual establece que</p>
+<p>Para acotar el supremo de esta martingala, aplicamos el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> para <span class="math inline">\(p=2\)</span>, la cual establece que</p>
 <p><span class="math display">\[
 \mathbb{E}[\sup_{0\leq s\leq t}|M_g(s)|^2] \leq 4\,\mathbb{E}[|M_g(t)|^2].
 \]</span></p>
@@ -992,7 +992,7 @@ M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 <p><span class="math display">\[
 M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u).
 \]</span></p>
-<p>Bajo las mismas hipótesis de integrabilidad, <span class="math inline">\(M_h(s)\)</span> es una martingala respecto a la filtración <span class="math inline">\(\mathbb{F}_t\)</span>. Al aplicar nuevamente la desigualdad maximal de Doob se tiene</p>
+<p>Bajo las mismas hipótesis de integrabilidad, <span class="math inline">\(M_h(s)\)</span> es una martingala respecto a la filtración <span class="math inline">\(\mathbb{F}_t\)</span>. Al aplicar nuevamente <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a>, obtenemos</p>
 <p><span id="eq-4.036"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_h(s)|^2\right] \leq 4\,\mathbb{E}\left[|M_h(t)|^2\right].
 \tag{4.35}\]</span></span></p>
@@ -1143,7 +1143,7 @@ Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 <p><span class="math display">\[
     \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
 \]</span></p>
-<p>Por un resultado estándar de la teoría de la probabilidad, si una sucesión converge en probabilidad, entonces existe una subsucesión que converge casi seguramente. Es decir, podemos extraer una subsucesión <span class="math inline">\((Z^{(n_k)})_{k \in \mathbb{N}}\)</span> tal que</p>
+<p>Por un resultado estándar de la teoría de la probabilidad, si una sucesión converge en probabilidad, entonces existe una subsucesión que converge casi seguramente, esto se aborda en el <a href="preliminares.html#thm-convprobsub" class="quarto-xref">Teorema&nbsp;<span>3.17</span></a>. Es decir, podemos extraer una subsucesión <span class="math inline">\((Z^{(n_k)})_{k \in \mathbb{N}}\)</span> tal que</p>
 <p><span class="math display">\[
     \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
 \]</span></p>
@@ -1200,7 +1200,7 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 \end{aligned}
 \tag{4.40}\]</span></span></p>
 <p>Procedemos a acotar cada término utilizando las mismas herramientas que en el paso inductivo de la iteración de Picard.</p>
-<p>Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales</p>
+<p>Para el término de deriva, aplicamos el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a> para integrales</p>
 <p><span id="eq-4.042"><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left[\left|\int_0^t \big[f(Z(s-)) - f(Z_{n-1}(s-))\big]\,ds\right|^2\right]\\

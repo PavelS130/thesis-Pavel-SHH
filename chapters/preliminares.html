@@ -1028,7 +1028,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
 <p>En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.</p>
 <p>En esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.</p>
 </section>
-<div id="lem-corelcantelli" class="theorem lemma" style="text-align: justify">
+<div id="lem-borelcantelli" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 3.5 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>. Si</p>
 <p><span class="math display">\[
     \sum_{n=1}^{\infty}\mathbb{P}(A_n)&lt;\infty,
@@ -1086,7 +1086,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
 <p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
-<p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy–Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
+<p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
 <p><span class="math display">\[
     \mathbb{E}\left[
         \sup_{0\leq s\leq t}
