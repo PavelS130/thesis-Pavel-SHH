@@ -821,6 +821,60 @@ isometrías de Itô, la identidad para integrales detenidas y la fórmula de It�
 </ul>
 <p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.</p>
 </div>
+<div style="text-align: justify">
+<p>Las isometrías de Itô permiten transformar el segundo momento de una integral estocástica en una integral ordinaria de los cuadrados del integrando. Esta propiedad es fundamental para obtener estimaciones de las diferencias entre iteraciones de Picard y para controlar el error cuadrático de las aproximaciones numéricas. Sin embargo, en las demostraciones de existencia y convergencia también es necesario detener los procesos en tiempos de paro, especialmente cuando se requiere garantizar la integrabilidad de las expresiones involucradas.</p>
+<p>La siguiente identidad formaliza esta operación. Su importancia radica en que permite expresar una integral hasta un tiempo<br>
+aleatorio como una integral sobre un intervalo determinista, mediante la incorporación de un indicador predecible.</p>
+</div>
+<div id="lem-identidadtruncada" class="theorem lemma" style="text-align: justify">
+<p><span class="theorem-title"><strong>Lema 3.5 (Identidad de integrales truncadas)</strong></span> Sea <span class="math inline">\(\tau\)</span> un tiempo de paro respecto de la filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> y sea <span class="math inline">\(H\)</span> un proceso predecible que satisfaga<br>
+las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X=W\)</span> o <span class="math inline">\(X=\widetilde{N}\)</span>, se cumple que</p>
+<p><span class="math display">\[
+    \int_0^{t\wedge\tau} H(s)\,dX(s)
+    =
+    \int_0^t
+        H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s),
+    \qquad t\geq 0,
+\]</span></p>
+<p>casi seguramente, para cada <span class="math inline">\(t\)</span>.</p>
+<p>Equivalentemente, en términos del proceso integral,</p>
+<p><span class="math display">\[
+    \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau}
+    =
+    \int_0^t
+        H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>El indicador <span class="math inline">\(\mathbf{1}_{\{s\leq\tau\}}\)</span> permite anular la contribución del integrando después del tiempo de paro. La inclusión del extremo <span class="math inline">\(\tau\)</span> es importante cuando el integrador tiene saltos, puesto que un proceso detenido en <span class="math inline">\(\tau\)</span> conserva el salto que pueda producirse en ese instante.</p>
+<p>Esta identidad facilita el uso de técnicas de localización: se estudia primero un proceso detenido, para el cual pueden<br>
+establecerse cotas adecuadas, y después se consideran límites de la sucesión de procesos detenidos. No obstante, la identidad por sí sola no garantiza integrabilidad; esta debe verificarse mediante las hipótesis correspondientes.</p>
+<p>Una vez establecidas las propiedades básicas de las integrales estocásticas, podemos introducir la fórmula de Itô para<br>
+ecuaciones con saltos. En el caso continuo, esta fórmula incorpora una corrección determinada por la variación cuadrática del<br>
+movimiento browniano. Cuando existen saltos, además aparece un término que registra el cambio no lineal de la función en cada<br>
+discontinuidad. La forma de este término depende de si la ecuación se expresa mediante el proceso de Poisson original o mediante su versión compensada.</p>
+<p>Consideremos la ecuación diferencial estocástica compensada</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        dX(t)
+        &amp;=
+        f(X(t-))\,dt
+        +g(X(t-))\,dW(t)\\
+        &amp;\quad
+        +h(X(t-))\,d\widetilde{N}(t),
+        \qquad t\geq 0,
+    \end{aligned}
+\]</span></p>
+<p>con condición inicial <span class="math inline">\(X(0)=X_0\)</span>, donde <span class="math inline">\(W\)</span> es un movimiento browniano estándar, <span class="math inline">\(\widetilde{N}\)</span> es un proceso de Poisson compensado de intensidad <span class="math inline">\(\lambda&gt;0\)</span> y <span class="math inline">\(f,g,h:\mathbb{R}\to\mathbb{R}\)</span> son funciones medibles. Denotamos por <span class="math inline">\(X(t-)\)</span> el límite por la izquierda de la trayectoria en el instante <span class="math inline">\(t\)</span>.</p>
+<p>Para una función <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, definimos el operador diferencial asociado a la parte continua de la ecuación mediante</p>
+<p><span class="math display">\[
+    \mathcal{L}U(x)
+    :=
+    U'(x)f(x)
+    +\frac{1}{2}U''(x)g(x)^2.
+\]</span></p>
+<p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
+</div>
 <section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.6</span> Procesos Estocásticos y Martingalas</h2>
 <p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
