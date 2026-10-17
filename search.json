@@ -90,11 +90,11 @@
     ]
   },
   {
-    "objectID": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
-    "href": "chapters/preliminares.html#procesos-estocásticos-y-martingalas",
+    "objectID": "chapters/preliminares.html#martingalas-y-desigualdades-maximal",
+    "href": "chapters/preliminares.html#martingalas-y-desigualdades-maximal",
     "title": "3  Preliminares",
-    "section": "3.6 Procesos Estocásticos y Martingalas",
-    "text": "3.6 Procesos Estocásticos y Martingalas\nEl núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.",
+    "section": "3.6 Martingalas y Desigualdades Maximal",
+    "text": "3.6 Martingalas y Desigualdades Maximal\nEn el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.\nLas desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la\nmartingala, mientras que la segunda permite relacionarlo con su variación cuadrática.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]

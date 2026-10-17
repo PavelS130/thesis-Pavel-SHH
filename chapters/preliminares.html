@@ -424,7 +424,7 @@ window.Quarto = {
   <li><a href="#desigualdades-fundamentales-y-álgebra" id="toc-desigualdades-fundamentales-y-álgebra" class="nav-link" data-scroll-target="#desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</a></li>
   <li><a href="#teoría-de-la-probabilidad-y-convergencia" id="toc-teoría-de-la-probabilidad-y-convergencia" class="nav-link" data-scroll-target="#teoría-de-la-probabilidad-y-convergencia"><span class="header-section-number">3.4</span> Teoría de la Probabilidad y Convergencia</a></li>
   <li><a href="#integración-estocástica-y-fórmula-de-itô" id="toc-integración-estocástica-y-fórmula-de-itô" class="nav-link" data-scroll-target="#integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.5</span> Integración Estocástica y Fórmula de Itô</a></li>
-  <li><a href="#procesos-estocásticos-y-martingalas" id="toc-procesos-estocásticos-y-martingalas" class="nav-link" data-scroll-target="#procesos-estocásticos-y-martingalas"><span class="header-section-number">3.6</span> Procesos Estocásticos y Martingalas</a></li>
+  <li><a href="#martingalas-y-desigualdades-maximal" id="toc-martingalas-y-desigualdades-maximal" class="nav-link" data-scroll-target="#martingalas-y-desigualdades-maximal"><span class="header-section-number">3.6</span> Martingalas y Desigualdades Maximal</a></li>
   <li><a href="#estimaciones-y-ecuaciones-diferenciales" id="toc-estimaciones-y-ecuaciones-diferenciales" class="nav-link" data-scroll-target="#estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
@@ -839,10 +839,7 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p>casi seguramente, para cada <span class="math inline">\(t\)</span>.</p>
 <p>Equivalentemente, en términos del proceso integral,</p>
 <p><span class="math display">\[
-    \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau}
-    =
-    \int_0^t
-        H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
+    \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
 \]</span></p>
 </div>
 <div style="text-align: justify">
@@ -875,23 +872,148 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 \]</span></p>
 <p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
 </div>
-<section id="procesos-estocásticos-y-martingalas" class="level2" style="text-align: justify" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="procesos-estocásticos-y-martingalas"><span class="header-section-number">3.6</span> Procesos Estocásticos y Martingalas</h2>
-<p>El núcleo del marco teórico para EDEs con saltos reside en el comportamiento de las integrales estocásticas. A continuación se enuncian las propiedades clave del proceso de Poisson y las cotas para martingalas.</p>
+<div id="thm-formulaito" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.15 (Fórmula de Itô para EDEs con saltos)</strong></span> Sea <span class="math inline">\(X\)</span> una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>. Entonces, bajo las condiciones de integrabilidad correspondientes, para todo <span class="math inline">\(t\geq 0\)</span> se tiene</p>
+<p><span class="math display">\[
+\begin{aligned}
+    U(X(t))
+    &amp;= U(X_0)
+    + \int_0^t \mathcal{L}U(X(s-))\,ds\\
+    &amp;\quad
+    + \int_0^t
+        U'(X(s-))g(X(s-))\,dW(s)\\
+    &amp;\quad
+    + \int_0^t
+        \Big[
+            U(X(s-)+h(X(s-)))
+            -U(X(s-))
+        \Big]\,d\widetilde{N}(s)\\
+    &amp;\quad
+    +\lambda\int_0^t
+        \Big[
+            U(X(s-)+h(X(s-)))
+            -U(X(s-))\\
+    &amp;\hspace{4.4cm}
+            -U'(X(s-))h(X(s-))
+        \Big]\,ds.
+\end{aligned}
+\]</span></p>
+<p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización.</p>
+</div>
+<div style="text-align: justify">
+<p>El término integral respecto de <span class="math inline">\(\widetilde{N}\)</span> describe la variación martingala de los saltos, mientras que la última integral representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto.</p>
+<p>La fórmula de Itô es especialmente útil cuando se elige una función <span class="math inline">\(U\)</span> adecuada para estudiar los momentos de la solución. Por ejemplo, las elecciones <span class="math inline">\(U(x)=x^2\)</span> o <span class="math inline">\(U(x)=(1+x^2)^{p/2}\)</span> permiten obtener estimaciones de segundo momento y de momentos de orden superior. Asimismo, al aplicar la fórmula a la diferencia entre dos soluciones, se obtienen desigualdades que contribuyen a demostrar unicidad y convergencia fuerte del método numérico <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
+<p>En conjunto, los resultados de esta sección constituyen la base del cálculo estocástico con saltos utilizado en los capítulos posteriores. La compensación de Poisson permite separar la deriva de la componente martingala; las isometrías de Itô proporcionan cotas para los momentos de las integrales; la identidad de integrales detenidas justifica las técnicas de localización; y la fórmula de Itô permite analizar funciones de las soluciones y establecer estimaciones cuantitativas.</p>
+</div>
+<section id="martingalas-y-desigualdades-maximal" class="level2" style="text-align: justify" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="martingalas-y-desigualdades-maximal"><span class="header-section-number">3.6</span> Martingalas y Desigualdades Maximal</h2>
+<p>En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.</p>
+<p>Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la<br>
+martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M = (M_t)_{t \geq 0}\)</span> una martingala continua o cádlàg respecto a una filtración <span class="math inline">\((\mathcal{F}_t)\)</span>. Para cualquier <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(t &gt; 0\)</span>, se cumple:</p>
+<p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala càdlàg respecto de una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> que satisface las condiciones usuales. Si <span class="math inline">\(p&gt;1\)</span> y <span class="math inline">\(\mathbb{E}[|M_t|^p]&lt;\infty\)</span>, entonces</p>
 <p><span class="math display">\[
-\mathbb{E}\left[ \sup_{0 \leq s \leq t} |M_s|^p \right] \leq \left(\frac{p}{p-1}\right)^p \mathbb{E}[|M_t|^p].
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]
+    \leq
+    \left(\frac{p}{p-1}\right)^p
+    \mathbb{E}[|M_t|^p].
 \]</span></p>
-<p>En particular, para <span class="math inline">\(p = 2\)</span>, la constante es <span class="math inline">\(\left(\frac{2}{2-1}\right)^2 = 4\)</span>. Esta desigualdad es la herramienta principal para controlar el supremo de las integrales estocásticas (tanto brownianas como de Poisson compensado) en términos de su variación cuadrática o su valor final.</p>
+<p>En particular, para <span class="math inline">\(p=2\)</span> se obtiene</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^2
+    \right]
+    \leq
+    4\mathbb{E}[|M_t|^2].
+\]</span></p>
+</div>
+<div style="text-align: justify">
+<p>La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías de Itô permiten estimar el segundo momento de dicho valor final.</p>
+<p>Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral<br>
+respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.</p>
+</div>
+<div id="cor-controlmaximal" class="theorem corollary" style="text-align: justify">
+<p><span class="theorem-title"><strong>Corolario 3.1 (Control maximal de una integral respecto al movimiento browniano)</strong></span> Sea <span class="math inline">\(W\)</span> un movimiento browniano respecto de la filtración considerada, y sea <span class="math inline">\(H\)</span> un proceso predecible tal que</p>
+<p><span class="math display">\[
+    \mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right]&lt;\infty.
+\]</span></p>
+<p>Entonces,</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \mathbb{E}\left[
+        \sup_{0\leq u\leq t}
+        \left|
+            \int_0^u H(s)\,dW(s)
+        \right|^2
+    \right]
+    &amp;\leq
+    4\mathbb{E}\left[
+        \left|\int_0^t H(s)\,dW(s)\right|^2
+    \right]\\
+    &amp;=4\mathbb{E}\left[
+        \int_0^t |H(s)|^2\,ds
+    \right].
+\end{aligned}
+\]</span></p>
+</div>
+<div id="thm-BDG" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.17 (Desigualdad de Burkholder-Davis-Gundy)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala local càdlàg con <span class="math inline">\(M_0=0\)</span>, y sea <span class="math inline">\([M]_t\)</span> su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de <span class="math inline">\(M\)</span>, que incluye las contribuciones de sus saltos.</p>
+<p>Para todo <span class="math inline">\(p&gt;0\)</span> existen constantes <span class="math inline">\(c_p,C_p&gt;0\)</span>, que dependen únicamente de <span class="math inline">\(p\)</span>, tales que, en el sentido de las esperanzas extendidas,</p>
+<p><span class="math display">\[
+\begin{aligned}
+    c_p\,
+    \mathbb{E}\left[[M]_t^{p/2}\right]
+    &amp;\leq
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]\\
+    &amp;\leq
+    C_p\,
+    \mathbb{E}\left[[M]_t^{p/2}\right].
+\end{aligned}
+\]</span></p>
+<p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la<br>
+martingala y el momento de su variación cuadrática.</p>
+</div>
+<div style="text-align: justify">
+<p>En el caso de una martingala continua, la variación cuadrática <span class="math inline">\([M]_t\)</span> coincide con su variación cuadrática predecible <span class="math inline">\(\langle M\rangle_t\)</span>. Por tanto, en ese caso la desigualdad anterior puede escribirse como</p>
+<p><span class="math display">\[
+\begin{aligned}
+    c_p\,
+    \mathbb{E}\left[
+        \langle M\rangle_t^{p/2}
+    \right]
+    &amp;\leq
+    \mathbb{E}\left[
+        \sup_{0\leq s\leq t}|M_s|^p
+    \right]\\
+    &amp;\leq
+    C_p\,
+    \mathbb{E}\left[
+        \langle M\rangle_t^{p/2}
+    \right].
+\end{aligned}
+\]</span></p>
+<p>Para martingalas con saltos, en cambio, no debe sustituirse automáticamente <span class="math inline">\([M]_t\)</span> por <span class="math inline">\(\langle M\rangle_t\)</span>: son procesos<br>
+distintos y la formulación general de BDG utiliza la variación cuadrática opcional <span class="math inline">\([M]\)</span>. Esta distinción es importante al<br>
+estudiar las integrales respecto del proceso de Poisson compensado.</p>
+</div>
+<div style="text-align: justify">
+<p>Este corolario muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los<br>
+momentos del supremo de una martingala con los momentos de su variación cuadrática.</p>
+<p>En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia fuerte de las EDEs con saltos y del método numérico <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
 <section id="estimaciones-y-ecuaciones-diferenciales" class="level2" style="text-align: justify" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="estimaciones-y-ecuaciones-diferenciales"><span class="header-section-number">3.7</span> Estimaciones y Ecuaciones Diferenciales</h2>
 <p>Finalmente, una vez que hemos acotado los términos de una EDE, necesitamos un mecanismo para “cerrar” la desigualdad integral y obtener una cota explícita en función del tiempo.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
+<p><span class="theorem-title"><strong>Teorema 3.18 (Desigualdad de Gronwall)</strong></span> Sea <span class="math inline">\(u: [0, T] \to [0, \infty)\)</span> una función medible y no negativa, <span class="math inline">\(a \geq 0\)</span> una constante, y <span class="math inline">\(b: [0, T] \to [0, \infty)\)</span> una función integrable. Si <span class="math inline">\(u\)</span> satisface:</p>
 <p><span class="math display">\[
 u(t) \leq a + \int_0^t b(s)u(s)\,ds, \quad \forall t \in [0, T],
 \]</span></p>
