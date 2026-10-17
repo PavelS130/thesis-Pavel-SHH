@@ -55,8 +55,7 @@ las hipótesis de continuidad y compacidad correspondientes.
 Sea $K\subset\mathbb{R}$ un conjunto compacto y no vacío. Si $f:K\to\mathbb{R}$ es continua, entonces $f$ alcanza su máximo y su mínimo absolutos en $K$. Es decir, existen $x_{\max},x_{\min}\in K$ tales que
 
 $$
-    f(x_{\min})\leq f(x)\leq f(x_{\max}),
-    \qquad \text{para todo }x\in K.
+    f(x_{\min})\leq f(x)\leq f(x_{\max}),\qquad \text{para todo }x\in K.
 $$ 
 
 [@rudin1976principles].
@@ -95,8 +94,7 @@ Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. Una filtració
 sub-$\sigma$-álgebras $(\mathcal{F}_t)_{t\geq 0}$ de $\mathcal{F}$ tal que
 
 $$
-    \mathcal{F}_s\subseteq\mathcal{F}_t,
-    \qquad 0\leq s\leq t.
+    \mathcal{F}_s\subseteq\mathcal{F}_t,\qquad 0\leq s\leq t.
 $$
 
 Se dice que el espacio de probabilidad filtrado satisface las condiciones usuales si la filtración es continua por
@@ -142,15 +140,13 @@ Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de pro
 Una variable aleatoria $\tau:\Omega\to[0,\infty]$ es un $\textbf{tiempo de paro}$ respecto de la filtración $(\mathcal{F}_t)_{t\geq 0}$ si
 
 $$
-    \{\tau\leq t\}\in\mathcal{F}_t,
-    \qquad \text{para todo }t\geq 0.
+    \{\tau\leq t\}\in\mathcal{F}_t,\qquad \text{para todo }t\geq 0.
 $$
 
 El proceso detenido asociado a $X$ y $\tau$ se define mediante
 
 $$
-    X^\tau_t:=X_{t\wedge\tau},
-    \qquad t\geq 0,
+    X^\tau_t:=X_{t\wedge\tau},\qquad t\geq 0,
 $$
 
 donde $t\wedge\tau=\min\{t,\tau\}$. Equivalentemente, el proceso evoluciona como $X_t$ antes de $\tau$ y permanece constante en el valor $X_\tau$ después de dicho instante, cuando $\tau$ es finito.
@@ -178,21 +174,13 @@ Sea $(A_n)_{n\in\mathbb{N}}$ una sucesión de eventos en un espacio de probabili
 Si $A_n\subseteq A_{n+1}$ para todo $n\in\mathbb{N}$, entonces
 
 $$
-    \mathbb{P}\left(
-        \bigcup_{n=1}^{\infty}A_n
-    \right)
-    =
-    \lim_{n\to\infty}\mathbb{P}(A_n).
+    \mathbb{P}\left(\bigcup_{n=1}^{\infty}A_n\right)=\lim_{n\to\infty}\mathbb{P}(A_n).
 $$
 
 Por otro lado, si $A_{n+1}\subseteq A_n$ para todo $n\in\mathbb{N}$, entonces
 
 $$
-    \mathbb{P}\left(
-        \bigcap_{n=1}^{\infty}A_n
-    \right)
-    =
-    \lim_{n\to\infty}\mathbb{P}(A_n).
+    \mathbb{P}\left(\bigcap_{n=1}^{\infty}A_n\right)=\lim_{n\to\infty}\mathbb{P}(A_n).
 $$
 
 La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$ [@billingsley1995probability].
@@ -206,21 +194,13 @@ La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado q
 Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. El espacio
 
 $$
-    L^2(\Omega,\mathcal{F},\mathbb{P})
-    :=
-    \left\{
-       X:\Omega\to\mathbb{R}:
-       X\text{ es medible y }
-       \mathbb{E}[|X|^2]<\infty
-    \right\},
+    L^2(\Omega,\mathcal{F},\mathbb{P}):=\left\{X:\Omega\to\mathbb{R}:X\text{ es medible y }\mathbb{E}[|X|^2]<\infty\right\},
 $$
 
 considerado módulo igualdad casi seguramente y equipado con la norma
 
 $$
-    \|X\|_2
-    :=
-    \left(\mathbb{E}[|X|^2]\right)^{1/2},
+    \|X\|_2:=\left(\mathbb{E}[|X|^2]\right)^{1/2},
 $$
 
 es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio [@folland1999real].
@@ -298,16 +278,13 @@ entre procesos estocásticos.
 Sean $n\geq 1$ un entero, $a_1,\ldots,a_n\geq 0$ y $p\geq 1$. Entonces,
 
 $$
-    \left(\sum_{i=1}^{n}a_i\right)^p
-    \leq
-    n^{p-1}\sum_{i=1}^{n}a_i^p.
+    \left(\sum_{i=1}^{n}a_i\right)^p\leq n^{p-1}\sum_{i=1}^{n}a_i^p.
 $$
 
 En particular, para $a,b,c\geq 0$,
 
 $$
-    (a+b+c)^2
-    \leq 3(a^2+b^2+c^2).
+    (a+b+c)^2\leq 3(a^2+b^2+c^2).
 $$
 
 [@rudin1976principles].
@@ -321,9 +298,7 @@ $$
 Sea $I$ un conjunto no vacío y sean $f,g:I\to\mathbb{R}$ funciones acotadas superiormente. Entonces,
 
 $$
-    \sup_{s\in I}\bigl(f(s)+g(s)\bigr)
-    \leq
-    \sup_{s\in I}f(s)+\sup_{s\in I}g(s).
+    \sup_{s\in I}\bigl(f(s)+g(s)\bigr)\leq\sup_{s\in I}f(s)+\sup_{s\in I}g(s).
 $$
 
 Además, si $f(s)\leq M$ para todo $s\in I$, entonces
@@ -349,12 +324,7 @@ $$
 Sean $f,g\in L^2([0,T])$ funciones medibles. Entonces,
 
 $$
-    \left|
-        \int_0^T f(s)g(s)\,ds
-    \right|
-    \leq
-    \left(\int_0^T|f(s)|^2\,ds\right)^{1/2}
-    \left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
+    \left|\int_0^T f(s)g(s)\,ds\right|\leq\left(\int_0^T|f(s)|^2\,ds\right)^{1/2}\left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
 $$
 
 [@folland1999real].
@@ -387,19 +357,13 @@ $$
 Si $X\in L^p(\Omega,\mathcal{F},\mathbb{P})$ y $Y\in L^q(\Omega,\mathcal{F},\mathbb{P})$, entonces
 
 $$
-    \mathbb{E}[|XY|]
-    \leq
-    \left(\mathbb{E}[|X|^p]\right)^{1/p}
-    \left(\mathbb{E}[|Y|^q]\right)^{1/q}.
+    \mathbb{E}[|XY|]\leq\left(\mathbb{E}[|X|^p]\right)^{1/p}\left(\mathbb{E}[|Y|^q]\right)^{1/q}.
 $$
 
 Análogamente, para funciones $f\in L^p([0,T])$ y $g\in L^q([0,T])$,
 
 $$
-    \int_0^T|f(s)g(s)|\,ds
-    \leq
-    \left(\int_0^T|f(s)|^p\,ds\right)^{1/p}
-    \left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
+    \int_0^T|f(s)g(s)|\,ds\leq\left(\int_0^T|f(s)|^p\,ds\right)^{1/p}\left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
 $$
 
 [@folland1999real].
@@ -413,9 +377,7 @@ $$
 Sea $X$ una variable aleatoria integrable y sea $\phi$ una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,
 
 $$
-    \phi\bigl(\mathbb{E}[X]\bigr)
-    \leq
-    \mathbb{E}[\phi(X)].
+    \phi\bigl(\mathbb{E}[X]\bigr)\leq\mathbb{E}[\phi(X)].
 $$
 
 [@durrett2019probability]
@@ -428,19 +390,13 @@ Una aplicación importante se obtiene considerando la función convexa $\phi(x)=
 $t>0$, la aplicación de Jensen a la medida de Lebesgue normalizada $\frac{1}{t}\,ds$ implica que
 
 $$
-    \left|
-        \frac{1}{t}\int_0^t f(s)\,ds
-    \right|^p
-    \leq
-    \frac{1}{t}\int_0^t|f(s)|^p\,ds.
+    \left|\frac{1}{t}\int_0^t f(s)\,ds\right|^p\leq\frac{1}{t}\int_0^t|f(s)|^p\,ds.
 $$
 
 Equivalentemente,
 
 $$
-    \left|\int_0^t f(s)\,ds\right|^p
-    \leq
-    t^{p-1}\int_0^t|f(s)|^p\,ds.
+    \left|\int_0^t f(s)\,ds\right|^p\leq t^{p-1}\int_0^t|f(s)|^p\,ds.
 $$
 
 Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos. 
@@ -457,32 +413,20 @@ Sea $X$ una variable aleatoria.
     entonces
 
     $$
-        \mathbb{P}(|X|\geq a)
-        \leq
-        \frac{\mathbb{E}[|X|^p]}{a^p}.
+        \mathbb{P}(|X|\geq a)\leq\frac{\mathbb{E}[|X|^p]}{a^p}.
     $$
 
 -   **Desigualdad de Chebyshev** Si $X$ tiene segundo momento finito, entonces
 
     $$
         \mathbb{P}
-        \left(
-            |X-\mathbb{E}[X]|\geq a
-        \right)
-        \leq
-        \frac{\operatorname{Var}(X)}{a^2},
-        \qquad a>0,
+        \left(|X-\mathbb{E}[X]|\geq a\right)\leq\frac{\operatorname{Var}(X)}{a^2},\qquad a>0,
     $$
 
     donde
     
     $$
-        \operatorname{Var}(X)
-        =
-        \mathbb{E}
-        \left[
-            |X-\mathbb{E}[X]|^2
-        \right].
+        \operatorname{Var}(X)=\mathbb{E}\left[|X-\mathbb{E}[X]|^2\right].
     $$
 
 [@durrett2019probability].
@@ -508,17 +452,13 @@ $$
 Más generalmente, para todo $\delta>0$,
 
 $$
-    ab
-    \leq
-    \delta a^p+C_{p,\delta}b^q,
+    ab\leq\delta a^p+C_{p,\delta}b^q,
 $$
 
 donde puede tomarse
 
 $$
-    C_{p,\delta}
-    =
-    \frac{1}{q}(p\delta)^{-q/p}.
+    C_{p,\delta}=\frac{1}{q}(p\delta)^{-q/p}.
 $$
 
 [@folland1999real].
@@ -569,8 +509,7 @@ propiedades mediante herramientas análogas a las utilizadas para el movimiento 
 Sea $N=(N(t))_{t\geq 0}$ un proceso de Poisson de intensidad constante $\lambda>0$, adaptado a una filtración $(\mathcal{F}_t)_{t\geq 0}$ respecto de la cual conserva sus incrementos independientes. Entonces,
 
 $$
-    N(t)=\widetilde{N}(t)+\lambda t,
-    \qquad t\geq 0,
+    N(t)=\widetilde{N}(t)+\lambda t,\qquad t\geq 0,
 $$
 
 donde
@@ -596,9 +535,7 @@ isometría de Itô para integrales respecto del movimiento browniano.
 Para formular estas identidades, consideremos un horizonte temporal fijo $T>0$ y un proceso predecible $H=(H(t))_{0\leq t\leq T}$. Supondremos que el integrando satisface
 
 $$
-    \mathbb{E}\left[
-        \int_0^T |H(s)|^2\,ds
-    \right]<\infty.
+    \mathbb{E}\left[\int_0^T |H(s)|^2\,ds\right]<\infty.
 $$
 
 Esta condición garantiza la existencia de las integrales estocásticas correspondientes en media cuadrática, tanto respecto de
@@ -613,9 +550,7 @@ $W$ como respecto de $\widetilde{N}$.
 Sea $H$ un proceso predecible tal que
 
 $$
-    \mathbb{E}\left[
-        \int_0^T |H(s)|^2\,ds
-    \right]<\infty.
+    \mathbb{E}\left[\int_0^T |H(s)|^2\,ds\right]<\infty.
 $$
 
 Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
@@ -623,31 +558,14 @@ Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
 -   **Integral respecto al movimiento browniano.** Si $W$ es un movimiento browniano estándar, entonces
 
     $$
-        \mathbb{E}\left[
-            \left(
-                \int_0^t H(s)\,dW(s)
-            \right)^2
-        \right]
-        =
-        \mathbb{E}\left[
-            \int_0^t |H(s)|^2\,ds
-        \right].
+        \mathbb{E}\left[\left(\int_0^t H(s)\,dW(s)\right)^2\right]=\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
     $$
 
 -   **Integral respecto al proceso de Poisson compensado.**  Si $\widetilde{N}(t)=N(t)-\lambda t$ es un proceso de Poisson 
     compensado de intensidad $\lambda>0$, entonces
 
     $$
-        \mathbb{E}\left[
-            \left(
-                \int_0^t H(s)\,d\widetilde{N}(s)
-            \right)^2
-        \right]
-        =
-        \lambda\,
-        \mathbb{E}\left[
-            \int_0^t |H(s)|^2\,ds
-        \right].
+        \mathbb{E}\left[\left(\int_0^t H(s)\,d\widetilde{N}(s)\right)^2\right]=\lambda\,\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
     $$
 
 En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula
@@ -676,11 +594,7 @@ Sea $\tau$ un tiempo de paro respecto de la filtración $(\mathcal{F}_t)_{t\geq 
 las condiciones de integrabilidad necesarias. Para $X=W$ o $X=\widetilde{N}$, se cumple que
 
 $$
-    \int_0^{t\wedge\tau} H(s)\,dX(s)
-    =
-    \int_0^t
-        H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s),
-    \qquad t\geq 0,
+    \int_0^{t\wedge\tau} H(s)\,dX(s)=\int_0^tH(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s),\qquad t\geq 0,
 $$
 
 casi seguramente, para cada $t$.
@@ -715,13 +629,8 @@ Consideremos la ecuación diferencial estocástica compensada
 
 $$
     \begin{aligned}
-        dX(t)
-        &=
-        f(X(t-))\,dt
-        +g(X(t-))\,dW(t)\\
-        &\quad
-        +h(X(t-))\,d\widetilde{N}(t),
-        \qquad t\geq 0,
+        dX(t)&=f(X(t-))\,dt+g(X(t-))\,dW(t)\\
+        & \quad +h(X(t-))\,d\widetilde{N}(t),\qquad t\geq 0,
     \end{aligned}
 $$
 
@@ -732,10 +641,7 @@ por la izquierda de la trayectoria en el instante $t$.
 Para una función $U\in C^2(\mathbb{R})$, definimos el operador diferencial asociado a la parte continua de la ecuación mediante
 
 $$
-    \mathcal{L}U(x)
-    :=
-    U'(x)f(x)
-    +\frac{1}{2}U''(x)g(x)^2.
+    \mathcal{L}U(x):=U'(x)f(x)+\frac{1}{2}U''(x)g(x)^2.
 $$
 
 Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de $U(X(t))$ 
@@ -752,26 +658,11 @@ bajo las condiciones de integrabilidad correspondientes, para todo $t\geq 0$ se 
 
 $$
 \begin{aligned}
-    U(X(t))
-    &= U(X_0)
-    + \int_0^t \mathcal{L}U(X(s-))\,ds\\
-    &\quad
-    + \int_0^t
-        U'(X(s-))g(X(s-))\,dW(s)\\
-    &\quad
-    + \int_0^t
-        \Big[
-            U(X(s-)+h(X(s-)))
-            -U(X(s-))
-        \Big]\,d\widetilde{N}(s)\\
-    &\quad
-    +\lambda\int_0^t
-        \Big[
-            U(X(s-)+h(X(s-)))
-            -U(X(s-))\\
-    &\hspace{4.4cm}
-            -U'(X(s-))h(X(s-))
-        \Big]\,ds.
+    U(X(t))&= U(X_0)+ \int_0^t \mathcal{L}U(X(s-))\,ds\\
+    &\quad+ \int_0^t U'(X(s-))g(X(s-))\,dW(s)\\
+    &\quad+ \int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\Big]\,d\widetilde{N}(s)\\
+    &\quad+\lambda\int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\\
+    &\qquad\qquad\qquad - U'(X(s-))h(X(s-))\Big]\,ds.
 \end{aligned}
 $$
 
@@ -823,22 +714,13 @@ Sea $M=(M_t)_{t\geq 0}$ una martingala càdlàg respecto de una filtración $(\m
 condiciones usuales. Si $p>1$ y $\mathbb{E}[|M_t|^p]<\infty$, entonces
 
 $$
-    \mathbb{E}\left[
-        \sup_{0\leq s\leq t}|M_s|^p
-    \right]
-    \leq
-    \left(\frac{p}{p-1}\right)^p
-    \mathbb{E}[|M_t|^p].
+    \mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^p\right]\leq\left(\frac{p}{p-1}\right)^p\mathbb{E}[|M_t|^p].
 $$
 
 En particular, para $p=2$ se obtiene
 
 $$
-    \mathbb{E}\left[
-        \sup_{0\leq s\leq t}|M_s|^2
-    \right]
-    \leq
-    4\mathbb{E}[|M_t|^2].
+    \mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^2\right]\leq 4\mathbb{E}[|M_t|^2].
 $$
 
 [@protter2005stochastic].
@@ -864,28 +746,16 @@ de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas
 Sea $W$ un movimiento browniano respecto de la filtración considerada, y sea $H$ un proceso predecible tal que
 
 $$
-    \mathbb{E}\left[
-        \int_0^t |H(s)|^2\,ds
-    \right]<\infty.
+    \mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right]<\infty.
 $$
 
 Entonces,
 
 $$
 \begin{aligned}
-    \mathbb{E}\left[
-        \sup_{0\leq u\leq t}
-        \left|
-            \int_0^u H(s)\,dW(s)
-        \right|^2
-    \right]
-    &\leq
-    4\mathbb{E}\left[
-        \left|\int_0^t H(s)\,dW(s)\right|^2
-    \right]\\
-    &=4\mathbb{E}\left[
-        \int_0^t |H(s)|^2\,ds
-    \right].
+    \mathbb{E}\left[\sup_{0\leq u\leq t}\left|\int_0^u H(s)\,dW(s)\right|^2\right]
+    & \leq 4\mathbb{E}\left[\left|\int_0^t H(s)\,dW(s)\right|^2\right]\\
+    & = 4\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
 \end{aligned}
 $$
 
@@ -904,15 +774,8 @@ Para todo $p>0$ existen constantes $c_p,C_p>0$, que dependen únicamente de $p$,
 
 $$
 \begin{aligned}
-    c_p\,
-    \mathbb{E}\left[[M]_t^{p/2}\right]
-    &\leq
-    \mathbb{E}\left[
-        \sup_{0\leq s\leq t}|M_s|^p
-    \right]\\
-    &\leq
-    C_p\,
-    \mathbb{E}\left[[M]_t^{p/2}\right].
+    c_p\,\mathbb{E}\left[[M]_t^{p/2}\right]&\leq\mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^p\right]\\
+    &\leq C_p\,\mathbb{E}\left[[M]_t^{p/2}\right].
 \end{aligned}
 $$
 
@@ -928,19 +791,8 @@ $\langle M\rangle_t$. Por tanto, en ese caso la desigualdad anterior puede escri
 
 $$
 \begin{aligned}
-    c_p\,
-    \mathbb{E}\left[
-        \langle M\rangle_t^{p/2}
-    \right]
-    &\leq
-    \mathbb{E}\left[
-        \sup_{0\leq s\leq t}|M_s|^p
-    \right]\\
-    &\leq
-    C_p\,
-    \mathbb{E}\left[
-        \langle M\rangle_t^{p/2}
-    \right].
+    c_p\,\mathbb{E}\left[\langle M\rangle_t^{p/2}\right]&\leq\mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^p\right]\\
+    & \leq C_p\,\mathbb{E}\left[\langle M\rangle_t^{p/2}\right].
 \end{aligned}
 $$
 
@@ -994,9 +846,7 @@ $$
 entonces
 
 $$
-    \mathbb{P}\left(
-        \limsup_{n\to\infty} A_n
-    \right)=0.
+    \mathbb{P}\left(\limsup_{n\to\infty} A_n\right)=0.
 $$
 
 [@durrett2019probability]
@@ -1008,10 +858,7 @@ $$
 Aquí, el evento
 
 $$
-    \limsup_{n\to\infty}A_n
-    =
-    \bigcap_{m=1}^{\infty}
-    \bigcup_{n=m}^{\infty}A_n
+    \limsup_{n\to\infty}A_n=\bigcap_{m=1}^{\infty}\bigcup_{n=m}^{\infty}A_n
 $$
 
 representa la ocurrencia de infinitos eventos $A_n$. Por tanto, el lema establece que, bajo la condición de
@@ -1077,9 +924,7 @@ $$
 Entonces
 
 $$
-    u(t)\leq
-    a\exp\left(\int_0^t b(s)\,ds\right),
-    \qquad t\in[0,T].
+    u(t)\leq a\exp\left(\int_0^t b(s)\,ds\right),\qquad t\in[0,T].
 $$
 
 En particular, si $b(s)=K$ para toda $s\in[0,T]$, con $K\geq0$, se obtiene
@@ -1099,16 +944,7 @@ de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. 
 entre dos soluciones conduce a
 
 $$
-    \mathbb{E}\left[
-        \sup_{0\leq s\leq t}
-        |X(s)-Y(s)|^2
-    \right]
-    \leq
-    K\int_0^t
-    \mathbb{E}\left[
-        \sup_{0\leq r\leq s}
-        |X(r)-Y(r)|^2
-    \right]ds,
+    \mathbb{E}\left[\sup_{0\leq s\leq t}|X(s)-Y(s)|^2\right]\leq K\int_0^t\mathbb{E}\left[\sup_{0\leq r\leq s}|X(r)-Y(r)|^2\right]ds,
 $$
 
 entonces, bajo las condiciones necesarias de integrabilidad, la aplicación de Gronwall con término inicial nulo permite concluir 
@@ -1138,17 +974,13 @@ $$
 donde la suma se considera igual a cero cuando $n=0$. Entonces
 
 $$
-    u_n\leq
-    a_n+
-    \beta\sum_{i=0}^{n-1}
-    a_i(1+\beta)^{n-1-i}.
+    u_n\leq a_n+\beta\sum_{i=0}^{n-1}a_i(1+\beta)^{n-1-i}.
 $$
 
 En particular, si $a_n=\alpha$ para todo $n\geq0$, con $\alpha\geq0$, entonces
 
 $$
-    u_n\leq \alpha(1+\beta)^n
-    \leq \alpha e^{\beta n}.
+    u_n\leq \alpha(1+\beta)^n\leq \alpha e^{\beta n}.
 $$
 
 [@tan2017]
