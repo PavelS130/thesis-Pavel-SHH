@@ -23,7 +23,7 @@ Para garantizar que ciertas funciones y procesos estocásticos estén acotados e
 
 ## Heine-Borel
 
-Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a, b]\subset\mathbb{R}$ es compacto.
+Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a, b]\subset\mathbb{R}$ es compacto [@rudin1976principles].
 
 :::
 
@@ -37,7 +37,7 @@ La compacidad de los intervalos cerrados proporciona un marco adecuado para estu
 
 ## Bolzano–Weierstrass
 
-Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de $\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto.
+Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de $\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto [@rudin1976principles].
 
 :::
 
@@ -57,7 +57,9 @@ Sea $K\subset\mathbb{R}$ un conjunto compacto y no vacío. Si $f:K\to\mathbb{R}$
 $$
     f(x_{\min})\leq f(x)\leq f(x_{\max}),
     \qquad \text{para todo }x\in K.
-$$
+$$ 
+
+[@rudin1976principles].
 
 :::
 
@@ -71,7 +73,7 @@ $$
     f(c)=y.
 $$
 
-Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$.
+Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$ [@rudin1976principles].
 
 :::
 
@@ -104,7 +106,7 @@ $$
     \mathcal{F}_t=\bigcap_{s>t}\mathcal{F}_s,
 $$
 
-y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad nula.
+y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad nula [@kallenberg2002foundations].
 
 :::
 
@@ -129,6 +131,8 @@ Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de pro
 -   El proceso $X$ tiene trayectorias $\textbf{càdlàg}$ si, casi seguramente, sus trayectorias son continuas por la derecha y 
     poseen límites por la izquierda en cada instante $t>0$.
 
+[@kallenberg2002foundations], [@protter2005stochastic]
+
 :::
 
 :::{#def-tiemposdeparo style = "text-align: justify"}
@@ -151,7 +155,7 @@ $$
 
 donde $t\wedge\tau=\min\{t,\tau\}$. Equivalentemente, el proceso evoluciona como $X_t$ antes de $\tau$ y permanece constante en el valor $X_\tau$ después de dicho instante, cuando $\tau$ es finito.
 
-Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si $X$ es una martingala càdlàg, el teorema de muestreo opcional permite establecer que $(X_{t\wedge\tau})_{t\geq 0}$ es una martingala bajo las hipótesis correspondientes.
+Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si $X$ es una martingala càdlàg, el teorema de muestreo opcional permite establecer que $(X_{t\wedge\tau})_{t\geq 0}$ es una martingala bajo las hipótesis correspondientes [@kallenberg2002foundations].
 
 :::
 
@@ -191,7 +195,7 @@ $$
     \lim_{n\to\infty}\mathbb{P}(A_n).
 $$
 
-La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$.
+La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$ [@billingsley1995probability].
 
 :::
 
@@ -219,7 +223,7 @@ $$
     \left(\mathbb{E}[|X|^2]\right)^{1/2},
 $$
 
-es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio.
+es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio [@folland1999real].
 
 :::
 
@@ -249,7 +253,7 @@ Sea $(X, \mathcal{A}, \mu)$ y $(Y, \mathcal{B}, \nu)$ espacios de medida $\sigma
 
 - **Fubini** Si $f$ es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble. 
 
-En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$.
+En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$ [@folland1999real].
 
 :::
 
@@ -263,7 +267,7 @@ $$
 \mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n]. 
 $$
 
-Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite.
+Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite [@folland1999real].
 
 :::
 
@@ -306,6 +310,8 @@ $$
     \leq 3(a^2+b^2+c^2).
 $$
 
+[@rudin1976principles].
+
 :::
 
 ::: {#prp-propsupremos style="text-align: justify"}
@@ -332,6 +338,8 @@ $$
     \sup_{0\leq s\leq t}f(s)=f(t).
 $$
 
+[@rudin1976principles].
+
 :::
 
 ::: {#thm-cauchyschwarz style="text-align: justify"}
@@ -348,6 +356,8 @@ $$
     \left(\int_0^T|f(s)|^2\,ds\right)^{1/2}
     \left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
 $$
+
+[@folland1999real].
 
 :::
 
@@ -392,6 +402,8 @@ $$
     \left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
 $$
 
+[@folland1999real].
+
 :::
 
 ::: {#thm-jensen style="text-align: justify"}
@@ -405,6 +417,8 @@ $$
     \leq
     \mathbb{E}[\phi(X)].
 $$
+
+[@durrett2019probability]
 
 :::
 
@@ -471,6 +485,8 @@ Sea $X$ una variable aleatoria.
         \right].
     $$
 
+[@durrett2019probability].
+
 :::
 
 ::: {#lem-young style="text-align: justify"}
@@ -504,6 +520,8 @@ $$
     =
     \frac{1}{q}(p\delta)^{-q/p}.
 $$
+
+[@folland1999real].
 
 :::
 
@@ -564,7 +582,7 @@ $$
 es una martingala cuadrado-integrable y $A(t)=\lambda t$ es un proceso predecible, continuo, creciente y con $A(0)=0$.
 
 Esta es la descomposición de Doob--Meyer del proceso de Poisson: $\widetilde{N}$ es la componente martingala y $A$ es su 
-compensador predecible
+compensador predecible [@protter2005stochastic].
 
 :::
 
@@ -632,7 +650,8 @@ Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
         \right].
     $$
 
-En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.
+En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula
+[@applebaum2009levy].
 
 :::
 
@@ -671,6 +690,8 @@ Equivalentemente, en términos del proceso integral,
 $$
     \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
 $$
+
+[@protter2005stochastic].
 
 :::
 
@@ -755,7 +776,7 @@ $$
 $$
 
 En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de 
-localización.
+localización [@applebaum2009levy].
 
 :::
 
@@ -820,6 +841,8 @@ $$
     4\mathbb{E}[|M_t|^2].
 $$
 
+[@protter2005stochastic].
+
 :::
 
 :::{style="text-align: justify"}
@@ -866,6 +889,8 @@ $$
 \end{aligned}
 $$
 
+[@applebaum2009levy].
+
 :::
 
 :::{#thm-BDG style="text-align: justify"}
@@ -892,7 +917,7 @@ $$
 $$
 
 Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la  
-martingala y el momento de su variación cuadrática.
+martingala y el momento de su variación cuadrática [@protter2005stochastic].
 
 :::
 
@@ -974,6 +999,8 @@ $$
     \right)=0.
 $$
 
+[@durrett2019probability]
+
 :::
 
 :::{style="text-align: justify"}
@@ -1019,6 +1046,8 @@ $$
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 $$
 
+[@billingsley1995probability].
+
 :::
 
 :::{style="text-align: justify"}
@@ -1058,6 +1087,8 @@ En particular, si $b(s)=K$ para toda $s\in[0,T]$, con $K\geq0$, se obtiene
 $$
     u(t)\leq ae^{Kt}.
 $$
+
+[@applebaum2009levy].
 
 :::
 
@@ -1119,6 +1150,8 @@ $$
     u_n\leq \alpha(1+\beta)^n
     \leq \alpha e^{\beta n}.
 $$
+
+[@tan2017]
 
 :::
 
