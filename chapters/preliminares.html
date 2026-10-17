@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -460,13 +479,13 @@ window.Quarto = {
 <p>Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de <span class="math inline">\(\mathbb{R}\)</span>.</p>
 </section>
 <div id="thm-heineborel" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.1 (Heine-Borel)</strong></span> Un subconjunto <span class="math inline">\(K \subset \mathbb{R}\)</span> es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado <span class="math inline">\([a, b]\subset\mathbb{R}\)</span> es compacto.</p>
+<p><span class="theorem-title"><strong>Teorema 3.1 (Heine-Borel)</strong></span> Un subconjunto <span class="math inline">\(K \subset \mathbb{R}\)</span> es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado <span class="math inline">\([a, b]\subset\mathbb{R}\)</span> es compacto <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La compacidad de los intervalos cerrados proporciona un marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotado permite extraer una subsucesión convergente. Esta propiedad, conocida como el teorema de Bolzano–Weierstrass, será útil en los argumentos donde se requiera obtener límites de sucesiones de aproximaciones o de cantidades reales acotadas.</p>
 </div>
 <div id="thm-bolzanoweierstrass" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.2 (Bolzano–Weierstrass)</strong></span> Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de <span class="math inline">\(\mathbb{R}\)</span>, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto.</p>
+<p><span class="theorem-title"><strong>Teorema 3.2 (Bolzano–Weierstrass)</strong></span> Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de <span class="math inline">\(\mathbb{R}\)</span>, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Además de garantizar la existencia de subsucesiones convergentes, la compacidad tiene una consecuencia importante para las funciones continuas: estas alcanzan sus valores máximo y mínimo sobre conjuntos compactos no vacíos. Este resultado permite establecer cotas uniformes para funciones que intervienen en las ecuaciones diferenciales estocásticas, siempre que se verifiquen las hipótesis de continuidad y compacidad correspondientes.</p>
@@ -477,13 +496,14 @@ window.Quarto = {
     f(x_{\min})\leq f(x)\leq f(x_{\max}),
     \qquad \text{para todo }x\in K.
 \]</span></p>
+<p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div id="thm-valorintermedio" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.4 (Valor Intermedio)</strong></span> Sea <span class="math inline">\(f:[a,b]\to\mathbb{R}\)</span> una función continua. Si <span class="math inline">\(y\)</span> está estrictamente entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, entonces existe al menos un <span class="math inline">\(c\in(a,b)\)</span> tal que</p>
 <p><span class="math display">\[
     f(c)=y.
 \]</span></p>
-<p>Más generalmente, para cualquier <span class="math inline">\(y\)</span> comprendido entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, existe <span class="math inline">\(c\in[a,b]\)</span> tal que <span class="math inline">\(f(c)=y\)</span>.</p>
+<p>Más generalmente, para cualquier <span class="math inline">\(y\)</span> comprendido entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span>, existe <span class="math inline">\(c\in[a,b]\)</span> tal que <span class="math inline">\(f(c)=y\)</span> <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <section id="fundamentos-de-probabilidad-y-procesos-estocásticos" class="level2" style="text-align: justify" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="fundamentos-de-probabilidad-y-procesos-estocásticos"><span class="header-section-number">3.2</span> Fundamentos de Probabilidad y Procesos Estocásticos</h2>
@@ -500,7 +520,7 @@ window.Quarto = {
 <p><span class="math display">\[
     \mathcal{F}_t=\bigcap_{s&gt;t}\mathcal{F}_s,
 \]</span></p>
-<p>y <span class="math inline">\(\mathcal{F}_0\)</span> contiene todos los conjuntos de <span class="math inline">\(\mathcal{F}\)</span> de probabilidad nula.</p>
+<p>y <span class="math inline">\(\mathcal{F}_0\)</span> contiene todos los conjuntos de <span class="math inline">\(\mathcal{F}\)</span> de probabilidad nula <span class="citation" data-cites="kallenberg2002foundations">(<a href="referencias.html#ref-kallenberg2002foundations" role="doc-biblioref">Kallenberg 2002</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Una vez establecido el espacio probabilístico filtrado, es necesario precisar cómo se relacionan los procesos estocásticos con la información representada por la filtración. En particular, la adaptabilidad garantiza que el valor de un proceso en el instante <span class="math inline">\(t\)</span> pueda describirse mediante la información disponible hasta ese momento. Por su parte, la predictibilidad es una condición importante para definir los integrandos de las integrales estocásticas, mientras que la regularidad de las trayectorias permite estudiar sus límites y discontinuidades.</p>
@@ -512,6 +532,7 @@ window.Quarto = {
 <li><p>El proceso <span class="math inline">\(X\)</span> es <span class="math inline">\(\textbf{predecible}\)</span> si es medible respecto de la <span class="math inline">\(\sigma\)</span>-álgebra predecible, generada por los procesos adaptados y continuos por la izquierda.</p></li>
 <li><p>El proceso <span class="math inline">\(X\)</span> tiene trayectorias <span class="math inline">\(\textbf{càdlàg}\)</span> si, casi seguramente, sus trayectorias son continuas por la derecha y poseen límites por la izquierda en cada instante <span class="math inline">\(t&gt;0\)</span>.</p></li>
 </ul>
+<p><span class="citation" data-cites="kallenberg2002foundations">(<a href="referencias.html#ref-kallenberg2002foundations" role="doc-biblioref">Kallenberg 2002</a>)</span>, <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span></p>
 </div>
 <div id="def-tiemposdeparo" class="theorem definition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Definición 3.3 (Tiempo de paro y proceso truncado)</strong></span> Una variable aleatoria <span class="math inline">\(\tau:\Omega\to[0,\infty]\)</span> es un <span class="math inline">\(\textbf{tiempo de paro}\)</span> respecto de la filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> si</p>
@@ -525,7 +546,7 @@ window.Quarto = {
     \qquad t\geq 0,
 \]</span></p>
 <p>donde <span class="math inline">\(t\wedge\tau=\min\{t,\tau\}\)</span>. Equivalentemente, el proceso evoluciona como <span class="math inline">\(X_t\)</span> antes de <span class="math inline">\(\tau\)</span> y permanece constante en el valor <span class="math inline">\(X_\tau\)</span> después de dicho instante, cuando <span class="math inline">\(\tau\)</span> es finito.</p>
-<p>Si <span class="math inline">\(X\)</span> es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si <span class="math inline">\(X\)</span> es una martingala càdlàg, el teorema de muestreo opcional permite establecer que <span class="math inline">\((X_{t\wedge\tau})_{t\geq 0}\)</span> es una martingala bajo las hipótesis correspondientes.</p>
+<p>Si <span class="math inline">\(X\)</span> es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si <span class="math inline">\(X\)</span> es una martingala càdlàg, el teorema de muestreo opcional permite establecer que <span class="math inline">\((X_{t\wedge\tau})_{t\geq 0}\)</span> es una martingala bajo las hipótesis correspondientes <span class="citation" data-cites="kallenberg2002foundations">(<a href="referencias.html#ref-kallenberg2002foundations" role="doc-biblioref">Kallenberg 2002</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Los tiempos de paro permiten construir sucesiones de procesos detenidos cuya evolución se controla en conjuntos acotados. Para estudiar los límites de estas sucesiones y justificar el paso a límites en estimaciones probabilísticas, también es necesario recordar algunas propiedades básicas de la medida de probabilidad. Entre ellas destaca la continuidad de la probabilidad respecto de sucesiones monótonas de eventos, que permite relacionar la probabilidad de un límite de eventos con las probabilidades de los eventos que lo componen.</p>
@@ -548,7 +569,7 @@ window.Quarto = {
     =
     \lim_{n\to\infty}\mathbb{P}(A_n).
 \]</span></p>
-<p>La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que <span class="math inline">\(\mathbb{P}(A_1)\leq 1&lt;\infty\)</span>.</p>
+<p>La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que <span class="math inline">\(\mathbb{P}(A_1)\leq 1&lt;\infty\)</span> <span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
 </div>
 <div id="thm-completitudl2" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.6 (Completitud de <span class="math inline">\(L^2\)</span>)</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. El espacio</p>
@@ -567,7 +588,7 @@ window.Quarto = {
     :=
     \left(\mathbb{E}[|X|^2]\right)^{1/2},
 \]</span></p>
-<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio.</p>
+<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La completitud de <span class="math inline">\(L^2\)</span> constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en <span class="math inline">\(L^2\)</span>. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.</p>
@@ -579,14 +600,14 @@ window.Quarto = {
 <li><p><strong>Tonelli</strong> Si <span class="math inline">\(f: X \times Y \to [0, \infty]\)</span> es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.</p></li>
 <li><p><strong>Fubini</strong> Si <span class="math inline">\(f\)</span> es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble.</p></li>
 </ul>
-<p>En probabilidad, esto justifica escribir <span class="math inline">\(\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds\)</span> cuando <span class="math inline">\(Y_s \geq 0\)</span>.</p>
+<p>En probabilidad, esto justifica escribir <span class="math inline">\(\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds\)</span> cuando <span class="math inline">\(Y_s \geq 0\)</span> <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div id="lem-fatou" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 3.1 (Fatou)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n \in \mathbb{N}}\)</span> una sucesión de variables aleatorias no negativas definidas en <span class="math inline">\((\Omega, \mathcal{F}, \mathbb{P})\)</span>. Entonces se cumple:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n].
 \]</span></p>
-<p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
+<p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <section id="desigualdades-fundamentales-y-álgebra" class="level2" style="text-align: justify" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="desigualdades-fundamentales-y-álgebra"><span class="header-section-number">3.3</span> Desigualdades Fundamentales y Álgebra</h2>
@@ -606,6 +627,7 @@ window.Quarto = {
     (a+b+c)^2
     \leq 3(a^2+b^2+c^2).
 \]</span></p>
+<p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div id="prp-propsupremos" class="theorem proposition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Proposición 3.1 (Propiedades del supremo)</strong></span> Sea <span class="math inline">\(I\)</span> un conjunto no vacío y sean <span class="math inline">\(f,g:I\to\mathbb{R}\)</span> funciones acotadas superiormente. Entonces,</p>
@@ -622,6 +644,7 @@ window.Quarto = {
 <p><span class="math display">\[
     \sup_{0\leq s\leq t}f(s)=f(t).
 \]</span></p>
+<p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div id="thm-cauchyschwarz" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.8 (Desigualdad de Cauchy-Schwarz)</strong></span> Sean <span class="math inline">\(f,g\in L^2([0,T])\)</span> funciones medibles. Entonces,</p>
@@ -633,6 +656,7 @@ window.Quarto = {
     \left(\int_0^T|f(s)|^2\,ds\right)^{1/2}
     \left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
 \]</span></p>
+<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Esta última expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de las cuaciones diferenciales estocásticas.</p>
@@ -657,6 +681,7 @@ window.Quarto = {
     \left(\int_0^T|f(s)|^p\,ds\right)^{1/p}
     \left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
 \]</span></p>
+<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div id="thm-jensen" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.10 (Desigualdad de Jensen)</strong></span> Sea <span class="math inline">\(X\)</span> una variable aleatoria integrable y sea <span class="math inline">\(\phi\)</span> una función convexa para la cual las esperanzas involucradas están bien definidas. Entonces,</p>
@@ -665,6 +690,7 @@ window.Quarto = {
     \leq
     \mathbb{E}[\phi(X)].
 \]</span></p>
+<p><span class="citation" data-cites="durrett2019probability">(<a href="referencias.html#ref-durrett2019probability" role="doc-biblioref">Durrett 2019</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>Una aplicación importante se obtiene considerando la función convexa <span class="math inline">\(\phi(x)=|x|^p\)</span>, con <span class="math inline">\(p\geq 1\)</span>. Si <span class="math inline">\(f\in L^p([0,t])\)</span> y <span class="math inline">\(t&gt;0\)</span>, la aplicación de Jensen a la medida de Lebesgue normalizada <span class="math inline">\(\frac{1}{t}\,ds\)</span> implica que</p>
@@ -712,6 +738,7 @@ window.Quarto = {
     \right].
 \]</span></p></li>
 </ul>
+<p><span class="citation" data-cites="durrett2019probability">(<a href="referencias.html#ref-durrett2019probability" role="doc-biblioref">Durrett 2019</a>)</span>.</p>
 </div>
 <div id="lem-young" class="theorem lemma" style="text-align: justify">
 <p><span class="theorem-title"><strong>Lema 3.3 (Desigualdad de Young)</strong></span> Sean <span class="math inline">\(a,b\geq 0\)</span> y <span class="math inline">\(p,q&gt;1\)</span> exponentes conjugados, de manera que</p>
@@ -734,6 +761,7 @@ window.Quarto = {
     =
     \frac{1}{q}(p\delta)^{-q/p}.
 \]</span></p>
+<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La elección del parámetro <span class="math inline">\(\delta\)</span> permite ajustar la contribución de cada término de acuerdo con las necesidades de la demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para las soluciones exactas y numéricas.</p>
@@ -756,7 +784,7 @@ window.Quarto = {
     \widetilde{N}(t):=N(t)-\lambda t
 \]</span></p>
 <p>es una martingala cuadrado-integrable y <span class="math inline">\(A(t)=\lambda t\)</span> es un proceso predecible, continuo, creciente y con <span class="math inline">\(A(0)=0\)</span>.</p>
-<p>Esta es la descomposición de Doob–Meyer del proceso de Poisson: <span class="math inline">\(\widetilde{N}\)</span> es la componente martingala y <span class="math inline">\(A\)</span> es su compensador predecible</p>
+<p>Esta es la descomposición de Doob–Meyer del proceso de Poisson: <span class="math inline">\(\widetilde{N}\)</span> es la componente martingala y <span class="math inline">\(A\)</span> es su compensador predecible <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La compensación anterior resulta especialmente útil al trabajar con EDEs cuyo término de salto está expresado mediante <span class="math inline">\(d\widetilde{N}(t)\)</span>. En este caso, la integral estocástica respecto del proceso compensado tiene esperanza cero cuando se cumplen las condiciones habituales de integrabilidad. Además, su segundo momento puede calcularse mediante una identidad análoga a la isometría de Itô para integrales respecto del movimiento browniano.</p>
@@ -803,7 +831,7 @@ window.Quarto = {
     \right].
 \]</span></p></li>
 </ul>
-<p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.</p>
+<p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Las isometrías de Itô permiten transformar el segundo momento de una integral estocástica en una integral ordinaria de los cuadrados del integrando. Esta propiedad es fundamental para obtener estimaciones de las diferencias entre iteraciones de Picard y para controlar el error cuadrático de las aproximaciones numéricas. Sin embargo, en las demostraciones de existencia y convergencia también es necesario detener los procesos en tiempos de paro, especialmente cuando se requiere garantizar la integrabilidad de las expresiones involucradas.</p>
@@ -825,6 +853,7 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
 \]</span></p>
+<p><span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>El indicador <span class="math inline">\(\mathbf{1}_{\{s\leq\tau\}}\)</span> permite anular la contribución del integrando después del tiempo de paro. La inclusión del extremo <span class="math inline">\(\tau\)</span> es importante cuando el integrador tiene saltos, puesto que un proceso detenido en <span class="math inline">\(\tau\)</span> conserva el salto que pueda producirse en ese instante.</p>
@@ -882,7 +911,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
         \Big]\,ds.
 \end{aligned}
 \]</span></p>
-<p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización.</p>
+<p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>El término integral respecto de <span class="math inline">\(\widetilde{N}\)</span> describe la variación martingala de los saltos, mientras que la última integral representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto.</p>
@@ -913,6 +942,7 @@ martingala, mientras que la segunda permite relacionarlo con su variación cuadr
     \leq
     4\mathbb{E}[|M_t|^2].
 \]</span></p>
+<p><span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías de Itô permiten estimar el segundo momento de dicho valor final.</p>
@@ -944,6 +974,7 @@ respecto del movimiento browniano. Esta combinación constituye una de las herra
     \right].
 \end{aligned}
 \]</span></p>
+<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div id="thm-BDG" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad de Burkholder-Davis-Gundy)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala local càdlàg con <span class="math inline">\(M_0=0\)</span>, y sea <span class="math inline">\([M]_t\)</span> su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de <span class="math inline">\(M\)</span>, que incluye las contribuciones de sus saltos.</p>
@@ -962,7 +993,7 @@ respecto del movimiento browniano. Esta combinación constituye una de las herra
 \end{aligned}
 \]</span></p>
 <p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la<br>
-martingala y el momento de su variación cuadrática.</p>
+martingala y el momento de su variación cuadrática <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>En el caso de una martingala continua, la variación cuadrática <span class="math inline">\([M]_t\)</span> coincide con su variación cuadrática predecible <span class="math inline">\(\langle M\rangle_t\)</span>. Por tanto, en ese caso la desigualdad anterior puede escribirse como</p>
@@ -1008,6 +1039,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
         \limsup_{n\to\infty} A_n
     \right)=0.
 \]</span></p>
+<p><span class="citation" data-cites="durrett2019probability">(<a href="referencias.html#ref-durrett2019probability" role="doc-biblioref">Durrett 2019</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>Aquí, el evento</p>
@@ -1030,6 +1062,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
 <p><span class="math display">\[
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 \]</span></p>
+<p><span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura. En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.</p>
@@ -1050,6 +1083,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
 <p><span class="math display">\[
     u(t)\leq ae^{Kt}.
 \]</span></p>
+<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy–Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
@@ -1086,6 +1120,7 @@ momentos del supremo de una martingala con los momentos de su variación cuadrá
     u_n\leq \alpha(1+\beta)^n
     \leq \alpha e^{\beta n}.
 \]</span></p>
+<p><span class="citation" data-cites="tan2017">(<a href="referencias.html#ref-tan2017" role="doc-biblioref">Tan y Men 2017</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con<br>
@@ -1097,6 +1132,32 @@ estimaciones previas lo permiten.</p>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-applebaum2009levy" class="csl-entry" role="listitem">
+Applebaum, David. 2009. <em>L<span>é</span>vy Processes and Stochastic Calculus</em>. 2.ª ed. Vol. 116. Cambridge Studies en Advanced Mathematics. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511809781">https://doi.org/10.1017/CBO9780511809781</a>.
+</div>
+<div id="ref-billingsley1995probability" class="csl-entry" role="listitem">
+Billingsley, Patrick. 1995. <em>Probability and Measure</em>. 3.ª ed. Wiley-Interscience.
+</div>
+<div id="ref-durrett2019probability" class="csl-entry" role="listitem">
+Durrett, Rick. 2019. <em>Probability: Theory and Examples</em>. 5.ª ed. Cambridge University Press. <a href="https://doi.org/10.1017/9781108591034">https://doi.org/10.1017/9781108591034</a>.
+</div>
+<div id="ref-folland1999real" class="csl-entry" role="listitem">
+Folland, Gerald B. 1999. <em>Real Analysis: Modern Techniques and Their Applications</em>. 2.ª ed. John Wiley &amp; Sons. <a href="https://www.wiley.com/en-us/real-analysis-modern-techniques-and-their-applications-2nd-edition-p-9780471317166">https://www.wiley.com/en-us/real-analysis-modern-techniques-and-their-applications-2nd-edition-p-9780471317166</a>.
+</div>
+<div id="ref-kallenberg2002foundations" class="csl-entry" role="listitem">
+Kallenberg, Olav. 2002. <em>Foundations of Modern Probability</em>. 2.ª ed. Probability y Its Applications. Springer. <a href="https://doi.org/10.1007/978-1-4757-4015-8">https://doi.org/10.1007/978-1-4757-4015-8</a>.
+</div>
+<div id="ref-protter2005stochastic" class="csl-entry" role="listitem">
+Protter, Philip E. 2005. <em>Stochastic Integration and Differential Equations</em>. 2.ª ed. Vol. 21. Stochastic Modelling y Applied Probability. Springer. <a href="https://doi.org/10.1007/978-3-662-10061-5">https://doi.org/10.1007/978-3-662-10061-5</a>.
+</div>
+<div id="ref-rudin1976principles" class="csl-entry" role="listitem">
+Rudin, Walter. 1976. <em>Principles of Mathematical Analysis</em>. 3.ª ed. McGraw-Hill.
+</div>
+<div id="ref-tan2017" class="csl-entry" role="listitem">
+Tan, Jianguo, y Weiwei Men. 2017. <span>«Convergence of the compensated split-step <span class="math inline">\(\theta\)</span>-method for nonlinear jump-diffusion systems»</span>. <em>Advances in Difference Equations</em> 2017: 189. <a href="https://doi.org/10.1186/s13662-017-1247-6">https://doi.org/10.1186/s13662-017-1247-6</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
