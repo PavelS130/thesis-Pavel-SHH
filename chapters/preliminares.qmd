@@ -287,14 +287,6 @@ entre procesos estocásticos.
 
 :::
 
-::: {style="text-align: justify"}
-
-## Teoría de la Probabilidad y Convergencia
-
-Para demostrar que la sucesión de Picard converge a una solución con trayectorias continuas por la derecha y límites por la izquierda (cádlàg), debemos conectar la convergencia en $L^2$ con la convergencia casi segura uniforme.
-
-:::
-
 ::: {#lem-desgsumas style="text-align: justify"}
 
 ## Desigualdad para potencias de sumas
@@ -1102,6 +1094,8 @@ desigualdades entre sucesiones. En este contexto se utiliza la versión discreta
 :::
 
 ::: {#lem-gronwalldiscreto style="text-align: justify"}
+
+## Desigualdad de Gronwall Discreto
 
 Sean $\{u_n\}_{n\geq0}$ y $\{a_n\}_{n\geq0}$ sucesiones de números reales no negativos, y sea $\beta\geq0$. Supóngase que, para 
 todo $n\geq0$,
