@@ -444,6 +444,7 @@ window.Quarto = {
   <li><a href="#integración-estocástica-y-fórmula-de-itô" id="toc-integración-estocástica-y-fórmula-de-itô" class="nav-link" data-scroll-target="#integración-estocástica-y-fórmula-de-itô"><span class="header-section-number">3.4</span> Integración Estocástica y Fórmula de Itô</a></li>
   <li><a href="#martingalas-y-desigualdades-maximal" id="toc-martingalas-y-desigualdades-maximal" class="nav-link" data-scroll-target="#martingalas-y-desigualdades-maximal"><span class="header-section-number">3.5</span> Martingalas y Desigualdades Maximal</a></li>
   <li><a href="#convergencia-y-estimaciones-temporales" id="toc-convergencia-y-estimaciones-temporales" class="nav-link" data-scroll-target="#convergencia-y-estimaciones-temporales"><span class="header-section-number">3.6</span> Convergencia y Estimaciones Temporales</a></li>
+  <li><a href="#método-de-iteración-de-picard-para-edes" id="toc-método-de-iteración-de-picard-para-edes" class="nav-link" data-scroll-target="#método-de-iteración-de-picard-para-edes"><span class="header-section-number">3.7</span> Método de Iteración de Picard para EDEs</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/preliminares.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/preliminares.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -509,6 +510,20 @@ window.Quarto = {
 <p>El estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.</p>
 <p>El entorno natural para las EDEs es un espacio de probabilidad filtrado. La filtración representa la acumulación de información a lo largo del tiempo y permite distinguir entre los procesos que utilizan únicamente la información disponible en el instante considerado y aquellos que dependen de información futura. Esta distinción resulta fundamental para definir las integrales estocásticas y estudiar las propiedades de las soluciones.</p>
 </section>
+<div id="thm-completitudl2" class="theorem" style="text-align: justify">
+<p><span class="theorem-title"><strong>Teorema 3.5 (Completitud de <span class="math inline">\(L^2\)</span>)</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. El espacio</p>
+<p><span class="math display">\[
+    L^2(\Omega,\mathcal{F},\mathbb{P}):=\left\{X:\Omega\to\mathbb{R}:X\text{ es medible y }\mathbb{E}[|X|^2]&lt;\infty\right\},
+\]</span></p>
+<p>considerado módulo igualdad casi seguramente y equipado con la norma</p>
+<p><span class="math display">\[
+    \|X\|_2:=\left(\mathbb{E}[|X|^2]\right)^{1/2},
+\]</span></p>
+<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
+</div>
+<div style="text-align: justify">
+<p>La completitud de <span class="math inline">\(L^2\)</span> constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en <span class="math inline">\(L^2\)</span>. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.</p>
+</div>
 <div id="def-espfiltrado" class="theorem definition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Definición 3.1 (Espacio de probabilidad filtrado y sus condiciones usuales)</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. Una filtración es una familia creciente de sub-<span class="math inline">\(\sigma\)</span>-álgebras <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> de <span class="math inline">\(\mathcal{F}\)</span> tal que</p>
 <p><span class="math display">\[
@@ -548,7 +563,7 @@ window.Quarto = {
 <p>Los tiempos de paro permiten construir sucesiones de procesos detenidos cuya evolución se controla en conjuntos acotados. Para estudiar los límites de estas sucesiones y justificar el paso a límites en estimaciones probabilísticas, también es necesario recordar algunas propiedades básicas de la medida de probabilidad. Entre ellas destaca la continuidad de la probabilidad respecto de sucesiones monótonas de eventos, que permite relacionar la probabilidad de un límite de eventos con las probabilidades de los eventos que lo componen.</p>
 </div>
 <div id="thm-conyinuidadmediaproba" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.5 (Continuidad de la medida de probabilidad)</strong></span> Sea <span class="math inline">\((A_n)_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>.</p>
+<p><span class="theorem-title"><strong>Teorema 3.6 (Continuidad de la medida de probabilidad)</strong></span> Sea <span class="math inline">\((A_n)_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>.</p>
 <p>Si <span class="math inline">\(A_n\subseteq A_{n+1}\)</span> para todo <span class="math inline">\(n\in\mathbb{N}\)</span>, entonces</p>
 <p><span class="math display">\[
     \mathbb{P}\left(\bigcup_{n=1}^{\infty}A_n\right)=\lim_{n\to\infty}\mathbb{P}(A_n).
@@ -559,19 +574,7 @@ window.Quarto = {
 \]</span></p>
 <p>La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que <span class="math inline">\(\mathbb{P}(A_1)\leq 1&lt;\infty\)</span> <span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
 </div>
-<div id="thm-completitudl2" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.6 (Completitud de <span class="math inline">\(L^2\)</span>)</strong></span> Sea <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> un espacio de probabilidad. El espacio</p>
-<p><span class="math display">\[
-    L^2(\Omega,\mathcal{F},\mathbb{P}):=\left\{X:\Omega\to\mathbb{R}:X\text{ es medible y }\mathbb{E}[|X|^2]&lt;\infty\right\},
-\]</span></p>
-<p>considerado módulo igualdad casi seguramente y equipado con la norma</p>
-<p><span class="math display">\[
-    \|X\|_2:=\left(\mathbb{E}[|X|^2]\right)^{1/2},
-\]</span></p>
-<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
-</div>
 <div style="text-align: justify">
-<p>La completitud de <span class="math inline">\(L^2\)</span> constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en <span class="math inline">\(L^2\)</span>. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.</p>
 <p>En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización y los resultados de continuidad y completitud proporcionan herramientas para estudiar sucesiones de aproximaciones. Sobre esta base se introducirán las desigualdades de probabilidad, las propiedades de las martingalas y los resultados de integración estocástica necesarios para las demostraciones posteriores.</p>
 </div>
 <div id="thm-fubinotonelli" class="theorem" style="text-align: justify">
@@ -961,6 +964,22 @@ respecto al índice <span class="math inline">\(n\)</span>.</p>
 estimaciones previas lo permiten.</p>
 <p>En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel–Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.</p>
 <p>De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con saltos y al método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
+</div>
+<section id="método-de-iteración-de-picard-para-edes" class="level2" style="text-align: justify" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="método-de-iteración-de-picard-para-edes"><span class="header-section-number">3.7</span> Método de Iteración de Picard para EDEs</h2>
+<p>La demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma <span class="math inline">\(L^2\)</span>).</p>
+<p>La eficacia de este método radica en que permite acotar la diferencia entre iteraciones sucesivas utilizando las herramientas establecidas en las secciones anteriores: la completitud de <span class="math inline">\(L^2\)</span>, la isometría de Itô, las desigualdades maximales de Doob y BDG, y finalmente, la desigualdad de Gronwall para cerrar la estimación.</p>
+</section>
+<div id="def-iteracionpicard" class="theorem definition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Definición 3.4 (Sucesión de Iteraciones de Picard**)</strong></span> Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible con <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Definimos la sucesión de procesos estocásticos <span class="math inline">\(\{Z_n(t)\}_{n \in \mathbb{N}}\)</span> de la siguiente manera:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\textbf{Paso base:}\,\quad Z_0(t) := Z_0\)</span>, para todo <span class="math inline">\(t \geq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(\textbf{Paso recursivo:}\)</span> Para <span class="math inline">\(n \geq 0\)</span>, definimos</p>
+<p><span class="math display">\[
+Z_{n+1}(t) := Z_0 + \int_0^t f(Z_n(s-))\,ds + \int_0^t g(Z_n(s-))\,dW(s) + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
+\]</span></p></li>
+</ol>
+<p>El objetivo de la demostración de existencia consiste en probar que esta sucesión es de Cauchy en el espacio <span class="math inline">\(L^2\)</span>, que converge uniformemente casi seguramente a un proceso límite <span class="math inline">\(Z(t)\)</span>, y que dicho límite satisface la ecuación integral asociada a la EDE.</p>
 </div>
 
 

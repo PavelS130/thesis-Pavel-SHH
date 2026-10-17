@@ -100,6 +100,16 @@
     ]
   },
   {
+    "objectID": "chapters/preliminares.html#método-de-iteración-de-picard-para-edes",
+    "href": "chapters/preliminares.html#método-de-iteración-de-picard-para-edes",
+    "title": "3  Preliminares",
+    "section": "3.7 Método de Iteración de Picard para EDEs",
+    "text": "3.7 Método de Iteración de Picard para EDEs\nLa demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma \\(L^2\\)).\nLa eficacia de este método radica en que permite acotar la diferencia entre iteraciones sucesivas utilizando las herramientas establecidas en las secciones anteriores: la completitud de \\(L^2\\), la isometría de Itô, las desigualdades maximales de Doob y BDG, y finalmente, la desigualdad de Gronwall para cerrar la estimación.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
+    ]
+  },
+  {
     "objectID": "chapters/teorema.html",
     "href": "chapters/teorema.html",
     "title": "4  Existencia y unicidad fuerte",
