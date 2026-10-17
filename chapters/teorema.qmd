@@ -65,7 +65,6 @@ $$
 |f(y)|^2+|g(y)|^2+\lambda |h(y)|^2\leq K_2(1+|y|^2). 
 $$ {#eq-4.03}
 
-
 :::
 
 
@@ -212,7 +211,7 @@ $$
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) < \infty.
 $$
 
-Esto garantiza que $M(s)\in\mathcal{L}^2$. Así, aplicando la desigualdad maximal de Doob para martingalas con $p=2$ y la isometría de Itô, obtenemos
+Esto garantiza que $M(s)\in\mathcal{L}^2$. Así, aplicando el @thm-maximaldoob para martingalas con $p=2$ y la isometría de Itô, obtenemos
 
 $$
     \begin{aligned}
@@ -229,7 +228,7 @@ $$
     L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
 $$
 
-podemos afirmar que es una martingala cuadrado-integrable. Utilizando la desigualdad maximal de Doob y la la isometría de Itô para el proceso de Poisson compensado, donde la variación cuadratica es $\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du$, obtenemos
+podemos afirmar que es una martingala cuadrado-integrable. Utilizando @thm-maximaldoob y @thm-isometriaito para el proceso de Poisson compensado, donde la variación cuadratica es $\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du$, obtenemos
 
 $$
     \begin{aligned}
@@ -309,7 +308,7 @@ $$ {#eq-4.018}
 
 Trabajaremos con cada término de la desigualdad para acotar $\displaystyle \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq t} |Z_{n+1}(t)-Z_n(t)|^2\Bigg]$. 
 
-Para el primer término, aplicamos la Desigualdad de Cauchy-Schwarz para integrales. Dado que $s\in[0,t]$, tenemos 
+Para el primer término, aplicamos el @thm-cauchyschwarz para integrales. Dado que $s\in[0,t]$, tenemos 
 
 $$
 \begin{aligned}
@@ -334,7 +333,7 @@ $$
     M_g(s) := \int_0^s \Big[g(Z_n(u-))-g(Z_{n-1}(u-))\Big]\, dW(u).
 $$
 
-Como establecimos previamente para el proceso $M(s)$ en la @eq-4.012. Dado que $Z_n$ y $Z_{n-1}$ son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto $M_g(s)$ es una martingala cuadrado-integrable. Aplicando la Desigualdad Maximal de Doob y la Isometría de Itô para el movimiento browniano, obtenemos 
+Como establecimos previamente para el proceso $M(s)$ en la @eq-4.012. Dado que $Z_n$ y $Z_{n-1}$ son procesos adaptados y càdlàg, sus límites por la izquierda son predecibles. Por lo tanto $M_g(s)$ es una martingala cuadrado-integrable. Aplicando @thm-maximaldoob y la @thm-isometriaito para el movimiento browniano, obtenemos 
 
 $$
 \begin{aligned}
@@ -351,7 +350,7 @@ $$
     M_h(s) := \int_0^s[h(Z_n(u-))-h(Z_{n-1}(u-))]\, d\widetilde{N}(u).
 $$
 
-De manera análoga, $M_h(s)$ es una martingala cuadrado-integrable. Aplicando la desigualdad de Doob y la Isometría de Itô para el proceso de Poisson commpensado, donde su variación cuadrática introduce el factor de intensidad $\lambda$, obtenemos 
+De manera análoga, $M_h(s)$ es una martingala cuadrado-integrable. Aplicando el @thm-maximaldoob y @thm-isometriaito para el proceso de Poisson compensado, donde su variación cuadrática introduce el factor de intensidad $\lambda$, obtenemos 
 
 $$
 \begin{aligned}
@@ -465,7 +464,7 @@ $$ {#eq-4.027}
 
 Procediendo por inducción matemática sobre $n$.
 
-**Caso n=1:** Notemos que  $K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3$. Por lo tanto, de la @eq-4.025 obtenemos directammente 
+**Caso n=1:** Notemos que  $K_2(1+\mathbb{E}[|Z_0|^2])\leq \max\Big\{K_1,K_2(1+\mathbb{E}[|Z_0|^2])\Big\}=K_3$. Por lo tanto, de la @eq-4.025 obtenemos directamente 
 
 $$
     d_1(t)\leq C_1(t)tK_2(1+\mathbb{E}[|Z_0|^2])\leq C_2(t)K_3 = \frac{C_2(t)^1 K_3^1}{1!}.
@@ -654,7 +653,7 @@ $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg).
 $$
 
-Aplicando la desigualdad de Chebyshev-Markov a $X_n^2$, tenemos
+Aplicando el @thm-markovchebyshev a $X_n^2$, tenemos
 
 $$
     \mathbb{P}\Bigg(X_n\geq\frac{1}{2^n}\Bigg)=\mathbb{P}\Bigg(X_n^2\geq \frac{1}{4^n}\Bigg)\leq 4^n\mathbb{E}[X_n^2].
@@ -678,7 +677,7 @@ $$
     \sum\limits_{n=1}^{\infty} \mathbb{P}\Bigg(\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg)\leq \sum\limits_{n=1}^{\infty} \frac{(4C_2(t)K_3)^n}{n!}<\infty.
 $$
 
-Al ser la suma de probabilidades finita, podemos aplicar el Lema de Borel-Cantelli, lo que nos permite afirmar que 
+Al ser la suma de probabilidades finita, podemos aplicar el @lem-borelcantelli, lo que nos permite afirmar que 
 
 $$
     \mathbb{P}\Bigg(\limsup\limits_{n\rightarrow \infty}\Bigg\{\sup\limits_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq \frac{1}{2^n}\Bigg\}\Bigg)=0.
@@ -723,7 +722,7 @@ $$ {#eq-4.033}
 
 Procedemos a acotar cada término de manera análoga al paso inductivo de la iteración de Picard.
 
-Aplicando la desigualdad de Cauchy–Schwarz para integrales, y notando que $s\leq t$, tenemos
+Aplicando el @thm-cauchyschwarz para integrales, y notando que $s\leq t$, tenemos
 
 $$
 \begin{aligned}
@@ -740,7 +739,7 @@ $$
 
 Dado que $Z^{(1)}$ y $Z^{(2)}$ son soluciones cuadrado-integrables y el coeficiente $g$ satisface la condición de crecimiento lineal, el integrando pertenece al espacio $\mathcal{L}^2$, lo que garantiza que $M_g(s)$ es una martingala cuadrado-integrable. 
 
-Para acotar el supremo de esta martingala, aplicamos la Desigualdad Maximal de Doob para $p=2$, la cual establece que
+Para acotar el supremo de esta martingala, aplicamos el @thm-maximaldoob para $p=2$, la cual establece que
 
 $$
 \mathbb{E}[\sup_{0\leq s\leq t}|M_g(s)|^2] \leq 4\,\mathbb{E}[|M_g(t)|^2]. 
@@ -771,7 +770,7 @@ $$
 M_h(s) := \int_0^s \big[h(Z^{(1)}(u-)) - h(Z^{(2)}(u-))\big]\,d\widetilde{N}(u). 
 $$
 
-Bajo las mismas hipótesis de integrabilidad, $M_h(s)$ es una martingala respecto a la filtración $\mathbb{F}_t$. Al aplicar nuevamente la desigualdad maximal de  Doob se tiene 
+Bajo las mismas hipótesis de integrabilidad, $M_h(s)$ es una martingala respecto a la filtración $\mathbb{F}_t$. Al aplicar nuevamente @thm-maximaldoob, obtenemos 
 
 $$
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_h(s)|^2\right] \leq 4\,\mathbb{E}\left[|M_h(t)|^2\right].
@@ -839,7 +838,7 @@ $$
 D(t) \leq C_1(T) K_1 \int_0^t D(s)\,ds, \quad \forall t \in [0,T].
 $$
 
-Aplicando la Desigualdad de Gronwall, con $C=0$, podemos concluir que 
+Aplicando el @thm-gronwall, con $C=0$, podemos concluir que 
 
 $$
 D(t) \leq 0 \cdot \exp\left(C_1(T) K_1 t\right) = 0, \quad \forall t \in [0,T].
@@ -988,7 +987,7 @@ $$
     \sup\limits_{t\geq 0}|Z^{(n)}(t)-Z(t)| \xrightarrow[n \to \infty]{\mathbb{P}} 0.
 $$
 
-Por un resultado estándar de la teoría de la probabilidad, si una sucesión converge en probabilidad, entonces existe una subsucesión que converge casi seguramente. Es decir, podemos extraer una subsucesión $(Z^{(n_k)})_{k \in \mathbb{N}}$ tal que
+Por el @thm-convprobsub, podemos extraer una subsucesión $(Z^{(n_k)})_{k \in \mathbb{N}}$ tal que
 
 $$
     \sup\limits_{t\geq 0}|Z^{(n_k)}(t)-Z(t)| \xrightarrow[k \to \infty]{\text{c.s.}} 0.
@@ -1071,7 +1070,7 @@ $$ {#eq-4.041}
 
 Procedemos a acotar cada término utilizando las mismas herramientas que en el paso inductivo de la iteración de Picard.
 
-Para el término de deriva, aplicamos la desigualdad de Cauchy-Schwarz para integrales
+Para el término de deriva, aplicamos el @thm-cauchyschwarz para integrales
 
 $$
 \begin{aligned}

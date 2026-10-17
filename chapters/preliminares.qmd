@@ -981,7 +981,7 @@ numéricos.
 
 :::
 
-::: {#lem-corelcantelli style="text-align: justify"}
+::: {#lem-borelcantelli style="text-align: justify"}
 
 ## Borel-Cantelli
 
@@ -1095,7 +1095,7 @@ $$
 :::{style="text-align: justify"}
 
 La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades 
-de Cauchy--Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia 
+de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia 
 entre dos soluciones conduce a
 
 $$
