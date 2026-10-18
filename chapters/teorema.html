@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Existencia y unicidad fuerte – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
+<title>4&nbsp; Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -115,11 +115,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="4&nbsp; Existencia y unicidad fuerte – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:title" content="4&nbsp; Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta property="og:description" content="">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="4&nbsp; Existencia y unicidad fuerte – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:title" content="4&nbsp; Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorema.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teorema.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -388,7 +388,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/teorema.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -430,7 +430,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y unicidad fuerte</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos</span></h1>
 </div>
 
 
@@ -475,7 +475,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <p><span id="eq-4.02"><span class="math display">\[
 \begin{aligned}
 |f(y_1)-f(y_2)|^2 &amp; +|g(y_1)-g(y_2)|^2\\
-&amp; \quad +\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|.
+&amp; \quad +\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|^2.
 \end{aligned}
 \tag{4.2}\]</span></span></p>
 <p><strong>Condición de crecimiento lineal</strong>: Existe una constante <span class="math inline">\(K_2&gt;0\)</span> tal que, para todo <span class="math inline">\(y\in\mathbb{R}\)</span></p>
@@ -506,7 +506,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <p>Para <span class="math inline">\(n\geq 0\)</span>, definimos recursivamente la sucesión de procesos estocásticos:</p>
 <p><span id="eq-4.07"><span class="math display">\[
     \begin{aligned}
-        Z_{n+1}(t) &amp; := Z_0 +\int _0^t f(Z_n(s-))\,ds+\int_0^t f(Z(s-))\,dW(s)\\
+        Z_{n+1}(t) &amp; := Z_0 +\int _0^t f(Z_n(s-))\,ds+\int_0^t g(Z(s-))\,dW(s)\\
         &amp; \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
     \end{aligned}
 \tag{4.6}\]</span></span></p>
@@ -1217,8 +1217,8 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 <p>Finalmente de manera análoga, para el término de saltos se aplica la isometría de Itô para el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, la cual introduce el factor de intensidad <span class="math inline">\(\lambda\)</span></p>
 <p><span id="eq-4.044"><span class="math display">\[
 \begin{aligned}
-\mathbb{E} &amp; \left[\left|\int_0^t \big[g(Z(s-)) - g(Z_{n-1}(s-))\big]\,dW(s)\right|^2\right]\\
-&amp; \leq \int_0^t \mathbb{E}\left[\big|g(Z(s-)) - g(Z_{n-1}(s-))\big|^2\right]\,ds.
+\mathbb{E} &amp; \left[\left|\int_0^t \big[h(Z(s-)) - h(Z_{n-1}(s-))\big]\,d\widetilde{N}(s)\right|^2\right]\\
+&amp; \leq \int_0^t \mathbb{E}\left[\big|h(Z(s-)) - h(Z_{n-1}(s-))\big|^2\right]\,ds.
 \end{aligned}
 \tag{4.43}\]</span></span></p>
 <p>Sustituyendo la <a href="#eq-4.042" class="quarto-xref">Ecuación&nbsp;<span>4.41</span></a>, <a href="#eq-4.043" class="quarto-xref">Ecuación&nbsp;<span>4.42</span></a> y <a href="#eq-4.044" class="quarto-xref">Ecuación&nbsp;<span>4.43</span></a> en la <a href="#eq-4.041" class="quarto-xref">Ecuación&nbsp;<span>4.40</span></a> y factorizando la constante <span class="math inline">\(C_1(t) = \max\{3t, 12, 12\lambda\}\)</span>, obtenemos</p>
