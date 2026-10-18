@@ -918,7 +918,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <p>En esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.</p>
 </section>
 <div id="lem-borelcantelli" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 3.5 (Borel-Cantelli)</strong></span> Sea <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>. Si</p>
+<p><span class="theorem-title"><strong>Lema 3.5 (Lema de Borel-Cantelli)</strong></span> Sea <span class="math inline">\(\{A_n\}_{n\in\mathbb{N}}\)</span> una sucesión de eventos en un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span>. Si</p>
 <p><span class="math display">\[
     \sum_{n=1}^{\infty}\mathbb{P}(A_n)&lt;\infty,
 \]</span></p>
@@ -934,11 +934,11 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
     \limsup_{n\to\infty}A_n=\bigcap_{m=1}^{\infty}\bigcup_{n=m}^{\infty}A_n
 \]</span></p>
 <p>representa la ocurrencia de infinitos eventos <span class="math inline">\(A_n\)</span>. Por tanto, el lema establece que, bajo la condición de sumabilidad anterior, casi seguramente solo un número finito de esos eventos puede ocurrir.</p>
-<p>En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos <span class="math inline">\(A_n\)</span> representan incumplimientos de ciertas cotas probabilísticas. Si se demuestra que las probabilidades de esos incumplimientos son sumables, puede concluirse que casi seguramente las cotas correspondientes se satisfacen a partir de cierto índice. Combinado con estimaciones adecuadas de los errores, esto permite establecer resultados de convergencia casi segura, incluso uniforme en el tiempo cuando se controlan los errores mediante la norma del supremo</p>
+<p>En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos <span class="math inline">\(A_n\)</span> representan incumplimientos de ciertas cotas probabilísticas. Si se demuestra que las probabilidades de esos incumplimientos son sumables, puede concluirse que casi seguramente las cotas correspondientes se satisfacen a partir de cierto índice. Combinado con estimaciones adecuadas de los errores, esto permite establecer resultados de convergencia casi segura, incluso uniforme en el tiempo cuando se controlan los errores mediante la norma del supremo.</p>
 <p>La convergencia en probabilidad es otra forma importante de convergencia en teoría de procesos estocásticos. Aunque no garantiza por sí sola que toda la sucesión converja casi seguramente, sí permite extraer una subsucesión que posee esta propiedad.</p>
 </div>
 <div id="thm-convprobsub" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 3.17 (Convergencia en probabilidad y subsucesión <span class="math inline">\(c.s.\)</span>)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n\in\mathbb{N}}\)</span> una sucesión de variables aleatorias y sea <span class="math inline">\(X\)</span> una variable aleatoria definidas en el mismo espacio de probabilidad. Si</p>
+<p><span class="theorem-title"><strong>Teorema 3.17 (Convergencia en probabilidad y subsucesión c.s.)</strong></span> Sea <span class="math inline">\(\{X_n\}_{n\in\mathbb{N}}\)</span> una sucesión de variables aleatorias y sea <span class="math inline">\(X\)</span> una variable aleatoria definidas en el mismo espacio de probabilidad. Si</p>
 <p><span class="math display">\[
     X_n\xrightarrow{\mathbb{P}}X,
 \]</span></p>
@@ -946,7 +946,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <p><span class="math display">\[
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 \]</span></p>
-<p><span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
+<p><span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura. En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.</p>
@@ -965,7 +965,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <p><span class="math display">\[
     u(t)\leq ae^{Kt}.
 \]</span></p>
-<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
+<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
@@ -992,13 +992,11 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <p><span class="citation" data-cites="tan2017">(<a href="referencias.html#ref-tan2017" role="doc-biblioref">Tan y Men 2017</a>)</span></p>
 </div>
 <div style="text-align: justify">
-<p>La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con<br>
-respecto al índice <span class="math inline">\(n\)</span>.</p>
-<p>En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación recursiva para los momentos de las soluciones aproximadas del método CSS<span class="math inline">\(\theta\)</span>, el lema de Gronwall discreto permite cerrar dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las<br>
-estimaciones previas lo permiten.</p>
+<p>La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con respecto al índice <span class="math inline">\(n\)</span>.</p>
+<p>En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación recursiva para los momentos de las soluciones aproximadas del método CSS<span class="math inline">\(\theta\)</span>, el lema de Gronwall discreto permite cerrar dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las estimaciones previas lo permiten.</p>
 <p>En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel–Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.</p>
 <p>De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con saltos y al método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
-<p>Con todas las herramientas analíticas, probabilísticas y estocásticas debidamente calibradas, estamos en condiciones de abordar la construcción de soluciones para ecuaciones diferenciales estocásticas. El método de iteración de Picard, que se presenta a continuación, no es más que la aplicación magistral de todo el aparato teórico desarrollado en este capítulo: utiliza la completitud de <span class="math inline">\(L^2\)</span> las isometrías, las desigualdades maximales y el lema de Gronwall para transformar la resolución de una EDE en un problema de convergencia de sucesiones.</p>
+<p>Con todas las herramientas analíticas, probabilísticas y estocásticas debidamente calibradas, estamos en condiciones de abordar la construcción de soluciones para ecuaciones diferenciales estocásticas. El método de iteración de Picard, que se presenta a continuación, no es más que la aplicación magistral de todo el aparato teórico desarrollado en este capítulo: utiliza la completitud de <span class="math inline">\(L^2\)</span>, las isometrías, las desigualdades maximales y el lema de Gronwall para transformar la resolución de una EDE en un problema de convergencia de sucesiones.</p>
 </div>
 <section id="método-de-iteración-de-picard-para-edes" class="level2" style="text-align: justify" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="método-de-iteración-de-picard-para-edes"><span class="header-section-number">3.7</span> Método de Iteración de Picard para EDEs</h2>
