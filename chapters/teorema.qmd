@@ -46,7 +46,7 @@ dZ(t) & =f(Z(t-))dt+g(Z(t-))dW(t)\\
 \end{aligned}
 $$ {#eq-4.01}
 
-con condición inicial $Z(0)=0$. 
+con condición inicial $Z(0)=Z_0$. 
 
 En la @eq-4.01, la notación $Z(t-) = \lim_{s \uparrow t} Z(s)$ denota el límite por la izquierda del proceso. El uso de este límite es un requisito técnico fundamental en el cálculo estocástico con saltos, ya que garantiza que los procesos integrandos $f(Z(t-))$, $g(Z(t-))$ y $h(Z(t-))$ sean $\textbf{predecibles}$, asegurando así que las integrales estocásticas estén rigurosamente bien definidas.
 
@@ -65,7 +65,7 @@ El objetivo central de este capítulo es demostrar que, bajo ciertas condiciones
 
 ::: {style="text-align: justify"}
 
-## Hipótesis
+## Hipótesis de Regularidad
 
 Una vez establecido el marco probabilístico y la formulación de la ecuación diferencial estocástica @eq-4.01, es necesario imponer condiciones de regularidad sobre los coeficientes $f$, $g$ y $h$ que garanticen la buena definición de las integrales estocásticas y el comportamiento controlado de las soluciones. Las siguientes hipótesis, estándar en la teoría de EDEs con saltos (véase, por ejemplo, @applebaum2009levy), aseguran que la sucesión de iteraciones de Picard converge y que la solución es única.
 
@@ -99,7 +99,7 @@ Bajo estas dos hipótesis de regularidad, estamos en posición de enunciar y dem
 
 ::: {#lem-ERPL style="text-align: justify"}
 
-### Existencia y regularidad del proceso límite.
+### Convergencia en $L^2$ y regularidad del proceso límite
 
 Supongamos que los coeficientes $f, g, h$ satisfacen las condiciones de Lipschitz global \textbf{(C1)} y crecimiento lineal \textbf{(C2)}. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible tal que $\mathbb{E}[|Z_0|^2] < \infty$. 
 Entonces, existe un proceso estocástico $Z = (Z(t))_{t \geq 0}$ que es adaptado a la filtración $(\mathcal{F}_t)_{t \geq 0}$, posee trayectorias càdlàg casi seguramente, y satisface $\mathbb{E}\left[\sup_{0 \leq s \leq t} |Z(s)|^2\right] < \infty$ para todo $t \geq 0$.
@@ -711,13 +711,13 @@ Esto garantiza que, con probabilidad 1, la sucesión $(Z_n(\cdot))$ converge uni
 
 :::
 
-## Verificación de la solución 
+## Verificación de la Ecuación Integral 
 
 ::: {#prp-VS style="text-align: justify"}
 
-### Verificación de la solución
+### El proceso límite como solución fuerte
 
-Bajo las hipótesis del @lem-ERPL, el proceso límite $Z(t)$ satisface la forma integral de la ecuación diferencial estocástica \eqref{eq-4.01} casi seguramente para todo $t \geq 0$. Es decir,
+Bajo las hipótesis del @lem-ERPL, el proceso límite $Z(t)$ satisface la forma integral de la ecuación diferencial estocástica @eq-4.01 casi seguramente para todo $t \geq 0$. Es decir,
 
 $$
 Z(t) = Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
@@ -841,13 +841,13 @@ $$
 
 :::
 
-## Unicidad trayectorial para $Z_0\in L^2$
+## Unicidad de la Solución en $L^2$
 
 ::: {#prp-Unicidad style="text-align: justify"}
 
-### Unicidad Trayectocial para $Z_0\in L^2.$
+### Unicidad trayectorial para condiciones iniciales con segundo momento finito
 
-Bajo las hipótesis del @lem-ERPL, si $Z^{(1)}(t)$ y $Z^{(2)}(t)$ son dos soluciones fuertes de la EDE \eqref{eq-4.01} con la misma condición inicial $Z_0$, entonces
+Bajo las hipótesis del @lem-ERPL, si $Z^{(1)}(t)$ y $Z^{(2)}(t)$ son dos soluciones fuertes de la EDE @eq-4.01 con la misma condición inicial $Z_0$, entonces
 
 $$
 \mathbb{P}\big(Z^{(1)}(t) = Z^{(2)}(t) \text{ para todo } t \geq 0\big) = 1.
@@ -1040,7 +1040,7 @@ Con esto, hemos demostrado la unicidad cuando $\mathbb{E}\Big[|Z_0|^2\Big]<\inft
 
 :::
 
-## Teorema principal de existencia y unicidad en $L^2.$
+## Síntesis del Caso con Segundo Momento Finito
 
 ::: {#thm-EUF1 style="text-align: justify"}
 
@@ -1055,7 +1055,7 @@ con trayectorias càdlàg casi seguramente.
 
 ::: {.proof style="text-align: justify"}
 
-La existencia del proceso límite, su adaptabilidad y la regularidad càdlàg de sus trayectorias se garantizan mediante el @lem-ERPL. El hecho de que dicho proceso sea efectivamente una solución de la ecuación @eq-4.01 se establece en la @prp-VS. Finalmente, la unicidad trayectorial de la solución se demuestra en la @prp-Unicidad. Con esto, el teorema queda completamente demostrado.
+La existencia del proceso límite, su adaptabilidad y la regularidad càdlàg de sus trayectorias se garantizan mediante el @lem-ERPL. El hecho de que dicho proceso sea efectivamente una solución de la @eq-4.01 se establece en la @prp-VS. Finalmente, la unicidad trayectorial de la solución se demuestra en la @prp-Unicidad. Con esto, el teorema queda completamente demostrado.
 
 :::
 
@@ -1063,7 +1063,7 @@ La existencia del proceso límite, su adaptabilidad y la regularidad càdlàg de
 
 ::: {#cor-finity style="text-align: justify"}
 
-### Existencia y unicidad fuerte - Caso General 
+### Existencia y Unicidad Fuerte para Condiciones Iniciales Generales 
 
 El resultado del @thm-EUF1 se mantiene válido incluso si la condición inicial $Z_0$ no posee segundo momento finito, es decir, cuando $\mathbb{E}[|Z_0|^2] = \infty$
 
