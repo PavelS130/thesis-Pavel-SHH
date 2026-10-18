@@ -5,7 +5,7 @@ lang: es
 
 ::: {style="text-align: justify"}
 
-En este capítulo se establecen los resultados fundamentales de análisis real, teoría de la medida y probabilidad que servirán como columna vertebral para las demostraciones posteriores. Dado que el objetivo central de este trabajo es analizar la existencia, unicidad y convergencia de soluciones de ecuaciones diferenciales estocásticas (EDEs) con saltos, es indispensable contar con un marco teórico robusto. 
+Para abordar los objetivos planteados, es imperativo establecer un marco teórico riguroso que permita dar sentido matemático a las fluctuaciones aleatorias con discontinuidades abruptas. El estudio de las ecuaciones diferenciales estocásticas con saltos no puede sustentarse únicamente en el cálculo clásico; requiere la integración de conceptos de análisis real, teoría de la medida y cálculo estocástico. En el siguiente capítulo, se ensamblan de manera sistemática las herramientas fundamentales, desde la topología básica y las desigualdades analíticas, hasta la integral de Itô para procesos con saltos y las desigualdades maximales, que servirán como cimientos para demostrar la existencia, unicidad y convergencia numérica de los modelos que nos ocupan.
 
 A lo largo de los capítulos siguientes, haremos uso constante de herramientas para acotar integrales, intercambiar el orden de integración y esperanza, y controlar el comportamiento de los supremos de martingalas. Por ello, este capítulo no es una mera recopilación de definiciones, sino una selección estratégica de teoremas que serán citados explícitamente en las demostraciones de los Lemas y Teoremas principales.
 
@@ -13,38 +13,43 @@ A lo largo de los capítulos siguientes, haremos uso constante de herramientas p
 
 ::: {style="text-align: justify"}
 
-## Análisis Real y Topología Básica
-
-Para garantizar que ciertas funciones y procesos estocásticos estén acotados en intervalos de tiempo finitos (especialmente al trabajar con tiempos de paro), necesitamos recurrir a propiedades topológicas básicas de $\mathbb{R}$. 
-
-:::
-
-::: {#thm-heineborel style="text-align: justify"}
-
-## Heine-Borel
-
-Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a, b]\subset\mathbb{R}$ es compacto [@rudin1976principles].
+El estudio de las ecuaciones diferenciales estocásticas con saltos descansa, en última instancia, sobre el comportamiento de funciones reales de variable real. En efecto, las trayectorias de los procesos que se considerarán en esta tesis son càdlàg, esto es, funciones $[0,T]\to\mathbb{R}$ continuas por la derecha y con límites por la izquierda; por ello, los resultados clásicos del análisis real y de la topología de $\mathbb{R}$ pueden aplicarse de manera *trayectoria a trayectoria*, y constituyen el punto de partida indispensable para todo el desarrollo posterior.
 
 :::
 
 ::: {style="text-align: justify"}
 
-La compacidad de los intervalos cerrados proporciona un marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotado permite extraer una subsucesión convergente. Esta propiedad, conocida como el teorema de Bolzano--Weierstrass, será útil en los argumentos donde se requiera obtener límites de sucesiones de aproximaciones o de cantidades reales acotadas. 
+## Análisis Real y Topología Básica
+
+En esta sección se reúnen cuatro resultados elementales, cuya necesidad se hará evidente en los capítulos siguientes. Los teoremas de Heine--Borel y de Bolzano--Weierstrass garantizan la compacidad del intervalo $[0,T]$ y la existencia de subsucesiones convergentes, propiedades que se emplean para demostrar que toda función càdlàg es acotada en un intervalo compacto y para manipular los tiempos de paro $\tau_N$ que se introducirán más adelante. El teorema del valor extremo de Weierstrass proporciona cotas uniformes para los coeficientes de la ecuación cuando estos se evalúan sobre trayectorias truncadas, lo cual es esencial para asegurar que los integrandos pertenezcan a los espacios de integrabilidad requeridos. Finalmente, el teorema del valor intermedio, propio de la conectividad de $\mathbb{R}$, será la herramienta que garantice la existencia de la solución del paso implícito del esquema numérico CSS$\theta$ en el Capítulo 6.
+
+:::
+
+::: {#thm-heineborel style="text-align: justify"}
+
+## Heine--Borel
+
+Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a,b]\subset\mathbb{R}$ es compacto [@rudin1976principles].
+
+:::
+
+::: {style="text-align: justify"}
+
+La compacidad de los intervalos cerrados proporciona el marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotada permite extraer de ella una subsucesión convergente; y si, adicionalmente, la sucesión se contiene en un conjunto cerrado, el límite de dicha subsucesión pertenece también al conjunto. Esta segunda observación es precisamente la que conecta el resultado siguiente con el teorema de Heine--Borel, pues en $\mathbb{R}$ la compacidad equivale a ser cerrado y acotado.
 
 :::
 
 ::: {#thm-bolzanoweierstrass style="text-align: justify"}
 
-## Bolzano–Weierstrass
+## Bolzano--Weierstrass
 
-Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto de $\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a dicho conjunto [@rudin1976principles].
+Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto $K\subset\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a $K$ [@rudin1976principles].
 
 :::
 
-:::{style="text-align: justify"}
+::: {style="text-align: justify"}
 
-Además de garantizar la existencia de subsucesiones convergentes, la compacidad tiene una consecuencia importante para las  funciones continuas: estas alcanzan sus valores máximo y mínimo sobre conjuntos compactos no vacíos. Este resultado permite establecer cotas uniformes para funciones que intervienen en las ecuaciones diferenciales estocásticas, siempre que se verifiquen
-las hipótesis de continuidad y compacidad correspondientes.
+Además de asegurar la existencia de subsucesiones convergentes, la compacidad tiene una consecuencia decisiva para las funciones continuas: estas alcanzan sus valores máximo y mínimo sobre conjuntos compactos no vacíos. En el contexto de esta tesis, dicho resultado se traduce en cotas uniformes para los coeficientes $f$, $g$ y $h$ cuando se evalúan sobre trayectorias que han sido truncadas mediante un tiempo de paro; sin esa cota uniforme no sería posible garantizar que los integrandos de las integrales estocásticas permanezcan en $\mathcal{L}^2$, ni que las integrales correspondientes estén bien definidas.
 
 :::
 
@@ -55,16 +60,22 @@ las hipótesis de continuidad y compacidad correspondientes.
 Sea $K\subset\mathbb{R}$ un conjunto compacto y no vacío. Si $f:K\to\mathbb{R}$ es continua, entonces $f$ alcanza su máximo y su mínimo absolutos en $K$. Es decir, existen $x_{\max},x_{\min}\in K$ tales que
 
 $$
-    f(x_{\min})\leq f(x)\leq f(x_{\max}),\qquad \text{para todo }x\in K.
-$$ 
+    f(x_{\min})\leq f(x)\leq f(x_{\max}),\qquad \text{para todo }x\in K,
+$$
 
 [@rudin1976principles].
 
 :::
 
+::: {style="text-align: justify"}
+
+Los dos resultados anteriores describen, desde perspectivas complementarias, la imagen de una función continua definida sobre un intervalo compacto: mientras el teorema de Weierstrass afirma que dicha imagen contiene sus extremos, el teorema siguiente afirma que la imagen es un intervalo, es decir, que la función no puede "omitir" valores intermedios. Esta segunda propiedad es la que permitirá, en el Capítulo 6, asegurar la existencia de la solución de la ecuación implícita que define el paso intermedio del método CSS$\theta$.
+
+:::
+
 ::: {#thm-valorintermedio style="text-align: justify"}
 
-## Valor Intermedio 
+## Valor Intermedio
 
 Sea $f:[a,b]\to\mathbb{R}$ una función continua. Si $y$ está estrictamente entre $f(a)$ y $f(b)$, entonces existe al menos un $c\in(a,b)$ tal que
 
@@ -73,6 +84,18 @@ $$
 $$
 
 Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$ [@rudin1976principles].
+
+:::
+
+::: {style="text-align: justify"}
+
+Conviene subrayar que el teorema del valor intermedio es una consecuencia de la conectividad de $\mathbb{R}$ y, por tanto, es un privilegio del caso unidimensional: en dimensiones superiores su papel debería ser reemplazado por resultados de punto fijo de naturaleza topológica. Esta observación justifica, desde el marco teórico, la restricción del análisis al caso escalar que se adopta en esta tesis.
+
+:::
+
+::: {style="text-align: justify"}
+
+Los resultados expuestos en esta sección operan de manera determinista, aplicándose trayectoria a trayectoria. Sin embargo, para modelar fenómenos sujetos a incertidumbre ---como el ruido térmico o la ocurrencia abrupta de eventos sísmicos--- es necesario trasladarlos a un entorno probabilístico, y ello exige algo más que un espacio de probabilidad: se requiere una estructura que codifique cómo se acumula la información a lo largo del tiempo. La sección siguiente introduce el espacio de probabilidad filtrado y las nociones de procesos adaptado, predecible y càdlàg, sin las cuales carecería de sentido hablar de martingalas, de la isometría de Itô o de la bien-definición de las integrales estocásticas que se construyen en los capítulos posteriores.
 
 :::
 
@@ -90,15 +113,13 @@ El entorno natural para las EDEs es un espacio de probabilidad filtrado. La filt
 
 ## Espacio de probabilidad filtrado y sus condiciones usuales
 
-Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. Una filtración es una familia creciente de
-sub-$\sigma$-álgebras $(\mathcal{F}_t)_{t\geq 0}$ de $\mathcal{F}$ tal que
+Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. Una filtración es una familia creciente de sub-$\sigma$-álgebras $(\mathcal{F}_t)_{t\geq 0}$ de $\mathcal{F}$ tal que
 
 $$
     \mathcal{F}_s\subseteq\mathcal{F}_t,\qquad 0\leq s\leq t.
 $$
 
-Se dice que el espacio de probabilidad filtrado satisface las condiciones usuales si la filtración es continua por
-la derecha, es decir,
+Se dice que el espacio de probabilidad filtrado satisface las condiciones usuales si la filtración es continua por la derecha, es decir,
 
 $$
     \mathcal{F}_t=\bigcap_{s>t}\mathcal{F}_s,
@@ -110,24 +131,21 @@ y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad 
 
 ::: {style="text-align: justify"}
 
-Una vez establecido el espacio probabilístico filtrado, es necesario precisar cómo se relacionan los procesos estocásticos con la información representada por la  filtración. En particular, la adaptabilidad garantiza que el valor de un proceso en el instante $t$ pueda describirse mediante la información disponible hasta ese momento. Por su parte, la predictibilidad es una condición importante para definir los integrandos de las integrales estocásticas, mientras que la regularidad de las trayectorias permite estudiar sus límites y discontinuidades.
+Una vez establecido el espacio probabilístico filtrado, es necesario precisar cómo se relacionan los procesos estocásticos con la información representada por la filtración. En particular, la adaptabilidad garantiza que el valor de un proceso en el instante $t$ pueda describirse mediante la información disponible hasta ese momento. Por su parte, la predictibilidad es una condición importante para definir los integrandos de las integrales estocásticas, mientras que la regularidad de las trayectorias permite estudiar sus límites y discontinuidades.
 
 :::
 
 :::{#def-procesosadaptados style = "text-align: justify"}
 
-## Procesos  adaptados, predecibles y càdlàg
+## Procesos adaptados, predecibles y càdlàg
 
 Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de probabilidad filtrado.
 
--   El proceso $X$ es $\textbf{adaptado}$ a la filtración $(\mathcal{F}_t)_{t\geq 0}$ si $X_t$ es $\mathcal{F}_t$-medible para 
-    todo $t\geq 0$.
+-   El proceso $X$ es $\textbf{adaptado}$ a la filtración $(\mathcal{F}_t)_{t\geq 0}$ si $X_t$ es $\mathcal{F}_t$-medible para todo $t\geq 0$.
 
--   El proceso $X$ es $\textbf{predecible}$ si es medible respecto de la $\sigma$-álgebra predecible, generada por los procesos
-    adaptados y continuos por la izquierda.
+-   El proceso $X$ es $\textbf{predecible}$ si es medible respecto de la $\sigma$-álgebra predecible, generada por los procesos adaptados y continuos por la izquierda.
 
--   El proceso $X$ tiene trayectorias $\textbf{càdlàg}$ si, casi seguramente, sus trayectorias son continuas por la derecha y 
-    poseen límites por la izquierda en cada instante $t>0$.
+-   El proceso $X$ tiene trayectorias $\textbf{càdlàg}$ si, casi seguramente, sus trayectorias son continuas por la derecha y poseen límites por la izquierda en cada instante $t>0$.
 
 [@kallenberg2002foundations], [@protter2005stochastic]
 
@@ -135,7 +153,7 @@ Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de pro
 
 :::{#def-tiemposdeparo style = "text-align: justify"}
 
-## Tiempo de paro y proceso truncado 
+## Tiempo de paro y proceso truncado
 
 Una variable aleatoria $\tau:\Omega\to[0,\infty]$ es un $\textbf{tiempo de paro}$ respecto de la filtración $(\mathcal{F}_t)_{t\geq 0}$ si
 
@@ -157,11 +175,7 @@ Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es
 
 :::{style = "text-align: justify"}
 
-Los tiempos de paro permiten construir sucesiones de procesos detenidos cuya evolución se controla en conjuntos acotados. Para 
-estudiar los límites de estas sucesiones y justificar el paso a límites en estimaciones probabilísticas, también es necesario
-recordar algunas propiedades básicas de la medida de probabilidad. Entre ellas destaca la continuidad de la probabilidad respecto 
-de sucesiones monótonas de eventos, que permite relacionar la probabilidad de un límite de eventos con las probabilidades de los
-eventos que lo componen.
+Los tiempos de paro permiten construir sucesiones de procesos detenidos cuya evolución se controla en conjuntos acotados. Para estudiar los límites de estas sucesiones y justificar el paso a límites en estimaciones probabilísticas, también es necesario recordar algunas propiedades básicas de la medida de probabilidad. Entre ellas destaca la continuidad de la probabilidad respecto de sucesiones monótonas de eventos, que permite relacionar la probabilidad de un límite de eventos con las probabilidades de los eventos que lo componen.
 
 :::
 
@@ -187,9 +201,15 @@ La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado q
 
 :::
 
+::: {style="text-align: justify"}
+
+Con el espacio de probabilidad y la estructura de filtración establecidos, podemos ahora introducir el espacio de variables aleatorias cuadrado-integrables, que constituye el marco natural para el análisis de convergencia en media cuadrática de las aproximaciones estocásticas.
+
+:::
+
 ::: {#thm-completitudl2 style="text-align: justify"}
 
-## Completitud  de $L^2$
+## Completitud de $L^2$
 
 Sea $(\Omega,\mathcal{F},\mathbb{P})$ un espacio de probabilidad. El espacio
 
@@ -209,17 +229,13 @@ es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda
 
 :::{style = "text-align: justify"}
 
-La completitud de $L^2$ constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En 
-particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, 
-este teorema garantiza la existencia de un límite en $L^2$. Posteriormente, las propiedades de adaptabilidad, regularidad de las 
-trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.
+La completitud de $L^2$ constituye una herramienta fundamental para el análisis de las aproximaciones estocásticas. En particular, cuando una sucesión de procesos satisface estimaciones que permiten demostrar que es de Cauchy en media cuadrática, este teorema garantiza la existencia de un límite en $L^2$. Posteriormente, las propiedades de adaptabilidad, regularidad de las trayectorias y convergencia de dicho límite deben justificarse mediante los argumentos adicionales correspondientes.
 
-En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las 
-ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados 
-y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización y los 
-resultados de continuidad y completitud proporcionan herramientas para estudiar sucesiones de aproximaciones. Sobre esta base se 
-introducirán las desigualdades de probabilidad, las propiedades de las martingalas y los resultados de integración estocástica 
-necesarios para las demostraciones posteriores.
+:::
+
+::: {style="text-align: justify"}
+
+En el análisis de EDEs, es común necesitar intercambiar el orden del operador esperanza $\mathbb{E}$ con la integral de Lebesgue $ds$, o bien pasar al límite bajo el signo de la esperanza cuando se trabaja con sucesiones de variables aleatorias no negativas. Los siguientes teoremas justifican rigurosamente estas manipulaciones.
 
 :::
 
@@ -251,23 +267,23 @@ Este lema es indispensable para pasar al límite bajo el signo de la esperanza c
 
 :::
 
+:::{style="text-align: justify"}
+
+En conjunto, las definiciones y los resultados de esta sección establecen el marco probabilístico necesario para abordar las ecuaciones diferenciales estocásticas con saltos. Las filtraciones describen la información disponible, los procesos adaptados y predecibles permiten formular las integrales estocásticas, los tiempos de paro facilitan las técnicas de localización, y los resultados de continuidad, completitud e integración proporcionan herramientas para estudiar sucesiones de aproximaciones y pasar al límite en estimaciones probabilísticas.
+
+Una vez definido el entorno probabilístico y la regularidad de las trayectorias, nos enfrentamos al reto de acotar las integrales y los momentos de estos procesos. Las propiedades de la medida y la completitud de $L^2$ nos aseguran que los límites existen, pero para demostrar que dichos límites son finitos y controlables, requerimos herramientas analíticas precisas. A continuación, se recopilan las desigualdades fundamentales que permitirán separar términos, acotar productos y controlar las colas de distribución en las demostraciones posteriores.
+
+:::
+
 :::{style = "text-align: justify"}
 
 ## Desigualdades Fundamentales y Álgebra
 
-En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse 
-con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En 
-particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales 
-de Lebesgue, productos de procesos y momentos de distintos órdenes.
+En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales de Lebesgue, productos de procesos y momentos de distintos órdenes.
 
-Las desigualdades de esta sección permiten transformar expresiones complejas en cotas más manejables, evitando que los términos 
-individuales dificulten el análisis. Asimismo, proporcionan herramientas para relacionar la convergencia en media cuadrática con 
-estimaciones de probabilidad, y para controlar los productos que surgen al comparar dos soluciones o una solución exacta con su 
-aproximación numérica.
+Las desigualdades de esta sección permiten transformar expresiones complejas en cotas más manejables, evitando que los términos individuales dificulten el análisis. Asimismo, proporcionan herramientas para relacionar la convergencia en media cuadrática con estimaciones de probabilidad, y para controlar los productos que surgen al comparar dos soluciones o una solución exacta con su aproximación numérica.
 
-Comenzaremos con una desigualdad elemental para potencias de sumas, que permite separar varios términos y estimarlos 
-individualmente. Esta propiedad se utilizará de forma recurrente al elevar al cuadrado o a una potencia superior las diferencias 
-entre procesos estocásticos.
+Comenzaremos con una desigualdad elemental para potencias de sumas, que permite separar varios términos y estimarlos individualmente. Esta propiedad se utilizará de forma recurrente en el Capítulo 4 al elevar al cuadrado las diferencias entre iteraciones de Picard, y en el Capítulo 6 al acotar los momentos de orden superior del método CSS$\theta$.
 
 :::
 
@@ -291,9 +307,15 @@ $$
 
 :::
 
+::: {style="text-align: justify"}
+
+Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS$\theta$. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.
+
+:::
+
 ::: {#prp-propsupremos style="text-align: justify"}
 
-# Propiedades del supremo
+## Propiedades del supremo
 
 Sea $I$ un conjunto no vacío y sean $f,g:I\to\mathbb{R}$ funciones acotadas superiormente. Entonces,
 
@@ -317,6 +339,12 @@ $$
 
 :::
 
+::: {style="text-align: justify"}
+
+Estas propiedades son fundamentales para controlar el comportamiento uniforme de los procesos estocásticos en intervalos de tiempo. En los Capítulos 4 y 6, se utilizarán para acotar $\mathbb{E}[\sup_{0\leq s\leq t}|Z(s)|^p]$ y demostrar que las soluciones no explotan en tiempo finito. La subaditividad del supremo permite separar términos, mientras que la propiedad de monotonía simplifica el análisis de integrales con integrandos no negativos.
+
+:::
+
 ::: {#thm-cauchyschwarz style="text-align: justify"}
 
 ## Desigualdad de Cauchy-Schwarz
@@ -333,14 +361,15 @@ $$
 
 ::: {style="text-align: justify"}
 
-Esta última expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. 
-En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de 
-las cuaciones diferenciales estocásticas.
+Esta expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de las ecuaciones diferenciales estocásticas. Un caso particular importante se obtiene al tomar $g(s)\equiv 1$, lo que yields
 
-La desigualdad de Cauchy--Schwarz corresponde al caso particular en que ambos factores pertenecen a $L^2$. Cuando se estudian 
-momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes 
-para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables
-aleatorias.
+$$
+    \left|\int_0^t f(s)\,ds\right|^2\leq t\int_0^t|f(s)|^2\,ds,
+$$
+
+desigualdad que se emplea recurrentemente en el Capítulo 4 para acotar el término determinista de la iteración de Picard.
+
+La desigualdad de Cauchy--Schwarz corresponde al caso particular en que ambos factores pertenecen a $L^2$. Cuando se estudian momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables aleatorias.
 
 :::
 
@@ -370,6 +399,12 @@ $$
 
 :::
 
+::: {style="text-align: justify"}
+
+La desigualdad de Hölder es indispensable en el Capítulo 6 para acotar productos de procesos estocásticos cuando se analizan momentos de orden $p\geq 4$. Permite separar factores con diferentes tasas de crecimiento, facilitando el control de términos cruzados que aparecen en la expansión del error del método CSS$\theta$.
+
+:::
+
 ::: {#thm-jensen style="text-align: justify"}
 
 ## Desigualdad de Jensen 
@@ -386,8 +421,7 @@ $$
 
 ::: {style="text-align: justify"}
 
-Una aplicación importante se obtiene considerando la función convexa $\phi(x)=|x|^p$, con $p\geq 1$. Si $f\in L^p([0,t])$ y 
-$t>0$, la aplicación de Jensen a la medida de Lebesgue normalizada $\frac{1}{t}\,ds$ implica que
+Una aplicación importante se obtiene considerando la función convexa $\phi(x)=|x|^p$, con $p\geq 1$. Si $f\in L^p([0,t])$ y $t>0$, la aplicación de Jensen a la medida de Lebesgue normalizada $\frac{1}{t}\,ds$ implica que
 
 $$
     \left|\frac{1}{t}\int_0^t f(s)\,ds\right|^p\leq\frac{1}{t}\int_0^t|f(s)|^p\,ds.
@@ -399,7 +433,7 @@ $$
     \left|\int_0^t f(s)\,ds\right|^p\leq t^{p-1}\int_0^t|f(s)|^p\,ds.
 $$
 
-Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos. 
+Estas estimaciones resultan útiles al controlar integrales de coeficientes y momentos de procesos estocásticos. En el Capítulo 4, se utilizan para acotar integrales de Lebesgue en la iteración de Picard, mientras que en el Capítulo 6 permiten controlar momentos de órdenes superiores de la solución exacta.
 
 :::
 
@@ -409,18 +443,16 @@ Estas estimaciones resultan útiles al controlar integrales de coeficientes y mo
 
 Sea $X$ una variable aleatoria.
 
-- **Desigualdad de Markov** Si $p>0$, $\mathbb{E}[|X|^p]<\infty$ y $a>0$,
-    entonces
+- **Desigualdad de Markov** Si $p>0$, $\mathbb{E}[|X|^p]<\infty$ y $a>0$, entonces
 
     $$
         \mathbb{P}(|X|\geq a)\leq\frac{\mathbb{E}[|X|^p]}{a^p}.
     $$
 
--   **Desigualdad de Chebyshev** Si $X$ tiene segundo momento finito, entonces
+- **Desigualdad de Chebyshev** Si $X$ tiene segundo momento finito, entonces
 
     $$
-        \mathbb{P}
-        \left(|X-\mathbb{E}[X]|\geq a\right)\leq\frac{\operatorname{Var}(X)}{a^2},\qquad a>0,
+        \mathbb{P}\left(|X-\mathbb{E}[X]|\geq a\right)\leq\frac{\operatorname{Var}(X)}{a^2},\qquad a>0,
     $$
 
     donde
@@ -430,6 +462,12 @@ Sea $X$ una variable aleatoria.
     $$
 
 [@durrett2019probability].
+
+:::
+
+::: {style="text-align: justify"}
+
+Estas desigualdades son el puente fundamental entre los momentos de una variable aleatoria y las probabilidades de cola. En el Capítulo 4, la desigualdad de Markov (con $p=2$) se combina con el Lema de Borel-Cantelli para demostrar que la sucesión de Picard converge casi seguramente, no solo en $L^2$. Específicamente, al acotar $\mathbb{P}(\sup_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq 1/2^n)$, se obtiene una serie convergente que garantiza la convergencia uniforme casi segura.
 
 :::
 
@@ -467,16 +505,15 @@ $$
 
 ::: {style="text-align: justify"}
 
-La elección del parámetro $\delta$ permite ajustar la contribución de cada término de acuerdo con las necesidades de la 
-demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para 
-las soluciones exactas y numéricas.
+La elección del parámetro $\delta$ permite ajustar la contribución de cada término de acuerdo con las necesidades de la demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para las soluciones exactas y numéricas. En el Capítulo 6, la versión generalizada de la desigualdad de Young es crucial para acotar los términos de martingala $M_1(t)$, $M_2(t)$ y $M_3(t)$ que aparecen en el análisis de convergencia del método CSS$\theta$, permitiendo "absorber" el supremo del error en el lado izquierdo de la desigualdad.
 
-En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las
-desigualdades algebraicas controlan las sumas y los supremos; Cauchy--Schwarz, Hölder y Jensen permiten estimar integrales, 
-productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite 
-distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las 
-martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de 
-las ecuaciones diferenciales estocásticas con saltos.
+:::
+
+::: {style="text-align: justify"}
+
+En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las desigualdades algebraicas controlan las sumas y los supremos; Cauchy--Schwarz, Hölder y Jensen permiten estimar integrales, productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones diferenciales estocásticas con saltos.
+
+Las desigualdades algebraicas y de integración son el motor para controlar los errores, pero carecen de sentido si no podemos integrar procesos aleatorios respecto a movimientos brownianos o procesos de Poisson. La siguiente sección introduce la compensación de Poisson y la fórmula de Itô para saltos, las cuales extienden el cálculo diferencial clásico a trayectorias con discontinuidades, permitiendo transformar funciones de soluciones estocásticas en ecuaciones manejables. Específicamente, la compensación de Poisson convierte al proceso de saltos en una martingala, mientras que la fórmula de Itô proporciona la regla de la cadena para procesos con discontinuidades, herramienta indispensable en el Capítulo 5 para obtener la solución explícita de la ecuación de Langevin y en el Capítulo 6 para analizar la estabilidad del método CSS$\theta$.
 
 :::
 
@@ -504,7 +541,7 @@ propiedades mediante herramientas análogas a las utilizadas para el movimiento 
 
 :::{#thm-doobmeyer style="text-align: justify"}
 
-## Descomposición de Doob-Meyer para el proceso de Poisson
+### Descomposición de Doob-Meyer para el proceso de Poisson
 
 Sea $N=(N(t))_{t\geq 0}$ un proceso de Poisson de intensidad constante $\lambda>0$, adaptado a una filtración $(\mathcal{F}_t)_{t\geq 0}$ respecto de la cual conserva sus incrementos independientes. Entonces,
 
@@ -545,7 +582,7 @@ $W$ como respecto de $\widetilde{N}$.
 
 :::{#thm-isometriaito style="text-align: justify"}
 
-## Isometría de Itô
+### Isometría de Itô
 
 Sea $H$ un proceso predecible tal que
 
@@ -561,7 +598,7 @@ Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
         \mathbb{E}\left[\left(\int_0^t H(s)\,dW(s)\right)^2\right]=\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
     $$
 
--   **Integral respecto al proceso de Poisson compensado.**  Si $\widetilde{N}(t)=N(t)-\lambda t$ es un proceso de Poisson 
+-   **Integral respecto al proceso de Poisson compensado.** Si $\widetilde{N}(t)=N(t)-\lambda t$ es un proceso de Poisson 
     compensado de intensidad $\lambda>0$, entonces
 
     $$
@@ -588,7 +625,7 @@ aleatorio como una integral sobre un intervalo determinista, mediante la incorpo
 
 ::: {#lem-identidadtruncada style="text-align: justify"}
 
-## Identidad de integrales truncadas
+### Identidad de integrales truncadas
 
 Sea $\tau$ un tiempo de paro respecto de la filtración $(\mathcal{F}_t)_{t\geq 0}$ y sea $H$ un proceso predecible que satisfaga  
 las condiciones de integrabilidad necesarias. Para $X=W$ o $X=\widetilde{N}$, se cumple que
@@ -619,7 +656,7 @@ Esta identidad facilita el uso de técnicas de localización: se estudia primero
 establecerse cotas adecuadas, y después se consideran límites de la sucesión de procesos detenidos. No obstante, la identidad 
 por sí sola no garantiza integrabilidad; esta debe verificarse mediante las hipótesis correspondientes.
 
-Una vez establecidas las propiedades básicas de  las integrales estocásticas, podemos introducir la fórmula de Itô para  
+Una vez establecidas las propiedades básicas de las integrales estocásticas, podemos introducir la fórmula de Itô para  
 ecuaciones con saltos. En el caso continuo, esta fórmula incorpora una corrección determinada por la variación cuadrática del  
 movimiento browniano. Cuando existen saltos, además aparece un término que registra el cambio no lineal de la función en cada  
 discontinuidad. La forma de este término depende de si la ecuación se expresa mediante el proceso de Poisson original o mediante 
@@ -651,7 +688,7 @@ a partir de la deriva, la difusión y la contribución de los saltos.
 
 :::{#thm-formulaito style="text-align: justify"}
 
-## Fórmula de Itô para EDEs con saltos 
+### Fórmula de Itô para EDEs con saltos 
 
 Sea $X$ una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea $U\in C^2(\mathbb{R})$. Entonces, 
 bajo las condiciones de integrabilidad correspondientes, para todo $t\geq 0$ se tiene
@@ -661,8 +698,7 @@ $$
     U(X(t))&= U(X_0)+ \int_0^t \mathcal{L}U(X(s-))\,ds\\
     &\quad+ \int_0^t U'(X(s-))g(X(s-))\,dW(s)\\
     &\quad+ \int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\Big]\,d\widetilde{N}(s)\\
-    &\quad+\lambda\int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\\
-    &\qquad\qquad\qquad - U'(X(s-))h(X(s-))\Big]\,ds.
+    &\quad+\lambda\int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-)) - U'(X(s-))h(X(s-))\Big]\,ds.
 \end{aligned}
 $$
 
@@ -675,7 +711,7 @@ localización [@applebaum2009levy].
 
 El término integral respecto de $\widetilde{N}$ describe la variación martingala de los saltos, mientras que la última integral 
 representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en 
-general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto.
+general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto, y al reescribir la integral respecto de $dN$ en términos de $d\widetilde{N}$ y $\lambda dt$, surge naturalmente este término corrector.
 
 La fórmula de Itô es especialmente útil cuando se elige una función $U$ adecuada para estudiar los momentos de la solución. Por 
 ejemplo, las elecciones $U(x)=x^2$ o $U(x)=(1+x^2)^{p/2}$ permiten obtener estimaciones de segundo momento y de momentos de orden 
@@ -687,31 +723,25 @@ posteriores. La compensación de Poisson permite separar la deriva de la compone
 cotas para los momentos de las integrales; la identidad de integrales detenidas justifica las técnicas de localización; y la 
 fórmula de Itô permite analizar funciones de las soluciones y establecer estimaciones cuantitativas.
 
+La fórmula de Itô y las isometrías nos permiten calcular varianzas y la esperanza de las integrales estocásticas en instantes fijos de tiempo $t$. Sin embargo, en el análisis de convergencia y estabilidad, no basta con acotar el proceso en un instante; es imperativo controlar su comportamiento máximo a lo largo de todo un intervalo $[0,T]$. Para lograr esto, la siguiente sección presenta las desigualdades maximales de Doob y Burkholder-Davis-Gundy, herramientas esenciales para dominar los supremos de las martingalas.
+
 :::
 
 ::: {style="text-align: justify"}
 
 ## Martingalas y Desigualdades Maximal
 
-En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no 
-siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que 
-sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el
-comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales 
-estocásticas.
+En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.
 
-Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con 
-cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad
- maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la  
-martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.
+Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.
 
 :::
 
 :::{#thm-maximaldoob style="text-align: justify"}
 
-## Desigualdad Maximal de Doob
+### Desigualdad Maximal de Doob
 
-Sea $M=(M_t)_{t\geq 0}$ una martingala càdlàg respecto de una filtración $(\mathcal{F}_t)_{t\geq 0}$ que satisface las 
-condiciones usuales. Si $p>1$ y $\mathbb{E}[|M_t|^p]<\infty$, entonces
+Sea $M=(M_t)_{t\geq 0}$ una martingala càdlàg respecto de una filtración $(\mathcal{F}_t)_{t\geq 0}$ que satisface las condiciones usuales. Si $p>1$ y $\mathbb{E}[|M_t|^p]<\infty$, entonces
 
 $$
     \mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^p\right]\leq\left(\frac{p}{p-1}\right)^p\mathbb{E}[|M_t|^p].
@@ -729,19 +759,15 @@ $$
 
 :::{style="text-align: justify"}
 
-La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el 
-instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías 
-de Itô permiten estimar el segundo momento de dicho valor final.
+La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías de Itô permiten estimar el segundo momento de dicho valor final.
 
-Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral  
-respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones 
-de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.
+Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.
 
 :::
 
 :::{#cor-controlmaximal style="text-align: justify"}
 
-## Control maximal de una integral respecto al movimiento browniano
+### Control maximal de una integral respecto al movimiento browniano
 
 Sea $W$ un movimiento browniano respecto de la filtración considerada, y sea $H$ un proceso predecible tal que
 
@@ -763,12 +789,17 @@ $$
 
 :::
 
+:::{style="text-align: justify"}
+
+Este resultado muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los momentos del supremo de una martingala con los momentos de su variación cuadrática.
+
+:::
+
 :::{#thm-BDG style="text-align: justify"}
 
-## Desigualdad de Burkholder-Davis-Gundy
+### Desigualdad de Burkholder-Davis-Gundy
 
-Sea $M=(M_t)_{t\geq 0}$ una martingala local càdlàg con $M_0=0$, y sea $[M]_t$ su variación cuadrática, es decir, el proceso 
-creciente asociado a las fluctuaciones cuadráticas de $M$, que incluye las contribuciones de sus saltos.
+Sea $M=(M_t)_{t\geq 0}$ una martingala local càdlàg con $M_0=0$, y sea $[M]_t$ su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de $M$, que incluye las contribuciones de sus saltos.
 
 Para todo $p>0$ existen constantes $c_p,C_p>0$, que dependen únicamente de $p$, tales que, en el sentido de las esperanzas extendidas,
 
@@ -779,15 +810,13 @@ $$
 \end{aligned}
 $$
 
-Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la  
-martingala y el momento de su variación cuadrática [@protter2005stochastic].
+Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática [@protter2005stochastic].
 
 :::
 
 :::{style="text-align: justify"}
 
-En el caso de una martingala continua, la variación cuadrática $[M]_t$ coincide con su variación cuadrática predecible 
-$\langle M\rangle_t$. Por tanto, en ese caso la desigualdad anterior puede escribirse como 
+En el caso de una martingala continua, la variación cuadrática $[M]_t$ coincide con su variación cuadrática predecible $\langle M\rangle_t$. Por tanto, en ese caso la desigualdad anterior puede escribirse como 
 
 $$
 \begin{aligned}
@@ -796,24 +825,15 @@ $$
 \end{aligned}
 $$
 
-Para martingalas con saltos, en cambio, no debe sustituirse automáticamente $[M]_t$ por $\langle M\rangle_t$: son procesos  
-distintos y la formulación general de BDG utiliza la variación cuadrática opcional $[M]$. Esta distinción es importante al  
-estudiar las integrales respecto del proceso de Poisson compensado.
+Para martingalas con saltos, en cambio, no debe sustituirse automáticamente $[M]_t$ por $\langle M\rangle_t$: son procesos distintos y la formulación general de BDG utiliza la variación cuadrática opcional $[M]$. Esta distinción es importante al estudiar las integrales respecto del proceso de Poisson compensado.
 
 :::
 
 :::{style="text-align: justify"}
 
-Este corolario muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de 
-la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación 
-cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los  
-momentos del supremo de una martingala con los momentos de su variación cuadrática.
+En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia fuerte de las EDEs con saltos y del método numérico $\text{CSS}\theta$.
 
-En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las 
-secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras 
-que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales 
-estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia 
-fuerte de las EDEs con saltos y del método numérico $\text{CSS}\theta$.
+Habiendo asegurado el control de los supremos de las martingalas, el último eslabón para cerrar las estimaciones temporales requiere transformar desigualdades integrales y discretas en cotas explícitas. Además, debemos conectar la convergencia en probabilidad con la convergencia casi segura. En la siguiente sección se establecen el lema de Borel-Cantelli y las desigualdades de Gronwall, continua y discreta, que actuarán como el mecanismo de cierre para las demostraciones de los capítulos subsecuentes.
 
 :::
 
@@ -821,21 +841,15 @@ fuerte de las EDEs con saltos y del método numérico $\text{CSS}\theta$.
 
 ## Convergencia y Estimaciones Temporales
 
-En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad,
-la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de
-procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan
-controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.
+En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.
 
-En esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones 
-convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto,
-estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos
-numéricos.
+En esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.
 
 :::
 
 ::: {#lem-borelcantelli style="text-align: justify"}
 
-## Borel-Cantelli
+### Lema de Borel-Cantelli
 
 Sea $\{A_n\}_{n\in\mathbb{N}}$ una sucesión de eventos en un espacio de probabilidad $(\Omega,\mathcal{F},\mathbb{P})$. Si
 
@@ -861,27 +875,19 @@ $$
     \limsup_{n\to\infty}A_n=\bigcap_{m=1}^{\infty}\bigcup_{n=m}^{\infty}A_n
 $$
 
-representa la ocurrencia de infinitos eventos $A_n$. Por tanto, el lema establece que, bajo la condición de
-sumabilidad anterior, casi seguramente solo un número finito de esos eventos puede ocurrir.
+representa la ocurrencia de infinitos eventos $A_n$. Por tanto, el lema establece que, bajo la condición de sumabilidad anterior, casi seguramente solo un número finito de esos eventos puede ocurrir.
 
-En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos $A_n$
-representan incumplimientos de ciertas cotas probabilísticas. Si se demuestra que las probabilidades de esos incumplimientos
-son sumables, puede concluirse que casi seguramente las cotas correspondientes se satisfacen a partir de cierto índice.
-Combinado con estimaciones adecuadas de los errores, esto permite establecer resultados de convergencia casi segura, incluso
-uniforme en el tiempo cuando se controlan los errores mediante la norma del supremo 
+En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos $A_n$ representan incumplimientos de ciertas cotas probabilísticas. Si se demuestra que las probabilidades de esos incumplimientos son sumables, puede concluirse que casi seguramente las cotas correspondientes se satisfacen a partir de cierto índice. Combinado con estimaciones adecuadas de los errores, esto permite establecer resultados de convergencia casi segura, incluso uniforme en el tiempo cuando se controlan los errores mediante la norma del supremo.
 
-La convergencia en probabilidad es otra forma importante de convergencia en teoría de procesos estocásticos. Aunque no
-garantiza por sí sola que toda la sucesión converja casi seguramente, sí permite extraer una subsucesión que posee
-esta propiedad.
+La convergencia en probabilidad es otra forma importante de convergencia en teoría de procesos estocásticos. Aunque no garantiza por sí sola que toda la sucesión converja casi seguramente, sí permite extraer una subsucesión que posee esta propiedad.
 
 :::
 
 ::: {#thm-convprobsub style="text-align: justify"}
 
-## Convergencia en probabilidad y subsucesión $c.s.$
+### Convergencia en probabilidad y subsucesión c.s.
 
-Sea $\{X_n\}_{n\in\mathbb{N}}$ una sucesión de variables aleatorias y sea $X$ una variable aleatoria definidas en
-el mismo espacio de probabilidad. Si
+Sea $\{X_n\}_{n\in\mathbb{N}}$ una sucesión de variables aleatorias y sea $X$ una variable aleatoria definidas en el mismo espacio de probabilidad. Si
 
 $$
     X_n\xrightarrow{\mathbb{P}}X,
@@ -893,29 +899,23 @@ $$
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 $$
 
-[@billingsley1995probability].
+[@billingsley1995probability]
 
 :::
 
 :::{style="text-align: justify"}
 
-Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura.
-En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una
-subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias
-límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.
+Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura. En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.
 
-En las demostraciones de existencia, unicidad y estabilidad de ecuaciones diferenciales estocásticas aparecen frecuentemente
-desigualdades integrales en las que una función desconocida está acotada por una constante más una integral de ella misma.
-La desigualdad de Gronwall permite transformar este tipo de estimaciones en cotas explícitas.
+En las demostraciones de existencia, unicidad y estabilidad de ecuaciones diferenciales estocásticas aparecen frecuentemente desigualdades integrales en las que una función desconocida está acotada por una constante más una integral de ella misma. La desigualdad de Gronwall permite transformar este tipo de estimaciones en cotas explícitas.
 
 :::
 
 :::{#thm-gronwall style="text-align: justify"}
 
-## Desigualdad de Gronwall
+### Desigualdad de Gronwall
 
-Sea $u:[0,T]\to[0,\infty)$ una función medible y no negativa. Supóngase que $a\geq 0$, que $b:[0,T]\to[0,\infty)$ es integrable 
-y que, para todo $t\in[0,T]$,
+Sea $u:[0,T]\to[0,\infty)$ una función medible y no negativa. Supóngase que $a\geq 0$, que $b:[0,T]\to[0,\infty)$ es integrable y que, para todo $t\in[0,T]$,
 
 $$
     u(t)\leq a+\int_0^t b(s)u(s)\,ds.
@@ -933,39 +933,31 @@ $$
     u(t)\leq ae^{Kt}.
 $$
 
-[@applebaum2009levy].
+[@applebaum2009levy]
 
 :::
 
 :::{style="text-align: justify"}
 
-La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades 
-de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia 
-entre dos soluciones conduce a
+La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a
 
 $$
     \mathbb{E}\left[\sup_{0\leq s\leq t}|X(s)-Y(s)|^2\right]\leq K\int_0^t\mathbb{E}\left[\sup_{0\leq r\leq s}|X(r)-Y(r)|^2\right]ds,
 $$
 
-entonces, bajo las condiciones necesarias de integrabilidad, la aplicación de Gronwall con término inicial nulo permite concluir 
-que la diferencia es cero. Así se obtiene la unicidad trayectorial cuando la estimación anterior se ha establecido para las 
-soluciones consideradas.
+entonces, bajo las condiciones necesarias de integrabilidad, la aplicación de Gronwall con término inicial nulo permite concluir que la diferencia es cero. Así se obtiene la unicidad trayectorial cuando la estimación anterior se ha establecido para las soluciones consideradas.
 
-De manera análoga, cuando el término inicial es positivo, el mismo resultado permite obtener cotas explícitas de los momentos de 
-la solución y de las diferencias entre procesos. Su aplicación concreta depende de las hipótesis de la ecuación y de las 
-estimaciones previas disponibles.
+De manera análoga, cuando el término inicial es positivo, el mismo resultado permite obtener cotas explícitas de los momentos de la solución y de las diferencias entre procesos. Su aplicación concreta depende de las hipótesis de la ecuación y de las estimaciones previas disponibles.
 
-Para estudiar métodos numéricos, las estimaciones suelen formularse sobre una malla temporal y, por tanto, conducen a 
-desigualdades entre sucesiones. En este contexto se utiliza la versión discreta de Gronwall.
+Para estudiar métodos numéricos, las estimaciones suelen formularse sobre una malla temporal y, por tanto, conducen a desigualdades entre sucesiones. En este contexto se utiliza la versión discreta de Gronwall.
 
 :::
 
 ::: {#lem-gronwalldiscreto style="text-align: justify"}
 
-## Desigualdad de Gronwall Discreto
+### Desigualdad de Gronwall Discreto
 
-Sean $\{u_n\}_{n\geq0}$ y $\{a_n\}_{n\geq0}$ sucesiones de números reales no negativos, y sea $\beta\geq0$. Supóngase que, para 
-todo $n\geq0$,
+Sean $\{u_n\}_{n\geq0}$ y $\{a_n\}_{n\geq0}$ sucesiones de números reales no negativos, y sea $\beta\geq0$. Supóngase que, para todo $n\geq0$,
 
 $$
     u_n\leq a_n+\beta\sum_{i=0}^{n-1}u_i,
@@ -989,24 +981,65 @@ $$
 
 :::{style="text-align: justify"}
 
-La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar 
-una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con  
-respecto al índice $n$.
+La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con respecto al índice $n$.
 
-En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al 
-estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación 
-recursiva para los momentos de las soluciones aproximadas del método CSS$\theta$, el lema de Gronwall discreto permite cerrar 
-dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las  
-estimaciones previas lo permiten.
+En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación recursiva para los momentos de las soluciones aproximadas del método CSS$\theta$, el lema de Gronwall discreto permite cerrar dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las estimaciones previas lo permiten.
 
-En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de 
-Borel--Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en 
-probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las 
-estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.
+En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel--Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.
 
-De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos 
-posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con 
-saltos y al método $\text{CSS}\theta$.
+De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con saltos y al método $\text{CSS}\theta$.
+
+Con todas las herramientas analíticas, probabilísticas y estocásticas debidamente calibradas, estamos en condiciones de abordar la construcción de soluciones para ecuaciones diferenciales estocásticas. El método de iteración de Picard, que se presenta a continuación, no es más que la aplicación magistral de todo el aparato teórico desarrollado en este capítulo: utiliza la completitud de $L^2$, las isometrías, las desigualdades maximales y el lema de Gronwall para transformar la resolución de una EDE en un problema de convergencia de sucesiones.
+
+:::
+
+:::{style = "text-align: justify"}
+
+## Método de Iteración de Picard para EDEs
+
+La demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma $L^2$).
+
+La eficacia de este método radica en que permite acotar la diferencia entre iteraciones sucesivas utilizando las herramientas establecidas en las secciones anteriores: la completitud de $L^2$, la isometría de Itô, las desigualdades maximales de Doob y BDG, y finalmente, la desigualdad de Gronwall para cerrar la estimación.
+
+::: 
+
+:::{#def-iteracionpicard style = "text-align: justify"}
+
+## Sucesión de Iteraciones de Picard** 
+
+Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2] < \infty$. Definimos la sucesión de procesos estocásticos $\{Z_n(t)\}_{n \in \mathbb{N}}$ de la siguiente manera:
+
+1.  $\textbf{Paso base:}\,\quad Z_0(t) := Z_0$, para todo $t \geq 0$.
+
+2. $\textbf{Paso recursivo:}$ Para $n \geq 0$, definimos 
+
+    $$
+    \begin{aligned}
+    Z_{n+1}(t) & := Z_0 + \int_0^t f(Z_n(s-))\,ds + \int_0^t g(Z_n(s-))\,dW(s)\\ 
+    & \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
+    \end{aligned}
+    $$
+
+:::
+
+
+:::{style = "text-align: justify"}
+
+El objetivo de la demostración de existencia consiste en probar que esta sucesión es de Cauchy en el espacio $L^2$, que converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada a la EDE, la cuál puede tener la siguiente forma
+
+$$
+dZ(t) = f(Z(t-)) \, dt + g(Z(t-)) \, dW(t) + h(Z(t-)) \, d\widetilde{N}(t), \qquad t \geq 0,
+$$
+
+:::
+
+
+:::{style = "text-align: justify"}
+
+El objetivo de la demostración de existencia consistirá en probar que esta sucesión es de Cauchy en el espacio $L^2$, que 
+converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada. 
+Para llevar a cabo estas estimaciones de convergencia, será indispensable imponer condiciones de regularidad sobre los 
+coeficientes, lo cual formalizamos en el siguiente capítulo.
 
 :::
 
