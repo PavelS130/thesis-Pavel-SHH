@@ -444,7 +444,8 @@ window.Quarto = {
   <li><a href="#verificación-de-la-solución" id="toc-verificación-de-la-solución" class="nav-link" data-scroll-target="#verificación-de-la-solución"><span class="header-section-number">4.4</span> Verificación de la solución</a></li>
   <li><a href="#unicidad-trayectorial-para-z_0in-l2" id="toc-unicidad-trayectorial-para-z_0in-l2" class="nav-link" data-scroll-target="#unicidad-trayectorial-para-z_0in-l2"><span class="header-section-number">4.5</span> Unicidad trayectorial para <span class="math inline">\(Z_0\in L^2\)</span></a></li>
   <li><a href="#teorema-principal-de-existencia-y-unicidad-en-l2." id="toc-teorema-principal-de-existencia-y-unicidad-en-l2." class="nav-link" data-scroll-target="#teorema-principal-de-existencia-y-unicidad-en-l2."><span class="header-section-number">4.6</span> Teorema principal de existencia y unicidad en <span class="math inline">\(L^2.\)</span></a></li>
-  <li><a href="#existencia-y-unicidad-fuerte" id="toc-existencia-y-unicidad-fuerte" class="nav-link" data-scroll-target="#existencia-y-unicidad-fuerte"><span class="header-section-number">4.7</span> Existencia y unicidad fuerte</a></li>
+  <li><a href="#extensión-al-caso-general-mediante-truncamiento" id="toc-extensión-al-caso-general-mediante-truncamiento" class="nav-link" data-scroll-target="#extensión-al-caso-general-mediante-truncamiento"><span class="header-section-number">4.7</span> Extensión al caso general mediante truncamiento</a></li>
+  <li><a href="#existencia-y-unicidad-fuerte" id="toc-existencia-y-unicidad-fuerte" class="nav-link" data-scroll-target="#existencia-y-unicidad-fuerte"><span class="header-section-number">4.8</span> Existencia y unicidad fuerte</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorema.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorema.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -527,7 +528,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="construcción-y-convergencia-de-la-sucesión-de-picard" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="construcción-y-convergencia-de-la-sucesión-de-picard"><span class="header-section-number">4.3</span> Construcción y convergencia de la sucesión de Picard</h2>
 <div id="lem-ERPL" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 4.1 (Existencia y regularidad del proceso límite.)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Lema 4.1 (Existencia y regularidad del proceso límite.)</strong></span> Supongamos que los coeficientes <span class="math inline">\(f, g, h\)</span> satisfacen las condiciones de Lipschitz global y crecimiento lineal . Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Entonces, existe un proceso estocástico <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> que es adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span>, posee trayectorias càdlàg casi seguramente, y satisface <span class="math inline">\(\mathbb{E}\left[\sup_{0 \leq s \leq t} |Z(s)|^2\right] &lt; \infty\)</span> para todo <span class="math inline">\(t \geq 0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Ahora lo divido</p>
@@ -536,7 +537,10 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="verificación-de-la-solución" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="verificación-de-la-solución"><span class="header-section-number">4.4</span> Verificación de la solución</h2>
 <div id="prp-VS" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 4.1 (Verificación de la solución)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposición 4.1 (Verificación de la solución)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, el proceso límite <span class="math inline">\(Z(t)\)</span> satisface la forma integral de la ecuación diferencial estocástica <span class="math inline">\(\eqref{eq-4.01}\)</span> casi seguramente para todo <span class="math inline">\(t \geq 0\)</span>. Es decir,</p>
+<p><span class="math display">\[
+Z(t) = Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
+\]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Ahora lo divido</p>
@@ -545,7 +549,10 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="unicidad-trayectorial-para-z_0in-l2" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="unicidad-trayectorial-para-z_0in-l2"><span class="header-section-number">4.5</span> Unicidad trayectorial para <span class="math inline">\(Z_0\in L^2\)</span></h2>
 <div id="prp-Unicidad" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 4.2 (Unicidad Trayectocial para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposición 4.2 (Unicidad Trayectocial para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, si <span class="math inline">\(Z^{(1)}(t)\)</span> y <span class="math inline">\(Z^{(2)}(t)\)</span> son dos soluciones fuertes de la EDE <span class="math inline">\(\eqref{eq-4.01}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>, entonces</p>
+<p><span class="math display">\[
+\mathbb{P}\big(Z^{(1)}(t) = Z^{(2)}(t) \text{ para todo } t \geq 0\big) = 1.
+\]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Ahora lo divido</p>
@@ -554,14 +561,23 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="teorema-principal-de-existencia-y-unicidad-en-l2." class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="teorema-principal-de-existencia-y-unicidad-en-l2."><span class="header-section-number">4.6</span> Teorema principal de existencia y unicidad en <span class="math inline">\(L^2.\)</span></h2>
 <div id="thm-EUF1" class="theorem" style="text-align: justify">
-<p><span class="theorem-title"><strong>Teorema 4.1 (Exxistencia y Unicidad Fuerte para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Teorema 4.1 (Existencia y Unicidad Fuerte para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> Supongamos que los coeficientes <span class="math inline">\(f, g, h: \mathbb{R} \to \mathbb{R}\)</span> satisfacen las condiciones dadas en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Entonces, existe una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>. Dicha solución es un proceso adaptado con trayectorias càdlàg casi seguramente.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Ahora lo divido</p>
 </div>
 </section>
-<section id="existencia-y-unicidad-fuerte" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="existencia-y-unicidad-fuerte"><span class="header-section-number">4.7</span> Existencia y unicidad fuerte</h2>
+<section id="extensión-al-caso-general-mediante-truncamiento" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="extensión-al-caso-general-mediante-truncamiento"><span class="header-section-number">4.7</span> Extensión al caso general mediante truncamiento</h2>
+<div id="cor-finity" class="theorem corollary" style="text-align: justify">
+<p><span class="theorem-title"><strong>Corolario 4.1 (Existencia y unicidad fuerte - Caso General)</strong></span> El resultado del <a href="#thm-EUF1" class="quarto-xref">Teorema&nbsp;<span>4.1</span></a> se mantiene válido incluso si la condición inicial <span class="math inline">\(Z_0\)</span> no posee segundo momento finito, es decir, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2] = \infty\)</span></p>
+</div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Ahora lo divido</p>
+</div>
+</section>
+<section id="existencia-y-unicidad-fuerte" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="existencia-y-unicidad-fuerte"><span class="header-section-number">4.8</span> Existencia y unicidad fuerte</h2>
 <div id="thm-EUF" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 4.2</strong></span> Supongamos que los coeficientes <span class="math inline">\(f,g,h:\mathbb{R}\rightarrow\mathbb{R}\)</span> satisfacen con las condiciones dadas en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y la <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>.</p>
 <p>Entonces, existe una única solución fuerte <span class="math inline">\(\{Z(t)\}_{t\geq 0}\)</span> de la ecuación diferencial estocástica, definida en la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, que satisface las siguientes propiedades</p>
