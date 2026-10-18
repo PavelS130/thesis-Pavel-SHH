@@ -439,11 +439,11 @@ window.Quarto = {
    
   <ul>
   <li><a href="#marco-probabilístico-y-planteamiento-de-la-ede" id="toc-marco-probabilístico-y-planteamiento-de-la-ede" class="nav-link active" data-scroll-target="#marco-probabilístico-y-planteamiento-de-la-ede"><span class="header-section-number">4.1</span> Marco Probabilístico y Planteamiento de la EDE</a></li>
-  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">4.2</span> Hipótesis</a></li>
+  <li><a href="#hipótesis-de-regularidad" id="toc-hipótesis-de-regularidad" class="nav-link" data-scroll-target="#hipótesis-de-regularidad"><span class="header-section-number">4.2</span> Hipótesis de Regularidad</a></li>
   <li><a href="#construcción-y-convergencia-de-la-sucesión-de-picard" id="toc-construcción-y-convergencia-de-la-sucesión-de-picard" class="nav-link" data-scroll-target="#construcción-y-convergencia-de-la-sucesión-de-picard"><span class="header-section-number">4.3</span> Construcción y convergencia de la sucesión de Picard</a></li>
-  <li><a href="#verificación-de-la-solución" id="toc-verificación-de-la-solución" class="nav-link" data-scroll-target="#verificación-de-la-solución"><span class="header-section-number">4.4</span> Verificación de la solución</a></li>
-  <li><a href="#unicidad-trayectorial-para-z_0in-l2" id="toc-unicidad-trayectorial-para-z_0in-l2" class="nav-link" data-scroll-target="#unicidad-trayectorial-para-z_0in-l2"><span class="header-section-number">4.5</span> Unicidad trayectorial para <span class="math inline">\(Z_0\in L^2\)</span></a></li>
-  <li><a href="#teorema-principal-de-existencia-y-unicidad-en-l2." id="toc-teorema-principal-de-existencia-y-unicidad-en-l2." class="nav-link" data-scroll-target="#teorema-principal-de-existencia-y-unicidad-en-l2."><span class="header-section-number">4.6</span> Teorema principal de existencia y unicidad en <span class="math inline">\(L^2.\)</span></a></li>
+  <li><a href="#verificación-de-la-ecuación-integral" id="toc-verificación-de-la-ecuación-integral" class="nav-link" data-scroll-target="#verificación-de-la-ecuación-integral"><span class="header-section-number">4.4</span> Verificación de la Ecuación Integral</a></li>
+  <li><a href="#unicidad-de-la-solución-en-l2" id="toc-unicidad-de-la-solución-en-l2" class="nav-link" data-scroll-target="#unicidad-de-la-solución-en-l2"><span class="header-section-number">4.5</span> Unicidad de la Solución en <span class="math inline">\(L^2\)</span></a></li>
+  <li><a href="#síntesis-del-caso-con-segundo-momento-finito" id="toc-síntesis-del-caso-con-segundo-momento-finito" class="nav-link" data-scroll-target="#síntesis-del-caso-con-segundo-momento-finito"><span class="header-section-number">4.6</span> Síntesis del Caso con Segundo Momento Finito</a></li>
   <li><a href="#extensión-al-caso-general-mediante-truncamiento" id="toc-extensión-al-caso-general-mediante-truncamiento" class="nav-link" data-scroll-target="#extensión-al-caso-general-mediante-truncamiento"><span class="header-section-number">4.7</span> Extensión al caso general mediante truncamiento</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teorema.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teorema.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
@@ -494,7 +494,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 &amp; \qquad\quad+h(Z(t-))d\widetilde{N}(t),\quad t\geq 0,
 \end{aligned}
 \tag{4.1}\]</span></span></p>
-<p>con condición inicial <span class="math inline">\(Z(0)=0\)</span>.</p>
+<p>con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>.</p>
 <p>En la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, la notación <span class="math inline">\(Z(t-) = \lim_{s \uparrow t} Z(s)\)</span> denota el límite por la izquierda del proceso. El uso de este límite es un requisito técnico fundamental en el cálculo estocástico con saltos, ya que garantiza que los procesos integrandos <span class="math inline">\(f(Z(t-))\)</span>, <span class="math inline">\(g(Z(t-))\)</span> y <span class="math inline">\(h(Z(t-))\)</span> sean <span class="math inline">\(\textbf{predecibles}\)</span>, asegurando así que las integrales estocásticas estén rigurosamente bien definidas.</p>
 <p>Equivalentemente, la EDE <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> puede expresarse en su forma integral:</p>
 <p><span class="math display">\[
@@ -505,8 +505,8 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 \]</span></p>
 <p>El objetivo central de este capítulo es demostrar que, bajo ciertas condiciones de regularidad sobre los coeficientes <span class="math inline">\(f, g\)</span> y <span class="math inline">\(h\)</span> que se establecerán a continuación, la ecuación <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> admite una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> que es adaptada a la filtración <span class="math inline">\((\mathcal{F}_t)\)</span> y posee trayectorias càdlàg (continuas por la derecha y con límites por la izquierda) casi seguramente.</p>
 </section>
-<section id="hipótesis" class="level2" style="text-align: justify" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">4.2</span> Hipótesis</h2>
+<section id="hipótesis-de-regularidad" class="level2" style="text-align: justify" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="hipótesis-de-regularidad"><span class="header-section-number">4.2</span> Hipótesis de Regularidad</h2>
 <p>Una vez establecido el marco probabilístico y la formulación de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, es necesario imponer condiciones de regularidad sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen la buena definición de las integrales estocásticas y el comportamiento controlado de las soluciones. Las siguientes hipótesis, estándar en la teoría de EDEs con saltos (véase, por ejemplo, <span class="citation" data-cites="applebaum2009levy">Applebaum (<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">2009</a>)</span>), aseguran que la sucesión de iteraciones de Picard converge y que la solución es única.</p>
 <p><strong>Condición de Lipschitz global</strong>: Existe una constante <span class="math inline">\(K_1&gt;0\)</span> tal que, para todo <span class="math inline">\(y_1,y_2\in\mathbb{R},\)</span></p>
 <p><span id="eq-4.02"><span class="math display">\[
@@ -527,7 +527,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 <section id="construcción-y-convergencia-de-la-sucesión-de-picard" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="construcción-y-convergencia-de-la-sucesión-de-picard"><span class="header-section-number">4.3</span> Construcción y convergencia de la sucesión de Picard</h2>
 <div id="lem-ERPL" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 4.1 (Existencia y regularidad del proceso límite.)</strong></span> Supongamos que los coeficientes <span class="math inline">\(f, g, h\)</span> satisfacen las condiciones de Lipschitz global y crecimiento lineal . Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Entonces, existe un proceso estocástico <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> que es adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span>, posee trayectorias càdlàg casi seguramente, y satisface <span class="math inline">\(\mathbb{E}\left[\sup_{0 \leq s \leq t} |Z(s)|^2\right] &lt; \infty\)</span> para todo <span class="math inline">\(t \geq 0\)</span>.</p>
+<p><span class="theorem-title"><strong>Lema 4.1 (Convergencia en <span class="math inline">\(L^2\)</span> y regularidad del proceso límite)</strong></span> Supongamos que los coeficientes <span class="math inline">\(f, g, h\)</span> satisfacen las condiciones de Lipschitz global y crecimiento lineal . Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Entonces, existe un proceso estocástico <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> que es adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t \geq 0}\)</span>, posee trayectorias càdlàg casi seguramente, y satisface <span class="math inline">\(\mathbb{E}\left[\sup_{0 \leq s \leq t} |Z(s)|^2\right] &lt; \infty\)</span> para todo <span class="math inline">\(t \geq 0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Queremos demostrar la existencia de una solución fuerte <span class="math inline">\(Z=\{Z(t)\}_{t\geq 0}\)</span> para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z(0)=Z_0\)</span>, bajo las hipótesis dadas por la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> para los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>.</p>
@@ -966,10 +966,10 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p>Esto garantiza que, con probabilidad 1, la sucesión <span class="math inline">\((Z_n(\cdot))\)</span> converge uniformemente en <span class="math inline">\([0,t]\)</span> a una función límite <span class="math inline">\(Z(\cdot)\)</span>. Es decir, no solo converge punto a punto, sino que lo hace de manera controlada en todo el intervalo al mismo tiempo.</p>
 </div>
 </section>
-<section id="verificación-de-la-solución" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="verificación-de-la-solución"><span class="header-section-number">4.4</span> Verificación de la solución</h2>
+<section id="verificación-de-la-ecuación-integral" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="verificación-de-la-ecuación-integral"><span class="header-section-number">4.4</span> Verificación de la Ecuación Integral</h2>
 <div id="prp-VS" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 4.1 (Verificación de la solución)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, el proceso límite <span class="math inline">\(Z(t)\)</span> satisface la forma integral de la ecuación diferencial estocástica <span class="math inline">\(\eqref{eq-4.01}\)</span> casi seguramente para todo <span class="math inline">\(t \geq 0\)</span>. Es decir,</p>
+<p><span class="theorem-title"><strong>Proposición 4.1 (El proceso límite como solución fuerte)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, el proceso límite <span class="math inline">\(Z(t)\)</span> satisface la forma integral de la ecuación diferencial estocástica <span class="math inline">\(\eqref{eq-4.01}\)</span> casi seguramente para todo <span class="math inline">\(t \geq 0\)</span>. Es decir,</p>
 <p><span class="math display">\[
 Z(t) = Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
 \]</span></p>
@@ -1059,10 +1059,10 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 \]</span></p>
 </div>
 </section>
-<section id="unicidad-trayectorial-para-z_0in-l2" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="unicidad-trayectorial-para-z_0in-l2"><span class="header-section-number">4.5</span> Unicidad trayectorial para <span class="math inline">\(Z_0\in L^2\)</span></h2>
+<section id="unicidad-de-la-solución-en-l2" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="unicidad-de-la-solución-en-l2"><span class="header-section-number">4.5</span> Unicidad de la Solución en <span class="math inline">\(L^2\)</span></h2>
 <div id="prp-Unicidad" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 4.2 (Unicidad Trayectocial para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, si <span class="math inline">\(Z^{(1)}(t)\)</span> y <span class="math inline">\(Z^{(2)}(t)\)</span> son dos soluciones fuertes de la EDE <span class="math inline">\(\eqref{eq-4.01}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>, entonces</p>
+<p><span class="theorem-title"><strong>Proposición 4.2 (Unicidad trayectorial para condiciones iniciales con segundo momento finito)</strong></span> Bajo las hipótesis del <a href="#lem-ERPL" class="quarto-xref">Lema&nbsp;<span>4.1</span></a>, si <span class="math inline">\(Z^{(1)}(t)\)</span> y <span class="math inline">\(Z^{(2)}(t)\)</span> son dos soluciones fuertes de la EDE <span class="math inline">\(\eqref{eq-4.01}\)</span> con la misma condición inicial <span class="math inline">\(Z_0\)</span>, entonces</p>
 <p><span class="math display">\[
 \mathbb{P}\big(Z^{(1)}(t) = Z^{(2)}(t) \text{ para todo } t \geq 0\big) = 1.
 \]</span></p>
@@ -1203,8 +1203,8 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo}\ s\in 
 <p>Con esto, hemos demostrado la unicidad cuando <span class="math inline">\(\mathbb{E}\Big[|Z_0|^2\Big]&lt;\infty.\)</span></p>
 </div>
 </section>
-<section id="teorema-principal-de-existencia-y-unicidad-en-l2." class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="teorema-principal-de-existencia-y-unicidad-en-l2."><span class="header-section-number">4.6</span> Teorema principal de existencia y unicidad en <span class="math inline">\(L^2.\)</span></h2>
+<section id="síntesis-del-caso-con-segundo-momento-finito" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="síntesis-del-caso-con-segundo-momento-finito"><span class="header-section-number">4.6</span> Síntesis del Caso con Segundo Momento Finito</h2>
 <div id="thm-EUF1" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 4.1 (Existencia y Unicidad Fuerte para <span class="math inline">\(Z_0\in L^2.\)</span>)</strong></span> Supongamos que los coeficientes <span class="math inline">\(f, g, h: \mathbb{R} \to \mathbb{R}\)</span> satisfacen las condiciones dadas en la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> y <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a>. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible tal que <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Entonces, existe una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>. Dicha solución es un proceso adaptado con trayectorias càdlàg casi seguramente.</p>
 </div>
@@ -1215,7 +1215,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo}\ s\in 
 <section id="extensión-al-caso-general-mediante-truncamiento" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="extensión-al-caso-general-mediante-truncamiento"><span class="header-section-number">4.7</span> Extensión al caso general mediante truncamiento</h2>
 <div id="cor-finity" class="theorem corollary" style="text-align: justify">
-<p><span class="theorem-title"><strong>Corolario 4.1 (Existencia y unicidad fuerte - Caso General)</strong></span> El resultado del <a href="#thm-EUF1" class="quarto-xref">Teorema&nbsp;<span>4.1</span></a> se mantiene válido incluso si la condición inicial <span class="math inline">\(Z_0\)</span> no posee segundo momento finito, es decir, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2] = \infty\)</span></p>
+<p><span class="theorem-title"><strong>Corolario 4.1 (Existencia y Unicidad Fuerte para Condiciones Iniciales Generales)</strong></span> El resultado del <a href="#thm-EUF1" class="quarto-xref">Teorema&nbsp;<span>4.1</span></a> se mantiene válido incluso si la condición inicial <span class="math inline">\(Z_0\)</span> no posee segundo momento finito, es decir, cuando <span class="math inline">\(\mathbb{E}[|Z_0|^2] = \infty\)</span></p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Ahora consideremos el caso general donde la condición inicial puede no tener segundo momento finito, es decir, cuando <span class="math inline">\(\mathbb{E}\Big[|Z_0|^2\Big]=\infty\)</span>. Aproximaremos <span class="math inline">\(Z_0\)</span> mediante una sucesión de variables aleatorias acotadas. Definimos el truncamiento de la variable aleatoria <span class="math inline">\(Z_0\)</span> de la forma</p>
