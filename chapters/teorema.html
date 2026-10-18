@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -459,7 +478,7 @@ window.Quarto = {
 <li><p><span class="math inline">\(W=(W(t))_{t\geq 0}\)</span> es un movimiento browniano estándar adaptado a <span class="math inline">\(\{\mathcal{F}_t\}\)</span>,</p></li>
 <li><p><span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> es un proceso de Poisson estandar con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a <span class="math inline">\(\{\mathcal{F}_t\}\)</span>.</p></li>
 </ul>
-<p>Asumimos que <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(N(t)\)</span> son independientes entre si. A partir del proceso de Poisson, podemos definir el <span class="math inline">\(\textbf{proceso de Poisson compensado}\)</span> <span class="math inline">\(\widehat{N}=(\widetilde{N})_{t\geq 0}\)</span> mediante la realción</p>
+<p>Asumimos que <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(N(t)\)</span> son independientes entre si. A partir del proceso de Poisson, podemos definir el <span class="math inline">\(\textbf{proceso de Poisson compensado}\)</span> <span class="math inline">\(\widetilde{N}=(\widetilde{N})_{t\geq 0}\)</span> mediante la realción</p>
 <p><span class="math display">\[
 \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
 \]</span></p>
@@ -484,7 +503,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 </section>
 <section id="hipótesis" class="level2" style="text-align: justify" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">4.2</span> Hipótesis</h2>
-<p>Para asegurar la existencia y unicidad de una solución fuerte adaptada y con trayectorias càdlàg, es decir, continuas por la derecha y con límites por la izquierda, para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> necesitaremos las siguientes condiciones estándar sobre los coeficientes</p>
+<p>Una vez establecido el marco probabilístico y la formulación de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, es necesario imponer condiciones de regularidad sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen la buena definición de las integrales estocásticas y el comportamiento controlado de las soluciones. Las siguientes hipótesis, estándar en la teoría de EDEs con saltos (véase, por ejemplo, <span class="citation" data-cites="applebaum2009levy">Applebaum (<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">2009</a>)</span>), aseguran que la sucesión de iteraciones de Picard converge y que la solución es única.</p>
 <p><strong>Condición de Lipschitz global</strong>: Existe una constante <span class="math inline">\(K_1&gt;0\)</span> tal que, para todo <span class="math inline">\(y_1,y_2\in\mathbb{R},\)</span></p>
 <p><span id="eq-4.02"><span class="math display">\[
 \begin{aligned}
@@ -492,10 +511,14 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 &amp; \quad +\lambda |h(y_1)-h(y_2)|^2\leq K_1|y_1-y_2|^2.
 \end{aligned}
 \tag{4.2}\]</span></span></p>
+<p>Esta condición controla la variación relativa de los coeficientes, lo cual es esencial para demostrar la convergencia de la iteración de Picard (paso inductivo) y la unicidad de la solución mediante la desigualdad de Gronwall. Intuitivamente, la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> garantiza que los coeficientes no varían demasiado rápido, evitando que pequeñas diferencias en el estado del sistema se amplifiquen descontroladamente.</p>
+<p>Sin embargo, la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>, asegurando así que los integrandos pertenezcan al espacio <span class="math inline">\(\mathcal{L}^2\)</span> y que la solución no ``explote’’ en tiempo finito.</p>
 <p><strong>Condición de crecimiento lineal</strong>: Existe una constante <span class="math inline">\(K_2&gt;0\)</span> tal que, para todo <span class="math inline">\(y\in\mathbb{R}\)</span></p>
 <p><span id="eq-4.03"><span class="math display">\[
 |f(y)|^2+|g(y)|^2+\lambda |h(y)|^2\leq K_2(1+|y|^2).
 \tag{4.3}\]</span></span></p>
+<p>La <a href="#eq-4.03" class="quarto-xref">Ecuación&nbsp;<span>4.3</span></a> es fundamental para el paso base de la iteración de Picard (acotar la diferencia <span class="math inline">\(Z_1(t) - Z_0\)</span>) y para garantizar que las integrales estocásticas respecto al movimiento browniano y al proceso de Poisson compensado están rigurosamente bien definidas.</p>
+<p>Bajo estas dos hipótesis de regularidad, estamos en posición de enunciar y demostrar el resultado principal de este capítulo: la existencia y unicidad de una solución fuerte para la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con trayectorias càdlàg y momentos finitos.</p>
 </section>
 <section id="existencia-y-unicidad-fuerte" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="existencia-y-unicidad-fuerte"><span class="header-section-number">4.3</span> Existencia y unicidad fuerte</h2>
@@ -1268,6 +1291,11 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-applebaum2009levy" class="csl-entry" role="listitem">
+Applebaum, David. 2009. <em>L<span>é</span>vy Processes and Stochastic Calculus</em>. 2.ª ed. Vol. 116. Cambridge Studies en Advanced Mathematics. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511809781">https://doi.org/10.1017/CBO9780511809781</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
