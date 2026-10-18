@@ -19,7 +19,7 @@ El estudio de las ecuaciones diferenciales estocásticas con saltos descansa, en
 
 ::: {style="text-align: justify"}
 
-## Análisis Real y Topología Básica
+## Elementos de Análisis Real y Topología
 
 En esta sección se reúnen cuatro resultados elementales, cuya necesidad se hará evidente en los capítulos siguientes. Los teoremas de Heine--Borel y de Bolzano--Weierstrass garantizan la compacidad del intervalo $[0,T]$ y la existencia de subsucesiones convergentes, propiedades que se emplean para demostrar que toda función càdlàg es acotada en un intervalo compacto y para manipular los tiempos de paro $\tau_N$ que se introducirán más adelante. El teorema del valor extremo de Weierstrass proporciona cotas uniformes para los coeficientes de la ecuación cuando estos se evalúan sobre trayectorias truncadas, lo cual es esencial para asegurar que los integrandos pertenezcan a los espacios de integrabilidad requeridos. Finalmente, el teorema del valor intermedio, propio de la conectividad de $\mathbb{R}$, será la herramienta que garantice la existencia de la solución del paso implícito del esquema numérico CSS$\theta$ en el Capítulo 6.
 
@@ -101,7 +101,7 @@ Los resultados expuestos en esta sección operan de manera determinista, aplicá
 
 ::: {style="text-align: justify"}
 
-## Fundamentos de Probabilidad y Procesos Estocásticos
+## Espacios de Probabilidad y Procesos Estocásticos
 
 El estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.
 
@@ -277,7 +277,7 @@ Una vez definido el entorno probabilístico y la regularidad de las trayectorias
 
 :::{style = "text-align: justify"}
 
-## Desigualdades Fundamentales y Álgebra
+## Herramientas Analíticas y Desigualdades
 
 En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales de Lebesgue, productos de procesos y momentos de distintos órdenes.
 
@@ -729,7 +729,7 @@ La fórmula de Itô y las isometrías nos permiten calcular varianzas y la esper
 
 ::: {style="text-align: justify"}
 
-## Martingalas y Desigualdades Maximal
+## Martingalas y Desigualdades Maximales 
 
 En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.
 
@@ -839,7 +839,7 @@ Habiendo asegurado el control de los supremos de las martingalas, el último esl
 
 :::{style="text-align: justify"}
 
-## Convergencia y Estimaciones Temporales
+## Convergencia de Procesos y Estimaciones Temporales
 
 En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.
 
@@ -995,7 +995,7 @@ Con todas las herramientas analíticas, probabilísticas y estocásticas debidam
 
 :::{style = "text-align: justify"}
 
-## Método de Iteración de Picard para EDEs
+## El Método de Iteración de Picard para EDEs 
 
 La demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma $L^2$).
 
@@ -1009,9 +1009,9 @@ La eficacia de este método radica en que permite acotar la diferencia entre ite
 
 Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2] < \infty$. Definimos la sucesión de procesos estocásticos $\{Z_n(t)\}_{n \in \mathbb{N}}$ de la siguiente manera:
 
-1.  $\textbf{Paso base:}\,\quad Z_0(t) := Z_0$, para todo $t \geq 0$.
+1.  **Paso base:** $Z_0(t) := Z_0$, para todo $t \geq 0$.
 
-2. $\textbf{Paso recursivo:}$ Para $n \geq 0$, definimos 
+2.  **Paso recursivo:** Para $n \geq 0$, definimos 
 
     $$
     \begin{aligned}
@@ -1025,23 +1025,16 @@ Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2
 
 :::{style = "text-align: justify"}
 
-El objetivo de la demostración de existencia consiste en probar que esta sucesión es de Cauchy en el espacio $L^2$, que converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada a la EDE, la cuál puede tener la siguiente forma
+El objetivo de la demostración de existencia, que se desarrollará en el Capítulo 4, consistirá en probar que esta sucesión es de Cauchy en el espacio $L^2$, que converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada a la EDE:
 
 $$
-dZ(t) = f(Z(t-)) \, dt + g(Z(t-)) \, dW(t) + h(Z(t-)) \, d\widetilde{N}(t), \qquad t \geq 0,
+dZ(t) = f(Z(t-)) \, dt + g(Z(t-)) \, dW(t) + h(Z(t-)) \, d\widetilde{N}(t), \qquad t \geq 0.
 $$
+
+Para llevar a cabo estas estimaciones de convergencia y garantizar la buena definición de las integrales, será indispensable imponer condiciones de regularidad (Lipschitz y crecimiento lineal) sobre los coeficientes $f, g$ y $h$, lo cual formalizamos en el siguiente capítulo.
 
 :::
 
-
-:::{style = "text-align: justify"}
-
-El objetivo de la demostración de existencia consistirá en probar que esta sucesión es de Cauchy en el espacio $L^2$, que 
-converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada. 
-Para llevar a cabo estas estimaciones de convergencia, será indispensable imponer condiciones de regularidad sobre los 
-coeficientes, lo cual formalizamos en el siguiente capítulo.
-
-:::
 
 
 
