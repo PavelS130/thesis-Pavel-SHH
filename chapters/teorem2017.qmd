@@ -11,7 +11,8 @@ format:
 ---
 
 ::: {style="text-align: justify"}
-# Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos
+
+# Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos {#sec-6}
 
 ## Método $\text{CSS}\theta$
 
