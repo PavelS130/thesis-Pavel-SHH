@@ -473,6 +473,14 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 \tag{4.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(Z(0)=0\)</span>.</p>
 <p>En la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>, la notación <span class="math inline">\(Z(t-) = \lim_{s \uparrow t} Z(s)\)</span> denota el límite por la izquierda del proceso. El uso de este límite es un requisito técnico fundamental en el cálculo estocástico con saltos, ya que garantiza que los procesos integrandos <span class="math inline">\(f(Z(t-))\)</span>, <span class="math inline">\(g(Z(t-))\)</span> y <span class="math inline">\(h(Z(t-))\)</span> sean <span class="math inline">\(\textbf{predecibles}\)</span>, asegurando así que las integrales estocásticas estén rigurosamente bien definidas.</p>
+<p>Equivalentemente, la EDE <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> puede expresarse en su forma integral:</p>
+<p><span class="math display">\[
+    \begin{aligned}
+        Z(t) = Z_0 &amp;+ \int_0^t f(Z(s-)) \, ds + \int_0^t g(Z(s-)) \, dW(s) \\
+        &amp; + \int_0^t h(Z(s-)) \, d\widetilde{N}(s), \qquad t \geq 0.
+    \end{aligned}
+\]</span></p>
+<p>El objetivo central de este capítulo es demostrar que, bajo ciertas condiciones de regularidad sobre los coeficientes <span class="math inline">\(f, g\)</span> y <span class="math inline">\(h\)</span> que se establecerán a continuación, la ecuación <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> admite una única solución fuerte <span class="math inline">\(Z = (Z(t))_{t \geq 0}\)</span> que es adaptada a la filtración <span class="math inline">\((\mathcal{F}_t)\)</span> y posee trayectorias càdlàg (continuas por la derecha y con límites por la izquierda) casi seguramente.</p>
 </section>
 <section id="hipótesis" class="level2" style="text-align: justify" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">4.2</span> Hipótesis</h2>
