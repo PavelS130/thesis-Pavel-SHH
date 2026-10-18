@@ -852,8 +852,7 @@ discontinuidad. La forma de este término depende de si la ecuación se expresa 
 <section id="martingalas-y-desigualdades-maximal" class="level2" style="text-align: justify" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="martingalas-y-desigualdades-maximal"><span class="header-section-number">3.5</span> Martingalas y Desigualdades Maximal</h2>
 <p>En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.</p>
-<p>Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la<br>
-martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.</p>
+<p>Las desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.</p>
 </section>
 <div id="thm-maximaldoob" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.15 (Desigualdad Maximal de Doob)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala càdlàg respecto de una filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> que satisface las condiciones usuales. Si <span class="math inline">\(p&gt;1\)</span> y <span class="math inline">\(\mathbb{E}[|M_t|^p]&lt;\infty\)</span>, entonces</p>
@@ -868,8 +867,7 @@ martingala, mientras que la segunda permite relacionarlo con su variación cuadr
 </div>
 <div style="text-align: justify">
 <p>La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías de Itô permiten estimar el segundo momento de dicho valor final.</p>
-<p>Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral<br>
-respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.</p>
+<p>Por ejemplo, al combinar la desigualdad de Doob con la isometría de Itô se obtiene una cota para el supremo de una integral respecto del movimiento browniano. Esta combinación constituye una de las herramientas básicas para demostrar que las sucesiones de aproximaciones estocásticas son de Cauchy en espacios de procesos con normas definidas mediante supremos temporales.</p>
 </div>
 <div id="cor-controlmaximal" class="theorem corollary" style="text-align: justify">
 <p><span class="theorem-title"><strong>Corolario 3.1 (Control maximal de una integral respecto al movimiento browniano)</strong></span> Sea <span class="math inline">\(W\)</span> un movimiento browniano respecto de la filtración considerada, y sea <span class="math inline">\(H\)</span> un proceso predecible tal que</p>
@@ -886,6 +884,9 @@ respecto del movimiento browniano. Esta combinación constituye una de las herra
 \]</span></p>
 <p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
+<div style="text-align: justify">
+<p>Este resultado muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los momentos del supremo de una martingala con los momentos de su variación cuadrática.</p>
+</div>
 <div id="thm-BDG" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.16 (Desigualdad de Burkholder-Davis-Gundy)</strong></span> Sea <span class="math inline">\(M=(M_t)_{t\geq 0}\)</span> una martingala local càdlàg con <span class="math inline">\(M_0=0\)</span>, y sea <span class="math inline">\([M]_t\)</span> su variación cuadrática, es decir, el proceso creciente asociado a las fluctuaciones cuadráticas de <span class="math inline">\(M\)</span>, que incluye las contribuciones de sus saltos.</p>
 <p>Para todo <span class="math inline">\(p&gt;0\)</span> existen constantes <span class="math inline">\(c_p,C_p&gt;0\)</span>, que dependen únicamente de <span class="math inline">\(p\)</span>, tales que, en el sentido de las esperanzas extendidas,</p>
@@ -895,8 +896,7 @@ respecto del movimiento browniano. Esta combinación constituye una de las herra
     &amp;\leq C_p\,\mathbb{E}\left[[M]_t^{p/2}\right].
 \end{aligned}
 \]</span></p>
-<p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la<br>
-martingala y el momento de su variación cuadrática <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
+<p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>En el caso de una martingala continua, la variación cuadrática <span class="math inline">\([M]_t\)</span> coincide con su variación cuadrática predecible <span class="math inline">\(\langle M\rangle_t\)</span>. Por tanto, en ese caso la desigualdad anterior puede escribirse como</p>
@@ -906,15 +906,11 @@ martingala y el momento de su variación cuadrática <span class="citation" data
     &amp; \leq C_p\,\mathbb{E}\left[\langle M\rangle_t^{p/2}\right].
 \end{aligned}
 \]</span></p>
-<p>Para martingalas con saltos, en cambio, no debe sustituirse automáticamente <span class="math inline">\([M]_t\)</span> por <span class="math inline">\(\langle M\rangle_t\)</span>: son procesos<br>
-distintos y la formulación general de BDG utiliza la variación cuadrática opcional <span class="math inline">\([M]\)</span>. Esta distinción es importante al<br>
-estudiar las integrales respecto del proceso de Poisson compensado.</p>
+<p>Para martingalas con saltos, en cambio, no debe sustituirse automáticamente <span class="math inline">\([M]_t\)</span> por <span class="math inline">\(\langle M\rangle_t\)</span>: son procesos distintos y la formulación general de BDG utiliza la variación cuadrática opcional <span class="math inline">\([M]\)</span>. Esta distinción es importante al estudiar las integrales respecto del proceso de Poisson compensado.</p>
 </div>
 <div style="text-align: justify">
-<p>Este corolario muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los<br>
-momentos del supremo de una martingala con los momentos de su variación cuadrática.</p>
 <p>En conjunto, las desigualdades maximales complementan las isometrías de Itô y las desigualdades analíticas introducidas en las secciones anteriores. La desigualdad de Doob permite estimar el supremo de una martingala a partir de su valor final, mientras que BDG relaciona dicho supremo con su variación cuadrática. Estas herramientas serán utilizadas para controlar las integrales estocásticas y obtener estimaciones uniformes en el tiempo, necesarias para el análisis de existencia, unicidad y convergencia fuerte de las EDEs con saltos y del método numérico <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
-<p>Habiendo asegurado el control de los supremos de las martingalas, el último eslabón para cerrar las estimaciones temporales requiere transformar desigualdades integrales y discretas en cotas explícitas. Además, debemos conectar la convergencia en probabilidad con la convergencia casi segura. En esta sección final de los preliminares, se establecen el lema de Borel-Cantelli y las desigualdades de Gronwall, continua y discreta, que actuarán como el mecanismo de cierre para las demostraciones de los capítulos subsecuentes.</p>
+<p>Habiendo asegurado el control de los supremos de las martingalas, el último eslabón para cerrar las estimaciones temporales requiere transformar desigualdades integrales y discretas en cotas explícitas. Además, debemos conectar la convergencia en probabilidad con la convergencia casi segura. En la siguiente sección se establecen el lema de Borel-Cantelli y las desigualdades de Gronwall, continua y discreta, que actuarán como el mecanismo de cierre para las demostraciones de los capítulos subsecuentes.</p>
 </div>
 <section id="convergencia-y-estimaciones-temporales" class="level2" style="text-align: justify" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="convergencia-y-estimaciones-temporales"><span class="header-section-number">3.6</span> Convergencia y Estimaciones Temporales</h2>
