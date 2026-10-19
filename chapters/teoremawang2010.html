@@ -698,48 +698,52 @@ window.Quarto = {
     (1-\theta\Delta t(a+\lambda c))Y_{n+1} &amp;= \Big[1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n\Big]Y_n.
 \end{aligned}
 \tag{5.13}\]</span></span></p>
-<p>Dado que por hipótesis sabemos que <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos notar</p>
+<p>Dado que por hipótesis sabemos que el parámetro de estabilidad satisface <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos reescribir esta expresión como</p>
 <p><span class="math display">\[
     \begin{aligned}
-        2a+b^2+\lambda c(2+c) &amp; =2a+2\lambda c+b^2+\lambda c^2\\
-        &amp; =2(a+\lambda c)+b^2+\lambda c^2&lt;0,
+        2a+b^2+\lambda c(2+c) &amp; = 2a+2\lambda c+b^2+\lambda c^2 \\
+        &amp; = 2(a+\lambda c)+b^2+\lambda c^2 &lt; 0.
     \end{aligned}
 \]</span></p>
-<p>es claro que <span class="math inline">\(b^2+\lambda c^2&gt;0\)</span>, esto implica que <span class="math inline">\((a+\lambda c)&lt;0\)</span>. Con esto, podemos afirmar que para <span class="math inline">\(\Delta t\)</span> lo suficientemente pequeño, el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> no se anula y es positivo.</p>
-<p>Por otro lado, veamos la esperanza del segundo momento de <a href="#eq-5.13" class="quarto-xref">Ecuación&nbsp;<span>5.13</span></a>. Elevando al cuadrado y obteniendo el valor esperado, tenemos</p>
-<p><span id="eq-5.14"><span class="math display">\[
-    \begin{aligned}
-        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c)\\
-        &amp; \qquad\quad+b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
-    \end{aligned}
-\tag{5.14}\]</span></span></p>
-<p>Vamos a desarrollar la esperanza del término estocástico. Para faciliatr el proceso, definimos la siguiente notación</p>
+<p>Dado que <span class="math inline">\(b^2+\lambda c^2 \geq 0\)</span>, la única forma de que la suma sea estrictamente negativa es que <span class="math inline">\(2(a+\lambda c) &lt; 0\)</span>, lo que implica que <span class="math inline">\((a+\lambda c) &lt; 0\)</span>. Como <span class="math inline">\(\theta \in [0,1]\)</span> y <span class="math inline">\(\Delta t &gt; 0\)</span>, el producto <span class="math inline">\(\theta\Delta t(a+\lambda c)\)</span> es negativo o cero. En consecuencia, el término <span class="math inline">\((1-\theta\Delta t(a+\lambda c))\)</span> es estrictamente positivo (mayor o igual a 1) para cualquier tamaño de paso <span class="math inline">\(\Delta t &gt; 0\)</span>. Esto garantiza que el denominador en el criterio de estabilidad no se anula.</p>
+<p>Por otro lado, veamos la esperanza del segundo momento de la <a href="#eq-5.13" class="quarto-xref">Ecuación&nbsp;<span>5.13</span></a>. Elevando al cuadrado ambos lados y obteniendo el valor esperado, tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
-            A &amp; := 1+(1-\theta)\Delta t(a+\lambda c)\\
-            B &amp; := b\Delta W_n\\
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c) \\
+        &amp; \qquad\quad +b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2 |Y_n|^2\Bigg].
+    \end{aligned}
+\]</span></p>
+<p>Dado que <span class="math inline">\(Y_n\)</span> es <span class="math inline">\(\mathcal{F}_{t_n}\)</span>-medible (depende únicamente de la información hasta el tiempo <span class="math inline">\(t_n\)</span>) y los incrementos <span class="math inline">\(\Delta W_n\)</span> y <span class="math inline">\(\Delta \widetilde{N}_n\)</span> son independientes de <span class="math inline">\(\mathcal{F}_{t_n}\)</span>, la esperanza del producto se factoriza como el producto de las esperanzas:</p>
+<p><span id="eq-5.14"><span class="math display">\[
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c) \\
+        &amp; \qquad\quad +b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
+    \end{aligned}
+\tag{5.14}\]</span></span></p>
+<p>Vamos a desarrollar la esperanza del término estocástico. Para facilitar el proceso, definimos la siguiente notación</p>
+<p><span class="math display">\[
+    \begin{aligned}
+            A &amp; := 1+(1-\theta)\Delta t(a+\lambda c), \\
+            B &amp; := b\Delta W_n, \\
             C &amp; := c\Delta \widetilde{N}_n.
     \end{aligned}
 \]</span></p>
 <p>Notemos que <span class="math inline">\(A\)</span> es una constante determinista, mientras que <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> son variables aleatorias. Por tanto, aplicando la linealidad de la esperanza, el término estocástico de la <a href="#eq-5.14" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> queda de la forma</p>
 <p><span id="eq-5.15"><span class="math display">\[
     \begin{aligned}
-        \mathbb{E}[|A+B+C|^2] &amp; = \mathbb{E}[A^2+B^2+C^2\\
-        &amp; \qquad +2AB+2AC+2BC]\\
-        &amp; = \mathbb{E}[A^2]+\mathbb{E}[B^2]+\mathbb{E}[C^2]\\
-        &amp; \qquad +\mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
+        \mathbb{E}[|A+B+C|^2] &amp; = \mathbb{E}[A^2+B^2+C^2 + 2AB+2AC+2BC] \\
+        &amp; = \mathbb{E}[A^2]+\mathbb{E}[B^2]+\mathbb{E}[C^2] + \mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
     \end{aligned}
 \tag{5.15}\]</span></span></p>
-<p>Utilizando las propiedades de los incrementos independientes, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. Además, <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
-<p>Por otro lado, <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-5.15" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> tenemos</p>
+<p>Utilizando las propiedades de los incrementos independientes y de esperanza nula, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. En consecuencia, los términos cruzados se anulan: <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Además, por la independencia mutua entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
+<p>Por otro lado, calculamos los segundos momentos de los incrementos: <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la Ecuación <span class="math inline">\(\eqref{eq-5.15}\)</span> obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
-        \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t\\
-        &amp; = (1+(1-\theta)\Delta t(a+\lambda c))^2 \\
-        &amp; \qquad +b^2\Delta t +\lambda c^2\Delta t.
+        \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t \\
+        &amp; = (1+(1-\theta)\Delta t(a+\lambda c))^2 + b^2\Delta t +\lambda c^2\Delta t.
     \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en <a href="#eq-5.14" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> tenemos</p>
+<p>Sustituyendo este resultado en la Ecuación <a href="#eq-5.14" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a>, llegamos a la ecuación de recurrencia para el segundo momento:</p>
 <p><span id="eq-5.16"><span class="math display">\[
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \Bigg[(1+(1-\theta)\Delta t(a+\lambda c))^2 \\
