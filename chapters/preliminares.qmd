@@ -37,7 +37,7 @@ Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acot
 
 ::: {style="text-align: justify"}
 
-La compacidad de los intervalos cerrados proporciona el marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotada permite extraer de ella una subsucesión convergente; y si, adicionalmente, la sucesión se contiene en un conjunto cerrado, el límite de dicha subsucesión pertenece también al conjunto. Esta segunda observación es precisamente la que conecta el resultado siguiente con el teorema de Heine--Borel, pues en $\mathbb{R}$ la compacidad equivale a ser cerrado y acotado.
+La compacidad de los intervalos cerrados proporciona el marco adecuado para estudiar sucesiones de números reales. En particular, el hecho de que una sucesión esté acotada permite extraer de ella una subsucesión convergente; y si, adicionalmente, la sucesión se contiene en un conjunto cerrado, el límite de dicha subsucesión pertenece también al conjunto. Esta segunda observación es precisamente la que conecta el resultado siguiente con el teorema de Heine-Borel, pues en $\mathbb{R}$ la compacidad equivale a ser cerrado y acotado.
 
 :::
 

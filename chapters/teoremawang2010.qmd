@@ -1,5 +1,5 @@
 ---
-title: "Estabilidad media cuadrática"
+# title: "Estabilidad media cuadrática"
 lang: es
 format:
   html: default
@@ -11,211 +11,242 @@ format:
 ---
 
 ::: {style="text-align: justify"}
-Consideremos la ecuación diferencial estocástica con saltos
+
+# Estabilidad media cuadrática 
+
+Habiendo establecido en el Capítulo 4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la $\textbf{ecuación de Langevin estocástica con saltos}$. 
+
+Dicha ecuación se expresa mediante el siguiente sistema lineal:
 
 $$
-    dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t),\qquad t\geq 0,
+    dX(t) = aX(t^-)dt + bX(t^-)dW(t) + cX(t^-)dN(t), \qquad t \geq 0,
 $$ {#eq-301}
 
-con condición inicial $X(0)=X_0$, donde $a,b,c\in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda >0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$.
+con condición inicial $X(0) = X_0$, donde $a, b, c \in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda > 0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$.
 
-Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la @eq-301. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t\geq 0}$ de la forma
+A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su \textbf{estabilidad media cuadrática}, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método $\text{CSS}\theta$.
+
+:::
+
+::: {style="text-align: justify"}
+
+## Deducción de la solución explícita 
+
+Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación @eq-301. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t \geq 0}$ de la forma
 
 $$
-    dY(t)=\mu(t)dt+\sigma(t)dW(t)+\gamma(t)dN(t),
+    dY(t) = \mu(t)dt + \sigma(t)dW(t) + \gamma(t)dN(t),
 $$
 
-donde $\mu(t), \sigma(t), \gamma(t)$ son procesos adaptados, $W(t)$ es un movimiento browniano y $N(t)$ es un proceso de Poisson. Para una función $f\in C^2\{\mathbb{R}^{+}\times\mathbb{R}^{+}\}$ el diferencial estocástico de $f(t,Y(t))$ está dado por
+donde $\mu(t), \sigma(t), \gamma(t)$ son procesos adaptados, $W(t)$ es un movimiento browniano y $N(t)$ es un proceso de Poisson. Para una función $f \in C^2(\mathbb{R}^{+} \times \mathbb{R})$, el diferencial estocástico de $f(t, Y(t))$ está dado por
 
 $$
     \begin{aligned}
-        df(t,Y(t)) & = \frac{\partial f}{\partial t}(t,Y(t-))dt \\ 
-        & \qquad +\frac{\partial f}{\partial y}(t,Y(t-))[\mu(t)dt+\sigma(t)dW(t)]\\ 
-        & \qquad + \frac{1}{2}\frac{\partial^2 f}{\partial y^2}(t,Y(t-))\sigma(t)^2dt\\ 
-        & \qquad +[f(t,Y(t-)+\gamma(t))-f(t,Y(t-))]dN(t).
+        df(t, Y(t)) &= \frac{\partial f}{\partial t}(t, Y(t^-))dt \\ 
+        &\quad + \frac{\partial f}{\partial y}(t, Y(t^-))[\mu(t)dt + \sigma(t)dW(t)] \\ 
+        &\quad + \frac{1}{2}\frac{\partial^2 f}{\partial y^2}(t, Y(t^-))\sigma(t)^2 dt \\ 
+        &\quad + [f(t, Y(t^-) + \gamma(t)) - f(t, Y(t^-))]dN(t).
     \end{aligned}
 $$
 
 Notemos que el último término representa el cambio finito en $f$ cuando ocurre un salto de tamaño $\gamma(t)$ en $Y$.
 
-Para nuestro caso, para facilitar el tratamiento de los saltos, vamos a introducir el proceso de Poisson compensado definido por
+Para nuestro caso, y para facilitar el tratamiento de los saltos, vamos a introducir el proceso de Poisson compensado definido por
 
 $$
-    \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
+    \widetilde{N}(t) := N(t) - \lambda t, \qquad t \geq 0.
 $$
 
-Sabemos que este preceso es una martingala con esperanza $\mathbb{E}[\widetilde{N}(t)]=0$, varianza $\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t$, además los incrementos en dicho proceso son independientes.
+Sabemos que este proceso es una martingala con esperanza $\mathbb{E}[\widetilde{N}(t)] = 0$, varianza $\mathbb{E}[|\widetilde{N}(t)|^2] = \lambda t$, además los incrementos en dicho proceso son independientes.
 
-La ecuación que queremos resolver es lineal en el estado $X(t-)$, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando $c=0$, la ecuación se reduce al movimiento browniano geométrico
+La ecuación que queremos resolver es lineal en el estado $X(t^-)$, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando $c = 0$, la ecuación se reduce al movimiento browniano geométrico
 
 $$
-    dx(t)=aX(t)dt+bX(t)dW(t),
+    dX(t) = aX(t)dt + bX(t)dW(t),
 $$
 
 cuya solución es conocida por
 
 $$
-    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)\Bigg].
+    X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t)\right].
 $$
 
-Para nuestro caso, el término $cX(t-)dN(t)$ induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma
-
+Para nuestro caso, el término $cX(t^-)dN(t)$ induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma
 $$
-    X(t)=X_0e^{Y(t)},
+    X(t) = X_0 e^{Y(t)},
 $$
 
 donde $Y(t)$ será un proceso que posea un término lineal en $t$, un término con $W(t)$ para el ruido browniano y $N(t)$ para los saltos. Por lo que, proponemos que tendrá la siguiente estructura
 
 $$
-    Y(t)=\alpha t +\beta W(t)+\gamma N(t),
+    Y(t) = \alpha t + \beta W(t) + \gamma N(t),
 $$ {#eq-302}
 
-aquí $\alpha,\ \beta,\ \gamma$ serán constantes que deberemos determinar para que se cumple la @eq-301.
+aquí $\alpha, \beta, \gamma$ serán constantes que deberemos determinar para que se cumpla la @eq-301.
 
-Tomando a
+Tomando a $\mu(t) = \alpha$, $\sigma(t) = \beta$, $\gamma(t) = \gamma$ (el cual es el tamaño del salto), y además, para usar la función $f(y) = e^y$, por lo que $f'(y) = f''(y) = e^y = X$.
 
--   $\mu(t)=\alpha$.
--   $\sigma(t)=\beta$.
--   $\gamma(t)=\gamma$ el cuál es el tamaño del salto.
--   Además, para usar el $f(y)=e^y$, por lo que $f'(y)=f''(y)=e^y=X$.
-
-Así aplicando el Lema de Itô(Falta referencia cruzada), tenemos
+Así, aplicando el @thm-formulaito, tenemos
 
 $$
     \begin{aligned}
-        dX(t) & = X(t-)(\alpha dt+\beta W(t))+\frac{1}{2}X(t-)\beta^2dt\\ 
-        & \qquad + \Bigg[e^{Y(t-)+\gamma}-e^{Y(t-)}\Bigg]dN(t).
+        dX(t) &= X(t^-)(\alpha dt + \beta dW(t)) + \frac{1}{2}X(t^-)\beta^2 dt \\ 
+        &\quad + \left[e^{Y(t^-) + \gamma} - e^{Y(t^-)}\right]dN(t).
     \end{aligned}
 $$
 
-Observemos que, por la función $f(y)$, ya definida anteriormente, podemos afirmar que $e^{Y(t-)}=X(t-)$, por lo que el término de salto pasa a ser de la forma
-
+Observemos que, por la función $f(y)$ ya definida anteriormente, podemos afirmar que $e^{Y(t^-)} = X(t^-)$, por lo que el término de salto pasa a ser de la forma
 $$
-    e^{Y(t-)+\gamma}-e^{Y(t-)} = e^{Y(t-)}(e^{\gamma}-1)=X(t-)(e^{\gamma}-1)
+    e^{Y(t^-) + \gamma} - e^{Y(t^-)} = e^{Y(t^-)}(e^{\gamma} - 1) = X(t^-)(e^{\gamma} - 1).
 $$
 
 Factorizando los términos en común, podemos obtener
-
 $$
-    dX(t)=X(t-)\Bigg[\left(\alpha+\frac{1}{2}\beta^2\right)dt +\beta W(t)+(e^{\gamma}-1)dN(t)\Bigg].
+    dX(t) = X(t^-)\left[\left(\alpha + \frac{1}{2}\beta^2\right)dt + \beta dW(t) + (e^{\gamma} - 1)dN(t)\right].
 $$
 
 La ecuación que debe satisfacer $X(t)$ es
-
 $$
-    dX(t)=X(t-)[adt+bW(t)cN(t)].
-$$
-
-Comparando e igualando los factores de cada ecuación tenemos que para $dW(t)$, $\beta=b$. Luego para $N(t)$, se tiene $e^{\gamma}-1=c$, es decir, $e^{\gamma}=c+1$, esto implica que $\gamma =\ln(1+c)$. Por último, para el término $dt$, considerando el valor de $\beta=b$ tenemos
-
-$$
-    \alpha+\frac{1}{2}\beta^2=\alpha +\frac{1}{2}b^2=a,
+    dX(t) = X(t^-)[adt + bdW(t) + cdN(t)].
 $$
 
-por lo tanto
+Comparando e igualando los factores de cada ecuación, tenemos que:
 
-$$  
-    \alpha = a-\frac{1}{2}b^2.
+- Para $dW(t)$: $\beta = b$.
+
+- Para $dN(t)$: $e^{\gamma} - 1 = c$, es decir, $e^{\gamma} = c + 1$, esto implica que $\gamma = \ln(1 + c)$.
+
+- Para el término $dt$, considerando el valor de $\beta = b$, tenemos
+
+    $$
+        \alpha + \frac{1}{2}\beta^2 = \alpha + \frac{1}{2}b^2 = a,
+    $$
+
+    por lo tanto
+
+    $$  
+        \alpha = a - \frac{1}{2}b^2.
+    $$
+
+
+Sustituyendo estos valores en nuestra propuesta de la solución en la Ecuación @eq-302
+$$
+    Y(t) = \left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t).
 $$
 
-Sustituyendo estos valores en nuestra propuesta de la solución en @eq-302
+Cómo $X(t) = X_0 e^{Y(t)}$, entonces
 
 $$
-    Y(t)=\left(a-\frac{1}{2}b^2\right)t+bW(t)+\ln(1+c)N(t).
+    X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t)\right].
 $$
 
-Cómo $X(t)=X_0e^{Y(t)}$, entonces
+Por las propiedades del logaritmo, tenemos la solución explícita:
 
 $$
-    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)+\ln(1+c)N(t)\Bigg].
-$$
-
-Por las propiedades del logaritmo, tenemos
-
-$$
-    X(t)=X_0\exp\Bigg[\left(a-\frac{1}{2}b^2\right)t+bW(t)\Bigg](1+c)^{N(t)}.
+    X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t)\right](1 + c)^{N(t)}.
 $$ {#eq-303}
+
+:::
+
+::: {style="text-align: justify"}
+
+Habiendo obtenido la expresión explícita para la solución de la ecuación de Langevin con saltos en la sección anterior, el siguiente paso natural es investigar su comportamiento asintótico. En el contexto de los sistemas estocásticos, la estabilidad no se estudia trayectoria por trayectoria, sino a través de los momentos del proceso. En esta sección, analizaremos el segundo momento de la solución exacta, $\mathbb{E}[|X(t)|^2]$, para determinar bajo qué condiciones sobre los parámetros del sistema ($a, b, c, \lambda$) la energía del proceso decae asintóticamente a cero.
+
+
 :::
 
 ::: {#prp-solucion style="text-align: justify"}
+
+### Condición de estabilidad media cuadrática de la solución exacta
+
 Consideremos la @eq-301 ya definida anteriormente sobre un espacio de probabilidad $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$. Definimos el parámetro
 
 $$
     l:=2a+b^2 +\lambda c(2+c).
 $$
 
-Entonces, la solución continua de la ecuación dada por @eq-303 es estable en media cuadratica, es decir
+Entonces, la  @eq-303 es estable en media cuadratica, es decir,
 
 $$
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 $$
 
 si y solo si $l<0$.
+
 :::
 
 ::: {.proof style="text-align: justify"}
-A partir de la solución explicita de la ecuación @eq-301, notemos que
+A partir de la solución explicita de la ecuación @eq-301, notemos que el proceso está dado por 
 
 $$
     \begin{aligned}
         |X(t)|^2 & = \Bigg|X_0\exp\Bigg(\Bigg(a-\frac{b^2}{2}\Bigg)t+bW(t)\Bigg)(1+c)^{N(t)}\Bigg|^2\\ 
         & = |X_0|^2\cdot \left|\exp\left(\left(a-\frac{b^2}{2}\right)t+bW(t)\right)\right|^2\cdot\left((1+c)^{N(t)}\right)^2\\ 
-        & = |X_0|^2\cdot\left|\exp\left((2a-b^2)t+2W(t)\right)\right|\cdot (1+c)^{2N(t)}.
+        & = |X_0|^2\cdot\left|\exp\left((2a-b^2)t+2bW(t)\right)\right|\cdot (1+c)^{2N(t)}.
     \end{aligned}
 $$
 
-Dado que $X_0$ es la condición inicial determinita, es decir , no es una variable aleatoria, entonces obteniendo el valor esperado del segundo momento del proceso, tenemos
+Dado que $X_0$ es la condición inicial determinita (es decir , no es una variable aleatoria), y aprovechando la independencia entre el movimiento browniano $W(t)$ y el proceso de Poisson $N(t)$, al obtener el valor esperado del segundo momento tenemos
 
 $$
-    \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
+    \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2bW(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
 $$ {#eq-304}
 
-Para el término browniano, recordemos que $W(t)\sim \mathcal{N}(0,t)$, se cumple tambien $\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}$ esto para una variable $Z\sim \mathcal{N}(0,\sigma^2)$, por tanto, obtenemos
+Para el término browniano, recordemos que $W(t)\sim \mathcal{N}(0,t)$. Utilizando la función generadora de momentos de una variable normal $Z\sim \mathcal{N}(0,\sigma^2)$, dada por $\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}$ y factorizando la parte determinista, obtenemos
 
 $$
     \begin{aligned}
-        \mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right] & = \mathbb{E}[\exp[(2a-b^2)t]]\cdot \mathbb{E}[2W(t)]\\ 
-        & = \exp((2a-b^2)t)\cdot \exp \left(\frac{1}{2}(2b)^2 t\right)\\
-        & = \exp(2at-b^2t+2b^2t)\\
+        \mathbb{E}\left[\exp\left((2a-b^2)t + 2bW(t)\right)\right] & = \exp((2a-b^2)t) \cdot \mathbb{E}[\exp(2bW(t))] \\ 
+        & = \exp((2a-b^2)t) \cdot \exp\left(\frac{1}{2}(2b)^2 t\right) \\
+        & = \exp(2at - b^2t + 2b^2t) \\
         & = \exp((2a+b^2)t).
     \end{aligned}
 $$
 
-Por otro lado, para el término de Poisson, debemos recordar que la función generadora de momentos de $N(t)$ esta dada por
+Por otro lado, para el término de Poisson, recordemos que la función generadora de momentos de $N(t)$ esta dada por
 
 $$
     \mathbb{E}[e^{uN(t)}]=\exp(\lambda t(e^u-1)).
 $$
 
-Tomando a $u=ln(1+c)$, tenemos
+Tomando a $u=2ln(1+c)$, tenemos
 
 $$
     \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp\left(\lambda t (e^{2\ln(1+c)}-1)\right)=\exp(\lambda t((1+c)^2)-1).
 $$
 
-Desarrolando tenemos que $(1+c)^2-1=1+2c+c^2-1=c(2+c)$, por lo que al sustituir tenemos
+Desarrollando el término álgebraico, obtenemos $(1+c)^2-1=1+2c+c^2-1=c(2+c)$. Por lo que al sustituir tenemos
 
 $$
     \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp(\lambda c(2+c)t). 
 $$
 
-Finalmente de la @eq-304 tenemos que
+Finalmente, sustituyendo ambos resultados en la @eq-304 obtenemos
 
 $$
     \begin{aligned}
         \mathbb{E}[|X(t)|^2] & = X_0^2\cdot e^{(2a+b^2)t}\cdot e^{\lambda c(2+c)t}\\ 
-        & = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}, \quad \text{con }l=2a+b^2+\lambda c(2+c),\\ 
-        & = X_0^2\cdot e^{lt}.
+        & = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}\\ 
+        & = X_0^2\cdot e^{lt},
     \end{aligned}
 $$
 
-De aquí podemos afirmar que el segundo momento del proceso $X(t)$ crece de manera exponencial con una tasa $l$. Por lo que si $l=0$, el segundo momento es constante e igual a $X_0^2$. Al tomar el límite cuando $l>0$, es claro que dicho límite es infinito y por tanto el sistema es inestable. Finalmente cuando $l<0$, notemos que
+donde $l:=2a+b^2+\lambda c(2+c).$
+
+De aquí podemos afirmar que el segundo momento del proceso $X(t)$ crece o decae de manera exponencial con una tasa $l$. 
+
+- Si $l=0$, el segundo momento es constante e igual a $X_0^2$. 
+
+- Si $l>0$, al tomar el límite cuaando $t\rightarrow\infty$, es claro que dicho límite es infinito y por tanto el sistema es    inestable. 
+
+- Si $l<0$, notemos que
 
 $$
-    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]= \lim\limits_{t\rightarrow \infty}X_0^2\cdot e^{lt}= 0
+\lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]= \lim\limits_{t\rightarrow \infty}X_0^2\cdot e^{lt}= 0
 $$
 
-Por lo que el sistema es estable si y solo si $l<0$.
+
+Por lo que el sistema es asistóticaamente estable en media cuadrática si y solo si $l<0$.
 :::
 
 ::: {#thm-estabilidad style="text-align: justify"}
