@@ -2049,25 +2049,17 @@ $$
     & \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
     & \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\ 
     & \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}\\
-    & =\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\\ 
-    & \qquad\quad + \Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p\\ 
-    & \qquad\qquad\qquad\qquad +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+    & =lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],
   \end{aligned}
 $$
 
-Para reducir la notación, definimos la constante auxiliar
+donde $l$ es la constante auxiliar definida mediante:
 
 $$
   l:=\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg). 
 $$
 
-De esta forma, la ecuación anterior queda
-
-$$
-  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
-$$
-
-Por la forma en la que se ha estado construyendo la constante $C$, es posible realizar los ajustes necesarios de tal forma que $C$ absorba la constante $l$, de esta forma
+Por la forma en la que se ha estado construyendo la constante $C$, es posible realizar los ajustes necesarios tal que $C$ absorba la constante $l$, obteniendo 
 
 $$
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
