@@ -97,6 +97,13 @@ Bajo estas dos hipótesis de regularidad, estamos en posición de enunciar y dem
 
 ## Construcción y convergencia de la sucesión de Picard
 
+:::{style="text-align: justify"}
+
+Con el espacio de probabilidad filtrado y las hipótesis de regularidad (Lipschitz global y crecimiento lineal) debidamente establecidos, estamos en posición de abordar la construcción explícita de la solución. Dado que la ecuación diferencial estocástica @eq-4.01 no admite, en general, una solución cerrada, recurriremos al método de aproximaciones sucesivas de Picard.
+El objetivo de esta sección no es solo definir la sucesión de procesos estocásticos $(Z_n(t))_{n\in\mathbb{N}}$, sino demostrar rigurosamente que dicha sucesión converge. En el @lem-ERPL que se presenta a continuación, probaremos que las iteraciones forman una sucesión de Cauchy en el espacio de Banach $L^2$, que convergen uniformemente casi seguramente, y que el proceso límite resultante hereda las propiedades de adaptabilidad y regularidad càdlàg.
+
+:::
+
 ::: {#lem-ERPL style="text-align: justify"}
 
 ### Convergencia en $L^2$ y regularidad del proceso límite
@@ -713,6 +720,14 @@ Esto garantiza que, con probabilidad 1, la sucesión $(Z_n(\cdot))$ converge uni
 
 ## Verificación de la Ecuación Integral 
 
+::: {style="text-alig: justify"}
+
+El @lem-ERPL garantiza la existencia de un proceso límite $Z_n(t)$ con las propiedades de regularidad deseables. Sin embargo, desde el punto de vista analítico, la mera convergencia de la sucesión de Picard no asegura, por sí sola, que el límite satisfaga la ecuación diferencial estocástica original. Podría ocurrir que el límite converja a un proceso que no resuelva la EDE.
+
+Para cerrar este vacío lógico, en esta sección definimos un proceso auxiliar $\widetilde{Z}(t)$ evaluando el lado derecho de la forma integral de la @eq-4.01 sobre el proceso límite $Z_n(t)$. A través de estimaciones de error cuadrático medio y aprovechando la unicidad de límites en espacios de Banach, demostraremos en la siguiente Proposición que $\widetilde{Z}(t)=Z(t)$ casi seguramente, validando así que el proceso construido es, en efecto, una solución fuerte.
+
+:::
+
 ::: {#prp-VS style="text-align: justify"}
 
 ### El proceso límite como solución fuerte
@@ -842,6 +857,12 @@ $$
 :::
 
 ## Unicidad de la Solución en $L^2$
+
+::: {style="text-align: justify"}
+
+Habiendo establecido que la sucesión de Picard converge a un proceso que resuelve la @eq-4.01, el siguiente paso fundamental es garantizar que esta solución es única. Es decir, debemos demostrar que no existe ningún otro proceso estocástico, distinto a $Z(t)$, que satisfaga la misma ecuación diferencial y la misma condición inicial $Z_0.$ La estrategia para demostrar la unicidad consiste en suponer la existencia de una segunda solución hipotética $Z'(t)$, acotar la diferencia cuadrática media entre ambas soluciones $\mathbb{E}[\sup_{0\leq s\leq t}|Z(s)-Z'(s)|^2]$, y aplicar las herramientas de acotamiento desarrolladas en la @sec-preliminares. Como se verá en la siguiente proposición, la aplicación de la Desigualdad de Gronwall a la desigualdad integral resultante forzará a que la diferencia entre ambas soluciones sea idénticamente cero.
+
+:::
 
 ::: {#prp-Unicidad style="text-align: justify"}
 
@@ -1042,6 +1063,14 @@ Con esto, hemos demostrado la unicidad cuando $\mathbb{E}\Big[|Z_0|^2\Big]<\inft
 
 ## Síntesis del Caso con Segundo Momento Finito
 
+:::{style="text-align: justify"}
+
+Los resultados desarrollados en las secciones anteriores constituyen los bloques constructivos y analíticos necesarios para enunciar el resultado principal de este capítulo para el caso de condiciones iniciales con segundo momento finito.
+A diferencia de las secciones previas, donde el esfuerzo se centró en la maquinaria analítica (iteración de Picard, isometrías, Gronwall), el propósito de esta sección es puramente declarativo. El siguiente teorema consolida la existencia (@lem-ERPL), la validación de la ecuación (@prp-VS) y la unicidad (@prp-Unicidad) en un solo enunciado.
+
+
+:::
+
 ::: {#thm-EUF1 style="text-align: justify"}
 
 ### Existencia y Unicidad Fuerte para $Z_0\in L^2.$
@@ -1060,6 +1089,13 @@ La existencia del proceso límite, su adaptabilidad y la regularidad càdlàg de
 :::
 
 ## Extensión al caso general mediante truncamiento
+
+:::{style="text-align: justify"}
+
+El @thm-EUF1 establece la existencia y unicidad fuerte bajo la hipótesis restrictiva de que la condición inicial posee segundo momento finito $(\mathbb{E}[|Z_0|^2]<\infty)$. Sin embargo, en aplicaciones prácticas como la modelación de fallas sísmicas mediante la ecuación de Langevin, la condición inicial puede provenir de distribuciones con colas pesadas, violando esta hipótesis.
+Para liberar al teorema de esta restricción, utilizaremos una técnica de localización por truncamiento. Definiremos una sucesión de condiciones iniciales acotadas $Z_0^{(n)}$ que sí pertenecen a $L^2$, aplicaremos el @thm-EUF1 a cada una de ellas, y demostraremos que la sucesión de soluciones resultantes converge uniformemente en probabilidad. El siguiente corolario establece que el proceso límite de esta sucesión truncada es la única solución fuerte para una condición inicial $Z_0$ general.
+
+:::
 
 ::: {#cor-finity style="text-align: justify"}
 

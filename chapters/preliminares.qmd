@@ -1,9 +1,11 @@
 ---
-title: "Preliminares"
+# title: "Preliminares"
 lang: es
 ---
 
 ::: {style="text-align: justify"}
+
+# Preliminares {#sec-preliminares}
 
 Para abordar los objetivos planteados, es imperativo establecer un marco teórico riguroso que permita dar sentido matemático a las fluctuaciones aleatorias con discontinuidades abruptas. El estudio de las ecuaciones diferenciales estocásticas con saltos no puede sustentarse únicamente en el cálculo clásico; requiere la integración de conceptos de análisis real, teoría de la medida y cálculo estocástico. En el siguiente capítulo, se ensamblan de manera sistemática las herramientas fundamentales, desde la topología básica y las desigualdades analíticas, hasta la integral de Itô para procesos con saltos y las desigualdades maximales, que servirán como cimientos para demostrar la existencia, unicidad y convergencia numérica de los modelos que nos ocupan.
 
@@ -17,9 +19,9 @@ El estudio de las ecuaciones diferenciales estocásticas con saltos descansa, en
 
 :::
 
-::: {style="text-align: justify"}
+::: {style="text-align: justify"} 
 
-## Elementos de Análisis Real y Topología
+## Elementos de Análisis Real y Topología {#sec-preliminares1}
 
 En esta sección se reúnen cuatro resultados elementales, cuya necesidad se hará evidente en los capítulos siguientes. Los teoremas de Heine--Borel y de Bolzano--Weierstrass garantizan la compacidad del intervalo $[0,T]$ y la existencia de subsucesiones convergentes, propiedades que se emplean para demostrar que toda función càdlàg es acotada en un intervalo compacto y para manipular los tiempos de paro $\tau_N$ que se introducirán más adelante. El teorema del valor extremo de Weierstrass proporciona cotas uniformes para los coeficientes de la ecuación cuando estos se evalúan sobre trayectorias truncadas, lo cual es esencial para asegurar que los integrandos pertenezcan a los espacios de integrabilidad requeridos. Finalmente, el teorema del valor intermedio, propio de la conectividad de $\mathbb{R}$, será la herramienta que garantice la existencia de la solución del paso implícito del esquema numérico CSS$\theta$ en el @sec-6.
 
@@ -101,7 +103,7 @@ Los resultados expuestos en esta sección operan de manera determinista, aplicá
 
 ::: {style="text-align: justify"}
 
-## Espacios de Probabilidad y Procesos Estocásticos
+## Espacios de Probabilidad y Procesos Estocásticos {#sec-preliminares2}
 
 El estudio de las ecuaciones diferenciales estocásticas (EDEs), en particular aquellas impulsadas por un movimiento browniano y procesos de Poisson, requiere un marco probabilístico que permita describir rigurosamente la incertidumbre y la evolución temporal de los fenómenos aleatorios. Para ello, es necesario especificar tanto el espacio donde se definen las variables aleatorias como la información disponible en cada instante.
 
@@ -277,7 +279,7 @@ Una vez definido el entorno probabilístico y la regularidad de las trayectorias
 
 :::{style = "text-align: justify"}
 
-## Herramientas Analíticas y Desigualdades
+## Herramientas Analíticas y Desigualdades {#sec-preliminares3}
 
 En el análisis de las ecuaciones diferenciales estocásticas (EDEs), las propiedades de los procesos aleatorios deben combinarse con estimaciones algebraicas y analíticas que permitan controlar los términos que aparecen en sus representaciones integrales. En particular, las demostraciones de existencia, unicidad y convergencia requieren acotar sumas de variables aleatorias, integrales de Lebesgue, productos de procesos y momentos de distintos órdenes.
 
@@ -519,7 +521,7 @@ Las desigualdades algebraicas y de integración son el motor para controlar los 
 
 ::: {style="text-align: justify"}
 
-## Integración Estocástica y Fórmula de Itô 
+## Integración Estocástica y Fórmula de Itô {#sec-preliminares4}
 
 El análisis de las ecuaciones diferenciales estocásticas (EDEs) con saltos requiere herramientas que permitan integrar procesos 
 aleatorios y estudiar la evolución de funciones de sus soluciones. A diferencia del cálculo diferencial clásico, la integración 
@@ -729,7 +731,7 @@ La fórmula de Itô y las isometrías nos permiten calcular varianzas y la esper
 
 ::: {style="text-align: justify"}
 
-## Martingalas y Desigualdades Maximales 
+## Martingalas y Desigualdades Maximales {#sec-preliminares5}
 
 En el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.
 
@@ -839,7 +841,7 @@ Habiendo asegurado el control de los supremos de las martingalas, el último esl
 
 :::{style="text-align: justify"}
 
-## Convergencia de Procesos y Estimaciones Temporales
+## Convergencia de Procesos y Estimaciones Temporales {#sec-preliminares6}
 
 En las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.
 
@@ -995,7 +997,7 @@ Con todas las herramientas analíticas, probabilísticas y estocásticas debidam
 
 :::{style = "text-align: justify"}
 
-## El Método de Iteración de Picard para EDEs 
+## El Método de Iteración de Picard para EDEs {#sec-preliminares7}
 
 La demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma $L^2$).
 
