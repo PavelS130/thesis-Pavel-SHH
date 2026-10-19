@@ -1952,20 +1952,14 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \quad + \left(\frac{2}{\theta}\right)^p\Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\\
     &amp; \quad + 2^p \Bigg(C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}]\Bigg)\Bigg\}\\
-    &amp; =\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\\
-    &amp; \qquad\quad + \Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p\\
-    &amp; \qquad\qquad\qquad\qquad +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg)C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
+    &amp; =lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}],
   \end{aligned}
 \]</span></p>
-<p>Para reducir la notación, definimos la constante auxiliar</p>
+<p>donde <span class="math inline">\(l\)</span> es la constante auxiliar definida mediante:</p>
 <p><span class="math display">\[
   l:=\Bigg(10^{p-1}\Bigg(3+2^{p+1}r^p +\frac{2^{p+1}}{\theta^p}+2^p\Bigg)\Bigg).
 \]</span></p>
-<p>De esta forma, la ecuación anterior queda</p>
-<p><span class="math display">\[
-  \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq lC+lC\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
-\]</span></p>
-<p>Por la forma en la que se ha estado construyendo la constante <span class="math inline">\(C\)</span>, es posible realizar los ajustes necesarios de tal forma que <span class="math inline">\(C\)</span> absorba la constante <span class="math inline">\(l\)</span>, de esta forma</p>
+<p>Por la forma en la que se ha estado construyendo la constante <span class="math inline">\(C\)</span>, es posible realizar los ajustes necesarios tal que <span class="math inline">\(C\)</span> absorba la constante <span class="math inline">\(l\)</span>, obteniendo</p>
 <p><span id="eq-6.88"><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}(|Y_n|^{2p})\Bigg]\leq C+C\Delta t\sum\limits_{j=0}^{M-1}\mathbb{E}[|Y_j|^{2p}].
 \tag{6.88}\]</span></span></p>
