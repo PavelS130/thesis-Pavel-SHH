@@ -661,44 +661,42 @@ window.Quarto = {
 </ul>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, con condición inicial <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cuál es una martingala y satiisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a> de la forma equivalente</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Como primer paso, comenzaremos aplicando el método theta compensado estocástico (CSTM) a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, con condición inicial <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método, definimos el proceso de Poisson compensado como <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cual es una martingala y satisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a> en su forma equivalente:</p>
 <p><span id="eq-5.11"><span class="math display">\[
 \begin{aligned}
-    dX(t) &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t)\\
-    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d(\widetilde{N}(t)+\lambda t)\\
-    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d\widetilde{N}(t)+ \lambda cX(t-)dt\\
-    &amp; = (a+\lambda c)X(t)dt +bX(t-)dW(t)+cX(t-)d\widetilde{N}(t).
+    dX(t) &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)dN(t)\\
+    &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)d(\widetilde{N}(t)+\lambda t)\\
+    &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)d\widetilde{N}(t)+ \lambda cX(t^-)dt\\
+    &amp; = (a+\lambda c)X(t^-)dt +bX(t^-)dW(t)+cX(t^-)d\widetilde{N}(t).
 \end{aligned}
 \tag{5.11}\]</span></span></p>
-<p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-5.11" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> genera un sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
+<p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-5.11" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> genera una sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
 <p><span id="eq-5.12"><span class="math display">\[
-    \begin{aligned}
-        Y_{n+1}= &amp; Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n \\
-        &amp; \qquad +\theta \Delta t(a+\lambda c)Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
-    \end{aligned}
+\begin{aligned}
+    Y_{n+1} &amp;= Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n \\
+    &amp;\quad +\theta \Delta t(a+\lambda c)Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
+\end{aligned}
 \tag{5.12}\]</span></span></p>
-<p>donde <span class="math inline">\(\theta\in [0,1]\)</span> es un parámetro del método, los incrementos estocásticos se definen de la forma</p>
+<p>donde <span class="math inline">\(\theta\in [0,1]\)</span> es el parámetro del método. Los incrementos estocásticos se definen como</p>
 <p><span class="math display">\[
-    \begin{aligned}
-        \Delta W_n : &amp; = W(t_{n+1})-W(t_n) \\
-        \Delta \widetilde{N}_n : &amp; = \widetilde{N}(t_{n+1})-\widetilde{N}(t_n).
-    \end{aligned}
+\begin{aligned}
+    \Delta W_n &amp;:= W(t_{n+1})-W(t_n), \\
+    \Delta \widetilde{N}_n &amp;:= \widetilde{N}(t_{n+1})-\widetilde{N}(t_n).
+\end{aligned}
 \]</span></p>
-<p>Notemos que, dichos incrementos son independientes entre sí, además satifacen que <span class="math inline">\(\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>, <span class="math inline">\(\mathbb{E}[|\Delta W_n|^2]=\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t\)</span>.</p>
-<p>Reorganizando la <a href="#eq-5.12" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a> de tal forma que podamos expresar de forma explícita el término <span class="math inline">\(Y_{n+1}\)</span> en términos de <span class="math inline">\(Y_n\)</span>, obtenemos</p>
+<p>Notemos que dichos incrementos son independientes entre sí y satisfacen que <span class="math inline">\(\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>, <span class="math inline">\(\mathbb{E}[|\Delta W_n|^2]=\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t\)</span>.</p>
+<p>Reorganizando la <a href="#eq-5.12" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a> para despejar explícitamente el término <span class="math inline">\(Y_{n+1}\)</span> en función de <span class="math inline">\(Y_n\)</span>, obtenemos</p>
 <p><span class="math display">\[
-    \begin{aligned}
-        Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
-        &amp; \qquad\quad+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n.
-    \end{aligned}
+\begin{aligned}
+    Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} &amp;= Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n \\
+    &amp;\quad +bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n.
+\end{aligned}
 \]</span></p>
-<p>De aquí, factorizando el término <span class="math inline">\(Y_{n+1}\)</span> del lado izquierdo y el término <span class="math inline">\(Y_n\)</span> del lado derecho</p>
+<p>A continuación, factorizamos el término <span class="math inline">\(Y_{n+1}\)</span> del lado izquierdo y el término <span class="math inline">\(Y_n\)</span> del lado derecho:</p>
 <p><span id="eq-5.13"><span class="math display">\[
-    \begin{aligned}
-        (1-\theta\Delta t(a+\lambda c))Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
-        &amp; \qquad\quad +bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n\\
-        &amp; = [1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n]Y_n.
-    \end{aligned}
+\begin{aligned}
+    (1-\theta\Delta t(a+\lambda c))Y_{n+1} &amp;= \Big[1+(1-\theta)\Delta t(a+\lambda c)+b\Delta W_n+c\Delta\widetilde{N}_n\Big]Y_n.
+\end{aligned}
 \tag{5.13}\]</span></span></p>
 <p>Dado que por hipótesis sabemos que <span class="math inline">\(l=2a+b^2+\lambda c(2+c)&lt;0\)</span>, podemos notar</p>
 <p><span class="math display">\[
