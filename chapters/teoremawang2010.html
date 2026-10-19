@@ -450,15 +450,15 @@ window.Quarto = {
 <div style="text-align: justify">
 <p>Habiendo establecido en el Capítulo 4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la <span class="math inline">\(\textbf{ecuación de Langevin estocástica con saltos}\)</span>.</p>
 <p>Dicha ecuación se expresa mediante el siguiente sistema lineal:</p>
-<p><span id="eq-301"><span class="math display">\[
+<p><span id="eq-5.01"><span class="math display">\[
     dX(t) = aX(t^-)dt + bX(t^-)dW(t) + cX(t^-)dN(t), \qquad t \geq 0,
 \tag{5.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(X(0) = X_0\)</span>, donde <span class="math inline">\(a, b, c \in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span>, definido sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>.</p>
-<p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su , determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
+<p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su <span class="math inline">\(\textbf{estabilidad media cuadrática}\)</span>, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
 <section id="deducción-de-la-solución-explícita" class="level2" style="text-align: justify" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="deducción-de-la-solución-explícita"><span class="header-section-number">5.1</span> Deducción de la solución explícita</h2>
-<p>Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico <span class="math inline">\(\{Y(t)\}_{t \geq 0}\)</span> de la forma</p>
+<p>Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico <span class="math inline">\(\{Y(t)\}_{t \geq 0}\)</span> de la forma</p>
 <p><span class="math display">\[
     dY(t) = \mu(t)dt + \sigma(t)dW(t) + \gamma(t)dN(t),
 \]</span></p>
@@ -489,10 +489,10 @@ window.Quarto = {
     X(t) = X_0 e^{Y(t)},
 \]</span></p>
 <p>donde <span class="math inline">\(Y(t)\)</span> será un proceso que posea un término lineal en <span class="math inline">\(t\)</span>, un término con <span class="math inline">\(W(t)\)</span> para el ruido browniano y <span class="math inline">\(N(t)\)</span> para los saltos. Por lo que, proponemos que tendrá la siguiente estructura</p>
-<p><span id="eq-302"><span class="math display">\[
+<p><span id="eq-5.02"><span class="math display">\[
     Y(t) = \alpha t + \beta W(t) + \gamma N(t),
 \tag{5.2}\]</span></span></p>
-<p>aquí <span class="math inline">\(\alpha, \beta, \gamma\)</span> serán constantes que deberemos determinar para que se cumpla la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>.</p>
+<p>aquí <span class="math inline">\(\alpha, \beta, \gamma\)</span> serán constantes que deberemos determinar para que se cumpla la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>.</p>
 <p>Tomando a <span class="math inline">\(\mu(t) = \alpha\)</span>, <span class="math inline">\(\sigma(t) = \beta\)</span>, <span class="math inline">\(\gamma(t) = \gamma\)</span> (el cual es el tamaño del salto), y además, para usar la función <span class="math inline">\(f(y) = e^y\)</span>, por lo que <span class="math inline">\(f'(y) = f''(y) = e^y = X\)</span>.</p>
 <p>Así, aplicando el <a href="preliminares.html#thm-formulaito" class="quarto-xref">Teorema&nbsp;<span>3.14</span></a>, tenemos</p>
 <p><span class="math display">\[
@@ -523,7 +523,7 @@ window.Quarto = {
       \alpha = a - \frac{1}{2}b^2.
   \]</span></p></li>
 </ul>
-<p>Sustituyendo estos valores en nuestra propuesta de la solución en la Ecuación <a href="#eq-302" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a> <span class="math display">\[
+<p>Sustituyendo estos valores en nuestra propuesta de la solución en la Ecuación <a href="#eq-5.02" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a> <span class="math display">\[
     Y(t) = \left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t).
 \]</span></p>
 <p>Cómo <span class="math inline">\(X(t) = X_0 e^{Y(t)}\)</span>, entonces</p>
@@ -531,7 +531,7 @@ window.Quarto = {
     X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t)\right].
 \]</span></p>
 <p>Por las propiedades del logaritmo, tenemos la solución explícita:</p>
-<p><span id="eq-303"><span class="math display">\[
+<p><span id="eq-5.03"><span class="math display">\[
     X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t)\right](1 + c)^{N(t)}.
 \tag{5.3}\]</span></span></p>
 </section>
@@ -539,18 +539,18 @@ window.Quarto = {
 <p>Habiendo obtenido la expresión explícita para la solución de la ecuación de Langevin con saltos en la sección anterior, el siguiente paso natural es investigar su comportamiento asintótico. En el contexto de los sistemas estocásticos, la estabilidad no se estudia trayectoria por trayectoria, sino a través de los momentos del proceso. En esta sección, analizaremos el segundo momento de la solución exacta, <span class="math inline">\(\mathbb{E}[|X(t)|^2]\)</span>, para determinar bajo qué condiciones sobre los parámetros del sistema (<span class="math inline">\(a, b, c, \lambda\)</span>) la energía del proceso decae asintóticamente a cero.</p>
 </div>
 <div id="prp-solucion" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 5.1 (Condición de estabilidad media cuadrática de la solución exacta)</strong></span> Consideremos la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> ya definida anteriormente sobre un espacio de probabilidad <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>. Definimos el parámetro</p>
+<p><span class="theorem-title"><strong>Proposición 5.1 (Condición de estabilidad media cuadrática de la solución exacta)</strong></span> Consideremos la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> ya definida anteriormente sobre un espacio de probabilidad <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>. Definimos el parámetro</p>
 <p><span class="math display">\[
     l:=2a+b^2 +\lambda c(2+c).
 \]</span></p>
-<p>Entonces, la <a href="#eq-303" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> es estable en media cuadratica, es decir,</p>
+<p>Entonces, la <a href="#eq-5.03" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> es estable en media cuadratica, es decir,</p>
 <p><span class="math display">\[
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
 <p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la ecuación <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que el proceso está dado por</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que el proceso está dado por</p>
 <p><span class="math display">\[
     \begin{aligned}
         |X(t)|^2 &amp; = \Bigg|X_0\exp\Bigg(\Bigg(a-\frac{b^2}{2}\Bigg)t+bW(t)\Bigg)(1+c)^{N(t)}\Bigg|^2\\
@@ -559,7 +559,7 @@ window.Quarto = {
     \end{aligned}
 \]</span></p>
 <p>Dado que <span class="math inline">\(X_0\)</span> es la condición inicial determinita (es decir , no es una variable aleatoria), y aprovechando la independencia entre el movimiento browniano <span class="math inline">\(W(t)\)</span> y el proceso de Poisson <span class="math inline">\(N(t)\)</span>, al obtener el valor esperado del segundo momento tenemos</p>
-<p><span id="eq-304"><span class="math display">\[
+<p><span id="eq-5.04"><span class="math display">\[
     \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2bW(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
 \tag{5.4}\]</span></span></p>
 <p>Para el término browniano, recordemos que <span class="math inline">\(W(t)\sim \mathcal{N}(0,t)\)</span>. Utilizando la función generadora de momentos de una variable normal <span class="math inline">\(Z\sim \mathcal{N}(0,\sigma^2)\)</span>, dada por <span class="math inline">\(\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}\)</span> y factorizando la parte determinista, obtenemos</p>
@@ -583,7 +583,7 @@ window.Quarto = {
 <p><span class="math display">\[
     \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp(\lambda c(2+c)t).
 \]</span></p>
-<p>Finalmente, sustituyendo ambos resultados en la <a href="#eq-304" class="quarto-xref">Ecuación&nbsp;<span>5.4</span></a> obtenemos</p>
+<p>Finalmente, sustituyendo ambos resultados en la <a href="#eq-5.04" class="quarto-xref">Ecuación&nbsp;<span>5.4</span></a> obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|X(t)|^2] &amp; = X_0^2\cdot e^{(2a+b^2)t}\cdot e^{\lambda c(2+c)t}\\
@@ -608,13 +608,13 @@ window.Quarto = {
 </div>
 <section id="formulación-del-esquema-numérico" class="level2" style="text-align: justify" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="formulación-del-esquema-numérico"><span class="header-section-number">5.2</span> Formulación del esquema numérico</h2>
-<p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la Ecuación <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
-<p><span id="eq-agregar1"><span class="math display">\[
+<p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
+<p><span id="eq-5.05"><span class="math display">\[
     dX(t) = (a + \lambda c)X(t^-)dt + bX(t^-)dW(t) + cX(t^-)d\widetilde{N}(t), \quad t \geq 0.
 \tag{5.5}\]</span></span></p>
 <p>Esta formulación compensada es la piedra angular del método CSTM, pues permite separar la componente determinista de la puramente martingala.</p>
-<p>Fijemos un tamaño de paso constante <span class="math inline">\(\Delta t &gt; 0\)</span> y definamos la malla temporal <span class="math inline">\(t_n = n\Delta t\)</span> para <span class="math inline">\(n \in \mathbb{N}\)</span>. Al aplicar el método Theta Compensado Estocástico a la <a href="#eq-agregar1" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a>, generamos una sucesión de aproximaciones <span class="math inline">\(Y_n \approx X(t_n)\)</span> mediante la siguiente ecuación de diferencias implícita:</p>
-<p><span id="eq-agregar2"><span class="math display">\[
+<p>Fijemos un tamaño de paso constante <span class="math inline">\(\Delta t &gt; 0\)</span> y definamos la malla temporal <span class="math inline">\(t_n = n\Delta t\)</span> para <span class="math inline">\(n \in \mathbb{N}\)</span>. Al aplicar el método Theta Compensado Estocástico a la <a href="#eq-5.05" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a>, generamos una sucesión de aproximaciones <span class="math inline">\(Y_n \approx X(t_n)\)</span> mediante la siguiente ecuación de diferencias implícita:</p>
+<p><span id="eq-5.06"><span class="math display">\[
     Y_{n+1} = Y_n + (1 - \theta)\Delta t(a + \lambda c)Y_n + \theta\Delta t(a + \lambda c)Y_{n+1} + bY_n\Delta W_n + cY_n\Delta \widetilde{N}_n,
 \tag{5.6}\]</span></span></p>
 <p>donde <span class="math inline">\(\theta \in [0, 1]\)</span> es el parámetro del método, y los incrementos estocásticos se definen como:</p>
@@ -623,24 +623,24 @@ window.Quarto = {
 <li><p><span class="math inline">\(\Delta \widetilde{N}_n := \widetilde{N}(t_{n+1}) - \widetilde{N}(t_n)\)</span>.</p></li>
 </ul>
 <p>Por las propiedades del movimiento browniano y del proceso de Poisson compensado, estos incrementos son mutuamente independientes, tienen esperanza nula (<span class="math inline">\(\mathbb{E}[\Delta W_n] = \mathbb{E}[\Delta \widetilde{N}_n] = 0\)</span>) y sus segundos momentos están dados por <span class="math inline">\(\mathbb{E}[|\Delta W_n|^2] = \Delta t\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta \widetilde{N}_n|^2] = \lambda \Delta t\)</span>.</p>
-<p>Reorganizando la <a href="#eq-agregar2" class="quarto-xref">Ecuación&nbsp;<span>5.6</span></a> para despejar el término implícito <span class="math inline">\(Y_{n+1}\)</span>, factorizamos en el lado izquierdo y en el derecho para obtener:</p>
-<p><span id="eq-agregar3"><span class="math display">\[
+<p>Reorganizando la <a href="#eq-5.06" class="quarto-xref">Ecuación&nbsp;<span>5.6</span></a> para despejar el término implícito <span class="math inline">\(Y_{n+1}\)</span>, factorizamos en el lado izquierdo y en el derecho para obtener:</p>
+<p><span id="eq-5.07"><span class="math display">\[
     (1 - \theta\Delta t(a + \lambda c))Y_{n+1} = \left[1 + (1 - \theta)\Delta t(a + \lambda c) + b\Delta W_n + c\Delta \widetilde{N}_n\right]Y_n.
 \tag{5.7}\]</span></span></p>
 <p>Es crucial notar que, dado que la solución analítica es estable (es decir, <span class="math inline">\(l &lt; 0\)</span>), se cumple que <span class="math inline">\(2(a + \lambda c) + b^2 + \lambda c^2 &lt; 0\)</span>. Como <span class="math inline">\(b^2 + \lambda c^2 &gt; 0\)</span>, esto fuerza a que <span class="math inline">\((a + \lambda c) &lt; 0\)</span>. En consecuencia, para cualquier <span class="math inline">\(\Delta t &gt; 0\)</span> y <span class="math inline">\(\theta \in [0, 1]\)</span>, el factor <span class="math inline">\((1 - \theta\Delta t(a + \lambda c))\)</span> es estrictamente positivo y no nulo, garantizando que el esquema está bien definido.</p>
-<p>Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la Ecuación <a href="#eq-agregar3" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando <span class="math inline">\(\mathbb{E}[\Delta W_n^2] = \Delta t\)</span> y <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t\)</span>, obtenemos directamente la ecuación de recurrencia del segundo momento:</p>
-<p><span id="eq-agregar4"><span class="math display">\[
+<p>Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la Ecuación <a href="#eq-5.07" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando <span class="math inline">\(\mathbb{E}[\Delta W_n^2] = \Delta t\)</span> y <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t\)</span>, obtenemos directamente la ecuación de recurrencia del segundo momento:</p>
+<p><span id="eq-5.08"><span class="math display">\[
     (1 - \theta\Delta t(a + \lambda c))^2 \mathbb{E}[|Y_{n+1}|^2] = \left[ (1 + (1 - \theta)\Delta t(a + \lambda c))^2 + (b^2 + \lambda c^2)\Delta t \right] \mathbb{E}[|Y_n|^2].
 \tag{5.8}\]</span></span></p>
 <p>Para que el método sea estable en media cuadrática, la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> debe ser decreciente. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, lo que nos conduce al siguiente criterio de estabilidad:</p>
-<p><span id="eq-agregar5"><span class="math display">\[
+<p><span id="eq-5.09"><span class="math display">\[
     \frac{(1 + (1 - \theta)\Delta t(a + \lambda c))^2 + (b^2 + \lambda c^2)\Delta t}{(1 - \theta\Delta t(a + \lambda c))^2} &lt; 1.
 \tag{5.9}\]</span></span></p>
 <p>Con esta formulación, estamos en posición de enunciar y demostrar el resultado principal de esta sección.</p>
 </section>
 <div id="thm-estabilidad" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 5.1 (Estabilidad media cuadrática del método CSTM)</strong></span> Consideremos la ecuación diferencial estocástica lineal con saltos</p>
-<p><span id="eq-501"><span class="math display">\[
+<p><span id="eq-5.10"><span class="math display">\[
     dX(t)=aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t), \ \ \ t\geq 0,
 \tag{5.10}\]</span></span></p>
 <p>donde <span class="math inline">\(a,b,c\in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda&gt;0\)</span>. Definimos el siguiente parámetro de estabilidad de la solución análitica como</p>
@@ -652,15 +652,15 @@ window.Quarto = {
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
 <p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
-<p>Sea <span class="math inline">\(\Delta t&gt;0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta\in [0,1]\)</span> el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>, entonces el método es estable en media cuadrática, es decir, para todo <span class="math inline">\(\Delta t&gt;0\)</span> se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que <span class="math inline">\(l&lt;0\)</span>.</p>
+<p>Sea <span class="math inline">\(\Delta t&gt;0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta\in [0,1]\)</span> el paramétro del método theta compensado estocástico (CSTM). Al aplicar dicho método a <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, si <span class="math inline">\(\displaystyle \frac{1}{2}\leq \theta\leq 1\)</span>, entonces el método es estable en media cuadrática, es decir, para todo <span class="math inline">\(\Delta t&gt;0\)</span> se cumple que las aproximaciones numéricas heredan la estabilidad de la solución análitica siempre que <span class="math inline">\(l&lt;0\)</span>.</p>
 <p>Si <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, el método es estable en media cuadrática si y solo si el tamaño del paso satisface</p>
 <p><span class="math display">\[
     \Delta t&lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, con condición inicial <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cuál es una martingala y satiisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-501" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a> de la forma equivalente</p>
-<p><span id="eq-502"><span class="math display">\[
+<p><span class="proof-title"><em>Demostración</em>. </span>Cómo primer paso, comenzaremos aplicando el método theta compensado estocástico a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, con condición inicial <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método (CSTM) definimos el proceso de Poisson compensado de la forma <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cuál es una martingala y satiisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a> de la forma equivalente</p>
+<p><span id="eq-5.11"><span class="math display">\[
 \begin{aligned}
     dX(t) &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t)\\
     &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d(\widetilde{N}(t)+\lambda t)\\
@@ -668,8 +668,8 @@ window.Quarto = {
     &amp; = (a+\lambda c)X(t)dt +bX(t-)dW(t)+cX(t-)d\widetilde{N}(t).
 \end{aligned}
 \tag{5.11}\]</span></span></p>
-<p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-502" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> genera un sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
-<p><span id="eq-503"><span class="math display">\[
+<p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-5.11" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> genera un sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
+<p><span id="eq-5.12"><span class="math display">\[
     \begin{aligned}
         Y_{n+1}= &amp; Y_n+(1-\theta)\Delta t(a+\lambda c)Y_n \\
         &amp; \qquad +\theta \Delta t(a+\lambda c)Y_{n+1}+bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n,
@@ -683,7 +683,7 @@ window.Quarto = {
     \end{aligned}
 \]</span></p>
 <p>Notemos que, dichos incrementos son independientes entre sí, además satifacen que <span class="math inline">\(\mathbb{E}[\Delta W_n]=\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>, <span class="math inline">\(\mathbb{E}[|\Delta W_n|^2]=\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[|\Delta \widetilde{N}_n|^2]=\lambda \Delta t\)</span>.</p>
-<p>Reorganizando la <a href="#eq-503" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a> de tal forma que podamos expresar de forma explícita el término <span class="math inline">\(Y_{n+1}\)</span> en términos de <span class="math inline">\(Y_n\)</span>, obtenemos</p>
+<p>Reorganizando la <a href="#eq-5.12" class="quarto-xref">Ecuación&nbsp;<span>5.12</span></a> de tal forma que podamos expresar de forma explícita el término <span class="math inline">\(Y_{n+1}\)</span> en términos de <span class="math inline">\(Y_n\)</span>, obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         Y_{n+1}-\theta \Delta t(a+\lambda c)Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
@@ -691,7 +691,7 @@ window.Quarto = {
     \end{aligned}
 \]</span></p>
 <p>De aquí, factorizando el término <span class="math inline">\(Y_{n+1}\)</span> del lado izquierdo y el término <span class="math inline">\(Y_n\)</span> del lado derecho</p>
-<p><span id="eq-504"><span class="math display">\[
+<p><span id="eq-5.13"><span class="math display">\[
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))Y_{n+1} &amp; = Y_n +(1-\theta)\Delta t(a+\lambda c)Y_n\\
         &amp; \qquad\quad +bY_n\Delta W_n+cY_n\Delta \widetilde{N}_n\\
@@ -706,8 +706,8 @@ window.Quarto = {
     \end{aligned}
 \]</span></p>
 <p>es claro que <span class="math inline">\(b^2+\lambda c^2&gt;0\)</span>, esto implica que <span class="math inline">\((a+\lambda c)&lt;0\)</span>. Con esto, podemos afirmar que para <span class="math inline">\(\Delta t\)</span> lo suficientemente pequeño, el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> no se anula y es positivo.</p>
-<p>Por otro lado, veamos la esperanza del segundo momento de <a href="#eq-504" class="quarto-xref">Ecuación&nbsp;<span>5.13</span></a>. Elevando al cuadrado y obteniendo el valor esperado, tenemos</p>
-<p><span id="eq-505"><span class="math display">\[
+<p>Por otro lado, veamos la esperanza del segundo momento de <a href="#eq-5.13" class="quarto-xref">Ecuación&nbsp;<span>5.13</span></a>. Elevando al cuadrado y obteniendo el valor esperado, tenemos</p>
+<p><span id="eq-5.14"><span class="math display">\[
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c)\\
         &amp; \qquad\quad+b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
@@ -721,8 +721,8 @@ window.Quarto = {
             C &amp; := c\Delta \widetilde{N}_n.
     \end{aligned}
 \]</span></p>
-<p>Notemos que <span class="math inline">\(A\)</span> es una constante determinista, mientras que <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> son variables aleatorias. Por tanto, aplicando la linealidad de la esperanza, el término estocástico de la <a href="#eq-505" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> queda de la forma</p>
-<p><span id="eq-506"><span class="math display">\[
+<p>Notemos que <span class="math inline">\(A\)</span> es una constante determinista, mientras que <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> son variables aleatorias. Por tanto, aplicando la linealidad de la esperanza, el término estocástico de la <a href="#eq-5.14" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> queda de la forma</p>
+<p><span id="eq-5.15"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|A+B+C|^2] &amp; = \mathbb{E}[A^2+B^2+C^2\\
         &amp; \qquad +2AB+2AC+2BC]\\
@@ -731,7 +731,7 @@ window.Quarto = {
     \end{aligned}
 \tag{5.15}\]</span></span></p>
 <p>Utilizando las propiedades de los incrementos independientes, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. Además, <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
-<p>Por otro lado, <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-506" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> tenemos</p>
+<p>Por otro lado, <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-5.15" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t\\
@@ -739,19 +739,19 @@ window.Quarto = {
         &amp; \qquad +b^2\Delta t +\lambda c^2\Delta t.
     \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en <a href="#eq-505" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> tenemos</p>
-<p><span id="eq-507"><span class="math display">\[
+<p>Sustituyendo esto en <a href="#eq-5.14" class="quarto-xref">Ecuación&nbsp;<span>5.14</span></a> tenemos</p>
+<p><span id="eq-5.16"><span class="math display">\[
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] &amp; = \Bigg[(1+(1-\theta)\Delta t(a+\lambda c))^2 \\
         &amp; \qquad + b^2\Delta t +\lambda c^2\Delta t\Bigg]\mathbb{E}[|Y_n|^2].
     \end{aligned}
 \tag{5.16}\]</span></span></p>
-<p>Notemos que la <a href="#eq-507" class="quarto-xref">Ecuación&nbsp;<span>5.16</span></a> describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> sea decreciente y tienda a cero cuando <span class="math inline">\(n\)</span> tiende a infinito. Esto ocurre si y solo si</p>
-<p><span id="eq-508"><span class="math display">\[
+<p>Notemos que la <a href="#eq-5.16" class="quarto-xref">Ecuación&nbsp;<span>5.16</span></a> describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> sea decreciente y tienda a cero cuando <span class="math inline">\(n\)</span> tiende a infinito. Esto ocurre si y solo si</p>
+<p><span id="eq-5.17"><span class="math display">\[
     \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}&lt;1
 \tag{5.17}\]</span></span></p>
-<p>Recordemos que anteriormente ya se mencionó que el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> es no nulo y positivo, por lo que es posible multiplicar la <a href="#eq-508" class="quarto-xref">Ecuación&nbsp;<span>5.17</span></a> por el denominador y seguir conservando la desigualdad, es decir</p>
-<p><span id="eq-509"><span class="math display">\[
+<p>Recordemos que anteriormente ya se mencionó que el término <span class="math inline">\(1-\theta\Delta t(a+\lambda c)\)</span> es no nulo y positivo, por lo que es posible multiplicar la <a href="#eq-5.17" class="quarto-xref">Ecuación&nbsp;<span>5.17</span></a> por el denominador y seguir conservando la desigualdad, es decir</p>
+<p><span id="eq-5.18"><span class="math display">\[
     (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t&lt;(1-\theta\Delta t(a+\lambda c))^2
 \tag{5.18}\]</span></span></p>
 <p>Para facilitar la notación, definimos la variable <span class="math inline">\(K:=a+\lambda c\)</span>. Además, expandiendo la expresión del lado derecho de la desigualdad de la forma</p>
@@ -761,22 +761,22 @@ window.Quarto = {
         &amp; = 1-2\theta\Delta t k+\theta^2\Delta t^2K^2.
     \end{aligned}
 \]</span></p>
-<p>De igual forma, al extender el término al cuadrado del lado izquierdo de la <a href="#eq-509" class="quarto-xref">Ecuación&nbsp;<span>5.18</span></a></p>
+<p>De igual forma, al extender el término al cuadrado del lado izquierdo de la <a href="#eq-5.18" class="quarto-xref">Ecuación&nbsp;<span>5.18</span></a></p>
 <p><span class="math display">\[
     \begin{aligned}
         (1+(1-\theta)\Delta t (a+\lambda c))^2 &amp; = (1+(1-\theta)\Delta t K)^2\\
         &amp; = 1+2(1-\theta)\Delta t K+(1-\theta)^2\Delta t^2 K^2.
     \end{aligned}
 \]</span></p>
-<p>De esta manera, ordenando los términos, la <a href="#eq-509" class="quarto-xref">Ecuación&nbsp;<span>5.18</span></a> se expresa como se sigue</p>
-<p><span id="eq-510"><span class="math display">\[
+<p>De esta manera, ordenando los términos, la <a href="#eq-5.18" class="quarto-xref">Ecuación&nbsp;<span>5.18</span></a> se expresa como se sigue</p>
+<p><span id="eq-5.19"><span class="math display">\[
     \begin{aligned}
         1 &amp; +2(1-\theta)\Delta t K +b^2\Delta t \\
           &amp; \qquad +\lambda c^2\Delta t+(1-\theta)^2\Delta t^2 K^2&lt;1-2\theta\Delta t K+\theta^2\Delta t^2 K^2.
     \end{aligned}
 \tag{5.19}\]</span></span></p>
 <p>Restando el término <span class="math inline">\(1\)</span> en ambos lados de la desigualdad, además reordenando adecuadamente y agrupando los términos con factores <span class="math inline">\(\Delta t\)</span> y <span class="math inline">\(\Delta t^2\)</span>, tenemos</p>
-<p><span id="eq-511"><span class="math display">\[
+<p><span id="eq-5.20"><span class="math display">\[
     \begin{aligned}
         &amp; -2\theta K\Delta t -2(1-\theta)K\Delta t-b^2\Delta t \\
         &amp; \qquad\quad-\lambda c^2\Delta t+\theta^2 K^2\Delta t^2-(1-\theta)^2 K^2\Delta t^2&gt;0\\
@@ -798,7 +798,7 @@ window.Quarto = {
         &amp; = 2K +b^2+\lambda c^2.
     \end{aligned}
 \]</span></p>
-<p>Por lo tanto, sustituyendo <span class="math inline">\(l\)</span> en <a href="#eq-510" class="quarto-xref">Ecuación&nbsp;<span>5.19</span></a> se tiene</p>
+<p>Por lo tanto, sustituyendo <span class="math inline">\(l\)</span> en <a href="#eq-5.19" class="quarto-xref">Ecuación&nbsp;<span>5.19</span></a> se tiene</p>
 <p><span class="math display">\[
     (2\theta-1)\Delta t^2 K^2-l\Delta t&gt;0
 \]</span></p>
@@ -811,7 +811,7 @@ window.Quarto = {
     (2\theta-1)\Delta t K^2-l&gt;0.
 \]</span></p>
 <p>Despejando de tal forma que podamos expresar la desigualdad anterior en términos de <span class="math inline">\(-l\)</span> tenemos</p>
-<p><span id="eq-512"><span class="math display">\[
+<p><span id="eq-5.21"><span class="math display">\[
 -l &gt;-(2\theta-1)(a+\lambda c)^2\Delta t= (1-2\theta)(a+\lambda c)^2\Delta t
 \tag{5.21}\]</span></span></p>
 <p>Cuando <span class="math inline">\(\displaystyle\theta=\frac{1}{2}\)</span>, esto implica <span class="math inline">\(1-2\theta=0\)</span>, así</p>
@@ -824,7 +824,7 @@ window.Quarto = {
     (1-2\theta)(a+\lambda c)^2\Delta t&lt;0&lt;-l,
 \]</span></p>
 <p>en consecuencia, el método sigue siendo estable bajo las condiciones de la solución análitica.</p>
-<p>Por último, para el caso <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, esto implica, <span class="math inline">\((1-2\theta)(a+\lambda c)^2&gt;0\)</span>, por lo que la <a href="#eq-512" class="quarto-xref">Ecuación&nbsp;<span>5.21</span></a> se cumple si y solo si</p>
+<p>Por último, para el caso <span class="math inline">\(\displaystyle 0\leq \theta&lt;\frac{1}{2}\)</span>, esto implica, <span class="math inline">\((1-2\theta)(a+\lambda c)^2&gt;0\)</span>, por lo que la <a href="#eq-5.21" class="quarto-xref">Ecuación&nbsp;<span>5.21</span></a> se cumple si y solo si</p>
 <p><span class="math display">\[
     \Delta t &lt;\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 \]</span></p>
