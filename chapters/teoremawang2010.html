@@ -534,64 +534,73 @@ window.Quarto = {
     X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t)\right](1 + c)^{N(t)}.
 \tag{5.3}\]</span></span></p>
 </section>
+<div style="text-align: justify">
+<p>Habiendo obtenido la expresión explícita para la solución de la ecuación de Langevin con saltos en la sección anterior, el siguiente paso natural es investigar su comportamiento asintótico. En el contexto de los sistemas estocásticos, la estabilidad no se estudia trayectoria por trayectoria, sino a través de los momentos del proceso. En esta sección, analizaremos el segundo momento de la solución exacta, <span class="math inline">\(\mathbb{E}[|X(t)|^2]\)</span>, para determinar bajo qué condiciones sobre los parámetros del sistema (<span class="math inline">\(a, b, c, \lambda\)</span>) la energía del proceso decae asintóticamente a cero.</p>
+</div>
 <div id="prp-solucion" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 5.1</strong></span> Consideremos la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> ya definida anteriormente sobre un espacio de probabilidad <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>. Definimos el parámetro</p>
+<p><span class="theorem-title"><strong>Proposición 5.1 (Condición de estabilidad media cuadrática de la solución exacta)</strong></span> Consideremos la <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> ya definida anteriormente sobre un espacio de probabilidad <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>. Definimos el parámetro</p>
 <p><span class="math display">\[
     l:=2a+b^2 +\lambda c(2+c).
 \]</span></p>
-<p>Entonces, la solución continua de la ecuación dada por <a href="#eq-303" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> es estable en media cuadratica, es decir</p>
+<p>Entonces, la <a href="#eq-303" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> es estable en media cuadratica, es decir,</p>
 <p><span class="math display">\[
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
 <p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la ecuación <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la ecuación <a href="#eq-301" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que el proceso está dado por</p>
 <p><span class="math display">\[
     \begin{aligned}
         |X(t)|^2 &amp; = \Bigg|X_0\exp\Bigg(\Bigg(a-\frac{b^2}{2}\Bigg)t+bW(t)\Bigg)(1+c)^{N(t)}\Bigg|^2\\
         &amp; = |X_0|^2\cdot \left|\exp\left(\left(a-\frac{b^2}{2}\right)t+bW(t)\right)\right|^2\cdot\left((1+c)^{N(t)}\right)^2\\
-        &amp; = |X_0|^2\cdot\left|\exp\left((2a-b^2)t+2W(t)\right)\right|\cdot (1+c)^{2N(t)}.
+        &amp; = |X_0|^2\cdot\left|\exp\left((2a-b^2)t+2bW(t)\right)\right|\cdot (1+c)^{2N(t)}.
     \end{aligned}
 \]</span></p>
-<p>Dado que <span class="math inline">\(X_0\)</span> es la condición inicial determinita, es decir , no es una variable aleatoria, entonces obteniendo el valor esperado del segundo momento del proceso, tenemos</p>
+<p>Dado que <span class="math inline">\(X_0\)</span> es la condición inicial determinita (es decir , no es una variable aleatoria), y aprovechando la independencia entre el movimiento browniano <span class="math inline">\(W(t)\)</span> y el proceso de Poisson <span class="math inline">\(N(t)\)</span>, al obtener el valor esperado del segundo momento tenemos</p>
 <p><span id="eq-304"><span class="math display">\[
-    \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
+    \mathbb{E}[|X(t)|^2] = |X_0|^2\mathbb{E}\left[|\exp\left((2a-b^2)t+2bW(t)\right)|\right]\mathbb{E}[(1+c)^{2N(t)}].
 \tag{5.4}\]</span></span></p>
-<p>Para el término browniano, recordemos que <span class="math inline">\(W(t)\sim \mathcal{N}(0,t)\)</span>, se cumple tambien <span class="math inline">\(\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}\)</span> esto para una variable <span class="math inline">\(Z\sim \mathcal{N}(0,\sigma^2)\)</span>, por tanto, obtenemos</p>
+<p>Para el término browniano, recordemos que <span class="math inline">\(W(t)\sim \mathcal{N}(0,t)\)</span>. Utilizando la función generadora de momentos de una variable normal <span class="math inline">\(Z\sim \mathcal{N}(0,\sigma^2)\)</span>, dada por <span class="math inline">\(\mathbb{E}[e^{\mu Z}]=e^{\frac{1}{2}\mu^2\sigma^2}\)</span> y factorizando la parte determinista, obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
-        \mathbb{E}\left[|\exp\left((2a-b^2)t+2W(t)\right)|\right] &amp; = \mathbb{E}[\exp[(2a-b^2)t]]\cdot \mathbb{E}[2W(t)]\\
-        &amp; = \exp((2a-b^2)t)\cdot \exp \left(\frac{1}{2}(2b)^2 t\right)\\
-        &amp; = \exp(2at-b^2t+2b^2t)\\
+        \mathbb{E}\left[\exp\left((2a-b^2)t + 2bW(t)\right)\right] &amp; = \exp((2a-b^2)t) \cdot \mathbb{E}[\exp(2bW(t))] \\
+        &amp; = \exp((2a-b^2)t) \cdot \exp\left(\frac{1}{2}(2b)^2 t\right) \\
+        &amp; = \exp(2at - b^2t + 2b^2t) \\
         &amp; = \exp((2a+b^2)t).
     \end{aligned}
 \]</span></p>
-<p>Por otro lado, para el término de Poisson, debemos recordar que la función generadora de momentos de <span class="math inline">\(N(t)\)</span> esta dada por</p>
+<p>Por otro lado, para el término de Poisson, recordemos que la función generadora de momentos de <span class="math inline">\(N(t)\)</span> esta dada por</p>
 <p><span class="math display">\[
     \mathbb{E}[e^{uN(t)}]=\exp(\lambda t(e^u-1)).
 \]</span></p>
-<p>Tomando a <span class="math inline">\(u=ln(1+c)\)</span>, tenemos</p>
+<p>Tomando a <span class="math inline">\(u=2ln(1+c)\)</span>, tenemos</p>
 <p><span class="math display">\[
     \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp\left(\lambda t (e^{2\ln(1+c)}-1)\right)=\exp(\lambda t((1+c)^2)-1).
 \]</span></p>
-<p>Desarrolando tenemos que <span class="math inline">\((1+c)^2-1=1+2c+c^2-1=c(2+c)\)</span>, por lo que al sustituir tenemos</p>
+<p>Desarrollando el término álgebraico, obtenemos <span class="math inline">\((1+c)^2-1=1+2c+c^2-1=c(2+c)\)</span>. Por lo que al sustituir tenemos</p>
 <p><span class="math display">\[
     \mathbb{E}\left[(1+c)^{2N(t)}\right] = \exp(\lambda c(2+c)t).
 \]</span></p>
-<p>Finalmente de la <a href="#eq-304" class="quarto-xref">Ecuación&nbsp;<span>5.4</span></a> tenemos que</p>
+<p>Finalmente, sustituyendo ambos resultados en la <a href="#eq-304" class="quarto-xref">Ecuación&nbsp;<span>5.4</span></a> obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|X(t)|^2] &amp; = X_0^2\cdot e^{(2a+b^2)t}\cdot e^{\lambda c(2+c)t}\\
-        &amp; = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}, \quad \text{con }l=2a+b^2+\lambda c(2+c),\\
-        &amp; = X_0^2\cdot e^{lt}.
+        &amp; = X_0^2\cdot e^{(2a+b^2+\lambda c(2+c))t}\\
+        &amp; = X_0^2\cdot e^{lt},
     \end{aligned}
 \]</span></p>
-<p>De aquí podemos afirmar que el segundo momento del proceso <span class="math inline">\(X(t)\)</span> crece de manera exponencial con una tasa <span class="math inline">\(l\)</span>. Por lo que si <span class="math inline">\(l=0\)</span>, el segundo momento es constante e igual a <span class="math inline">\(X_0^2\)</span>. Al tomar el límite cuando <span class="math inline">\(l&gt;0\)</span>, es claro que dicho límite es infinito y por tanto el sistema es inestable. Finalmente cuando <span class="math inline">\(l&lt;0\)</span>, notemos que</p>
+<p>donde <span class="math inline">\(l:=2a+b^2+\lambda c(2+c).\)</span></p>
+<p>De aquí podemos afirmar que el segundo momento del proceso <span class="math inline">\(X(t)\)</span> crece o decae de manera exponencial con una tasa <span class="math inline">\(l\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(l=0\)</span>, el segundo momento es constante e igual a <span class="math inline">\(X_0^2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(l&gt;0\)</span>, al tomar el límite cuaando <span class="math inline">\(t\rightarrow\infty\)</span>, es claro que dicho límite es infinito y por tanto el sistema es inestable.</p></li>
+<li><p>Si <span class="math inline">\(l&lt;0\)</span>, notemos que</p></li>
+</ul>
 <p><span class="math display">\[
-    \lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]= \lim\limits_{t\rightarrow \infty}X_0^2\cdot e^{lt}= 0
+\lim\limits_{t\rightarrow \infty}\mathbb{E}[|X(t)|^2]= \lim\limits_{t\rightarrow \infty}X_0^2\cdot e^{lt}= 0
 \]</span></p>
-<p>Por lo que el sistema es estable si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
+<p>Por lo que el sistema es asistóticaamente estable en media cuadrática si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
 </div>
 <div id="thm-estabilidad" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 5.1</strong></span> Consideremos la ecuación diferencial estocástica lineal con saltos</p>
