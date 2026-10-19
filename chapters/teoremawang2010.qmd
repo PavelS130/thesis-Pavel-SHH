@@ -392,32 +392,41 @@ $$
 \end{aligned}
 $$ {#eq-5.13}
 
-Dado que por hipótesis sabemos que $l=2a+b^2+\lambda c(2+c)<0$, podemos notar
+Dado que por hipótesis sabemos que el parámetro de estabilidad satisface $l=2a+b^2+\lambda c(2+c)<0$, podemos reescribir esta expresión como
 
 $$
     \begin{aligned}
-        2a+b^2+\lambda c(2+c) & =2a+2\lambda c+b^2+\lambda c^2\\ 
-        & =2(a+\lambda c)+b^2+\lambda c^2<0,
+        2a+b^2+\lambda c(2+c) & = 2a+2\lambda c+b^2+\lambda c^2 \\ 
+        & = 2(a+\lambda c)+b^2+\lambda c^2 < 0.
     \end{aligned}
 $$
 
-es claro que $b^2+\lambda c^2>0$, esto implica que $(a+\lambda c)<0$. Con esto, podemos afirmar que para $\Delta t$ lo suficientemente pequeño, el término $1-\theta\Delta t(a+\lambda c)$ no se anula y es positivo.
+Dado que $b^2+\lambda c^2 \geq 0$, la única forma de que la suma sea estrictamente negativa es que $2(a+\lambda c) < 0$, lo que implica que $(a+\lambda c) < 0$. Como $\theta \in [0,1]$ y $\Delta t > 0$, el producto $\theta\Delta t(a+\lambda c)$ es negativo o cero. En consecuencia, el término $(1-\theta\Delta t(a+\lambda c))$ es estrictamente positivo (mayor o igual a 1) para cualquier tamaño de paso $\Delta t > 0$. Esto garantiza que el denominador en el criterio de estabilidad no se anula.
 
-Por otro lado, veamos la esperanza del segundo momento de @eq-5.13. Elevando al cuadrado y obteniendo el valor esperado, tenemos
+Por otro lado, veamos la esperanza del segundo momento de la @eq-5.13. Elevando al cuadrado ambos lados y obteniendo el valor esperado, tenemos
 
 $$
     \begin{aligned}
-        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] & = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c)\\ 
-        & \qquad\quad+b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] & = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c) \\ 
+        & \qquad\quad +b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2 |Y_n|^2\Bigg].
+    \end{aligned}
+$$
+
+Dado que $Y_n$ es $\mathcal{F}_{t_n}$-medible (depende únicamente de la información hasta el tiempo $t_n$) y los incrementos $\Delta W_n$ y $\Delta \widetilde{N}_n$ son independientes de $\mathcal{F}_{t_n}$, la esperanza del producto se factoriza como el producto de las esperanzas:
+
+$$
+    \begin{aligned}
+        (1-\theta\Delta t(a+\lambda c))^2\mathbb{E}[|Y_{n+1}|^2] & = \mathbb{E}\Bigg[\Bigg|1+(1-\theta)\Delta t(a+\lambda c) \\ 
+        & \qquad\quad +b\Delta W_n+c\Delta \widetilde{N}_n\Bigg|^2\Bigg]\mathbb{E}[|Y_n|^2].
     \end{aligned}
 $$ {#eq-5.14}
 
-Vamos a desarrollar la esperanza del término estocástico. Para faciliatr el proceso, definimos la siguiente notación
+Vamos a desarrollar la esperanza del término estocástico. Para facilitar el proceso, definimos la siguiente notación
 
 $$
     \begin{aligned}
-            A & := 1+(1-\theta)\Delta t(a+\lambda c)\\ 
-            B & := b\Delta W_n\\ 
+            A & := 1+(1-\theta)\Delta t(a+\lambda c), \\ 
+            B & := b\Delta W_n, \\ 
             C & := c\Delta \widetilde{N}_n.
     \end{aligned}
 $$
@@ -426,26 +435,24 @@ Notemos que $A$ es una constante determinista, mientras que $B$ y $C$ son variab
 
 $$
     \begin{aligned}
-        \mathbb{E}[|A+B+C|^2] & = \mathbb{E}[A^2+B^2+C^2\\ 
-        & \qquad +2AB+2AC+2BC]\\ 
-        & = \mathbb{E}[A^2]+\mathbb{E}[B^2]+\mathbb{E}[C^2]\\ 
-        & \qquad +\mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
+        \mathbb{E}[|A+B+C|^2] & = \mathbb{E}[A^2+B^2+C^2 + 2AB+2AC+2BC] \\ 
+        & = \mathbb{E}[A^2]+\mathbb{E}[B^2]+\mathbb{E}[C^2] + \mathbb{E}[2AB]+\mathbb{E}[2AC]+\mathbb{E}[2BC].
     \end{aligned}
 $$ {#eq-5.15}
 
-Utilizando las propiedades de los incrementos independientes, podemos afirmar que $\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0$. Además, $\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0$. Luego, por la independiencia entre el movimiento browniano y el proceso de Poisson compensado, se cumple $\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0$.
+Utilizando las propiedades de los incrementos independientes y de esperanza nula, podemos afirmar que $\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0$. En consecuencia, los términos cruzados se anulan: $\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0$. Además, por la independencia mutua entre el movimiento browniano y el proceso de Poisson compensado, se cumple $\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0$.
 
-Por otro lado, $\mathbb{E}[B^2]=b^2\mathbb{E}[(W_n)^2]=b^2\Delta t$ y $\mathbb{E}[C^2]=c^2\mathbb{E}[(\widetilde{N}_n)^2]=c^2\lambda\Delta t$. Por lo tanto, de la @eq-5.15 tenemos
+Por otro lado, calculamos los segundos momentos de los incrementos: $\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t$ y $\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t$. Por lo tanto, de la Ecuación \eqref{eq-5.15} 
+obtenemos
 
 $$
     \begin{aligned}
-        \mathbb{E}[|A+B+C|^2] & = A^2+b^2\Delta t +\lambda c^2\Delta t\\ 
-        & = (1+(1-\theta)\Delta t(a+\lambda c))^2 \\ 
-        & \qquad +b^2\Delta t +\lambda c^2\Delta t.
+        \mathbb{E}[|A+B+C|^2] & = A^2+b^2\Delta t +\lambda c^2\Delta t \\ 
+        & = (1+(1-\theta)\Delta t(a+\lambda c))^2 + b^2\Delta t +\lambda c^2\Delta t.
     \end{aligned}
 $$
 
-Sustituyendo esto en @eq-5.14 tenemos
+Sustituyendo este resultado en la @eq-5.14, llegamos a la ecuación de recurrencia para el segundo momento:
 
 $$
     \begin{aligned}
@@ -454,28 +461,28 @@ $$
     \end{aligned}
 $$ {#eq-5.16}
 
-Notemos que la @eq-5.16 describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión $\mathbb{E}[|Y_n|^2]$ sea decreciente y tienda a cero cuando $n$ tiende a infinito. Esto ocurre si y solo si
+Notemos que la Ecuación @eq-5.16 describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión $\mathbb{E}[|Y_n|^2]$ sea decreciente y tienda a cero cuando $n$ tiende a infinito. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, es decir,
 
 $$
-    \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}<1
+    \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}<1.
 $$ {#eq-5.17}
 
-Recordemos que anteriormente ya se mencionó que el término $1-\theta\Delta t(a+\lambda c)$ es no nulo y positivo, por lo que es posible multiplicar la @eq-5.17 por el denominador y seguir conservando la desigualdad, es decir
+Recordemos que anteriormente ya se mencionó que el término $1-\theta\Delta t(a+\lambda c)$ es no nulo y positivo, por lo que es posible multiplicar la @eq-5.17 por el denominador y seguir conservando la desigualdad, es decir,
 
 $$
-    (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t<(1-\theta\Delta t(a+\lambda c))^2
+    (1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t<(1-\theta\Delta t(a+\lambda c))^2.
 $$ {#eq-5.18}
 
-Para facilitar la notación, definimos la variable $K:=a+\lambda c$. Además, expandiendo la expresión del lado derecho de la desigualdad de la forma
+Para facilitar la notación, definimos la variable $K:=a+\lambda c$. Además, expandiendo la expresión del lado derecho de la desigualdad, tenemos
 
 $$
     \begin{aligned}
         (1-\theta\Delta t(a+\lambda c))^2 & =(1-\theta\Delta tK)^2\\ 
-        & = 1-2\theta\Delta t k+\theta^2\Delta t^2K^2.
+        & = 1-2\theta\Delta t K+\theta^2\Delta t^2K^2.
     \end{aligned} 
 $$
 
-De igual forma, al extender el término al cuadrado del lado izquierdo de la @eq-5.18
+De igual forma, al expandir el término al cuadrado del lado izquierdo de la @eq-5.18, obtenemos
 
 $$
     \begin{aligned}
@@ -484,85 +491,75 @@ $$
     \end{aligned}
 $$
 
-De esta manera, ordenando los términos, la @eq-5.18 se expresa como se sigue
+De esta manera, sustituyendo estas expansiones en la @eq-5.18 y reordenando los términos, la desigualdad se expresa como
 
 $$
-    \begin{aligned}
-        1 & +2(1-\theta)\Delta t K +b^2\Delta t \\ 
-          & \qquad +\lambda c^2\Delta t+(1-\theta)^2\Delta t^2 K^2<1-2\theta\Delta t K+\theta^2\Delta t^2 K^2.
-    \end{aligned}
+    1 +2(1-\theta)\Delta t K +b^2\Delta t +\lambda c^2\Delta t+(1-\theta)^2\Delta t^2 K^2<1-2\theta\Delta t K+\theta^2\Delta t^2 K^2.
 $$ {#eq-5.19}
 
-Restando el término $1$ en ambos lados de la desigualdad, además reordenando adecuadamente y agrupando los términos con factores $\Delta t$ y $\Delta t^2$, tenemos
+Restando el término $1$ en ambos lados de la desigualdad, reordenando adecuadamente y agrupando los términos con factores $\Delta t$ y $\Delta t^2$, tenemos
 
 $$
-    \begin{aligned}
-        & -2\theta K\Delta t -2(1-\theta)K\Delta t-b^2\Delta t \\
-        & \qquad\quad-\lambda c^2\Delta t+\theta^2 K^2\Delta t^2-(1-\theta)^2 K^2\Delta t^2>0\\ 
-        & (-2\theta K-2(1-\theta)K-b^2-\lambda c^2)\Delta t\\ 
-        & \qquad\quad+ (\theta^2-(1-\theta)^2)K^2\Delta t^2>0\\ 
-        & (-2\theta K-2K+2\theta K-b^2-\lambda c^2)\Delta t \\ 
-        & \qquad\quad+(\theta^2-(1-2\theta+\theta^2))K^2\Delta t^2>0\\ 
-        &(-2K-b^2-\lambda c^2)\Delta t +(2\theta-1)K^2\Delta t^2>0\\ 
-        & (2\theta-1)\Delta t^2 K^2-(2K+b^2+\lambda c^2)\Delta t>0. 
-    \end{aligned}
+    (-2\theta K -2(1-\theta)K -b^2 -\lambda c^2)\Delta t + (\theta^2-(1-\theta)^2)K^2\Delta t^2 > 0.
+$$
+
+Simplificando los coeficientes, notamos que $-2\theta K -2(1-\theta)K = -2K$ y $\theta^2-(1-\theta)^2 = \theta^2 - (1 - 2\theta + \theta^2) = 2\theta - 1$. Por lo tanto, la desigualdad se reduce a
+
+$$
+    (-2K-b^2-\lambda c^2)\Delta t +(2\theta-1)K^2\Delta t^2>0.
 $$ {#eq-5.20}
 
-Del parámetro de establilidad $l$, notemos
+Del parámetro de estabilidad $l$, notemos que
 
 $$
     \begin{aligned}
         l & = 2a+b^2+\lambda c(2+c) \\ 
         & = 2a+b^2+2\lambda c+\lambda c^2\\ 
-        & = 2a+2\lambda c+b^2+\lambda c^2\\ 
         & = 2(a+\lambda c)+b^2+\lambda c^2\\ 
         & = 2K +b^2+\lambda c^2.
     \end{aligned}
 $$
 
-Por lo tanto, sustituyendo $l$ en @eq-5.19 se tiene
+Por lo tanto, sustituyendo $l$ en la @eq-5.20, se tiene
 
 $$
-    (2\theta-1)\Delta t^2 K^2-l\Delta t>0
+    (2\theta-1)\Delta t^2 K^2-l\Delta t>0.
 $$
 
-Dado que $\Delta t>0$, es posible factorizar un término de la forma
-
-$$
-    \Delta t[(2\theta-1)\Delta t K^2-l]>0,
-$$
-
-más aún
+Dado que $\Delta t>0$, es posible factorizar y dividir por $\Delta t$ sin alterar el sentido de la desigualdad, obteniendo
 
 $$
     (2\theta-1)\Delta t K^2-l>0.
 $$
 
-Despejando de tal forma que podamos expresar la desigualdad anterior en términos de $-l$ tenemos
+Despejando de tal forma que podamos expresar la desigualdad anterior en términos de $-l$, tenemos
 
 $$
--l >-(2\theta-1)(a+\lambda c)^2\Delta t= (1-2\theta)(a+\lambda c)^2\Delta t
+    -l > -(2\theta-1)(a+\lambda c)^2\Delta t = (1-2\theta)(a+\lambda c)^2\Delta t.
 $$ {#eq-5.21}
 
-Cuando $\displaystyle\theta=\frac{1}{2}$, esto implica $1-2\theta=0$, así
+A partir de la condición @eq-5.21, analizamos los tres casos posibles para el parámetro $\theta$:
 
-$$
-    0= (1-2\theta)(a+\lambda c)^2\Delta t<-l
-$$
+-   Caso 1: $\displaystyle\theta=\frac{1}{2}$. 
 
-Por hipótesis $l<0$, de aqui $0<-l$. Por lo tanto, el método es estable cuando $\displaystyle\theta=\frac{1}{2}$.
+En este caso, $1-2\theta=0$, por lo que el lado derecho de la @eq-5.21 se anula. La condición se reduce a $-l > 0$. Por hipótesis, la solución analítica es estable, lo que implica $l<0$, y por tanto $0<-l$. Esto demuestra que el método es estable para cualquier $\Delta t > 0$.
 
-Luego, cuando $\displaystyle \frac{1}{2}<\theta\leq 1$, esto implica que $1-2\theta<0$. Para este caso $(1-2\theta)(a+\lambda c)^2\Delta t<0$, de igual forma $-l>0$, entonces
+-   Caso 2: $\displaystyle \frac{1}{2}<\theta\leq 1$. 
 
-$$
-    (1-2\theta)(a+\lambda c)^2\Delta t<0<-l,
-$$
+Aquí, $1-2\theta<0$, lo que implica que el lado derecho de @eq-5.21 es estrictamente negativo (pues $(a+\lambda c)^2 \Delta t > 0$). Dado que $-l > 0$, tenemos que un número positivo es mayor que un número negativo, lo cual se cumple trivialmente para cualquier $\Delta t > 0$. El método es A-estable.
 
-en consecuencia, el método sigue siendo estable bajo las condiciones de la solución anlítica.
+-   Caso 3: $\displaystyle 0\leq \theta<\frac{1}{2}$. 
 
-Por último, para el caso $\displaystyle 0\leq \theta<\frac{1}{2}$, esto implica, $(1-2\theta)(a+\lambda c)^2>0$, por lo que la @eq-5.21 se cumple si y solo si
+En este escenario, $1-2\theta>0$. La @eq-5.21 impone una restricción directa sobre el tamaño del paso. Despejando $\Delta t$, obtenemos la condición de estabilidad:
 
 $$
     \Delta t <\frac{-l}{(1-2\theta)(a+\lambda c)^2}.
 $$
+
+:::
+
+::: {style="text-align: justify"}
+
+Con esto, concluimos la demostración del Teorema @thm-estabilidad. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto $c$ es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija $\theta \in [1/2, 1]$. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para el Capítulo 6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step $\theta$ (CSS$\theta$), generalizando estas propiedades de estabilidad y convergencia fuerte.
+
 :::
