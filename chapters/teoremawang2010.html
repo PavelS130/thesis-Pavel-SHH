@@ -451,7 +451,7 @@ window.Quarto = {
 <p>Habiendo establecido en el Capítulo 4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la <span class="math inline">\(\textbf{ecuación de Langevin estocástica con saltos}\)</span>.</p>
 <p>Dicha ecuación se expresa mediante el siguiente sistema lineal:</p>
 <p><span id="eq-5.01"><span class="math display">\[
-    dX(t) = aX(t^-)dt + bX(t^-)dW(t) + cX(t^-)dN(t), \qquad t \geq 0,
+    dX(t) = aX(t-)dt + bX(t-)dW(t) + cX(t-)dN(t), \qquad t \geq 0,
 \tag{5.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(X(0) = X_0\)</span>, donde <span class="math inline">\(a, b, c \in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span>, definido sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>.</p>
 <p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su <span class="math inline">\(\textbf{estabilidad media cuadrática}\)</span>, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
@@ -465,10 +465,10 @@ window.Quarto = {
 <p>donde <span class="math inline">\(\mu(t), \sigma(t), \gamma(t)\)</span> son procesos adaptados, <span class="math inline">\(W(t)\)</span> es un movimiento browniano y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson. Para una función <span class="math inline">\(f \in C^2(\mathbb{R}^{+} \times \mathbb{R})\)</span>, el diferencial estocástico de <span class="math inline">\(f(t, Y(t))\)</span> está dado por</p>
 <p><span class="math display">\[
     \begin{aligned}
-        df(t, Y(t)) &amp;= \frac{\partial f}{\partial t}(t, Y(t^-))dt \\
-        &amp;\quad + \frac{\partial f}{\partial y}(t, Y(t^-))[\mu(t)dt + \sigma(t)dW(t)] \\
-        &amp;\quad + \frac{1}{2}\frac{\partial^2 f}{\partial y^2}(t, Y(t^-))\sigma(t)^2 dt \\
-        &amp;\quad + [f(t, Y(t^-) + \gamma(t)) - f(t, Y(t^-))]dN(t).
+        df(t, Y(t)) &amp;= \frac{\partial f}{\partial t}(t, Y(t-))dt \\
+        &amp;\quad + \frac{\partial f}{\partial y}(t, Y(t-))[\mu(t)dt + \sigma(t)dW(t)] \\
+        &amp;\quad + \frac{1}{2}\frac{\partial^2 f}{\partial y^2}(t, Y(t-))\sigma(t)^2 dt \\
+        &amp;\quad + [f(t, Y(t-) + \gamma(t)) - f(t, Y(t-))]dN(t).
     \end{aligned}
 \]</span></p>
 <p>Notemos que el último término representa el cambio finito en <span class="math inline">\(f\)</span> cuando ocurre un salto de tamaño <span class="math inline">\(\gamma(t)\)</span> en <span class="math inline">\(Y\)</span>.</p>
@@ -477,7 +477,7 @@ window.Quarto = {
     \widetilde{N}(t) := N(t) - \lambda t, \qquad t \geq 0.
 \]</span></p>
 <p>Sabemos que este proceso es una martingala con esperanza <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)] = 0\)</span>, varianza <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2] = \lambda t\)</span>, además los incrementos en dicho proceso son independientes.</p>
-<p>La ecuación que queremos resolver es lineal en el estado <span class="math inline">\(X(t^-)\)</span>, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando <span class="math inline">\(c = 0\)</span>, la ecuación se reduce al movimiento browniano geométrico</p>
+<p>La ecuación que queremos resolver es lineal en el estado <span class="math inline">\(X(t-)\)</span>, lo que sugiere que la solución pueda tener una estructura de tipo exponencial. Notemos que en el caso sin saltos, es decir, cuando <span class="math inline">\(c = 0\)</span>, la ecuación se reduce al movimiento browniano geométrico</p>
 <p><span class="math display">\[
     dX(t) = aX(t)dt + bX(t)dW(t),
 \]</span></p>
@@ -485,7 +485,7 @@ window.Quarto = {
 <p><span class="math display">\[
     X(t) = X_0 \exp\left[\left(a - \frac{1}{2}b^2\right)t + bW(t)\right].
 \]</span></p>
-<p>Para nuestro caso, el término <span class="math inline">\(cX(t^-)dN(t)\)</span> induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma <span class="math display">\[
+<p>Para nuestro caso, el término <span class="math inline">\(cX(t-)dN(t)\)</span> induce que la solución debe incorporar un factor multiplicativo que refleje la acumulación de los saltos. Por la estructura lineal, buscaremos una solución de la forma <span class="math display">\[
     X(t) = X_0 e^{Y(t)},
 \]</span></p>
 <p>donde <span class="math inline">\(Y(t)\)</span> será un proceso que posea un término lineal en <span class="math inline">\(t\)</span>, un término con <span class="math inline">\(W(t)\)</span> para el ruido browniano y <span class="math inline">\(N(t)\)</span> para los saltos. Por lo que, proponemos que tendrá la siguiente estructura</p>
@@ -497,18 +497,18 @@ window.Quarto = {
 <p>Así, aplicando el <a href="preliminares.html#thm-formulaito" class="quarto-xref">Teorema&nbsp;<span>3.14</span></a>, tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
-        dX(t) &amp;= X(t^-)(\alpha dt + \beta dW(t)) + \frac{1}{2}X(t^-)\beta^2 dt \\
-        &amp;\quad + \left[e^{Y(t^-) + \gamma} - e^{Y(t^-)}\right]dN(t).
+        dX(t) &amp;= X(t-)(\alpha dt + \beta dW(t)) + \frac{1}{2}X(t-)\beta^2 dt \\
+        &amp;\quad + \left[e^{Y(t-) + \gamma} - e^{Y(t-)}\right]dN(t).
     \end{aligned}
 \]</span></p>
-<p>Observemos que, por la función <span class="math inline">\(f(y)\)</span> ya definida anteriormente, podemos afirmar que <span class="math inline">\(e^{Y(t^-)} = X(t^-)\)</span>, por lo que el término de salto pasa a ser de la forma <span class="math display">\[
-    e^{Y(t^-) + \gamma} - e^{Y(t^-)} = e^{Y(t^-)}(e^{\gamma} - 1) = X(t^-)(e^{\gamma} - 1).
+<p>Observemos que, por la función <span class="math inline">\(f(y)\)</span> ya definida anteriormente, podemos afirmar que <span class="math inline">\(e^{Y(t-)} = X(t-)\)</span>, por lo que el término de salto pasa a ser de la forma <span class="math display">\[
+    e^{Y(t-) + \gamma} - e^{Y(t-)} = e^{Y(t-)}(e^{\gamma} - 1) = X(t-)(e^{\gamma} - 1).
 \]</span></p>
 <p>Factorizando los términos en común, podemos obtener <span class="math display">\[
-    dX(t) = X(t^-)\left[\left(\alpha + \frac{1}{2}\beta^2\right)dt + \beta dW(t) + (e^{\gamma} - 1)dN(t)\right].
+    dX(t) = X(t-)\left[\left(\alpha + \frac{1}{2}\beta^2\right)dt + \beta dW(t) + (e^{\gamma} - 1)dN(t)\right].
 \]</span></p>
 <p>La ecuación que debe satisfacer <span class="math inline">\(X(t)\)</span> es <span class="math display">\[
-    dX(t) = X(t^-)[adt + bdW(t) + cdN(t)].
+    dX(t) = X(t-)[adt + bdW(t) + cdN(t)].
 \]</span></p>
 <p>Comparando e igualando los factores de cada ecuación, tenemos que:</p>
 <ul>
@@ -610,7 +610,7 @@ window.Quarto = {
 <h2 data-number="5.2" class="anchored" data-anchor-id="formulación-del-esquema-numérico"><span class="header-section-number">5.2</span> Formulación del esquema numérico</h2>
 <p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
 <p><span id="eq-5.05"><span class="math display">\[
-    dX(t) = (a + \lambda c)X(t^-)dt + bX(t^-)dW(t) + cX(t^-)d\widetilde{N}(t), \quad t \geq 0.
+    dX(t) = (a + \lambda c)X(t-)dt + bX(t-)dW(t) + cX(t-)d\widetilde{N}(t), \quad t \geq 0.
 \tag{5.5}\]</span></span></p>
 <p>Esta formulación compensada es la piedra angular del método CSTM, pues permite separar la componente determinista de la puramente martingala.</p>
 <p>Fijemos un tamaño de paso constante <span class="math inline">\(\Delta t &gt; 0\)</span> y definamos la malla temporal <span class="math inline">\(t_n = n\Delta t\)</span> para <span class="math inline">\(n \in \mathbb{N}\)</span>. Al aplicar el método Theta Compensado Estocástico a la <a href="#eq-5.05" class="quarto-xref">Ecuación&nbsp;<span>5.5</span></a>, generamos una sucesión de aproximaciones <span class="math inline">\(Y_n \approx X(t_n)\)</span> mediante la siguiente ecuación de diferencias implícita:</p>
@@ -664,10 +664,10 @@ window.Quarto = {
 <p><span class="proof-title"><em>Demostración</em>. </span>Como primer paso, comenzaremos aplicando el método theta compensado estocástico (CSTM) a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, con condición inicial <span class="math inline">\(X(0)=X_0\)</span>. Para aplicar dicho método, definimos el proceso de Poisson compensado como <span class="math inline">\(\widetilde{N}(t):=N(t)-\lambda t\)</span>, el cual es una martingala y satisface <span class="math inline">\(\mathbb{E}[\widetilde{N}(t)]=0\)</span> y <span class="math inline">\(\mathbb{E}[|\widetilde{N}(t)|^2]=\lambda t\)</span>. Por lo tanto, esto nos permite reescribir la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a> en su forma equivalente:</p>
 <p><span id="eq-5.11"><span class="math display">\[
 \begin{aligned}
-    dX(t) &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)dN(t)\\
-    &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)d(\widetilde{N}(t)+\lambda t)\\
-    &amp; = aX(t^-)dt+bX(t^-)dW(t)+cX(t^-)d\widetilde{N}(t)+ \lambda cX(t^-)dt\\
-    &amp; = (a+\lambda c)X(t^-)dt +bX(t^-)dW(t)+cX(t^-)d\widetilde{N}(t).
+    dX(t) &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)dN(t)\\
+    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d(\widetilde{N}(t)+\lambda t)\\
+    &amp; = aX(t-)dt+bX(t-)dW(t)+cX(t-)d\widetilde{N}(t)+ \lambda cX(t-)dt\\
+    &amp; = (a+\lambda c)X(t-)dt +bX(t-)dW(t)+cX(t-)d\widetilde{N}(t).
 \end{aligned}
 \tag{5.11}\]</span></span></p>
 <p>Para un tamaño de paso constante <span class="math inline">\(\Delta t&gt;0\)</span>, definimos la malla <span class="math inline">\(t_n=n\Delta t\)</span> con <span class="math inline">\(n\in \mathbb{N}\)</span>. El método (CSTM) aplicado a la <a href="#eq-5.11" class="quarto-xref">Ecuación&nbsp;<span>5.11</span></a> genera una sucesión de aproximaciones <span class="math inline">\(Y_n\approx X(t_n)\)</span> mediante la ecuación de diferencias implícita dada por</p>
