@@ -1,5 +1,5 @@
 ---
-title: "Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos"
+#title: "Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos"
 lang: es
 format:
   html: default
@@ -11,6 +11,8 @@ format:
 ---
 
 ::: {style="text-align: justify"}
+
+# Existencia y Unicidad de Soluciones Fuertes para EDEs con Saltos {#sec-cap4}
 
 En el capítulo anterior establecimos el andamiaje teórico necesario para el cálculo estocástico con saltos, desde las desigualdades fundamentales hasta la fórmula de Itô y el método de iteración de Picard. En este capítulo, ensamblaremos todas estas herramientas para abordar la pregunta central de cualquier modelo estocástico: ¿bajo qué condiciones la ecuación diferencial estocástica impulsada por un movimiento browniano y un proceso de Poisson compensado admite una solución fuerte, única y con trayectorias càdlàg?
 

@@ -12,9 +12,9 @@ format:
 
 ::: {style="text-align: justify"}
 
-# Estabilidad media cuadrática 
+# Estabilidad media cuadrática del Método CSTM
 
-Habiendo establecido en el Capítulo 4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la $\textbf{ecuación de Langevin estocástica con saltos}$. 
+Habiendo establecido en la @sec-cap4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la $\textbf{ecuación de Langevin estocástica con saltos}$. 
 
 Dicha ecuación se expresa mediante el siguiente sistema lineal:
 
@@ -24,13 +24,13 @@ $$ {#eq-5.01}
 
 con condición inicial $X(0) = X_0$, donde $a, b, c \in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda > 0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$.
 
-A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su $\textbf{estabilidad media cuadrática}$, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método $\text{CSS}\theta$.
+A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su $\textbf{estabilidad media cuadrática}$, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para la @sec-cap6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método $\text{CSS}\theta$.
 
 :::
 
 ::: {style="text-align: justify"}
 
-## Deducción de la solución explícita 
+## Solución explícita y estabilidad del sistema continuo
 
 Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación @eq-5.01. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t \geq 0}$ de la forma
 
@@ -258,7 +258,7 @@ Habiendo establecido la estabilidad de la solución exacta en la sección anteri
 
 ::: {style="text-align: justify"}
 
-##  Formulación del esquema numérico
+##  Estabilidad del método numérico CSTM
 
 Para facilitar el manejo analítico del método, comenzamos reescribiendo la @eq-5.01 utilizando el proceso de Poisson compensado $\widetilde{N}(t) = N(t) - \lambda t$. Dado que $dN(t) = d\widetilde{N}(t) + \lambda dt$, la Ecuación @eq-5.01 es equivalente a:
 
@@ -560,6 +560,6 @@ $$
 
 ::: {style="text-align: justify"}
 
-Con esto, concluimos la demostración del Teorema @thm-estabilidad. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto $c$ es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija $\theta \in [1/2, 1]$. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para el Capítulo 6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step $\theta$ (CSS$\theta$), generalizando estas propiedades de estabilidad y convergencia fuerte.
+Con esto, concluimos la demostración del Teorema @thm-estabilidad. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto $c$ es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija $\theta \in [1/2, 1]$. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la @sec-cap6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step $\theta$ (CSS$\theta$), generalizando estas propiedades de estabilidad y convergencia fuerte.
 
 :::
