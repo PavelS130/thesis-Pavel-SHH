@@ -164,7 +164,9 @@ $$
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 $$ {#eq-6.11}
 
-**Acotamiento del momento incial**: Supondremos que los momentos iniciales están acotados, es decir, para todo $p\geq 1$
+**Acotamiento del momento incial**: 
+
+Supondremos que los momentos iniciales están acotados, es decir, para todo $p\geq 1$
 
 $$
 \mathbb{E}[|X_0|^p]<\infty.
@@ -333,6 +335,9 @@ $$
 :::
 
 ::: {#lem-6.1 style="text-align: justify"}
+
+## Existencia y unicidad de la variable auxiliar $Y_n^*$
+
 Supóngamos que $f_{\lambda}:\mathbb{R}\to\mathbb{R}$ es continua y satisface la condición de Lipschitz unilateral dada por la @eq-6.18, es decir, existe una constante $K_{\lambda}$ tal que
 
 $$
@@ -351,7 +356,8 @@ admite una única solución $Y_{n}^{*}\in\mathbb{R}$.
 :::
 
 ::: {.proof style="text-align: justify"}
-Definimos la función $G:\mathbb{R}\rightarrow \mathbb{R}$ como
+
+Definimos la función auxiliar $G:\mathbb{R}\rightarrow \mathbb{R}$ como
 
 $$
   G(y):=y-\theta\Delta tf_{\lambda}(y).
@@ -363,30 +369,26 @@ $$
   G(Y_n^*)=Y_n.
 $$
 
-Por tanto, demostrar la existencia y unicidad de $Y_n^*$ equivale a probar que la ecuación $G(y)=Y_n$ tiene una solución única para cualquier $Y_n$.
+Por tanto, demostrar la existencia y unicidad de $Y_n^*$ equivale a probar que la ecuación $G(y)=Y_n$ tiene una solución única para cualquier $Y_n \in \mathbb{R}$ dado.
 
-Sea $x,y\in \mathbb{R}$ con $x\neq y$. Consideremos la diferencia $G(x)-G(y)$
+- **Inyectividad**
 
-$$
-  \begin{aligned}
-    G(x)-G(y) & =x-\theta\Delta tf_{\lambda}(x)-(y-\theta\Delta tf_{\lambda}(y))\\ 
-    & = (x-y)-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y)).
-  \end{aligned}
-$$
+  Sea $x,y\in \mathbb{R}$ con $x\neq y$. Consideremos la diferencia $G(x)-G(y)$
 
-Multiplicando ambos lados por $(x-y)$
+  $$
+    \begin{aligned}
+      G(x)-G(y) & =x-\theta\Delta tf_{\lambda}(x)-(y-\theta\Delta tf_{\lambda}(y))\\ 
+      & = (x-y)-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y)).
+    \end{aligned}
+  $$
+
+Multiplicando ambos lados por $(x-y)$, obtenemos 
 
 $$
   (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
 $$
 
-Así, aplicando la condición de Lipschitz dada por la @eq-6.14 para $f_{\lambda}$
-
-$$
-  (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
-$$
-
-Sustituyendo esta cota en la expresión anterior
+Así, aplicando la condición de Lipschitz unilateral dada por la @eq-6.18 para $f_{\lambda}$, sabemos que $(f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2$. Sustituyendo esta cota en la expresión anterior
 
 $$
   \begin{aligned}
@@ -401,64 +403,43 @@ $$
     (G(x)-G(y))(x-y)\geq c(x-y)^2>0, \quad \forall x\neq y.
 $$
 
-Notemos que si $G(x)-G(y)<0$ entonces $x-y<0$, o bien, si $G(x)-G(y)>0$ entonces $x-y>0$. Si $x-y<0$ esto implica que $x<y$ y $G(x)<G(y)$ y viceversa para el caso $x-y>0$. Por tanto, podemos afirmar que $G$ es estrictamente creciente en $\mathbb{R}$. Así, queda demostrado que $G$ es inyectiva.
+Esta desigualdad nos indica que $G(x)-G(y)$ y $x-y$ siempre tienen el mismo signo. En consecuencia, si $x > y$ entonces $G(x) > G(y)$, y si $x < y$ entonces $G(x) < G(y)$. Hemos demostrado así que $G$ es una función estrictamente creciente en $\mathbb{R}$, lo que garantiza directamente que $G$ es inyectiva.
 
-Notemos que por la definición de $f_{\lambda}$, es una composición de funciones continuas, por tanto $f_{\lambda}\in C^1(\mathbb{R})$, así la función $G$ es continua en $\mathbb{R}$ como combinación lineal de funciones continuas.
+- **Suprayectividad**
 
-Considerando la @eq-6.19, sabemos que existe una constante $L_{\lambda}>0$ tal que
+Por la definición de $f_{\lambda}$, esta es una composición de funciones continuas, por ende $f_{\lambda}\in C^1(\mathbb{R})$, y así la función $G$ es continua en $\mathbb{R}$ por ser combinación lineal de funciones continuas.
 
-$$
-  |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
-$$
-
-Sin embargo, por ser $G$ estrictamente creciente, tenemos
+Para demostrar que $G$ alcanza todos los valores reales, analizaremos su comportamiento asintótico. A partir de la cota coerciva establecida previamente, para cualquier $x \in \mathbb{R}$ se cumple
 
 $$
-  (G(x)-G(0))x\geq cx^2, 
+    (G(x)-G(0))x \geq cx^2.
 $$
 
-tenemos para $x>0$
+Para $x > 0$, podemos dividir por $x$ obteniendo $G(x) \geq G(0) + cx$. Dado que $c > 0$, se sigue que $\lim_{x \to +\infty} G(x) = +\infty$.
+
+Análogamente, para $x < 0$, al dividir por $x$ (y cambiar el sentido de la desigualdad) obtenemos $G(x) \leq G(0) + cx$, lo que implica que $\lim_{x \to -\infty} G(x) = -\infty$.
+
+Sea $Y_n \in \mathbb{R}$ un valor arbitrario. Dado que $G$ es continua y sus límites en los extremos son $+\infty$ y $-\infty$, por el @thm-valorintermedio, existe al menos un punto $Y_n^* \in \mathbb{R}$ tal que $G(Y_n^*) = Y_n$. Por lo tanto, $G$ es suprayectiva.
+
+Al ser $G$ inyectiva y suprayectiva, concluimos que $G$ es biyectiva. 
+
+La suprayectividad de $G$ garantiza que, para cualquier valor $Y_n \in \mathbb{R}$, existe al menos un $Y_n^* \in \mathbb{R}$ tal que $G(Y_n^*) = Y_n$. Esto asegura la **existencia** de una solución para la ecuación implícita, independientemente del valor de la aproximación previa $Y_n$.
+
+Por otro lado, la inyectividad de $G$ (derivada de su crecimiento estricto) implica que si $G(x) = G(y)$, entonces necesariamente $x = y$. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos $Y_n^*$ y $\tilde{Y}_n^*$ que satisfagan simultáneamente $G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n$. Esto garantiza la unicidad de la solución.
+
+En consecuencia, la biyectividad de $G$ asegura que la ecuación implícita
 
 $$
-  G(x)\geq G(0)+cx,
+  Y_n^*=Y_n+\theta\Delta t f_{\lambda}(Y_n^*)
 $$
 
-y para $x<0$
-
-$$
-  G(x)\leq G(0)+cx. 
-$$
-
-Por lo tanto
-
-$$
-  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty,\quad \lim\limits_{x\rightarrow-\infty}G(x)=-\infty.
-$$
-
-Sea $Y_n\in \mathbb{R}$ arbitrario. Sabemos que $G$ es continua en $\mathbb{R}$, además
-
-$$
-  \lim\limits_{x\rightarrow -\infty}G(x)=-\infty <Y_n,
-$$
-
-y
-
-$$
-  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty>Y_n.
-$$
-
-Así, existe $R>0$ tal que $G(-R)<Y_n<G(R)$. Por el Teorema del Valor Intermedio, podemos afirmar que existe un punto $Y_n^*\in (-R,R)$ tal que $G(Y_n^*)=Y_n$. Por lo tanto $G$ es suprayectivo.
-
-Al ser $G$ inyectivo y supreyectivo, se afirma que $G$ es biyectivo y la ecuación implícita
-
-$$
-  Y_n^*=Y_n+\theta\Delta tf_{\lambda}(Y_n^*)
-$$
-
-admite una única solución $Y_n^*\in \mathbb{R}$ para cualquier $Y_n$.
+admite una **única** solución $Y_n^*\in \mathbb{R}$ para cualquier condición inicial $Y_n \in \mathbb{R}$. Con esto, el paso implícito del método CSS$\theta$ queda bien definido bajo las hipótesis $\theta \Delta t K_\lambda < 1$.
 :::
 
 ::: {#lem-6.2 style="text-align: justify"}
+
+## Acotamiento uniforme de momentos para las sucesiones discretas
+
 Bajo la hipótesis dada por la @eq-6.09, sea $\theta\in [0,1]$. Supongamos que $\Delta t>0$ satisface
 
 $$
@@ -481,6 +462,7 @@ donde $Y_n$ y $Y_n^*$ son las sucesiones generadas por el método $\text{CSS}\th
 :::
 
 ::: {.proof style="text-align: justify"}
+
 Sea $M$ un entero positivo tal que $n\Delta t \leq M\Delta t\leq T$. Veamos la relación entre $Y_n^*$ y $Y_n$ a partir de la @eq-6.04 que define la variable auxiliar, $Y_n^*$. Elevando al cuadrado ambos miembros y desarrollando el producto, podemos observar que
 
 $$
@@ -2186,6 +2168,9 @@ $$
 :::
 
 ::: {#lem-6.3 style="text-align: justify"}
+
+## Acotamiento uniforme de momentos para la extensión continua
+
 Considerando la @eq-6.09, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
 
 $$
@@ -2641,6 +2626,9 @@ $$ {#eq-6.103}
 
 
 ::: {#lem-6.4 style="text-align: justify"}
+
+## Acotamiento de momentos de la solución exacta
+
 Considerando la @eq-6.09, sea $0\leq \theta\leq 1$ y supongamos que $\Delta t>0$ satisface
 
 $$
@@ -3734,6 +3722,9 @@ $$
 :::
 
 ::: {#lem-6.5 style="text-align: justify"}
+
+## Estimación del error entre la aproximación escalonada y la extensión continua
+
 Usando las hipótesis dada por @eq-6.09 y @eq-6.13, sea $0\leq\theta\leq 1$ y supongamos que $\Delta t$ satisface
 
 $$
