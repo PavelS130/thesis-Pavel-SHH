@@ -553,7 +553,8 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span id="eq-6.11"><span class="math display">\[
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 \tag{6.11}\]</span></span></p>
-<p><strong>Acotamiento del momento incial</strong>: Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
+<p><strong>Acotamiento del momento incial</strong>:</p>
+<p>Supondremos que los momentos iniciales están acotados, es decir, para todo <span class="math inline">\(p\geq 1\)</span></p>
 <p><span id="eq-6.12"><span class="math display">\[
 \mathbb{E}[|X_0|^p]&lt;\infty.
 \tag{6.12}\]</span></span></p>
@@ -672,7 +673,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 \]</span></p>
 </section>
 <div id="lem-6.1" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.1</strong></span> Supóngamos que <span class="math inline">\(f_{\lambda}:\mathbb{R}\to\mathbb{R}\)</span> es continua y satisface la condición de Lipschitz unilateral dada por la <a href="#eq-6.18" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, es decir, existe una constante <span class="math inline">\(K_{\lambda}\)</span> tal que</p>
+<p><span class="theorem-title"><strong>Lema 6.1 (Existencia y unicidad de la variable auxiliar <span class="math inline">\(Y_n^*\)</span>)</strong></span> Supóngamos que <span class="math inline">\(f_{\lambda}:\mathbb{R}\to\mathbb{R}\)</span> es continua y satisface la condición de Lipschitz unilateral dada por la <a href="#eq-6.18" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a>, es decir, existe una constante <span class="math inline">\(K_{\lambda}\)</span> tal que</p>
 <p><span class="math display">\[
   (x-y)\big(f_{\lambda}(x)-f_{\lambda}(y)\big)\leq K_{\lambda}\,|x-y|^{2},
   \qquad \forall\, x,y\in\mathbb{R}.
@@ -684,7 +685,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p>admite una única solución <span class="math inline">\(Y_{n}^{*}\in\mathbb{R}\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Definimos la función <span class="math inline">\(G:\mathbb{R}\rightarrow \mathbb{R}\)</span> como</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Definimos la función auxiliar <span class="math inline">\(G:\mathbb{R}\rightarrow \mathbb{R}\)</span> como</p>
 <p><span class="math display">\[
   G(y):=y-\theta\Delta tf_{\lambda}(y).
 \]</span></p>
@@ -692,23 +693,22 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span class="math display">\[
   G(Y_n^*)=Y_n.
 \]</span></p>
-<p>Por tanto, demostrar la existencia y unicidad de <span class="math inline">\(Y_n^*\)</span> equivale a probar que la ecuación <span class="math inline">\(G(y)=Y_n\)</span> tiene una solución única para cualquier <span class="math inline">\(Y_n\)</span>.</p>
+<p>Por tanto, demostrar la existencia y unicidad de <span class="math inline">\(Y_n^*\)</span> equivale a probar que la ecuación <span class="math inline">\(G(y)=Y_n\)</span> tiene una solución única para cualquier <span class="math inline">\(Y_n \in \mathbb{R}\)</span> dado.</p>
+<ul>
+<li><p><strong>Inyectividad</strong></p>
 <p>Sea <span class="math inline">\(x,y\in \mathbb{R}\)</span> con <span class="math inline">\(x\neq y\)</span>. Consideremos la diferencia <span class="math inline">\(G(x)-G(y)\)</span></p>
 <p><span class="math display">\[
   \begin{aligned}
     G(x)-G(y) &amp; =x-\theta\Delta tf_{\lambda}(x)-(y-\theta\Delta tf_{\lambda}(y))\\
     &amp; = (x-y)-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y)).
   \end{aligned}
-\]</span></p>
-<p>Multiplicando ambos lados por <span class="math inline">\((x-y)\)</span></p>
+\]</span></p></li>
+</ul>
+<p>Multiplicando ambos lados por <span class="math inline">\((x-y)\)</span>, obtenemos</p>
 <p><span class="math display">\[
   (G(x)-G(y))(x-y)=(x-y)^2-\theta\Delta t(f_{\lambda}(x)-f_{\lambda}(y))(x-y)
 \]</span></p>
-<p>Así, aplicando la condición de Lipschitz dada por la <a href="#eq-6.14" class="quarto-xref">Ecuación&nbsp;<span>6.14</span></a> para <span class="math inline">\(f_{\lambda}\)</span></p>
-<p><span class="math display">\[
-  (f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2.
-\]</span></p>
-<p>Sustituyendo esta cota en la expresión anterior</p>
+<p>Así, aplicando la condición de Lipschitz unilateral dada por la <a href="#eq-6.18" class="quarto-xref">Ecuación&nbsp;<span>6.18</span></a> para <span class="math inline">\(f_{\lambda}\)</span>, sabemos que <span class="math inline">\((f_{\lambda}(x)-f_{\lambda}(y))(x-y)\leq K_{\lambda}(x-y)^2\)</span>. Sustituyendo esta cota en la expresión anterior</p>
 <p><span class="math display">\[
   \begin{aligned}
     (G(x)-G(y))(x-y) &amp; \geq (x-y)^2-\theta\Delta t K_{\lambda}(x-y)^2\\
@@ -719,45 +719,29 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span class="math display">\[
     (G(x)-G(y))(x-y)\geq c(x-y)^2&gt;0, \quad \forall x\neq y.
 \]</span></p>
-<p>Notemos que si <span class="math inline">\(G(x)-G(y)&lt;0\)</span> entonces <span class="math inline">\(x-y&lt;0\)</span>, o bien, si <span class="math inline">\(G(x)-G(y)&gt;0\)</span> entonces <span class="math inline">\(x-y&gt;0\)</span>. Si <span class="math inline">\(x-y&lt;0\)</span> esto implica que <span class="math inline">\(x&lt;y\)</span> y <span class="math inline">\(G(x)&lt;G(y)\)</span> y viceversa para el caso <span class="math inline">\(x-y&gt;0\)</span>. Por tanto, podemos afirmar que <span class="math inline">\(G\)</span> es estrictamente creciente en <span class="math inline">\(\mathbb{R}\)</span>. Así, queda demostrado que <span class="math inline">\(G\)</span> es inyectiva.</p>
-<p>Notemos que por la definición de <span class="math inline">\(f_{\lambda}\)</span>, es una composición de funciones continuas, por tanto <span class="math inline">\(f_{\lambda}\in C^1(\mathbb{R})\)</span>, así la función <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span> como combinación lineal de funciones continuas.</p>
-<p>Considerando la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que existe una constante <span class="math inline">\(L_{\lambda}&gt;0\)</span> tal que</p>
+<p>Esta desigualdad nos indica que <span class="math inline">\(G(x)-G(y)\)</span> y <span class="math inline">\(x-y\)</span> siempre tienen el mismo signo. En consecuencia, si <span class="math inline">\(x &gt; y\)</span> entonces <span class="math inline">\(G(x) &gt; G(y)\)</span>, y si <span class="math inline">\(x &lt; y\)</span> entonces <span class="math inline">\(G(x) &lt; G(y)\)</span>. Hemos demostrado así que <span class="math inline">\(G\)</span> es una función estrictamente creciente en <span class="math inline">\(\mathbb{R}\)</span>, lo que garantiza directamente que <span class="math inline">\(G\)</span> es inyectiva.</p>
+<ul>
+<li><strong>Suprayectividad</strong></li>
+</ul>
+<p>Por la definición de <span class="math inline">\(f_{\lambda}\)</span>, esta es una composición de funciones continuas, por ende <span class="math inline">\(f_{\lambda}\in C^1(\mathbb{R})\)</span>, y así la función <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span> por ser combinación lineal de funciones continuas.</p>
+<p>Para demostrar que <span class="math inline">\(G\)</span> alcanza todos los valores reales, analizaremos su comportamiento asintótico. A partir de la cota coerciva establecida previamente, para cualquier <span class="math inline">\(x \in \mathbb{R}\)</span> se cumple</p>
 <p><span class="math display">\[
-  |f_{\lambda}(x)|\leq L_{\lambda}(1+|x|),\quad \forall x\in \mathbb{R}.
+    (G(x)-G(0))x \geq cx^2.
 \]</span></p>
-<p>Sin embargo, por ser <span class="math inline">\(G\)</span> estrictamente creciente, tenemos</p>
+<p>Para <span class="math inline">\(x &gt; 0\)</span>, podemos dividir por <span class="math inline">\(x\)</span> obteniendo <span class="math inline">\(G(x) \geq G(0) + cx\)</span>. Dado que <span class="math inline">\(c &gt; 0\)</span>, se sigue que <span class="math inline">\(\lim_{x \to +\infty} G(x) = +\infty\)</span>.</p>
+<p>Análogamente, para <span class="math inline">\(x &lt; 0\)</span>, al dividir por <span class="math inline">\(x\)</span> (y cambiar el sentido de la desigualdad) obtenemos <span class="math inline">\(G(x) \leq G(0) + cx\)</span>, lo que implica que <span class="math inline">\(\lim_{x \to -\infty} G(x) = -\infty\)</span>.</p>
+<p>Sea <span class="math inline">\(Y_n \in \mathbb{R}\)</span> un valor arbitrario. Dado que <span class="math inline">\(G\)</span> es continua y sus límites en los extremos son <span class="math inline">\(+\infty\)</span> y <span class="math inline">\(-\infty\)</span>, por el <a href="preliminares.html#thm-valorintermedio" class="quarto-xref">Teorema&nbsp;<span>3.4</span></a>, existe al menos un punto <span class="math inline">\(Y_n^* \in \mathbb{R}\)</span> tal que <span class="math inline">\(G(Y_n^*) = Y_n\)</span>. Por lo tanto, <span class="math inline">\(G\)</span> es suprayectiva.</p>
+<p>Al ser <span class="math inline">\(G\)</span> inyectiva y suprayectiva, concluimos que <span class="math inline">\(G\)</span> es biyectiva.</p>
+<p>La suprayectividad de <span class="math inline">\(G\)</span> garantiza que, para cualquier valor <span class="math inline">\(Y_n \in \mathbb{R}\)</span>, existe al menos un <span class="math inline">\(Y_n^* \in \mathbb{R}\)</span> tal que <span class="math inline">\(G(Y_n^*) = Y_n\)</span>. Esto asegura la <strong>existencia</strong> de una solución para la ecuación implícita, independientemente del valor de la aproximación previa <span class="math inline">\(Y_n\)</span>.</p>
+<p>Por otro lado, la inyectividad de <span class="math inline">\(G\)</span> (derivada de su crecimiento estricto) implica que si <span class="math inline">\(G(x) = G(y)\)</span>, entonces necesariamente <span class="math inline">\(x = y\)</span>. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(\tilde{Y}_n^*\)</span> que satisfagan simultáneamente <span class="math inline">\(G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n\)</span>. Esto garantiza la unicidad de la solución.</p>
+<p>En consecuencia, la biyectividad de <span class="math inline">\(G\)</span> asegura que la ecuación implícita</p>
 <p><span class="math display">\[
-  (G(x)-G(0))x\geq cx^2,
+  Y_n^*=Y_n+\theta\Delta t f_{\lambda}(Y_n^*)
 \]</span></p>
-<p>tenemos para <span class="math inline">\(x&gt;0\)</span></p>
-<p><span class="math display">\[
-  G(x)\geq G(0)+cx,
-\]</span></p>
-<p>y para <span class="math inline">\(x&lt;0\)</span></p>
-<p><span class="math display">\[
-  G(x)\leq G(0)+cx.
-\]</span></p>
-<p>Por lo tanto</p>
-<p><span class="math display">\[
-  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty,\quad \lim\limits_{x\rightarrow-\infty}G(x)=-\infty.
-\]</span></p>
-<p>Sea <span class="math inline">\(Y_n\in \mathbb{R}\)</span> arbitrario. Sabemos que <span class="math inline">\(G\)</span> es continua en <span class="math inline">\(\mathbb{R}\)</span>, además</p>
-<p><span class="math display">\[
-  \lim\limits_{x\rightarrow -\infty}G(x)=-\infty &lt;Y_n,
-\]</span></p>
-<p>y</p>
-<p><span class="math display">\[
-  \lim\limits_{x\rightarrow +\infty}G(x)=+\infty&gt;Y_n.
-\]</span></p>
-<p>Así, existe <span class="math inline">\(R&gt;0\)</span> tal que <span class="math inline">\(G(-R)&lt;Y_n&lt;G(R)\)</span>. Por el Teorema del Valor Intermedio, podemos afirmar que existe un punto <span class="math inline">\(Y_n^*\in (-R,R)\)</span> tal que <span class="math inline">\(G(Y_n^*)=Y_n\)</span>. Por lo tanto <span class="math inline">\(G\)</span> es suprayectivo.</p>
-<p>Al ser <span class="math inline">\(G\)</span> inyectivo y supreyectivo, se afirma que <span class="math inline">\(G\)</span> es biyectivo y la ecuación implícita</p>
-<p><span class="math display">\[
-  Y_n^*=Y_n+\theta\Delta tf_{\lambda}(Y_n^*)
-\]</span></p>
-<p>admite una única solución <span class="math inline">\(Y_n^*\in \mathbb{R}\)</span> para cualquier <span class="math inline">\(Y_n\)</span>.</p>
+<p>admite una <strong>única</strong> solución <span class="math inline">\(Y_n^*\in \mathbb{R}\)</span> para cualquier condición inicial <span class="math inline">\(Y_n \in \mathbb{R}\)</span>. Con esto, el paso implícito del método CSS<span class="math inline">\(\theta\)</span> queda bien definido bajo las hipótesis <span class="math inline">\(\theta \Delta t K_\lambda &lt; 1\)</span>.</p>
 </div>
 <div id="lem-6.2" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.2</strong></span> Bajo la hipótesis dada por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.2 (Acotamiento uniforme de momentos para las sucesiones discretas)</strong></span> Bajo la hipótesis dada por la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(\theta\in [0,1]\)</span>. Supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0&lt;\Delta t&lt;\min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -2048,7 +2032,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
 </div>
 <div id="lem-6.3" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.3</strong></span> Considerando la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.3 (Acotamiento uniforme de momentos para la extensión continua)</strong></span> Considerando la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
@@ -2387,7 +2371,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 \tag{6.103}\]</span></span></p>
 </div>
 <div id="lem-6.4" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.4</strong></span> Considerando la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.4 (Acotamiento de momentos de la solución exacta)</strong></span> Considerando la <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a>, sea <span class="math inline">\(0\leq \theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t&gt;0\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\left\{1,\frac{1}{2\theta L_{\lambda}}\right\}.
 \]</span></p>
@@ -3205,7 +3189,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 \]</span></p>
 </div>
 <div id="lem-6.5" class="theorem lemma" style="text-align: justify">
-<p><span class="theorem-title"><strong>Lema 6.5</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
+<p><span class="theorem-title"><strong>Lema 6.5 (Estimación del error entre la aproximación escalonada y la extensión continua)</strong></span> Usando las hipótesis dada por <a href="#eq-6.09" class="quarto-xref">Ecuación&nbsp;<span>6.9</span></a> y <a href="#eq-6.13" class="quarto-xref">Ecuación&nbsp;<span>6.13</span></a>, sea <span class="math inline">\(0\leq\theta\leq 1\)</span> y supongamos que <span class="math inline">\(\Delta t\)</span> satisface</p>
 <p><span class="math display">\[
   0\leq \Delta t\leq \min\{1,\frac{1}{2\theta L_{\lambda}}\}.
 \]</span></p>
