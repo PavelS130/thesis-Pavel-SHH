@@ -419,8 +419,8 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#deducción-de-la-solución-explícita" id="toc-deducción-de-la-solución-explícita" class="nav-link active" data-scroll-target="#deducción-de-la-solución-explícita"><span class="header-section-number">5.1</span> Deducción de la solución explícita</a></li>
-  <li><a href="#formulación-del-esquema-numérico" id="toc-formulación-del-esquema-numérico" class="nav-link" data-scroll-target="#formulación-del-esquema-numérico"><span class="header-section-number">5.2</span> Formulación del esquema numérico</a></li>
+  <li><a href="#solución-explícita-y-estabilidad-del-sistema-continuo" id="toc-solución-explícita-y-estabilidad-del-sistema-continuo" class="nav-link active" data-scroll-target="#solución-explícita-y-estabilidad-del-sistema-continuo"><span class="header-section-number">5.1</span> Solución explícita y estabilidad del sistema continuo</a></li>
+  <li><a href="#estabilidad-del-método-numérico-cstm" id="toc-estabilidad-del-método-numérico-cstm" class="nav-link" data-scroll-target="#estabilidad-del-método-numérico-cstm"><span class="header-section-number">5.2</span> Estabilidad del método numérico CSTM</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/chapters/teoremawang2010.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/chapters/teoremawang2010.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -456,8 +456,8 @@ window.Quarto = {
 <p>con condición inicial <span class="math inline">\(X(0) = X_0\)</span>, donde <span class="math inline">\(a, b, c \in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span>, definido sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>.</p>
 <p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su <span class="math inline">\(\textbf{estabilidad media cuadrática}\)</span>, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
-<section id="deducción-de-la-solución-explícita" class="level2" style="text-align: justify" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="deducción-de-la-solución-explícita"><span class="header-section-number">5.1</span> Deducción de la solución explícita</h2>
+<section id="solución-explícita-y-estabilidad-del-sistema-continuo" class="level2" style="text-align: justify" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="solución-explícita-y-estabilidad-del-sistema-continuo"><span class="header-section-number">5.1</span> Solución explícita y estabilidad del sistema continuo</h2>
 <p>Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico <span class="math inline">\(\{Y(t)\}_{t \geq 0}\)</span> de la forma</p>
 <p><span class="math display">\[
     dY(t) = \mu(t)dt + \sigma(t)dW(t) + \gamma(t)dN(t),
@@ -606,8 +606,8 @@ window.Quarto = {
 <div style="text-align: justify">
 <p>Habiendo establecido la estabilidad de la solución exacta en la sección anterior, es natural preguntarse si los esquemas numéricos pueden preservar esta propiedad. En esta sección, introducimos el método Theta Compensado Estocástico (CSTM) aplicado a la ecuación de Langevin y demostramos bajo qué condiciones las aproximaciones discretas heredan la estabilidad media cuadrática de la solución analítica.</p>
 </div>
-<section id="formulación-del-esquema-numérico" class="level2" style="text-align: justify" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="formulación-del-esquema-numérico"><span class="header-section-number">5.2</span> Formulación del esquema numérico</h2>
+<section id="estabilidad-del-método-numérico-cstm" class="level2" style="text-align: justify" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="estabilidad-del-método-numérico-cstm"><span class="header-section-number">5.2</span> Estabilidad del método numérico CSTM</h2>
 <p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
 <p><span id="eq-5.05"><span class="math display">\[
     dX(t) = (a + \lambda c)X(t-)dt + bX(t-)dW(t) + cX(t-)d\widetilde{N}(t), \quad t \geq 0.
