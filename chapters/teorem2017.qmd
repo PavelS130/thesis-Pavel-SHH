@@ -12,9 +12,9 @@ format:
 
 ::: {style="text-align: justify"}
 
-# Convergencia del método $\text{CSS}\theta$ para ecuaciones diferenciales estocásticas con saltos {#sec-cap6}
+# Convergencia Fuerte del Método Compensated Split-Step $\theta$ ($\text{CSS}\theta$) para EDEs con Saltos No Lineales {#sec-cap6}
 
-## Método $\text{CSS}\theta$
+## Definición del Método $\text{CSS}\theta$ y Extensiones Continuas
 
 En este capítulo abordamos el estudio de la convergencia del método numérico conocido como *compensated split-step* $\theta$ ($\text{CSS}\theta$) para la aproximación de soluciones de ecuaciones diferenciales estocásticas con saltos (EDE-S) en el contexto unidimensional. Consideramos la ecuación diferencial estocástica con saltos
 
@@ -62,13 +62,18 @@ Con el propósito de aproximar la solución de la ecuación @eq-6.01, fijamos un
 :::
 
 ::: {#def-CSS style="text-align: justify"}
-Dado un parámetro $\theta\in[0,1]$, un tamaño de paso $\Delta t>0$ y la condición inicial $Y_0=X_0$, se generan las sucesiones $\{Y_n\}_{n\geq 0}$ y $\{Y_n^{*}\}_{n\geq 0}$ mediante el siguiente sistema de ecuaciones en diferencias. En primer lugar, se define la variable auxiliar $Y_n^{*}$ a través de la ecuación implícita
+
+## Esquema Discreto del Método $\text{CSS}\theta$
+
+Dado un parámetro $\theta\in[0,1]$, un tamaño de paso $\Delta t>0$ y la condición inicial $Y_0=X_0$, el método $\text{CSS}\theta$ genera dos sucesiones de aproximaciones numéricas, $\{Y_n\}_{n\geq 0}$ y $\{Y_n^{*}\}_{n\geq 0}$, mediante el siguiente sistema de ecuaciones en diferencias 
+
+- **Paso implícito (Variable auxiliar):**
 
 $$
     Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
 $$ {#eq-6.04}
 
-la cual, en el caso particular $\theta=0$, se reduce a $Y_n^{*}=Y_n$, tomando al método en explícito. Cuando $\theta>0$, la ecuación @eq-6.04 es implícita en la variable $Y_n^{*}$, y su solución requiere el uso de técnicas numéricas adicionales; no obstante, bajo hipótesis adecuadas sobre el coeficiente $f_{\lambda}$, se demostrará más adelante que dicha ecuación admite una única solución. En segundo lugar, la aproximación se actualiza mediante la relación
+- **Paso explícito (Actualización):**
 
 $$
       Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
@@ -79,30 +84,35 @@ donde:
 - $\Delta W_n:=W(t_{n+1})-W(t_n)$ es el incremento del movimiento browniano,
 - $\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)$ es el incremento del proceso de Poisson compensado.
 
+:::
+
+::: {style="text-align: justify"}
+
 Cabe destacar que el método utiliza explícitamente el proceso de Poisson compensado $\widetilde{N}(t)$, lo cual constituye su principal diferencia respecto a otros esquemas no compensados y le confiere propiedades de estabilidad significativamente mejores.
+
 :::
 
 ::: {#def-CSSc style="text-align: justify"}
-Con el proposito de analizar la convergencia del método $\text{CSS}\theta$ en tiempo continuo, es necesario construir extensiones continuas de las sucesiones discretas $\{Y_n^{*}\}$ y $\{Y_n\}$ al intervalo completo $[0,T]$. Con este propósito, definimos en primer lugar el proceso estocástico $\overline{Y}:[0,T]\times\Omega\rightarrow\mathbb{R}$, conocido como la aproximación por pasos, mediante
 
+## Extensiones a tiempo continuo del método $\text{CSS}\theta$
+
+Para extender las sucesiones discretas al intervalo continuo $[0, T]$, definimos dos procesos estocásticos:
+
+- **Aproximación escalonada (Proceso predecible)**
 $$
   Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T], 
 $$ {#eq-6.06}
 
-donde $1_A$ denota la función indicadora del conjunto $A$. Este proceso es predecible, ya que $Y_n^*$ es $\mathcal{F}$-medible, y constituye una función escalonada constante por tramos con saltos en los nodos $t_n$.
-
-La aproximación por pasos $\overline{Y}(t)$ es precisamente la versión del proceso numérico que se utiliza como argumento en los coeficientes del esquema $\text{CSS}\theta$, definimos dicha extensión en tiempo continuo $\overline{Y}:[0,T]\rightarrow\mathbb{R}$ mediante
+- **Extensión continua:** El proceso $Y(t)$ definido para $t\in[t_n,t_{n+1}]$ como 
 
 $$
   \begin{aligned}
       \overline{Y}(t) & = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\ 
-      & \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
+      & \qquad\qquad +h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
 $$ {#eq-6.07}
 
-De esta definición se desprende inmediatamente que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.
-
-Alternativamente, la extensión continua $\overline{Y}(t)$ admite una representación integral que resulta de pparticular utilidad en las demostraciones de convergencia. En efecto, puede verificarse
+  Alternativamente, la extensión continua $\overline{Y}(t)$ admite una representación integral que resulta de pparticular utilidad en las demostraciones de convergencia. En efecto, puede verificarse
 
 $$
   \begin{aligned}
@@ -111,15 +121,20 @@ $$
   \end{aligned}
 $$ {#eq-6.08}
 
-donde $\overline{Y}(s-)$ denota el límite por la izquierda, el cual en nuestro caso coincide con la función escalonada definida por $\overline{Y}(s)=Y_n^{*}$ para $s\in[t_n,t_{n+1})$. Esta representación integral pone de manifiesto la estructura del método $\text{CSS}\theta$ como una discretización del sistema compensado original, donde los coeficientes se evalúan en el punto "congelado" $Y_n^{*}$ dentro de cada subintervalo de la malla.
+donde $\overline{Y}(s-)$ denota el límite por la izquierda. 
+
 :::
 
 ::: {style="text-align: justify"}
+
+De esta definición se desprende inmediatamente que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.
+
 Para analizar rigurosamente la convergencia del método $\text{CSS}\theta$ es necesario imponer condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. En las secciones siguientes estableceremos dichas hipótesis y demostraremos los resultado principales de convergencia fuerte y tasa de convergencia del esquema proouesto.
 :::
 
 ::: {style="text-align: justify"}
-## Hipótesis
+
+## Hipótesis de Regularidad
 
 Para garantizar la existencia, unicidad y convergencia del método numérico propuesto, establecemos las siguientes condiciones sobre los coeficientes de la ecuación diferencial estocástica con saltos. Estas hipótesis se dividen en condiciones de regularidad base y condiciones adicionales para la tasa de convergencia.
 
@@ -162,10 +177,12 @@ Supondremos que existen constantes $D>0$ y $q\in\mathbb{Z}^+$ tales que para tod
 $$
   |f_{\lambda}(a)-f_{\lambda}(b)|^2\leq D(1+|a|^q+|b|^q)|a-b|^2.
 $$ {#eq-6.13}
+
 :::
 
 ::: {style="text-align: justify"}
-## Resultados Previos
+
+## Resultados Preliminares y Acotamiento de Momentos
 
 A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-6.03, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
 
@@ -4036,10 +4053,16 @@ $$
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq E\Delta t.
 $$
 
+:::
+
+:::{style="text-align: justify"}
+
+## Teorema Principal de Convergencia Fuerte
 
 :::
 
 ::: {#thm-6.6 style="text-align: justify"}
+
 Bajo las hipótesis dadas por la @eq-6.09, @eq-6.010 y @eq-6.11, sea $X(t)$ la solución de la @eq-6.01 y $\overline{Y}(t)$ la extensión a tiempo continuo del método $\text{CSS}\theta$ con parámetro $\theta\in[0,1]$ y $\Delta t>0$ el paso de tiempo tal que
 
 $$
@@ -5064,10 +5087,5 @@ $$
 $$
 
 lo que completa la demostración del teorema.
-
-
-
-
-
 
 :::
