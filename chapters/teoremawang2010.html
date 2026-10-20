@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
+<title>5&nbsp; Estabilidad media cuadrática del Método CSTM – Ecuación de Langevin y su aplicación en la predicción de terremotos</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -115,11 +115,11 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta property="og:title" content="5&nbsp; Estabilidad media cuadrática del Método CSTM – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta property="og:description" content="">
 <meta property="og:image" content="assets/UNACH.png">
 <meta property="og:site_name" content="Ecuación de Langevin y su aplicación en la predicción de terremotos">
-<meta name="twitter:title" content="5&nbsp; Estabilidad media cuadrática – Ecuación de Langevin y su aplicación en la predicción de terremotos">
+<meta name="twitter:title" content="5&nbsp; Estabilidad media cuadrática del Método CSTM – Ecuación de Langevin y su aplicación en la predicción de terremotos">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="assets/UNACH.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teoremawang2010.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/teoremawang2010.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática del Método CSTM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -394,7 +394,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/teoremawang2010.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática del Método CSTM</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -430,7 +430,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estabilidad media cuadrática del Método CSTM</span></h1>
 </div>
 
 
@@ -448,13 +448,13 @@ window.Quarto = {
 
 
 <div style="text-align: justify">
-<p>Habiendo establecido en el Capítulo 4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la <span class="math inline">\(\textbf{ecuación de Langevin estocástica con saltos}\)</span>.</p>
+<p>Habiendo establecido en la <a href="teorema.html" class="quarto-xref"><span>Capítulo 4</span></a> el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la <span class="math inline">\(\textbf{ecuación de Langevin estocástica con saltos}\)</span>.</p>
 <p>Dicha ecuación se expresa mediante el siguiente sistema lineal:</p>
 <p><span id="eq-5.01"><span class="math display">\[
     dX(t) = aX(t-)dt + bX(t-)dW(t) + cX(t-)dN(t), \qquad t \geq 0,
 \tag{5.1}\]</span></span></p>
 <p>con condición inicial <span class="math inline">\(X(0) = X_0\)</span>, donde <span class="math inline">\(a, b, c \in \mathbb{R}\)</span> son constantes, <span class="math inline">\(W(t)\)</span> es un movimiento browniano estándar y <span class="math inline">\(N(t)\)</span> es un proceso de Poisson con intensidad <span class="math inline">\(\lambda &gt; 0\)</span>, definido sobre un espacio de probabilidad filtrado <span class="math inline">\((\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})\)</span>.</p>
-<p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su <span class="math inline">\(\textbf{estabilidad media cuadrática}\)</span>, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para el Capítulo 6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
+<p>A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su <span class="math inline">\(\textbf{estabilidad media cuadrática}\)</span>, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para la <a href="teorem2017.html" class="quarto-xref"><span>Capítulo 6</span></a>, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 </div>
 <section id="solución-explícita-y-estabilidad-del-sistema-continuo" class="level2" style="text-align: justify" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="solución-explícita-y-estabilidad-del-sistema-continuo"><span class="header-section-number">5.1</span> Solución explícita y estabilidad del sistema continuo</h2>
@@ -823,7 +823,7 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div style="text-align: justify">
-<p>Con esto, concluimos la demostración del Teorema <a href="#thm-estabilidad" class="quarto-xref">Teorema&nbsp;<span>5.1</span></a>. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto <span class="math inline">\(c\)</span> es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija <span class="math inline">\(\theta \in [1/2, 1]\)</span>. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para el Capítulo 6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step <span class="math inline">\(\theta\)</span> (CSS<span class="math inline">\(\theta\)</span>), generalizando estas propiedades de estabilidad y convergencia fuerte.</p>
+<p>Con esto, concluimos la demostración del Teorema <a href="#thm-estabilidad" class="quarto-xref">Teorema&nbsp;<span>5.1</span></a>. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto <span class="math inline">\(c\)</span> es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija <span class="math inline">\(\theta \in [1/2, 1]\)</span>. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la <a href="teorem2017.html" class="quarto-xref"><span>Capítulo 6</span></a>, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step <span class="math inline">\(\theta\)</span> (CSS<span class="math inline">\(\theta\)</span>), generalizando estas propiedades de estabilidad y convergencia fuerte.</p>
 </div>
 
 
