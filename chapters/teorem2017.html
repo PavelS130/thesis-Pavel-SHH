@@ -485,11 +485,16 @@ window.Quarto = {
 <p>Con el propósito de aproximar la solución de la ecuación <a href="#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>, fijamos un horizonte <span class="math inline">\(T&gt;0\)</span> y construimos una discretización uniforme del intervalo <span class="math inline">\([0,T]\)</span>. Sea <span class="math inline">\(N_T\in \mathbb{N}\)</span> el número de subintervalos de la partición, y definimos el tamaño del paso <span class="math inline">\(\Delta t= T/N_T\)</span> junto con los nodos de la malla <span class="math inline">\(t_n=n\Delta t\)</span> para <span class="math inline">\(n=1,\ldots, N_T\)</span>. A partir de esta malla, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera dos suceciones de aproximacciones numéricas, <span class="math inline">\(\{Y_n^{*}\}_{n=0}^{N_T}\)</span> y <span class="math inline">\(\{Y_n\}_{n=0}^{N_T}\)</span>, que aproximan los valores de la solución exacta <span class="math inline">\(X(t)\)</span> en los puntos de la malla.</p>
 </section>
 <div id="def-CSS" class="theorem definition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Definición 6.1 (Esquema Discreto del Método <span class="math inline">\(\text{CSS}\theta\)</span>)</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, se generan las sucesiones <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span> mediante el siguiente sistema de ecuaciones en diferencias. En primer lugar, se define la variable auxiliar <span class="math inline">\(Y_n^{*}\)</span> a través de la ecuación implícita</p>
+<p><span class="theorem-title"><strong>Definición 6.1 (Esquema Discreto del Método <span class="math inline">\(\text{CSS}\theta\)</span>)</strong></span> Dado un parámetro <span class="math inline">\(\theta\in[0,1]\)</span>, un tamaño de paso <span class="math inline">\(\Delta t&gt;0\)</span> y la condición inicial <span class="math inline">\(Y_0=X_0\)</span>, el método <span class="math inline">\(\text{CSS}\theta\)</span> genera dos sucesiones de aproximaciones numéricas, <span class="math inline">\(\{Y_n\}_{n\geq 0}\)</span> y <span class="math inline">\(\{Y_n^{*}\}_{n\geq 0}\)</span>, mediante el siguiente sistema de ecuaciones en diferencias</p>
+<ul>
+<li><strong>Paso implícito (Variable auxiliar):</strong></li>
+</ul>
 <p><span id="eq-6.04"><span class="math display">\[
     Y_n^* = Y_n+\theta f_{\lambda}(Y_n^*)\Delta t,
 \tag{6.4}\]</span></span></p>
-<p>la cual, en el caso particular <span class="math inline">\(\theta=0\)</span>, se reduce a <span class="math inline">\(Y_n^{*}=Y_n\)</span>, tomando al método en explícito. Cuando <span class="math inline">\(\theta&gt;0\)</span>, la ecuación <a href="#eq-6.04" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a> es implícita en la variable <span class="math inline">\(Y_n^{*}\)</span>, y su solución requiere el uso de técnicas numéricas adicionales; no obstante, bajo hipótesis adecuadas sobre el coeficiente <span class="math inline">\(f_{\lambda}\)</span>, se demostrará más adelante que dicha ecuación admite una única solución. En segundo lugar, la aproximación se actualiza mediante la relación</p>
+<ul>
+<li><strong>Paso explícito (Actualización):</strong></li>
+</ul>
 <p><span id="eq-6.05"><span class="math display">\[
       Y_{n+1} = Y_n+f_{\lambda}(Y_n^*)\Delta t+g(Y_n^*)\Delta W_n+h(Y_n^*)\Delta \widetilde{N}_n,
 \tag{6.5}\]</span></span></p>
@@ -498,22 +503,24 @@ window.Quarto = {
 <li><span class="math inline">\(\Delta W_n:=W(t_{n+1})-W(t_n)\)</span> es el incremento del movimiento browniano,</li>
 <li><span class="math inline">\(\Delta\widetilde{N}_n:=\widetilde{N}(t_{n+1})-\widetilde{N}(t_n)\)</span> es el incremento del proceso de Poisson compensado.</li>
 </ul>
+</div>
+<div style="text-align: justify">
 <p>Cabe destacar que el método utiliza explícitamente el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t)\)</span>, lo cual constituye su principal diferencia respecto a otros esquemas no compensados y le confiere propiedades de estabilidad significativamente mejores.</p>
 </div>
 <div id="def-CSSc" class="theorem definition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Definición 6.2 (Extensiones a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span>)</strong></span> Con el proposito de analizar la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span> en tiempo continuo, es necesario construir extensiones continuas de las sucesiones discretas <span class="math inline">\(\{Y_n^{*}\}\)</span> y <span class="math inline">\(\{Y_n\}\)</span> al intervalo completo <span class="math inline">\([0,T]\)</span>. Con este propósito, definimos en primer lugar el proceso estocástico <span class="math inline">\(\overline{Y}:[0,T]\times\Omega\rightarrow\mathbb{R}\)</span>, conocido como la aproximación por pasos, mediante</p>
-<p><span id="eq-6.06"><span class="math display">\[
-  Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
-\tag{6.6}\]</span></span></p>
-<p>donde <span class="math inline">\(1_A\)</span> denota la función indicadora del conjunto <span class="math inline">\(A\)</span>. Este proceso es predecible, ya que <span class="math inline">\(Y_n^*\)</span> es <span class="math inline">\(\mathcal{F}\)</span>-medible, y constituye una función escalonada constante por tramos con saltos en los nodos <span class="math inline">\(t_n\)</span>.</p>
-<p>La aproximación por pasos <span class="math inline">\(\overline{Y}(t)\)</span> es precisamente la versión del proceso numérico que se utiliza como argumento en los coeficientes del esquema <span class="math inline">\(\text{CSS}\theta\)</span>, definimos dicha extensión en tiempo continuo <span class="math inline">\(\overline{Y}:[0,T]\rightarrow\mathbb{R}\)</span> mediante</p>
+<p><span class="theorem-title"><strong>Definición 6.2 (Extensiones a tiempo continuo del método <span class="math inline">\(\text{CSS}\theta\)</span>)</strong></span> Para extender las sucesiones discretas al intervalo continuo <span class="math inline">\([0, T]\)</span>, definimos dos procesos estocásticos:</p>
+<ul>
+<li><p><strong>Aproximación escalonada (Proceso predecible)</strong> <span id="eq-6.06"><span class="math display">\[
+Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
+\tag{6.6}\]</span></span></p></li>
+<li><p><strong>Extensión continua:</strong> El proceso <span class="math inline">\(Y(t)\)</span> definido para <span class="math inline">\(t\in[t_n,t_{n+1}]\)</span> como</p></li>
+</ul>
 <p><span id="eq-6.07"><span class="math display">\[
   \begin{aligned}
       \overline{Y}(t) &amp; = Y_n+f_{\lambda}(Y_n^*)(t-t_n)+g(Y_n^*)(W(t)-W(t_n))\\
-      &amp; \qquad\qquad +g(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
+      &amp; \qquad\qquad +h(Y_n^*)(\widetilde{N}(t)-\widetilde{N}(t_n)), \qquad t\in[t_n,t_{n+1}).
   \end{aligned}
 \tag{6.7}\]</span></span></p>
-<p>De esta definición se desprende inmediatamente que <span class="math inline">\(\overline{Y}(t_n)=Y_n\)</span> para todo <span class="math inline">\(n\)</span>, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, <span class="math inline">\(\overline{Y}(t)\)</span> es adaptada a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq 0}\)</span> y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.</p>
 <p>Alternativamente, la extensión continua <span class="math inline">\(\overline{Y}(t)\)</span> admite una representación integral que resulta de pparticular utilidad en las demostraciones de convergencia. En efecto, puede verificarse</p>
 <p><span id="eq-6.08"><span class="math display">\[
   \begin{aligned}
@@ -521,9 +528,10 @@ window.Quarto = {
     &amp;  \qquad\quad +\int_0^t h(Y(s-))d\widetilde{N}(s),
   \end{aligned}
 \tag{6.8}\]</span></span></p>
-<p>donde <span class="math inline">\(\overline{Y}(s-)\)</span> denota el límite por la izquierda, el cual en nuestro caso coincide con la función escalonada definida por <span class="math inline">\(\overline{Y}(s)=Y_n^{*}\)</span> para <span class="math inline">\(s\in[t_n,t_{n+1})\)</span>. Esta representación integral pone de manifiesto la estructura del método <span class="math inline">\(\text{CSS}\theta\)</span> como una discretización del sistema compensado original, donde los coeficientes se evalúan en el punto “congelado” <span class="math inline">\(Y_n^{*}\)</span> dentro de cada subintervalo de la malla.</p>
+<p>donde <span class="math inline">\(\overline{Y}(s-)\)</span> denota el límite por la izquierda.</p>
 </div>
 <div style="text-align: justify">
+<p>De esta definición se desprende inmediatamente que <span class="math inline">\(\overline{Y}(t_n)=Y_n\)</span> para todo <span class="math inline">\(n\)</span>, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, <span class="math inline">\(\overline{Y}(t)\)</span> es adaptada a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq 0}\)</span> y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.</p>
 <p>Para analizar rigurosamente la convergencia del método <span class="math inline">\(\text{CSS}\theta\)</span> es necesario imponer condiciones adecuadas sobre los coeficientes <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span> que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. En las secciones siguientes estableceremos dichas hipótesis y demostraremos los resultado principales de convergencia fuerte y tasa de convergencia del esquema proouesto.</p>
 </div>
 <section id="hipótesis-de-regularidad" class="level2" style="text-align: justify" data-number="6.2">
