@@ -2955,7 +2955,7 @@ $$
   M_W(t):=\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s). 
 $$ {#eq-6.114}
 
-Demostraremos que esta integral estocástica es una martingala, lo cual grantiza que su esperanza sea cero. Para ello, es suficiente probar que el integrando pertenece al espacio $\mathcal{L}^2$, es decir, que su norma cuadrada tiene esperanza finita:
+Demostraremos que esta integral estocástica es una martingala, lo cual grantiza que su esperanza sea cero. Para ello, es suficiente probar que el integrando pertenece al espacio $L^2$, es decir, que su norma cuadrada tiene esperanza finita:
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg]<\infty,\quad s\in[0,t\wedge\tau_N]. 
@@ -2998,7 +2998,7 @@ $$
 \end{aligned}
 $$
 
-Con esto, queda demostrado que el integrando pertenece al espacio $\mathcal{L}^2$, por lo que la integral estocástica $M_W(t)$ es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que 
+Con esto, queda demostrado que el integrando pertenece al espacio $L^2$, por lo que la integral estocástica $M_W(t)$ es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que 
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
@@ -3026,7 +3026,7 @@ $$
 \end{aligned}
 $$ {#eq-6.119}
 
-Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integrando pertenece al espacio $\mathcal{L}^2$, es decir, que cumple
+Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integrando pertenece al espacio $L^2$, es decir, que cumple
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Big|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Big|^2ds\Bigg]<\infty.
@@ -3070,7 +3070,7 @@ $$
 \end{aligned}
 $$
 
-Con esto, queda demostrado que el integrando pertenece al espacio $\mathcal{L}^2$. Entonces, la integral estocástica respecto a $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir
+Con esto, queda demostrado que el integrando pertenece al espacio $L^2$. Entonces, la integral estocástica respecto a $d\widetilde{N}(s)$ es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir
 
 $$
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
@@ -3528,7 +3528,7 @@ M_{\widetilde{N},2}(\tau) & : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 $$
 
 
-Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrandos pertenecen al espacio $\mathcal{L}^2$. Haciendo uso de la cota de crecimiento lineal dada por la @eq-6.19, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera
+Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrandos pertenecen al espacio $L^2$. Haciendo uso de la cota de crecimiento lineal dada por la @eq-6.19, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera
 
 $$
 \begin{aligned}
@@ -3550,7 +3550,7 @@ $$
 \mathbb{E}\Big[|X(t)|^4\Big]\leq \sup_{0\leq \tau\leq T}\mathbb{E}\Big[|X(\tau)|^4\Big]\leq \widehat{C}(1+\mathbb{E}[X_0^4])\leq \infty. 
 $$
 
-Además, recordemos que $X(s-)=X(s)$ para casi todo $s$ respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano $M_W(t)$, el integrando es $X(s-)g(X(s-))$. Evaluamos su norma en $\mathcal{L}^2$
+Además, recordemos que $X(s-)=X(s)$ para casi todo $s$ respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano $M_W(t)$, el integrando es $X(s-)g(X(s-))$. Evaluamos su norma en $L^2$
 
 $$
 \begin{aligned}
@@ -3585,7 +3585,7 @@ $$
 \end{aligned}
 $$
 
-Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $\mathcal{L}^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy. 
+Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $L^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy. 
 
 Para la martingala $M_W(\tau)$, su variación cuadrática está dada por 
 
@@ -4622,7 +4622,7 @@ $$
 \end{aligned}
 $$ {#eq-6.192}
 
-Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio $\mathcal{L}^2$. 
+Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio $L^2$. 
 
 Debemos contemplar los métodos en los que aplicaremos el @lem-6.3, @lem-6.4 y @lem-6.5 de la siguiente forma: Para $s\in[0,t]\subset [0,T]$ y $p_1\geq 1$ y $p_2\geq 4$ tal que $4\leq p$ y $4\leq 2p$, donde $p:=\max\{p_1,p_2\}$, se satisface 
 
@@ -4634,7 +4634,7 @@ $$
 \end{aligned}
 $$ {#eq-agregar01}
 
-Para que $M_1(t)$ pertenezca al espacio $\mathcal{L}^2$, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir 
+Para que $M_1(t)$ pertenezca al espacio $L^2$, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir 
 
 $$
 \mathbb{E}\Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]<\infty.
@@ -4685,7 +4685,7 @@ $$
 \end{aligned}
 $$
 
-Por lo que queda demostrado que el integrando del proceso $M_1(t)$ pertenece al espacio $\mathcal{L}^2$. En consecuencia, $M_1(t)$ es una martingala cuadrado-integrable. 
+Por lo que queda demostrado que el integrando del proceso $M_1(t)$ pertenece al espacio $L^2$. En consecuencia, $M_1(t)$ es una martingala cuadrado-integrable. 
 
 Para el proceso $M_2(t)$, basta notar la similitud entre las cotas dadas en la @eq-6.010 y la @eq-6.11 para la función $g$ y la función $h$ respectivamente. Por lo que el procedimiento para demostrar que la esperanza de la integral del cuadrado del integrando de $M_2(t)$ es finita, es decir
 

@@ -82,7 +82,7 @@ $$ {#eq-4.02}
 
 Esta condición controla la variación relativa de los coeficientes, lo cual es esencial para demostrar la convergencia de la iteración de Picard (paso inductivo) y la unicidad de la solución mediante la desigualdad de Gronwall. Intuitivamente, la @eq-4.02 garantiza que los coeficientes no varían demasiado rápido, evitando que pequeñas diferencias en el estado del sistema se amplifiquen descontroladamente.
 
-Sin embargo, la @eq-4.02 por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de $f$, $g$ y $h$, asegurando así que los integrandos pertenezcan al espacio $\mathcal{L}^2$ y que la solución no ``explote'' en tiempo finito.
+Sin embargo, la @eq-4.02 por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de $f$, $g$ y $h$, asegurando así que los integrandos pertenezcan al espacio $L^2$ y que la solución no ``explote'' en tiempo finito.
 
 
 **Condición de crecimiento lineal**: Existe una constante $K_2>0$ tal que, para todo $y\in\mathbb{R}$
@@ -239,7 +239,7 @@ $$
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) < \infty.
 $$
 
-Esto garantiza que $M(s)\in\mathcal{L}^2$. Así, aplicando el @thm-maximaldoob para martingalas con $p=2$ y la isometría de Itô, obtenemos
+Esto garantiza que $M(s)\inL^2$. Así, aplicando el @thm-maximaldoob para martingalas con $p=2$ y la isometría de Itô, obtenemos
 
 $$
     \begin{aligned}
@@ -558,7 +558,7 @@ $$
 d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 $$
 
-A continuación, demostraremos que la sucesión que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en el espacio $\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})$, el cual es un espacio de Banach bajo la norma $\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}$.
+A continuación, demostraremos que la sucesión que la sucesión $\{Z_n(t)\}_{n\in \mathbb{N}}$ es una sucesión de Cauchy en el espacio $L^2(\Omega,\mathcal{F},\mathbb{P})$, el cual es un espacio de Banach bajo la norma $\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}$.
 
 Sean $m,n \in \mathbb{N}$, sin perdida de generalidad, supongamos que $m<n$. Aplicando la desigualdad triangular para la norma $\|\cdot\|_2$, podemos afirmmar que para cada $0\leq s\leq t$ se cumple
 
@@ -575,7 +575,7 @@ $$
     \mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 $$
 
-Dado que $|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2$ al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma $\mathcal{L}$
+Dado que $|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2$ al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma $L$
 
 $$
     \begin{aligned}
@@ -584,7 +584,7 @@ $$
     \end{aligned}
 $$
 
-Por tanto para cada $s\in [0,t]$, la distancia en $\mathcal{L}^2$ está acotada por  tenemos
+Por tanto para cada $s\in [0,t]$, la distancia en $L^2$ está acotada por  tenemos
 
 $$
     \begin{aligned}
@@ -643,9 +643,9 @@ $$
 \end{aligned}
 $$ {#eq-4.029}
 
-Por lo tanto, hemos demostrado que $(Z_n(s))$ es una sucesión de Cauchy en $\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})$ para cada $s\in[0,t]$.
+Por lo tanto, hemos demostrado que $(Z_n(s))$ es una sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ para cada $s\in[0,t]$.
 
-Dado que $\mathcal{L}^2(\Omega, \mathcal{F},\mathbb{P})$ un espacio de Banach, es decir, un espacio completo con la norma $\|\cdot\|_2$, toda sucesión de Cauchy converge en $\mathcal{L}^2$. Por lo tanto, existe un proceso $Z(s)\in \mathcal{L}^2$ tal que
+Dado que $L^2(\Omega, \mathcal{F},\mathbb{P})$ un espacio de Banach, es decir, un espacio completo con la norma $\|\cdot\|_2$, toda sucesión de Cauchy converge en $L^2$. Por lo tanto, existe un proceso $Z(s)\in L^2$ tal que
 
 $$
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
@@ -657,13 +657,13 @@ $$
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 $$
 
-Tomando límite cuando $m\rightarrow\infty$ en ambos lados y utilizando lla convergencia en $\mathcal{L}^2$ dada por la por la @eq-4.030, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie: 
+Tomando límite cuando $m\rightarrow\infty$ en ambos lados y utilizando lla convergencia en $L^2$ dada por la por la @eq-4.030, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie: 
 
 $$
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 $$
 
-Dado que el término $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, obtenemos la siguiente cota para el error en $\mathcal{L}^2$
+Dado que el término $\|Z(s)-Z_n(s)\|_2$ no depende de $m$, obtenemos la siguiente cota para el error en $L^2$
 
 $$
     \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
@@ -744,7 +744,7 @@ $$
 
 ::: {.proof style="text-align: justify"}
 
-Hasta este punto, hemos demostrado que la sucesión de Picard $(Z_n(t))_{n \in \mathbb{N}}$ converge en $\mathcal{L}^2$ y casi seguramente de manera uniforme a un proceso límite $Z(t)$. Sin embargo, aún debemos verificar que este proceso límite $Z(t)$ es, en efecto, una solución de la ecuación diferencial estocástica @eq-4.01.
+Hasta este punto, hemos demostrado que la sucesión de Picard $(Z_n(t))_{n \in \mathbb{N}}$ converge en $L^2$ y casi seguramente de manera uniforme a un proceso límite $Z(t)$. Sin embargo, aún debemos verificar que este proceso límite $Z(t)$ es, en efecto, una solución de la ecuación diferencial estocástica @eq-4.01.
 
 Para ello, definimos un nuevo proceso estocástico $\tilde{Z} = (\tilde{Z}(t))_{t \geq 0}$ evaluando el lado derecho de la forma integral de la @eq-4.01 en el proceso límite $Z(t)$
 
@@ -836,7 +836,7 @@ $$
 \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 t \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right].
 $$
 
-En la fase de convergencia en $\mathcal{L}^2$, demostramos previamente que el error entre el límite $Z(s)$ y la iteración $Z_{n-1}(s)$ está acotado por la cola de una serie convergente
+En la fase de convergencia en $L^2$, demostramos previamente que el error entre el límite $Z(s)$ y la iteración $Z_{n-1}(s)$ está acotado por la cola de una serie convergente
 
 $$
 \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right] \leq \left( \sum_{r=n}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}} \right)^2.
@@ -848,7 +848,7 @@ $$
 \lim_{n \to \infty} \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] = 0.
 $$
 
-Esto demuestra que $\tilde{Z}(t)$ es el límite de la sucesión $(Z_n(t))_{n \in \mathbb{N}}$ en el espacio $\mathcal{L}^2(\Omega, \mathcal{F}, \mathbb{P})$. Sin embargo, por construcción de la iteración de Picard, también sabemos que $Z_n(t) \to Z(t)$ en $\mathcal{L}^2$ cuando $n \to \infty$. 
+Esto demuestra que $\tilde{Z}(t)$ es el límite de la sucesión $(Z_n(t))_{n \in \mathbb{N}}$ en el espacio $L^2(\Omega, \mathcal{F}, \mathbb{P})$. Sin embargo, por construcción de la iteración de Picard, también sabemos que $Z_n(t) \to Z(t)$ en $L^2$ cuando $n \to \infty$. 
 
 Por la unicidad de los límites en espacios de Banach, concluimos que
 
@@ -928,7 +928,7 @@ $$
 M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 $$
 
-Dado que $Z^{(1)}$ y $Z^{(2)}$ son soluciones cuadrado-integrables y el coeficiente $g$ satisface la condición de crecimiento lineal, el integrando pertenece al espacio $\mathcal{L}^2$, lo que garantiza que $M_g(s)$ es una martingala cuadrado-integrable. 
+Dado que $Z^{(1)}$ y $Z^{(2)}$ son soluciones cuadrado-integrables y el coeficiente $g$ satisface la condición de crecimiento lineal, el integrando pertenece al espacio $L^2$, lo que garantiza que $M_g(s)$ es una martingala cuadrado-integrable. 
 
 Para acotar el supremo de esta martingala, aplicamos el @thm-maximaldoob para $p=2$, la cual establece que
 
@@ -1149,7 +1149,7 @@ $$
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 $$
 
-Dado que cada $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada, en particular, pertenece a $\mathcal{L}^2(\Omega, \mathcal{F}_0, \mathbb{P})$, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso $\mathbb{E}[|Z_0|^2] < \infty$. Así, para cada $n \in \mathbb{N}$, existe una única solución fuerte $Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}$ de la ecuación @eq-4.01 con condición inicial $Z_0^{(n)}$.
+Dado que cada $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada, en particular, pertenece a $L^2(\Omega, \mathcal{F}_0, \mathbb{P})$, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso $\mathbb{E}[|Z_0|^2] < \infty$. Así, para cada $n \in \mathbb{N}$, existe una única solución fuerte $Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}$ de la ecuación @eq-4.01 con condición inicial $Z_0^{(n)}$.
 
 Para cada $N\in \mathbb{N}$, definimos el conjunto
 

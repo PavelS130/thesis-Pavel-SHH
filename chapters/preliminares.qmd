@@ -23,13 +23,13 @@ El estudio de las ecuaciones diferenciales estocásticas con saltos descansa, en
 
 ## Elementos de Análisis Real y Topología {#sec-preliminares1}
 
-En esta sección se reúnen cuatro resultados elementales, cuya necesidad se hará evidente en los capítulos siguientes. Los teoremas de Heine--Borel y de Bolzano--Weierstrass garantizan la compacidad del intervalo $[0,T]$ y la existencia de subsucesiones convergentes, propiedades que se emplean para demostrar que toda función càdlàg es acotada en un intervalo compacto y para manipular los tiempos de paro $\tau_N$ que se introducirán más adelante. El teorema del valor extremo de Weierstrass proporciona cotas uniformes para los coeficientes de la ecuación cuando estos se evalúan sobre trayectorias truncadas, lo cual es esencial para asegurar que los integrandos pertenezcan a los espacios de integrabilidad requeridos. Finalmente, el teorema del valor intermedio, propio de la conectividad de $\mathbb{R}$, será la herramienta que garantice la existencia de la solución del paso implícito del esquema numérico CSS$\theta$ en el @sec-cap6.
+En esta sección se reúnen cuatro resultados elementales, cuya necesidad se hará evidente en los capítulos siguientes. Los teoremas de Heine-Borel y de Bolzano-Weierstrass garantizan la compacidad del intervalo $[0,T]$ y la existencia de subsucesiones convergentes, propiedades que se emplean para demostrar que toda función càdlàg es acotada en un intervalo compacto y para manipular los tiempos de paro $\tau_N$ que se introducirán más adelante. El teorema del valor extremo de Weierstrass proporciona cotas uniformes para los coeficientes de la ecuación cuando estos se evalúan sobre trayectorias truncadas, lo cual es esencial para asegurar que los integrandos pertenezcan a los espacios de integrabilidad requeridos. Finalmente, el teorema del valor intermedio, propio de la conectividad de $\mathbb{R}$, será la herramienta que garantice la existencia de la solución del paso implícito del esquema numérico CSS$\theta$ en el @sec-cap6.
 
 :::
 
 ::: {#thm-heineborel style="text-align: justify"}
 
-## Heine--Borel
+## Heine-Borel
 
 Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a,b]\subset\mathbb{R}$ es compacto [@rudin1976principles].
 
@@ -43,7 +43,7 @@ La compacidad de los intervalos cerrados proporciona el marco adecuado para estu
 
 ::: {#thm-bolzanoweierstrass style="text-align: justify"}
 
-## Bolzano--Weierstrass
+## Bolzano-Weierstrass
 
 Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto $K\subset\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a $K$ [@rudin1976principles].
 
@@ -97,7 +97,7 @@ Conviene subrayar que el teorema del valor intermedio es una consecuencia de la 
 
 ::: {style="text-align: justify"}
 
-Los resultados expuestos en esta sección operan de manera determinista, aplicándose trayectoria a trayectoria. Sin embargo, para modelar fenómenos sujetos a incertidumbre ---como el ruido térmico o la ocurrencia abrupta de eventos sísmicos--- es necesario trasladarlos a un entorno probabilístico, y ello exige algo más que un espacio de probabilidad: se requiere una estructura que codifique cómo se acumula la información a lo largo del tiempo. La sección siguiente introduce el espacio de probabilidad filtrado y las nociones de procesos adaptado, predecible y càdlàg, sin las cuales carecería de sentido hablar de martingalas, de la isometría de Itô o de la bien-definición de las integrales estocásticas que se construyen en los capítulos posteriores.
+Los resultados expuestos en esta sección operan de manera determinista, aplicándose trayectoria a trayectoria. Sin embargo, para modelar fenómenos sujetos a incertidumbre, como el ruido térmico o la ocurrencia abrupta de eventos sísmicos, es necesario trasladarlos a un entorno probabilístico, y ello exige algo más que un espacio de probabilidad: se requiere una estructura que codifique cómo se acumula la información a lo largo del tiempo. La sección siguiente introduce el espacio de probabilidad filtrado y las nociones de procesos adaptado, predecible y càdlàg, sin las cuales carecería de sentido hablar de martingalas, de la isometría de Itô o de la bien-definición de las integrales estocásticas que se construyen en los capítulos posteriores.
 
 :::
 
@@ -171,7 +171,7 @@ $$
 
 donde $t\wedge\tau=\min\{t,\tau\}$. Equivalentemente, el proceso evoluciona como $X_t$ antes de $\tau$ y permanece constante en el valor $X_\tau$ después de dicho instante, cuando $\tau$ es finito.
 
-Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado. Además, si $X$ es una martingala càdlàg, el teorema de muestreo opcional permite establecer que $(X_{t\wedge\tau})_{t\geq 0}$ es una martingala bajo las hipótesis correspondientes [@kallenberg2002foundations].
+Si $X$ es adaptado, bajo las condiciones usuales el proceso detenido también es adaptado [@kallenberg2002foundations].
 
 :::
 
@@ -371,7 +371,7 @@ $$
 
 desigualdad que se emplea recurrentemente en el Capítulo 4 para acotar el término determinista de la iteración de Picard.
 
-La desigualdad de Cauchy--Schwarz corresponde al caso particular en que ambos factores pertenecen a $L^2$. Cuando se estudian momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables aleatorias.
+La desigualdad de Cauchy-Schwarz corresponde al caso particular en que ambos factores pertenecen a $L^2$. Cuando se estudian momentos de orden superior, resulta conveniente disponer de una herramienta más general que permita utilizar potencias diferentes para cada factor. Este papel lo desempeña la desigualdad de Hölder, tanto en espacios de funciones como en espacios de variables aleatorias.
 
 :::
 
@@ -513,7 +513,7 @@ La elección del parámetro $\delta$ permite ajustar la contribución de cada t�
 
 ::: {style="text-align: justify"}
 
-En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las desigualdades algebraicas controlan las sumas y los supremos; Cauchy--Schwarz, Hölder y Jensen permiten estimar integrales, productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones diferenciales estocásticas con saltos.
+En conjunto, los resultados de esta sección constituyen herramientas básicas para las demostraciones posteriores. Las desigualdades algebraicas controlan las sumas y los supremos; Cauchy-Schwarz, Hölder y Jensen permiten estimar integrales, productos y momentos; Markov y Chebyshev relacionan los momentos con las probabilidades de desviación; y Young permite distribuir las cotas entre los términos de una estimación. Estas herramientas se combinarán con las propiedades de las martingalas, las isometrías estocásticas y las desigualdades maximales en el análisis de existencia, unicidad y convergencia de las ecuaciones diferenciales estocásticas con saltos.
 
 Las desigualdades algebraicas y de integración son el motor para controlar los errores, pero carecen de sentido si no podemos integrar procesos aleatorios respecto a movimientos brownianos o procesos de Poisson. La siguiente sección introduce la compensación de Poisson y la fórmula de Itô para saltos, las cuales extienden el cálculo diferencial clásico a trayectorias con discontinuidades, permitiendo transformar funciones de soluciones estocásticas en ecuaciones manejables. Específicamente, la compensación de Poisson convierte al proceso de saltos en una martingala, mientras que la fórmula de Itô proporciona la regla de la cadena para procesos con discontinuidades, herramienta indispensable en el Capítulo 5 para obtener la solución explícita de la ecuación de Langevin y en el Capítulo 6 para analizar la estabilidad del método CSS$\theta$.
 
@@ -559,7 +559,7 @@ $$
 
 es una martingala cuadrado-integrable y $A(t)=\lambda t$ es un proceso predecible, continuo, creciente y con $A(0)=0$.
 
-Esta es la descomposición de Doob--Meyer del proceso de Poisson: $\widetilde{N}$ es la componente martingala y $A$ es su 
+Esta es la descomposición de Doob-Meyer del proceso de Poisson: $\widetilde{N}$ es la componente martingala y $A$ es su 
 compensador predecible [@protter2005stochastic].
 
 :::
@@ -654,15 +654,9 @@ El indicador $\mathbf{1}_{\{s\leq\tau\}}$ permite anular la contribución del in
 del extremo $\tau$ es importante cuando el integrador tiene saltos, puesto que un proceso detenido en $\tau$ conserva el salto 
 que pueda producirse en ese instante.
 
-Esta identidad facilita el uso de técnicas de localización: se estudia primero un proceso detenido, para el cual pueden  
-establecerse cotas adecuadas, y después se consideran límites de la sucesión de procesos detenidos. No obstante, la identidad 
-por sí sola no garantiza integrabilidad; esta debe verificarse mediante las hipótesis correspondientes.
+Esta identidad facilita el uso de técnicas de localización: se estudia primero un proceso detenido, para el cual pueden establecerse cotas adecuadas, y después se consideran límites de la sucesión de procesos detenidos. No obstante, la identidad por sí sola no garantiza integrabilidad; esta debe verificarse mediante las hipótesis correspondientes.
 
-Una vez establecidas las propiedades básicas de las integrales estocásticas, podemos introducir la fórmula de Itô para  
-ecuaciones con saltos. En el caso continuo, esta fórmula incorpora una corrección determinada por la variación cuadrática del  
-movimiento browniano. Cuando existen saltos, además aparece un término que registra el cambio no lineal de la función en cada  
-discontinuidad. La forma de este término depende de si la ecuación se expresa mediante el proceso de Poisson original o mediante 
-su versión compensada.
+Una vez establecidas las propiedades básicas de las integrales estocásticas, podemos introducir la fórmula de Itô para ecuaciones con saltos. En el caso continuo, esta fórmula incorpora una corrección determinada por la variación cuadrática del movimiento browniano. Cuando existen saltos, además aparece un término que registra el cambio no lineal de la función en cada discontinuidad. La forma de este término depende de si la ecuación se expresa mediante el proceso de Poisson original o mediante su versión compensada.
 
 Consideremos la ecuación diferencial estocástica compensada
 
@@ -987,7 +981,7 @@ La versión discreta de Gronwall desempeña un papel análogo al de su contrapar
 
 En el estudio de métodos numéricos para ecuaciones diferenciales estocásticas con saltos, estas desigualdades aparecen al estimar los momentos de las aproximaciones discretas y al analizar sus errores. En particular, una vez obtenida una estimación recursiva para los momentos de las soluciones aproximadas del método CSS$\theta$, el lema de Gronwall discreto permite cerrar dicha estimación y establecer cotas uniformes respecto del tamaño de la malla cuando las hipótesis del resultado y las estimaciones previas lo permiten.
 
-En síntesis, los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel--Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.
+Los resultados de esta sección completan las herramientas necesarias para el análisis de convergencia. El lema de Borel-Cantelli permite controlar la ocurrencia de eventos excepcionales; el teorema de subsucesiones conecta la convergencia en probabilidad con la convergencia casi segura; y las desigualdades de Gronwall, continua y discreta, permiten cerrar las estimaciones integrales y recursivas que aparecen en el análisis de las soluciones exactas y numéricas.
 
 De esta manera, las herramientas presentadas en el capítulo proporcionan una base para desarrollar, en los capítulos posteriores, las demostraciones de existencia, unicidad y convergencia asociadas a las ecuaciones diferenciales estocásticas con saltos y al método $\text{CSS}\theta$.
 
@@ -1007,7 +1001,7 @@ La eficacia de este método radica en que permite acotar la diferencia entre ite
 
 :::{#def-iteracionpicard style = "text-align: justify"}
 
-## Sucesión de Iteraciones de Picard** 
+## Sucesión de Iteraciones de Picard 
 
 Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2] < \infty$. Definimos la sucesión de procesos estocásticos $\{Z_n(t)\}_{n \in \mathbb{N}}$ de la siguiente manera:
 
