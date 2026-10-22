@@ -4139,13 +4139,13 @@ $$
 \end{aligned}
 $$ {#eq-6.169}
 
-Aplicando las reglas del cálculo de Itô podemos afirmar que $(dt)^2=0$, $dt\cdot dW(t)=0$, $dt\cdot d\widetilde{N}(t)=0$, $dW(t)\cdot d\widetilde{N}(t)=0$, mientras que $(dW(t))^2=dt$, por la definición del proceso de Poisson compensado se tiene
+Haciendo uso de la @prop-reglas-ito podemos afirmar que $(dt)^2=0$, $dt\cdot dW(t)=0$, $dt\cdot d\widetilde{N}(t)=0$, $dW(t)\cdot d\widetilde{N}(t)=0$, mientras que $(dW(t))^2=dt$, por la definición del proceso de Poisson compensado se tiene
 
 $$
 (d\widetilde{N}(t))^2=(dN(t))^2-2\lambda dN(t)dt+\lambda^2(dt)^2. 
 $$
 
-Usando propiedades del proceso de Poisson tenemos que $(dN(t))^2=dN(t)$, mientras que por las reglas de cálculo de Itô $dN(t)\cdot dt=0$, por tanto $(d\widetilde{N}(t))^2=dN(t)$, la @eq-6.169 queda de la forma
+Usando propiedades del proceso de Poisson tenemos que $(dN(t))^2=dN(t)$, mientras que por la @prop-reglas-ito $dN(t)\cdot dt=0$, por tanto $(d\widetilde{N}(t))^2=dN(t)$, la @eq-6.169 queda de la forma
 
 $$
 (dE(t))^2 = B^2(t)dt+C^2(t)dN(t), 

@@ -773,6 +773,28 @@ a partir de la deriva, la difusión y la contribución de los saltos.
 
 :::
 
+::: {#prop-reglas-ito style="text-align: justify"}
+
+### Reglas de multiplicación de Itô y variación cuadrática
+
+Sean $W(t)$ un movimiento browniano estándar y $\widetilde{N}(t) = N(t) - \lambda t$ el proceso de Poisson compensado. Los procesos de variación cuadrática $[X, X]_t$ y covariación $[X, Y]_t$ para estos procesos, así como para el tiempo determinista $t$, satisfacen propiedades fundamentales que, en la notación diferencial de Itô, se expresan mediante las siguientes reglas formales:
+
+1.  **Variación cuadrática del browniano:** $d[W, W]_t = dt$, lo que en notación diferencial se escribe como $(dW(t))^2 = dt$.
+
+2.  **Variación cuadrática del Poisson compensado:** $d[\widetilde{N}, \widetilde{N}]_t = dN(t)$, es decir, $(d\widetilde{N}(t))^2 = dN(t)$.
+
+3.  **Covariación cruzada:** $d[W, \widetilde{N}]_t = 0$, lo que implica que $dW(t)d\widetilde{N}(t) = 0$.
+
+4.  **Procesos de variación finita:** Para cualquier proceso de variación finita $A(t)$ (como el tiempo $t$ o la deriva determinista), se cumple $d[A, X]_t = 0$ para cualquier semimartingala $X(t)$. En particular, $(dt)^2 = 0$, $dt \, dW(t) = 0$ y $dt \, d\widetilde{N}(t) = 0$.
+
+5.  **Propiedad de los saltos del Poisson:** Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria (es decir, $\Delta N(t) \in \{0, 1\}$) y la medida de integración $dN(t)$ está concentrada exclusivamente en los instantes de salto, se cumple la identidad $\Delta N(t) dN(t) = dN(t)$.
+
+Estas reglas son el mecanismo algebraico que permite simplificar los términos de segundo orden al aplicar la Fórmula de Itô a funciones de semimartingalas con saltos [@protter2005stochastic].
+
+
+
+:::
+
 :::{#thm-formulaito style="text-align: justify"}
 
 ### Fórmula de Itô para EDEs con saltos 
