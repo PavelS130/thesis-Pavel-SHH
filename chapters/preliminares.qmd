@@ -344,9 +344,7 @@ $$ {#eq-3.02}
 
 ::: {.proof style="text-align: justify"}
 
-Demostramos primero la @eq-6.01.
-Dado que $I\neq\emptyset$ y $J\neq\emptyset$, el conjunto
-$F(I\times J)$ es no vacío, por lo que su supremo está bien definido en $\mathbb{R}\cup\{-\infty,+\infty\}$. Definimos
+Demostraremos primero la @eq-6.01. Dado que $I\neq\emptyset$ y $J\neq\emptyset$, el conjunto $F(I\times J)$ es no vacío, por lo que su supremo está bien definido en $\mathbb{R}\cup\{-\infty,+\infty\}$. Definimos
 
 $$
 M:=\sup_{(i,j)\in I\times J}F(i,j),\qquad L:=\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right).
@@ -467,17 +465,28 @@ $$
     \frac{1}{p}+\frac{1}{q}=1.
 $$
 
-Si $X\in L^p(\Omega,\mathcal{F},\mathbb{P})$ y $Y\in L^q(\Omega,\mathcal{F},\mathbb{P})$, entonces
+Se cumplen las siguientes versiones de la desigualdad:
+
+1.  **Versión probabilística:** Si $X\in L^p(\Omega,\mathcal{F},\mathbb{P})$ y $Y\in L^q(\Omega,\mathcal{F},\mathbb{P})$, entonces
 
 $$
     \mathbb{E}[|XY|]\leq\left(\mathbb{E}[|X|^p]\right)^{1/p}\left(\mathbb{E}[|Y|^q]\right)^{1/q}.
 $$
 
-Análogamente, para funciones $f\in L^p([0,T])$ y $g\in L^q([0,T])$,
+2.  **Versión integral:** Para funciones $f\in L^p([0,T])$ y $g\in L^q([0,T])$,
 
 $$
     \int_0^T|f(s)g(s)|\,ds\leq\left(\int_0^T|f(s)|^p\,ds\right)^{1/p}\left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
 $$
+
+3.  **Versión discreta (para sumas finitas):** Para cualquier entero $M \geq 1$, números reales no negativos $a_0, a_1, \dots, a_{M-1}$ y un exponente $k \geq 1$, se cumple que
+
+$$
+    \left( \sum_{j=0}^{M-1} a_j \right)^k \leq M^{k-1} \sum_{j=0}^{M-1} a_j^k.
+$$
+
+Esta última forma es fundamental en el análisis de métodos numéricos discretos (como se verá en el Capítulo 6) para acotar los momentos de orden superior de sumas de variables aleatorias.
+
 
 [@folland1999real].
 

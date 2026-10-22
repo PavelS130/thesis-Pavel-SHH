@@ -186,7 +186,7 @@ $$ {#eq-6.13}
 
 ## Resultados Preliminares y Acotamiento de Momentos
 
-A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-6.03, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
+A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, @eq-6.03, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando el @thm-cauchyschwarz y las propiedades de $h$, es posible demostrar que existe una constante $K_{\lambda}:= K+\lambda\sqrt{L_h}$ tal que para todos $x,y\in \mathbb{R}$ se cumple
 
 $$
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
@@ -233,7 +233,7 @@ $$
   x(f(x)-f(0))\leq K|x|^2.
 $$
 
-Para el término $xf(0)$, podemos aplicar la desigualdad de Young, la cuál afirma que para $a,b\in \mathbb{R}$ se cumple
+Para el término $xf(0)$, podemos aplicar el @lem-young, la cuál afirma que para $a,b\in \mathbb{R}$ se cumple
 
 $$
   ab\leq \frac{1}{2}a^2+\frac{1}{2}b^2.
@@ -425,7 +425,7 @@ Al ser $G$ inyectiva y suprayectiva, concluimos que $G$ es biyectiva.
 
 La suprayectividad de $G$ garantiza que, para cualquier valor $Y_n \in \mathbb{R}$, existe al menos un $Y_n^* \in \mathbb{R}$ tal que $G(Y_n^*) = Y_n$. Esto asegura la **existencia** de una solución para la ecuación implícita, independientemente del valor de la aproximación previa $Y_n$.
 
-Por otro lado, la inyectividad de $G$ (derivada de su crecimiento estricto) implica que si $G(x) = G(y)$, entonces necesariamente $x = y$. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos $Y_n^*$ y $\tilde{Y}_n^*$ que satisfagan simultáneamente $G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n$. Esto garantiza la unicidad de la solución.
+Por otro lado, la inyectividad de $G$ implica que si $G(x) = G(y)$, entonces necesariamente $x = y$. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos $Y_n^*$ y $\tilde{Y}_n^*$ que satisfagan simultáneamente $G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n$. Esto garantiza la unicidad de la solución.
 
 En consecuencia, la biyectividad de $G$ asegura que la ecuación implícita
 
@@ -1246,7 +1246,7 @@ $$
   (a+b)^p\leq 2^{p-1}(a^p+b^p).
 $$
 
-Aplicaremos dicho resultado a la expresión @eq-6.52 de forma iterativa como se sigue
+Aplicaremos dicho resultado a la @eq-6.52 de forma iterativa como se sigue
 
 $$
   \begin{aligned}
@@ -1398,7 +1398,7 @@ $$
   \mathbb{E}[|\Delta W_j|]=\sqrt{\frac{2\Delta t}{\pi}}<\infty.
 $$
 
-Por lo que la integrabilidad de $M_n$ se reduce a demostrar que $\mathbb{E}[|Y_jg(Y_j^*)|]<\infty$, para todo $j=1,2,\ldots,n-1$. Aplicando la desigualdad de Cauchy-Schwarz a la esperanza del producto, se tiene
+Por lo que la integrabilidad de $M_n$ se reduce a demostrar que $\mathbb{E}[|Y_jg(Y_j^*)|]<\infty$, para todo $j=1,2,\ldots,n-1$. Aplicando el @thm-cauchyschwarz a la esperanza del producto, se tiene
 
 $$
   \mathbb{E}[|Y_jg(Y_j^*)|]\leq (\mathbb{E}[|Y_j|^2])^{1/2}(\mathbb{E}[|g(Y_j^*)|^2])^{1/2}.
@@ -1496,7 +1496,7 @@ $$
   \end{aligned}
 $$ {#eq-6.64}
 
-Usando la desigualdad del triángulo para $|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|$,
+Usando la desigualdad triangular para $|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|$,
 
 $$
     \begin{aligned}
@@ -1628,13 +1628,7 @@ $$
   \end{aligned}
 $$ {#eq-6.66}
 
-Usando la desigualdad de Hölder, dada por
-
-$$
-  \Bigg(\sum\limits_{j=0}^{M-1}a_j\Bigg)^k\leq M^{k-1}\sum\limits_{j=0}^{M-1}a_j^k,
-$$
-
-para nuestro caso, contemplamos a $a_j=|Y_j|^2|g(Y_j^*)|^2$ y a $k=p/2$, de aquí
+Usando el @thm-holder, para nuestro caso, contemplamos a $a_j=|Y_j|^2|g(Y_j^*)|^2$ y a $k=p/2$, de aquí
 
 $$
   \begin{aligned}
@@ -1714,7 +1708,13 @@ $$
 C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
 $$
 
-Se define a $c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)$, de aquí tomando a $C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}$, entonces es posible acotar la ecuación anterior, la @eq-6.69 de la forma
+Se define a 
+
+$$
+c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p),
+$$
+
+de aquí tomando a $C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}$, entonces es posible acotar la ecuación anterior, la @eq-6.69 de la forma
 
 $$
   \begin{aligned}
@@ -1731,7 +1731,7 @@ $$
   S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
 $$ {#eq-6.71}
 
-Dado que la función $h$ posee las mismas propiedades que la función $g$, siguiendo el mismo procedimiento que se realizó con la @eq-6.57 es posible afirmar que $S_n$ es una martingala discreta. Usando la desigualdad de BDG, acotar el término
+Dado que la función $h$ posee las mismas propiedades que la función $g$, siguiendo el mismo procedimiento que se realizó con la @eq-6.57 es posible afirmar que $S_n$ es una martingala discreta. Usando el @thm-BDG para acotar el término
 
 $$
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
@@ -1769,13 +1769,13 @@ $$
   \end{aligned}
 $$
 
-Usando la desigualdad de BDG, existe una constante $C_p$, la cual depende únicamente de $p$ de tal forma que la @eq-6.73 queda acotada mediante
+Usando el @thm-BDG, podemos afirmar que existe una constante $C_p$, la cual depende únicamente de $p$ de tal forma que la @eq-6.73 queda acotada mediante
 
 $$
   \mathbb{E}[\sup\limits_{0\leq n\leq M}|Z_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}.
 $$ {#eq-6.74}
 
-Por la @eq-6.19 podemos afirmar que $|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}$. De la ecuación @eq-6.74 al extraer $\Delta t$, aplicar la desigualdad de Hölder para sumas finitas con $k=p/2$ y considerando la cota anterior derivada de la @eq-6.19 se tiene
+Por la @eq-6.19 podemos afirmar que $|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}$. De la ecuación @eq-6.74 al extraer $\Delta t$, aplicar el @thm-holder con $k=p/2$ y considerando la cota anterior derivada de la @eq-6.19 se tiene
 
 $$
   \begin{aligned}
@@ -1796,7 +1796,7 @@ $$
   \Delta t^{p/2}M^{p/2-1}=(\Delta tM)^{p/2-1}\Delta t\leq T^{p/2-1}\Delta t.
 $$ {#eq-6.76}
 
-Aplicando la desigualdad de Young y la @eq-6.76 a la @eq-6.75 tenemos
+Aplicando el @lem-young y la @eq-6.76 a la @eq-6.75 tenemos
 
 $$
   \begin{aligned}
@@ -1909,10 +1909,10 @@ $$ {#eq-6.84}
 Notemos que para cada $j=0,1\ldots,n-1$ se tiene
 
 $$
-  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)
+  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2).
 $$
 
-Sumando sobre $j=0,1,\ldots,n-1$ y considerando la desigualdad del triángulo se tiene
+Sumando sobre $j=0,1,\ldots,n-1$ y considerando la desigualdad triangular se tiene
 
 $$
   \begin{aligned}
@@ -1922,7 +1922,7 @@ $$
   \end{aligned}
 $$
 
-al elevar ambos lados de la desigualdad anterior a la potencia $p$ y tomar supremo sobre $n=0,1,\ldots,M$, entonces
+Al elevar ambos lados de la desigualdad anterior a la potencia $p$ y tomar supremo sobre $n=0,1,\ldots,M$, entonces
 
 $$
 \begin{aligned}
@@ -1946,7 +1946,7 @@ $$
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 $$
 
-Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la @eq-6.85, además, considerando que $n\leq M$ entonces
+Con esto, aplicando el @thm-holder al término del supremo de la derecha en la @eq-6.85, además, considerando que $n\leq M$ entonces
 
 $$
   \begin{aligned}
@@ -2079,7 +2079,7 @@ $$
 \end{aligned}
 $$
 
-Considerando el Lema de Grownwall Discreto (citar en preliminares), tomaremos a
+Considerando el @lem-gronwalldiscreto, tomaremos a
 
 $$
   u_{M}:=\mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}|Y_n|^{2p}\Bigg] \quad\text{y}\quad A=B=C.
@@ -2336,13 +2336,7 @@ $$
 \end{aligned}
 $$ {#eq-6.97}
 
-Consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función $F(n,s)$ definida sobre un conjunto de índices discretos $n\in \{0,1,\ldots,T\}$ y un parámetro continuo $s\in [0,\Delta t]$, se cumple
-
-$$
-\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t} F(n,s)\Bigg)=\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T} F(n,s)\Bigg)
-$$
-
-Tomando a
+Consideramos la @prp-intercambiosupremos. Tomando a
 
 $$
   F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p},
@@ -2487,7 +2481,7 @@ $$
 \mathbb{E}[|\Delta W_j(s)|^2]=\mathbb{E}[|W(t_j+s)-W(t_j)|^2]=(t_j+s)-t_j=s\leq \Delta t<\infty.
 $$
 
-Usando la desigualdad de Cauchy-Schwarz
+Usando el @thm-cauchyschwarz, obtenemos
 
 $$
 \begin{aligned}
@@ -2541,7 +2535,7 @@ $$
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}]=g(Y_j^*)\Delta W_j(u).
 $$
 
-Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que $g(Y_j^*)\Delta W_j(s)$ es una martingala continua, lo que nos permite usar la desigualdad maximal de Doob al tercer término de la @eq-6.100
+Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que $g(Y_j^*)\Delta W_j(s)$ es una martingala continua, lo que nos permite usar el @thm-maximaldoob al tercer término de la @eq-6.100
 
 $$
   \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg]\leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}].
@@ -2730,7 +2724,7 @@ $$
 \end{aligned}
 $$ {#eq-6.109}
 
-Haremos uso de la desigualdad dada por la @eq-6.19, sabemos que para números no negativos se cumple la desigualdad $(a+b)^2\leq 2a^2+2b^2$. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo $|x+h(x)|\leq |x|+|h(x)|$ lo que implica que
+Haremos uso de la desigualdad dada por la @eq-6.19, sabemos que para números no negativos se cumple la desigualdad $(a+b)^2\leq 2a^2+2b^2$. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad triangular $|x+h(x)|\leq |x|+|h(x)|$ lo que implica que
 
 $$
 \begin{aligned}
@@ -2787,7 +2781,7 @@ Nuestro objetivo es demostrar que $\tau_N\rightarrow T$ casi seguramente cuando 
 > |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty. 
 > $$
 >
-> Por el Teorema de Bolzano-Weierstrass(citar en preliminares), como $[0,T]$ es compacto, existe una subsucesión $\{t_{n_k}\}$ que converge a algún punto $t^*\in[0,T]$, vale decir
+> Por el @thm-bolzanoweierstrass, como $[0,T]$ es compacto, existe una subsucesión $\{t_{n_k}\}$ que converge a algún punto $t^*\in[0,T]$, vale decir
 >
 > $$
 > t_{n_k}\rightarrow t^*\quad\text{cuando}\quad k\rightarrow\infty.
@@ -2904,7 +2898,7 @@ $$
 
 Dado que $X(t)$ tiene trayectorias càdlàg, para casi todo $\omega\in \Omega$ y todo $t<\tau_N(\Omega)$, se tiene $|X(t,\omega)|<N$ por la definición del ínfimo.
 
-Notemos que cuando $t=\tau_N(\omega)$ el proceso $X(t)$ puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por $X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)$. Dado que $\Delta N(\tau_N) \in \{0, 1\}$, aplicando la desigualdad del triángulo obtenemos:
+Notemos que cuando $t=\tau_N(\omega)$ el proceso $X(t)$ puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por $X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)$. Dado que $\Delta N(\tau_N) \in \{0, 1\}$, aplicando la desigualdad triangular obtenemos:
 $$
 |X(\tau_N, \omega)| \leq |X(\tau_N^-, \omega)| + |h(X(\tau_N^-, \omega))|.
 $$
@@ -2915,7 +2909,7 @@ $$
 D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N]. 
 $$
 
-Por el Teorema de Heine-Borel(va preliminares), $D_N$ es un conjunto compacto. Dado que por hipótesis $h$ es continua, el Teorema del Valor Extremo, consecuencia del Teorema de Weierstrass, garantiza que $h$ alcanza su máximo absoluto en $D_N$. Por tanto, podemos definir la constante
+Por el @thm-heineborel, $D_N$ es un conjunto compacto. Dado que por hipótesis $h$ es continua, el @thm-weierstrass garantiza que $h$ alcanza su máximo absoluto en $D_N$. Por tanto, podemos definir la constante
 
 $$
 C_N:=\max\limits_{|x|\leq N}|h(x)|<\infty.
@@ -3118,7 +3112,7 @@ $$
 \end{aligned}
 $$ {#eq-6.123}
 
-El producto $xg(x)$ se puede acotar mediante la desigualdad de Young, de esta forma
+El producto $xg(x)$ se puede acotar mediante el @lem-young, de esta forma
 
 $$
 \begin{aligned}
@@ -3146,7 +3140,7 @@ $$
 \end{aligned}
 $$ {#eq-6.124}
 
-Finalmente, para el quinto término de la @eq-6.121, recordemos la cota derivada en la @eq-6.110, donde demostramos que la diferencia de saltos está cotada por $K(1+|x|^p)$. Dado que $(1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}$, podemos acotar este término directamente como 
+Finalmente, para el quinto término de la @eq-6.121. Recordemos la cota derivada en la @eq-6.110, donde demostramos que la diferencia de saltos está cotada por $K(1+|x|^p)$. Dado que $(1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}$, podemos acotar este término directamente como 
 
 
 $$
@@ -3188,7 +3182,7 @@ $$
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E} \Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg]. 
 $$ {#eq-6.127}
 
-Para poder aplicar la desigualdad de Gronwall, necesitamos cambiar el límite superior de integración de $t\wedge\tau_N$ a $t$. Haremos uso de la función indicadora definida por
+Para poder aplicar el @thm-gronwall, necesitamos cambiar el límite superior de integración de $t\wedge\tau_N$ a $t$. Haremos uso de la función indicadora definida por
 
 $$
 1_{s\leq\tau_N} = 
@@ -3198,7 +3192,7 @@ $$
 \end{cases}
 $$
 
-Con esto, podemos reescribir la integral de la @eq-6.127 y aplicamos el Teorema de Fubini-Tonelli, dado que el integrando es no negativo, para intercambiar el orden de la integral y la esperanza, obteniendo
+Con esto, podemos reescribir la integral de la @eq-6.127 y aplicamos el @thm-fubinotonelli, dado que el integrando es no negativo, para intercambiar el orden de la integral y la esperanza, obteniendo
 
 $$
 \begin{aligned}
@@ -3243,7 +3237,7 @@ $$
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 $$
 
-Definimos la función $u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}$, la cuál es medible y no negativa. La desigualdad anterior toma la forma $u(t)\leq a + \int_0^t  \overline{K}u(s)ds$, con $b(s)=K$. Por el Teorema de la Desigualdad de Gronwall en su forma continua, concluimos que
+Definimos la función $u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}$, la cuál es medible y no negativa. La desigualdad anterior toma la forma $u(t)\leq a + \int_0^t  \overline{K}u(s)ds$, con $b(s)=K$. Por el @thm-gronwall, concluimos que
 
 $$
 u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T]. 
@@ -3267,7 +3261,7 @@ $$
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 $$ {#eq-6.133}
 
-Consideremos la sucesión de variables aleatorias $Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple
+Consideremos la sucesión de variables aleatorias $Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}$, la cual es una sucesión de términos no negativos. Lo que nos permite usar el @lem-fatou, obteniendo
 
 $$
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
@@ -3297,7 +3291,7 @@ $$
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^p\Bigg]. 
 $$
 
-Considerando la función $u(x)=x^2$. A dicha función aplicaremos la Fórmula de Itô para $u\in C^2(\mathbb{R})$ dada en la @eq-6.104. Nuevamente para facilitar la notación, haremos uso de $x=X(s-)$. Es claro que la primera y  segunda derivada de la función $u$ están dadas por
+Considerando la función $u(x)=x^2$. A dicha función aplicaremos el @thm-formulaito para $u\in C^2(\mathbb{R})$ dada en la @eq-6.104. Nuevamente para facilitar la notación, haremos uso de $x=X(s-)$. Es claro que la primera y  segunda derivada de la función $u$ están dadas por
 
 $$
 u'(x)=2x,\quad  u''(x)=2, 
@@ -3438,7 +3432,7 @@ $$
 \end{aligned}
 $$
 
-Al elevar a la potencia $p/2$ y al aplicar la desigualdad de potencias para sumas (preliminares)
+Al elevar a la potencia $p/2$ y al aplicar el @lem-desgsumas, obtenemos
 
 $$
 \begin{aligned}
@@ -3489,7 +3483,7 @@ $$
 \end{aligned}
 $$ {#eq-6.141}
 
-Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a $ds$. Para ello, aplicamos la Desigualdad de Hölder para integrales o equivalentemente, la Desigualdad de Jensen para la medida de Lebesgue normalizada. Dado que $p\geq 4$, el exponente $q=p/2$ satisface $q\geq 2>1$. Por lo tanto, para cualquier función medible y no negativa $F(s)$, se cumple la desiguldad
+Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a $ds$. Para ello, aplicamos el @thm-holder para integrales o equivalentemente, el @thm-jensen para la medida de Lebesgue normalizada. Dado que $p\geq 4$, el exponente $q=p/2$ satisface $q\geq 2>1$. Por lo tanto, para cualquier función medible y no negativa $F(s)$, se cumple la desiguldad
 
 $$
 \left(\int_0^t F(s)\,ds\right)^q \leq t^{q-1}\int_0^t F(s)^q\,ds.
@@ -3585,7 +3579,7 @@ $$
 \end{aligned}
 $$
 
-Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $L^2$, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy. 
+Por lo tanto $M_{\widetilde{N},2}$ es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos $M_W(t)$, $M_{\widetilde{N},1}$ y $M_{\widetilde{N},2}$ pertenecen al espacio $L^2$, lo que garantiza que son martingalas y nos permite aplicar el @thm-BDG. 
 
 Para la martingala $M_W(\tau)$, su variación cuadrática está dada por 
 
@@ -3593,13 +3587,13 @@ $$
 \langle M_W \rangle_{\tau} = \int_0^\tau |X(s)g(X(s)|^2ds.
 $$
 
-Aplicando la Desigualdad de Burkholder-Davis-Gundy con $q=p/2$, nos indica que existe una constante $C_{p/2,W}$ tal que 
+Aplicando el @thm-BDG con $q=p/2$, nos indica que existe una constante $C_{p/2,W}$ tal que 
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}\mathbb{E}\Bigg[\Bigg(\int_0^t |X(s)g(X(s))|^2\, ds\Bigg)^{p/4}\Bigg]. 
 $$ {#eq-6.144}
 
-Para acotar el lado derecho, haremos uso de la desigualdad de Hölder para integrales con el exponente $r=p/4\leq 1$
+Para acotar el lado derecho, haremos uso del @thm-holder para integrales con el exponente $r=p/4\leq 1$
 
 $$
 \begin{aligned}
@@ -3608,7 +3602,7 @@ $$
 \end{aligned}
 $$
 
-Tomando esperanza y usando el Teorema de Fubini-Tonnelli, ya que el integrando es no negativo, podemos obtener de la @eq-6.144
+Tomando esperanza y usando el @thm-fubinotonelli, ya que el integrando es no negativo, podemos obtener de la @eq-6.144
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds..
@@ -3634,7 +3628,7 @@ $$
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|X(s)h(X(s))|^2 ds. 
 $$
 
-Notemos que dicho término difiere de la constante $\lambda>0$ a la variación cuadrática del proceso $M_W(\tau)$, como $h$ también satisface la cota de crecimiento lineal de la @eq-6.19, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Burkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a 
+Notemos que dicho término difiere de la constante $\lambda>0$ a la variación cuadrática del proceso $M_W(\tau)$, como $h$ también satisface la cota de crecimiento lineal de la @eq-6.19, entonces es posible realizar el mismo procedimiento, aplicar el @thm-BDG, el @thm-holder y el @thm-fubinotonelli para llegar a 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
@@ -3648,15 +3642,14 @@ $$
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|h(X(s))|^4 ds. 
 $$
 
-Aplicando la desigualdad de Burkholder-Davis-Gundy, podemos afirmar que existe una constante positiva $C_{p/2,\widetilde{N},2}>0$ tal que 
+Aplicando el @@thm-BDG, podemos afirmar que existe una constante positiva $C_{p/2,\widetilde{N},2}>0$ tal que 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \mathbb{E}\left[\left(\lambda \int_0^t |h(X(s))|^4 \, ds\right)^{p/4}\right].
 $$
 
 
-Aplicando Hölder y Fubini-Tonelli:
-
+Aplicando los siguientes teoremas: @thm-holder y @thm-fubinotonelli:
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \lambda^{p/4} \, T^{p/4 - 1} \int_0^t \mathbb{E}\left[|h(X(s))|^{p}\right]\,ds.
@@ -3684,7 +3677,7 @@ $$
 \end{aligned}
 $$ {#eq-6.148}
 
-donde $K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}$. Usando la desigualdad de Young podemos obtener la siguiente cota para el integrando 
+donde $K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}$. Usando el @lem-young podemos obtener la siguiente cota para el integrando 
 
 $$
 \begin{aligned}
@@ -3707,7 +3700,7 @@ $$
 \end{aligned}
 $$
 
-Aplicando la Desigualdad de Gronwall en su forma continua, podemos concluir que 
+Aplicando el @thm-gronwall, podemos concluir que 
 
 $$
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]\leq \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}t}. 
@@ -3961,7 +3954,7 @@ $$
 \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
 $$ {#eq-6.162}
 
-Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Con esto, podemos hacer uso de la desigualdad de Maximal de Doob, de tal forma que 
+Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Con esto, podemos hacer uso del @thm-maximaldoob, de tal forma que 
 
 $$
 \begin{aligned}
@@ -3971,7 +3964,7 @@ $$
 \end{aligned}
 $$ {#eq-6.163}
 
-De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo
+De manera similar, procedemos a usar el @thm-maximaldoob para el proceso de Poisson compensado, obteniendo
 
 $$
 \begin{aligned}
@@ -4065,6 +4058,7 @@ entonces la aproximación $\overline{Y}(t)$ converge a la solución exacta $X(t)
 $$
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\Bigg]\leq C\Delta t.
 $$
+
 :::
 
 ::: {.proof style="text-align: justify"}
@@ -4101,7 +4095,7 @@ $$
 \end{aligned}
 $$ {#eq-6.166}
 
-Dado que $E(t)$ es una semimartingala càdlag en $\mathbb{R}$, haremos uso de la fórmula de Itô para procesos con saltos. Para una función $V\in C^2(\mathbb{R})$, esta fórmula descompone el diferencial $dV(E(t))$ en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como
+Dado que $E(t)$ es una semimartingala càdlag en $\mathbb{R}$, haremos uso del @thm-formulaito para procesos con saltos. Para una función $V\in C^2(\mathbb{R})$, esta fórmula descompone el diferencial $dV(E(t))$ en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como
 
 $$
 \begin{aligned}
@@ -4178,7 +4172,7 @@ $$
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 $$
 
-Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-6.165 y @eq-6.08 respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
+Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-6.165 y @eq-6.08 respectivamente tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
 
 $$
 \begin{aligned}
@@ -4374,7 +4368,7 @@ $$
 \end{aligned}
 $$ {#eq-6.179}
 
-Usando la desigualdad de Young para el primer término de la @eq-6.179 tenemos
+Usando el @lem-young para el primer término de la @eq-6.179 tenemos
 
 $$
 2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2.
@@ -4431,7 +4425,7 @@ $$
 \end{aligned}
 $$
 
-Usando la desigualdad de Young para el doble podructo tenemos
+Usando el @lem-young para el doble podructo tenemos
 
 $$
 2|Y(s-)-\overline{Y}(s-)||E(s-)| = |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2, 
@@ -4538,13 +4532,13 @@ $$
 \end{aligned}
 $$ {#eq-6.186}
 
-Dado que $|E(s-)|^2\geq 0$ y dicho proceso es medible, por el teorema de Tonelli se cumple
+Dado que $|E(s-)|^2\geq 0$ y dicho proceso es medible, por el @thm-fubinotonelli se cumple
 
 $$
 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg] = \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds. 
 $$
 
-Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de Tonelli, se puede afirmar
+Por otro lado, aplicando el @thm-holder y nuevamente el @thm-fubinotonelli, se puede afirmar
 
 $$
 \begin{aligned}
@@ -4622,7 +4616,7 @@ $$
 \end{aligned}
 $$ {#eq-6.192}
 
-Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio $L^2$. 
+Usaremos el @thm-BDG para acotar a los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio $L^2$. 
 
 Debemos contemplar los métodos en los que aplicaremos el @lem-6.3, @lem-6.4 y @lem-6.5 de la siguiente forma: Para $s\in[0,t]\subset [0,T]$ y $p_1\geq 1$ y $p_2\geq 4$ tal que $4\leq p$ y $4\leq 2p$, donde $p:=\max\{p_1,p_2\}$, se satisface 
 
@@ -4651,7 +4645,7 @@ $$
 \end{aligned}
 $$
 
-Sustituyendo esto en la @eq-agregar02 y aplicar el Teorema de Fubini-Tonelli, se obtiene 
+Sustituyendo esto en la @eq-agregar02 y aplicar el @thm-fubinotonelli, se obtiene 
 
 $$
 \begin{aligned}
@@ -4722,9 +4716,9 @@ $$
 
 Por lo tanto $M_3(t)$ es una martingala cuadrado-integrable. 
 
-Dado que los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$ son martingalas verdaderas, podemos hacer uso de la desigualdad de Burkholder-Davis-Gundy (BDG) para cada una de ellas. 
+Dado que los procesos $M_1(t)$, $M_2(t)$ y $M_3(t)$ son martingalas verdaderas, podemos hacer uso del @thm-BDG para cada una de ellas. 
 
-Comenzando con el proceso $M_1(t)$, aplicamos la desigualdad BDG con exponente $q=1$. De esta forma, podemos afirmar que existe una constante universal $C_1 > 0$ (la cual depende únicamente del exponente $q$ y, por tanto, es estrictamente independiente del paso de tiempo $\Delta t$) tal que
+Comenzando con el proceso $M_1(t)$, aplicamos el @thm-BDG con exponente $q=1$. De esta forma, podemos afirmar que existe una constante universal $C_1 > 0$ (la cual depende únicamente del exponente $q$ y, por tanto, es estrictamente independiente del paso de tiempo $\Delta t$) tal que
 
 $$
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right] \leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right],
@@ -4742,7 +4736,7 @@ $$
 Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-), 
 $$
 
-considerando esto y desigualdad de Cauchy, se obtiene la siguiente cadena de desigualdades
+considerando esto y el @thm-cauchyschwarz, se obtiene la siguiente cadena de desigualdades
 
 $$
 \begin{aligned}
@@ -4771,7 +4765,7 @@ $$
 \langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
 $$ {#eq-6.194}
 
-Aplicaremos la desigualdad de Young generalizada, dado $\varepsilon>0$, el cuál definiremos más adelante, se satisface lo siguiente
+Aplicaremos el @lem-young en su versión generalizada, dado $\varepsilon>0$, el cuál definiremos más adelante, se satisface lo siguiente
 
 $$
 \begin{aligned}
@@ -4793,7 +4787,7 @@ $$
 \end{aligned}
 $$ {#eq-6.195}
 
-Aplicando el teorema de Fubini-Tonelli al segundo término de la @eq-6.195 se tiene
+Aplicando el @thm-fubinotonelli al segundo término de la @eq-6.195 se tiene
 
 $$
 \begin{aligned}
@@ -4844,13 +4838,13 @@ $$
 \end{aligned}
 $$ {#eq-6.198}
 
-Usaremos un procedimiento similar para acotar el proceso $M_2(t)$. Por la desigualdad de Burkholder-Davis-Gundy, existe una constante $C_2>0$ independiente de $\Delta t$ tal que
+Usaremos un procedimiento similar para acotar el proceso $M_2(t)$. Por @thm-BDG, existe una constante $C_2>0$ independiente de $\Delta t$ tal que
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big]. 
 $$ {#eq-6.199}
 
-Para una integral estocástica con respecto al proceso de Poisson compensado $\widetilde{N}(s)$; la variación cuadratica $\langle M_2\rangle_t$ se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, $\lambda>0$, esto pues el compensador de $dN(s)$ es $\lambda ds$, es decir
+Para una integral estocástica con respecto al proceso de Poisson compensado $\widetilde{N}(s)$; la variación cuadratica $\langle M_2\rangle_t$ se obtiene por el @thm-doobmeyer, obteniendo en nuestro caso
 
 $$
 \langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds. 
@@ -4862,7 +4856,7 @@ $$
 \langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
 $$ {#eq-6.200}
 
-Usando la desigualdad de Young generalizada, para $\delta>0$ se satisface
+Usando el @lem-young en su versión generalizada, para $\delta>0$ se satisface
 
 $$
 \begin{aligned}
@@ -4898,7 +4892,7 @@ $$
 \end{aligned}
 $$ {#eq-6.201}
 
-Por último, acotaremos el proceso $M_3(t)$, por la desigualdad de Burkholder-Davis-Gundy, existe una constante $C_3>0$ tal que
+Por último, acotaremos el proceso $M_3(t)$, por el @thm-BDG, existe una constante $C_3>0$ tal que
 
 $$
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
@@ -4954,7 +4948,7 @@ $$
 \end{aligned}
 $$ {#eq-6.204}
 
-Usamos nuevamente la desigualdad generalizada de Young, para $\mu>0$ se cumple
+Usamos nuevamente por el @lem-young, para $\mu>0$ se cumple
 
 $$
 \Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s-)|^2ds.
@@ -4983,7 +4977,7 @@ $$
 \end{aligned}
 $$
 
-Tomamos a $\mu=6C_3\sqrt{2\lambda}L_h$, al usar la @eq-6.197 y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue
+Tomamos a $\mu=6C_3\sqrt{2\lambda}L_h$, al usar la @eq-6.197 y el @thm-fubinotonelli podemos reducir la expresión anterior como se sigue
 
 $$
 \begin{aligned}
@@ -5059,7 +5053,7 @@ $$
 \end{aligned}
 $$ {#eq-6.208}
 
-esto para toda $t\in[0,T]$. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, $u(t)$, en el intervalo $[0,T]$, y existen constantes no negativas $\alpha$ y $\beta$ tales que
+esto para toda $t\in[0,T]$. Haremos uso del @thm-gronwall, el cuál establece que si una función no negativa y continua, $u(t)$, en el intervalo $[0,T]$, y existen constantes no negativas $\alpha$ y $\beta$ tales que
 
 $$
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
