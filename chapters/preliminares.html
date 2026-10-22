@@ -628,11 +628,17 @@ window.Quarto = {
 \]</span></p>
 <p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
+<div id="prp-intercambiosupremos" class="theorem proposition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Proposición 3.1 (Intercambio de Supremos Iterados)</strong></span> Sea <span class="math inline">\(F: \mathcal{N} \times \mathcal{S} \to \mathbb{R}\)</span> una función acotada superiormente, donde <span class="math inline">\(\mathcal{N}\)</span> y <span class="math inline">\(\mathcal{S}\)</span> son conjuntos de índices arbitrarios. Entonces, el supremo iterado es independiente del orden de evaluación y coincide con el supremo sobre el producto cartesiano. En particular, para un conjunto de índices discretos <span class="math inline">\(n\Delta t \in [0, T]\)</span> y un parámetro continuo <span class="math inline">\(s \in [0, \Delta t]\)</span>, se cumple que:</p>
+<p><span class="math display">\[
+\sup_{0\leq n\Delta t\leq T}\Bigg(\sup_{0\leq s\leq \Delta t} F(n,s)\Bigg) = \sup_{0\leq s\leq \Delta t}\Bigg(\sup_{0\leq n\Delta t\leq T} F(n,s)\Bigg) = \sup_{\substack{0\leq n\Delta t\leq T \\ 0\leq s\leq \Delta t}} F(n,s).
+\]</span></p>
+</div>
 <div style="text-align: justify">
 <p>Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS<span class="math inline">\(\theta\)</span>. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.</p>
 </div>
 <div id="prp-propsupremos" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 3.1 (Propiedades del supremo)</strong></span> Sea <span class="math inline">\(I\)</span> un conjunto no vacío y sean <span class="math inline">\(f,g:I\to\mathbb{R}\)</span> funciones acotadas superiormente. Entonces,</p>
+<p><span class="theorem-title"><strong>Proposición 3.2 (Propiedades del supremo)</strong></span> Sea <span class="math inline">\(I\)</span> un conjunto no vacío y sean <span class="math inline">\(f,g:I\to\mathbb{R}\)</span> funciones acotadas superiormente. Entonces,</p>
 <p><span class="math display">\[
     \sup_{s\in I}\bigl(f(s)+g(s)\bigr)\leq\sup_{s\in I}f(s)+\sup_{s\in I}g(s).
 \]</span></p>
