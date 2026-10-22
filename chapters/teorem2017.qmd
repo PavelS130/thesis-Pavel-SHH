@@ -58,7 +58,7 @@ $$ {#eq-6.03}
 
 Esta formulación resulta especialmente útil en el análisis numérico, pues permite separar de manera natural la componente determinista de la componente puramente martingala del sistema, facilitando así el estudio de las propiedades de convergencia y estabilidad del esquema.
 
-Con el propósito de aproximar la solución de la ecuación @eq-6.01, fijamos un horizonte $T>0$ y construimos una discretización uniforme del intervalo $[0,T]$. Sea $N_T\in \mathbb{N}$ el número de subintervalos de la partición, y definimos el tamaño del paso $\Delta t= T/N_T$ junto con los nodos de la malla $t_n=n\Delta t$ para $n=1,\ldots, N_T$. A partir de esta malla, el método $\text{CSS}\theta$ genera dos suceciones de aproximacciones numéricas, $\{Y_n^{*}\}_{n=0}^{N_T}$ y $\{Y_n\}_{n=0}^{N_T}$, que aproximan los valores de la solución exacta $X(t)$ en los puntos de la malla.
+Con el propósito de aproximar la solución de la @eq-6.01, fijamos un horizonte $T>0$ y construimos una discretización uniforme del intervalo $[0,T]$. Sea $N_T\in \mathbb{N}$ el número de subintervalos de la partición, y definimos el tamaño del paso $\Delta t= T/N_T$ junto con los nodos de la malla $t_n=n\Delta t$ para $n=1,\ldots, N_T$. A partir de esta malla, el método $\text{CSS}\theta$ genera dos suceciones de aproximacciones numéricas, $\{Y_n^{*}\}_{n=0}^{N_T}$ y $\{Y_n\}_{n=0}^{N_T}$, que aproximan los valores de la solución exacta $X(t)$ en los puntos de la malla.
 :::
 
 ::: {#def-CSS style="text-align: justify"}
