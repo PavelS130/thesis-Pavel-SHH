@@ -1619,7 +1619,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}.
   \end{aligned}
 \tag{6.66}\]</span></span></p>
-<p>Usando el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a>, dada por. Para nuestro caso, contemplamos a <span class="math inline">\(a_j=|Y_j|^2|g(Y_j^*)|^2\)</span> y a <span class="math inline">\(k=p/2\)</span>, de aquí</p>
+<p>Usando el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a>, para nuestro caso, contemplamos a <span class="math inline">\(a_j=|Y_j|^2|g(Y_j^*)|^2\)</span> y a <span class="math inline">\(k=p/2\)</span>, de aquí</p>
 <p><span id="eq-6.67"><span class="math display">\[
   \begin{aligned}
     \Bigg(\sum\limits_{j=0}^{M-1} &amp; |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\
@@ -1702,7 +1702,7 @@ c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p),
 <p><span id="eq-6.71"><span class="math display">\[
   S_n:=\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta \widetilde{N}_j.
 \tag{6.71}\]</span></span></p>
-<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, siguiendo el mismo procedimiento que se realizó con la <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> es posible afirmar que <span class="math inline">\(S_n\)</span> es una martingala discreta. Usando la desigualdad de BDG, acotar el término</p>
+<p>Dado que la función <span class="math inline">\(h\)</span> posee las mismas propiedades que la función <span class="math inline">\(g\)</span>, siguiendo el mismo procedimiento que se realizó con la <a href="#eq-6.57" class="quarto-xref">Ecuación&nbsp;<span>6.57</span></a> es posible afirmar que <span class="math inline">\(S_n\)</span> es una martingala discreta. Usando el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> para acotar el término</p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M}\Bigg|\sum\limits_{j=0}^{n-1}Y_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\Bigg],
 \]</span></p>
@@ -1728,11 +1728,11 @@ c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p),
     &amp; = |Y_j^*|^2|g(Y_j^*)|^2\Delta t.
   \end{aligned}
 \]</span></p>
-<p>Usando la desigualdad de BDG, existe una constante <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.73" class="quarto-xref">Ecuación&nbsp;<span>6.73</span></a> queda acotada mediante</p>
+<p>Usando el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, podemos afirmar que existe una constante <span class="math inline">\(C_p\)</span>, la cual depende únicamente de <span class="math inline">\(p\)</span> de tal forma que la <a href="#eq-6.73" class="quarto-xref">Ecuación&nbsp;<span>6.73</span></a> queda acotada mediante</p>
 <p><span id="eq-6.74"><span class="math display">\[
   \mathbb{E}[\sup\limits_{0\leq n\leq M}|Z_n|^p]\leq C_p\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j^*|^2|g(Y_j^*)|^2\Delta t\Bigg]^{p/2}.
 \tag{6.74}\]</span></span></p>
-<p>Por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> podemos afirmar que <span class="math inline">\(|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>. De la ecuación <a href="#eq-6.74" class="quarto-xref">Ecuación&nbsp;<span>6.74</span></a> al extraer <span class="math inline">\(\Delta t\)</span>, aplicar la desigualdad de Hölder para sumas finitas con <span class="math inline">\(k=p/2\)</span> y considerando la cota anterior derivada de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> se tiene</p>
+<p>Por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> podemos afirmar que <span class="math inline">\(|g(Y_j^*)|^p\leq L_{\lambda}^{p/2}(1+|Y_j^*|^2)^{p/2}\)</span>. De la ecuación <a href="#eq-6.74" class="quarto-xref">Ecuación&nbsp;<span>6.74</span></a> al extraer <span class="math inline">\(\Delta t\)</span>, aplicar el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> con <span class="math inline">\(k=p/2\)</span> y considerando la cota anterior derivada de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a> se tiene</p>
 <p><span id="eq-6.75"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
@@ -1749,7 +1749,7 @@ c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p),
 <p><span id="eq-6.76"><span class="math display">\[
   \Delta t^{p/2}M^{p/2-1}=(\Delta tM)^{p/2-1}\Delta t\leq T^{p/2-1}\Delta t.
 \tag{6.76}\]</span></span></p>
-<p>Aplicando la desigualdad de Young y la <a href="#eq-6.76" class="quarto-xref">Ecuación&nbsp;<span>6.76</span></a> a la <a href="#eq-6.75" class="quarto-xref">Ecuación&nbsp;<span>6.75</span></a> tenemos</p>
+<p>Aplicando el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> y la <a href="#eq-6.76" class="quarto-xref">Ecuación&nbsp;<span>6.76</span></a> a la <a href="#eq-6.75" class="quarto-xref">Ecuación&nbsp;<span>6.75</span></a> tenemos</p>
 <p><span id="eq-6.77"><span class="math display">\[
   \begin{aligned}
     \mathbb{E} &amp; [\sup\limits_{0\leq n\leq M}|Z_n|^p]\\
@@ -1837,9 +1837,9 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 \tag{6.84}\]</span></span></p>
 <p>Notemos que para cada <span class="math inline">\(j=0,1\ldots,n-1\)</span> se tiene</p>
 <p><span class="math display">\[
-  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2)
+  |g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\leq \frac{1}{2}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2).
 \]</span></p>
-<p>Sumando sobre <span class="math inline">\(j=0,1,\ldots,n-1\)</span> y considerando la desigualdad del triángulo se tiene</p>
+<p>Sumando sobre <span class="math inline">\(j=0,1,\ldots,n-1\)</span> y considerando la desigualdad triangular se tiene</p>
 <p><span class="math display">\[
   \begin{aligned}
   \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|&amp; \leq \sum\limits_{j=0}^{n-1}|g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j|\\
@@ -1847,7 +1847,7 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
   &amp; = \frac{1}{2}\sum\limits_{j=0}^{n-1}(|g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta \widetilde{N}_j|^2).
   \end{aligned}
 \]</span></p>
-<p>al elevar ambos lados de la desigualdad anterior a la potencia <span class="math inline">\(p\)</span> y tomar supremo sobre <span class="math inline">\(n=0,1,\ldots,M\)</span>, entonces</p>
+<p>Al elevar ambos lados de la desigualdad anterior a la potencia <span class="math inline">\(p\)</span> y tomar supremo sobre <span class="math inline">\(n=0,1,\ldots,M\)</span>, entonces</p>
 <p><span class="math display">\[
 \begin{aligned}
   \sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}g(Y_j^*)\Delta W_jh(Y_j^*)\Delta\widetilde{N}_j\Bigg|^p\\
@@ -1865,7 +1865,7 @@ C:=\max\{c_1,c_2,c_3,c_4,c_5,c_5,c_7,c_8\}.
 <p><span class="math display">\[
 a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 \]</span></p>
-<p>Con esto, aplicando la desigualdad de Hölder al término del supremo de la derecha en la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
+<p>Con esto, aplicando el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> al término del supremo de la derecha en la <a href="#eq-6.85" class="quarto-xref">Ecuación&nbsp;<span>6.85</span></a>, además, considerando que <span class="math inline">\(n\leq M\)</span> entonces</p>
 <p><span class="math display">\[
   \begin{aligned}
     \Bigg|\sum\limits_{j=0}^{n-1}a_j\Bigg|^p &amp; \leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p\\
@@ -2266,7 +2266,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
 <p><span class="math display">\[
 \mathbb{E}[|\Delta W_j(s)|^2]=\mathbb{E}[|W(t_j+s)-W(t_j)|^2]=(t_j+s)-t_j=s\leq \Delta t&lt;\infty.
 \]</span></p>
-<p>Usando la desigualdad de Cauchy-Schwarz</p>
+<p>Usando el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a>, obtenemos</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}[|g(Y_j^*)\Delta W_j(s)|] &amp; \leq \sqrt{\mathbb{E}[|g(Y_j^*)|^2]}\cdot \sqrt{\mathbb{E}[|\Delta W_j(s)|^2]}\\
@@ -2446,7 +2446,7 @@ U''(x) &amp; = p\left[\frac{p-2}{2}(1+x^2)^{(p-4)/2} \cdot 2x \cdot x + (1+x^2)^
   &amp; \qquad + \int_0^t\Bigg[(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg]dN(s).
 \end{aligned}
 \tag{6.109}\]</span></span></p>
-<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad del triángulo <span class="math inline">\(|x+h(x)|\leq |x|+|h(x)|\)</span> lo que implica que</p>
+<p>Haremos uso de la desigualdad dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, sabemos que para números no negativos se cumple la desigualdad <span class="math inline">\((a+b)^2\leq 2a^2+2b^2\)</span>. Para acotar superiormente el término de salto de la fórmula de Itô, aplicamos la desigualdad triangular <span class="math inline">\(|x+h(x)|\leq |x|+|h(x)|\)</span> lo que implica que</p>
 <p><span class="math display">\[
 \begin{aligned}
 1+(|x|+|h(x)|)^2 &amp; \leq 1 + 2|x|^2+2|h(x)|^2\\
@@ -2568,7 +2568,7 @@ X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
 \sup\limits_{t\in[0,T]}|X(t\wedge\tau_N)|\leq K_N,\quad \text{c.s.}
 \]</span></p>
 <p>Dado que <span class="math inline">\(X(t)\)</span> tiene trayectorias càdlàg, para casi todo <span class="math inline">\(\omega\in \Omega\)</span> y todo <span class="math inline">\(t&lt;\tau_N(\Omega)\)</span>, se tiene <span class="math inline">\(|X(t,\omega)|&lt;N\)</span> por la definición del ínfimo.</p>
-<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por <span class="math inline">\(X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)\)</span>. Dado que <span class="math inline">\(\Delta N(\tau_N) \in \{0, 1\}\)</span>, aplicando la desigualdad del triángulo obtenemos: <span class="math display">\[
+<p>Notemos que cuando <span class="math inline">\(t=\tau_N(\omega)\)</span> el proceso <span class="math inline">\(X(t)\)</span> puede experimentar un salto de Poisson. En este instante, el valor del proceso está dado por <span class="math inline">\(X(\tau_N) = X(\tau_N^-) + h(X(\tau_N^-))\Delta N(\tau_N)\)</span>. Dado que <span class="math inline">\(\Delta N(\tau_N) \in \{0, 1\}\)</span>, aplicando la desigualdad triangular obtenemos: <span class="math display">\[
 |X(\tau_N, \omega)| \leq |X(\tau_N^-, \omega)| + |h(X(\tau_N^-, \omega))|.
 \]</span></p>
 <p>Por la definición de <span class="math inline">\(\tau_N\)</span>, el límite por la izquierda satisface <span class="math inline">\(|X(\tau_N^-, \omega)| \leq N\)</span>. El conjunto de valores posibles para <span class="math inline">\(X(\tau_N^-, \omega)\)</span> está contenido en el intervalo cerrado y acotado:</p>
@@ -2729,7 +2729,7 @@ p(1+x^2)^{(p-2)/2}xf(x) &amp; \leq p(1+x^2)^{(p-2)/2}L_{\lambda}(1+x^2)\\
 &amp; = \frac{pL_{\lambda}}{2}(1+x^2)^{p/2}.
 \end{aligned}
 \tag{6.123}\]</span></span></p>
-<p>El producto <span class="math inline">\(xg(x)\)</span> se puede acotar mediante la desigualdad de Young, de esta forma</p>
+<p>El producto <span class="math inline">\(xg(x)\)</span> se puede acotar mediante el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a>, de esta forma</p>
 <p><span class="math display">\[
 \begin{aligned}
 xg(x) &amp; \leq \frac{1}{2}(x^2+g(x)^2)\\
@@ -2751,7 +2751,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 &amp; = \frac{p(p-2)(1+L_{\lambda}^2)}{8}(1+x^2)^{p/2}.
 \end{aligned}
 \tag{6.124}\]</span></span></p>
-<p>Finalmente, para el quinto término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a>, recordemos la cota derivada en la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a>, donde demostramos que la diferencia de saltos está cotada por <span class="math inline">\(K(1+|x|^p)\)</span>. Dado que <span class="math inline">\((1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}\)</span>, podemos acotar este término directamente como</p>
+<p>Finalmente, para el quinto término de la <a href="#eq-6.121" class="quarto-xref">Ecuación&nbsp;<span>6.121</span></a>. Recordemos la cota derivada en la <a href="#eq-6.110" class="quarto-xref">Ecuación&nbsp;<span>6.110</span></a>, donde demostramos que la diferencia de saltos está cotada por <span class="math inline">\(K(1+|x|^p)\)</span>. Dado que <span class="math inline">\((1+|x|^p)\leq 2^{(p-2)/2}(1+x^2)^{p/2}\)</span>, podemos acotar este término directamente como</p>
 <p><span id="eq-6.125"><span class="math display">\[
 \begin{aligned}
 \lambda((1 &amp; +(x+h(x))^2)^{p/2}-(1+x^2)^{p/2})\\
@@ -2782,7 +2782,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 <p><span id="eq-6.127"><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2}\leq \mathbb{E} \Big[(1+X_0^2)^{p/2}\Big] + \overline{K}\mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg].
 \tag{6.127}\]</span></span></p>
-<p>Para poder aplicar la desigualdad de Gronwall, necesitamos cambiar el límite superior de integración de <span class="math inline">\(t\wedge\tau_N\)</span> a <span class="math inline">\(t\)</span>. Haremos uso de la función indicadora definida por</p>
+<p>Para poder aplicar el <a href="preliminares.html#thm-gronwall" class="quarto-xref">Teorema&nbsp;<span>3.18</span></a>, necesitamos cambiar el límite superior de integración de <span class="math inline">\(t\wedge\tau_N\)</span> a <span class="math inline">\(t\)</span>. Haremos uso de la función indicadora definida por</p>
 <p><span class="math display">\[
 1_{s\leq\tau_N} =
 \begin{cases}
@@ -2839,7 +2839,7 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 <p><span id="eq-6.133"><span class="math display">\[
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 \tag{6.133}\]</span></span></p>
-<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el <a href="preliminares.html#lem-fatou" class="quarto-xref">Lema&nbsp;<span>3.1</span></a>, se cumple</p>
+<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el <a href="preliminares.html#lem-fatou" class="quarto-xref">Lema&nbsp;<span>3.1</span></a>, obteniendo</p>
 <p><span id="eq-6.134"><span class="math display">\[
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \tag{6.134}\]</span></span></p>
@@ -2861,7 +2861,7 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|X(t)|^p\Bigg].
 \]</span></p>
-<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos la Fórmula de Itô para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s-)\)</span>. Es claro que la primera y segunda derivada de la función <span class="math inline">\(u\)</span> están dadas por</p>
+<p>Considerando la función <span class="math inline">\(u(x)=x^2\)</span>. A dicha función aplicaremos el <a href="preliminares.html#thm-formulaito" class="quarto-xref">Teorema&nbsp;<span>3.14</span></a> para <span class="math inline">\(u\in C^2(\mathbb{R})\)</span> dada en la <a href="#eq-6.104" class="quarto-xref">Ecuación&nbsp;<span>6.104</span></a>. Nuevamente para facilitar la notación, haremos uso de <span class="math inline">\(x=X(s-)\)</span>. Es claro que la primera y segunda derivada de la función <span class="math inline">\(u\)</span> están dadas por</p>
 <p><span class="math display">\[
 u'(x)=2x,\quad  u''(x)=2,
 \]</span></p>
@@ -3014,7 +3014,7 @@ X(t)^2 &amp; \leq X_0^2 +(3+\lambda)L_{\lambda}\int_0^t(1+X(s-)^2)ds\\
 &amp; \quad + \widehat{K}\,\mathbb{E}\left[\sup_{0\leq\tau\leq t}\left|\int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s)\right|^{p/2}\right].
 \end{aligned}
 \tag{6.141}\]</span></span></p>
-<p>Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a <span class="math inline">\(ds\)</span>. Para ello, aplicamos la Desigualdad de Hölder para integrales o equivalentemente, la Desigualdad de Jensen para la medida de Lebesgue normalizada. Dado que <span class="math inline">\(p\geq 4\)</span>, el exponente <span class="math inline">\(q=p/2\)</span> satisface <span class="math inline">\(q\geq 2&gt;1\)</span>. Por lo tanto, para cualquier función medible y no negativa <span class="math inline">\(F(s)\)</span>, se cumple la desiguldad</p>
+<p>Nos enfocamos ahora en acotar el término determinista, es decir, la esperanza de la integral respecto a <span class="math inline">\(ds\)</span>. Para ello, aplicamos el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> para integrales o equivalentemente, el <a href="preliminares.html#thm-jensen" class="quarto-xref">Teorema&nbsp;<span>3.10</span></a> para la medida de Lebesgue normalizada. Dado que <span class="math inline">\(p\geq 4\)</span>, el exponente <span class="math inline">\(q=p/2\)</span> satisface <span class="math inline">\(q\geq 2&gt;1\)</span>. Por lo tanto, para cualquier función medible y no negativa <span class="math inline">\(F(s)\)</span>, se cumple la desiguldad</p>
 <p><span class="math display">\[
 \left(\int_0^t F(s)\,ds\right)^q \leq t^{q-1}\int_0^t F(s)^q\,ds.
 \]</span></p>
@@ -3089,23 +3089,23 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 &amp; \leq \Big(4 L_\lambda^2+4 L_\lambda^2\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Por lo tanto <span class="math inline">\(M_{\widetilde{N},2}\)</span> es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos <span class="math inline">\(M_W(t)\)</span>, <span class="math inline">\(M_{\widetilde{N},1}\)</span> y <span class="math inline">\(M_{\widetilde{N},2}\)</span> pertenecen al espacio <span class="math inline">\(L^2\)</span>, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy.</p>
+<p>Por lo tanto <span class="math inline">\(M_{\widetilde{N},2}\)</span> es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos <span class="math inline">\(M_W(t)\)</span>, <span class="math inline">\(M_{\widetilde{N},1}\)</span> y <span class="math inline">\(M_{\widetilde{N},2}\)</span> pertenecen al espacio <span class="math inline">\(L^2\)</span>, lo que garantiza que son martingalas y nos permite aplicar el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>.</p>
 <p>Para la martingala <span class="math inline">\(M_W(\tau)\)</span>, su variación cuadrática está dada por</p>
 <p><span class="math display">\[
 \langle M_W \rangle_{\tau} = \int_0^\tau |X(s)g(X(s)|^2ds.
 \]</span></p>
-<p>Aplicando la Desigualdad de Burkholder-Davis-Gundy con <span class="math inline">\(q=p/2\)</span>, nos indica que existe una constante <span class="math inline">\(C_{p/2,W}\)</span> tal que</p>
+<p>Aplicando el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> con <span class="math inline">\(q=p/2\)</span>, nos indica que existe una constante <span class="math inline">\(C_{p/2,W}\)</span> tal que</p>
 <p><span id="eq-6.144"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}\mathbb{E}\Bigg[\Bigg(\int_0^t |X(s)g(X(s))|^2\, ds\Bigg)^{p/4}\Bigg].
 \tag{6.144}\]</span></span></p>
-<p>Para acotar el lado derecho, haremos uso de la desigualdad de Hölder para integrales con el exponente <span class="math inline">\(r=p/4\leq 1\)</span></p>
+<p>Para acotar el lado derecho, haremos uso del <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> para integrales con el exponente <span class="math inline">\(r=p/4\leq 1\)</span></p>
 <p><span class="math display">\[
 \begin{aligned}
 \left(\int_0^t |X(s-)g(X(s-))|^2\,ds\right)^{p/4} &amp; \leq t^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds\\
 &amp; \leq T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds.
 \end{aligned}
 \]</span></p>
-<p>Tomando esperanza y usando el Teorema de Fubini-Tonnelli, ya que el integrando es no negativo, podemos obtener de la <a href="#eq-6.144" class="quarto-xref">Ecuación&nbsp;<span>6.144</span></a></p>
+<p>Tomando esperanza y usando el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a>, ya que el integrando es no negativo, podemos obtener de la <a href="#eq-6.144" class="quarto-xref">Ecuación&nbsp;<span>6.144</span></a></p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq\tau\leq t}|M_W(\tau)|^{p/2}\Bigg]\leq C_{p/2,W}T^{p/4 - 1} \int_0^t |X(s-)g(X(s-))|^{p/2}\,ds..
 \]</span></p>
@@ -3122,7 +3122,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 <p><span class="math display">\[
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|X(s)h(X(s))|^2 ds.
 \]</span></p>
-<p>Notemos que dicho término difiere de la constante <span class="math inline">\(\lambda&gt;0\)</span> a la variación cuadrática del proceso <span class="math inline">\(M_W(\tau)\)</span>, como <span class="math inline">\(h\)</span> también satisface la cota de crecimiento lineal de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, entonces es posible realizar el mismo procedimiento, aplicar la desigualdad de Burkholder-Davis-Gundy, la desigualdad de Hölder y el teorema de Fubini-Tonelli para llegar a</p>
+<p>Notemos que dicho término difiere de la constante <span class="math inline">\(\lambda&gt;0\)</span> a la variación cuadrática del proceso <span class="math inline">\(M_W(\tau)\)</span>, como <span class="math inline">\(h\)</span> también satisface la cota de crecimiento lineal de la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, entonces es posible realizar el mismo procedimiento, aplicar el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> y el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a> para llegar a</p>
 <p><span id="eq-6.146"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} \left|\int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(s)\right|^{p/2}\right] \leq K_2 \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
 \tag{6.146}\]</span></span></p>
@@ -3131,11 +3131,11 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 <p><span class="math display">\[
 \langle M_{\widetilde{N},1}\rangle_{t}=\lambda \int_0^t|h(X(s))|^4 ds.
 \]</span></p>
-<p>Aplicando la desigualdad de Burkholder-Davis-Gundy, podemos afirmar que existe una constante positiva <span class="math inline">\(C_{p/2,\widetilde{N},2}&gt;0\)</span> tal que</p>
+<p>Aplicando el @<a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, podemos afirmar que existe una constante positiva <span class="math inline">\(C_{p/2,\widetilde{N},2}&gt;0\)</span> tal que</p>
 <p><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \mathbb{E}\left[\left(\lambda \int_0^t |h(X(s))|^4 \, ds\right)^{p/4}\right].
 \]</span></p>
-<p>Aplicando Hölder y Fubini-Tonelli:</p>
+<p>Aplicando los siguientes teoremas: <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> y <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a>:</p>
 <p><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq\tau\leq t} |M_{\widetilde{N},2}(\tau)|^{p/2}\right] \leq C_{p/2} \, \lambda^{p/4} \, T^{p/4 - 1} \int_0^t \mathbb{E}\left[|h(X(s))|^{p}\right]\,ds.
 \]</span></p>
@@ -3156,7 +3156,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 &amp; \quad + K_M  \int_0^t \mathbb{E}\left[(1+X(s)^2)^{p/2}\right]\,ds,
 \end{aligned}
 \tag{6.148}\]</span></span></p>
-<p>donde <span class="math inline">\(K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}\)</span>. Usando la desigualdad de Young podemos obtener la siguiente cota para el integrando</p>
+<p>donde <span class="math inline">\(K_M:=4\widehat{K}\max\{K_1,K_2,K_3,\,T^{(p/2)-1}\}\)</span>. Usando el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> podemos obtener la siguiente cota para el integrando</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[(1+X(s)^2)^{p/2}\right] &amp; \leq 2^{(p-2)/2}\mathbb{E}\Big[1+|X(s)|^p\Big]\\
@@ -3175,7 +3175,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 &amp; = \Big(\widehat{K}\mathbb{E}\left[|X_0|^p\right]+\widetilde{K}T\Big)+\widetilde{K}\int_0^t\mathbb{E}\Bigg[\sup_{0\leq r\leq s}|X(r)|^p\Bigg]ds.
 \end{aligned}
 \]</span></p>
-<p>Aplicando la Desigualdad de Gronwall en su forma continua, podemos concluir que</p>
+<p>Aplicando el <a href="preliminares.html#thm-gronwall" class="quarto-xref">Teorema&nbsp;<span>3.18</span></a>, podemos concluir que</p>
 <p><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq\tau\leq t}|X(\tau)|^p\right]\leq \Big(\widehat{K}\mathbb{E}[|X_0|^p]+\widetilde{K}T\Big)e^{\widetilde{K}t}.
 \]</span></p>
@@ -3684,7 +3684,7 @@ E(s-)[f_{\lambda}(\overline{Y}(s-))-f_{\lambda}(X(s-))]\leq K_{\lambda}|E(s-)|^2
   &amp; \qquad +M_1(t)+M_2(t)+M_3(t).
 \end{aligned}
 \tag{6.179}\]</span></span></p>
-<p>Usando la desigualdad de Young para el primer término de la <a href="#eq-6.179" class="quarto-xref">Ecuación&nbsp;<span>6.179</span></a> tenemos</p>
+<p>Usando el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> para el primer término de la <a href="#eq-6.179" class="quarto-xref">Ecuación&nbsp;<span>6.179</span></a> tenemos</p>
 <p><span class="math display">\[
 2E(s-)(f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-)))\leq |f_{\lambda}(Y(s-))-f_{\lambda}(\overline{Y}(s-))|^2+|E(s-)|^2.
 \]</span></p>
@@ -3729,7 +3729,7 @@ Y(s-)-X(s-) &amp; =(Y(s-)-\overline{Y}(s-))+(\overline{Y}(s-)-X(s-))\\
   &amp; \qquad\qquad\qquad\qquad + 2|Y(s-)-\overline{Y}(s-)||E(s-)|\Big).
 \end{aligned}
 \]</span></p>
-<p>Usando la desigualdad de Young para el doble podructo tenemos</p>
+<p>Usando el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> para el doble podructo tenemos</p>
 <p><span class="math display">\[
 2|Y(s-)-\overline{Y}(s-)||E(s-)| = |Y(s-)-\overline{Y}(s-)|^2 + |E(s-)|^2,
 \]</span></p>
@@ -3956,7 +3956,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \]</span></p>
 <p>Por lo tanto <span class="math inline">\(M_3(t)\)</span> es una martingala cuadrado-integrable.</p>
 <p>Dado que los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span> son martingalas verdaderas, podemos hacer uso de la desigualdad de Burkholder-Davis-Gundy (BDG) para cada una de ellas.</p>
-<p>Comenzando con el proceso <span class="math inline">\(M_1(t)\)</span>, aplicamos la desigualdad BDG con exponente <span class="math inline">\(q=1\)</span>. De esta forma, podemos afirmar que existe una constante universal <span class="math inline">\(C_1 &gt; 0\)</span> (la cual depende únicamente del exponente <span class="math inline">\(q\)</span> y, por tanto, es estrictamente independiente del paso de tiempo <span class="math inline">\(\Delta t\)</span>) tal que</p>
+<p>Comenzando con el proceso <span class="math inline">\(M_1(t)\)</span>, aplicamos el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> con exponente <span class="math inline">\(q=1\)</span>. De esta forma, podemos afirmar que existe una constante universal <span class="math inline">\(C_1 &gt; 0\)</span> (la cual depende únicamente del exponente <span class="math inline">\(q\)</span> y, por tanto, es estrictamente independiente del paso de tiempo <span class="math inline">\(\Delta t\)</span>) tal que</p>
 <p><span id="eq-6.193"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right] \leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right],
 \tag{6.195}\]</span></span></p>
@@ -3989,7 +3989,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-6.194"><span class="math display">\[
 \langle M_1\rangle_t^{1/2}\leq \sqrt{8L_g}\left(\sup_{0\leq r\leq t}|E(r)|^2\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}.
 \tag{6.196}\]</span></span></p>
-<p>Aplicaremos la desigualdad de Young generalizada, dado <span class="math inline">\(\varepsilon&gt;0\)</span>, el cuál definiremos más adelante, se satisface lo siguiente</p>
+<p>Aplicaremos el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> en su versión generalizada, dado <span class="math inline">\(\varepsilon&gt;0\)</span>, el cuál definiremos más adelante, se satisface lo siguiente</p>
 <p><span class="math display">\[
 \begin{aligned}
 \left(\sup_{0\leq r\leq t}|E(r)|^2\right)^{1/2}&amp;\left(\int_0^t\Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2\Big)ds\right)^{1/2}\\
@@ -4060,7 +4060,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-6.200"><span class="math display">\[
 \langle M_2\rangle_t^{1/2} = \sqrt{8\lambda L_h}\left(\sup_{0\leq s\leq t}|E(s)|^2\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}.
 \tag{6.202}\]</span></span></p>
-<p>Usando la desigualdad de Young generalizada, para <span class="math inline">\(\delta&gt;0\)</span> se satisface</p>
+<p>Usando el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a> en su versión generalizada, para <span class="math inline">\(\delta&gt;0\)</span> se satisface</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Bigg(\sup_{0\leq s\leq t} &amp; |E(s)|^2\Bigg)^{1/2}\left(\int_0^t |Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\right)^{1/2}\\
@@ -4132,7 +4132,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\qquad\qquad + \sqrt{T}\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
 \tag{6.206}\]</span></span></p>
-<p>Usamos nuevamente la desigualdad generalizada de Young, para <span class="math inline">\(\mu&gt;0\)</span> se cumple</p>
+<p>Usamos nuevamente por el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a>, para <span class="math inline">\(\mu&gt;0\)</span> se cumple</p>
 <p><span class="math display">\[
 \Bigg(\Bigg(\sup_{0\leq r\leq t}|E(r)|^2\Bigg)\int_0^t |E(s-)|^2ds\Bigg)^{1/2}\leq \frac{1}{2\mu}\sup_{0\leq r\leq t}|E(r)|^2+\frac{\mu}{2}\int_0^t |E(s-)|^2ds.
 \]</span></p>
