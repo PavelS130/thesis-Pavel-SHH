@@ -2608,7 +2608,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 <p><span id="eq-6.114"><span class="math display">\[
   M_W(t):=\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s).
 \tag{6.114}\]</span></span></p>
-<p>Demostraremos que esta integral estocástica es una martingala, lo cual grantiza que su esperanza sea cero. Para ello, es suficiente probar que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, es decir, que su norma cuadrada tiene esperanza finita:</p>
+<p>Demostraremos que esta integral estocástica es una martingala, lo cual grantiza que su esperanza sea cero. Para ello, es suficiente probar que el integrando pertenece al espacio <span class="math inline">\(L^2\)</span>, es decir, que su norma cuadrada tiene esperanza finita:</p>
 <p><span id="eq-6.115"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} |(1+X(s-))^{(p-2)/2}X(s-)g(X(s-))|^2\Bigg]&lt;\infty,\quad s\in[0,t\wedge\tau_N].
 \tag{6.115}\]</span></span></p>
@@ -2641,7 +2641,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \leq I\cdot T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, por lo que la integral estocástica <span class="math inline">\(M_W(t)\)</span> es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que</p>
+<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(L^2\)</span>, por lo que la integral estocástica <span class="math inline">\(M_W(t)\)</span> es una martingala cuadrado-integrable, y por la propiedad de las martingalas se afirma que</p>
 <p><span id="eq-6.117"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N} (1+(X(s-))^2)^{(p-2)/2}X(s-)g(X(s-)) dW(s)\Bigg]ds=0.
 \tag{6.117}\]</span></span></p>
@@ -2661,7 +2661,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \qquad\quad + \lambda \int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)ds.
 \end{aligned}
 \tag{6.119}\]</span></span></p>
-<p>Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada <span class="math inline">\(d\widetilde{N}(s)\)</span> es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, es decir, que cumple</p>
+<p>Bajo el mismo razonamiento que para el término browniano, demostraremos que la integral respecto a la martingala compensada <span class="math inline">\(d\widetilde{N}(s)\)</span> es una martingala cuadrado-integrable, garantizando así que su esperanza sea cero. Para ello, debemos probar que el integrando pertenece al espacio <span class="math inline">\(L^2\)</span>, es decir, que cumple</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Big|(1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Big|^2ds\Bigg]&lt;\infty.
 \]</span></p>
@@ -2695,7 +2695,7 @@ C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 &amp; \leq |(1+2N^2+2L_{\lambda}(1+N^2))^{p/2}-(1+N^2)^{p/2}|^2T&lt;\infty.
 \end{aligned}
 \]</span></p>
-<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>. Entonces, la integral estocástica respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir</p>
+<p>Con esto, queda demostrado que el integrando pertenece al espacio <span class="math inline">\(L^2\)</span>. Entonces, la integral estocástica respecto a <span class="math inline">\(d\widetilde{N}(s)\)</span> es una martingala cuadrado-integrable, y se garantiza que si esperanza sea cero, es decir</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^{t\wedge\tau_N}\Bigg((1+(X(s-)+h(X(s-)))^2)^{p/2}-(1+(X(s-))^2)^{p/2}\Bigg)d\widetilde{N}(s)\Bigg]=0.
 \]</span></p>
@@ -3048,7 +3048,7 @@ M_{\widetilde{N},1}(\tau) &amp; : = \int_0^{\tau} X(s-)h(X(s-))\,d\widetilde{N}(
 M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 \end{aligned}
 \]</span></p>
-<p>Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrandos pertenecen al espacio <span class="math inline">\(\mathcal{L}^2\)</span>. Haciendo uso de la cota de crecimiento lineal dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera</p>
+<p>Afirmamos que dichos procesos son martingalas. Para ello, desmotraremos que sus integrandos pertenecen al espacio <span class="math inline">\(L^2\)</span>. Haciendo uso de la cota de crecimiento lineal dada por la <a href="#eq-6.19" class="quarto-xref">Ecuación&nbsp;<span>6.19</span></a>, podemos acotar los cuadrados de nuestros integrandos de la siguiente manera</p>
 <p><span class="math display">\[
 \begin{aligned}
 |xg(x)|^2 &amp; =|x|^2|g(x)|^2\leq |x|^2L_{\lambda}(1+|x|^2)\leq L_{\lambda}(1+|x|^2)^2,\\
@@ -3064,7 +3064,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 <p><span class="math display">\[
 \mathbb{E}\Big[|X(t)|^4\Big]\leq \sup_{0\leq \tau\leq T}\mathbb{E}\Big[|X(\tau)|^4\Big]\leq \widehat{C}(1+\mathbb{E}[X_0^4])\leq \infty.
 \]</span></p>
-<p>Además, recordemos que <span class="math inline">\(X(s-)=X(s)\)</span> para casi todo <span class="math inline">\(s\)</span> respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano <span class="math inline">\(M_W(t)\)</span>, el integrando es <span class="math inline">\(X(s-)g(X(s-))\)</span>. Evaluamos su norma en <span class="math inline">\(\mathcal{L}^2\)</span></p>
+<p>Además, recordemos que <span class="math inline">\(X(s-)=X(s)\)</span> para casi todo <span class="math inline">\(s\)</span> respecto a la medida de Lebesgue, por lo que podemos omitir el signo de límite por la izquierda dentro de las integrales deterministas. Con esto, para el término browniano <span class="math inline">\(M_W(t)\)</span>, el integrando es <span class="math inline">\(X(s-)g(X(s-))\)</span>. Evaluamos su norma en <span class="math inline">\(L^2\)</span></p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\int_0^t |X(s)g(X(s))|^2 \, ds\right]
@@ -3093,7 +3093,7 @@ M_{\widetilde{N},2}(\tau) &amp; : = \int_0^{\tau} h(X(s-))^2\,d\widetilde{N}(s).
 &amp; \leq \Big(4 L_\lambda^2+4 L_\lambda^2\widehat{C}(1+\mathbb{E}[X_0^4])\Big)T\leq \infty.
 \end{aligned}
 \]</span></p>
-<p>Por lo tanto <span class="math inline">\(M_{\widetilde{N},2}\)</span> es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos <span class="math inline">\(M_W(t)\)</span>, <span class="math inline">\(M_{\widetilde{N},1}\)</span> y <span class="math inline">\(M_{\widetilde{N},2}\)</span> pertenecen al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy.</p>
+<p>Por lo tanto <span class="math inline">\(M_{\widetilde{N},2}\)</span> es una martingala cuadrado-integrable. Con esto, hemos verificado que los procesos <span class="math inline">\(M_W(t)\)</span>, <span class="math inline">\(M_{\widetilde{N},1}\)</span> y <span class="math inline">\(M_{\widetilde{N},2}\)</span> pertenecen al espacio <span class="math inline">\(L^2\)</span>, lo que garantiza que son martingalas y nos permite aplicar la desigualdad de Burkholder-Davis-Gundy.</p>
 <p>Para la martingala <span class="math inline">\(M_W(\tau)\)</span>, su variación cuadrática está dada por</p>
 <p><span class="math display">\[
 \langle M_W \rangle_{\tau} = \int_0^\tau |X(s)g(X(s)|^2ds.
@@ -3882,7 +3882,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.192}\]</span></span></p>
-<p>Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span>, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio <span class="math inline">\(\mathcal{L}^2\)</span>.</p>
+<p>Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span>, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio <span class="math inline">\(L^2\)</span>.</p>
 <p>Debemos contemplar los métodos en los que aplicaremos el <a href="#lem-6.3" class="quarto-xref">Lema&nbsp;<span>6.3</span></a>, <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> y <a href="#lem-6.5" class="quarto-xref">Lema&nbsp;<span>6.5</span></a> de la siguiente forma: Para <span class="math inline">\(s\in[0,t]\subset [0,T]\)</span> y <span class="math inline">\(p_1\geq 1\)</span> y <span class="math inline">\(p_2\geq 4\)</span> tal que <span class="math inline">\(4\leq p\)</span> y <span class="math inline">\(4\leq 2p\)</span>, donde <span class="math inline">\(p:=\max\{p_1,p_2\}\)</span>, se satisface</p>
 <p><span id="eq-agregar01"><span class="math display">\[
 \begin{aligned}
@@ -3891,7 +3891,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \mathbb{E}\Big[|Y(s)-\overline{Y}(s)|^2\Big] &amp; \leq \mathbb{E}\Bigg[\sup_{0\leq t\leq T}|Y(t)-\overline{Y}(t)|^2\Bigg]\leq E\Delta t.
 \end{aligned}
 \tag{6.193}\]</span></span></p>
-<p>Para que <span class="math inline">\(M_1(t)\)</span> pertenezca al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir</p>
+<p>Para que <span class="math inline">\(M_1(t)\)</span> pertenezca al espacio <span class="math inline">\(L^2\)</span>, debemos demostrar que es un martingala cuadrado-integrable. Esto equivale a probar que la esperanza de la integral del cuadrado de su integrando es finita, es decir</p>
 <p><span id="eq-agregar02"><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]&lt;\infty.
 \tag{6.194}\]</span></span></p>
@@ -3932,7 +3932,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 &amp; \leq 64L_gT(A_1 + A_2+ A_1\, E\Delta t+ A_2\,E\Delta t)&lt;\infty
 \end{aligned}
 \]</span></p>
-<p>Por lo que queda demostrado que el integrando del proceso <span class="math inline">\(M_1(t)\)</span> pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>. En consecuencia, <span class="math inline">\(M_1(t)\)</span> es una martingala cuadrado-integrable.</p>
+<p>Por lo que queda demostrado que el integrando del proceso <span class="math inline">\(M_1(t)\)</span> pertenece al espacio <span class="math inline">\(L^2\)</span>. En consecuencia, <span class="math inline">\(M_1(t)\)</span> es una martingala cuadrado-integrable.</p>
 <p>Para el proceso <span class="math inline">\(M_2(t)\)</span>, basta notar la similitud entre las cotas dadas en la <a href="#eq-6.010" class="quarto-xref">Ecuación&nbsp;<span>6.10</span></a> y la <a href="#eq-6.11" class="quarto-xref">Ecuación&nbsp;<span>6.11</span></a> para la función <span class="math inline">\(g\)</span> y la función <span class="math inline">\(h\)</span> respectivamente. Por lo que el procedimiento para demostrar que la esperanza de la integral del cuadrado del integrando de <span class="math inline">\(M_2(t)\)</span> es finita, es decir</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^t |2E(s)(h(Y(s))-h(X(s)))|^2\, ds\Bigg]&lt;\infty,

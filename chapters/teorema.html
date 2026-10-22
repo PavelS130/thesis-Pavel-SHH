@@ -516,7 +516,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
 \end{aligned}
 \tag{4.2}\]</span></span></p>
 <p>Esta condición controla la variación relativa de los coeficientes, lo cual es esencial para demostrar la convergencia de la iteración de Picard (paso inductivo) y la unicidad de la solución mediante la desigualdad de Gronwall. Intuitivamente, la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> garantiza que los coeficientes no varían demasiado rápido, evitando que pequeñas diferencias en el estado del sistema se amplifiquen descontroladamente.</p>
-<p>Sin embargo, la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>, asegurando así que los integrandos pertenezcan al espacio <span class="math inline">\(\mathcal{L}^2\)</span> y que la solución no ``explote’’ en tiempo finito.</p>
+<p>Sin embargo, la <a href="#eq-4.02" class="quarto-xref">Ecuación&nbsp;<span>4.2</span></a> por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de <span class="math inline">\(f\)</span>, <span class="math inline">\(g\)</span> y <span class="math inline">\(h\)</span>, asegurando así que los integrandos pertenezcan al espacio <span class="math inline">\(L^2\)</span> y que la solución no ``explote’’ en tiempo finito.</p>
 <p><strong>Condición de crecimiento lineal</strong>: Existe una constante <span class="math inline">\(K_2&gt;0\)</span> tal que, para todo <span class="math inline">\(y\in\mathbb{R}\)</span></p>
 <p><span id="eq-4.03"><span class="math display">\[
 |f(y)|^2+|g(y)|^2+\lambda |h(y)|^2\leq K_2(1+|y|^2).
@@ -620,7 +620,7 @@ Z_1(t)-Z_0 = \int_0^t f(Z_0)\,ds + \int_0^t g(Z_0)\,dW(s) + \int_0^t h(Z_0)\,d\w
 <p><span class="math display">\[
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) &lt; \infty.
 \]</span></p>
-<p>Esto garantiza que <span class="math inline">\(M(s)\in\mathcal{L}^2\)</span>. Así, aplicando el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> para martingalas con <span class="math inline">\(p=2\)</span> y la isometría de Itô, obtenemos</p>
+<p>Esto garantiza que <span class="math inline">\(M(s)\in L^2\)</span>. Así, aplicando el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> para martingalas con <span class="math inline">\(p=2\)</span> y la isometría de Itô, obtenemos</p>
 <p><span id="eq-4.013"><span class="math display">\[
     \begin{aligned}
         \mathbb{E}\left[\sup_{0\leq s\leq t}|M(s)|^2\right] &amp; \leq 4\,\mathbb{E}[|M(t)|^2] \\
@@ -857,7 +857,7 @@ d_{k+1}(t) &amp; \leq \frac{C_1(t)^{k+1} K_3^{k+1} t^{k+1}}{(k+1)!} \\
 <p><span class="math display">\[
 d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 \]</span></p>
-<p>A continuación, demostraremos que la sucesión que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en el espacio <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span>, el cual es un espacio de Banach bajo la norma <span class="math inline">\(\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}\)</span>.</p>
+<p>A continuación, demostraremos que la sucesión que la sucesión <span class="math inline">\(\{Z_n(t)\}_{n\in \mathbb{N}}\)</span> es una sucesión de Cauchy en el espacio <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span>, el cual es un espacio de Banach bajo la norma <span class="math inline">\(\|Y\|_2:=[\mathbb{E}(|Y|^2)]^{1/2}\)</span>.</p>
 <p>Sean <span class="math inline">\(m,n \in \mathbb{N}\)</span>, sin perdida de generalidad, supongamos que <span class="math inline">\(m&lt;n\)</span>. Aplicando la desigualdad triangular para la norma <span class="math inline">\(\|\cdot\|_2\)</span>, podemos afirmmar que para cada <span class="math inline">\(0\leq s\leq t\)</span> se cumple</p>
 <p><span class="math display">\[
     \begin{aligned}
@@ -869,14 +869,14 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p><span class="math display">\[
     \mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]\leq \frac{C_2(t)^rK_3^r}{r!}.
 \]</span></p>
-<p>Dado que <span class="math inline">\(|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2\)</span> al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma <span class="math inline">\(\mathcal{L}\)</span></p>
+<p>Dado que <span class="math inline">\(|Z_r(s) - Z_{r-1}(s)|^2 \leq \sup_{0 \leq u \leq t} |Z_r(u) - Z_{r-1}(u)|^2\)</span> al tomar raíz cuadrada y el valor esperado, obtenemos la siguiente cota para la norma <span class="math inline">\(L\)</span></p>
 <p><span class="math display">\[
     \begin{aligned}
         \|Z_r(s)-Z_{r-1}(s)\|_2 &amp; \leq \sqrt{\mathbb{E}\Bigg[\sup\limits_{0\leq u\leq t}|Z_r(s)-Z_{r-1}(s)|^2\Bigg]}\\
         &amp; \leq \frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
     \end{aligned}
 \]</span></p>
-<p>Por tanto para cada <span class="math inline">\(s\in [0,t]\)</span>, la distancia en <span class="math inline">\(\mathcal{L}^2\)</span> está acotada por tenemos</p>
+<p>Por tanto para cada <span class="math inline">\(s\in [0,t]\)</span>, la distancia en <span class="math inline">\(L^2\)</span> está acotada por tenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \|Z_n(s)-Z_m(s)\|_2 &amp; \leq \sum\limits_{r=m+1}^n \|Z_r(s)-Z_{r-1}(s)\|_2\\
@@ -919,8 +919,8 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 &amp; &lt;\varepsilon.
 \end{aligned}
 \tag{4.27}\]</span></span></p>
-<p>Por lo tanto, hemos demostrado que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(\mathcal{L}^2(\Omega,\mathcal{F},\mathbb{P})\)</span> para cada <span class="math inline">\(s\in[0,t]\)</span>.</p>
-<p>Dado que <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, es decir, un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, toda sucesión de Cauchy converge en <span class="math inline">\(\mathcal{L}^2\)</span>. Por lo tanto, existe un proceso <span class="math inline">\(Z(s)\in \mathcal{L}^2\)</span> tal que</p>
+<p>Por lo tanto, hemos demostrado que <span class="math inline">\((Z_n(s))\)</span> es una sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> para cada <span class="math inline">\(s\in[0,t]\)</span>.</p>
+<p>Dado que <span class="math inline">\(L^2(\Omega, \mathcal{F},\mathbb{P})\)</span> un espacio de Banach, es decir, un espacio completo con la norma <span class="math inline">\(\|\cdot\|_2\)</span>, toda sucesión de Cauchy converge en <span class="math inline">\(L^2\)</span>. Por lo tanto, existe un proceso <span class="math inline">\(Z(s)\in L^2\)</span> tal que</p>
 <p><span id="eq-4.030"><span class="math display">\[
     \lim\limits_{m\rightarrow \infty}\|Z_m(s)-Z(s)\|_2=0, \ \ \ \forall s\in [0,t].
 \tag{4.28}\]</span></span></p>
@@ -928,11 +928,11 @@ d_n(t) \leq \frac{C_2(t)^n K_3^n}{n!}.
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \|Z(s)-Z_m(s)\|_2+\|Z_m(s)-Z_n(s)\|_2.
 \]</span></p>
-<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados y utilizando lla convergencia en <span class="math inline">\(\mathcal{L}^2\)</span> dada por la por la <a href="#eq-4.030" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a>, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie:</p>
+<p>Tomando límite cuando <span class="math inline">\(m\rightarrow\infty\)</span> en ambos lados y utilizando lla convergencia en <span class="math inline">\(L^2\)</span> dada por la por la <a href="#eq-4.030" class="quarto-xref">Ecuación&nbsp;<span>4.28</span></a>, el primer término del lado derecho se anula. Además, dado que ya demostramos que la serie de cotas converge, el segundo término está acotado por la cola de la serie:</p>
 <p><span class="math display">\[
     \lim\limits_{m\rightarrow\infty} \|Z_m(s)-Z_n(s)\|_2\leq \lim\limits_{m\rightarrow\infty}\sum\limits_{r=n+1}^m\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}=\sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 \]</span></p>
-<p>Dado que el término <span class="math inline">\(\|Z(s)-Z_n(s)\|_2\)</span> no depende de <span class="math inline">\(m\)</span>, obtenemos la siguiente cota para el error en <span class="math inline">\(\mathcal{L}^2\)</span></p>
+<p>Dado que el término <span class="math inline">\(\|Z(s)-Z_n(s)\|_2\)</span> no depende de <span class="math inline">\(m\)</span>, obtenemos la siguiente cota para el error en <span class="math inline">\(L^2\)</span></p>
 <p><span class="math display">\[
     \|Z(s)-Z_n(s)\|_2\leq \sum\limits_{r=n+1}^{\infty}\frac{C_2(t)^{r/2}K_3^{r/2}}{(r!)^{1/2}}.
 \]</span></p>
@@ -982,7 +982,7 @@ Z(t) = Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-)
 \]</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Hasta este punto, hemos demostrado que la sucesión de Picard <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> converge en <span class="math inline">\(\mathcal{L}^2\)</span> y casi seguramente de manera uniforme a un proceso límite <span class="math inline">\(Z(t)\)</span>. Sin embargo, aún debemos verificar que este proceso límite <span class="math inline">\(Z(t)\)</span> es, en efecto, una solución de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Hasta este punto, hemos demostrado que la sucesión de Picard <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> converge en <span class="math inline">\(L^2\)</span> y casi seguramente de manera uniforme a un proceso límite <span class="math inline">\(Z(t)\)</span>. Sin embargo, aún debemos verificar que este proceso límite <span class="math inline">\(Z(t)\)</span> es, en efecto, una solución de la ecuación diferencial estocástica <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
 <p>Para ello, definimos un nuevo proceso estocástico <span class="math inline">\(\tilde{Z} = (\tilde{Z}(t))_{t \geq 0}\)</span> evaluando el lado derecho de la forma integral de la <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> en el proceso límite <span class="math inline">\(Z(t)\)</span></p>
 <p><span class="math display">\[
 \tilde{Z}(t) := Z_0 + \int_0^t f(Z(s-))\,ds + \int_0^t g(Z(s-))\,dW(s) + \int_0^t h(Z(s-))\,d\widetilde{N}(s).
@@ -1051,7 +1051,7 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 <p><span class="math display">\[
 \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] \leq C_1(t) K_1 t \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right].
 \]</span></p>
-<p>En la fase de convergencia en <span class="math inline">\(\mathcal{L}^2\)</span>, demostramos previamente que el error entre el límite <span class="math inline">\(Z(s)\)</span> y la iteración <span class="math inline">\(Z_{n-1}(s)\)</span> está acotado por la cola de una serie convergente</p>
+<p>En la fase de convergencia en <span class="math inline">\(L^2\)</span>, demostramos previamente que el error entre el límite <span class="math inline">\(Z(s)\)</span> y la iteración <span class="math inline">\(Z_{n-1}(s)\)</span> está acotado por la cola de una serie convergente</p>
 <p><span class="math display">\[
 \sup_{0 \leq s \leq t} \mathbb{E}\left[|Z(s) - Z_{n-1}(s)|^2\right] \leq \left( \sum_{r=n}^{\infty} \frac{C_2(t)^{r/2} K_3^{r/2}}{(r!)^{1/2}} \right)^2.
 \]</span></p>
@@ -1059,7 +1059,7 @@ Z_n(t) = Z_0 + \int_0^t f(Z_{n-1}(s-))\,ds &amp; + \int_0^t g(Z_{n-1}(s-))\,dW(s
 <p><span class="math display">\[
 \lim_{n \to \infty} \mathbb{E}\left[|\tilde{Z}(t) - Z_n(t)|^2\right] = 0.
 \]</span></p>
-<p>Esto demuestra que <span class="math inline">\(\tilde{Z}(t)\)</span> es el límite de la sucesión <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> en el espacio <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F}, \mathbb{P})\)</span>. Sin embargo, por construcción de la iteración de Picard, también sabemos que <span class="math inline">\(Z_n(t) \to Z(t)\)</span> en <span class="math inline">\(\mathcal{L}^2\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
+<p>Esto demuestra que <span class="math inline">\(\tilde{Z}(t)\)</span> es el límite de la sucesión <span class="math inline">\((Z_n(t))_{n \in \mathbb{N}}\)</span> en el espacio <span class="math inline">\(L^2(\Omega, \mathcal{F}, \mathbb{P})\)</span>. Sin embargo, por construcción de la iteración de Picard, también sabemos que <span class="math inline">\(Z_n(t) \to Z(t)\)</span> en <span class="math inline">\(L^2\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
 <p>Por la unicidad de los límites en espacios de Banach, concluimos que</p>
 <p><span class="math display">\[
 \tilde{Z}(t) = Z(t) \quad \text{casi seguramente, para todo } t \geq 0.
@@ -1115,7 +1115,7 @@ Z^{(1)}(t) - Z^{(2)}(t) &amp; = \int_0^t \big[f(Z^{(1)}(s-)) - f(Z^{(2)}(s-))\bi
 <p><span class="math display">\[
 M_g(s) := \int_0^s \big[g(Z^{(1)}(u-)) - g(Z^{(2)}(u-))\big]\,dW(u).
 \]</span></p>
-<p>Dado que <span class="math inline">\(Z^{(1)}\)</span> y <span class="math inline">\(Z^{(2)}\)</span> son soluciones cuadrado-integrables y el coeficiente <span class="math inline">\(g\)</span> satisface la condición de crecimiento lineal, el integrando pertenece al espacio <span class="math inline">\(\mathcal{L}^2\)</span>, lo que garantiza que <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable.</p>
+<p>Dado que <span class="math inline">\(Z^{(1)}\)</span> y <span class="math inline">\(Z^{(2)}\)</span> son soluciones cuadrado-integrables y el coeficiente <span class="math inline">\(g\)</span> satisface la condición de crecimiento lineal, el integrando pertenece al espacio <span class="math inline">\(L^2\)</span>, lo que garantiza que <span class="math inline">\(M_g(s)\)</span> es una martingala cuadrado-integrable.</p>
 <p>Para acotar el supremo de esta martingala, aplicamos el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> para <span class="math inline">\(p=2\)</span>, la cual establece que</p>
 <p><span class="math display">\[
 \mathbb{E}[\sup_{0\leq s\leq t}|M_g(s)|^2] \leq 4\,\mathbb{E}[|M_g(t)|^2].
@@ -1263,7 +1263,7 @@ A_n:=\left\{\omega: Z^{(1)}(s,\omega)=Z^{(2)}(s,\omega)\ \text{para todo}\ s\in 
 <p><span class="math display">\[
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 \]</span></p>
-<p>Dado que cada <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada, en particular, pertenece a <span class="math inline">\(\mathcal{L}^2(\Omega, \mathcal{F}_0, \mathbb{P})\)</span>, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Así, para cada <span class="math inline">\(n \in \mathbb{N}\)</span>, existe una única solución fuerte <span class="math inline">\(Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}\)</span> de la ecuación <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
+<p>Dado que cada <span class="math inline">\(Z_0^{(n)}\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible y acotada, en particular, pertenece a <span class="math inline">\(L^2(\Omega, \mathcal{F}_0, \mathbb{P})\)</span>, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso <span class="math inline">\(\mathbb{E}[|Z_0|^2] &lt; \infty\)</span>. Así, para cada <span class="math inline">\(n \in \mathbb{N}\)</span>, existe una única solución fuerte <span class="math inline">\(Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}\)</span> de la ecuación <a href="#eq-4.01" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a> con condición inicial <span class="math inline">\(Z_0^{(n)}\)</span>.</p>
 <p>Para cada <span class="math inline">\(N\in \mathbb{N}\)</span>, definimos el conjunto</p>
 <p><span class="math display">\[
     \Omega_N:=\{\omega\in \Omega:|Z_0(\omega)|\leq N\}.
