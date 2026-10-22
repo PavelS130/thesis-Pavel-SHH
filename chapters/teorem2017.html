@@ -3366,7 +3366,7 @@ u &amp; := q+2,\\
 <p><span id="eq-6.162"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
 \tag{6.162}\]</span></span></p>
-<p>Por otro lado, notemos que los términos <span class="math inline">\(\Delta W_n(t)\)</span> y <span class="math inline">\(\Delta \widetilde{N}_n(t)\)</span> son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq t_n}\)</span>. Con esto, podemos hacer uso de la desigualdad de Maximal de Doob, de tal forma que</p>
+<p>Por otro lado, notemos que los términos <span class="math inline">\(\Delta W_n(t)\)</span> y <span class="math inline">\(\Delta \widetilde{N}_n(t)\)</span> son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq t_n}\)</span>. Con esto, podemos hacer uso del <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a>, de tal forma que</p>
 <p><span id="eq-6.163"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta W_n(t)|^2\right] &amp; \leq 4\mathbb{E}\left[|\Delta W_n(t_{n+1})|^2\right]\\
@@ -3374,7 +3374,7 @@ u &amp; := q+2,\\
 &amp; = 4\Delta t,
 \end{aligned}
 \tag{6.163}\]</span></span></p>
-<p>De manera similar, procedemos a usar la desigualdad de Maximal de Doob para el proceso de Poisson compensado, obteniendo</p>
+<p>De manera similar, procedemos a usar el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> para el proceso de Poisson compensado, obteniendo</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\left[\sup_{t_n\leq t\leq t_{n+1}}|\Delta \widetilde{N}_n(t)|^2\right] &amp; \leq 4\mathbb{E}\left[|\Delta \widetilde{N}_n(t_{n+1})|^2\right]\\
@@ -3469,7 +3469,7 @@ X(t) &amp; = X_0+\int_0^t f_{\lambda}(X(s-))ds+\int_0^t g(X(s-))dW(s)\\
   &amp; \qquad\qquad + [h(Y(t-))-h(X(t-))]d\widetilde{N}(t).
 \end{aligned}
 \tag{6.166}\]</span></span></p>
-<p>Dado que <span class="math inline">\(E(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso de la fórmula de Itô para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(E(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
+<p>Dado que <span class="math inline">\(E(t)\)</span> es una semimartingala càdlag en <span class="math inline">\(\mathbb{R}\)</span>, haremos uso del <a href="preliminares.html#thm-formulaito" class="quarto-xref">Teorema&nbsp;<span>3.14</span></a> para procesos con saltos. Para una función <span class="math inline">\(V\in C^2(\mathbb{R})\)</span>, esta fórmula descompone el diferencial <span class="math inline">\(dV(E(t))\)</span> en tres sumandos: la dinámica continua (deriva y difusión), la corrección de Itô debida a la variación cuadrática continua, y el efecto de los saltos discontinuos. Formalmente, se escribe como</p>
 <p><span id="eq-6.167"><span class="math display">\[
 \begin{aligned}
   dV(E(t)) &amp; = \underbrace{V'(E(t-))dE(t)}_{\text{deriva}}+\underbrace{\frac{1}{2}V''(E(t-))(dE(t))^2}_{\text{difusión}} \\
@@ -3526,7 +3526,7 @@ d(E(t)^2)=2E(t-)dE(t)+(dE(t))^2+(\Delta E(t))^2dN(t).
 <p><span class="math display">\[
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 \]</span></p>
-<p>Recordemos que el momento incial <span class="math inline">\(X_0\)</span> y <span class="math inline">\(Y_0\)</span> es determinista y constante en el tiempo, por lo que <span class="math inline">\(\Delta(X_0)=0\)</span> y <span class="math inline">\(\Delta(Y_0)=0\)</span>. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.165</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamentte tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
+<p>Recordemos que el momento incial <span class="math inline">\(X_0\)</span> y <span class="math inline">\(Y_0\)</span> es determinista y constante en el tiempo, por lo que <span class="math inline">\(\Delta(X_0)=0\)</span> y <span class="math inline">\(\Delta(Y_0)=0\)</span>. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua <span class="math inline">\(\overline{Y}(t)\)</span> dadas en <a href="#eq-6.165" class="quarto-xref">Ecuación&nbsp;<span>6.165</span></a> y <a href="#eq-6.08" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a> respectivamente tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador <span class="math inline">\(\Delta\)</span> a dichas integrales tenemos que</p>
 <p><span id="eq-6.171"><span class="math display">\[
 \begin{aligned}
   \Delta \left(\int_0^t f_{\lambda}(X(s-))ds\right) &amp; =0,\\
@@ -3814,11 +3814,11 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.186}\]</span></span></p>
-<p>Dado que <span class="math inline">\(|E(s-)|^2\geq 0\)</span> y dicho proceso es medible, por el teorema de Tonelli se cumple</p>
+<p>Dado que <span class="math inline">\(|E(s-)|^2\geq 0\)</span> y dicho proceso es medible, por el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a> se cumple</p>
 <p><span class="math display">\[
 \mathbb{E}\Bigg[\int_0^t |E(s-)|^2ds\Bigg] = \int_0^t\mathbb{E}\Big[|E(s-)|^2\Big]ds.
 \]</span></p>
-<p>Por otro lado, aplicando la desigualdad de Hölder y nuevamente el teorema de Tonelli, se puede afirmar</p>
+<p>Por otro lado, aplicando el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a> y nuevamente el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a>, se puede afirmar</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\sup_{0\leq s\leq t}|Y(s-)-\overline{Y}(s-)|^2 \int_0^t\left(1+|Y(s-)|^q+|\overline{Y}(s-)|^q\right)ds\Bigg]\\
@@ -3878,7 +3878,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
   &amp; \qquad + \mathbb{E}\Bigg[\sup_{0\leq s\leq t}M_1(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_2(s)\Bigg] + \mathbb{E}\Bigg[\sup_{0\leq s\leq t} M_3(t)\Bigg].
 \end{aligned}
 \tag{6.192}\]</span></span></p>
-<p>Usaremos la desigualdad de Burkholder-Davis-Gundy para acotar a los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span>, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio <span class="math inline">\(L^2\)</span>.</p>
+<p>Usaremos el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> para acotar a los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span>, sin embargo es necesario garantizar que dichos procesos son martingalas. Para ello, basta demostrar que sus integrandos pertenecen al espacio <span class="math inline">\(L^2\)</span>.</p>
 <p>Debemos contemplar los métodos en los que aplicaremos el <a href="#lem-6.3" class="quarto-xref">Lema&nbsp;<span>6.3</span></a>, <a href="#lem-6.4" class="quarto-xref">Lema&nbsp;<span>6.4</span></a> y <a href="#lem-6.5" class="quarto-xref">Lema&nbsp;<span>6.5</span></a> de la siguiente forma: Para <span class="math inline">\(s\in[0,t]\subset [0,T]\)</span> y <span class="math inline">\(p_1\geq 1\)</span> y <span class="math inline">\(p_2\geq 4\)</span> tal que <span class="math inline">\(4\leq p\)</span> y <span class="math inline">\(4\leq 2p\)</span>, donde <span class="math inline">\(p:=\max\{p_1,p_2\}\)</span>, se satisface</p>
 <p><span id="eq-agregar01"><span class="math display">\[
 \begin{aligned}
@@ -3900,7 +3900,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 &amp; = 8L_g \Big(|E(s)|^4+|E(s)|^4\, |Y(s)-\overline{Y}(s)|^2\Big)
 \end{aligned}
 \]</span></p>
-<p>Sustituyendo esto en la <a href="#eq-agregar02" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> y aplicar el Teorema de Fubini-Tonelli, se obtiene</p>
+<p>Sustituyendo esto en la <a href="#eq-agregar02" class="quarto-xref">Ecuación&nbsp;<span>6.194</span></a> y aplicar el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a>, se obtiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \Bigg[\int_0^t |2E(s)(g(Y(s))-g(X(s)))|^2\, ds\Bigg]\\
@@ -3955,7 +3955,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 \end{aligned}
 \]</span></p>
 <p>Por lo tanto <span class="math inline">\(M_3(t)\)</span> es una martingala cuadrado-integrable.</p>
-<p>Dado que los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span> son martingalas verdaderas, podemos hacer uso de la desigualdad de Burkholder-Davis-Gundy (BDG) para cada una de ellas.</p>
+<p>Dado que los procesos <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span> son martingalas verdaderas, podemos hacer uso del <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> para cada una de ellas.</p>
 <p>Comenzando con el proceso <span class="math inline">\(M_1(t)\)</span>, aplicamos el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a> con exponente <span class="math inline">\(q=1\)</span>. De esta forma, podemos afirmar que existe una constante universal <span class="math inline">\(C_1 &gt; 0\)</span> (la cual depende únicamente del exponente <span class="math inline">\(q\)</span> y, por tanto, es estrictamente independiente del paso de tiempo <span class="math inline">\(\Delta t\)</span>) tal que</p>
 <p><span id="eq-6.193"><span class="math display">\[
 \mathbb{E}\left[\sup_{0\leq s\leq t}|M_1(s)|\right] \leq C_1\mathbb{E}\left[\langle M_1\rangle_t^{1/2}\right],
@@ -3968,7 +3968,7 @@ D_1:= \max\{1+2K_{\lambda}+2(L_g+2\lambda L_h),2(L_g+2\lambda L_h)+D\}.
 <p><span class="math display">\[
 Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 \]</span></p>
-<p>considerando esto y desigualdad de Cauchy, se obtiene la siguiente cadena de desigualdades</p>
+<p>considerando esto y el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a>, se obtiene la siguiente cadena de desigualdades</p>
 <p><span class="math display">\[
 \begin{aligned}
 \langle M_1\rangle_t &amp; \leq 4\int_0^t|E(s-)|^2 L_g|Y(s-)-X(s-)|^2ds\\
@@ -4007,7 +4007,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + \frac{C_1 2\sqrt{2L_g}\varepsilon}{2}\mathbb{E}\Bigg[\int_0^t \Big(|Y(s-)-\overline{Y}(s-)|^2+|E(s-)|^2ds\Big)\Bigg].
 \end{aligned}
 \tag{6.197}\]</span></span></p>
-<p>Aplicando el teorema de Fubini-Tonelli al segundo término de la <a href="#eq-6.195" class="quarto-xref">Ecuación&nbsp;<span>6.197</span></a> se tiene</p>
+<p>Aplicando el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a> al segundo término de la <a href="#eq-6.195" class="quarto-xref">Ecuación&nbsp;<span>6.197</span></a> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mathbb{E} &amp; \left(\sup_{0\leq s\leq t}|M_1(t)|\right)\\  
@@ -4048,7 +4048,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 12C_1^2L_g T E\Delta t.
 \end{aligned}
 \tag{6.200}\]</span></span></p>
-<p>Usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por la desigualdad de Burkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
+<p>Usaremos un procedimiento similar para acotar el proceso <span class="math inline">\(M_2(t)\)</span>. Por <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, existe una constante <span class="math inline">\(C_2&gt;0\)</span> independiente de <span class="math inline">\(\Delta t\)</span> tal que</p>
 <p><span id="eq-6.199"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big].
 \tag{6.201}\]</span></span></p>
@@ -4090,7 +4090,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad + 12C_2^2\lambda L_h T E\Delta t.
 \end{aligned}
 \tag{6.203}\]</span></span></p>
-<p>Por último, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por la desigualdad de Burkholder-Davis-Gundy, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
+<p>Por último, acotaremos el proceso <span class="math inline">\(M_3(t)\)</span>, por el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, existe una constante <span class="math inline">\(C_3&gt;0\)</span> tal que</p>
 <p><span id="eq-6.202"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg]\leq C_3\mathbb{E}\Big[\langle M_3\rangle_t^{1/2}\Big],
 \tag{6.204}\]</span></span></p>
@@ -4155,7 +4155,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 &amp; \qquad\quad + 2C_3\sqrt{2\lambda T}L_h\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|Y(r)-\overline{Y}(r)|^2\Bigg].
 \end{aligned}
 \]</span></p>
-<p>Tomamos a <span class="math inline">\(\mu=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.199</span></a> y Fubini-Tonelli, podemos reducir la expresión anterior como se sigue</p>
+<p>Tomamos a <span class="math inline">\(\mu=6C_3\sqrt{2\lambda}L_h\)</span>, al usar la <a href="#eq-6.197" class="quarto-xref">Ecuación&nbsp;<span>6.199</span></a> y el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a> podemos reducir la expresión anterior como se sigue</p>
 <p><span id="eq-6.205"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_3(s)|\Bigg] &amp; \leq \frac{1}{6}\mathbb{E}\Bigg[\sup_{0\leq r\leq t}|E(r)|^2\Bigg]\\
@@ -4215,7 +4215,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
   &amp; \qquad +\mathcal{D}\Delta t,
 \end{aligned}
 \tag{6.210}\]</span></span></p>
-<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos usode la desigualdad de Gronwall en su versión continua, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
+<p>esto para toda <span class="math inline">\(t\in[0,T]\)</span>. Haremos uso del <a href="preliminares.html#thm-gronwall" class="quarto-xref">Teorema&nbsp;<span>3.18</span></a>, el cuál establece que si una función no negativa y continua, <span class="math inline">\(u(t)\)</span>, en el intervalo <span class="math inline">\([0,T]\)</span>, y existen constantes no negativas <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que</p>
 <p><span class="math display">\[
 u(t)\leq \alpha +\beta\int_0^t u(s)ds, \qquad\forall t\in[0,T],
 \]</span></p>
