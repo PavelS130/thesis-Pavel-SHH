@@ -717,14 +717,26 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
 <p><span class="math display">\[
     \frac{1}{p}+\frac{1}{q}=1.
 \]</span></p>
-<p>Si <span class="math inline">\(X\in L^p(\Omega,\mathcal{F},\mathbb{P})\)</span> y <span class="math inline">\(Y\in L^q(\Omega,\mathcal{F},\mathbb{P})\)</span>, entonces</p>
+<p>Se cumplen las siguientes versiones de la desigualdad:</p>
+<ol type="1">
+<li><strong>Versión probabilística:</strong> Si <span class="math inline">\(X\in L^p(\Omega,\mathcal{F},\mathbb{P})\)</span> y <span class="math inline">\(Y\in L^q(\Omega,\mathcal{F},\mathbb{P})\)</span>, entonces</li>
+</ol>
 <p><span class="math display">\[
     \mathbb{E}[|XY|]\leq\left(\mathbb{E}[|X|^p]\right)^{1/p}\left(\mathbb{E}[|Y|^q]\right)^{1/q}.
 \]</span></p>
-<p>Análogamente, para funciones <span class="math inline">\(f\in L^p([0,T])\)</span> y <span class="math inline">\(g\in L^q([0,T])\)</span>,</p>
+<ol start="2" type="1">
+<li><strong>Versión integral:</strong> Para funciones <span class="math inline">\(f\in L^p([0,T])\)</span> y <span class="math inline">\(g\in L^q([0,T])\)</span>,</li>
+</ol>
 <p><span class="math display">\[
     \int_0^T|f(s)g(s)|\,ds\leq\left(\int_0^T|f(s)|^p\,ds\right)^{1/p}\left(\int_0^T|g(s)|^q\,ds\right)^{1/q}.
 \]</span></p>
+<ol start="3" type="1">
+<li><strong>Versión discreta (para sumas finitas):</strong> Para cualquier entero <span class="math inline">\(M \geq 1\)</span>, números reales no negativos <span class="math inline">\(a_0, a_1, \dots, a_{M-1}\)</span> y un exponente <span class="math inline">\(k \geq 1\)</span>, se cumple que</li>
+</ol>
+<p><span class="math display">\[
+    \left( \sum_{j=0}^{M-1} a_j \right)^k \leq M^{k-1} \sum_{j=0}^{M-1} a_j^k.
+\]</span></p>
+<p>Esta última forma es fundamental en el análisis de métodos numéricos discretos (como se verá en el Capítulo 6) para acotar los momentos de orden superior de sumas de variables aleatorias.</p>
 <p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">

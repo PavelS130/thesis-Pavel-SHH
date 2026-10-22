@@ -566,7 +566,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 </section>
 <section id="resultados-preliminares-y-acotamiento-de-momentos" class="level2" style="text-align: justify" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="resultados-preliminares-y-acotamiento-de-momentos"><span class="header-section-number">6.3</span> Resultados Preliminares y Acotamiento de Momentos</h2>
-<p>A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, <a href="#eq-6.03" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando la desigualdad de Cauchy-Schwartz y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
+<p>A partir de estas hipótesis descritas en la sección anterior, se pueden derivar varias propiedades que serán de utilidad en el análisis siguiente. En particular, el coeficiente compensado, <a href="#eq-6.03" class="quarto-xref">Ecuación&nbsp;<span>6.3</span></a>, hereda una condición unilateral de Lipschitz, aunque con una constante ligeramente mayor. Pues, utilizando el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a> y las propiedades de <span class="math inline">\(h\)</span>, es posible demostrar que existe una constante <span class="math inline">\(K_{\lambda}:= K+\lambda\sqrt{L_h}\)</span> tal que para todos <span class="math inline">\(x,y\in \mathbb{R}\)</span> se cumple</p>
 <p><span id="eq-6.14"><span class="math display">\[
   (x-y)(f_{\lambda}(x)-f_{\lambda}(y))\leq K_{\lambda}|x-y|^2.
 \tag{6.14}\]</span></span></p>
@@ -600,7 +600,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span class="math display">\[
   x(f(x)-f(0))\leq K|x|^2.
 \]</span></p>
-<p>Para el término <span class="math inline">\(xf(0)\)</span>, podemos aplicar la desigualdad de Young, la cuál afirma que para <span class="math inline">\(a,b\in \mathbb{R}\)</span> se cumple</p>
+<p>Para el término <span class="math inline">\(xf(0)\)</span>, podemos aplicar el <a href="preliminares.html#lem-young" class="quarto-xref">Lema&nbsp;<span>3.3</span></a>, la cuál afirma que para <span class="math inline">\(a,b\in \mathbb{R}\)</span> se cumple</p>
 <p><span class="math display">\[
   ab\leq \frac{1}{2}a^2+\frac{1}{2}b^2.
 \]</span></p>
@@ -733,7 +733,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p>Sea <span class="math inline">\(Y_n \in \mathbb{R}\)</span> un valor arbitrario. Dado que <span class="math inline">\(G\)</span> es continua y sus límites en los extremos son <span class="math inline">\(+\infty\)</span> y <span class="math inline">\(-\infty\)</span>, por el <a href="preliminares.html#thm-valorintermedio" class="quarto-xref">Teorema&nbsp;<span>3.4</span></a>, existe al menos un punto <span class="math inline">\(Y_n^* \in \mathbb{R}\)</span> tal que <span class="math inline">\(G(Y_n^*) = Y_n\)</span>. Por lo tanto, <span class="math inline">\(G\)</span> es suprayectiva.</p>
 <p>Al ser <span class="math inline">\(G\)</span> inyectiva y suprayectiva, concluimos que <span class="math inline">\(G\)</span> es biyectiva.</p>
 <p>La suprayectividad de <span class="math inline">\(G\)</span> garantiza que, para cualquier valor <span class="math inline">\(Y_n \in \mathbb{R}\)</span>, existe al menos un <span class="math inline">\(Y_n^* \in \mathbb{R}\)</span> tal que <span class="math inline">\(G(Y_n^*) = Y_n\)</span>. Esto asegura la <strong>existencia</strong> de una solución para la ecuación implícita, independientemente del valor de la aproximación previa <span class="math inline">\(Y_n\)</span>.</p>
-<p>Por otro lado, la inyectividad de <span class="math inline">\(G\)</span> (derivada de su crecimiento estricto) implica que si <span class="math inline">\(G(x) = G(y)\)</span>, entonces necesariamente <span class="math inline">\(x = y\)</span>. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(\tilde{Y}_n^*\)</span> que satisfagan simultáneamente <span class="math inline">\(G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n\)</span>. Esto garantiza la unicidad de la solución.</p>
+<p>Por otro lado, la inyectividad de <span class="math inline">\(G\)</span> implica que si <span class="math inline">\(G(x) = G(y)\)</span>, entonces necesariamente <span class="math inline">\(x = y\)</span>. Aplicado a nuestro problema, esto significa que no pueden existir dos valores distintos <span class="math inline">\(Y_n^*\)</span> y <span class="math inline">\(\tilde{Y}_n^*\)</span> que satisfagan simultáneamente <span class="math inline">\(G(Y_n^*) = G(\tilde{Y}_n^*) = Y_n\)</span>. Esto garantiza la unicidad de la solución.</p>
 <p>En consecuencia, la biyectividad de <span class="math inline">\(G\)</span> asegura que la ecuación implícita</p>
 <p><span class="math display">\[
   Y_n^*=Y_n+\theta\Delta t f_{\lambda}(Y_n^*)
@@ -1334,7 +1334,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span class="math display">\[
   (a+b)^p\leq 2^{p-1}(a^p+b^p).
 \]</span></p>
-<p>Aplicaremos dicho resultado a la expresión <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> de forma iterativa como se sigue</p>
+<p>Aplicaremos dicho resultado a la <a href="#eq-6.52" class="quarto-xref">Ecuación&nbsp;<span>6.52</span></a> de forma iterativa como se sigue</p>
 <p><span class="math display">\[
   \begin{aligned}
     (1+\beta|Y_j|^2+\alpha)^p &amp; \leq 2^{p-1}[1^p+(\beta|Y_j|^2+\alpha)^p]\\
@@ -1448,7 +1448,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
   \mathbb{E}[|\Delta W_j|]=\sqrt{\frac{2\Delta t}{\pi}}&lt;\infty.
 \]</span></p>
-<p>Por lo que la integrabilidad de <span class="math inline">\(M_n\)</span> se reduce a demostrar que <span class="math inline">\(\mathbb{E}[|Y_jg(Y_j^*)|]&lt;\infty\)</span>, para todo <span class="math inline">\(j=1,2,\ldots,n-1\)</span>. Aplicando la desigualdad de Cauchy-Schwarz a la esperanza del producto, se tiene</p>
+<p>Por lo que la integrabilidad de <span class="math inline">\(M_n\)</span> se reduce a demostrar que <span class="math inline">\(\mathbb{E}[|Y_jg(Y_j^*)|]&lt;\infty\)</span>, para todo <span class="math inline">\(j=1,2,\ldots,n-1\)</span>. Aplicando el <a href="preliminares.html#thm-cauchyschwarz" class="quarto-xref">Teorema&nbsp;<span>3.8</span></a> a la esperanza del producto, se tiene</p>
 <p><span id="eq-6.58"><span class="math display">\[
   \mathbb{E}[|Y_jg(Y_j^*)|]\leq (\mathbb{E}[|Y_j|^2])^{1/2}(\mathbb{E}[|g(Y_j^*)|^2])^{1/2}.
 \tag{6.58}\]</span></span></p>
@@ -1520,7 +1520,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = D|Y_j^*|^2+D|Y_j^*|^{q+2}.
   \end{aligned}
 \tag{6.64}\]</span></span></p>
-<p>Usando la desigualdad del triángulo para <span class="math inline">\(|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|\)</span>,</p>
+<p>Usando la desigualdad triangular para <span class="math inline">\(|f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|\)</span>,</p>
 <p><span class="math display">\[
     \begin{aligned}
     |f(Y_j^*)| &amp; = |f_{\lambda}(Y_j^*)-f_{\lambda}(0)+f_{\lambda}(0)|\\
@@ -1619,11 +1619,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = C_p\Delta t^{p/2}\mathbb{E}\Bigg[\sum\limits_{j=0}^{M-1}|Y_j|^2|g(Y_j^*)|^2\Bigg]^{p/2}.
   \end{aligned}
 \tag{6.66}\]</span></span></p>
-<p>Usando la desigualdad de Hölder, dada por</p>
-<p><span class="math display">\[
-  \Bigg(\sum\limits_{j=0}^{M-1}a_j\Bigg)^k\leq M^{k-1}\sum\limits_{j=0}^{M-1}a_j^k,
-\]</span></p>
-<p>para nuestro caso, contemplamos a <span class="math inline">\(a_j=|Y_j|^2|g(Y_j^*)|^2\)</span> y a <span class="math inline">\(k=p/2\)</span>, de aquí</p>
+<p>Usando el <a href="preliminares.html#thm-holder" class="quarto-xref">Teorema&nbsp;<span>3.9</span></a>, dada por. Para nuestro caso, contemplamos a <span class="math inline">\(a_j=|Y_j|^2|g(Y_j^*)|^2\)</span> y a <span class="math inline">\(k=p/2\)</span>, de aquí</p>
 <p><span id="eq-6.67"><span class="math display">\[
   \begin{aligned}
     \Bigg(\sum\limits_{j=0}^{M-1} &amp; |Y_j|^2|g(Y_j^*)|^2\Bigg)^{p/2}\\
@@ -1689,7 +1685,11 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
 <p><span class="math display">\[
 C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)
 \]</span></p>
-<p>Se define a <span class="math inline">\(c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p)\)</span>, de aquí tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.69" class="quarto-xref">Ecuación&nbsp;<span>6.69</span></a> de la forma</p>
+<p>Se define a</p>
+<p><span class="math display">\[
+c_6:= C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\widetilde{\alpha}^p),
+\]</span></p>
+<p>de aquí tomando a <span class="math inline">\(C=\max\{c_1,c_2,c_3,c_4,c_5,c_6\}\)</span>, entonces es posible acotar la ecuación anterior, la <a href="#eq-6.69" class="quarto-xref">Ecuación&nbsp;<span>6.69</span></a> de la forma</p>
 <p><span id="eq-6.70"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
