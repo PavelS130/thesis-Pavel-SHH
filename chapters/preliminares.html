@@ -831,10 +831,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="theorem-title"><strong>Teorema 3.14 (Fórmula de Itô para EDEs con saltos)</strong></span> Sea <span class="math inline">\(X\)</span> una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>. Entonces, bajo las condiciones de integrabilidad correspondientes, para todo <span class="math inline">\(t\geq 0\)</span> se tiene</p>
 <p><span class="math display">\[
 \begin{aligned}
-    U(X(t))&amp;= U(X_0)+ \int_0^t \mathcal{L}U(X(s-))\,ds\\
-    &amp;\quad+ \int_0^t U'(X(s-))g(X(s-))\,dW(s)\\
-    &amp;\quad+ \int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\Big]\,d\widetilde{N}(s)\\
-    &amp;\quad+\lambda\int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-)) - U'(X(s-))h(X(s-))\Big]\,ds.
+  U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\
+  &amp; \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\
+  &amp; \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s),
 \end{aligned}
 \]</span></p>
 <p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>

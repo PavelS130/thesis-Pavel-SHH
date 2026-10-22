@@ -1014,7 +1014,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
     &amp; \qquad +T_5+T_6+T_7+T_8+T_9)^p.
   \end{aligned}
 \tag{6.39}\]</span></span></p>
-<p>Consideremos la siguiente desigualdad (citar) para números reales <span class="math inline">\((a_1,a_2,\ldots,a_m)\)</span>,</p>
+<p>Consideremos el <a href="preliminares.html#lem-desgsumas" class="quarto-xref">Lema&nbsp;<span>3.2</span></a>, de la forma</p>
 <p><span class="math display">\[
   \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
 \]</span></p>
@@ -1029,7 +1029,7 @@ Y(t) = \sum_{n=0}^{N_T-1} Y_n^{*}1_{[t_n,t_{n+1})}(t),\qquad t\in [0,T],
 <p><span class="math display">\[
   T_1^p=(2\beta L_{\lambda}\Delta t)^p\left(\sum\limits_{j=0}^{n-1}|Y_j|^2\right)^p.
 \]</span></p>
-<p>Para acotar este término podemos usar la desigualdad de la potencia de una suma (enunciar en preliminares y citar), la cuál indica</p>
+<p>Para acotar este término podemos haceer uso nuevamente del <a href="preliminares.html#lem-desgsumas" class="quarto-xref">Lema&nbsp;<span>3.2</span></a>, el cuál indica</p>
 <p><span class="math display">\[
   \left(\sum\limits_{j=0}^{n-1}a_j\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p, \qquad a_j\geq 0.
 \]</span></p>
@@ -1611,7 +1611,7 @@ n^{p-1}\sum\limits_{j=0}^{n-1}\mathbb{E} &amp; \Bigg[\sup\limits_{0\leq n\leq M}
     &amp; = |Y_j|^2|g(Y_j^*)|^2\Delta t.
    \end{aligned}
 \]</span></p>
-<p>Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante <span class="math inline">\(C_p\geq 0\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, que cumple</p>
+<p>Por tanto, usando el <a href="preliminares.html#thm-BDG" class="quarto-xref">Teorema&nbsp;<span>3.16</span></a>, el cual, afirma que existe una constante <span class="math inline">\(C_p\geq 0\)</span> que depende únicamente de <span class="math inline">\(p\)</span>, que cumple</p>
 <p><span id="eq-6.66"><span class="math display">\[
   \begin{aligned}
     \mathbb{E}\Bigg[\sup\limits_{0\leq n\leq M} &amp; \Bigg|\sum\limits_{j=0}^{n-1}Y_jg(Y_j^*)\Delta W_j\Bigg|^p\Bigg]\\
@@ -1768,7 +1768,7 @@ C_p\frac{T^{p/2}}{2}L_{\lambda}^{p/2}2^{2(p-1)}(1+\alpha^p)\leq C_p\frac{T^{p/2}
     &amp; \leq \widetilde{c}\Delta t\mathbb{E}\left[\sum\limits_{j=0}^{M-1}|Y_j^*|^{2p}+(1+|Y_j^*|^2)^p\right].
   \end{aligned}
 \tag{6.78}\]</span></span></p>
-<p>Para el término <span class="math inline">\((1+|Y_j^*|^2)^p\)</span> usaremos nuevamente la desigualdad (citar peliminares:), considerando la cota dada por la <a href="#eq-6.25" class="quarto-xref">Ecuación&nbsp;<span>6.25</span></a>, tenemos</p>
+<p>Para el término <span class="math inline">\((1+|Y_j^*|^2)^p\)</span> usaremos nuevamente el <a href="preliminares.html#lem-desgsumas" class="quarto-xref">Lema&nbsp;<span>3.2</span></a>, considerando la cota dada por la <a href="#eq-6.25" class="quarto-xref">Ecuación&nbsp;<span>6.25</span></a>, tenemos</p>
 <p><span class="math display">\[
   \begin{aligned}
     |Y_j^*|^{2p}+(1+|Y_j^*|^2)^p &amp; \leq |Y_j^*|^{2p}+2^{p-1}(1+|Y_j^*|^{2p})\\
@@ -2386,7 +2386,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span class="math display">\[
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 4,
 \]</span></p>
-<p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada por (citar en preliminares)</p>
+<p>tomando a <span class="math inline">\(x=X(t)\)</span>, aplicaremos la fórmula de Itô generalizada para <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, la cuál está dada en el <a href="preliminares.html#thm-formulaito" class="quarto-xref">Teorema&nbsp;<span>3.14</span></a></p>
 <p><span id="eq-6.104"><span class="math display">\[
 \begin{aligned}
   U(X(t)) &amp; = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\
