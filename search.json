@@ -80,21 +80,11 @@
     ]
   },
   {
-    "objectID": "chapters/preliminares.html#reglas-de-multiplicación-de-itô-y-variación-cuadrática",
-    "href": "chapters/preliminares.html#reglas-de-multiplicación-de-itô-y-variación-cuadrática",
-    "title": "3  Preliminares",
-    "section": "3.5 Reglas de multiplicación de Itô y variación cuadrática",
-    "text": "3.5 Reglas de multiplicación de Itô y variación cuadrática\nSean \\(W(t)\\) un movimiento browniano estándar y \\(\\widetilde{N}(t) = N(t) - \\lambda t\\) el proceso de Poisson compensado. Los procesos de variación cuadrática \\([X, X]_t\\) y covariación \\([X, Y]_t\\) para estos procesos, así como para el tiempo determinista \\(t\\), satisfacen propiedades fundamentales que, en la notación diferencial de Itô, se expresan mediante las siguientes reglas formales:\n\nVariación cuadrática del browniano: \\(d[W, W]_t = dt\\), lo que en notación diferencial se escribe como \\((dW(t))^2 = dt\\).\nVariación cuadrática del Poisson compensado: \\(d[\\widetilde{N}, \\widetilde{N}]_t = dN(t)\\), es decir, \\((d\\widetilde{N}(t))^2 = dN(t)\\).\nCovariación cruzada: \\(d[W, \\widetilde{N}]_t = 0\\), lo que implica que \\(dW(t)d\\widetilde{N}(t) = 0\\).\nProcesos de variación finita: Para cualquier proceso de variación finita \\(A(t)\\) (como el tiempo \\(t\\) o la deriva determinista), se cumple \\(d[A, X]_t = 0\\) para cualquier semimartingala \\(X(t)\\). En particular, \\((dt)^2 = 0\\), \\(dt \\, dW(t) = 0\\) y \\(dt \\, d\\widetilde{N}(t) = 0\\).\nPropiedad de los saltos del Poisson: Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria (es decir, \\(\\Delta N(t) \\in \\{0, 1\\}\\)) y la medida de integración \\(dN(t)\\) está concentrada exclusivamente en los instantes de salto, se cumple la identidad \\(\\Delta N(t) dN(t) = dN(t)\\).\n\nEstas reglas son el mecanismo algebraico que permite simplificar los términos de segundo orden al aplicar la Fórmula de Itô a funciones de semimartingalas con saltos (Protter 2005).",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
-    ]
-  },
-  {
     "objectID": "chapters/preliminares.html#sec-preliminares5",
     "href": "chapters/preliminares.html#sec-preliminares5",
     "title": "3  Preliminares",
-    "section": "3.6 Martingalas y Desigualdades Maximales",
-    "text": "3.6 Martingalas y Desigualdades Maximales\nEn el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.\nLas desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.",
+    "section": "3.5 Martingalas y Desigualdades Maximales",
+    "text": "3.5 Martingalas y Desigualdades Maximales\nEn el estudio de las ecuaciones diferenciales estocásticas (EDEs), las estimaciones puntuales de los momentos de una solución no siempre son suficientes. En las demostraciones de existencia, unicidad y convergencia fuerte es frecuente necesitar cotas que sean válidas simultáneamente para todos los instantes de un intervalo temporal. Por esta razón, resulta fundamental estudiar el comportamiento del supremo de los procesos estocásticos y, en particular, de las martingalas que aparecen como integrales estocásticas.\nLas desigualdades maximales permiten relacionar el momento del supremo de una martingala con momentos de su valor final o con cantidades que describen su variación cuadrática. En esta sección se presentan dos herramientas centrales: la desigualdad maximal de Doob y la desigualdad de Burkholder-Davis-Gundy (BDG). La primera controla el supremo mediante el valor final de la martingala, mientras que la segunda permite relacionarlo con su variación cuadrática.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -103,8 +93,8 @@
     "objectID": "chapters/preliminares.html#sec-preliminares6",
     "href": "chapters/preliminares.html#sec-preliminares6",
     "title": "3  Preliminares",
-    "section": "3.7 Convergencia de Procesos y Estimaciones Temporales",
-    "text": "3.7 Convergencia de Procesos y Estimaciones Temporales\nEn las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.\nEn esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.",
+    "section": "3.6 Convergencia de Procesos y Estimaciones Temporales",
+    "text": "3.6 Convergencia de Procesos y Estimaciones Temporales\nEn las secciones anteriores se establecieron las herramientas fundamentales del análisis real, la teoría de la probabilidad, la integración estocástica y las desigualdades para martingalas. Sin embargo, para demostrar la convergencia de una sucesión de procesos estocásticos y obtener estimaciones uniformes respecto del tiempo, es necesario contar con resultados que permitan controlar los límites y cerrar las desigualdades integrales y discretas que aparecen en las demostraciones.\nEn esta sección se presentan cuatro resultados esenciales: el lema de Borel-Cantelli, la extracción de subsucesiones convergentes casi seguramente, la desigualdad de Gronwall continua y su correspondiente versión discreta. En conjunto, estas herramientas permiten pasar de estimaciones probabilísticas a conclusiones sobre la convergencia de procesos y métodos numéricos.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
@@ -113,8 +103,8 @@
     "objectID": "chapters/preliminares.html#sec-preliminares7",
     "href": "chapters/preliminares.html#sec-preliminares7",
     "title": "3  Preliminares",
-    "section": "3.8 El Método de Iteración de Picard para EDEs",
-    "text": "3.8 El Método de Iteración de Picard para EDEs\nLa demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma \\(L^2\\)).\nLa eficacia de este método radica en que permite acotar la diferencia entre iteraciones sucesivas utilizando las herramientas establecidas en las secciones anteriores: la completitud de \\(L^2\\), la isometría de Itô, las desigualdades maximales de Doob y BDG, y finalmente, la desigualdad de Gronwall para cerrar la estimación.",
+    "section": "3.7 El Método de Iteración de Picard para EDEs",
+    "text": "3.7 El Método de Iteración de Picard para EDEs\nLa demostración de existencia de soluciones para ecuaciones diferenciales estocásticas se basa en un enfoque constructivo conocido como el método de iteración de Picard. Este método transforma el problema de resolver una ecuación diferencial estocástica en el problema de encontrar el punto fijo de un operador integral en un espacio de Banach adecuado (en nuestro caso, el espacio de procesos estocásticos adaptados, càdlàg y cuadrado-integrables, equipado con la norma \\(L^2\\)).\nLa eficacia de este método radica en que permite acotar la diferencia entre iteraciones sucesivas utilizando las herramientas establecidas en las secciones anteriores: la completitud de \\(L^2\\), la isometría de Itô, las desigualdades maximales de Doob y BDG, y finalmente, la desigualdad de Gronwall para cerrar la estimación.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Preliminares</span>"
     ]
