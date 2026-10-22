@@ -2160,11 +2160,7 @@ a_j = |g(Y_j^*)\Delta W_j|^2+|h(Y_j^*)\Delta\widetilde{N}_j|^2.
   &amp; \qquad\qquad\qquad\qquad + \sup\limits_{0\leq s\leq \Delta t}|h(Y_n^*)\Delta\widetilde{N}_n(s)|^{2p}\Bigg).
 \end{aligned}
 \tag{6.97}\]</span></span></p>
-<p>Consideramos el siguiente resultado (Se moverá a preliminares): Para cualquier función <span class="math inline">\(F(n,s)\)</span> definida sobre un conjunto de índices discretos <span class="math inline">\(n\in \{0,1,\ldots,T\}\)</span> y un parámetro continuo <span class="math inline">\(s\in [0,\Delta t]\)</span>, se cumple</p>
-<p><span class="math display">\[
-\sup\limits_{0\leq n\Delta t\leq T}\Bigg(\sup\limits_{0\leq s\leq \Delta t} F(n,s)\Bigg)=\sup\limits_{0\leq s\leq \Delta t}\Bigg(\sup\limits_{0\leq n\Delta t\leq T} F(n,s)\Bigg)
-\]</span></p>
-<p>Tomando a</p>
+<p>Consideramos la <a href="preliminares.html#prp-intercambiosupremos" class="quarto-xref">Proposición&nbsp;<span>3.1</span></a>. Tomando a</p>
 <p><span class="math display">\[
   F(n,s)=|g(Y_n^*)\Delta W_n(s)|^{2p},
 \]</span></p>
@@ -2308,7 +2304,7 @@ W(t_j+s) - W(t_j) = (W(t_j+s) - W(t_j+u)) + (W(t_j+u) - W(t_j)).
 <p><span class="math display">\[
   \mathbb{E}[g(Y_j^*)\Delta W_j(s)|\mathcal{G}_u]=g(Y_j^*)\mathbb{E}[\Delta W_j(s)|\mathcal{F}_{t_j+u}]=g(Y_j^*)\Delta W_j(u).
 \]</span></p>
-<p>Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es una martingala continua, lo que nos permite usar la desigualdad maximal de Doob al tercer término de la <a href="#eq-6.100" class="quarto-xref">Ecuación&nbsp;<span>6.100</span></a></p>
+<p>Con esto, queda demostrado que dicho proceso posee la propiedad de martingala. Por lo que podemos concluir que <span class="math inline">\(g(Y_j^*)\Delta W_j(s)\)</span> es una martingala continua, lo que nos permite usar el <a href="preliminares.html#thm-maximaldoob" class="quarto-xref">Teorema&nbsp;<span>3.15</span></a> al tercer término de la <a href="#eq-6.100" class="quarto-xref">Ecuación&nbsp;<span>6.100</span></a></p>
 <p><span class="math display">\[
   \mathbb{E}\Bigg[\sup\limits_{0\leq s\leq \Delta t}|g(Y_j^*)\Delta W_j(s)|^{2p}\Bigg]\leq \Bigg(\frac{2p}{2p-1}\Bigg)^{2p}\mathbb{E}[|g(Y_j^*)\Delta W_j(\Delta t)|^{2p}].
 \]</span></p>
@@ -2492,7 +2488,7 @@ K:=2^{(p-2)/2}(K_1^{p/2}-1)
 <p><span class="math display">\[
 |f(t_n)|\rightarrow\infty\quad\text{cuando}\quad n\rightarrow\infty.
 \]</span></p>
-<p>Por el Teorema de Bolzano-Weierstrass(citar en preliminares), como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t^*\in[0,T]\)</span>, vale decir</p>
+<p>Por el <a href="preliminares.html#thm-bolzanoweierstrass" class="quarto-xref">Teorema&nbsp;<span>3.2</span></a>, como <span class="math inline">\([0,T]\)</span> es compacto, existe una subsucesión <span class="math inline">\(\{t_{n_k}\}\)</span> que converge a algún punto <span class="math inline">\(t^*\in[0,T]\)</span>, vale decir</p>
 <p><span class="math display">\[
 t_{n_k}\rightarrow t^*\quad\text{cuando}\quad k\rightarrow\infty.
 \]</span></p>
@@ -2579,7 +2575,7 @@ X(t\wedge\tau_N):=X(\min\{t,\tau_N\}) =
 <p><span class="math display">\[
 D_N:=\{x\in\mathbb{R}:|x|\leq N\}=[-N,N].
 \]</span></p>
-<p>Por el Teorema de Heine-Borel(va preliminares), <span class="math inline">\(D_N\)</span> es un conjunto compacto. Dado que por hipótesis <span class="math inline">\(h\)</span> es continua, el Teorema del Valor Extremo, consecuencia del Teorema de Weierstrass, garantiza que <span class="math inline">\(h\)</span> alcanza su máximo absoluto en <span class="math inline">\(D_N\)</span>. Por tanto, podemos definir la constante</p>
+<p>Por el <a href="preliminares.html#thm-heineborel" class="quarto-xref">Teorema&nbsp;<span>3.1</span></a>, <span class="math inline">\(D_N\)</span> es un conjunto compacto. Dado que por hipótesis <span class="math inline">\(h\)</span> es continua, el <a href="preliminares.html#thm-weierstrass" class="quarto-xref">Teorema&nbsp;<span>3.3</span></a> garantiza que <span class="math inline">\(h\)</span> alcanza su máximo absoluto en <span class="math inline">\(D_N\)</span>. Por tanto, podemos definir la constante</p>
 <p><span class="math display">\[
 C_N:=\max\limits_{|x|\leq N}|h(x)|&lt;\infty.
 \]</span></p>
@@ -2794,7 +2790,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 0 &amp; \text{si } s&gt;\tau_N.
 \end{cases}
 \]</span></p>
-<p>Con esto, podemos reescribir la integral de la <a href="#eq-6.127" class="quarto-xref">Ecuación&nbsp;<span>6.127</span></a> y aplicamos el Teorema de Fubini-Tonelli, dado que el integrando es no negativo, para intercambiar el orden de la integral y la esperanza, obteniendo</p>
+<p>Con esto, podemos reescribir la integral de la <a href="#eq-6.127" class="quarto-xref">Ecuación&nbsp;<span>6.127</span></a> y aplicamos el <a href="preliminares.html#thm-fubinotonelli" class="quarto-xref">Teorema&nbsp;<span>3.7</span></a>, dado que el integrando es no negativo, para intercambiar el orden de la integral y la esperanza, obteniendo</p>
 <p><span id="eq-6.128"><span class="math display">\[
 \begin{aligned}
 \mathbb{E}\Bigg[\int_{0}^{t\wedge\tau_N}(1+X(s)^2)^{p/2}ds\Bigg] &amp; = \mathbb{E}\Bigg[\int_0^t (1+X(s)^2)^{p/2}1_{s\leq\tau_N}ds\Bigg]\\
@@ -2827,7 +2823,7 @@ x^2g(x)^2\leq \frac{(1+L_{\lambda})^2}{4}(1+x^2)^2.
 <p><span class="math display">\[
 \mathbb{E} [1+X(t\wedge\tau_N)^{2}]^{p/2} \leq a + K\int_0^t \mathbb{E}[1+X(s\wedge\tau_N)^2]^{p/2}ds.
 \]</span></p>
-<p>Definimos la función <span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\)</span>, la cuál es medible y no negativa. La desigualdad anterior toma la forma <span class="math inline">\(u(t)\leq a + \int_0^t  \overline{K}u(s)ds\)</span>, con <span class="math inline">\(b(s)=K\)</span>. Por el Teorema de la Desigualdad de Gronwall en su forma continua, concluimos que</p>
+<p>Definimos la función <span class="math inline">\(u(t)=\mathbb{E}[1+X(t\wedge\tau_N)]^{p/2}\)</span>, la cuál es medible y no negativa. La desigualdad anterior toma la forma <span class="math inline">\(u(t)\leq a + \int_0^t  \overline{K}u(s)ds\)</span>, con <span class="math inline">\(b(s)=K\)</span>. Por el <a href="preliminares.html#thm-gronwall" class="quarto-xref">Teorema&nbsp;<span>3.18</span></a>, concluimos que</p>
 <p><span class="math display">\[
 u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\in [0,T].
 \]</span></p>
@@ -2843,7 +2839,7 @@ u(t)\leq a\exp\Bigg(\int_0^t Kds\Bigg)=a\exp(Kt)\leq a\exp(KT),\qquad \forall t\
 <p><span id="eq-6.133"><span class="math display">\[
 \liminf_{N \to \infty} \left( 1 + X(t \wedge \tau_N)^2 \right)^{p/2} = \lim_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}
 \tag{6.133}\]</span></span></p>
-<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el Lema de Fatou (preliminares), se cumple</p>
+<p>Consideremos la sucesión de variables aleatorias <span class="math inline">\(Y_N:=(1+X(t\wedge\tau_N)^2)^{p/2}\)</span>, la cual es una sucesión de términos no negativos. Lo que nos permite usar el <a href="preliminares.html#lem-fatou" class="quarto-xref">Lema&nbsp;<span>3.1</span></a>, se cumple</p>
 <p><span id="eq-6.134"><span class="math display">\[
 \mathbb{E}\left[\liminf_{N\rightarrow\infty}(1+X(t\wedge\tau_N)^2)^{p/2}\right]\leq \liminf_{N\rightarrow\infty}\mathbb{E}[1+X(t\wedge\tau_N)^2]^{p/2}
 \tag{6.134}\]</span></span></p>
@@ -4056,7 +4052,7 @@ Y(s-)-X(s-)=Y(s-)-\overline{Y}(s-)+E(s-),
 <p><span id="eq-6.199"><span class="math display">\[
 \mathbb{E}\Bigg[\sup_{0\leq s\leq t}|M_2(s)|\Bigg]\leq C_2\mathbb{E}\Big[\langle M_2\rangle_t^{1/2}\Big].
 \tag{6.201}\]</span></span></p>
-<p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene multiplicando el cuadrado del integrando por la intensidad del proceso de Poisson, en nuestro caso, <span class="math inline">\(\lambda&gt;0\)</span>, esto pues el compensador de <span class="math inline">\(dN(s)\)</span> es <span class="math inline">\(\lambda ds\)</span>, es decir</p>
+<p>Para una integral estocástica con respecto al proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(s)\)</span>; la variación cuadratica <span class="math inline">\(\langle M_2\rangle_t\)</span> se obtiene por el <a href="preliminares.html#thm-doobmeyer" class="quarto-xref">Teorema&nbsp;<span>3.12</span></a>, obteniendo en nuestro caso</p>
 <p><span class="math display">\[
 \langle M_2\rangle_t = 4\lambda\int_0^t |E(s-)|^2|h(Y(s-))-h(X(s-))|^2ds.
 \]</span></p>
