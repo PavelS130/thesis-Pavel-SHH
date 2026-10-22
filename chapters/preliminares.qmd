@@ -309,21 +309,91 @@ $$
 
 :::
 
+::: {style="text-align: justify"}
+
+Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS$\theta$. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.
+
+:::
+
 ::: {#prp-intercambiosupremos style="text-align: justify"}
 
 ## Intercambio de Supremos Iterados
 
-Sea $F: \mathcal{N} \times \mathcal{S} \to \mathbb{R}$ una función acotada superiormente, donde $\mathcal{N}$ y $\mathcal{S}$ son conjuntos de índices arbitrarios. Entonces, el supremo iterado es independiente del orden de evaluación y coincide con el supremo sobre el producto cartesiano. En particular, para un conjunto de índices discretos $n\Delta t \in [0, T]$ y un parámetro continuo $s \in [0, \Delta t]$, se cumple que:
+Sean $I$ y $J$ conjuntos de índices no vacíos y sea
+$F\colon I\times J\to\mathbb{R}$ una función arbitraria. Entonces
 
 $$
-\sup_{0\leq n\Delta t\leq T}\Bigg(\sup_{0\leq s\leq \Delta t} F(n,s)\Bigg) = \sup_{0\leq s\leq \Delta t}\Bigg(\sup_{0\leq n\Delta t\leq T} F(n,s)\Bigg) = \sup_{\substack{0\leq n\Delta t\leq T \\ 0\leq s\leq \Delta t}} F(n,s).
+\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right)=\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)=\sup_{(i,j)\in I\times J}F(i,j),
+$$ {#eq-3.01}
+
+donde los supremos se interpretan en $\mathbb{R}\cup\{-\infty,+\infty\}$. En particular, si $F$ está acotada superiormente en $I\times J$, los tres valores anteriores son reales finitos y coinciden.
+
+Más aún, sean $T>0$, $\Delta t>0$ y
+
 $$
+\mathcal{N}_{\Delta t}:=\bigl\{n\in\mathbb{N}_0 : n\Delta t\leq T\bigr\}.
+$$
+
+Para toda función $F\colon \mathcal{N}_{\Delta t}\times[0,\Delta t]\to\mathbb{R}$ se cumple
+
+$$
+\sup_{0\leq n\Delta t\leq T}\left(\sup_{0\leq s\leq \Delta t}F(n,s)\right)=\sup_{0\leq s\leq \Delta t}\left(\sup_{0\leq n\Delta t\leq T}F(n,s)\right)=\sup_{\substack{0\leq n\Delta t\leq T\\ 0\leq s\leq \Delta t}}F(n,s).
+$$ {#eq-3.02}
 
 :::
 
-::: {style="text-align: justify"}
+::: {.proof style="text-align: justify"}
 
-Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS$\theta$. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.
+Demostramos primero la @eq-6.01.
+Dado que $I\neq\emptyset$ y $J\neq\emptyset$, el conjunto
+$F(I\times J)$ es no vacío, por lo que su supremo está bien definido en $\mathbb{R}\cup\{-\infty,+\infty\}$. Definimos
+
+$$
+M:=\sup_{(i,j)\in I\times J}F(i,j),\qquad L:=\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right).
+$$
+
+Supongamos que $L\leq M$. Por definición de supremo, $F(i,j)\leq M$ para todo $(i,j)\in I\times J$. Fijado $i\in I$, el valor $M$ es entonces una cota superior del conjunto
+$\{F(i,j):j\in J\}$, y como el supremo es la mínima cota superior,
+
+$$
+\sup_{j\in J}F(i,j)\leq M.
+$$
+
+Esta desigualdad es válida para todo $i\in I$; aplicando nuevamente la monotonía del supremo obtenemos
+
+$$
+L=\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right)\leq M.
+$$
+
+Intercambiando el papel de los conjuntos $I$ y $J$, el mismo argumento provee
+
+$$
+\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)\leq M.
+$$
+
+Supongamos ahora que $M\leq L.$ Para cada $(i,j)\in I\times J$, el valor $F(i,j)$ pertenece al conjunto $\{F(i,j'):j'\in J\}$, de donde
+
+$$
+F(i,j)\leq \sup_{j'\in J}F(i,j')\leq \sup_{i'\in I}\left(\sup_{j'\in J}F(i',j')\right)=L.
+$$
+
+Esto implica que, $L$ es una cota superior de $F$ sobre $I\times J$. Nuevamente por ser el supremo la mínima cota superior, $M\leq L$.
+
+Por lo tanto, se afirma que $L=M$, además se cumple
+
+$$
+\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)=M,
+$$
+
+lo que prueba @eq-3.01. Si $F$ está acotada superiormente, entonces $m<+\infty$; cómo $I\times J\neq\emptyset$, se tiene que $M>-\infty$, con esto los tres valores son finitos.
+
+Por último, tomemos 
+
+$$
+I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta t].
+$$
+
+Afirmamos que ambos conjuntosson no vacíos, pues $0\in\mathcal{N}_{\Delta t}$ pues $T>0$, y $0\in[0,\Delta t]$. Además la condición $n\in\mathcal{N}_{\Delta t}$ es equivalente a $0\leq n\Delta t\leq T$. Aplicando @eq-3.01 a esta selección de $I$ y $J$ se cumple @eq-3.02.
 
 :::
 
@@ -337,7 +407,7 @@ $$
     \sup_{s\in I}\bigl(f(s)+g(s)\bigr)\leq\sup_{s\in I}f(s)+\sup_{s\in I}g(s).
 $$
 
-Además, si $f(s)\leq M$ para todo $s\in I$, entonces
+ Además, si $f(s)\leq M$ para todo $s\in I$, entonces
 
 $$
     \sup_{s\in I}f(s)\leq M.
