@@ -309,6 +309,18 @@ $$
 
 :::
 
+::: {#prp-intercambiosupremos style="text-align: justify"}
+
+## Intercambio de Supremos Iterados
+
+Sea $F: \mathcal{N} \times \mathcal{S} \to \mathbb{R}$ una función acotada superiormente, donde $\mathcal{N}$ y $\mathcal{S}$ son conjuntos de índices arbitrarios. Entonces, el supremo iterado es independiente del orden de evaluación y coincide con el supremo sobre el producto cartesiano. En particular, para un conjunto de índices discretos $n\Delta t \in [0, T]$ y un parámetro continuo $s \in [0, \Delta t]$, se cumple que:
+
+$$
+\sup_{0\leq n\Delta t\leq T}\Bigg(\sup_{0\leq s\leq \Delta t} F(n,s)\Bigg) = \sup_{0\leq s\leq \Delta t}\Bigg(\sup_{0\leq n\Delta t\leq T} F(n,s)\Bigg) = \sup_{\substack{0\leq n\Delta t\leq T \\ 0\leq s\leq \Delta t}} F(n,s).
+$$
+
+:::
+
 ::: {style="text-align: justify"}
 
 Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS$\theta$. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.
@@ -691,10 +703,9 @@ bajo las condiciones de integrabilidad correspondientes, para todo $t\geq 0$ se 
 
 $$
 \begin{aligned}
-    U(X(t))&= U(X_0)+ \int_0^t \mathcal{L}U(X(s-))\,ds\\
-    &\quad+ \int_0^t U'(X(s-))g(X(s-))\,dW(s)\\
-    &\quad+ \int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-))\Big]\,d\widetilde{N}(s)\\
-    &\quad+\lambda\int_0^t\Big[U(X(s-)+h(X(s-)))-U(X(s-)) - U'(X(s-))h(X(s-))\Big]\,ds.
+  U(X(t)) & = U(X_0)+\int_0^t\mathcal{L}U(X(s-))ds\\ 
+  & \qquad +\int_0^t U'(X(s-))g(X(s-))dW(s)\\ 
+  & \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s), 
 \end{aligned}
 $$
 

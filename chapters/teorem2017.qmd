@@ -807,7 +807,7 @@ $$
   \end{aligned}
 $$ {#eq-6.39}
 
-Consideremos la siguiente desigualdad (citar) para números reales $(a_1,a_2,\ldots,a_m)$,
+Consideremos el @lem-desgsumas, de la forma
 
 $$
   \Bigg(\sum\limits_{i=1}^m a_i\Bigg)^p\leq m^{p-1}\sum\limits_{i=0}^m|a_i|^p.
@@ -828,7 +828,7 @@ $$
   T_1^p=(2\beta L_{\lambda}\Delta t)^p\left(\sum\limits_{j=0}^{n-1}|Y_j|^2\right)^p.
 $$
 
-Para acotar este término podemos usar la desigualdad de la potencia de una suma (enunciar en preliminares y citar), la cuál indica
+Para acotar este término podemos haceer uso nuevamente del @lem-desgsumas, el cuál indica
 
 $$
   \left(\sum\limits_{j=0}^{n-1}a_j\right)^p\leq n^{p-1}\sum\limits_{j=0}^{n-1}a_j^p, \qquad a_j\geq 0.
@@ -1618,7 +1618,7 @@ $$
    \end{aligned}
 $$
 
-Por tanto, usando la desigualdad BDG,(se va a citar en preliminares) se afirma que existe una constante $C_p\geq 0$ que depende únicamente de $p$, que cumple
+Por tanto, usando el @thm-BDG, el cual, afirma que existe una constante $C_p\geq 0$ que depende únicamente de $p$, que cumple
 
 $$
   \begin{aligned}
@@ -1821,7 +1821,7 @@ $$
   \end{aligned}
 $$ {#eq-6.78}
 
-Para el término $(1+|Y_j^*|^2)^p$ usaremos nuevamente la desigualdad (citar peliminares:), considerando la cota dada por la @eq-6.25, tenemos
+Para el término $(1+|Y_j^*|^2)^p$ usaremos nuevamente el @lem-desgsumas, considerando la cota dada por la @eq-6.25, tenemos
 
 $$
   \begin{aligned}
@@ -2652,7 +2652,7 @@ $$
   U(x)=(1+x^2)^{p/2}, \qquad p\geq 4,
 $$
 
-tomando a $x=X(t)$, aplicaremos la fórmula de Itô generalizada para $U\in C^2(\mathbb{R})$, la cuál está dada por (citar en preliminares)
+tomando a $x=X(t)$, aplicaremos la fórmula de Itô generalizada para $U\in C^2(\mathbb{R})$, la cuál está dada en el @thm-formulaito 
 
 $$
 \begin{aligned}
