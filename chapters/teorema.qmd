@@ -239,7 +239,7 @@ $$
     \mathbb{E}[|g(Z_0)|^2] \leq \mathbb{E}\Big[|f(Z_0)|^2 + |g(Z_0)|^2 + \lambda|h(Z_0)|^2\Big] \leq K_2\big(1 + \mathbb{E}[|Z_0|^2]\big) < \infty.
 $$
 
-Esto garantiza que $M(s)\inL^2$. Así, aplicando el @thm-maximaldoob para martingalas con $p=2$ y la isometría de Itô, obtenemos
+Esto garantiza que $M(s)\in L^2$. Así, aplicando el @thm-maximaldoob para martingalas con $p=2$ y la isometría de Itô, obtenemos
 
 $$
     \begin{aligned}
