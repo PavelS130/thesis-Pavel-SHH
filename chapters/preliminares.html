@@ -628,14 +628,56 @@ window.Quarto = {
 \]</span></p>
 <p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
-<div id="prp-intercambiosupremos" class="theorem proposition" style="text-align: justify">
-<p><span class="theorem-title"><strong>Proposición 3.1 (Intercambio de Supremos Iterados)</strong></span> Sea <span class="math inline">\(F: \mathcal{N} \times \mathcal{S} \to \mathbb{R}\)</span> una función acotada superiormente, donde <span class="math inline">\(\mathcal{N}\)</span> y <span class="math inline">\(\mathcal{S}\)</span> son conjuntos de índices arbitrarios. Entonces, el supremo iterado es independiente del orden de evaluación y coincide con el supremo sobre el producto cartesiano. En particular, para un conjunto de índices discretos <span class="math inline">\(n\Delta t \in [0, T]\)</span> y un parámetro continuo <span class="math inline">\(s \in [0, \Delta t]\)</span>, se cumple que:</p>
-<p><span class="math display">\[
-\sup_{0\leq n\Delta t\leq T}\Bigg(\sup_{0\leq s\leq \Delta t} F(n,s)\Bigg) = \sup_{0\leq s\leq \Delta t}\Bigg(\sup_{0\leq n\Delta t\leq T} F(n,s)\Bigg) = \sup_{\substack{0\leq n\Delta t\leq T \\ 0\leq s\leq \Delta t}} F(n,s).
-\]</span></p>
-</div>
 <div style="text-align: justify">
 <p>Esta desigualdad es especialmente útil cuando se trabaja con integrales estocásticas que contienen tres términos (deriva, difusión y salto), como ocurre en la iteración de Picard y en el análisis de convergencia del método CSS<span class="math inline">\(\theta\)</span>. Permite descomponer el cuadrado de una suma en una suma de cuadrados, facilitando el acotamiento individual de cada componente.</p>
+</div>
+<div id="prp-intercambiosupremos" class="theorem proposition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Proposición 3.1 (Intercambio de Supremos Iterados)</strong></span> Sean <span class="math inline">\(I\)</span> y <span class="math inline">\(J\)</span> conjuntos de índices no vacíos y sea <span class="math inline">\(F\colon I\times J\to\mathbb{R}\)</span> una función arbitraria. Entonces</p>
+<p><span id="eq-3.01"><span class="math display">\[
+\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right)=\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)=\sup_{(i,j)\in I\times J}F(i,j),
+\tag{3.1}\]</span></span></p>
+<p>donde los supremos se interpretan en <span class="math inline">\(\mathbb{R}\cup\{-\infty,+\infty\}\)</span>. En particular, si <span class="math inline">\(F\)</span> está acotada superiormente en <span class="math inline">\(I\times J\)</span>, los tres valores anteriores son reales finitos y coinciden.</p>
+<p>Más aún, sean <span class="math inline">\(T&gt;0\)</span>, <span class="math inline">\(\Delta t&gt;0\)</span> y</p>
+<p><span class="math display">\[
+\mathcal{N}_{\Delta t}:=\bigl\{n\in\mathbb{N}_0 : n\Delta t\leq T\bigr\}.
+\]</span></p>
+<p>Para toda función <span class="math inline">\(F\colon \mathcal{N}_{\Delta t}\times[0,\Delta t]\to\mathbb{R}\)</span> se cumple</p>
+<p><span id="eq-3.02"><span class="math display">\[
+\sup_{0\leq n\Delta t\leq T}\left(\sup_{0\leq s\leq \Delta t}F(n,s)\right)=\sup_{0\leq s\leq \Delta t}\left(\sup_{0\leq n\Delta t\leq T}F(n,s)\right)=\sup_{\substack{0\leq n\Delta t\leq T\\ 0\leq s\leq \Delta t}}F(n,s).
+\tag{3.2}\]</span></span></p>
+</div>
+<div class="proof" style="text-align: justify">
+<p><span class="proof-title"><em>Demostración</em>. </span>Demostramos primero la identidad <a href="teorem2017.html#eq-6.01" class="quarto-xref">Ecuación&nbsp;<span>6.1</span></a>. Dado que <span class="math inline">\(I\neq\emptyset\)</span> y <span class="math inline">\(J\neq\emptyset\)</span>, el conjunto <span class="math inline">\(F(I\times J)\)</span> es no vacío, por lo que su supremo está bien definido en <span class="math inline">\(\mathbb{R}\cup\{-\infty,+\infty\}\)</span>. Definimos</p>
+<p><span class="math display">\[
+M:=\sup_{(i,j)\in I\times J}F(i,j),\qquad L:=\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right).
+\]</span></p>
+<p>Supongamos que <span class="math inline">\(L\leq M\)</span>. Por definición de supremo, <span class="math inline">\(F(i,j)\leq M\)</span> para todo <span class="math inline">\((i,j)\in I\times J\)</span>. Fijado <span class="math inline">\(i\in I\)</span>, el valor <span class="math inline">\(M\)</span> es entonces una cota superior del conjunto <span class="math inline">\(\{F(i,j):j\in J\}\)</span>, y como el supremo es la mínima cota superior,</p>
+<p><span class="math display">\[
+\sup_{j\in J}F(i,j)\leq M.
+\]</span></p>
+<p>Esta desigualdad es válida para todo <span class="math inline">\(i\in I\)</span>; aplicando nuevamente la monotonía del supremo obtenemos</p>
+<p><span class="math display">\[
+L=\sup_{i\in I}\left(\sup_{j\in J}F(i,j)\right)\leq M.
+\]</span></p>
+<p>Intercambiando el papel de los conjuntos <span class="math inline">\(I\)</span> y <span class="math inline">\(J\)</span>, el mismo argumento provee</p>
+<p><span class="math display">\[
+\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)\leq M.
+\]</span></p>
+<p>Supongamos ahora que <span class="math inline">\(M\leq L.\)</span> Para cada <span class="math inline">\((i,j)\in I\times J\)</span>, el valor <span class="math inline">\(F(i,j)\)</span> pertenece al conjunto <span class="math inline">\(\{F(i,j'):j'\in J\}\)</span>, de donde</p>
+<p><span class="math display">\[
+F(i,j)\leq \sup_{j'\in J}F(i,j')\leq \sup_{i'\in I}\left(\sup_{j'\in J}F(i',j')\right)=L.
+\]</span></p>
+<p>Esto implica que, <span class="math inline">\(L\)</span> es una cota superior de <span class="math inline">\(F\)</span> sobre <span class="math inline">\(I\times J\)</span>. Nuevamente por ser el supremo la mínima cota superior, <span class="math inline">\(M\leq L\)</span>.</p>
+<p>Por lo tanto, se afirma que <span class="math inline">\(L=M\)</span>, además se cumple</p>
+<p><span class="math display">\[
+\sup_{j\in J}\left(\sup_{i\in I}F(i,j)\right)=M,
+\]</span></p>
+<p>lo que prueba <a href="#eq-3.01" class="quarto-xref">Ecuación&nbsp;<span>3.1</span></a>. Si <span class="math inline">\(F\)</span> está acotada superiormente, entonces <span class="math inline">\(m&lt;+\infty\)</span>; cómo <span class="math inline">\(I\times J\neq\emptyset\)</span>, se tiene que <span class="math inline">\(M&gt;-\infty\)</span>, con esto los tres valores son finitos.</p>
+<p>Por último, tomemos</p>
+<p><span class="math display">\[
+I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta t].
+\]</span></p>
+<p>Afirmamos que ambos conjuntosson no vacíos, pues <span class="math inline">\(0\in\mathcal{N}_{\Delta t}\)</span> pues <span class="math inline">\(T&gt;0\)</span>, y <span class="math inline">\(0\in[0,\Delta t]\)</span>. Además la condición <span class="math inline">\(n\in\mathcal{N}_{\Delta t}\)</span> es equivalente a <span class="math inline">\(0\leq n\Delta t\leq T\)</span>. Aplicando <a href="#eq-3.01" class="quarto-xref">Ecuación&nbsp;<span>3.1</span></a> a esta selección de <span class="math inline">\(I\)</span> y <span class="math inline">\(J\)</span> se cumple <a href="#eq-3.02" class="quarto-xref">Ecuación&nbsp;<span>3.2</span></a>.</p>
 </div>
 <div id="prp-propsupremos" class="theorem proposition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Proposición 3.2 (Propiedades del supremo)</strong></span> Sea <span class="math inline">\(I\)</span> un conjunto no vacío y sean <span class="math inline">\(f,g:I\to\mathbb{R}\)</span> funciones acotadas superiormente. Entonces,</p>
