@@ -442,7 +442,6 @@ window.Quarto = {
   <li><a href="#sec-preliminares2" id="toc-sec-preliminares2" class="nav-link" data-scroll-target="#sec-preliminares2"><span class="header-section-number">3.2</span> Espacios de Probabilidad y Procesos Estocásticos</a></li>
   <li><a href="#sec-preliminares3" id="toc-sec-preliminares3" class="nav-link" data-scroll-target="#sec-preliminares3"><span class="header-section-number">3.3</span> Herramientas Analíticas y Desigualdades</a></li>
   <li><a href="#sec-preliminares4" id="toc-sec-preliminares4" class="nav-link" data-scroll-target="#sec-preliminares4"><span class="header-section-number">3.4</span> Integración Estocástica y Fórmula de Itô</a></li>
-  <li><a href="#reglas-de-multiplicación-de-itô-y-variación-cuadrática" id="toc-reglas-de-multiplicación-de-itô-y-variación-cuadrática" class="nav-link" data-scroll-target="#reglas-de-multiplicación-de-itô-y-variación-cuadrática"><span class="header-section-number">3.4.1</span> Reglas de multiplicación de Itô y variación cuadrática</a></li>
   <li><a href="#sec-preliminares5" id="toc-sec-preliminares5" class="nav-link" data-scroll-target="#sec-preliminares5"><span class="header-section-number">3.5</span> Martingalas y Desigualdades Maximales</a></li>
   <li><a href="#sec-preliminares6" id="toc-sec-preliminares6" class="nav-link" data-scroll-target="#sec-preliminares6"><span class="header-section-number">3.6</span> Convergencia de Procesos y Estimaciones Temporales</a></li>
   <li><a href="#sec-preliminares7" id="toc-sec-preliminares7" class="nav-link" data-scroll-target="#sec-preliminares7"><span class="header-section-number">3.7</span> El Método de Iteración de Picard para EDEs</a></li>
@@ -891,10 +890,8 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 \]</span></p>
 <p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
 </div>
-<div id="prop-reglas-ito" style="text-align: justify">
-<section id="reglas-de-multiplicación-de-itô-y-variación-cuadrática" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="reglas-de-multiplicación-de-itô-y-variación-cuadrática"><span class="header-section-number">3.4.1</span> Reglas de multiplicación de Itô y variación cuadrática</h3>
-<p>Sean <span class="math inline">\(W(t)\)</span> un movimiento browniano estándar y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> el proceso de Poisson compensado. Los procesos de variación cuadrática <span class="math inline">\([X, X]_t\)</span> y covariación <span class="math inline">\([X, Y]_t\)</span> para estos procesos, así como para el tiempo determinista <span class="math inline">\(t\)</span>, satisfacen propiedades fundamentales que, en la notación diferencial de Itô, se expresan mediante las siguientes reglas formales:</p>
+<div id="prp-reglasito" class="theorem proposition" style="text-align: justify">
+<p><span class="theorem-title"><strong>Proposición 3.3 (Reglas de multiplicación de Itô y variación cuadrática)</strong></span> Sean <span class="math inline">\(W(t)\)</span> un movimiento browniano estándar y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> el proceso de Poisson compensado. Los procesos de variación cuadrática <span class="math inline">\([X, X]_t\)</span> y covariación <span class="math inline">\([X, Y]_t\)</span> para estos procesos, así como para el tiempo determinista <span class="math inline">\(t\)</span>, satisfacen propiedades fundamentales que, en la notación diferencial de Itô, se expresan mediante las siguientes reglas formales:</p>
 <ol type="1">
 <li><p><strong>Variación cuadrática del browniano:</strong> <span class="math inline">\(d[W, W]_t = dt\)</span>, lo que en notación diferencial se escribe como <span class="math inline">\((dW(t))^2 = dt\)</span>.</p></li>
 <li><p><strong>Variación cuadrática del Poisson compensado:</strong> <span class="math inline">\(d[\widetilde{N}, \widetilde{N}]_t = dN(t)\)</span>, es decir, <span class="math inline">\((d\widetilde{N}(t))^2 = dN(t)\)</span>.</p></li>
@@ -903,7 +900,6 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <li><p><strong>Propiedad de los saltos del Poisson:</strong> Dado que el proceso de Poisson estándar presenta saltos de magnitud unitaria (es decir, <span class="math inline">\(\Delta N(t) \in \{0, 1\}\)</span>) y la medida de integración <span class="math inline">\(dN(t)\)</span> está concentrada exclusivamente en los instantes de salto, se cumple la identidad <span class="math inline">\(\Delta N(t) dN(t) = dN(t)\)</span>.</p></li>
 </ol>
 <p>Estas reglas son el mecanismo algebraico que permite simplificar los términos de segundo orden al aplicar la Fórmula de Itô a funciones de semimartingalas con saltos <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
-</section>
 </div>
 <div id="thm-formulaito" class="theorem" style="text-align: justify">
 <p><span class="theorem-title"><strong>Teorema 3.14 (Fórmula de Itô para EDEs con saltos)</strong></span> Sea <span class="math inline">\(X\)</span> una solución càdlàg de la ecuación diferencial estocástica compensada anterior, y sea <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>. Entonces, bajo las condiciones de integrabilidad correspondientes, para todo <span class="math inline">\(t\geq 0\)</span> se tiene</p>
