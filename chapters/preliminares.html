@@ -598,7 +598,7 @@ window.Quarto = {
 <p><span class="math display">\[
     \|X\|_2:=\left(\mathbb{E}[|X|^2]\right)^{1/2},
 \]</span></p>
-<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
+<p>es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en <span class="math inline">\(L^2(\Omega,\mathcal{F},\mathbb{P})\)</span> converge, respecto de la norma <span class="math inline">\(\|\cdot\|_2\)</span>, a un elemento de dicho espacio.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Véase <span class="math inline">\(L^p\)</span> Spaces, de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
@@ -615,7 +615,7 @@ window.Quarto = {
 <li><p><strong>Tonelli</strong> Si <span class="math inline">\(f: X \times Y \to [0, \infty]\)</span> es medible y no negativa, las integrales iteradas son iguales a la integral doble, permitiendo intercambiar el orden sin asumir integrabilidad previa.</p></li>
 <li><p><strong>Fubini</strong> Si <span class="math inline">\(f\)</span> es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble.</p></li>
 </ul>
-<p>En probabilidad, esto justifica escribir <span class="math inline">\(\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds\)</span> cuando <span class="math inline">\(Y_s \geq 0\)</span> <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
+<p>En probabilidad, esto justifica escribir <span class="math inline">\(\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds\)</span> cuando <span class="math inline">\(Y_s \geq 0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo Integration, de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>; véase también el capítulo 3, en el apartado de la medida producto y al teorema de Fubini, de <span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
@@ -625,7 +625,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n].
 \]</span></p>
-<p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
+<p>Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro <span class="math inline">\(\tau_N \to T\)</span>, garantizando que la cota de los momentos se preserve en el límite.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo Integration, de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
@@ -717,7 +717,6 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
 <p><span class="math display">\[
     \sup_{0\leq s\leq t}f(s)=f(t).
 \]</span></p>
-<p><span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
 <p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
@@ -730,10 +729,9 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
 <p><span class="math display">\[
     \left|\int_0^T f(s)g(s)\,ds\right|\leq\left(\int_0^T|f(s)|^2\,ds\right)^{1/2}\left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
 \]</span></p>
-<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo <span class="math inline">\(L^p\)</span> Spaces, de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Esta expresión permite controlar el cuadrado de una integral de Lebesgue mediante la integral del cuadrado del integrando. En particular, resulta útil para estimar las contribuciones de los coeficientes de deriva en las representaciones integrales de las ecuaciones diferenciales estocásticas. Un caso particular importante se obtiene al tomar <span class="math inline">\(g(s)\equiv 1\)</span>, lo que yields</p>
@@ -768,10 +766,9 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
     \left( \sum_{j=0}^{M-1} a_j \right)^k \leq M^{k-1} \sum_{j=0}^{M-1} a_j^k.
 \]</span></p>
 <p>Esta última forma es fundamental en el análisis de métodos numéricos discretos (como se verá en el Capítulo 6) para acotar los momentos de orden superior de sumas de variables aleatorias.</p>
-<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo <span class="math inline">\(L^2\)</span> Spaces de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad de Hölder es indispensable en el Capítulo 6 para acotar productos de procesos estocásticos cuando se analizan momentos de orden <span class="math inline">\(p\geq 4\)</span>. Permite separar factores con diferentes tasas de crecimiento, facilitando el control de términos cruzados que aparecen en la expansión del error del método CSS<span class="math inline">\(\theta\)</span>.</p>
@@ -781,10 +778,9 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
 <p><span class="math display">\[
     \phi\bigl(\mathbb{E}[X]\bigr)\leq\mathbb{E}[\phi(X)].
 \]</span></p>
-<p><span class="citation" data-cites="durrett2019probability">(<a href="referencias.html#ref-durrett2019probability" role="doc-biblioref">Durrett 2019</a>)</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo dedicado a los valores esperados, de <span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Una aplicación importante se obtiene considerando la función convexa <span class="math inline">\(\phi(x)=|x|^p\)</span>, con <span class="math inline">\(p\geq 1\)</span>. Si <span class="math inline">\(f\in L^p([0,t])\)</span> y <span class="math inline">\(t&gt;0\)</span>, la aplicación de Jensen a la medida de Lebesgue normalizada <span class="math inline">\(\frac{1}{t}\,ds\)</span> implica que</p>
@@ -813,10 +809,9 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
       \operatorname{Var}(X)=\mathbb{E}\left[|X-\mathbb{E}[X]|^2\right].
   \]</span></p></li>
 </ul>
-<p><span class="citation" data-cites="durrett2019probability">(<a href="referencias.html#ref-durrett2019probability" role="doc-biblioref">Durrett 2019</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo dedicado a variables aleatorias y valores esperados de <span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Estas desigualdades son el puente fundamental entre los momentos de una variable aleatoria y las probabilidades de cola. En el Capítulo 4, la desigualdad de Markov (con <span class="math inline">\(p=2\)</span>) se combina con el Lema de Borel-Cantelli para demostrar que la sucesión de Picard converge casi seguramente, no solo en <span class="math inline">\(L^2\)</span>. Específicamente, al acotar <span class="math inline">\(\mathbb{P}(\sup_{0\leq s\leq t}|Z_n(s)-Z_{n-1}(s)|\geq 1/2^n)\)</span>, se obtiene una serie convergente que garantiza la convergencia uniforme casi segura.</p>
@@ -838,10 +833,9 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
 <p><span class="math display">\[
     C_{p,\delta}=\frac{1}{q}(p\delta)^{-q/p}.
 \]</span></p>
-<p><span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo <span class="math inline">\(L^p\)</span> Spaces, de <span class="citation" data-cites="folland1999real">(<a href="referencias.html#ref-folland1999real" role="doc-biblioref">Folland 1999</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La elección del parámetro <span class="math inline">\(\delta\)</span> permite ajustar la contribución de cada término de acuerdo con las necesidades de la demostración. Esta técnica se emplea para absorber términos en las desigualdades de error y obtener estimaciones uniformes para las soluciones exactas y numéricas. En el Capítulo 6, la versión generalizada de la desigualdad de Young es crucial para acotar los términos de martingala <span class="math inline">\(M_1(t)\)</span>, <span class="math inline">\(M_2(t)\)</span> y <span class="math inline">\(M_3(t)\)</span> que aparecen en el análisis de convergencia del método CSS<span class="math inline">\(\theta\)</span>, permitiendo “absorber” el supremo del error en el lado izquierdo de la desigualdad.</p>
@@ -866,10 +860,10 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
     \widetilde{N}(t):=N(t)-\lambda t
 \]</span></p>
 <p>es una martingala cuadrado-integrable y <span class="math inline">\(A(t)=\lambda t\)</span> es un proceso predecible, continuo, creciente y con <span class="math inline">\(A(0)=0\)</span>.</p>
-<p>Esta es la descomposición de Doob-Meyer del proceso de Poisson: <span class="math inline">\(\widetilde{N}\)</span> es la componente martingala y <span class="math inline">\(A\)</span> es su compensador predecible <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
+<p>Esta es la descomposición de Doob-Meyer del proceso de Poisson: <span class="math inline">\(\widetilde{N}\)</span> es la componente martingala y <span class="math inline">\(A\)</span> es su compensador predecible.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Matingales, Stopping Times and Random Measures, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La compensación anterior resulta especialmente útil al trabajar con EDEs cuyo término de salto está expresado mediante <span class="math inline">\(d\widetilde{N}(t)\)</span>. En este caso, la integral estocástica respecto del proceso compensado tiene esperanza cero cuando se cumplen las condiciones habituales de integrabilidad. Además, su segundo momento puede calcularse mediante una identidad análoga a la isometría de Itô para integrales respecto del movimiento browniano.</p>
@@ -895,10 +889,10 @@ I=\mathcal{N}_{\Delta t}=\{n\in\mathbb{N}_0:n\Delta t\le T\},\qquad J=[0,\Delta 
     \mathbb{E}\left[\left(\int_0^t H(s)\,d\widetilde{N}(s)\right)^2\right]=\lambda\,\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
 \]</span></p></li>
 </ul>
-<p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
+<p>En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 4, Stochastic Integration, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Las isometrías de Itô permiten transformar el segundo momento de una integral estocástica en una integral ordinaria de los cuadrados del integrando. Esta propiedad es fundamental para obtener estimaciones de las diferencias entre iteraciones de Picard y para controlar el error cuadrático de las aproximaciones numéricas. Sin embargo, en las demostraciones de existencia y convergencia también es necesario detener los procesos en tiempos de paro, especialmente cuando se requiere garantizar la integrabilidad de las expresiones involucradas.</p>
@@ -916,10 +910,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
 \]</span></p>
-<p><span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo II de <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>, dedicado a la integración estocástica y sus propiedades.</p>
 </div>
 <div style="text-align: justify">
 <p>El indicador <span class="math inline">\(\mathbf{1}_{\{s\leq\tau\}}\)</span> permite anular la contribución del integrando después del tiempo de paro. La inclusión del extremo <span class="math inline">\(\tau\)</span> es importante cuando el integrador tiene saltos, puesto que un proceso detenido en <span class="math inline">\(\tau\)</span> conserva el salto que pueda producirse en ese instante.</p>
@@ -962,10 +955,10 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
   &amp; \qquad +\int_0^t [U(X(s-)+h(X(s-)))-U(X(s-))]dN(s),
 \end{aligned}
 \]</span></p>
-<p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
+<p>En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de localización.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 4, Stochastic Integration, en particular el apartado Itô’s Formula, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>El término integral respecto de <span class="math inline">\(\widetilde{N}\)</span> describe la variación martingala de los saltos, mientras que la última integral representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto, y al reescribir la integral respecto de <span class="math inline">\(dN\)</span> en términos de <span class="math inline">\(d\widetilde{N}\)</span> y <span class="math inline">\(\lambda dt\)</span>, surge naturalmente este término corrector.</p>
@@ -987,10 +980,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     \mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^2\right]\leq 4\mathbb{E}[|M_t|^2].
 \]</span></p>
-<p><span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Martingales, Stopping Times and Random Measures, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad maximal de Doob permite controlar el comportamiento de una martingala en todo un intervalo mediante su valor en el instante final. Esta propiedad resulta especialmente útil cuando la martingala es una integral estocástica, pues las isometrías de Itô permiten estimar el segundo momento de dicho valor final.</p>
@@ -1011,9 +1003,6 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 \]</span></p>
 <p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
-<div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
-</div>
 <div style="text-align: justify">
 <p>Este resultado muestra cómo transformar una estimación de la integral del cuadrado del integrando en una cota para el supremo de la integral estocástica. Sin embargo, en el análisis de EDEs con saltos también es necesario controlar martingalas cuya variación cuadrática puede presentar discontinuidades. Para ello se utiliza la desigualdad de Burkholder-Davis-Gundy, que relaciona los momentos del supremo de una martingala con los momentos de su variación cuadrática.</p>
 </div>
@@ -1026,10 +1015,10 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
     &amp;\leq C_p\,\mathbb{E}\left[[M]_t^{p/2}\right].
 \end{aligned}
 \]</span></p>
-<p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática <span class="citation" data-cites="protter2005stochastic">(<a href="referencias.html#ref-protter2005stochastic" role="doc-biblioref">Protter 2005</a>)</span>.</p>
+<p>Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>, para las propiedades de martingalas, y el capitulo 4 para la integración estocástica.</p>
 </div>
 <div style="text-align: justify">
 <p>En el caso de una martingala continua, la variación cuadrática <span class="math inline">\([M]_t\)</span> coincide con su variación cuadrática predecible <span class="math inline">\(\langle M\rangle_t\)</span>. Por tanto, en ese caso la desigualdad anterior puede escribirse como</p>
@@ -1081,10 +1070,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 \]</span></p>
-<p><span class="citation" data-cites="billingsley1995probability">(<a href="referencias.html#ref-billingsley1995probability" role="doc-biblioref">Billingsley 1995</a>)</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo dedicado a sucesiones aleatorias y convergencia, de <span class="citation" data-cites="kallenberg2002foundations">(<a href="referencias.html#ref-kallenberg2002foundations" role="doc-biblioref">Kallenberg 2002</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>Este resultado establece una relación importante entre la convergencia en probabilidad y la convergencia casi segura. En particular, si una sucesión de aproximaciones converge en probabilidad, siempre es posible seleccionar una subsucesión que converge casi seguramente. Esta propiedad resulta útil al estudiar la regularidad de las trayectorias límite y al extraer conclusiones casi seguras a partir de estimaciones probabilísticas.</p>
@@ -1103,10 +1091,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     u(t)\leq ae^{Kt}.
 \]</span></p>
-<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase el sección dedidada a las desigualdades de <span class="citation" data-cites="mao2007stochastic">(<a href="referencias.html#ref-mao2007stochastic" role="doc-biblioref">Mao 2007</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La desigualdad de Gronwall es una herramienta fundamental para cerrar las estimaciones obtenidas a partir de las desigualdades de Cauchy-Schwarz, las isometrías estocásticas y las desigualdades maximales. Por ejemplo, si una estimación para la diferencia entre dos soluciones conduce a</p>
@@ -1130,10 +1117,9 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="math display">\[
     u_n\leq \alpha(1+\beta)^n\leq \alpha e^{\beta n}.
 \]</span></p>
-<p><span class="citation" data-cites="tan2017">(<a href="referencias.html#ref-tan2017" role="doc-biblioref">Tan y Men 2017</a>)</span></p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 2, Basic Topology, de <span class="citation" data-cites="rudin1976principles">(<a href="referencias.html#ref-rudin1976principles" role="doc-biblioref">Rudin 1976</a>)</span>.</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>Véase A discrete stoochastic Gronwall lemma, de <span class="citation" data-cites="kruse2018discrete">(<a href="referencias.html#ref-kruse2018discrete" role="doc-biblioref">Kruse y Scheutzow 2018</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
 <p>La versión discreta de Gronwall desempeña un papel análogo al de su contraparte continua. Su utilidad consiste en transformar una desigualdad recursiva, en la que cada término depende de los anteriores, en una cota explícita que puede analizarse con respecto al índice <span class="math inline">\(n\)</span>.</p>
@@ -1159,6 +1145,7 @@ Z_{n+1}(t) &amp; := Z_0 + \int_0^t f(Z_n(s-))\,ds + \int_0^t g(Z_n(s-))\,dW(s)\\
 \end{aligned}
 \]</span></p></li>
 </ol>
+<p><span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span></p>
 </div>
 <div style="text-align: justify">
 <p>El objetivo de la demostración de existencia, que se desarrollará en el Capítulo 4, consistirá en probar que esta sucesión es de Cauchy en el espacio <span class="math inline">\(L^2\)</span>, que converge uniformemente casi seguramente a un proceso límite <span class="math inline">\(Z(t)\)</span>, y que dicho límite satisface la ecuación integral asociada a la EDE:</p>
@@ -1176,23 +1163,23 @@ Applebaum, David. 2009. <em>L<span>é</span>vy Processes and Stochastic Calculus
 <div id="ref-billingsley1995probability" class="csl-entry" role="listitem">
 Billingsley, Patrick. 1995. <em>Probability and Measure</em>. 3.ª ed. Wiley-Interscience.
 </div>
-<div id="ref-durrett2019probability" class="csl-entry" role="listitem">
-Durrett, Rick. 2019. <em>Probability: Theory and Examples</em>. 5.ª ed. Cambridge University Press. <a href="https://doi.org/10.1017/9781108591034">https://doi.org/10.1017/9781108591034</a>.
-</div>
 <div id="ref-folland1999real" class="csl-entry" role="listitem">
 Folland, Gerald B. 1999. <em>Real Analysis: Modern Techniques and Their Applications</em>. 2.ª ed. John Wiley &amp; Sons. <a href="https://www.wiley.com/en-us/real-analysis-modern-techniques-and-their-applications-2nd-edition-p-9780471317166">https://www.wiley.com/en-us/real-analysis-modern-techniques-and-their-applications-2nd-edition-p-9780471317166</a>.
 </div>
 <div id="ref-kallenberg2002foundations" class="csl-entry" role="listitem">
 Kallenberg, Olav. 2002. <em>Foundations of Modern Probability</em>. 2.ª ed. Probability y Its Applications. Springer. <a href="https://doi.org/10.1007/978-1-4757-4015-8">https://doi.org/10.1007/978-1-4757-4015-8</a>.
 </div>
+<div id="ref-kruse2018discrete" class="csl-entry" role="listitem">
+Kruse, Raphael, y Michael Scheutzow. 2018. <span>«A Discrete Stochastic Gronwall Lemma»</span>. <em>Mathematics and Computers in Simulation</em> 143: 149-57. <a href="https://doi.org/10.1016/j.matcom.2016.07.002">https://doi.org/10.1016/j.matcom.2016.07.002</a>.
+</div>
+<div id="ref-mao2007stochastic" class="csl-entry" role="listitem">
+Mao, Xuerong. 2007. <em>Stochastic Differential Equations and Applications</em>. 2.ª ed. Horwood Publishing.
+</div>
 <div id="ref-protter2005stochastic" class="csl-entry" role="listitem">
 Protter, Philip E. 2005. <em>Stochastic Integration and Differential Equations</em>. 2.ª ed. Vol. 21. Stochastic Modelling y Applied Probability. Springer. <a href="https://doi.org/10.1007/978-3-662-10061-5">https://doi.org/10.1007/978-3-662-10061-5</a>.
 </div>
 <div id="ref-rudin1976principles" class="csl-entry" role="listitem">
 Rudin, Walter. 1976. <em>Principles of Mathematical Analysis</em>. 3.ª ed. McGraw-Hill.
-</div>
-<div id="ref-tan2017" class="csl-entry" role="listitem">
-Tan, Jianguo, y Weiwei Men. 2017. <span>«Convergence of the compensated split-step <span class="math inline">\(\theta\)</span>-method for nonlinear jump-diffusion systems»</span>. <em>Advances in Difference Equations</em> 2017: 189. <a href="https://doi.org/10.1186/s13662-017-1247-6">https://doi.org/10.1186/s13662-017-1247-6</a>.
 </div>
 </div>
 
