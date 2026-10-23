@@ -31,7 +31,13 @@ En esta sección se reúnen cuatro resultados elementales, cuya necesidad se har
 
 ## Heine-Borel
 
-Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a,b]\subset\mathbb{R}$ es compacto [@rudin1976principles].
+Un subconjunto $K \subset \mathbb{R}$ es compacto si y solo si es cerrado y acotado. En particular, todo intervalo cerrado $[a,b]\subset\mathbb{R}$ es compacto.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Basic Topology, de [@rudin1976principles]. 
 
 :::
 
@@ -45,7 +51,13 @@ La compacidad de los intervalos cerrados proporciona el marco adecuado para estu
 
 ## Bolzano-Weierstrass
 
-Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto $K\subset\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a $K$ [@rudin1976principles].
+Toda sucesión acotada de números reales posee una subsucesión convergente. En particular, si una sucesión está contenida en un conjunto compacto $K\subset\mathbb{R}$, entonces posee una subsucesión convergente cuyo límite pertenece a $K$.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Basic Topology, de [@rudin1976principles]. 
 
 :::
 
@@ -62,10 +74,14 @@ Además de asegurar la existencia de subsucesiones convergentes, la compacidad t
 Sea $K\subset\mathbb{R}$ un conjunto compacto y no vacío. Si $f:K\to\mathbb{R}$ es continua, entonces $f$ alcanza su máximo y su mínimo absolutos en $K$. Es decir, existen $x_{\max},x_{\min}\in K$ tales que
 
 $$
-    f(x_{\min})\leq f(x)\leq f(x_{\max}),\qquad \text{para todo }x\in K,
+    f(x_{\min})\leq f(x)\leq f(x_{\max}),\qquad \text{para todo }x\in K.
 $$
 
-[@rudin1976principles].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 4, Continuity, de [@rudin1976principles]. 
 
 :::
 
@@ -85,7 +101,13 @@ $$
     f(c)=y.
 $$
 
-Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$ [@rudin1976principles].
+Más generalmente, para cualquier $y$ comprendido entre $f(a)$ y $f(b)$, existe $c\in[a,b]$ tal que $f(c)=y$.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 4, Continuity, de [@rudin1976principles]. 
 
 :::
 
@@ -127,7 +149,7 @@ $$
     \mathcal{F}_t=\bigcap_{s>t}\mathcal{F}_s,
 $$
 
-y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad nula [@kallenberg2002foundations].
+y $\mathcal{F}_0$ contiene todos los conjuntos de $\mathcal{F}$ de probabilidad nula, [@protter2005stochastic].
 
 :::
 
@@ -149,7 +171,7 @@ Sea $X=(X_t)_{t\geq 0}$ un proceso estocástico definido sobre un espacio de pro
 
 -   El proceso $X$ tiene trayectorias $\textbf{càdlàg}$ si, casi seguramente, sus trayectorias son continuas por la derecha y poseen límites por la izquierda en cada instante $t>0$.
 
-[@kallenberg2002foundations], [@protter2005stochastic]
+[@applebaum2009levy]
 
 :::
 
@@ -199,7 +221,13 @@ $$
     \mathbb{P}\left(\bigcap_{n=1}^{\infty}A_n\right)=\lim_{n\to\infty}\mathbb{P}(A_n).
 $$
 
-La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$ [@billingsley1995probability].
+La segunda igualdad se sigue de la continuidad desde arriba de la medida, dado que $\mathbb{P}(A_1)\leq 1<\infty$.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, General Measures, de [@billingsley1995probability]. 
 
 :::
 
@@ -225,7 +253,13 @@ $$
     \|X\|_2:=\left(\mathbb{E}[|X|^2]\right)^{1/2},
 $$
 
-es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio [@folland1999real].
+es un espacio de Hilbert y, por tanto, un espacio de Banach. En particular, toda sucesión de Cauchy en $L^2(\Omega,\mathcal{F},\mathbb{P})$ converge, respecto de la norma $\|\cdot\|_2$, a un elemento de dicho espacio.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase $L^p$ Spaces, de [@folland1999real]. 
 
 :::
 
@@ -251,7 +285,13 @@ Sea $(X, \mathcal{A}, \mu)$ y $(Y, \mathcal{B}, \nu)$ espacios de medida $\sigma
 
 - **Fubini** Si $f$ es integrable respecto a la medida producto, las integrales iteradas existen, son finitas y coinciden con la integral doble. 
 
-En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$ [@folland1999real].
+En probabilidad, esto justifica escribir $\mathbb{E}\left[\int_0^t Y_s \,ds\right] = \int_0^t \mathbb{E}[Y_s] \,ds$ cuando $Y_s \geq 0$.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo Integration, de [@folland1999real]; véase también el capítulo 3, en el apartado de la medida producto y al teorema de Fubini, de [@billingsley1995probability]. 
 
 :::
 
@@ -265,7 +305,13 @@ $$
 \mathbb{E}\left[ \liminf_{n \to \infty} X_n \right] \leq \liminf_{n \to \infty} \mathbb{E}[X_n]. 
 $$
 
-Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite [@folland1999real].
+Este lema es indispensable para pasar al límite bajo el signo de la esperanza cuando se trabaja con tiempos de paro $\tau_N \to T$, garantizando que la cota de los momentos se preserve en el límite.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo Integration, de [@folland1999real]. 
 
 :::
 
@@ -305,7 +351,11 @@ $$
     (a+b+c)^2\leq 3(a^2+b^2+c^2).
 $$
 
-[@rudin1976principles].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo $L^p$ Spaces, de [@folland1999real]. 
 
 :::
 
@@ -417,7 +467,11 @@ $$
     \sup_{0\leq s\leq t}f(s)=f(t).
 $$
 
-[@rudin1976principles].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Basic Topology, de [@rudin1976principles]. 
 
 :::
 
@@ -437,7 +491,11 @@ $$
     \left|\int_0^T f(s)g(s)\,ds\right|\leq\left(\int_0^T|f(s)|^2\,ds\right)^{1/2}\left(\int_0^T|g(s)|^2\,ds\right)^{1/2}.
 $$
 
-[@folland1999real].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo $L^p$ Spaces, de [@folland1999real]. 
 
 :::
 
@@ -487,8 +545,11 @@ $$
 
 Esta última forma es fundamental en el análisis de métodos numéricos discretos (como se verá en el Capítulo 6) para acotar los momentos de orden superior de sumas de variables aleatorias.
 
+:::
 
-[@folland1999real].
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo $L^2$ Spaces de [@folland1999real]. 
 
 :::
 
@@ -508,7 +569,11 @@ $$
     \phi\bigl(\mathbb{E}[X]\bigr)\leq\mathbb{E}[\phi(X)].
 $$
 
-[@durrett2019probability]
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo dedicado a los valores esperados, de [@billingsley1995probability]. 
 
 :::
 
@@ -554,7 +619,11 @@ Sea $X$ una variable aleatoria.
         \operatorname{Var}(X)=\mathbb{E}\left[|X-\mathbb{E}[X]|^2\right].
     $$
 
-[@durrett2019probability].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo dedicado a variables aleatorias y valores esperados de [@billingsley1995probability]. 
 
 :::
 
@@ -592,7 +661,11 @@ $$
     C_{p,\delta}=\frac{1}{q}(p\delta)^{-q/p}.
 $$
 
-[@folland1999real].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo $L^p$ Spaces, de [@folland1999real]. 
 
 :::
 
@@ -651,7 +724,13 @@ $$
 es una martingala cuadrado-integrable y $A(t)=\lambda t$ es un proceso predecible, continuo, creciente y con $A(0)=0$.
 
 Esta es la descomposición de Doob-Meyer del proceso de Poisson: $\widetilde{N}$ es la componente martingala y $A$ es su 
-compensador predecible [@protter2005stochastic].
+compensador predecible.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Matingales, Stopping Times and Random Measures, de [@applebaum2009levy]. 
 
 :::
 
@@ -698,8 +777,13 @@ Entonces, para todo $t\in[0,T]$, se satisfacen las siguientes identidades.
         \mathbb{E}\left[\left(\int_0^t H(s)\,d\widetilde{N}(s)\right)^2\right]=\lambda\,\mathbb{E}\left[\int_0^t |H(s)|^2\,ds\right].
     $$
 
-En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula
-[@applebaum2009levy].
+En ambos casos, las integrales estocásticas son martingalas cuadrado-integrables que comienzan en cero y tienen esperanza nula.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 4, Stochastic Integration, de [@applebaum2009levy]. 
 
 :::
 
@@ -735,7 +819,11 @@ $$
     \left(\int_0^\cdot H(s)\,dX(s)\right)_{t\wedge\tau} = \int_0^t H(s)\mathbf{1}_{\{s\leq\tau\}}\,dX(s).
 $$
 
-[@protter2005stochastic].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo II de [@protter2005stochastic], dedicado a la integración estocástica y sus propiedades.
 
 :::
 
@@ -773,7 +861,7 @@ a partir de la deriva, la difusión y la contribución de los saltos.
 
 :::
 
-::: {#prop-reglas-ito style="text-align: justify"}
+::: {#prp-reglasito style="text-align: justify"}
 
 ### Reglas de multiplicación de Itô y variación cuadrática
 
@@ -791,7 +879,11 @@ Sean $W(t)$ un movimiento browniano estándar y $\widetilde{N}(t) = N(t) - \lamb
 
 Estas reglas son el mecanismo algebraico que permite simplificar los términos de segundo orden al aplicar la Fórmula de Itô a funciones de semimartingalas con saltos [@protter2005stochastic].
 
+:::
 
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Basic Topology, de [@rudin1976principles]. 
 
 :::
 
@@ -811,7 +903,13 @@ $$
 $$
 
 En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de 
-localización [@applebaum2009levy].
+localización.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 4, Stochastic Integration, en particular el apartado Itô's Formula, de [@applebaum2009levy].
 
 :::
 
@@ -861,7 +959,11 @@ $$
     \mathbb{E}\left[\sup_{0\leq s\leq t}|M_s|^2\right]\leq 4\mathbb{E}[|M_t|^2].
 $$
 
-[@protter2005stochastic].
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, Martingales, Stopping Times and Random Measures, de [@applebaum2009levy].
 
 :::
 
@@ -918,7 +1020,13 @@ $$
 \end{aligned}
 $$
 
-Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática [@protter2005stochastic].
+Cuando las esperanzas son finitas, estas desigualdades proporcionan cotas bilaterales entre el momento del supremo de la martingala y el momento de su variación cuadrática.
+
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 2, de [@applebaum2009levy], para las propiedades de martingalas, y el capitulo 4 para la integración estocástica. 
 
 :::
 
@@ -971,7 +1079,11 @@ $$
     \mathbb{P}\left(\limsup_{n\to\infty} A_n\right)=0.
 $$
 
-[@durrett2019probability]
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo 1, en el apartado dedicado a sucesiones de eventos y probabilidades numerables de [@billingsley1995probability]. 
 
 :::
 
@@ -1007,7 +1119,11 @@ $$
     X_{n_k}\xrightarrow{\text{c.s.}}X.
 $$
 
-[@billingsley1995probability]
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el capítulo dedicado a sucesiones aleatorias y convergencia, de [@kallenberg2002foundations]. 
 
 :::
 
@@ -1041,7 +1157,11 @@ $$
     u(t)\leq ae^{Kt}.
 $$
 
-[@applebaum2009levy]
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase el sección dedidada a las desigualdades de [@mao2007stochastic]. 
 
 :::
 
@@ -1083,7 +1203,11 @@ $$
     u_n\leq \alpha(1+\beta)^n\leq \alpha e^{\beta n}.
 $$
 
-[@tan2017]
+:::
+
+::: {.proof style="text-align: justify"}
+
+Véase A discrete stoochastic Gronwall lemma, de [@kruse2018discrete]. 
 
 :::
 
@@ -1127,6 +1251,8 @@ Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2
     & \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
     \end{aligned}
     $$
+
+[@applebaum2009levy]
 
 :::
 
