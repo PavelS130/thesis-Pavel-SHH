@@ -458,7 +458,7 @@ window.Quarto = {
 </div>
 <section id="solución-explícita-y-estabilidad-del-sistema-continuo" class="level2" style="text-align: justify" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="solución-explícita-y-estabilidad-del-sistema-continuo"><span class="header-section-number">5.1</span> Solución explícita y estabilidad del sistema continuo</h2>
-<p>Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico <span class="math inline">\(\{Y(t)\}_{t \geq 0}\)</span> de la forma</p>
+<p>Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico <span class="math inline">\(\{Y(t)\}_{t \geq 0}\)</span> de la forma</p>
 <p><span class="math display">\[
     dY(t) = \mu(t)dt + \sigma(t)dW(t) + \gamma(t)dN(t),
 \]</span></p>
@@ -523,7 +523,7 @@ window.Quarto = {
       \alpha = a - \frac{1}{2}b^2.
   \]</span></p></li>
 </ul>
-<p>Sustituyendo estos valores en nuestra propuesta de la solución en la Ecuación <a href="#eq-5.02" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a> <span class="math display">\[
+<p>Sustituyendo estos valores en nuestra propuesta de la solución en la <a href="#eq-5.02" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a> <span class="math display">\[
     Y(t) = \left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t).
 \]</span></p>
 <p>Cómo <span class="math inline">\(X(t) = X_0 e^{Y(t)}\)</span>, entonces</p>
@@ -550,7 +550,7 @@ window.Quarto = {
 <p>si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
 </div>
 <div class="proof" style="text-align: justify">
-<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que el proceso está dado por</p>
+<p><span class="proof-title"><em>Demostración</em>. </span>A partir de la solución explicita de la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a>, notemos que el proceso está dado por</p>
 <p><span class="math display">\[
     \begin{aligned}
         |X(t)|^2 &amp; = \Bigg|X_0\exp\Bigg(\Bigg(a-\frac{b^2}{2}\Bigg)t+bW(t)\Bigg)(1+c)^{N(t)}\Bigg|^2\\
@@ -608,7 +608,7 @@ window.Quarto = {
 </div>
 <section id="estabilidad-del-método-numérico-cstm" class="level2" style="text-align: justify" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="estabilidad-del-método-numérico-cstm"><span class="header-section-number">5.2</span> Estabilidad del método numérico CSTM</h2>
-<p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la Ecuación <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
+<p>Para facilitar el manejo analítico del método, comenzamos reescribiendo la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> utilizando el proceso de Poisson compensado <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span>. Dado que <span class="math inline">\(dN(t) = d\widetilde{N}(t) + \lambda dt\)</span>, la <a href="#eq-5.01" class="quarto-xref">Ecuación&nbsp;<span>5.1</span></a> es equivalente a:</p>
 <p><span id="eq-5.05"><span class="math display">\[
     dX(t) = (a + \lambda c)X(t-)dt + bX(t-)dW(t) + cX(t-)d\widetilde{N}(t), \quad t \geq 0.
 \tag{5.5}\]</span></span></p>
@@ -628,7 +628,7 @@ window.Quarto = {
     (1 - \theta\Delta t(a + \lambda c))Y_{n+1} = \left[1 + (1 - \theta)\Delta t(a + \lambda c) + b\Delta W_n + c\Delta \widetilde{N}_n\right]Y_n.
 \tag{5.7}\]</span></span></p>
 <p>Es crucial notar que, dado que la solución analítica es estable (es decir, <span class="math inline">\(l &lt; 0\)</span>), se cumple que <span class="math inline">\(2(a + \lambda c) + b^2 + \lambda c^2 &lt; 0\)</span>. Como <span class="math inline">\(b^2 + \lambda c^2 &gt; 0\)</span>, esto fuerza a que <span class="math inline">\((a + \lambda c) &lt; 0\)</span>. En consecuencia, para cualquier <span class="math inline">\(\Delta t &gt; 0\)</span> y <span class="math inline">\(\theta \in [0, 1]\)</span>, el factor <span class="math inline">\((1 - \theta\Delta t(a + \lambda c))\)</span> es estrictamente positivo y no nulo, garantizando que el esquema está bien definido.</p>
-<p>Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la Ecuación <a href="#eq-5.07" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando <span class="math inline">\(\mathbb{E}[\Delta W_n^2] = \Delta t\)</span> y <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t\)</span>, obtenemos directamente la ecuación de recurrencia del segundo momento:</p>
+<p>Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la <a href="#eq-5.07" class="quarto-xref">Ecuación&nbsp;<span>5.7</span></a> y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando <span class="math inline">\(\mathbb{E}[\Delta W_n^2] = \Delta t\)</span> y <span class="math inline">\(\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t\)</span>, obtenemos directamente la ecuación de recurrencia del segundo momento:</p>
 <p><span id="eq-5.08"><span class="math display">\[
     (1 - \theta\Delta t(a + \lambda c))^2 \mathbb{E}[|Y_{n+1}|^2] = \left[ (1 + (1 - \theta)\Delta t(a + \lambda c))^2 + (b^2 + \lambda c^2)\Delta t \right] \mathbb{E}[|Y_n|^2].
 \tag{5.8}\]</span></span></p>
@@ -736,7 +736,7 @@ window.Quarto = {
     \end{aligned}
 \tag{5.15}\]</span></span></p>
 <p>Utilizando las propiedades de los incrementos independientes y de esperanza nula, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. En consecuencia, los términos cruzados se anulan: <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Además, por la independencia mutua entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
-<p>Por otro lado, calculamos los segundos momentos de los incrementos: <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la Ecuación <a href="#eq-5.15" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> obtenemos</p>
+<p>Por otro lado, calculamos los segundos momentos de los incrementos: <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la <a href="#eq-5.15" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t \\
