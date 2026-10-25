@@ -5,7 +5,7 @@ lang: es
 
 ::: {style="text-align: justify"}
 
-# Preliminares {#sec-preliminares}
+# Preliminares {#sec-preliminares} 
 
 Para abordar los objetivos planteados, es imperativo establecer un marco teórico riguroso que permita dar sentido matemático a las fluctuaciones aleatorias con discontinuidades abruptas. El estudio de las ecuaciones diferenciales estocásticas con saltos no puede sustentarse únicamente en el cálculo clásico; requiere la integración de conceptos de análisis real, teoría de la medida y cálculo estocástico. En el siguiente capítulo, se ensamblan de manera sistemática las herramientas fundamentales, desde la topología básica y las desigualdades analíticas, hasta la integral de Itô para procesos con saltos y las desigualdades maximales, que servirán como cimientos para demostrar la existencia, unicidad y convergencia numérica de los modelos que nos ocupan.
 

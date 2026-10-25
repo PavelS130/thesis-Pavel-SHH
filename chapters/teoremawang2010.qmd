@@ -12,7 +12,7 @@ format:
 
 ::: {style="text-align: justify"}
 
-# Estabilidad media cuadrática del Método CSTM
+# Estabilidad media cuadrática del Método CSTM {#sec-cap5}
 
 Habiendo establecido en la @sec-cap4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la $\textbf{ecuación de Langevin estocástica con saltos}$. 
 
