@@ -10,26 +10,6 @@
     ]
   },
   {
-    "objectID": "chapters/intro.html",
-    "href": "chapters/intro.html",
-    "title": "1  Introducción",
-    "section": "",
-    "text": "1.1 Introducción del modelo de Langevin y su aplicación a terremotos\nEl modelo de Langevin fue propuesto por Paul Langevin en 1908 para describir el movimiento browniano de partículas suspendidas en un fluido. Este modelo captura la dinámica de una partícula bajo la influencia de una fuerza determinista (como la fricción) y una fuerza aleatoria (ruido blanco gaussiano), y se expresa mediante una ecuación diferencial estocástica de la forma:\n\\[\ndv(t) = -\\gamma v(t)\\,dt + \\sqrt{2D}\\,dW(t)\n\\tag{1.1}\\]\ndonde de Ecuación 1.1:\nCon el tiempo, este modelo fue generalizado para describir sistemas que combinan comportamientos deterministas con fluctuaciones aleatorias, incluyendo fenómenos físicos, biológicos, químicos y financieros.\nEn el contexto geofísico, el modelo de Langevin se ha extendido para modelar la dinámica de fallas sísmicas. Para representar eventos sísmicos abruptos —como rupturas en la corteza terrestre— se incorpora un término adicional de saltos, modelados mediante un proceso de Poisson o, más generalmente, un proceso de Lévy. El modelo extendido es:\n\\[\ndv(t) = [-\\gamma v(t) + F_{\\text{ext}}(t)]\\,dt + \\sqrt{2D}\\,dW(t) + dJ(t),\n\\]\ndonde:\nUna formulación típica para los saltos es:\n\\[\nJ(t) = \\sum_{i=1}^{N(t)} Y_i,\n\\]\ndonde:\nEste modelo se denomina Ecuación de Langevin con saltos y pertenece a la clase de ecuaciones diferenciales estocásticas impulsadas por procesos de Lévy.\nSu aplicación en geofísica permite modelar:\nEste enfoque ofrece una base matemática para la simulación y el análisis estadístico de secuencias sísmicas, incluyendo la estimación de probabilidades de ocurrencia, clasificación de eventos y simulación de trayectorias dinámicas realistas.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
-    ]
-  },
-  {
-    "objectID": "chapters/intro.html#introducción-del-modelo-de-langevin-y-su-aplicación-a-terremotos",
-    "href": "chapters/intro.html#introducción-del-modelo-de-langevin-y-su-aplicación-a-terremotos",
-    "title": "1  Introducción",
-    "section": "",
-    "text": "\\(v(t)\\): velocidad de la partícula,\n\\(\\gamma\\): coeficiente de fricción,\n\\(D\\): coeficiente de difusión (intensidad del ruido térmico),\n\\(W(t)\\): movimiento browniano estándar.\n\n\n\n\n\n\n\\(( F_{\\text{ext}}(t) )\\): fuerza externa acumulada, por ejemplo, por tectónica de placas,\n\\(( J(t) )\\): proceso de saltos, que representa eventos súbitos (rupturas sísmicas),\nEl resto de símbolos mantienen su significado anterior.\n\n\n\n\n\n\\(( N(t) )\\) es un proceso de Poisson de tasa \\((\\lambda&gt; 0 )\\),\n\\(( Y_i )\\) representa la magnitud del i-ésimo salto (aleatoria, por ejemplo, con distribución exponencial o normal truncada).\n\n\n\n\nEl movimiento gradual de una falla mediante la fricción y ruido térmico,\nLa ocurrencia de microtemblores,\nLa irrupción de terremotos mayores como saltos discontinuos.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
-    ]
-  },
-  {
     "objectID": "chapters/objetivos.html",
     "href": "chapters/objetivos.html",
     "title": "2  Objetivos",
