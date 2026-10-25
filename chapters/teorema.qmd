@@ -61,7 +61,7 @@ $$
     \end{aligned}
 $$
 
-El objetivo central de este capítulo es demostrar que, bajo ciertas condiciones de regularidad sobre los coeficientes $f, g$ y $h$ que se establecerán a continuación, la ecuación @eq-4.01 admite una única solución fuerte $Z = (Z(t))_{t \geq 0}$ que es adaptada a la filtración $(\mathcal{F}_t)$ y posee trayectorias càdlàg (continuas por la derecha y con límites por la izquierda) casi seguramente.
+El objetivo central de este capítulo es demostrar que, bajo ciertas condiciones de regularidad sobre los coeficientes $f, g$ y $h$ que se establecerán a continuación, la @eq-4.01 admite una única solución fuerte $Z = (Z(t))_{t \geq 0}$ que es adaptada a la filtración $(\mathcal{F}_t)$ y posee trayectorias càdlàg (continuas por la derecha y con límites por la izquierda) casi seguramente.
 
 :::
 
@@ -1095,6 +1095,7 @@ La existencia del proceso límite, su adaptabilidad y la regularidad càdlàg de
 :::{style="text-align: justify"}
 
 El @thm-EUF1 establece la existencia y unicidad fuerte bajo la hipótesis restrictiva de que la condición inicial posee segundo momento finito $(\mathbb{E}[|Z_0|^2]<\infty)$. Sin embargo, en aplicaciones prácticas como la modelación de fallas sísmicas mediante la ecuación de Langevin, la condición inicial puede provenir de distribuciones con colas pesadas, violando esta hipótesis.
+
 Para liberar al teorema de esta restricción, utilizaremos una técnica de localización por truncamiento. Definiremos una sucesión de condiciones iniciales acotadas $Z_0^{(n)}$ que sí pertenecen a $L^2$, aplicaremos el @thm-EUF1 a cada una de ellas, y demostraremos que la sucesión de soluciones resultantes converge uniformemente en probabilidad. El siguiente corolario establece que el proceso límite de esta sucesión truncada es la única solución fuerte para una condición inicial $Z_0$ general.
 
 :::
@@ -1149,7 +1150,7 @@ $$
 Z_0^{(n)} \xrightarrow[n \to \infty]{\text{c.s.}} Z_0.
 $$
 
-Dado que cada $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada, en particular, pertenece a $L^2(\Omega, \mathcal{F}_0, \mathbb{P})$, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso $\mathbb{E}[|Z_0|^2] < \infty$. Así, para cada $n \in \mathbb{N}$, existe una única solución fuerte $Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}$ de la ecuación @eq-4.01 con condición inicial $Z_0^{(n)}$.
+Dado que cada $Z_0^{(n)}$ es $\mathcal{F}_0$-medible y acotada, en particular, pertenece a $L^2(\Omega, \mathcal{F}_0, \mathbb{P})$, podemos aplicar los resultados de existencia y unicidad demostrados previamente para el caso $\mathbb{E}[|Z_0|^2] < \infty$. Así, para cada $n \in \mathbb{N}$, existe una única solución fuerte $Z^{(n)} = (Z^{(n)}(t))_{t \geq 0}$ de la @eq-4.01 con condición inicial $Z_0^{(n)}$.
 
 Para cada $N\in \mathbb{N}$, definimos el conjunto
 

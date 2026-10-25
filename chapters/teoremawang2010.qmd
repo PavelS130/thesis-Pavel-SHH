@@ -32,7 +32,7 @@ A lo largo de este capítulo, deduciremos la solución explícita de este sistem
 
 ## Solución explícita y estabilidad del sistema continuo
 
-Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la Ecuación @eq-5.01. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t \geq 0}$ de la forma
+Nuestro objetivo es presentar el proceso de deducción de la solución explícita de la @eq-5.01. La herramienta que usaremos para el análisis de la ecuación diferencial estocástica con saltos será el Lema de Itô para procesos de difusión con saltos. Con esto, consideremos un proceso estocástico $\{Y(t)\}_{t \geq 0}$ de la forma
 
 $$
     dY(t) = \mu(t)dt + \sigma(t)dW(t) + \gamma(t)dN(t),
@@ -129,7 +129,7 @@ Comparando e igualando los factores de cada ecuación, tenemos que:
     $$
 
 
-Sustituyendo estos valores en nuestra propuesta de la solución en la Ecuación @eq-5.02
+Sustituyendo estos valores en nuestra propuesta de la solución en la @eq-5.02
 $$
     Y(t) = \left(a - \frac{1}{2}b^2\right)t + bW(t) + \ln(1 + c)N(t).
 $$
@@ -176,7 +176,7 @@ si y solo si $l<0$.
 :::
 
 ::: {.proof style="text-align: justify"}
-A partir de la solución explicita de la ecuación @eq-5.01, notemos que el proceso está dado por 
+A partir de la solución explicita de la @eq-5.01, notemos que el proceso está dado por 
 
 $$
     \begin{aligned}
@@ -252,7 +252,7 @@ Por lo que el sistema es asistóticamente estable en media cuadrática si y solo
 
 ::: {style="text-align: justify"}
 
-Habiendo establecido la estabilidad de la solución exacta en la sección anterior, es natural preguntarse si los esquemas numéricos pueden preservar esta propiedad. En esta sección, introducimos el método Theta Compensado Estocástico (CSTM) aplicado a la ecuación de Langevin y demostramos bajo qué condiciones las aproximaciones discretas heredan la estabilidad media cuadrática de la solución analítica.
+Habiendo establecido la estabilidad de la solución exacta en la sección anterior, es natural preguntarse si los esquemas numéricos pueden preservar esta propiedad. En esta sección, introducimos el método Theta Compensado Estocástico (CSTM) y demostramos bajo qué condiciones las aproximaciones discretas heredan la estabilidad media cuadrática de la solución analítica.
 
 :::
 
@@ -260,7 +260,7 @@ Habiendo establecido la estabilidad de la solución exacta en la sección anteri
 
 ##  Estabilidad del método numérico CSTM
 
-Para facilitar el manejo analítico del método, comenzamos reescribiendo la @eq-5.01 utilizando el proceso de Poisson compensado $\widetilde{N}(t) = N(t) - \lambda t$. Dado que $dN(t) = d\widetilde{N}(t) + \lambda dt$, la Ecuación @eq-5.01 es equivalente a:
+Para facilitar el manejo analítico del método, comenzamos reescribiendo la @eq-5.01 utilizando el proceso de Poisson compensado $\widetilde{N}(t) = N(t) - \lambda t$. Dado que $dN(t) = d\widetilde{N}(t) + \lambda dt$, la @eq-5.01 es equivalente a:
 
 $$
     dX(t) = (a + \lambda c)X(t-)dt + bX(t-)dW(t) + cX(t-)d\widetilde{N}(t), \quad t \geq 0.
@@ -290,7 +290,7 @@ $$ {#eq-5.07}
 
 Es crucial notar que, dado que la solución analítica es estable (es decir, $l < 0$), se cumple que $2(a + \lambda c) + b^2 + \lambda c^2 < 0$. Como $b^2 + \lambda c^2 > 0$, esto fuerza a que $(a + \lambda c) < 0$. En consecuencia, para cualquier $\Delta t > 0$ y $\theta \in [0, 1]$, el factor $(1 - \theta\Delta t(a + \lambda c))$ es estrictamente positivo y no nulo, garantizando que el esquema está bien definido.
 
-Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la Ecuación @eq-5.07 y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando $\mathbb{E}[\Delta W_n^2] = \Delta t$ y $\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t$, obtenemos directamente la ecuación de recurrencia del segundo momento:
+Para analizar la estabilidad en media cuadrática, elevamos al cuadrado la @eq-5.07 y tomamos el valor esperado. Gracias a la independencia de los incrementos y a que sus esperanzas son cero, todos los términos cruzados se anulan. Utilizando $\mathbb{E}[\Delta W_n^2] = \Delta t$ y $\mathbb{E}[\Delta \widetilde{N}_n^2] = \lambda \Delta t$, obtenemos directamente la ecuación de recurrencia del segundo momento:
 
 $$
     (1 - \theta\Delta t(a + \lambda c))^2 \mathbb{E}[|Y_{n+1}|^2] = \left[ (1 + (1 - \theta)\Delta t(a + \lambda c))^2 + (b^2 + \lambda c^2)\Delta t \right] \mathbb{E}[|Y_n|^2].
@@ -331,7 +331,7 @@ $$
 
 lo cual,  por la @prp-estabilidadsolucion, ocurre si y solo si $l<0$.
 
-Sea $\Delta t > 0$ un tamaño de paso fijo y $\theta \in [0, 1]$ el parámetro del método theta compensado estocástico (CSTM). Al aplicar dicho método a la @eq-5.10, se tienen los siguientes resultados sobre la estabilidad en media cuadrática de las aproximaciones numéricas $\{Y_n\}_{n \geq 0}$:
+Sea $\Delta t > 0$ un tamaño de paso fijo y $\theta \in [0, 1]$ el parámetro del Método $\theta$ Compensado Estocástico, por sus siglas en inglés, (CSTM). Al aplicar dicho método a la @eq-5.10, se tienen los siguientes resultados sobre la estabilidad en media cuadrática de las aproximaciones numéricas $\{Y_n\}_{n \geq 0}$:
 
 -   Si $\displaystyle \frac{1}{2} \leq \theta \leq 1$, el método es **A-estable** en media cuadrática. Es decir, para todo $\Delta t > 0$, las aproximaciones numéricas heredan la estabilidad de la solución analítica ($\lim_{n \to \infty} \mathbb{E}[|Y_n|^2] = 0$) siempre que $l < 0$.
 
@@ -442,7 +442,7 @@ $$ {#eq-5.15}
 
 Utilizando las propiedades de los incrementos independientes y de esperanza nula, podemos afirmar que $\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0$. En consecuencia, los términos cruzados se anulan: $\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0$ y $\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0$. Además, por la independencia mutua entre el movimiento browniano y el proceso de Poisson compensado, se cumple $\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0$.
 
-Por otro lado, calculamos los segundos momentos de los incrementos: $\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t$ y $\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t$. Por lo tanto, de la Ecuación \eqref{eq-5.15} 
+Por otro lado, calculamos los segundos momentos de los incrementos: $\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t$ y $\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t$. Por lo tanto, de la @eq-5.15 
 obtenemos
 
 $$
@@ -461,7 +461,7 @@ $$
     \end{aligned}
 $$ {#eq-5.16}
 
-Notemos que la Ecuación @eq-5.16 describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión $\mathbb{E}[|Y_n|^2]$ sea decreciente y tienda a cero cuando $n$ tiende a infinito. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, es decir,
+Notemos que la @eq-5.16 describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión $\mathbb{E}[|Y_n|^2]$ sea decreciente y tienda a cero cuando $n$ tiende a infinito. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, es decir,
 
 $$
     \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}<1.
@@ -560,6 +560,6 @@ $$
 
 ::: {style="text-align: justify"}
 
-Con esto, concluimos la demostración del Teorema @thm-estabilidad. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto $c$ es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija $\theta \in [1/2, 1]$. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la @sec-cap6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step $\theta$ (CSS$\theta$), generalizando estas propiedades de estabilidad y convergencia fuerte.
+Con esto, concluimos la demostración del @thm-estabilidad. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto $c$ es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija $\theta \in [1/2, 1]$. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la @sec-cap6, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el Método Compensated Split-Step $\theta$, por sus siglas en inglés ($\text{CSS}\theta$), generalizando estas propiedades de estabilidad y convergencia fuerte.
 
 :::

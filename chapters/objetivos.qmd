@@ -2,6 +2,23 @@
 lang: es
 ---
 
+:::{style="text-align: justify"}
+
 # Objetivos
 
-## Los objetivos de este proyecto se estarán afinando dentro de las proximas semanas.
+## **Objetivo general**
+
+Demostrar rigurosamente la existencia y unicidad de soluciones fuertes para ecuaciones diferenciales estocásticas (EDEs) con saltos, y establecer las condiciones analíticas y probabilísticas bajo las cuales los esquemas numéricos implícitos compensados (CSTM y $\text{CSS}\theta$) preservan la estabilidad asintótica y convergen fuertemente a la solución exacta.
+
+## **Objetivos específicos**
+
+Para alcanzar el objetivo general, se plantean los siguientes objetivos específicos, alineados con la progresión lógica de los capítulos de esta tesis:
+
+1. **Existencia y Unicidad.** Demostrar la existencia y unicidad de soluciones fuertes para EDEs con saltos mediante el método de iteración de Picard en el espacio de Banach $L^2$, utilizando condiciones de Lipschitz global y crecimiento lineal, y extendiendo la validez del teorema a condiciones iniciales generales mediante técnicas de localización por truncamiento.
+
+2. **Estabilidad en el Caso Lineal.** Determinar las condiciones analíticas exactas de estabilidad en media cuadrática para la solución explícita de ecuaciones diferenciales estocásticas lineales con saltos, y demostrar que el método Theta Compensado Estocástico (CSTM) hereda dicha estabilidad (A-estabilidad) de manera incondicional para parámetros $\theta\in[1/2,1].$
+
+3. **Convergencia Fuerte en el Caso No Lineal.** Probar la convergencia fuerte de orden $1/2$ del método $\textbf{Compensated Split-Step}$ $\theta$ ($\text{CSS}\theta$) para EDEs con saltos no lineales, estableciendo previamente el acotamiento uniforme de los momentos de las sucesiones discretas y sus extensiones continuas bajo hipótesis de Lipschitz unilateral y crecimiento polinomial.
+
+
+:::
