@@ -12,21 +12,21 @@
   {
     "objectID": "chapters/objetivos.html#objetivo-general",
     "href": "chapters/objetivos.html#objetivo-general",
-    "title": "2  Obtevios",
+    "title": "2  Objetivos",
     "section": "2.1 Objetivo general",
     "text": "2.1 Objetivo general\nDemostrar rigurosamente la existencia y unicidad de soluciones fuertes para ecuaciones diferenciales estocásticas (EDEs) con saltos, y establecer las condiciones analíticas y probabilísticas bajo las cuales los esquemas numéricos implícitos compensados (CSTM y \\(\\text{CSS}\\theta\\)) preservan la estabilidad asintótica y convergen fuertemente a la solución exacta.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Obtevios</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
     ]
   },
   {
     "objectID": "chapters/objetivos.html#objetivos-específicos",
     "href": "chapters/objetivos.html#objetivos-específicos",
-    "title": "2  Obtevios",
+    "title": "2  Objetivos",
     "section": "2.2 Objetivos específicos",
     "text": "2.2 Objetivos específicos\nPara alcanzar el objetivo general, se plantean los siguientes objetivos específicos, alineados con la progresión lógica de los capítulos de esta tesis:\n\nExistencia y Unicidad. Demostrar la existencia y unicidad de soluciones fuertes para EDEs con saltos mediante el método de iteración de Picard en el espacio de Banach \\(L^2\\), utilizando condiciones de Lipschitz global y crecimiento lineal, y extendiendo la validez del teorema a condiciones iniciales generales mediante técnicas de localización por truncamiento.\nEstabilidad en el Caso Lineal. Determinar las condiciones analíticas exactas de estabilidad en media cuadrática para la solución explícita de ecuaciones diferenciales estocásticas lineales con saltos, y demostrar que el método Theta Compensado Estocástico (CSTM) hereda dicha estabilidad (A-estabilidad) de manera incondicional para parámetros \\(\\theta\\in[1/2,1].\\)\nConvergencia Fuerte en el Caso No Lineal. Probar la convergencia fuerte de orden \\(1/2\\) del método \\(\\textbf{Compensated Split-Step}\\) \\(\\theta\\) (\\(\\text{CSS}\\theta\\)) para EDEs con saltos no lineales, estableciendo previamente el acotamiento uniforme de los momentos de las sucesiones discretas y sus extensiones continuas bajo hipótesis de Lipschitz unilateral y crecimiento polinomial.",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Obtevios</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
     ]
   },
   {
