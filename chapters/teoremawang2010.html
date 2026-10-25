@@ -604,7 +604,7 @@ window.Quarto = {
 <p>Por lo que el sistema es asistóticamente estable en media cuadrática si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
 </div>
 <div style="text-align: justify">
-<p>Habiendo establecido la estabilidad de la solución exacta en la sección anterior, es natural preguntarse si los esquemas numéricos pueden preservar esta propiedad. En esta sección, introducimos el método Theta Compensado Estocástico (CSTM) aplicado a la ecuación de Langevin y demostramos bajo qué condiciones las aproximaciones discretas heredan la estabilidad media cuadrática de la solución analítica.</p>
+<p>Habiendo establecido la estabilidad de la solución exacta en la sección anterior, es natural preguntarse si los esquemas numéricos pueden preservar esta propiedad. En esta sección, introducimos el método Theta Compensado Estocástico (CSTM) y demostramos bajo qué condiciones las aproximaciones discretas heredan la estabilidad media cuadrática de la solución analítica.</p>
 </div>
 <section id="estabilidad-del-método-numérico-cstm" class="level2" style="text-align: justify" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="estabilidad-del-método-numérico-cstm"><span class="header-section-number">5.2</span> Estabilidad del método numérico CSTM</h2>
@@ -652,7 +652,7 @@ window.Quarto = {
     \lim\limits_{t\rightarrow\infty} \mathbb{E}[|X(t)|^2]=0,
 \]</span></p>
 <p>lo cual, por la <a href="#prp-estabilidadsolucion" class="quarto-xref">Proposición&nbsp;<span>5.1</span></a>, ocurre si y solo si <span class="math inline">\(l&lt;0\)</span>.</p>
-<p>Sea <span class="math inline">\(\Delta t &gt; 0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta \in [0, 1]\)</span> el parámetro del método theta compensado estocástico (CSTM). Al aplicar dicho método a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, se tienen los siguientes resultados sobre la estabilidad en media cuadrática de las aproximaciones numéricas <span class="math inline">\(\{Y_n\}_{n \geq 0}\)</span>:</p>
+<p>Sea <span class="math inline">\(\Delta t &gt; 0\)</span> un tamaño de paso fijo y <span class="math inline">\(\theta \in [0, 1]\)</span> el parámetro del Método <span class="math inline">\(\theta\)</span> Compensado Estocástico, por sus siglas en inglés, (CSTM). Al aplicar dicho método a la <a href="#eq-5.10" class="quarto-xref">Ecuación&nbsp;<span>5.10</span></a>, se tienen los siguientes resultados sobre la estabilidad en media cuadrática de las aproximaciones numéricas <span class="math inline">\(\{Y_n\}_{n \geq 0}\)</span>:</p>
 <ul>
 <li><p>Si <span class="math inline">\(\displaystyle \frac{1}{2} \leq \theta \leq 1\)</span>, el método es <strong>A-estable</strong> en media cuadrática. Es decir, para todo <span class="math inline">\(\Delta t &gt; 0\)</span>, las aproximaciones numéricas heredan la estabilidad de la solución analítica (<span class="math inline">\(\lim_{n \to \infty} \mathbb{E}[|Y_n|^2] = 0\)</span>) siempre que <span class="math inline">\(l &lt; 0\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(\displaystyle 0 \leq \theta &lt; \frac{1}{2}\)</span>, el método es estable en media cuadrática si y solo si el tamaño del paso satisface la restricción <span class="math display">\[
@@ -736,7 +736,7 @@ window.Quarto = {
     \end{aligned}
 \tag{5.15}\]</span></span></p>
 <p>Utilizando las propiedades de los incrementos independientes y de esperanza nula, podemos afirmar que <span class="math inline">\(\mathbb{E}[B]=b\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[C]=c\mathbb{E}[\Delta \widetilde{N}_n]=0\)</span>. En consecuencia, los términos cruzados se anulan: <span class="math inline">\(\mathbb{E}[2AB]=2Ab\mathbb{E}[\Delta W_n]=0\)</span> y <span class="math inline">\(\mathbb{E}[2AC]=2Ac\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>. Además, por la independencia mutua entre el movimiento browniano y el proceso de Poisson compensado, se cumple <span class="math inline">\(\mathbb{E}[BC]=bc\mathbb{E}[\Delta W_n\Delta\widetilde{N}_n]=bc\mathbb{E}[\Delta W_n]\mathbb{E}[\Delta\widetilde{N}_n]=0\)</span>.</p>
-<p>Por otro lado, calculamos los segundos momentos de los incrementos: <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la Ecuación <span class="math inline">\(\eqref{eq-5.15}\)</span> obtenemos</p>
+<p>Por otro lado, calculamos los segundos momentos de los incrementos: <span class="math inline">\(\mathbb{E}[B^2]=b^2\mathbb{E}[(\Delta W_n)^2]=b^2\Delta t\)</span> y <span class="math inline">\(\mathbb{E}[C^2]=c^2\mathbb{E}[(\Delta \widetilde{N}_n)^2]=c^2\lambda\Delta t\)</span>. Por lo tanto, de la Ecuación <a href="#eq-5.15" class="quarto-xref">Ecuación&nbsp;<span>5.15</span></a> obtenemos</p>
 <p><span class="math display">\[
     \begin{aligned}
         \mathbb{E}[|A+B+C|^2] &amp; = A^2+b^2\Delta t +\lambda c^2\Delta t \\
@@ -750,7 +750,7 @@ window.Quarto = {
         &amp; \qquad + b^2\Delta t +\lambda c^2\Delta t\Bigg]\mathbb{E}[|Y_n|^2].
     \end{aligned}
 \tag{5.16}\]</span></span></p>
-<p>Notemos que la Ecuación <a href="#eq-5.16" class="quarto-xref">Ecuación&nbsp;<span>5.16</span></a> describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> sea decreciente y tienda a cero cuando <span class="math inline">\(n\)</span> tiende a infinito. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, es decir,</p>
+<p>Notemos que la <a href="#eq-5.16" class="quarto-xref">Ecuación&nbsp;<span>5.16</span></a> describe el cambio del segundo momento de la solución numérica. Ahora bien, para que el método sea estable en media cuadrática, es necesario que la sucesión <span class="math inline">\(\mathbb{E}[|Y_n|^2]\)</span> sea decreciente y tienda a cero cuando <span class="math inline">\(n\)</span> tiende a infinito. Esto ocurre si y solo si el factor de amplificación es estrictamente menor que 1, es decir,</p>
 <p><span id="eq-5.17"><span class="math display">\[
     \frac{(1+(1-\theta)\Delta t(a+\lambda c))^2+b^2\Delta t +\lambda c^2\Delta t}{(1-\theta\Delta t(a+\lambda c))^2}&lt;1.
 \tag{5.17}\]</span></span></p>
@@ -823,7 +823,7 @@ window.Quarto = {
 \]</span></p>
 </div>
 <div style="text-align: justify">
-<p>Con esto, concluimos la demostración del Teorema <a href="#thm-estabilidad" class="quarto-xref">Teorema&nbsp;<span>5.1</span></a>. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto <span class="math inline">\(c\)</span> es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija <span class="math inline">\(\theta \in [1/2, 1]\)</span>. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la <a href="teorem2017.html" class="quarto-xref"><span>Capítulo 6</span></a>, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el método Compensated Split-Step <span class="math inline">\(\theta\)</span> (CSS<span class="math inline">\(\theta\)</span>), generalizando estas propiedades de estabilidad y convergencia fuerte.</p>
+<p>Con esto, concluimos la demostración del <a href="#thm-estabilidad" class="quarto-xref">Teorema&nbsp;<span>5.1</span></a>. Los resultados establecidos en este capítulo nos permiten extraer una conclusión fundamental: mientras que los métodos numéricos estándar pueden fallar en preservar la estabilidad de la solución analítica cuando el parámetro de salto <span class="math inline">\(c\)</span> es negativo, el método Theta Compensado Estocástico (CSTM) logra extender la propiedad de A-estabilidad al caso con saltos, siempre que se elija <span class="math inline">\(\theta \in [1/2, 1]\)</span>. Este análisis lineal no solo valida la consistencia del esquema numérico, sino que sienta las bases metodológicas para la <a href="teorem2017.html" class="quarto-xref"><span>Capítulo 6</span></a>, donde enfrentaremos el desafío de la no linealidad y el crecimiento polinomial mediante el Método Compensated Split-Step <span class="math inline">\(\theta\)</span>, por sus siglas en inglés (<span class="math inline">\(\text{CSS}\theta\)</span>), generalizando estas propiedades de estabilidad y convergencia fuerte.</p>
 </div>
 
 
