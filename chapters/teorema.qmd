@@ -22,7 +22,7 @@ En el capítulo anterior establecimos el andamiaje teórico necesario para el c�
 
 ## Marco Probabilístico y Planteamiento de la EDE 
 
-Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad completo equipado con una filtración que satisface las $\textit{condiciones usuales}$ cómo se establece en la @def-espfiltrado.
+Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad completo equipado con una filtración que satisface las $\textbf{condiciones usuales}$ cómo se establece en la @def-espfiltrado.
 
 Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinamica del sistema
 
@@ -82,7 +82,7 @@ $$ {#eq-4.02}
 
 Esta condición controla la variación relativa de los coeficientes, lo cual es esencial para demostrar la convergencia de la iteración de Picard (paso inductivo) y la unicidad de la solución mediante la desigualdad de Gronwall. Intuitivamente, la @eq-4.02 garantiza que los coeficientes no varían demasiado rápido, evitando que pequeñas diferencias en el estado del sistema se amplifiquen descontroladamente.
 
-Sin embargo, la @eq-4.02 por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de $f$, $g$ y $h$, asegurando así que los integrandos pertenezcan al espacio $L^2$ y que la solución no ``explote'' en tiempo finito.
+Sin embargo, la @eq-4.02 por sí sola no garantiza que las integrales estocásticas estén bien definidas, pues no acota el crecimiento absoluto de los coeficientes. Para ello, requerimos una condición adicional que limite la magnitud de $f$, $g$ y $h$, asegurando así que los integrandos pertenezcan al espacio $L^2$ y que la solución no explote en tiempo finito.
 
 
 **Condición de crecimiento lineal**: Existe una constante $K_2>0$ tal que, para todo $y\in\mathbb{R}$
@@ -724,7 +724,7 @@ Esto garantiza que, con probabilidad 1, la sucesión $(Z_n(\cdot))$ converge uni
 
 ::: {style="text-alig: justify"}
 
-El @lem-ERPL garantiza la existencia de un proceso límite $Z_n(t)$ con las propiedades de regularidad deseables. Sin embargo, desde el punto de vista analítico, la mera convergencia de la sucesión de Picard no asegura, por sí sola, que el límite satisfaga la ecuación diferencial estocástica original. Podría ocurrir que el límite converja a un proceso que no resuelva la EDE.
+El @lem-ERPL garantiza la existencia de un proceso límite $Z_n(t)$ con las propiedades de regularidad deseables. Sin embargo, desde el punto de vista analítico, la convergencia de la sucesión de Picard no asegura, por sí sola, que el límite satisfaga la ecuación diferencial estocástica original. Podría ocurrir que el límite converja a un proceso que no resuelva la EDE.
 
 Para cerrar este vacío lógico, en esta sección definimos un proceso auxiliar $\widetilde{Z}(t)$ evaluando el lado derecho de la forma integral de la @eq-4.01 sobre el proceso límite $Z_n(t)$. A través de estimaciones de error cuadrático medio y aprovechando la unicidad de límites en espacios de Banach, demostraremos en la siguiente Proposición que $\widetilde{Z}(t)=Z(t)$ casi seguramente, validando así que el proceso construido es, en efecto, una solución fuerte.
 
