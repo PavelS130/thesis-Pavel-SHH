@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -439,10 +458,26 @@ window.Quarto = {
 
 
 <div style="text-align: justify">
-
+<p>Las ecuaciones diferenciales estocásticas con saltos constituyen una herramienta matemática para describir procesos cuya evolución está sujeta tanto a fluctuaciones aleatorias continuas como a cambios abruptos. Su estudio requiere combinar herramientas de probabilidad, análisis real y cálculo estocástico, pues no basta con formular una ecuación: también es necesario establecer cuándo existe una solución, si esta es única y bajo qué condiciones puede aproximarse mediante métodos numéricos.</p>
+<p>Un primer problema fundamental consiste en demostrar la existencia y unicidad de las soluciones fuertes. Estos resultados permiten garantizar que, bajo determinadas hipótesis, la ecuación diferencial estocástica define un proceso que satisface la relación integral correspondiente y que no existen otras soluciones distintas con la misma condición inicial. Para abordar este problema, se toma como referencia <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>, que desarrolla herramientas para el estudio de los procesos de Lévy, las martingalas, la integración estocástica y las ecuaciones diferenciales estocásticas. A partir de este marco teórico, en el capítulo 4 se demuestra la existencia y unicidad de soluciones fuertes para ecuaciones diferenciales estocásticas con saltos mediante el método de iteración de Picard. Bajo condiciones globales de Lipschitz y crecimiento lineal, se estudia la convergencia de las aproximaciones sucesivas en el espacio <span class="math inline">\(L^2\)</span>, se verifica que su límite satisface la ecuación integral y se establece la unicidad de la solución. Finalmente, se considera una extensión mediante técnicas de truncamiento y localización.</p>
+<p>Una vez establecido el marco de existencia y unicidad, surge la necesidad de estudiar el comportamiento de las aproximaciones numéricas. En particular, resulta importante determinar si un método conserva la estabilidad de la solución que se pretende aproximar. El análisis de estabilidad en media cuadrática permite estudiar esta propiedad mediante el comportamiento del segundo momento del proceso. En el capítulo 5 se considera el caso de una ecuación diferencial estocástica lineal unidimensional con saltos y se analiza, en primer lugar, la estabilidad de su solución exacta. Posteriormente, se estudia la estabilidad del método <em>Compensated Stochastic Theta Method</em> (CSTM), siguiendo como referencia <span class="citation" data-cites="wang2010compensated">(<a href="referencias.html#ref-wang2010compensated" role="doc-biblioref">Wang y Gan 2010</a>)</span>. El análisis permite identificar las condiciones bajo las cuales el método conserva la propiedad de A-estabilidad: en el problema lineal considerado, esta propiedad se obtiene para <span class="math inline">\(\theta\in[1/2,1]\)</span>, sin imponer una restricción adicional sobre el tamaño del paso temporal.</p>
+<p>El estudio de la estabilidad proporciona información importante sobre el comportamiento de los métodos numéricos, pero no garantiza por sí mismo que sus aproximaciones converjan a la solución exacta. Por esta razón, en el capítulo 6 se aborda la convergencia fuerte del método Compensated Split-Step <span class="math inline">\(\theta\)</span> (<span class="math inline">\(\text{CSS}\theta\)</span>) para ecuaciones diferenciales estocásticas con saltos y coeficientes no lineales. Como punto de partida se considera el <span class="citation" data-cites="tan2017convergence">Tan y Men (<a href="referencias.html#ref-tan2017convergence" role="doc-biblioref">2017</a>)</span>. El análisis desarrollado en esta tesis se concentra en el caso unidimensional y considera una condición de Lipschitz unilateral para el coeficiente de deriva, condiciones globales de Lipschitz para los coeficientes de difusión y salto, y una condición de crecimiento polinomial para la deriva. Bajo las hipótesis correspondientes, se establece el acotamiento de los momentos de las aproximaciones numéricas y de sus extensiones a tiempo continuo. Estos resultados permiten demostrar el teorema principal de convergencia fuerte, según el cual el error cuadrático medio, medido mediante el supremo temporal en un intervalo finito, está acotado por una constante multiplicada por el tamaño del paso temporal. En consecuencia, el método alcanza un orden fuerte de convergencia de <span class="math inline">\(1/2\)</span>.</p>
+<p>Para desarrollar estos resultados, el capítulo 3 reúne los preliminares necesarios de análisis real, teoría de la probabilidad, integración estocástica, martingalas y desigualdades analíticas. Estas herramientas se utilizan posteriormente en las demostraciones de los capítulos 4, 5 y 6, especialmente para construir soluciones, obtener estimaciones de momentos y controlar las diferencias entre la solución exacta y sus aproximaciones numéricas.</p>
+<p>En conjunto, la tesis presenta un estudio de las ecuaciones diferenciales estocásticas con saltos que avanza desde la fundamentación teórica de sus soluciones hasta el análisis de las propiedades de sus aproximaciones numéricas. La existencia y unicidad proporcionan el punto de partida para definir rigurosamente el problema; la estabilidad permite examinar el comportamiento del método en un caso lineal; y la convergencia fuerte extiende el análisis al caso no lineal, bajo condiciones de regularidad más generales. De esta manera, los tres capítulos centrales articulan distintos aspectos del análisis matemático de las ecuaciones diferenciales estocásticas con saltos.</p>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-applebaum2009levy" class="csl-entry" role="listitem">
+Applebaum, David. 2009. <em>L<span>é</span>vy Processes and Stochastic Calculus</em>. 2.ª ed. Vol. 116. Cambridge Studies en Advanced Mathematics. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511809781">https://doi.org/10.1017/CBO9780511809781</a>.
+</div>
+<div id="ref-tan2017convergence" class="csl-entry" role="listitem">
+Tan, Jianguo, y Weiwei Men. 2017. <span>«Convergence of the compensated split-step <span></span>-method for nonlinear jump-diffusion systems»</span>. <em>Advances in Difference Equations</em> 2017. <a href="https://doi.org/10.1186/s13662-017-1247-6">https://doi.org/10.1186/s13662-017-1247-6</a>.
+</div>
+<div id="ref-wang2010compensated" class="csl-entry" role="listitem">
+Wang, Xiaojie, y Siqing Gan. 2010. <span>«Compensated stochastic theta methods for stochastic differential equations with jumps»</span>. <em>Applied Numerical Mathematics</em> 60 (9): 877-87. <a href="https://doi.org/10.1016/j.apnum.2010.04.012">https://doi.org/10.1016/j.apnum.2010.04.012</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
