@@ -14,7 +14,7 @@
     "href": "chapters/objetivos.html#objetivo-general",
     "title": "2  Objetivos",
     "section": "2.1 Objetivo general",
-    "text": "2.1 Objetivo general\nDemostrar rigurosamente la existencia y unicidad de soluciones fuertes para ecuaciones diferenciales estocásticas (EDEs) con saltos, y establecer las condiciones analíticas y probabilísticas bajo las cuales los esquemas numéricos implícitos compensados (CSTM y \\(\\text{CSS}\\theta\\)) preservan la estabilidad asintótica y convergen fuertemente a la solución exacta.",
+    "text": "2.1 Objetivo general\nAnalizar las propiedades cualitativas y cuantitativas de las EDEs con saltos mediante herramientas de análisis real y teoría de martingalas, demostrando teoremas de existencia, unicidad y estabilidad, así como la convergencia fuerte de orden \\(1/2\\) para esquemas numéricos implícitos sujetos a condiciones de crecimiento polinomial y Lipschitz unilateral.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Objetivos</span>"
     ]
