@@ -14,7 +14,7 @@ format:
 
 # Estabilidad media cuadrática del Método CSTM {#sec-cap5}
 
-Habiendo establecido en la @sec-cap4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, es natural preguntarse no solo si el modelo está bien planteado, sino cómo se comporta su dinámica a largo plazo y cómo podemos aproximarlo numéricamente. Para abordar estas cuestiones de manera rigurosa pero pedagógica, en este capítulo nos restringiremos a un caso particular de gran relevancia en la modelación física, biológica y financiera: la $\textbf{ecuación de Langevin estocástica con saltos}$. 
+Habiendo establecido en la @sec-cap4 el andamiaje teórico que garantiza la existencia, unicidad y regularidad de las soluciones para ecuaciones diferenciales estocásticas (EDEs) generales con saltos, resulta natural preguntarse no solo si el modelo está bien planteado, sino también cómo se comportan sus soluciones a largo plazo y cómo pueden aproximarse numéricamente. Para abordar estas cuestiones de manera rigurosa y gradual, en este capítulo nos centraremos en el análisis de una ecuación diferencial estocástica lineal con saltos, que servirá como problema de prueba para estudiar la estabilidad de los métodos numéricos y su capacidad para reproducir el comportamiento de la solución exacta.
 
 Dicha ecuación se expresa mediante el siguiente sistema lineal:
 
@@ -150,7 +150,7 @@ $$ {#eq-5.03}
 
 ::: {style="text-align: justify"}
 
-Habiendo obtenido la expresión explícita para la solución de la ecuación de Langevin con saltos en la sección anterior, el siguiente paso natural es investigar su comportamiento asintótico. En el contexto de los sistemas estocásticos, la estabilidad no se estudia trayectoria por trayectoria, sino a través de los momentos del proceso. En esta sección, analizaremos el segundo momento de la solución exacta, $\mathbb{E}[|X(t)|^2]$, para determinar bajo qué condiciones sobre los parámetros del sistema ($a, b, c, \lambda$) la energía del proceso decae asintóticamente a cero.
+Habiendo obtenido la expresión explícita para la solución de la @eq-5.01, el siguiente paso será investigar su comportamiento asintótico. En el contexto de los sistemas estocásticos, la estabilidad no se estudia trayectoria por trayectoria, sino a través de los momentos del proceso. En esta sección, analizaremos el segundo momento de la solución exacta, $\mathbb{E}[|X(t)|^2]$, para determinar bajo qué condiciones sobre los parámetros del sistema ($a, b, c, \lambda$) la energía del proceso decae asintóticamente a cero.
 
 
 :::
