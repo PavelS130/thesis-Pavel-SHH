@@ -41,6 +41,7 @@ book:
   - chapters/teorema.qmd
   - chapters/teoremawang2010.qmd
   - chapters/teorem2017.qmd
+  - chapters/conclusiones.qmd
   - chapters/referencias.qmd
 
 comments:

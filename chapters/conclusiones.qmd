@@ -1,0 +1,30 @@
+---
+title: Conclusiones
+lang: es
+format:
+  html: default
+  pdf: default  
+---
+
+::: {style="text-align: justify"}
+
+En este trabajo se estudiaron propiedades fundamentales de las ecuaciones diferenciales estocásticas (EDEs) con saltos, desde la existencia y unicidad de sus soluciones hasta la estabilidad y convergencia de algunos métodos numéricos utilizados para aproximarlas.
+
+En el @sec-cap4 se demostró la existencia y unicidad de soluciones fuertes mediante el método de iteración de Picard. Bajo condiciones globales de Lipschitz y crecimiento lineal, se estableció la convergencia de las aproximaciones sucesivas en el espacio $L^2$ y se comprobó que su límite satisface la ecuación integral correspondiente. Asimismo, se demostró la unicidad de la solución mediante estimaciones y la desigualdad de Gronwall. Finalmente, se extendió el resultado a condiciones iniciales que no necesariamente poseen segundo momento finito, mediante técnicas de truncamiento. Estos resultados permiten establecer que el problema continuo tiene una solución única bajo las condiciones consideradas.
+
+En el @sec-cap5 se analizó la estabilidad en media cuadrática de una ecuación diferencial estocástica lineal con saltos y del método Compensated Stochastic Theta Method (CSTM). Primero, se determinó la condición bajo la cual el segundo momento de la solución exacta tiende a cero cuando el tiempo aumenta. Después, se estudió el comportamiento de la aproximación numérica y se demostró que el método es A-estable para $\theta\in[1/2,1]$, en el problema considerado. Para valores de $\theta$ menores que $1/2$, se obtuvo una restricción sobre el tamaño del paso temporal. Estos resultados muestran que la elección del parámetro $\theta$ influye en la estabilidad de las aproximaciones numéricas.
+
+En el @sec-cap6 se estudió la convergencia fuerte del método Compensated Split-Step $\theta$ $\text{CSS}\theta$ para ecuaciones con saltos y coeficientes no lineales. Bajo las condiciones de regularidad establecidas, se obtuvieron cotas para los momentos de las aproximaciones numéricas y sus extensiones a tiempo continuo. Estas estimaciones permitieron demostrar que el error entre la aproximación y la solución exacta satisface
+
+$$
+\mathbb{E}\left[\sup_{0\leq t\leq T}|\overline{Y}(t)-X(t)|^2\right]\leq C\Delta t,
+$$
+
+donde $C$ es una constante independiente del paso temporal $\Delta t$. Por consiguiente, el método $\text{CSS}\theta$ alcanza un orden fuerte de convergencia de $1/2$ bajo las hipótesis consideradas. Este resultado permite cuantificar cómo disminuye el error al reducir el tamaño del paso temporal.
+
+En conjunto, los resultados muestran la importancia de combinar herramientas de análisis real, teoría de la probabilidad y cálculo estocástico para estudiar las soluciones y sus aproximaciones numéricas. La existencia y unicidad establecen las condiciones bajo las cuales el problema está bien planteado; el análisis del método CSTM permite conocer cuándo se conserva la estabilidad en el caso lineal estudiado; y el resultado de convergencia del método $\text{CSS}\theta$ proporciona una estimación del error para el caso no lineal.
+
+Es importante señalar que estas propiedades se demostraron bajo hipótesis específicas. Por ello, los resultados no implican que ambos métodos posean las mismas características para cualquier ecuación diferencial estocástica con saltos. No obstante, el estudio proporciona una base para continuar investigando otros esquemas numéricos, considerar condiciones diferentes sobre los coeficientes y explorar posibles extensiones a sistemas de mayor dimensión.
+
+
+:::
