@@ -422,7 +422,10 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a>
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/PavelS130/thesis-Pavel-SHH/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
@@ -466,10 +469,20 @@ window.Quarto = {
 <section id="resumen" class="level1 unnumbered">
 <h1 class="unnumbered">Resumen</h1><p><img src="assets/logofcfm.png" title="Estudio Analítico de EDEs con Saltos: De la Existencia de Soluciones a la Convergencia Fuerte de Esquemas Implícitos" class="quarto-cover-image nolightbox img-fluid"></p>
 <div style="text-align: justify">
-<p>Esta tesis presenta</p>
+<p>Esta tesis analiza las propiedades cualitativas y cuantitativas de las Ecuaciones Diferenciales Estocásticas (EDEs) con saltos, impulsadas por un movimiento browniano y un proceso de Poisson compensado. En primer lugar, se demuestra la existencia y unicidad de soluciones fuertes mediante el método de iteración de Picard en el espacio <span class="math inline">\(L^2,\)</span> bajo condiciones globales de Lipschitz y crecimiento lineal, y se extiende el resultado a condiciones iniciales generales mediante técnicas de localización por truncamiento. Posteriormente se estudia la estabilidad asintótica en media cuadrática del caso lineal y se demuestra que el método Theta Compensado Estocástico (CSTM) hereda la estabilidad del sistema continuo, es decir, es A-estable de manera incondicional para <span class="math inline">\(\theta \in [1/2,\,1].\)</span></p>
+<p>Finalmente se aborda el caso no lineal, en el que los coeficientes satisfacen una condición de Lipschitz unilateral y presentan crecimiento polinomial. Se establece el acotamiento uniforme de los momentos de las sucesiones discretas y de sus extensiones a tiempo continuo, y se prueba que el método Compensated Split-Step theta (<span class="math inline">\(\text{CSS}\theta\)</span>) converge fuertemente a la solución exacta con orden <span class="math inline">\(\frac{1}{2}.\)</span>. El trabajo consolida así un marco analítico riguroso que sustenta el uso de esquemas implícitos compensados para la aproximación de sistemas estocásticos con discontinuidades.</p>
+<p><span class="math inline">\(\textbf{Palabras clave:}\)</span> Ecuaciones Diferenciales Estocásticas con saltos; procesos de Poisson compensado; existencia y unicidad; estabilidad en media cuadrática; convergencia fuerte; métodos theta compensados.</p>
+</div>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<div style="text-align: justify">
+<p>This thesis analyses the qualitative and quantitative properties of stochastic differential equations (SDEs) with jumps driven by a Brownian motion and a compensated Poisson process. First, the existence and uniqueness of strong solutions are proved by means of the Picard iteration method in the space $ L^2,$ under global Lipschitz and linear growth conditions; the result is then extended to general initial data through localisation by truncation. Secondly, asymptotic mean-square stability is investigated in the linear case, and it is shown that the Compensated Stochastic Theta Method (CSTM)inherits the stability of the continuous system, that is, it is unconditionally A-stable whenever <span class="math inline">\(\theta \in [1/2,\,1].\)</span></p>
+<p>Finally, the nonlinear case is considered, where the coefficients satisfy a one-sided Lipschitz condition and exhibit polynomial growth. Uniform bounds on the moments of the discrete sequences and of their continuous-time extensions are established, and the Compensated Split-Step theta method (<span class="math inline">\(\text{CSS}\theta\)</span>) is proved to converge strongly to the exact solution with order <span class="math inline">\(\frac{1}{2}.\)</span> The thesis thus provides a rigorous analytical framework supporting the use of implicit compensated schemes for the approximation of stochastic systems with discontinuities.</p>
+<p><span class="math inline">\(\textbf{Keywords:}\)</span> stochastic differential equations with jumps; L'evy processes; existence and uniqueness; mean-square stability; strong convergence; compensated theta methods.</p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
