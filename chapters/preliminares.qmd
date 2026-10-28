@@ -1,6 +1,9 @@
 ---
 # title: "Preliminares"
 lang: es
+format:
+  html: default
+  pdf: default 
 ---
 
 ::: {style="text-align: justify"}
@@ -1097,7 +1100,7 @@ $$
 
 representa la ocurrencia de infinitos eventos $A_n$. Por tanto, el lema establece que, bajo la condición de sumabilidad anterior, casi seguramente solo un número finito de esos eventos puede ocurrir.
 
-En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos \\(A_n\\) representan situaciones en las que no se cumplen ciertas cotas probabilísticas. Si se demuestra que la suma de las probabilidades de estas situaciones es finita, se puede concluir que, casi seguramente, las cotas correspondientes se cumplen a partir de cierto índice. Al combinar este resultado con estimaciones adecuadas de los errores, es posible establecer la convergencia casi segura, incluso de manera uniforme en el tiempo cuando los errores se controlan mediante la norma del supremo.
+En el análisis de sucesiones de procesos estocásticos, este resultado es especialmente útil cuando los eventos $A_n$ representan situaciones en las que no se cumplen ciertas cotas probabilísticas. Si se demuestra que la suma de las probabilidades de estas situaciones es finita, se puede concluir que, casi seguramente, las cotas correspondientes se cumplen a partir de cierto índice. Al combinar este resultado con estimaciones adecuadas de los errores, es posible establecer la convergencia casi segura, incluso de manera uniforme en el tiempo cuando los errores se controlan mediante la norma del supremo.
 
 La convergencia en probabilidad es otra forma importante de convergencia en teoría de procesos estocásticos. Aunque no garantiza por sí sola que toda la sucesión converja casi seguramente, sí permite extraer una subsucesión que posee esta propiedad.
 
@@ -1259,7 +1262,7 @@ Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con $\mathbb{E}[|Z_0|^2
 
 :::{style = "text-align: justify"}
 
-El objetivo de la demostración de existencia, que se desarrollará en el Capítulo 4, consistirá en probar que esta sucesión es de Cauchy en el espacio $L^2$, que converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada a la EDE:
+El objetivo de la demostración de existencia, que se desarrollará en el @sec-cap4, consistirá en probar que esta sucesión es de Cauchy en el espacio $L^2$, que converge uniformemente casi seguramente a un proceso límite $Z(t)$, y que dicho límite satisface la ecuación integral asociada a la EDE:
 
 $$
 dZ(t) = f(Z(t-)) \, dt + g(Z(t-)) \, dW(t) + h(Z(t-)) \, d\widetilde{N}(t), \qquad t \geq 0.

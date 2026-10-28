@@ -14,7 +14,7 @@ website:
 book:
   title: "Estudio Analítico de EDEs con Saltos: De la Existencia de Soluciones a la Convergencia Fuerte de Esquemas Implícitos"
   language: es
-  date: "25/06/2025"
+  date: "10/28/2026"
   output-file: "Tesis_PSHH"
   image: assets/UNACH.png
   cover-image: assets/logofcfm.png
@@ -78,6 +78,10 @@ format:
     institution: Universidad Autónoma de Chiapas
     email: pavel.hernandez69@unach.mx
     keep-tex: true
+    pdf-engine: lualatex
+    toc: true
+    link-citations: true
+
 
   epub:
     cover-image: assets/UNACH.png

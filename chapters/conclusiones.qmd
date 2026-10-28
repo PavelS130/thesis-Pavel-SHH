@@ -8,7 +8,7 @@ format:
 
 ::: {style="text-align: justify"}
 
-En este trabajo se estudiaron propiedades fundamentales de las ecuaciones diferenciales estocásticas (EDEs) con saltos, desde la existencia y unicidad de sus soluciones hasta la estabilidad y convergencia de algunos métodos numéricos utilizados para aproximarlas.
+En este trabajo se estudiaron propiedades fundamentales de las Ecuaciones Diferenciales Estocásticas (EDEs) con saltos, desde la existencia y unicidad de sus soluciones hasta la estabilidad y convergencia de algunos métodos numéricos utilizados para aproximarlas.
 
 En el @sec-cap4 se demostró la existencia y unicidad de soluciones fuertes mediante el método de iteración de Picard. Bajo condiciones globales de Lipschitz y crecimiento lineal, se estableció la convergencia de las aproximaciones sucesivas en el espacio $L^2$ y se comprobó que su límite satisface la ecuación integral correspondiente. Asimismo, se demostró la unicidad de la solución mediante estimaciones y la desigualdad de Gronwall. Finalmente, se extendió el resultado a condiciones iniciales que no necesariamente poseen segundo momento finito, mediante técnicas de truncamiento. Estos resultados permiten establecer que el problema continuo tiene una solución única bajo las condiciones consideradas.
 
