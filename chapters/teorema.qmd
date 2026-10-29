@@ -38,7 +38,7 @@ $$
 
 Por construcción, y dado que $\mathbb{E}[N(t)]=\lambda t$, el proceso $\widetilde{N}(t)$ es una martingala cuadrado-integrable con respecto a la filtración $\mathcal{F_t}$. 
 
-Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con segundo momento finito, es decir, $\mathbb{E}[|Z_0|]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiennte ecuación 
+Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con segundo momento finito, es decir, $\mathbb{E}[|Z_0|]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiente ecuación 
 diferencial estocástica (EDE) con saltos en su forma compensada:
 
 $$
