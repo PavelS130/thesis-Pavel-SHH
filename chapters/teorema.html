@@ -485,8 +485,8 @@ window.Quarto = {
 <p>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad completo equipado con una filtración que satisface las <span class="math inline">\(\textbf{condiciones usuales}\)</span> cómo se establece en la <a href="preliminares.html#def-espfiltrado" class="quarto-xref">Definición&nbsp;<span>3.1</span></a>.</p>
 <p>Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinamica del sistema</p>
 <ul>
-<li><p><span class="math inline">\(W=(W(t))_{t\geq 0}\)</span> es un movimiento browniano estándar adaptado a <span class="math inline">\(\{\mathcal{F}_t\}\)</span>,</p></li>
-<li><p><span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> es un proceso de Poisson estandar con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a <span class="math inline">\(\{\mathcal{F}_t\}\)</span>.</p></li>
+<li><p><span class="math inline">\(W=(W(t))_{t\geq 0}\)</span> es un movimiento browniano estándar adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>,</p></li>
+<li><p><span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> es un proceso de Poisson estandar con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>.</p></li>
 </ul>
 <p>Asumimos que <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(N(t)\)</span> son independientes entre si. A partir del proceso de Poisson, podemos definir el <span class="math inline">\(\textbf{proceso de Poisson compensado}\)</span> <span class="math inline">\(\widetilde{N}=(\widetilde{N})_{t\geq 0}\)</span> mediante la realción</p>
 <p><span class="math display">\[
@@ -552,7 +552,7 @@ dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
         &amp; \qquad\qquad + \int_0^t h(Z_n(s-))\,d\widetilde{N}(s).
     \end{aligned}
 \tag{4.5}\]</span></span></p>
-<p>Afirmamos que cada <span class="math inline">\(Z_n\)</span> es un proceso adaptado a la filtración <span class="math inline">\(\{\mathcal{F}_t\}_{t\geq 0}\)</span> y con trayectorias càdlàg mediante inducción matemática sobre <span class="math inline">\(n\)</span>.</p>
+<p>Afirmamos que cada <span class="math inline">\(Z_n\)</span> es un proceso adaptado a la filtración <span class="math inline">\((\mathcal{F}_t)_{t\geq 0}\)</span> y con trayectorias càdlàg mediante inducción matemática sobre <span class="math inline">\(n\)</span>.</p>
 <p><strong>Caso <span class="math inline">\(n=0\)</span></strong> El proceso inicial es <span class="math inline">\(Z_0(t)=Z_0\)</span> para todo <span class="math inline">\(t\geq 0\)</span>. Dado que <span class="math inline">\(Z_0\)</span> es <span class="math inline">\(\mathcal{F}_0\)</span>-medible por hipótesis, el proceso es constante en el tiempo, y por lo tanto, adaptado. Además, sus trayectorias son constantes, lo que implica que son continuas y en consecuencia, càdlàg.</p>
 <p>Supongamos que para algún <span class="math inline">\(n\geq 0\)</span>, el proceso <span class="math inline">\(Z_n(t)\)</span> es adaptado y tiene trayectorias càdlàg. Dado que <span class="math inline">\(Z_n\)</span> es adaptado y càdlàg, es progresivamente medible. Recordemos que una propiedad dentro del cálculo estocástico establece que el proceso de límites por la izquierda</p>
 <p><span class="math display">\[
