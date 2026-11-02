@@ -22,7 +22,7 @@ $$
     dX(t) = aX(t-)dt + bX(t-)dW(t) + cX(t-)dN(t), \qquad t \geq 0,
 $$ {#eq-5.01}
 
-con condición inicial $X(0) = X_0$, donde $a, b, c \in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda > 0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$.
+con condición inicial $X(0) = X_0$, donde $a, b, c \in \mathbb{R}$ son constantes, $W(t)$ es un movimiento browniano estándar y $N(t)$ es un proceso de Poisson con intensidad $\lambda > 0$, definido sobre un espacio de probabilidad filtrado $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$.
 
 A lo largo de este capítulo, deduciremos la solución explícita de este sistema utilizando la fórmula de Itô para procesos de difusión con saltos. Posteriormente, analizaremos su $\textbf{estabilidad media cuadrática}$, determinando la condición exacta bajo la cual la solución analítica decae asintóticamente a cero. Finalmente, introduciremos un esquema numérico básico, el método Theta Compensado Estocástico (CSTM), demostrando bajo qué condiciones las aproximaciones discretas logran heredar la estabilidad del sistema continuo. Este análisis lineal servirá como el cimiento metodológico para la @sec-cap6, donde enfrentaremos el caso no lineal con crecimiento polinomial mediante el método $\text{CSS}\theta$.
 
@@ -159,7 +159,7 @@ Habiendo obtenido la expresión explícita para la solución de la @eq-5.01, el 
 
 ### Condición de estabilidad media cuadrática de la solución exacta
 
-Consideremos la @eq-5.01 ya definida anteriormente sobre un espacio de probabilidad $(\Omega, \mathcal{F}, \{\mathcal{F}_t\}_{t \geq 0}, \mathbb{P})$. Definimos el parámetro
+Consideremos la @eq-5.01 ya definida anteriormente sobre un espacio de probabilidad $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$. Definimos el parámetro
 
 $$
     l:=2a+b^2 +\lambda c(2+c).

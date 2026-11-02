@@ -34,7 +34,7 @@ con condición inicial $X(0-)=X_0$, donde
 - $\{W(t)\}_{t\geq 0}$ es un movimiento browniano estándar,
 - $\{N(t)\}_{t\geq 0}$ es un proceso de Poisson con intensidad $\lambda >0$,
 
-definidos sobre un espacio de probabilidad filtrado $(\Omega,\mathcal{F},\{\mathcal{F}_t\}_{t\geq 0}, \mathbb{P})$. La solución de esta ecuación se aproximará mediante una discretización temporal con paso constante $\Delta t>0$, generando una sucesión $Y_n$ que aproxima los valores de la solución exacta $X(t)$ en los puntos de la malla $t_n=n\Delta t$.
+definidos sobre un espacio de probabilidad filtrado $(\Omega,\mathcal{F},(\mathcal{F}_t)_{t\geq 0}, \mathbb{P})$. La solución de esta ecuación se aproximará mediante una discretización temporal con paso constante $\Delta t>0$, generando una sucesión $Y_n$ que aproxima los valores de la solución exacta $X(t)$ en los puntos de la malla $t_n=n\Delta t$.
 
 Para facilitar el manejo análitico y numérico de los saltos, introducimos el proceso de Poisson compensado definido por
 
@@ -127,7 +127,7 @@ donde $\overline{Y}(s-)$ denota el límite por la izquierda.
 
 ::: {style="text-align: justify"}
 
-De esta definición se desprende inmediatamente que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.
+De esta definición se desprende inmediatamente que $\overline{Y}(t_n)=Y_n$ para todo $n$, es decir, la extensión continua coincide con la solución numérica discreta en los puntos de la malla. Además, $\overline{Y}(t)$ es adaptada a la filtración $(\mathcal{F}_t)_{t\geq 0}$ y posee trayectorias càdlàg, lo cual permite aplicar de manera rigurosa las herramientas del cálculo estocástico en tiempo continuo.
 
 Para analizar rigurosamente la convergencia del método $\text{CSS}\theta$ es necesario imponer condiciones adecuadas sobre los coeficientes $f$, $g$ y $h$ que garanticen tanto la buena formulación del problema continuo como el control de las soluciones numéricas. En las secciones siguientes estableceremos dichas hipótesis y demostraremos los resultado principales de convergencia fuerte y tasa de convergencia del esquema proouesto.
 :::
@@ -3954,7 +3954,7 @@ $$
 \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^u\right]\leq \mathbb{E}\left[\sup_{0\leq t_n\leq T}|Y_n^*|^{2p}\right]\leq A.
 $$ {#eq-6.162}
 
-Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $\{\mathcal{F}_t\}_{t\geq t_n}$. Con esto, podemos hacer uso del @thm-maximaldoob, de tal forma que 
+Por otro lado, notemos que los términos $\Delta W_n(t)$ y $\Delta \widetilde{N}_n(t)$ son incrementos de los procesos de Wiener y Poisson compensado, respectivamente. Por las propiedades de estos procesos, se tiene que son martingalas continuas respecto a la filtración $(\mathcal{F}_t)_{t\geq t_n}$. Con esto, podemos hacer uso del @thm-maximaldoob, de tal forma que 
 
 $$
 \begin{aligned}

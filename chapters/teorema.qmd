@@ -26,9 +26,9 @@ Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio d
 
 Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinamica del sistema
 
-- $W=(W(t))_{t\geq 0}$ es un movimiento browniano estándar adaptado a $\{\mathcal{F}_t\}$, 
+- $W=(W(t))_{t\geq 0}$ es un movimiento browniano estándar adaptado a $(\mathcal{F}_t)$, 
 
-- $N=(N(t))_{t\geq 0}$ es un proceso de Poisson estandar con intensidad constante $\lambda>0$, adaptado a $\{\mathcal{F}_t\}$. 
+- $N=(N(t))_{t\geq 0}$ es un proceso de Poisson estandar con intensidad constante $\lambda>0$, adaptado a $(\mathcal{F}_t)$. 
 
 Asumimos que $W(t)$ y $N(t)$ son independientes entre si. A partir del proceso de Poisson, podemos definir el $\textbf{proceso de Poisson compensado}$ $\widetilde{N}=(\widetilde{N})_{t\geq 0}$ mediante la realción
 
@@ -136,7 +136,7 @@ $$
     \end{aligned}
 $$ {#eq-4.07}
 
-Afirmamos que cada $Z_n$ es un proceso adaptado a la filtración $\{\mathcal{F}_t\}_{t\geq 0}$ y con trayectorias càdlàg mediante inducción matemática sobre $n$. 
+Afirmamos que cada $Z_n$ es un proceso adaptado a la filtración $(\mathcal{F}_t)_{t\geq 0}$ y con trayectorias càdlàg mediante inducción matemática sobre $n$. 
 
 **Caso $n=0$** El proceso inicial es $Z_0(t)=Z_0$ para todo $t\geq 0$. Dado que $Z_0$ es $\mathcal{F}_0$-medible por hipótesis, el proceso es constante en el tiempo, y por lo tanto, adaptado. Además, sus trayectorias son constantes, lo que implica que son continuas y en consecuencia, càdlàg.
 
