@@ -164,7 +164,7 @@ $$
     |h(x)-h(y)|^2\leq L_h |x-y|^2.
 $$ {#eq-6.11}
 
-**Acotamiento del momento incial**: 
+**Acotamiento del momento inicial**: 
 
 Supondremos que los momentos iniciales están acotados, es decir, para todo $p\geq 1$
 
@@ -3219,7 +3219,7 @@ $$
 \end{aligned}
 $$ {#eq-6.130}
 
-Para acotar el término inical, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con $r=p/2>2$
+Para acotar el término inicial, aplicamos la desigualdad $(a+b)^r\leq 2^{r-1}(a^r+b^r)$, con $r=p/2>2$
 
 $$
   (1+X_0^2)^{p/2}\leq 2^{(p/2)-1}(1^{p/2}+(X_0^2)^{p/2})=2^{(p-2)/2}(1+X_0^p). 
@@ -4172,7 +4172,7 @@ $$
 \Delta E(t)=\Delta \overline{Y}(t)-\Delta X(t).
 $$
 
-Recordemos que el momento incial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-6.165 y @eq-6.08 respectivamente tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
+Recordemos que el momento inicial $X_0$ y $Y_0$ es determinista y constante en el tiempo, por lo que $\Delta(X_0)=0$ y $\Delta(Y_0)=0$. Para las integrales de Lebesgue de la solución exacta en su forma integral y la aproximación continua $\overline{Y}(t)$ dadas en @eq-6.165 y @eq-6.08 respectivamente tienen trayectorias continuas casi seguramente, por lo que al aplicar el operador $\Delta$ a dichas integrales tenemos que
 
 $$
 \begin{aligned}
