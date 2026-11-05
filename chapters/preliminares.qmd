@@ -895,9 +895,6 @@ $$
 \end{aligned}
 $$
 
-En general, cuando no se dispone de integrabilidad global, la identidad se interpreta localmente, mediante el procedimiento de 
-localización.
-
 :::
 
 ::: {.proof style="text-align: justify"}
