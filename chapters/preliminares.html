@@ -932,11 +932,6 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
     \end{aligned}
 \]</span></p>
 <p>con condición inicial <span class="math inline">\(X(0)=X_0\)</span>, donde <span class="math inline">\(W\)</span> es un movimiento browniano estándar, <span class="math inline">\(\widetilde{N}\)</span> es un proceso de Poisson compensado de intensidad <span class="math inline">\(\lambda&gt;0\)</span> y <span class="math inline">\(f,g,h:\mathbb{R}\to\mathbb{R}\)</span> son funciones medibles. Denotamos por <span class="math inline">\(X(t-)\)</span> el límite por la izquierda de la trayectoria en el instante <span class="math inline">\(t\)</span>.</p>
-<p>Para una función <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, definimos el operador diferencial asociado a la parte continua de la ecuación mediante</p>
-<p><span class="math display">\[
-    \mathcal{L}U(x):=U'(x)f(x)+\frac{1}{2}U''(x)g(x)^2.
-\]</span></p>
-<p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
 </div>
 <div id="prp-reglasito" class="theorem proposition" style="text-align: justify">
 <p><span class="theorem-title"><strong>Proposición 3.3 (Reglas de multiplicación de Itô y variación cuadrática)</strong></span> Sean <span class="math inline">\(W(t)\)</span> un movimiento browniano estándar y <span class="math inline">\(\widetilde{N}(t) = N(t) - \lambda t\)</span> el proceso de Poisson compensado. Los procesos de variación cuadrática <span class="math inline">\([X, X]_t\)</span> y covariación <span class="math inline">\([X, Y]_t\)</span> para estos procesos, así como para el tiempo determinista <span class="math inline">\(t\)</span>, satisfacen propiedades fundamentales que, en la notación diferencial de Itô, se expresan mediante las siguientes reglas formales:</p>
@@ -967,6 +962,11 @@ las condiciones de integrabilidad necesarias. Para <span class="math inline">\(X
 <p><span class="proof-title"><em>Demostración</em>. </span>Véase el capítulo 4, Stochastic Integration, en particular el apartado Itô’s Formula, de <span class="citation" data-cites="applebaum2009levy">(<a href="referencias.html#ref-applebaum2009levy" role="doc-biblioref">Applebaum 2009</a>)</span>.</p>
 </div>
 <div style="text-align: justify">
+<p>Para una función <span class="math inline">\(U\in C^2(\mathbb{R})\)</span>, definimos el operador diferencial asociado a la parte continua de la ecuación mediante</p>
+<p><span class="math display">\[
+    \mathcal{L}U(x):=U'(x)f(x)+\frac{1}{2}U''(x)g(x)^2.
+\]</span></p>
+<p>Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de <span class="math inline">\(U(X(t))\)</span> a partir de la deriva, la difusión y la contribución de los saltos.</p>
 <p>El término integral respecto de <span class="math inline">\(\widetilde{N}\)</span> describe la variación martingala de los saltos, mientras que la última integral representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en general, una función no lineal aplicada a un salto no puede aproximarse únicamente por su derivada evaluada antes del salto, y al reescribir la integral respecto de <span class="math inline">\(dN\)</span> en términos de <span class="math inline">\(d\widetilde{N}\)</span> y <span class="math inline">\(\lambda dt\)</span>, surge naturalmente este término corrector.</p>
 <p>La fórmula de Itô es especialmente útil cuando se elige una función <span class="math inline">\(U\)</span> adecuada para estudiar los momentos de la solución. Por ejemplo, las elecciones <span class="math inline">\(U(x)=x^2\)</span> o <span class="math inline">\(U(x)=(1+x^2)^{p/2}\)</span> permiten obtener estimaciones de segundo momento y de momentos de orden superior. Asimismo, al aplicar la fórmula a la diferencia entre dos soluciones, se obtienen desigualdades que contribuyen a demostrar unicidad y convergencia fuerte del método numérico <span class="math inline">\(\text{CSS}\theta\)</span>.</p>
 <p>En conjunto, los resultados de esta sección constituyen la base del cálculo estocástico con saltos utilizado en los capítulos posteriores. La compensación de Poisson permite separar la deriva de la componente martingala; las isometrías de Itô proporcionan cotas para los momentos de las integrales; la identidad de integrales detenidas justifica las técnicas de localización; y la fórmula de Itô permite analizar funciones de las soluciones y establecer estimaciones cuantitativas.</p>
