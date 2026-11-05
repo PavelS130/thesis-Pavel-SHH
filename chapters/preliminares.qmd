@@ -850,17 +850,7 @@ $$
 $$
 
 con condición inicial $X(0)=X_0$, donde $W$ es un movimiento browniano estándar, $\widetilde{N}$ es un proceso de Poisson 
-compensado de intensidad $\lambda>0$ y $f,g,h:\mathbb{R}\to\mathbb{R}$ son funciones medibles. Denotamos por $X(t-)$ el límite 
-por la izquierda de la trayectoria en el instante $t$.
-
-Para una función $U\in C^2(\mathbb{R})$, definimos el operador diferencial asociado a la parte continua de la ecuación mediante
-
-$$
-    \mathcal{L}U(x):=U'(x)f(x)+\frac{1}{2}U''(x)g(x)^2.
-$$
-
-Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de $U(X(t))$ 
-a partir de la deriva, la difusión y la contribución de los saltos.
+compensado de intensidad $\lambda>0$ y $f,g,h:\mathbb{R}\to\mathbb{R}$ son funciones medibles. Denotamos por $X(t-)$ el límite por la izquierda de la trayectoria en el instante $t$.
 
 :::
 
@@ -917,6 +907,15 @@ Véase el capítulo 4, Stochastic Integration, en particular el apartado Itô's 
 :::
 
 ::: {style="text-align: justify"}
+
+Para una función $U\in C^2(\mathbb{R})$, definimos el operador diferencial asociado a la parte continua de la ecuación mediante
+
+$$
+    \mathcal{L}U(x):=U'(x)f(x)+\frac{1}{2}U''(x)g(x)^2.
+$$
+
+Bajo las condiciones de regularidad e integrabilidad necesarias, la fórmula de Itô permite expresar la evolución de $U(X(t))$ 
+a partir de la deriva, la difusión y la contribución de los saltos.
 
 El término integral respecto de $\widetilde{N}$ describe la variación martingala de los saltos, mientras que la última integral 
 representa la corrección determinista asociada a la compensación del proceso de Poisson. Esta corrección aparece porque, en 
