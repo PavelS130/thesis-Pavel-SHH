@@ -256,7 +256,7 @@ $$
     L(s):= \int_0^s h(Z_0)\, d\widetilde{N}(s),
 $$
 
-podemos afirmar que es una martingala cuadrado-integrable. Utilizando @thm-maximaldoob y @thm-isometriaito para el proceso de Poisson compensado, donde la variación cuadratica es $\langle L\rangle_t=\lambda\int_0^t |h(Z_0)|^2du$, obtenemos
+podemos afirmar que es una martingala cuadrado-integrable. Utilizando @thm-maximaldoob y @thm-isometriaito para el proceso de Poisson compensado, donde la variación cuadratica es $[L]_t=\lambda\int_0^t |h(Z_0)|^2du$, obtenemos
 
 $$
     \begin{aligned}
