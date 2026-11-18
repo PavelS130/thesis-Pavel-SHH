@@ -483,17 +483,17 @@ window.Quarto = {
 <section id="marco-probabilístico-y-planteamiento-de-la-ede" class="level2" style="text-align: justify" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="marco-probabilístico-y-planteamiento-de-la-ede"><span class="header-section-number">4.1</span> Marco Probabilístico y Planteamiento de la EDE</h2>
 <p>Sea <span class="math inline">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span> un espacio de probabilidad completo equipado con una filtración que satisface las <span class="math inline">\(\textbf{condiciones usuales}\)</span> cómo se establece en la <a href="preliminares.html#def-espfiltrado" class="quarto-xref">Definición&nbsp;<span>3.1</span></a>.</p>
-<p>Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinamica del sistema</p>
+<p>Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinámica del sistema</p>
 <ul>
 <li><p><span class="math inline">\(W=(W(t))_{t\geq 0}\)</span> es un movimiento browniano estándar adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>,</p></li>
 <li><p><span class="math inline">\(N=(N(t))_{t\geq 0}\)</span> es un proceso de Poisson estandar con intensidad constante <span class="math inline">\(\lambda&gt;0\)</span>, adaptado a <span class="math inline">\((\mathcal{F}_t)\)</span>.</p></li>
 </ul>
-<p>Asumimos que <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(N(t)\)</span> son independientes entre si. A partir del proceso de Poisson, podemos definir el <span class="math inline">\(\textbf{proceso de Poisson compensado}\)</span> <span class="math inline">\(\widetilde{N}=(\widetilde{N})_{t\geq 0}\)</span> mediante la realción</p>
+<p>Asumimos que <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(N(t)\)</span> son independientes entre si. A partir del proceso de Poisson, podemos definir el <span class="math inline">\(\textbf{proceso de Poisson compensado}\)</span> <span class="math inline">\(\widetilde{N}=(\widetilde{N})_{t\geq 0}\)</span> mediante la relación</p>
 <p><span class="math display">\[
 \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
 \]</span></p>
 <p>Por construcción, y dado que <span class="math inline">\(\mathbb{E}[N(t)]=\lambda t\)</span>, el proceso <span class="math inline">\(\widetilde{N}(t)\)</span> es una martingala cuadrado-integrable con respecto a la filtración <span class="math inline">\(\mathcal{F_t}\)</span>.</p>
-<p>Sean <span class="math inline">\(f, g, h:\mathbb{R}\rightarrow\mathbb{R}\)</span> funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible con segundo momento finito, es decir, <span class="math inline">\(\mathbb{E}[|Z_0|]&lt;\infty\)</span>, e independiente de los incrementos de <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(\widetilde{N}(t)\)</span>. Consideramos la siguiente ecuación diferencial estocástica (EDE) con saltos en su forma compensada:</p>
+<p>Sean <span class="math inline">\(f, g, h:\mathbb{R}\rightarrow\mathbb{R}\)</span> funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea <span class="math inline">\(Z_0\)</span> una variable aleatoria <span class="math inline">\(\mathcal{F}_0\)</span>-medible con segundo momento finito, es decir, <span class="math inline">\(\mathbb{E}[|Z_0|^2]&lt;\infty\)</span>, e independiente de los incrementos de <span class="math inline">\(W(t)\)</span> y <span class="math inline">\(\widetilde{N}(t)\)</span>. Consideramos la siguiente ecuación diferencial estocástica (EDE) con saltos en su forma compensada:</p>
 <p><span id="eq-4.01"><span class="math display">\[
 \begin{aligned}
 dZ(t) &amp; =f(Z(t-))dt+g(Z(t-))dW(t)\\
