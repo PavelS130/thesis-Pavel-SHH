@@ -24,13 +24,13 @@ En el capítulo anterior establecimos el andamiaje teórico necesario para el c�
 
 Sea $(\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})$ un espacio de probabilidad completo equipado con una filtración que satisface las $\textbf{condiciones usuales}$ cómo se establece en la @def-espfiltrado.
 
-Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinamica del sistema
+Sobre este espacio de probabilidad, construimos los procesos de ruido estocástico que impulsarán la dinámica del sistema
 
 - $W=(W(t))_{t\geq 0}$ es un movimiento browniano estándar adaptado a $(\mathcal{F}_t)$, 
 
 - $N=(N(t))_{t\geq 0}$ es un proceso de Poisson estandar con intensidad constante $\lambda>0$, adaptado a $(\mathcal{F}_t)$. 
 
-Asumimos que $W(t)$ y $N(t)$ son independientes entre si. A partir del proceso de Poisson, podemos definir el $\textbf{proceso de Poisson compensado}$ $\widetilde{N}=(\widetilde{N})_{t\geq 0}$ mediante la realción
+Asumimos que $W(t)$ y $N(t)$ son independientes entre si. A partir del proceso de Poisson, podemos definir el $\textbf{proceso de Poisson compensado}$ $\widetilde{N}=(\widetilde{N})_{t\geq 0}$ mediante la relación
 
 $$
 \widetilde{N}(t):=N(t)-\lambda t,\qquad t\geq 0.
@@ -38,7 +38,7 @@ $$
 
 Por construcción, y dado que $\mathbb{E}[N(t)]=\lambda t$, el proceso $\widetilde{N}(t)$ es una martingala cuadrado-integrable con respecto a la filtración $\mathcal{F_t}$. 
 
-Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con segundo momento finito, es decir, $\mathbb{E}[|Z_0|]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiente ecuación 
+Sean $f, g, h:\mathbb{R}\rightarrow\mathbb{R}$ funciones medibles que representar los coeficientes de deriva, difusión y salto, respectivamente. Sea $Z_0$ una variable aleatoria $\mathcal{F}_0$-medible con segundo momento finito, es decir, $\mathbb{E}[|Z_0|^2]<\infty$, e independiente de los incrementos de $W(t)$ y $\widetilde{N}(t)$. Consideramos la siguiente ecuación 
 diferencial estocástica (EDE) con saltos en su forma compensada:
 
 $$
